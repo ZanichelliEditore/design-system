@@ -445,8 +445,8 @@ export class ZSelect {
   }
 
   private focusSelectItem(key: number): void {
-    const elemId = `#${this.htmlid}_key_${key}`;
-    const elem = this.host.querySelector<HTMLDivElement>(elemId);
+    const elemId = `${this.htmlid}_key_${key}`;
+    const elem = this.host.querySelector<HTMLDivElement>(`#${elemId}`);
     if (elem) {
       this.focusedItemId = elemId;
       elem.focus();
