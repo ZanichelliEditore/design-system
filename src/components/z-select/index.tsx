@@ -482,14 +482,14 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
-    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB) {
-      return;
-    }
-
     if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
 
       return this.toggleSelectUl(true);
+    }
+
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB) {
+      return;
     }
 
     const clickedElement = getClickedElement();
