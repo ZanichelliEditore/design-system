@@ -1174,6 +1174,10 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
+          * Sets element role.
+         */
+        "role": string;
+        /**
           * [optional] Sets size of inside elements.
          */
         "size"?: ListSize;
@@ -5045,6 +5049,10 @@ declare namespace LocalJSX {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */

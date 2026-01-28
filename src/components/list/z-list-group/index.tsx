@@ -45,6 +45,12 @@ export class ZListGroup {
   @Prop()
   hasTreeItems?: boolean;
 
+  /**
+   * Sets element role.
+   */
+  @Prop({reflect: true})
+  role = "group";
+
   private hasHeader: boolean;
 
   componentDidLoad(): void {
@@ -67,7 +73,7 @@ export class ZListGroup {
 
   render(): HTMLZListGroupElement {
     return (
-      <Host role="group">
+      <Host role={this.role}>
         <div
           class={{
             "z-list-group-header-container": true,

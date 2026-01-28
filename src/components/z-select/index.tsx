@@ -771,6 +771,7 @@ export class ZSelect {
         dividerType={hasDivider}
         hasTreeItems={this.hasTreeItems}
         html-tabindex={null}
+        role="presentation"
       >
         <div
           id={`${this.htmlid}_key_${thisItemKey}`}
@@ -798,7 +799,7 @@ export class ZSelect {
           {item.icon && <z-tag icon={item.icon}></z-tag>}
         </div>
         {item.children && item.children.length > 0 ? (
-          <z-list>
+          <z-list role="presentation">
             <div class="children-node">
               {item.children.map((child, index, arr) =>
                 this.renderTreeItems(
@@ -827,6 +828,7 @@ export class ZSelect {
         <z-list-group
           divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
           hasTreeItems={true}
+          role="presentation"
         >
           <span
             class="body-3-sb z-list-group-title"
@@ -834,7 +836,7 @@ export class ZSelect {
           >
             {category}
           </span>
-          <z-list>
+          <z-list role="presentation">
             {items.map((item, i, arr) => [
               this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true, item.disabled),
               i < arr.length - 1 ? (
@@ -858,7 +860,10 @@ export class ZSelect {
       const isLastGroup = groupedItems.length === index + 1;
 
       return (
-        <z-list-group divider-type={ListDividerType.ELEMENT}>
+        <z-list-group
+          role="presentation"
+          divider-type={ListDividerType.ELEMENT}
+        >
           <span
             class="body-3-sb z-list-group-title"
             slot="header-title"
@@ -881,6 +886,7 @@ export class ZSelect {
         class="no-results"
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         html-tabindex={null}
+        role="presentation"
       >
         {this.noresultslabel}
       </z-list-element>
