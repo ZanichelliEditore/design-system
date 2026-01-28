@@ -526,7 +526,7 @@ export class ZSelect {
     }
   }
 
-  private renderInput(): HTMLZInputElement {
+  private renderInput(): HTMLElement[] {
     const ariaExpanded = this.isOpen ? "true" : "false";
     const ariaControls = `${this.htmlid}_list`;
     const ariaActivedescendant = this.isOpen ? this.focusedItemId : "";
@@ -552,54 +552,52 @@ export class ZSelect {
       inputAriaComboboxAttributes = {role: "presentation"};
     }
 
-    return (
-      // TODO: occhio che fatto così spacca il css
-      <div {...wrapperAriaComboboxAttributes}>
-        <z-input
-          class={{
-            "active-select": this.isOpen,
-            "cursor-select": !this.autocomplete,
-          }}
-          id={`${this.htmlid}_input`}
-          htmlid={`${this.htmlid}_select_input`}
-          placeholder={this.placeholder}
-          value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
-          label={this.label}
-          autocomplete="off"
-          aria-label={this.ariaLabel}
-          icon={this.isOpen ? "caret-up" : "caret-down"}
-          hasclearicon={false}
-          message={false}
-          name={this.name}
-          disabled={this.disabled}
-          readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
-          status={this.isOpen ? undefined : this.status}
-          size={this.size}
-          {...inputAriaComboboxAttributes}
-          onClick={(e: MouseEvent) => {
-            this.handleInputClick(e);
-          }}
-          onKeyDown={(e: KeyboardEvent) => {
-            const current = this.selectedItem
-              ? this.itemIdKeyMap[this.selectedItem.id]
-              : this.resetItem
-                ? this.resetKey
-                : "";
+    return [
+      <z-input
+        class={{
+          "active-select": this.isOpen,
+          "cursor-select": !this.autocomplete,
+        }}
+        id={`${this.htmlid}_input`}
+        htmlid={`${this.htmlid}_select_input`}
+        placeholder={this.placeholder}
+        value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
+        label={this.label}
+        autocomplete="off"
+        aria-label={this.ariaLabel}
+        icon={this.isOpen ? "caret-up" : "caret-down"}
+        hasclearicon={false}
+        message={false}
+        name={this.name}
+        disabled={this.disabled}
+        readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
+        status={this.isOpen ? undefined : this.status}
+        size={this.size}
+        {...inputAriaComboboxAttributes}
+        onClick={(e: MouseEvent) => {
+          this.handleInputClick(e);
+        }}
+        onKeyDown={(e: KeyboardEvent) => {
+          const current = this.selectedItem
+            ? this.itemIdKeyMap[this.selectedItem.id]
+            : this.resetItem
+              ? this.resetKey
+              : "";
 
-            return this.arrowsSelectNav(e, current);
-          }}
-          onInputChange={(e: CustomEvent) => {
-            this.handleInputChange(e);
-          }}
-          onKeyPress={(e: KeyboardEvent) => {
-            if (!this.hasAutocomplete()) {
-              e.preventDefault();
-              this.scrollToLetter(e.key);
-            }
-          }}
-        />
-      </div>
-    );
+          return this.arrowsSelectNav(e, current);
+        }}
+        onInputChange={(e: CustomEvent) => {
+          this.handleInputChange(e);
+        }}
+        onKeyPress={(e: KeyboardEvent) => {
+          if (!this.hasAutocomplete()) {
+            e.preventDefault();
+            this.scrollToLetter(e.key);
+          }
+        }}
+      />,
+      <div {...wrapperAriaComboboxAttributes}></div>,
+    ];
   }
 
   private renderSelectUl(): HTMLDivElement {
