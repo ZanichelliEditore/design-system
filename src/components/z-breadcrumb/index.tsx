@@ -227,6 +227,7 @@ export class ZBreadcrumb {
           <z-icon
             class="separator"
             name="chevron-right"
+            aria-hidden="true"
           />
         )}
       </li>
@@ -327,6 +328,7 @@ export class ZBreadcrumb {
           <z-icon
             class="separator"
             name="chevron-right"
+            aria-hidden="true"
           />
         )}
       </li>
@@ -404,6 +406,7 @@ export class ZBreadcrumb {
             <z-icon
               class="separator"
               name="chevron-right"
+              aria-hidden="true"
             />
           )}
         </li>
