@@ -1,0 +1,69 @@
+.z-tool {
+  --z-tool-size: calc(var(--space-unit) * 5.5);
+  --z-tool-icon-size: calc(var(--space-unit) * 2.5);
+
+  display: inline-flex;
+  width: var(--z-tool-size);
+  height: var(--z-tool-size);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: var(--color-surface01);
+  border-radius: 4px;
+  color: var(--color-default-icon);
+  cursor: pointer;
+}
+
+:host([active]) .z-tool {
+  background-color: var(--color-surface01);
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
+  color: var(--color-default-icon);
+}
+
+@media (hover: hover) {
+  :host(:not([disabled], [active])) .z-tool:hover {
+    background-color: var(--color-primary03);
+  }
+
+  :host([active]:not([disabled])) .z-tool:hover {
+    background-color: var(--color-primary03);
+  }
+}
+
+:host(:not([disabled])) .z-tool:active {
+  background-color: var(--color-primary03);
+}
+
+:host([disabled]:not([disabled="false"])) .z-tool {
+  background-color: var(--color-surface01);
+  color: var(--color-disabled01-icon);
+  cursor: not-allowed;
+}
+
+.z-tool:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host z-icon {
+  --z-icon-width: var(--z-tool-icon-size);
+  --z-icon-height: var(--z-tool-icon-size);
+
+  display: block;
+  fill: var(--color-default-icon);
+}
+
+:host([disabled]:not([disabled="false"])) z-icon {
+  fill: var(--color-disabled01-icon);
+}
+
+.z-tool-tooltip {
+  --z-popover-padding: 10px 12px 12px 12px;
+  --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
+  --z-popover-shadow-filter: drop-shadow(0 4px 8px var(--shadow-color-base));
+
+  font-family: var(--font-family-sans);
+}

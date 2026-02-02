@@ -2230,6 +2230,35 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
+     * Ztool component.
+     */
+    interface ZTool {
+        /**
+          * Visual selected state.
+         */
+        "active": boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Tool icon
+         */
+        "icon": string;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "label"?: string;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position, defaults to "top".
+         */
+        "tooltipPosition"?: PopoverPosition;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -3642,6 +3671,17 @@ declare global {
         new (): HTMLZToggleSwitchElement;
     };
     /**
+     * Ztool component.
+     * @cssprop --z-tool-text-color - text and icon color using tokens.
+     * @cssprop --z-tool-bg - background color of the z-tool.
+     */
+    interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
+    }
+    var HTMLZToolElement: {
+        prototype: HTMLZToolElement;
+        new (): HTMLZToolElement;
+    };
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -3779,6 +3819,7 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tool": HTMLZToolElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -6206,6 +6247,37 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
+     * Ztool component.
+     * @cssprop --z-tool-text-color - text and icon color using tokens.
+     * @cssprop --z-tool-bg - background color of the z-tool.
+     */
+    interface ZTool {
+        /**
+          * Visual pressed / selected state.
+         */
+        "active"?: boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tool icon
+         */
+        "icon"?: string;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "label"?: string;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position.
+         */
+        "tooltipPosition"?: PopoverPosition;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -6349,6 +6421,7 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tool": ZTool;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
         "z-tree-list": ZTreeList;
@@ -6673,6 +6746,12 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            /**
+             * Ztool component.
+             * @cssprop --z-tool-text-color - text and icon color using tokens.
+             * @cssprop --z-tool-bg - background color of the z-tool.
+             */
+            "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
