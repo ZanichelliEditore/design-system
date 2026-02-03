@@ -30,7 +30,84 @@
         <h1 slot="title">Albe test app</h1>
       </z-app-header>
     </header>
-    <main></main>
+    <main>
+      <div
+        style="
+          width: 100%;
+          height: 400px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        "
+      >
+        <z-toolbar>
+          <div class="group">
+            <z-tool
+              icon="gear"
+              tooltip="Impostazioni"
+            >
+              <z-toolbar>
+                <z-tool
+                  icon="chevron-up"
+                  tooltip="Su"
+                  onclick="console.log('ciao')"
+                ></z-tool>
+                <z-divider
+                  orientation="vertical"
+                  color="color-surface03"
+                ></z-divider>
+                <z-tool
+                  icon="chevron-down"
+                  tooltip="Giù"
+                ></z-tool>
+                <z-tool
+                  icon="chevron-up"
+                  tooltip="Su"
+                ></z-tool>
+              </z-toolbar>
+            </z-tool>
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+          </div>
+          <div class="group">
+            <z-tool
+              icon="download"
+              tooltip="Scarica"
+            ></z-tool>
+            <z-tool
+              icon="upload"
+              tooltip="Carica"
+            ></z-tool>
+            <z-tool
+              icon="copy"
+              tooltip="Copia"
+            ></z-tool>
+          </div>
+          <div class="group">
+            <z-tool
+              icon="download"
+              tooltip="Scarica"
+            ></z-tool>
+            <z-tool
+              icon="upload"
+              tooltip="Carica"
+            ></z-tool>
+            <z-tool
+              icon="copy"
+              tooltip="Copia"
+            ></z-tool>
+          </div>
+        </z-toolbar>
+      </div>
+    </main>
   </body>
   <style>
     body {

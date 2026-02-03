@@ -1,0 +1,24 @@
+:host {
+  display: inline-block;
+}
+
+.z-toolbar {
+  display: inline-flex;
+  height: 44px;
+  align-items: center;
+  padding: 4px;
+  border: var(--border-size-small) solid var(--color-surface03);
+  background-color: var(--color-surface01);
+  border-radius: 4px;
+  box-shadow: var(--shadow-4);
+  gap: 4px;
+}
+
+::slotted(.group:not(:last-child)) {
+  padding-right: 4px;
+  border-right: var(--border-size-small) solid var(--color-surface03);
+}
+
+::slotted(z-divider) {
+  height: 24px;
+}

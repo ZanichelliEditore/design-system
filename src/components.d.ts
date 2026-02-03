@@ -2230,7 +2230,7 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
-     * Ztool component.
+     * ZTool component.
      */
     interface ZTool {
         /**
@@ -2254,9 +2254,11 @@ export namespace Components {
          */
         "tooltip"?: string;
         /**
-          * Preferred tooltip position, defaults to "top".
+          * Preferred tooltip position.
          */
         "tooltipPosition"?: PopoverPosition;
+    }
+    interface ZToolbar {
     }
     /**
      * Tooltip component.
@@ -3671,15 +3673,19 @@ declare global {
         new (): HTMLZToggleSwitchElement;
     };
     /**
-     * Ztool component.
-     * @cssprop --z-tool-text-color - text and icon color using tokens.
-     * @cssprop --z-tool-bg - background color of the z-tool.
+     * ZTool component.
      */
     interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
     }
     var HTMLZToolElement: {
         prototype: HTMLZToolElement;
         new (): HTMLZToolElement;
+    };
+    interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
+    }
+    var HTMLZToolbarElement: {
+        prototype: HTMLZToolbarElement;
+        new (): HTMLZToolbarElement;
     };
     /**
      * Tooltip component.
@@ -3820,6 +3826,7 @@ declare global {
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tool": HTMLZToolElement;
+        "z-toolbar": HTMLZToolbarElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -6247,13 +6254,11 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
-     * Ztool component.
-     * @cssprop --z-tool-text-color - text and icon color using tokens.
-     * @cssprop --z-tool-bg - background color of the z-tool.
+     * ZTool component.
      */
     interface ZTool {
         /**
-          * Visual pressed / selected state.
+          * Visual selected state.
          */
         "active"?: boolean;
         /**
@@ -6276,6 +6281,8 @@ declare namespace LocalJSX {
           * Preferred tooltip position.
          */
         "tooltipPosition"?: PopoverPosition;
+    }
+    interface ZToolbar {
     }
     /**
      * Tooltip component.
@@ -6422,6 +6429,7 @@ declare namespace LocalJSX {
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
         "z-tool": ZTool;
+        "z-toolbar": ZToolbar;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
         "z-tree-list": ZTreeList;
@@ -6747,11 +6755,10 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             /**
-             * Ztool component.
-             * @cssprop --z-tool-text-color - text and icon color using tokens.
-             * @cssprop --z-tool-bg - background color of the z-tool.
+             * ZTool component.
              */
             "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
+            "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
