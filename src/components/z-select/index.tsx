@@ -412,8 +412,10 @@ export class ZSelect {
     if (!this.isOpen) {
       this.toggleSelectUl();
 
-      if (currentIndex === -1) {
-        currentIndex = -1;
+      if (currentIndex > -1) {
+        this.focusSelectItem(flatItems[currentIndex].key);
+
+        return;
       }
     }
 
@@ -423,11 +425,19 @@ export class ZSelect {
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
       do {
-        newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
+        if (newIndex === lastIndex) {
+          return;
+        }
+
+        newIndex = newIndex + 1;
       } while (flatItems[newIndex].item.disabled);
     } else {
       do {
-        newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
+        if (newIndex <= 0) {
+          return;
+        }
+
+        newIndex = newIndex - 1;
       } while (flatItems[newIndex].item.disabled);
     }
 
@@ -435,7 +445,12 @@ export class ZSelect {
   }
 
   private focusSelectItem(key: number): void {
-    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_key_${key}`)?.focus();
+    const elemId = `${this.htmlid}_key_${key}`;
+    const elem = this.host.querySelector<HTMLDivElement>(`#${elemId}`);
+    if (elem) {
+      this.focusedItemId = elemId;
+      elem.focus();
+    }
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -474,18 +489,18 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
-    const clickedElement = getClickedElement();
-    if (clickedElement?.hasAttribute("disabled")) {
-      return;
-    }
-
     if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
 
       return this.toggleSelectUl(true);
     }
 
-    if (e instanceof KeyboardEvent && (e.key === KeyboardCode.ENTER || e.key !== KeyboardCode.TAB)) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB) {
+      return;
+    }
+
+    const clickedElement = getClickedElement();
+    if (clickedElement?.hasAttribute("disabled")) {
       return;
     }
 
@@ -494,7 +509,8 @@ export class ZSelect {
         (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
       )
     ) {
-      this.toggleSelectUl(true);
+      const zSelect = getElementTree(clickedElement).find((e) => e.nodeName === "Z-SELECT");
+      this.toggleSelectUl(zSelect === this.host);
     }
   }
 
@@ -503,6 +519,9 @@ export class ZSelect {
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
     if (foundItem > -1) {
+      if (!this.isOpen) {
+        this.toggleSelectUl();
+      }
       this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
     }
   }
@@ -536,14 +555,6 @@ export class ZSelect {
         size={this.size}
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
-        }}
-        onKeyUp={(e: KeyboardEvent) => {
-          e.preventDefault();
-          if (this.hasAutocomplete()) {
-            if (!this.isOpen) {
-              this.toggleSelectUl();
-            }
-          }
         }}
         onKeyDown={(e: KeyboardEvent) => {
           const current = this.selectedItem
@@ -643,7 +654,9 @@ export class ZSelect {
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role="option"
-        html-tabindex={item.disabled || !this.isOpen ? -1 : 0}
+        html-tabindex={
+          item.disabled || !this.isOpen || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0
+        }
         aria-selected={item.selected ? "true" : "false"}
         id={`${this.htmlid}_key_${thisItemKey}`}
         size={this.listSizeType()}
@@ -741,7 +754,7 @@ export class ZSelect {
           id={`${this.htmlid}_key_${thisItemKey}`}
           role="option"
           class="list-element"
-          tabIndex={!this.isOpen || isDisabled ? -1 : 0}
+          tabIndex={!this.isOpen || isDisabled || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0}
           onClick={() => this.selectItem(item)}
           onKeyDown={(e: KeyboardEvent) => {
             this.arrowsSelectNav(e, thisItemKey);
