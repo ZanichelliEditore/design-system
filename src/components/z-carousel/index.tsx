@@ -285,7 +285,13 @@ export class ZCarousel {
               onClick={this.onPrev.bind(this)}
               disabled={!this.infinite && !this.canNavigatePrev}
               hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
-              ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
+              ariaLabel={
+                this.label
+                  ? `${this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"} di ${this.label}`
+                  : this.single
+                    ? "Mostra l'elemento precedente"
+                    : "Mostra gli elementi precedenti"
+              }
             />
             <ul
               class="z-carousel-items-container"
@@ -303,7 +309,13 @@ export class ZCarousel {
               onClick={this.onNext.bind(this)}
               disabled={!this.infinite && !this.canNavigateNext}
               hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
-              ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
+              ariaLabel={
+                this.label
+                  ? `${this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"} di ${this.label}`
+                  : this.single
+                    ? "Mostra l'elemento successivo"
+                    : "Mostra gli elementi successivi"
+              }
             />
           </div>
         </div>
@@ -317,7 +329,13 @@ export class ZCarousel {
                 icon="arrow-left"
                 onClick={this.onPrev.bind(this)}
                 disabled={!this.infinite && !this.canNavigatePrev}
-                ariaLabel={this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"}
+                ariaLabel={
+                  this.label
+                    ? `${this.single ? "Mostra l'elemento precedente" : "Mostra gli elementi precedenti"} di ${this.label}`
+                    : this.single
+                      ? "Mostra l'elemento precedente"
+                      : "Mostra gli elementi precedenti"
+                }
               />
             )}
             {this.progressMode === CarouselProgressMode.DOTS && this.single && this.items && (
@@ -348,7 +366,13 @@ export class ZCarousel {
                 icon="arrow-right"
                 onClick={this.onNext.bind(this)}
                 disabled={!this.infinite && !this.canNavigateNext}
-                ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
+                ariaLabel={
+                  this.label
+                    ? `${this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"} di ${this.label}`
+                    : this.single
+                      ? "Mostra l'elemento successivo"
+                      : "Mostra gli elementi successivi"
+                }
               />
             )}
           </div>
