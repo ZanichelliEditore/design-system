@@ -43,7 +43,7 @@
 }
 
 .z-tool:focus-visible {
-  box-shadow: var(--shadow-focus-primary);
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
   outline: none;
 }
 
@@ -65,45 +65,11 @@
   --z-popover-theme--text: var(--color-text-inverse);
   --z-popover-shadow-filter: drop-shadow(0 4px 8px var(--shadow-color-base));
 
-  z-index: 1000;
+  z-index: 2;
   font-family: var(--font-family-sans);
-}
-
-.z-tool-tooltip-nested {
-  position: absolute;
-  z-index: 1001;
-  top: calc(100% + 8px);
-  left: 50%;
-  display: none;
-  padding: 10px 12px 12px;
-  background: var(--color-surface05);
-  border-radius: var(--border-radius-small);
-  color: var(--color-text-inverse);
-  filter: drop-shadow(0 4px 8px var(--shadow-color-base));
-  font-family: var(--font-family-sans);
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.z-tool-tooltip-nested::before {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  border: 6px solid transparent;
-  border-bottom-color: var(--color-surface05);
-  content: "";
-  transform: translateX(-50%);
-}
-
-.z-tool-tooltip-nested-open {
-  display: block;
 }
 
 :host {
-  position: relative;
-}
-
-:host([nested]) {
   position: relative;
 }
 

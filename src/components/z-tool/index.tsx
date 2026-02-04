@@ -1,5 +1,5 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
-import {PopoverPosition} from "../../beans";
+import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
+import {KeyboardCode, PopoverPosition} from "../../beans";
 
 /**
  * ZTool component.
@@ -51,11 +51,6 @@ export class ZTool {
   private hoverDelay?: ReturnType<typeof setTimeout>;
 
   private get resolvedTooltipPosition(): PopoverPosition {
-    // Nested tools always show tooltip at the bottom
-    if (this.isNested) {
-      return PopoverPosition.BOTTOM;
-    }
-
     if (this.tooltipPosition) {
       return this.tooltipPosition;
     }
@@ -64,7 +59,9 @@ export class ZTool {
   }
 
   private handleTooltipOpen = (): void => {
-    if (!this.tooltip || this.disabled) {
+    //This.isNested check prevents tooltips from showing on nested tools, e.g. inside submenus
+    //This control will be removed in future versions when nested tooltips will be supported
+    if (!this.tooltip || this.disabled || this.isNested) {
       return;
     }
     clearTimeout(this.hoverDelay);
@@ -84,8 +81,37 @@ export class ZTool {
   private handleClick = (): void => {
     if (this.hasSlottedContent && !this.disabled) {
       this.active = !this.active;
+      if (this.active) {
+        this.focusNestedToolbar();
+      }
     }
   };
+
+  private focusNestedToolbar(): void {
+    requestAnimationFrame(() => {
+      const nestedToolbar = this.hostElement.querySelector("z-toolbar");
+      if (nestedToolbar) {
+        const firstTool = nestedToolbar.querySelector("z-tool");
+        if (firstTool) {
+          const button = firstTool.shadowRoot?.querySelector("button");
+          if (button) {
+            button.focus();
+          }
+        }
+      }
+    });
+  }
+
+  @Listen("keydown")
+  handleKeyDown(event: KeyboardEvent): void {
+    // Handle Enter/Space to open submenu and focus nested toolbar
+    if (this.hasSlottedContent && !this.disabled) {
+      if (event.key === KeyboardCode.ENTER || event.key === KeyboardCode.SPACE) {
+        // Don't prevent default - let the click happen naturally
+        // The focus will be moved in handleClick
+      }
+    }
+  }
 
   /** Check if this tool is nested inside another z-tool's submenu */
   private checkIfNested(): boolean {
@@ -145,22 +171,14 @@ export class ZTool {
             <span class="body-4">{this.tooltip}</span>
           </z-popover>
         )}
-        {this.tooltip && this.isNested && (
-          <div
-            class={{
-              "z-tool-tooltip-nested": true,
-              "z-tool-tooltip-nested-open": this.tooltipOpen,
-            }}
-          >
-            <span class="body-4">{this.tooltip}</span>
-          </div>
-        )}
         {this.hasSlottedContent && (
           <div
             class={{
               "z-tool-submenu": true,
               "z-tool-submenu-open": this.active,
             }}
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => e.stopPropagation()}
           >
             <slot></slot>
           </div>

@@ -2258,7 +2258,16 @@ export namespace Components {
          */
         "tooltipPosition"?: PopoverPosition;
     }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
     interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "ariaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -3681,6 +3690,11 @@ declare global {
         prototype: HTMLZToolElement;
         new (): HTMLZToolElement;
     };
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
     interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
     }
     var HTMLZToolbarElement: {
@@ -6282,7 +6296,16 @@ declare namespace LocalJSX {
          */
         "tooltipPosition"?: PopoverPosition;
     }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
     interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "ariaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -6758,6 +6781,11 @@ declare module "@stencil/core" {
              * ZTool component.
              */
             "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
+            /**
+             * ZToolbar component.
+             * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+             * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+             */
             "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.

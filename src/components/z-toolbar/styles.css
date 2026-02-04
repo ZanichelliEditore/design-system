@@ -6,7 +6,7 @@
   display: inline-flex;
   height: 44px;
   align-items: center;
-  padding: 4px;
+  padding: 0;
   border: var(--border-size-small) solid var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: 4px;
@@ -14,11 +14,14 @@
   gap: 4px;
 }
 
-::slotted(.group:not(:last-child)) {
-  padding-right: 4px;
-  border-right: var(--border-size-small) solid var(--color-surface03);
+::slotted(.group) {
+  display: inline-flex;
 }
 
-::slotted(z-divider) {
-  height: 24px;
+::slotted(.group:not(:last-child)) {
+  padding-right: 5px;
+  background-image: linear-gradient(var(--color-surface03));
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: var(--border-size-small) calc(100% - 8px);
 }
