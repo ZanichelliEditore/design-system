@@ -1,5 +1,5 @@
-import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
-import {KeyboardCode, PopoverPosition} from "../../beans";
+import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {PopoverPosition} from "../../beans";
 
 /**
  * ZTool component.
@@ -102,18 +102,6 @@ export class ZTool {
     });
   }
 
-  @Listen("keydown")
-  handleKeyDown(event: KeyboardEvent): void {
-    // Handle Enter/Space to open submenu and focus nested toolbar
-    if (this.hasSlottedContent && !this.disabled) {
-      if (event.key === KeyboardCode.ENTER || event.key === KeyboardCode.SPACE) {
-        // Don't prevent default - let the click happen naturally
-        // The focus will be moved in handleClick
-      }
-    }
-  }
-
-  /** Check if this tool is nested inside another z-tool's submenu */
   private checkIfNested(): boolean {
     let parent = this.hostElement.parentElement;
     while (parent) {

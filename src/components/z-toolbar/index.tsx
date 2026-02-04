@@ -33,15 +33,18 @@ export class ZToolbar {
   /** Collect all z-tool elements in the toolbar (not nested ones). */
   private collectToolItems(): void {
     const slot = this.hostElement.shadowRoot?.querySelector("slot");
-    if (!slot) {
-      return;
-    }
-
-    const assignedElements = slot.assignedElements({flatten: true});
     this.toolItems = [];
 
-    const collectTools = (elements: Element[]): void => {
-      for (const el of elements) {
+    let elements: Element[] = [];
+
+    if (slot && typeof slot.assignedElements === "function") {
+      elements = slot.assignedElements({flatten: true}) as Element[];
+    } else {
+      elements = Array.from(this.hostElement.children);
+    }
+
+    const collectTools = (els: Element[]): void => {
+      for (const el of els) {
         if (el.tagName.toLowerCase() === "z-tool") {
           const isNested = el.closest("z-tool") !== el && el.closest("z-tool") !== null;
           if (!isNested) {
@@ -55,7 +58,7 @@ export class ZToolbar {
       }
     };
 
-    collectTools(assignedElements as Element[]);
+    collectTools(elements);
   }
 
   private updateTabIndexes(): void {
