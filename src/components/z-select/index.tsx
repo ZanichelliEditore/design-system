@@ -257,7 +257,7 @@ export class ZSelect {
       return;
     }
 
-    prevList = prevList.map((item) => this.getPlainText(item.name));
+    prevList = prevList.map((item) => ({...item, name: this.getPlainText(item.name)}));
 
     if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString, false);
@@ -284,7 +284,7 @@ export class ZSelect {
         const newItem: SelectItem = {...item};
         if (newItem.children && newItem.children.length > 0) {
           newItem.children = this.filterTree(
-            newItem.children.map((item) => this.getPlainText(item.name)),
+            newItem.children.map((item) => ({...item, name: this.getPlainText(item.name)})),
             searchString,
             match
           );
