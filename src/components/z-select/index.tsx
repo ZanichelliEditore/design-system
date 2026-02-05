@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | string;
+  items: SelectItem[] | string = [];
 
   /** the input name */
   @Prop()
@@ -184,7 +184,9 @@ export class ZSelect {
   }
 
   private getInitialItemsArray(): SelectItem[] {
-    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const initialItemsArray = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+
+    return Array.isArray(initialItemsArray) ? initialItemsArray : [];
   }
 
   private mapSelectedItemToItemsArray(): SelectItem[] {
@@ -202,6 +204,10 @@ export class ZSelect {
   }
 
   private getGroupedItems(): [string, SelectItem[]][] {
+    if (!this.itemsList?.length) {
+      return [];
+    }
+
     return Object.entries(
       this.itemsList.reduce(
         (group, item) => {
@@ -217,11 +223,13 @@ export class ZSelect {
   }
 
   private updateFlattenedList(): void {
-    let orderedItems = this.itemsList;
+    let orderedItems: SelectItem[];
     if (this.hasGroupItems) {
       orderedItems = this.getGroupedItems()
         .map((item) => item[1])
         .flat();
+    } else {
+      orderedItems = this.itemsList ?? [];
     }
 
     this.flattenedList = this.flattenTreeItems(orderedItems);
@@ -284,7 +292,11 @@ export class ZSelect {
   }
 
   private getHighlightedText(text: string, search: string): string {
-    const upperText = text.toUpperCase();
+    const tmpElement = document.createElement("div");
+    tmpElement.innerHTML = text;
+    const cleanText = tmpElement.textContent || tmpElement.innerText || "";
+
+    const upperText = cleanText.toUpperCase();
     const upperSearch = search.toUpperCase();
     const start = upperText.indexOf(upperSearch);
 
@@ -294,7 +306,9 @@ export class ZSelect {
 
     const end = start + search.length;
 
-    return text.substring(0, start) + `<strong>${text.substring(start, end)}</strong>` + text.substring(end);
+    return (
+      cleanText.substring(0, start) + `<strong>${cleanText.substring(start, end)}</strong>` + cleanText.substring(end)
+    );
   }
 
   private hasAutocomplete(): boolean {
@@ -515,6 +529,10 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
+    if (!this.itemsList?.length) {
+      return;
+    }
+
     const foundItem = this.itemsList.findIndex(
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
@@ -693,7 +711,7 @@ export class ZSelect {
     | HTMLZListElementElement
     | (HTMLZListElementElement | HTMLZListElementElement[])[]
     | HTMLZListGroupElement[] {
-    if (!this.itemsList.length) {
+    if (!this.itemsList?.length) {
       return this.renderNoSearchResults();
     }
 
