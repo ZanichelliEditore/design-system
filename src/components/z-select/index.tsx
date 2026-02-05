@@ -239,14 +239,25 @@ export class ZSelect {
     });
   }
 
+  private getPlainText(html: string): string {
+    const el = document.createElement("div");
+    el.innerHTML = html;
+    const retVal = el.textContent || el.innerText || "";
+    el.remove();
+
+    return retVal;
+  }
+
   private filterItems(searchString: string): void {
-    const prevList = this.mapSelectedItemToItemsArray();
+    let prevList = this.mapSelectedItemToItemsArray();
 
     if (!searchString?.length) {
       this.itemsList = prevList;
 
       return;
     }
+
+    prevList = prevList.map((item) => this.getPlainText(item.name));
 
     if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString, false);
@@ -272,7 +283,11 @@ export class ZSelect {
 
         const newItem: SelectItem = {...item};
         if (newItem.children && newItem.children.length > 0) {
-          newItem.children = this.filterTree(newItem.children, searchString, match);
+          newItem.children = this.filterTree(
+            newItem.children.map((item) => this.getPlainText(item.name)),
+            searchString,
+            match
+          );
         }
 
         if (match) {
@@ -292,11 +307,7 @@ export class ZSelect {
   }
 
   private getHighlightedText(text: string, search: string): string {
-    const tmpElement = document.createElement("div");
-    tmpElement.innerHTML = text;
-    const cleanText = tmpElement.textContent || tmpElement.innerText || "";
-
-    const upperText = cleanText.toUpperCase();
+    const upperText = text.toUpperCase();
     const upperSearch = search.toUpperCase();
     const start = upperText.indexOf(upperSearch);
 
@@ -306,9 +317,7 @@ export class ZSelect {
 
     const end = start + search.length;
 
-    return (
-      cleanText.substring(0, start) + `<strong>${cleanText.substring(start, end)}</strong>` + cleanText.substring(end)
-    );
+    return text.substring(0, start) + `<strong>${text.substring(start, end)}</strong>` + text.substring(end);
   }
 
   private hasAutocomplete(): boolean {
