@@ -419,6 +419,10 @@ export class ZSelect {
       }
     }
 
+    if (currentIndex > -1 && !this.focusedItemId) {
+      this.focusSelectItem(flatItems[currentIndex].key);
+    }
+
     const lastIndex = flatItems.length - 1;
 
     let newIndex = currentIndex;
@@ -552,6 +556,14 @@ export class ZSelect {
       inputAriaComboboxAttributes = {role: "presentation"};
     }
 
+    let value = null;
+    if (!this.isOpen && this.selectedItem) {
+      value = this.selectedItem.name.replace(/<[^>]+>/g, "");
+    }
+    if (this.isOpen && this.searchString) {
+      value = this.searchString;
+    }
+
     return [
       <z-input
         class={{
@@ -561,7 +573,7 @@ export class ZSelect {
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_select_input`}
         placeholder={this.placeholder}
-        value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
+        value={value}
         label={this.label}
         autocomplete="off"
         aria-label={this.ariaLabel}
