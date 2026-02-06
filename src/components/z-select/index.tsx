@@ -192,11 +192,9 @@ export class ZSelect {
   private mapSelectedItemToItemsArray(): SelectItem[] {
     const initialItemsList = this.getInitialItemsArray();
 
-    return initialItemsList.map((item: SelectItem) => {
-      item.selected = item.id === this.selectedItem?.id;
+    this.updateSelection(initialItemsList, this.selectedItem?.id);
 
-      return item;
-    });
+    return initialItemsList;
   }
 
   private getSelectedValue(): string {
@@ -797,7 +795,7 @@ export class ZSelect {
                 "selected": !!item.selected,
               }}
               title={item.name}
-              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
+              innerHTML={item.name}
             />
           </span>
           {item.icon && <z-tag icon={item.icon}></z-tag>}
