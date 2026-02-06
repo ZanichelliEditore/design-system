@@ -359,7 +359,7 @@ export class ZInput {
           />
           {this.renderIcons()}
         </div>
-        {this.renderMessage()}
+        {this.renderMessage(true)}
       </div>
     );
   }
@@ -447,8 +447,8 @@ export class ZInput {
     );
   }
 
-  private renderMessage(): HTMLZInputMessageElement {
-    if (boolean(this.message) === false) {
+  private renderMessage(alwaysPresent: boolean): HTMLZInputMessageElement {
+    if (!alwaysPresent && boolean(this.message) === false) {
       return;
     }
 
@@ -458,6 +458,7 @@ export class ZInput {
         status={this.status}
         class={this.size}
         disabled={this.disabled}
+        html-role="alert"
       />
     );
   }
@@ -489,7 +490,7 @@ export class ZInput {
             {...this.getRoleAttribute()}
           ></textarea>
         </div>
-        {this.renderMessage()}
+        {this.renderMessage(false)}
       </Fragment>
     );
   }
