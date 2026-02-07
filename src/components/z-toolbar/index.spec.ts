@@ -9,11 +9,9 @@ describe("ZToolbar", () => {
       html: `<z-toolbar></z-toolbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-toolbar>
+      <z-toolbar role="toolbar">
         <mock:shadow-root>
-          <div class="z-toolbar" role="toolbar">
-            <slot></slot>
-          </div>
+          <slot></slot>
         </mock:shadow-root>
       </z-toolbar>
     `);
@@ -22,9 +20,9 @@ describe("ZToolbar", () => {
   it("render con aria-label", async () => {
     const page = await newSpecPage({
       components: [ZToolbar],
-      html: `<z-toolbar aria-label="Toolbar principale"></z-toolbar>`,
+      html: `<z-toolbar html-aria-label="Toolbar principale"></z-toolbar>`,
     });
-    expect(page.root.shadowRoot.querySelector(".z-toolbar").getAttribute("aria-label")).toBe("Toolbar principale");
+    expect(page.root.getAttribute("aria-label")).toBe("Toolbar principale");
   });
 
   it("render con z-tool", async () => {
@@ -46,17 +44,17 @@ describe("ZToolbar", () => {
       components: [ZToolbar, ZTool],
       html: `
         <z-toolbar>
-          <div class="group">
+          <div class="z-toolbar-group">
             <z-tool icon="gear"></z-tool>
             <z-tool icon="download"></z-tool>
           </div>
-          <div class="group">
+          <div class="z-toolbar-group">
             <z-tool icon="upload"></z-tool>
           </div>
         </z-toolbar>
       `,
     });
-    const groups = page.root.querySelectorAll(".group");
+    const groups = page.root.querySelectorAll(".z-toolbar-group");
     expect(groups.length).toBe(2);
   });
 
@@ -83,7 +81,7 @@ describe("ZToolbar", () => {
       components: [ZToolbar, ZTool],
       html: `
         <z-toolbar>
-          <div class="group">
+          <div class="z-toolbar-group">
             <z-tool icon="gear"></z-tool>
             <z-tool icon="download"></z-tool>
           </div>

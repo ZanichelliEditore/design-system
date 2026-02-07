@@ -8,12 +8,7 @@ const StoryMeta = {
   title: "ZToolbar",
   component: "z-toolbar",
   args: {
-    ariaLabel: "Toolbar principale",
-  },
-  argTypes: {
-    ariaLabel: {
-      control: {type: "text"},
-    },
+    htmlAriaLabel: "Toolbar principale",
   },
   decorators: [
     (story) =>
@@ -29,7 +24,7 @@ type Story = StoryObj<ZToolbar>;
 
 export const Default = {
   render: (args) => html`
-    <z-toolbar aria-label=${args.ariaLabel}>
+    <z-toolbar html-aria-label=${args.htmlAriaLabel}>
       <z-tool
         icon="gear"
         tooltip="Impostazioni"
@@ -48,8 +43,8 @@ export const Default = {
 
 export const WithGroups = {
   render: (args) => html`
-    <z-toolbar aria-label=${args.ariaLabel}>
-      <div class="group">
+    <z-toolbar html-aria-label=${args.htmlAriaLabel}>
+      <div class="z-toolbar-group">
         <z-tool
           icon="gear"
           tooltip="Impostazioni"
@@ -63,7 +58,7 @@ export const WithGroups = {
           tooltip="Giù"
         ></z-tool>
       </div>
-      <div class="group">
+      <div class="z-toolbar-group">
         <z-tool
           icon="download"
           tooltip="Scarica"
@@ -82,64 +77,58 @@ export const WithGroups = {
 } satisfies Story;
 
 export const WithNestedToolbar = {
-  decorators: [
-    (story) =>
-      html`<div
-        style="display: flex; justify-content: center; align-items: flex-start; min-height: 200px; padding-top: 20px;"
-      >
-        ${story()}
-      </div>`,
-  ],
   render: (args) => html`
-    <z-toolbar aria-label=${args.ariaLabel}>
-      <div class="group">
-        <z-tool
-          icon="gear"
-          tooltip="Impostazioni"
-        >
-          <z-toolbar aria-label="Sotto-toolbar">
-            <div class="group">
+    <div style="display: flex; justify-content: center; align-items: flex-start; min-height: 200px; padding-top: 20px;">
+      <z-toolbar html-aria-label=${args.htmlAriaLabel}>
+        <div class="z-toolbar-group">
+          <z-tool
+            icon="gear"
+            tooltip="Impostazioni"
+          >
+            <z-toolbar html-aria-label="Sotto-toolbar">
+              <div class="z-toolbar-group">
+                <z-tool
+                  icon="chevron-up"
+                  tooltip="Su"
+                ></z-tool>
+                <z-tool
+                  icon="chevron-down"
+                  tooltip="Giù"
+                ></z-tool>
+              </div>
               <z-tool
                 icon="chevron-up"
                 tooltip="Su"
               ></z-tool>
-              <z-tool
-                icon="chevron-down"
-                tooltip="Giù"
-              ></z-tool>
-            </div>
-            <z-tool
-              icon="chevron-up"
-              tooltip="Su"
-            ></z-tool>
-          </z-toolbar>
-        </z-tool>
-        <z-tool
-          icon="chevron-up"
-          tooltip="Su"
-        ></z-tool>
-        <z-tool
-          icon="chevron-up"
-          tooltip="Su"
-        ></z-tool>
-      </div>
-      <div class="group">
-        <z-tool
-          icon="download"
-          tooltip="Scarica"
-        ></z-tool>
-        <z-tool
-          icon="upload"
-          tooltip="Carica"
-        ></z-tool>
-      </div>
-    </z-toolbar>
+            </z-toolbar>
+          </z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+        </div>
+        <div class="z-toolbar-group">
+          <z-tool
+            icon="download"
+            tooltip="Scarica"
+          ></z-tool>
+          <z-tool
+            icon="upload"
+            tooltip="Carica"
+          ></z-tool>
+        </div>
+      </z-toolbar>
+    </div>
   `,
 } satisfies Story;
 
 export const WithDisabledTool = {
   render: (args) => html`
-    <z-toolbar aria-label=${args.ariaLabel}>
+    <z-toolbar html-aria-label=${args.htmlAriaLabel}>
       <z-tool
         icon="gear"
         tooltip="Impostazioni"
@@ -159,7 +148,7 @@ export const WithDisabledTool = {
 
 export const WithActiveTool = {
   render: (args) => html`
-    <z-toolbar aria-label=${args.ariaLabel}>
+    <z-toolbar html-aria-label=${args.htmlAriaLabel}>
       <z-tool
         icon="gear"
         tooltip="Impostazioni"

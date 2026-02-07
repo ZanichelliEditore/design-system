@@ -11,32 +11,26 @@
   border: none;
   margin: 0;
   background-color: var(--color-surface01);
-  border-radius: 4px;
-  color: var(--color-default-icon);
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 
 :host([active]) .z-tool {
   background-color: var(--color-surface01);
   box-shadow: inset 0 0 0 2px var(--color-primary01);
-  color: var(--color-default-icon);
 }
 
 @media (hover: hover) {
-  :host(:not([disabled], [active])) .z-tool:hover {
-    background-color: var(--color-primary03);
-  }
-
-  :host([active]:not([disabled])) .z-tool:hover {
+  :host(:not([disabled])) .z-tool:hover {
     background-color: var(--color-primary03);
   }
 }
 
-:host(:not([disabled])) .z-tool:active {
+:host([active]:not([disabled])) .z-tool {
   background-color: var(--color-primary03);
 }
 
-:host([disabled]:not([disabled="false"])) .z-tool {
+:host([disabled]) .z-tool {
   background-color: var(--color-surface01);
   color: var(--color-disabled01-icon);
   cursor: not-allowed;
@@ -47,7 +41,7 @@
   outline: none;
 }
 
-:host z-icon {
+z-icon {
   --z-icon-width: var(--z-tool-icon-size);
   --z-icon-height: var(--z-tool-icon-size);
 
@@ -55,12 +49,12 @@
   fill: var(--color-default-icon);
 }
 
-:host([disabled]:not([disabled="false"])) z-icon {
+:host([disabled]) z-icon {
   fill: var(--color-disabled01-icon);
 }
 
 .z-tool-tooltip {
-  --z-popover-padding: 10px 12px 12px 12px;
+  --z-popover-padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
   --z-popover-theme--surface: var(--color-surface05);
   --z-popover-theme--text: var(--color-text-inverse);
   --z-popover-shadow-filter: drop-shadow(0 4px 8px var(--shadow-color-base));
@@ -84,8 +78,4 @@
 
 .z-tool-submenu-open {
   display: block;
-}
-
-::slotted(z-toolbar) {
-  margin: 0;
 }

@@ -21,13 +21,13 @@ export class ZTool {
   @Prop()
   tooltip?: string;
 
-  /** Preferred tooltip position. */
+  /** Preferred tooltip position. Defaults to true. */
   @Prop()
-  tooltipPosition?: PopoverPosition;
+  tooltipPosition: PopoverPosition = PopoverPosition.TOP;
 
   /** Accessible label for the tool trigger. Falls back to tooltip content. */
   @Prop()
-  label?: string;
+  htmlAriaLabel?: string;
 
   /** Visual selected state. */
   @Prop({reflect: true, mutable: true})
@@ -50,24 +50,16 @@ export class ZTool {
 
   private hoverDelay?: ReturnType<typeof setTimeout>;
 
-  private get resolvedTooltipPosition(): PopoverPosition {
-    if (this.tooltipPosition) {
-      return this.tooltipPosition;
-    }
-
-    return PopoverPosition.TOP;
-  }
-
   private handleTooltipOpen = (): void => {
     //This.isNested check prevents tooltips from showing on nested tools, e.g. inside submenus
     //This control will be removed in future versions when nested tooltips will be supported
-    if (!this.tooltip || this.disabled || this.isNested) {
+    if (!this.tooltip || this.isNested) {
       return;
     }
     clearTimeout(this.hoverDelay);
     this.hoverDelay = setTimeout(() => {
       this.tooltipOpen = true;
-    }, 300);
+    }, 1000);
   };
 
   private handleTooltipClose = (): void => {
@@ -124,8 +116,6 @@ export class ZTool {
   }
 
   render(): HTMLZToolElement {
-    const ariaLabel = this.label || this.tooltip || undefined;
-
     return (
       <Host nested={this.isNested}>
         <button
@@ -133,7 +123,7 @@ export class ZTool {
           type="button"
           aria-pressed={this.active ? "true" : "false"}
           aria-expanded={this.hasSlottedContent ? (this.active ? "true" : "false") : undefined}
-          aria-label={ariaLabel}
+          aria-label={this.htmlAriaLabel || this.tooltip || undefined}
           disabled={this.disabled}
           onClick={this.handleClick}
           onMouseEnter={this.handleTooltipOpen}
@@ -151,7 +141,7 @@ export class ZTool {
             class="z-tool-tooltip"
             bindTo={this.iconRef}
             open={this.tooltipOpen}
-            position={this.resolvedTooltipPosition}
+            position={this.tooltipPosition}
             showArrow
             center
             closable={false}

@@ -12,7 +12,7 @@ const StoryMeta = {
     icon: "gear",
     tooltip: "Impostazioni",
     tooltipPosition: PopoverPosition.TOP,
-    label: "Impostazioni",
+    htmlAriaLabel: "Impostazioni",
     active: false,
     disabled: false,
   },
@@ -38,7 +38,7 @@ export const Default = {
         icon=${args.icon}
         tooltip=${args.tooltip}
         tooltip-position=${args.tooltipPosition}
-        label=${args.label}
+        html-aria-label=${args.htmlAriaLabel}
         ?active=${args.active}
         ?disabled=${args.disabled}
       ></z-tool>
@@ -56,7 +56,7 @@ export const Active = {
         icon=${args.icon}
         tooltip=${args.tooltip}
         tooltip-position=${args.tooltipPosition}
-        label=${args.label}
+        html-aria-label=${args.htmlAriaLabel}
         ?active=${args.active}
         ?disabled=${args.disabled}
       ></z-tool>
@@ -73,7 +73,7 @@ export const Disabled = {
         icon=${args.icon}
         tooltip=${args.tooltip}
         tooltip-position=${args.tooltipPosition}
-        label=${args.label}
+        html-aria-label=${args.htmlAriaLabel}
         ?active=${args.active}
         ?disabled=${args.disabled}
       ></z-tool>

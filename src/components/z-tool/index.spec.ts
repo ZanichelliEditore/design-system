@@ -36,7 +36,7 @@ describe("suite test ZTool", () => {
 
     button.dispatchEvent(new MouseEvent("mouseenter"));
 
-    await new Promise((resolve) => setTimeout(resolve, 350));
+    await new Promise((resolve) => setTimeout(resolve, 1050));
     await page.waitForChanges();
 
     expect(popover.getAttribute("open")).toBe("");
@@ -52,7 +52,7 @@ describe("suite test ZTool", () => {
     const popover = page.root.shadowRoot.querySelector("z-popover");
 
     button.dispatchEvent(new MouseEvent("mouseenter"));
-    await new Promise((resolve) => setTimeout(resolve, 350));
+    await new Promise((resolve) => setTimeout(resolve, 1050));
     await page.waitForChanges();
 
     expect(popover.getAttribute("open")).toBe("");
@@ -63,7 +63,7 @@ describe("suite test ZTool", () => {
     expect(popover.getAttribute("open")).toBeNull();
   });
 
-  it("test popover does not open when disabled", async () => {
+  it("test popover opens when disabled", async () => {
     const page = await newSpecPage({
       components: [ZTool],
       html: `<z-tool icon="gear" tooltip="Hello world!" disabled></z-tool>`,
@@ -73,10 +73,10 @@ describe("suite test ZTool", () => {
     const popover = page.root.shadowRoot.querySelector("z-popover");
 
     button.dispatchEvent(new MouseEvent("mouseenter"));
-    await new Promise((resolve) => setTimeout(resolve, 350));
+    await new Promise((resolve) => setTimeout(resolve, 1050));
     await page.waitForChanges();
 
-    expect(popover.getAttribute("open")).toBeNull();
+    expect(popover.getAttribute("open")).toBe("");
   });
 
   it("test disabled state is reflected on button", async () => {

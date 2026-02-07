@@ -2242,32 +2242,33 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * Tool icon
          */
         "icon": string;
-        /**
-          * Accessible label for the tool trigger. Falls back to tooltip content.
-         */
-        "label"?: string;
         /**
           * Text displayed inside the tooltip.
          */
         "tooltip"?: string;
         /**
-          * Preferred tooltip position.
+          * Preferred tooltip position. Defaults to true.
          */
-        "tooltipPosition"?: PopoverPosition;
+        "tooltipPosition": PopoverPosition;
     }
     /**
      * ZToolbar component.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
      */
     interface ZToolbar {
         /**
           * Accessible label for the toolbar.
          */
-        "ariaLabel"?: string;
+        "htmlAriaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -3693,6 +3694,7 @@ declare global {
     /**
      * ZToolbar component.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
      */
     interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
@@ -6280,32 +6282,33 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * Tool icon
          */
         "icon"?: string;
-        /**
-          * Accessible label for the tool trigger. Falls back to tooltip content.
-         */
-        "label"?: string;
         /**
           * Text displayed inside the tooltip.
          */
         "tooltip"?: string;
         /**
-          * Preferred tooltip position.
+          * Preferred tooltip position. Defaults to true.
          */
         "tooltipPosition"?: PopoverPosition;
     }
     /**
      * ZToolbar component.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
      */
     interface ZToolbar {
         /**
           * Accessible label for the toolbar.
          */
-        "ariaLabel"?: string;
+        "htmlAriaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -6784,6 +6787,7 @@ declare module "@stencil/core" {
             /**
              * ZToolbar component.
              * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+             * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
              * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
              */
             "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
