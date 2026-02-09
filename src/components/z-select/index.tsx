@@ -238,12 +238,9 @@ export class ZSelect {
   }
 
   private getPlainText(html: string): string {
-    const el = document.createElement("div");
-    el.innerHTML = html;
-    const retVal = el.textContent || el.innerText || "";
-    el.remove();
+    const doc = new DOMParser().parseFromString(html, "text/html");
 
-    return retVal;
+    return doc.body.textContent || "";
   }
 
   private filterItems(searchString: string): void {
