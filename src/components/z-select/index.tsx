@@ -184,9 +184,7 @@ export class ZSelect {
   }
 
   private getInitialItemsArray(): SelectItem[] {
-    const initialItemsArray = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
-
-    return Array.isArray(initialItemsArray) ? initialItemsArray : [];
+    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
   }
 
   private mapSelectedItemToItemsArray(): SelectItem[] {
@@ -202,7 +200,7 @@ export class ZSelect {
   }
 
   private getGroupedItems(): [string, SelectItem[]][] {
-    if (!this.itemsList?.length) {
+    if (!this.itemsList.length) {
       return [];
     }
 
@@ -227,7 +225,7 @@ export class ZSelect {
         .map((item) => item[1])
         .flat();
     } else {
-      orderedItems = this.itemsList ?? [];
+      orderedItems = this.itemsList;
     }
 
     this.flattenedList = this.flattenTreeItems(orderedItems);
@@ -533,7 +531,7 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
-    if (!this.itemsList?.length) {
+    if (!this.itemsList.length) {
       return;
     }
 
@@ -715,7 +713,7 @@ export class ZSelect {
     | HTMLZListElementElement
     | (HTMLZListElementElement | HTMLZListElementElement[])[]
     | HTMLZListGroupElement[] {
-    if (!this.itemsList?.length) {
+    if (!this.itemsList.length) {
       return this.renderNoSearchResults();
     }
 
