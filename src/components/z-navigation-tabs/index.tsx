@@ -330,7 +330,7 @@ export class ZNavigationTabs {
           onClick={this.navigateBackwards.bind(this)}
           tabIndex={-1}
           disabled={!this.canNavigatePrev}
-          aria-label="Mostra elementi precedenti"
+          aria-label="Vai alla pagina precedente"
           hidden={!this.canNavigate}
         >
           <z-icon
@@ -355,7 +355,7 @@ export class ZNavigationTabs {
           onClick={this.navigateForward.bind(this)}
           tabIndex={-1}
           disabled={!this.canNavigateNext}
-          aria-label="Mostra elementi successivi"
+          aria-label="Vai alla prossima pagina"
           hidden={!this.canNavigate}
         >
           <z-icon
