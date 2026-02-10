@@ -67,6 +67,14 @@ export class ZCombobox {
   @Prop()
   uncheckalltext?: string = "Deseleziona tutti";
 
+  /** label for selected items count in singular form (optional, e.g., "selezionato") */
+  @Prop()
+  selectedlabelsingular?: string;
+
+  /** label for selected items count in plural form (optional, e.g., "selezionati") */
+  @Prop()
+  selectedlabelplural?: string;
+
   /** max number of checkable items (0 = unlimited) */
   @Prop()
   maxcheckableitems = 0;
@@ -305,6 +313,20 @@ export class ZCombobox {
   }
 
   private renderHeader(): HTMLDivElement {
+    const getCounterLabel = (): string => {
+      if (this.selectedCounter === 0) {
+        return "";
+      }
+
+      if (this.selectedlabelsingular && this.selectedlabelplural) {
+        const label = this.selectedCounter === 1 ? this.selectedlabelsingular : this.selectedlabelplural;
+
+        return ` (${this.selectedCounter} ${label})`;
+      }
+
+      return ` (${this.selectedCounter})`;
+    };
+
     return (
       <div
         class="header"
@@ -320,7 +342,7 @@ export class ZCombobox {
       >
         <span class="body-3">
           {this.label}
-          <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
+          <span>{getCounterLabel()}</span>
         </span>
         <z-icon
           name="caret-down"
