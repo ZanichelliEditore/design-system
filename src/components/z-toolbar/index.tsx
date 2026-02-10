@@ -33,23 +33,7 @@ export class ZToolbar {
 
   /** Collect all z-tool elements in the toolbar (not nested ones). */
   private collectToolItems(): void {
-    try {
-      this.toolItems = Array.from(this.hostElement.querySelectorAll("z-tool:not(:scope z-tool z-tool)"));
-    } catch {
-      // Fallback for environments that don't support :scope (e.g., Stencil mock-doc in tests)
-      const allTools = Array.from(this.hostElement.querySelectorAll("z-tool"));
-      this.toolItems = allTools.filter((tool) => {
-        let parent = tool.parentElement;
-        while (parent && parent !== this.hostElement) {
-          if (parent.tagName.toLowerCase() === "z-tool") {
-            return false;
-          }
-          parent = parent.parentElement;
-        }
-
-        return true;
-      }) as HTMLZToolElement[];
-    }
+    this.toolItems = Array.from(this.hostElement.querySelectorAll("z-tool:not(:scope z-tool z-tool)"));
   }
 
   private updateTabIndexes(): void {
