@@ -143,9 +143,9 @@ export class ZCombobox {
     }
   }
 
-  private getItemId(item: ComboItem): string {
-    return `combo-checkbox-${this.inputid}-${item.id}`;
-  }
+  // private getItemId(item: ComboItem): string {
+  //   return `combo-checkbox-${this.inputid}-${item.id}`;
+  // }
 
   private getCheckboxClass(): string {
     return `combo-item-checkbox-input-${this.inputid}`;
@@ -168,6 +168,16 @@ export class ZCombobox {
     }
   }
 
+  private handleOptionKeyDown(e: KeyboardEvent, onOptionClickCallback: () => void, currId?: string): void {
+    // TODO: unificare con invio
+    if ((e.code as KeyboardCode) === KeyboardCode.SPACE) {
+      e.preventDefault();
+      return onOptionClickCallback();
+    }
+
+    this.handleSelectArrowsNavigation(e, currId);
+  }
+
   private handleSelectArrowsNavigation(e: KeyboardEvent, currId?: string): void {
     if (![KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP].includes(e.key as KeyboardCode) || !this.isopen) {
       return;
@@ -176,31 +186,60 @@ export class ZCombobox {
     e.preventDefault();
     e.stopPropagation();
 
-    const currElem = this.element.shadowRoot.querySelector(`#${currId}`) as HTMLInputElement;
+    // const currElem = this.element.shadowRoot.querySelector(`#${currId}`) as HTMLInputElement;
 
-    const checkboxes = this.checkboxes;
-    if (!checkboxes.length) {
+    // const checkboxes = this.checkboxes;
+    // if (!checkboxes.length) {
+    //   return;
+    // }
+
+    // const currElemIndex = currElem ? checkboxes.indexOf(currElem) : null;
+    // const firstElemIndex = 0;
+    // const lastElemIndex = checkboxes.length - 1;
+
+    // let nextElem = null;
+    // if (e.key === KeyboardCode.ARROW_DOWN) {
+    //   nextElem =
+    //     currElemIndex === null || currElemIndex === lastElemIndex
+    //       ? checkboxes[firstElemIndex]
+    //       : checkboxes[currElemIndex + 1];
+    // } else if (e.key === KeyboardCode.ARROW_UP) {
+    //   nextElem =
+    //     currElemIndex === null || currElemIndex === firstElemIndex
+    //       ? checkboxes[lastElemIndex]
+    //       : checkboxes[currElemIndex - 1];
+    // }
+
+    // this.focusComboboxItem(nextElem);
+
+    const currElem = this.element.shadowRoot.querySelector(`#${currId}`);
+    const options = Array.from(this.element.shadowRoot.querySelectorAll('[role="option"]'));
+    // console.log(currElem, options, Array.from(options).indexOf(currElem));
+
+    // const checkboxes = this.checkboxes;
+    if (!options.length) {
       return;
     }
 
-    const currElemIndex = currElem ? checkboxes.indexOf(currElem) : null;
+    const currElemIndex = currElem ? options.indexOf(currElem) : null;
     const firstElemIndex = 0;
-    const lastElemIndex = checkboxes.length - 1;
+    const lastElemIndex = options.length - 1;
 
     let nextElem = null;
     if (e.key === KeyboardCode.ARROW_DOWN) {
       nextElem =
         currElemIndex === null || currElemIndex === lastElemIndex
-          ? checkboxes[firstElemIndex]
-          : checkboxes[currElemIndex + 1];
+          ? options[firstElemIndex]
+          : options[currElemIndex + 1];
     } else if (e.key === KeyboardCode.ARROW_UP) {
       nextElem =
         currElemIndex === null || currElemIndex === firstElemIndex
-          ? checkboxes[lastElemIndex]
-          : checkboxes[currElemIndex - 1];
+          ? options[lastElemIndex]
+          : options[currElemIndex - 1];
     }
 
-    this.focusComboboxItem(nextElem);
+    this.focusedItemId = nextElem.id;
+    nextElem.focus();
   }
 
   private handleHeaderKeyboardEvent(ev: KeyboardEvent): void {
@@ -212,18 +251,29 @@ export class ZCombobox {
     }
   }
 
-  private handleCheckboxFocus(id: string): void {
-    this.focusedItemId = id;
-  }
+  // private handleCheckboxFocus(id: string): void {
+  //   this.focusedItemId = id;
+  // }
 
-  private focusComboboxItem(elem): void {
-    this.checkboxes.forEach(function (item) {
-      item.setAttribute("tabindex", "-1");
-    });
+  // private focusComboboxItem(elem): void {
+  //   // this.checkboxes.forEach(function (item) {
+  //   //   item.setAttribute("tabindex", "-1");
+  //   // });
 
-    elem.setAttribute("tabindex", "0");
-    elem.focus();
-  }
+  //   // const options = Array.from(this.element.shadowRoot.querySelectorAll('[role="option"]'));
+  //   // options.forEach(function (item) {
+  //   //   console.log(item.id, "-1");
+  //   //   item.setAttribute("html-tabindex", "-1");
+  //   // });
+
+  //   // console.log(elem.id, "0");
+  //   // elem.setAttribute("html-tabindex", "0");
+  //   // elem.focus();
+
+  //   this.focusedItemId = elem.id;
+  //   // console.log(this.focusedItemId);
+  //   elem.focus();
+  // }
 
   private updateRenderItemsList(): void {
     if (this.searchValue) {
@@ -369,16 +419,36 @@ export class ZCombobox {
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
     const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
 
+    const onOptionClick = () => {
+      console.log("onOptionClick");
+      this.itemsList = this.itemsList.map((i: ComboItem) => {
+        if (item.id === i.id) {
+          i.checked = !i.checked;
+        }
+
+        return i;
+      });
+      this.updateRenderItemsList();
+      this.emitComboboxChange();
+    };
+
     return (
       <z-list-element
         id={`option-${item.id}`}
-        htmlTabindex={null}
+        htmlTabindex={this.focusedItemId === `option-${item.id}` ? 0 : -1}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
         role={isDisabled ? "presentation" : "option"}
         aria-selected={item.checked ? "true" : "false"}
+        clickable={true}
+        disabled={isDisabled}
+        // onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, `option-${item.id}`)}
+        onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, `option-${item.id}`)}
+        onClickItem={onOptionClick}
       >
-        <z-input
+        <z-icon name={item.checked ? "checkbox-checked" : "checkbox"}></z-icon>
+        {item.name}
+        {/* <z-input
           type={InputType.CHECKBOX}
           checked={item.checked}
           htmlid={this.getItemId(item)}
@@ -399,7 +469,7 @@ export class ZCombobox {
             this.emitComboboxChange();
           }}
           onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
-        />
+        /> */}
       </z-list-element>
     );
   }
@@ -487,33 +557,75 @@ export class ZCombobox {
     );
   }
 
+  // private renderCheckAll(): HTMLDivElement {
+  //   if (this.searchValue) {
+  //     return;
+  //   }
+
+  //   const checkAllId = `combo-checkbox-${this.inputid}-check-all`;
+  //   const allChecked = this.selectedCounter === this.itemsList.length;
+
+  //   return (
+  //     <div
+  //       class="check-all-wrapper"
+  //       id="option-check-all"
+  //       role="option"
+  //     >
+  //       <z-input
+  //         type={InputType.CHECKBOX}
+  //         checked={allChecked}
+  //         htmlid={checkAllId}
+  //         class={this.getCheckboxClass()}
+  //         label={allChecked ? this.uncheckalltext : this.checkalltext}
+  //         disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
+  //         size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+  //         onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
+  //         onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
+  //         onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
+  //       />
+  //     </div>
+  //   );
+  // }
   private renderCheckAll(): HTMLDivElement {
     if (this.searchValue) {
       return;
     }
 
-    const checkAllId = `combo-checkbox-${this.inputid}-check-all`;
+    // const checkAllId = `combo-checkbox-${this.inputid}-check-all`;
     const allChecked = this.selectedCounter === this.itemsList.length;
+    const onOptionClick = () => this.checkAll(!allChecked);
 
     return (
-      <div
-        class="check-all-wrapper"
-        id="option-check-all"
-        role="option"
-      >
-        <z-input
-          type={InputType.CHECKBOX}
-          checked={allChecked}
-          htmlid={checkAllId}
-          class={this.getCheckboxClass()}
-          label={allChecked ? this.uncheckalltext : this.checkalltext}
-          disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
-          size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
-          onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
-          onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
-        />
-      </div>
+      <ul role="presentation">
+        <z-list-element
+          class="check-all-wrapper"
+          id="option-check-all"
+          role="option"
+          htmlTabindex={this.focusedItemId === `option-check-all` ? 0 : -1}
+          dividerType={ListDividerType.ELEMENT}
+          size={this.getControlToListSize()}
+          aria-selected={allChecked ? "true" : "false"}
+          clickable={true}
+          // onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, `option-check-all`)}
+          onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, `option-check-all`)}
+          onClickItem={onOptionClick}
+        >
+          <z-icon name={allChecked ? "checkbox-checked" : "checkbox"}></z-icon>
+          {allChecked ? this.uncheckalltext : this.checkalltext}
+          {/* <z-input
+            type={InputType.CHECKBOX}
+            checked={allChecked}
+            htmlid={checkAllId}
+            class={this.getCheckboxClass()}
+            label={allChecked ? this.uncheckalltext : this.checkalltext}
+            disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
+            size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
+            onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
+            onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
+            onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
+          /> */}
+        </z-list-element>
+      </ul>
     );
   }
 
