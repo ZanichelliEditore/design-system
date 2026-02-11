@@ -85,7 +85,7 @@ export class ZButton {
 
   render(): HTMLAnchorElement | HTMLButtonElement {
     const normalizedAriaLabel = this.ariaLabel?.trim() || undefined;
-    const normalizedRole = this.htmlrole || (this.role?.trim() || undefined);
+    const normalizedRole = this.htmlrole || this.role?.trim() || undefined;
 
     if (this.href) {
       return (
