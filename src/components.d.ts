@@ -5894,7 +5894,7 @@ declare namespace LocalJSX {
         /**
           * the input select options
          */
-        "items"?: SelectItem[] | string;
+        "items": SelectItem[] | string;
         /**
           * the input label
          */
