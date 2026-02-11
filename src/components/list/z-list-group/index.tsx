@@ -51,6 +51,12 @@ export class ZListGroup {
   @Prop({reflect: true})
   role = "group";
 
+  /**
+   * [optional] Sets aria-labelledby attribute
+   */
+  @Prop({reflect: true})
+  ariaLabelledby?: string;
+
   private hasHeader: boolean;
 
   componentDidLoad(): void {
@@ -73,7 +79,10 @@ export class ZListGroup {
 
   render(): HTMLZListGroupElement {
     return (
-      <Host role={this.role}>
+      <Host
+        role={this.role}
+        aria-labelledby={this.ariaLabelledby}
+      >
         <div
           class={{
             "z-list-group-header-container": true,

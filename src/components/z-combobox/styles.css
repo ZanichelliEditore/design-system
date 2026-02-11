@@ -221,3 +221,9 @@
 :host([size="x-small"]) > div.open > div.open-combo-data > div > div.check-all-wrapper {
   padding: var(--space-unit) calc(var(--space-unit) * 0.5);
 }
+
+/* TODO: remove */
+[role="option"]:focus,
+[role="option"]:focus-visible {
+  background: lime;
+}
