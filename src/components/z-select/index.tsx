@@ -854,17 +854,18 @@ export class ZSelect {
 
     return groupedItems.map(([category, items], index, entries) => {
       const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
-      // const parentHasSiblings = items.length > 1;
 
       return (
         <z-list-group
           divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
           hasTreeItems={true}
-          role="presentation"
+          ariaLabelledby={`${this.htmlid}_tree_${index}`}
         >
           <span
             class="body-3-sb z-list-group-title"
             slot="header-title"
+            id={`${this.htmlid}_tree_${index}`}
+            aria-hidden="true"
           >
             {category}
           </span>
@@ -893,12 +894,14 @@ export class ZSelect {
 
       return (
         <z-list-group
-          role="presentation"
           divider-type={ListDividerType.ELEMENT}
+          ariaLabelledby={`${this.htmlid}_group_${index}`}
         >
           <span
             class="body-3-sb z-list-group-title"
             slot="header-title"
+            id={`${this.htmlid}_group_${index}`}
+            aria-hidden="true"
           >
             {key}
           </span>
