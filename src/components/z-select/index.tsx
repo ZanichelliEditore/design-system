@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | string;
+  items: SelectItem[] | string = [];
 
   /** the input name */
   @Prop()
@@ -190,11 +190,9 @@ export class ZSelect {
   private mapSelectedItemToItemsArray(): SelectItem[] {
     const initialItemsList = this.getInitialItemsArray();
 
-    return initialItemsList.map((item: SelectItem) => {
-      item.selected = item.id === this.selectedItem?.id;
+    this.updateSelection(initialItemsList, this.selectedItem?.id);
 
-      return item;
-    });
+    return initialItemsList;
   }
 
   private getSelectedValue(): string {
@@ -202,6 +200,10 @@ export class ZSelect {
   }
 
   private getGroupedItems(): [string, SelectItem[]][] {
+    if (!this.itemsList.length) {
+      return [];
+    }
+
     return Object.entries(
       this.itemsList.reduce(
         (group, item) => {
@@ -217,11 +219,13 @@ export class ZSelect {
   }
 
   private updateFlattenedList(): void {
-    let orderedItems = this.itemsList;
+    let orderedItems: SelectItem[];
     if (this.hasGroupItems) {
       orderedItems = this.getGroupedItems()
         .map((item) => item[1])
         .flat();
+    } else {
+      orderedItems = this.itemsList;
     }
 
     this.flattenedList = this.flattenTreeItems(orderedItems);
@@ -231,14 +235,22 @@ export class ZSelect {
     });
   }
 
+  private getPlainText(html: string): string {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+
+    return doc.body.textContent || "";
+  }
+
   private filterItems(searchString: string): void {
-    const prevList = this.mapSelectedItemToItemsArray();
+    let prevList = this.mapSelectedItemToItemsArray();
 
     if (!searchString?.length) {
       this.itemsList = prevList;
 
       return;
     }
+
+    prevList = prevList.map((item) => ({...item, name: this.getPlainText(item.name)}));
 
     if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString, false);
@@ -264,7 +276,11 @@ export class ZSelect {
 
         const newItem: SelectItem = {...item};
         if (newItem.children && newItem.children.length > 0) {
-          newItem.children = this.filterTree(newItem.children, searchString, match);
+          newItem.children = this.filterTree(
+            newItem.children.map((item) => ({...item, name: this.getPlainText(item.name)})),
+            searchString,
+            match
+          );
         }
 
         if (match) {
@@ -519,6 +535,10 @@ export class ZSelect {
   }
 
   private scrollToLetter(letter: string): void {
+    if (!this.itemsList.length) {
+      return;
+    }
+
     const foundItem = this.itemsList.findIndex(
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
@@ -805,7 +825,7 @@ export class ZSelect {
                 "selected": !!item.selected,
               }}
               title={item.name}
-              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
+              innerHTML={item.name}
             />
           </span>
           {item.icon && <z-tag icon={item.icon}></z-tag>}

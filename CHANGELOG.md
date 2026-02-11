@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.1.2](https://github.com/ZanichelliEditore/design-system/compare/v19.1.1...v19.1.2) (2026-02-11)
+
+
+### Bug Fixes
+
+* adjust line-height for section titles 1 and 2 ([458f6ae](https://github.com/ZanichelliEditore/design-system/commit/458f6ae8fb7568a79fa185bf138c16aebb17a156))
+* **DS-964:** clear items before searching inside them ([4acbd4e](https://github.com/ZanichelliEditore/design-system/commit/4acbd4edbb5b704f007ff0c33fdc1dc7d9e6de52))
+* **DS-964:** fix items cleaning ([b31e925](https://github.com/ZanichelliEditore/design-system/commit/b31e925db9e3b0a46219baa671cb7c47ebf69fc8))
+* **DS-964:** fix items tree selection ([6b1d2c2](https://github.com/ZanichelliEditore/design-system/commit/6b1d2c26cd9e14e9a888b07ec86163b3912f6e56))
+* **DS-964:** fix z-select autocomplete issues ([4c90c9f](https://github.com/ZanichelliEditore/design-system/commit/4c90c9f29105d40a3aebab2115ceafaf418131cd))
+* z-select arrows navigation ([fde7683](https://github.com/ZanichelliEditore/design-system/commit/fde768327c03dc3ed9b90b1416d876baca91b53c))
+* z-select improve tab navigation ([3a0c6fb](https://github.com/ZanichelliEditore/design-system/commit/3a0c6fb85f0326ddc3f9fb3aaecfae104a6e60a4))
+* z-select improve tab navigation ([ff2648c](https://github.com/ZanichelliEditore/design-system/commit/ff2648c6a6c9bc87af43dc392c23e015c24b566f))
+* z-select prevent opening on focus ([e5e82f8](https://github.com/ZanichelliEditore/design-system/commit/e5e82f8be323b9773130bc12dd99369f9670ded2))
+* z-select restore esc ([5193ddd](https://github.com/ZanichelliEditore/design-system/commit/5193ddd637b2b43b85b243dad6c8da0092f377a2))
+* z-select test e2e ([72abff0](https://github.com/ZanichelliEditore/design-system/commit/72abff02529fd54f39480bd7eefc6b4b31c384f2))
+
 ## [19.1.1](https://github.com/ZanichelliEditore/design-system/compare/v19.1.0...v19.1.1) (2026-01-13)
 
 
