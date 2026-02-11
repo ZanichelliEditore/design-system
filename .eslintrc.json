@@ -70,7 +70,7 @@
       {
         "selector": "variable",
         "modifiers": ["const", "global"],
-        "format": ["UPPER_CASE", "camelCase"]
+        "format": ["UPPER_CASE", "camelCase", "PascalCase"]
       },
       {
         "selector": "enumMember",
@@ -143,7 +143,7 @@
           "error",
           {
             "selector": "variable",
-            "modifiers": ["exported"],
+            "modifiers": ["exported", "const"],
             "format": ["PascalCase"]
           }
         ],
