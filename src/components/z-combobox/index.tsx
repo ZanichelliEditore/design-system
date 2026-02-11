@@ -374,7 +374,6 @@ export class ZCombobox {
           role="option"
           aria-selected={item.checked ? "true" : "false"}
           tabindex={this.focusedItemId === optionId ? 0 : -1}
-          aria-label={item.name}
           innerHTML={item.name}
           onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, optionId)}
           onClick={onOptionClick}
