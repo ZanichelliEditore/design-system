@@ -368,16 +368,24 @@ export class ZCombobox {
         role="presentation"
         disabled={isDisabled}
       >
-        <z-icon name={item.checked ? "checkbox-checked" : "checkbox"} />
         <span
-          id={optionId}
-          role="option"
-          aria-selected={item.checked ? "true" : "false"}
-          tabindex={this.focusedItemId === optionId ? 0 : -1}
-          innerHTML={item.name}
-          onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, optionId)}
-          onClick={onOptionClick}
-        />
+          class="option-wrap"
+          role="presentation"
+        >
+          <z-icon
+            name={item.checked ? "checkbox-checked" : "checkbox"}
+            class={this.focusedItemId === optionId ? "focused" : ""}
+          />
+          <span
+            id={optionId}
+            role="option"
+            aria-selected={item.checked ? "true" : "false"}
+            tabindex={this.focusedItemId === optionId ? 0 : -1}
+            innerHTML={item.name}
+            onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, optionId)}
+            onClick={onOptionClick}
+          />
+        </span>
       </z-list-element>
     );
   }
@@ -494,18 +502,27 @@ export class ZCombobox {
         role="presentation"
         htmlTabindex={-1}
         dividerType={ListDividerType.ELEMENT}
+        dividerColor="gray800"
         size={this.getControlToListSize()}
       >
-        <z-icon name={allChecked ? "checkbox-checked" : "checkbox"} />
         <span
-          id={optionId}
-          role="option"
-          aria-selected={allChecked ? "true" : "false"}
-          tabindex={this.focusedItemId === optionId ? 0 : -1}
-          onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, optionId)}
-          onClick={onOptionClick}
+          class="option-wrap"
+          role="presentation"
         >
-          {allChecked ? this.uncheckalltext : this.checkalltext}
+          <z-icon
+            name={allChecked ? "checkbox-checked" : "checkbox"}
+            class={this.focusedItemId === optionId ? "focused" : ""}
+          />
+          <span
+            id={optionId}
+            role="option"
+            aria-selected={allChecked ? "true" : "false"}
+            tabindex={this.focusedItemId === optionId ? 0 : -1}
+            onKeyDown={(e: KeyboardEvent) => this.handleOptionKeyDown(e, onOptionClick, optionId)}
+            onClick={onOptionClick}
+          >
+            {allChecked ? this.uncheckalltext : this.checkalltext}
+          </span>
         </span>
       </z-list-element>
     );

@@ -136,6 +136,36 @@
   --background-active-color-list-element: var(--color-form-surface03);
 }
 
+:host .open-combo-data z-list-element .option-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-unit);
+}
+
+:host .open-combo-data z-list-element[size="medium"] .option-wrap,
+:host .open-combo-data z-list-element[size="small"] .option-wrap {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+  font-size: var(--font-size-2);
+  gap: calc(var(--space-unit) / 2);
+}
+
+:host .open-combo-data z-list-element .option-wrap > z-icon {
+  fill: var(--color-primary01);
+}
+
+:host .open-combo-data z-list-element .option-wrap > z-icon.focused {
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host .open-combo-data z-list-element .option-wrap > [role="option"]:focus,
+:host .open-combo-data z-list-element .option-wrap > [role="option"]:focus-visible {
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
@@ -220,10 +250,4 @@
 
 :host([size="x-small"]) > div.open > div.open-combo-data > div > div.check-all-wrapper {
   padding: var(--space-unit) calc(var(--space-unit) * 0.5);
-}
-
-/* TODO: remove */
-[role="option"]:focus,
-[role="option"]:focus-visible {
-  background: lime;
 }
