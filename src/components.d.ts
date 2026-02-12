@@ -2230,6 +2230,47 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
+     * ZTool component.
+     */
+    interface ZTool {
+        /**
+          * Visual selected state.
+         */
+        "active": boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon": string;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition": PopoverPosition;
+    }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -3642,6 +3683,27 @@ declare global {
         new (): HTMLZToggleSwitchElement;
     };
     /**
+     * ZTool component.
+     */
+    interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
+    }
+    var HTMLZToolElement: {
+        prototype: HTMLZToolElement;
+        new (): HTMLZToolElement;
+    };
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
+    }
+    var HTMLZToolbarElement: {
+        prototype: HTMLZToolbarElement;
+        new (): HTMLZToolbarElement;
+    };
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -3779,6 +3841,8 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tool": HTMLZToolElement;
+        "z-toolbar": HTMLZToolbarElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -6206,6 +6270,47 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
+     * ZTool component.
+     */
+    interface ZTool {
+        /**
+          * Visual selected state.
+         */
+        "active"?: boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon"?: string;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition"?: PopoverPosition;
+    }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -6349,6 +6454,8 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tool": ZTool;
+        "z-toolbar": ZToolbar;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
         "z-tree-list": ZTreeList;
@@ -6673,6 +6780,17 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            /**
+             * ZTool component.
+             */
+            "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
+            /**
+             * ZToolbar component.
+             * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+             * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
+             * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+             */
+            "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
