@@ -16,7 +16,6 @@
 }
 
 :host([active]) .z-tool {
-  background-color: var(--color-surface01);
   box-shadow: inset 0 0 0 2px var(--color-primary01);
 }
 
@@ -24,10 +23,6 @@
   :host(:not([disabled])) .z-tool:hover {
     background-color: var(--color-primary03);
   }
-}
-
-:host([active]:not([disabled])) .z-tool {
-  background-color: var(--color-primary03);
 }
 
 :host([disabled]) .z-tool {

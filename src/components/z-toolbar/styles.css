@@ -12,6 +12,7 @@
 
 ::slotted(.z-toolbar-group) {
   display: inline-flex;
+  gap: calc(var(--space-unit) / 2);
 }
 
 ::slotted(.z-toolbar-group:not(:last-child)) {
