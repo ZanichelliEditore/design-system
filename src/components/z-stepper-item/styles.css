@@ -82,6 +82,7 @@
 
 :host([pressed]:not([disabled])) .indicator {
   border-color: var(--color-hover-primary);
+  border-width: calc(var(--border-size-medium) * 2);
   background: var(--color-hover-primary);
   color: var(--color-text-inverse);
 }
