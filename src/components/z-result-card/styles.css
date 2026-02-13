@@ -57,9 +57,9 @@ z-book-cover {
 .card-subtitle {
   display: -webkit-box;
   overflow: hidden;
-  color: var(--color-default-text);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  color: var(--color-default-text);
   line-clamp: 2;
   line-height: 1.4;
   word-break: break-word;
