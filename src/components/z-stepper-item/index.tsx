@@ -42,12 +42,16 @@ export class ZStepperItem {
     const role = href ? {role: "link"} : undefined;
     const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
     const tabindex = this.pressed || this.href === "" ? {tabindex: -1} : undefined;
+    const ariaPressed = this.pressed !== undefined ? {"aria-pressed": String(this.pressed)} : undefined;
+    const ariaDisabled = this.disabled !== undefined ? {"aria-disabled": String(this.disabled)} : undefined;
 
     return {
       ...href,
       ...role,
       ...current,
       ...tabindex,
+      ...ariaPressed,
+      ...ariaDisabled,
     };
   }
 
