@@ -17,6 +17,21 @@ a {
   display: block;
   width: 100%;
   height: 100%;
+  border-radius: 4px;
+}
+
+a:focus {
+  outline: 2px solid #005a9c;
+  outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible {
+  outline: 2px solid #005a9c;
+  outline-offset: 2px;
 }
 
 :host(.mobile) {
