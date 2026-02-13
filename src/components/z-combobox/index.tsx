@@ -427,6 +427,7 @@ export class ZCombobox {
       ([key, value], index) => {
         return (
           <z-list-group
+            size={this.getControlToListSize()}
             divider-type={ListDividerType.ELEMENT}
             ariaLabelledby={`${this.inputid}_list_group_${index}`}
           >
