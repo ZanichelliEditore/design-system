@@ -314,12 +314,15 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const describedby =
+      boolean(this.message) !== false ? {"aria-describedby": `${this.htmlid}_message`} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...describedby,
     };
   }
 
@@ -454,6 +457,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        htmlid={`${this.htmlid}_message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
@@ -468,6 +472,8 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaDescribedby =
+      boolean(this.message) !== false ? {"aria-describedby": `${this.htmlid}_message`} : {};
 
     return (
       <Fragment>
@@ -487,6 +493,7 @@ export class ZInput {
             }}
             aria-label={this.ariaLabel || undefined}
             {...this.getRoleAttribute()}
+            {...ariaDescribedby}
           ></textarea>
         </div>
         {this.renderMessage()}
