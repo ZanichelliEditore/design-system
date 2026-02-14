@@ -36,18 +36,26 @@ export class ZStepperItem {
   @Prop({reflect: true})
   disabled: boolean;
 
+  /**
+   * The aria-label for the button.
+   */
+  @Prop({reflect: true, attribute: "aria-label"})
+  ariaLabel: string;
+
   private getAttributes(): Record<string, unknown> {
     const href =
       this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
     const role = href ? {role: "link"} : undefined;
     const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
     const tabindex = this.pressed || this.href === "" ? {tabindex: -1} : undefined;
+    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : undefined;
 
     return {
       ...href,
       ...role,
       ...current,
       ...tabindex,
+      ...ariaLabel,
     };
   }
 
