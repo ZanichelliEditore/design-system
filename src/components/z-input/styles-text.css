@@ -60,6 +60,7 @@
 .text-wrapper .icons-wrapper > button.reset-icon,
 .text-wrapper .icons-wrapper > button.toggle-password-icon {
   cursor: pointer;
+
   /* WCAG 2.5.2: Prevent double-tap-to-zoom gesture from being confused with button activation */
   touch-action: manipulation;
 }
