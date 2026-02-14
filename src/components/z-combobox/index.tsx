@@ -371,12 +371,12 @@ export class ZCombobox {
 
     return (
       <z-list-element
-        id={`option-${item.id}`}
+        id={`checkbox-${item.id}`}
         htmlTabindex={null}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
-        role={isDisabled ? "presentation" : "option"}
-        aria-selected={item.checked ? "true" : "false"}
+        role={isDisabled ? "presentation" : "checkbox"}
+        aria-checked={item.checked ? "true" : "false"}
       >
         <z-input
           type={InputType.CHECKBOX}
