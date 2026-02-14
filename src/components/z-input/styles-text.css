@@ -59,12 +59,12 @@
 
 .text-wrapper .icons-wrapper > button.reset-icon,
 .text-wrapper .icons-wrapper > button.toggle-password-icon {
-  min-width: 24px;
-  min-height: 24px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  cursor: pointer;
 }
 
 .text-wrapper .icons-wrapper > .input-icon {
