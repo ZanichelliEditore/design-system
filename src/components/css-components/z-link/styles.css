@@ -11,7 +11,7 @@ button.z-link {
   cursor: pointer;
   font-family: var(--font-family-sans);
   line-height: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a.z-link.z-link-icon,
