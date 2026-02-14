@@ -437,6 +437,7 @@ export class ZInput {
         class="input-icon toggle-password-icon"
         disabled={this.disabled}
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
+        aria-pressed={this.passwordHidden ? "false" : "true"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
         <z-icon
