@@ -5,16 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
-export { IconName } from "./constants/iconset";
 export namespace Components {
     /**
      * Accordion component.
@@ -32,7 +30,6 @@ export namespace Components {
     interface ZAccordion {
         /**
           * Enable highlight band on the `summary`'s left edge.
-          * @default false
          */
         "highlight": boolean;
         /**
@@ -41,7 +38,6 @@ export namespace Components {
         "icon": string;
         /**
           * Disabled state of the accordion.
-          * @default false
          */
         "isDisabled": boolean;
         /**
@@ -50,22 +46,18 @@ export namespace Components {
         "label": string;
         /**
           * The open state of the accordion.
-          * @default false
          */
         "open": boolean;
         /**
           * Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`.
-          * @default true
          */
         "shadow": boolean;
         /**
           * Size of the component.
-          * @default ControlSize.BIG
          */
         "size": ControlSize;
         /**
           * Accordion variant.
-          * @default AccordionVariant.DEFAULT
          */
         "variant": AccordionVariant;
     }
@@ -91,22 +83,18 @@ export namespace Components {
     interface ZAnchorNavigation {
         /**
           * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
-          * @default true
          */
         "autoCurrent": boolean;
         /**
           * Sets the label of the button displayed on mobile viewport when the anchor navigation is collapsed
-          * @default "salta a"
          */
         "collapsedLabel": string;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
-          * @default false
          */
         "hideUnselected": boolean;
         /**
           * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
-          * @default false
          */
         "isCollapsed": boolean;
     }
@@ -121,22 +109,18 @@ export namespace Components {
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
-          * @default false
          */
         "drawerOpen": boolean;
         /**
           * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
-          * @default false
          */
         "enableOffcanvas": boolean;
         /**
           * Enable the search bar.
-          * @default false
          */
         "enableSearch": boolean;
         /**
           * Enable laZ logo.
-          * @default true
          */
         "enableZLogo": boolean;
         /**
@@ -145,17 +129,14 @@ export namespace Components {
         "searchPageUrl": string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
         "searchPlaceholder": string;
         /**
           * Search string for the search bar.
-          * @default ""
          */
         "searchString": string;
         /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
          */
         "stuck": boolean;
     }
@@ -217,17 +198,14 @@ export namespace Components {
     interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
-          * @default false
          */
         "drawerOpen": boolean;
         /**
           * Enable the search bar.
-          * @default false
          */
         "enableSearch": boolean;
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-          * @default "auto"
          */
         "flow": "auto" | "stack" | "offcanvas";
         /**
@@ -236,7 +214,6 @@ export namespace Components {
         "hero": string;
         /**
           * Should place an overlay over the hero image. Useful for legibility purpose.
-          * @default false
          */
         "overlay": boolean;
         /**
@@ -245,31 +222,26 @@ export namespace Components {
         "searchPageUrl": string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
         "searchPlaceholder": string;
         /**
           * Search string for the search bar.
-          * @default ""
          */
         "searchString": string;
         /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
          */
         "stuck": boolean;
     }
     interface ZAriaAlert {
         /**
           * Aria live mode
-          * @default ZAriaAlertMode.POLITE
          */
         "mode": ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
           * [optional] Avatar background color
-          * @default "gray700"
          */
         "backgroundColor"?: string;
         /**
@@ -278,7 +250,6 @@ export namespace Components {
         "image"?: string;
         /**
           * [optional] Avatar size
-          * @default AvatarSize.MEDIUM
          */
         "size"?: AvatarSize;
         /**
@@ -287,7 +258,6 @@ export namespace Components {
         "text"?: string;
         /**
           * [optional] Avatar text color
-          * @default "color-white"
          */
         "textColor"?: string;
     }
@@ -319,7 +289,6 @@ export namespace Components {
         "fallbackCover"?: string;
         /**
           * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
-          * @default false
          */
         "hasMultipleCovers": boolean;
         /**
@@ -328,12 +297,10 @@ export namespace Components {
         "isbn"?: string;
         /**
           * [optional] ISBN label
-          * @default ""
          */
         "isbnLabel": string;
         /**
           * [optional] Value for the `target` attribute of the links created by `ebookUrl` prop.
-          * @default "_blank"
          */
         "linkTarget": string;
         /**
@@ -346,7 +313,6 @@ export namespace Components {
         "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
-          * @default BookCardVariant.PORTRAIT
          */
         "variant": BookCardVariant;
         /**
@@ -370,7 +336,6 @@ export namespace Components {
         "info"?: string;
         /**
           * Show or hide laZ prefix before app name
-          * @default true
          */
         "laz"?: boolean;
         /**
@@ -415,7 +380,6 @@ export namespace Components {
         "isbn"?: string;
         /**
           * [optional] ISBN label
-          * @default ""
          */
         "isbnLabel": string;
         /**
@@ -460,7 +424,6 @@ export namespace Components {
     interface ZBookCover {
         /**
           * Whether to apply a border around the cover image (always applied when `multiple` is enabled).
-          * @default false
          */
         "bordered": boolean;
         /**
@@ -473,51 +436,42 @@ export namespace Components {
         "fallbackCover": string;
         /**
           * Whether to show a stack of covers to represent multiple books.
-          * @default false
          */
         "multiple": boolean;
     }
     interface ZBreadcrumb {
         /**
           * [optional] Variant of first node
-          * @default BreadcrumbHomepageVariant.ICON
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
-          * @default 5
          */
         "maxNodesToShow"?: number;
         /**
           * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
-          * @default 0
          */
         "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
-          * @default BreadcrumbPathStyle.UNDERLINED
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
           * [optional] Controls the behaviour on <a> tag click/enter
-          * @default false
          */
         "preventFollowUrl"?: boolean;
         /**
           * [optional] Sets the maximun number of chars per single node
-          * @default 30
          */
         "truncateChar"?: number;
     }
     interface ZButton {
         /**
           * defines a string value that labels the internal interactive element. Used for accessibility.
-          * @default undefined
          */
         "ariaLabel": string | undefined;
         /**
           * HTML button disabled attribute.
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -538,7 +492,6 @@ export namespace Components {
         "icon"?: string;
         /**
           * the button icon position. Defaults to `left`
-          * @default IconPosition.LEFT
          */
         "iconPosition"?: IconPosition;
         /**
@@ -548,12 +501,10 @@ export namespace Components {
         /**
           * **Deprecated:** Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
-          * @default ""
          */
         "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ButtonSize | ControlSize;
         /**
@@ -562,12 +513,10 @@ export namespace Components {
         "target"?: string;
         /**
           * HTML button type attribute.
-          * @default ButtonType.BUTTON
          */
         "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
-          * @default ButtonVariant.PRIMARY
          */
         "variant"?: ButtonVariant;
     }
@@ -586,7 +535,6 @@ export namespace Components {
         "desclabel"?: string;
         /**
           * selected flag (optional)
-          * @default false
          */
         "isselected"?: boolean;
         /**
@@ -595,17 +543,14 @@ export namespace Components {
         "label": string;
         /**
           * sortable flag (optional)
-          * @default true
          */
         "sortasc"?: boolean;
         /**
           * sort label content (ascending) (optional)
-          * @default "A-Z"
          */
         "sortlabelasc"?: string;
         /**
           * sort label content (descending) (optional)
-          * @default "Z-A"
          */
         "sortlabeldesc"?: string;
     }
@@ -623,7 +568,6 @@ export namespace Components {
     interface ZCard {
         /**
           * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
-          * @default false
          */
         "clickable": boolean;
         /**
@@ -632,7 +576,6 @@ export namespace Components {
         "coverIcon": string;
         /**
           * Enable shadow. Default: false.
-          * @default false
          */
         "showShadow": boolean;
         /**
@@ -652,17 +595,14 @@ export namespace Components {
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
           * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
-          * @default true
          */
         "fixedArrows": boolean;
         /**
           * The height of the ghost loader (only visible when `isLoading` is set to `true`)
-          * @default 100
          */
         "ghostLoadingHeight": number;
         /**
           * When enabled, navigating next the last item will go back to the first item and vice versa.
-          * @default false
          */
         "infinite": boolean;
         /**
@@ -679,19 +619,16 @@ export namespace Components {
         "progressMode"?: CarouselProgressMode;
         /**
           * Shows only one content at a time
-          * @default false
          */
         "single": boolean;
     }
     interface ZChip {
         /**
           * z-chip aria-label string
-          * @default ""
          */
         "ariaLabel": string;
         /**
           * set z-chip as disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -704,52 +641,20 @@ export namespace Components {
         "interactiveIcon"?: string;
         /**
           * z-chip size type, can be default, medium or small
-          * @default ZChipType.DEFAULT
          */
         "type"?: ZChipType;
-    }
-    /**
-     * Color picker component.
-     * This component allows the user to pick a color from a predefined set.
-     */
-    interface ZColorPicker {
-        /**
-          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
-          * @default false
-         */
-        "disableTransparent": boolean;
-        /**
-          * The aria-label for the color picker, e.g. "Select a background color for the label".
-         */
-        "htmlAriaLabel": string;
-        /**
-          * The language for the aria labels inside the color picker.
-          * @default "it"
-         */
-        "lng": "it" | "en";
-        /**
-          * The selected color to highlight.
-         */
-        "selectedColor": ColorPickerPalette;
-        /**
-          * Focuses the selected or first enabled color button and makes the container non-tabbable.
-         */
-        "setFocus": () => Promise<void>;
     }
     interface ZCombobox {
         /**
           * check all label (optional)
-          * @default "Seleziona tutti"
          */
         "checkalltext"?: string;
         /**
           * the combobox is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * show "check all" checkbox (optional)
-          * @default false
          */
         "hascheckall"?: boolean;
         /**
@@ -758,26 +663,18 @@ export namespace Components {
         "hasgroupitems"?: boolean;
         /**
           * show search input flag (optional)
-          * @default false
          */
         "hassearch"?: boolean;
         /**
-          * the combobox aria-label
-         */
-        "htmlAriaLabel"?: string;
-        /**
           * input unique id
-          * @default `combo-${randomId()}`
          */
         "inputid": string;
         /**
           * fixed style flag
-          * @default false
          */
         "isfixed": boolean;
         /**
           * toggle combo list opening flag
-          * @default false
          */
         "isopen": boolean;
         /**
@@ -790,12 +687,10 @@ export namespace Components {
         "label": string;
         /**
           * max number of checkable items (0 = unlimited)
-          * @default 0
          */
         "maxcheckableitems": number;
         /**
           * no result text message
-          * @default "Nessun risultato"
          */
         "noresultslabel"?: string;
         /**
@@ -812,12 +707,10 @@ export namespace Components {
         "searchtitle"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
           * uncheck all label (optional)
-          * @default "Deseleziona tutti"
          */
         "uncheckalltext"?: string;
     }
@@ -831,24 +724,20 @@ export namespace Components {
     interface ZCoverHero {
         /**
           * Vertical content position (for `STACKED` variant).
-          * @default CoverHeroContentPosition.TOP
          */
         "contentPosition": CoverHeroContentPosition;
         /**
           * Whether to keep the image aspect ratio. If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size; instead, the height of the component follows the content's one. Note: it may be necessary to set a min and/or max height to the component.
-          * @default true
          */
         "preserveAspectRatio": boolean;
         /**
           * Cover hero variant. Can be `OVERLAY` or `STACKED`.
-          * @default CoverHeroVariant.OVERLAY
          */
         "variant": CoverHeroVariant;
     }
     interface ZDatePicker {
         /**
           * z-input aria label
-          * @default ""
          */
         "ariaLabel": string;
         /**
@@ -861,34 +750,28 @@ export namespace Components {
         "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
-          * @default ZDatePickerMode.DATE
          */
         "mode": ZDatePickerMode;
         /**
           * [Optional] the datepicker input name
-          * @default undefined
          */
         "name"?: string;
         /**
           * [Optional] the datepicker input value
-          * @default undefined
          */
         "value"?: string;
     }
     interface ZDivider {
         /**
           * [optional] Divider color
-          * @default "gray200"
          */
         "color"?: string;
         /**
           * [optional] Divider orintation
-          * @default DividerOrientation.HORIZONTAL
          */
         "orientation"?: DividerOrientation;
         /**
           * [optional] Divider size
-          * @default DividerSize.SMALL
          */
         "size"?: DividerSize;
     }
@@ -927,7 +810,6 @@ export namespace Components {
         "description"?: string;
         /**
           * drag & drop button label
-          * @default "Rilascia i file in questa area per allegarli."
          */
         "dragAndDropLabel"?: string;
         /**
@@ -936,7 +818,6 @@ export namespace Components {
         "errorModalMessage"?: string;
         /**
           * error modal title
-          * @default "Errore di caricamento"
          */
         "errorModalTitle"?: string;
         /**
@@ -949,12 +830,10 @@ export namespace Components {
         "getFiles": () => Promise<File[]>;
         /**
           * uploaded files history rendering
-          * @default true
          */
         "hasFileSection"?: boolean;
         /**
           * Value to set on the file input's `name` attribute (for use with forms)
-          * @default "z-file-upload"
          */
         "inputName"?: string;
         /**
@@ -967,64 +846,50 @@ export namespace Components {
         "removeFile": (fileName: string) => Promise<void>;
         /**
           * Whether to show errors in the internal modal or leave the handling to the app. Errors will still be emitted.
-          * @default true
          */
         "showErrors": boolean;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
-          * @default ZFileUploadType.DEFAULT
          */
         "type": ZFileUploadType;
         /**
           * upoload button label
-          * @default "allega"
          */
         "uploadBtnLabel"?: string;
         /**
           * upload clickable message
-          * @default "Carica"
          */
         "uploadClickableMessage"?: string;
         /**
           * upload message
-          * @default "o trascina dal tuo computer"
          */
         "uploadMessage"?: string;
         /**
           * loaded files label
-          * @default "File appena caricati"
          */
         "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
-    /**
-     * Component to render an SVG icon from the internal icon set, selected by `name`.
-     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
-     */
     interface ZIcon {
         /**
-          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
+          * icon fill (optional)
          */
         "fill"?: string;
         /**
-          * Icon height (optional)
+          * icon height (optional)
          */
         "height"?: number | string;
         /**
-          * HTML `id` attribute (optional)
+          * icon id (optional)
          */
         "iconid"?: string;
         /**
-          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
-         */
-        "indicatorColor"?: string;
-        /**
-          * Icon name
+          * icon name
          */
         "name": string;
         /**
-          * Icon width (optional)
+          * icon width (optional)
          */
         "width"?: number | string;
     }
@@ -1035,7 +900,6 @@ export namespace Components {
         "boxid": string;
         /**
           * render close icon flag
-          * @default true
          */
         "isclosable": boolean;
     }
@@ -1049,12 +913,10 @@ export namespace Components {
     interface ZInfoReveal {
         /**
           * Aria label of the trigger button. It will be only used when `label` prop is empty.
-          * @default "Apri pannello informazioni"
          */
         "ariaLabel": string;
         /**
           * Name of the icon for the trigger button
-          * @default "informationsource"
          */
         "icon"?: string;
         /**
@@ -1063,19 +925,16 @@ export namespace Components {
         "label"?: string;
         /**
           * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
-          * @default InfoRevealPosition.BOTTOM_RIGHT
          */
         "position"?: InfoRevealPosition;
         /**
           * Size of the trigger button
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
     }
     interface ZInput {
         /**
           * the input aria-label
-          * @default ""
          */
         "ariaLabel": string;
         /**
@@ -1084,17 +943,14 @@ export namespace Components {
         "autocomplete"?: string;
         /**
           * checked: available for checkbox, radio
-          * @default false
          */
         "checked"?: boolean;
         /**
           * the input is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * render clear icon when typing (optional): available for text
-          * @default true
          */
         "hasclearicon"?: boolean;
         /**
@@ -1110,17 +966,11 @@ export namespace Components {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
-         */
-        "htmlAriaDescribedBy"?: string;
-        /**
           * the input aria-expaded: available for text, password, number, email
-          * @default ""
          */
         "htmlAriaExpanded": string;
         /**
           * the id of the input element
-          * @default `id-${randomId()}`
          */
         "htmlid": string;
         /**
@@ -1141,7 +991,6 @@ export namespace Components {
         "label"?: string;
         /**
           * the input label position: available for checkbox, radio
-          * @default LabelPosition.RIGHT
          */
         "labelPosition"?: LabelPosition;
         /**
@@ -1154,7 +1003,6 @@ export namespace Components {
         "maxlength"?: number;
         /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
-          * @default true
          */
         "message"?: string | boolean;
         /**
@@ -1179,22 +1027,18 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * the input is readonly
-          * @default false
          */
         "readonly"?: boolean;
         /**
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
-          * @default false
          */
         "required"?: boolean;
         /**
           * the input role
-          * @default ""
          */
         "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
@@ -1214,21 +1058,21 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ZInputGroup {
+        /**
+          * Whether to visually hide the legend while keeping it accessible to screen readers. Useful when the legend text is redundant with a visible heading.
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility to provide context to screen reader users.
+         */
+        "legend": string;
+    }
     interface ZInputMessage {
         /**
           * input disabled status (optional)
          */
         "disabled"?: boolean;
-        /**
-          * the id of the message element (optional)
-          * @default `id-${randomId()}`
-         */
-        "htmlId"?: string;
-        /**
-          * the role to set when both the message and the status are populated (optional)
-          * @default "alert"
-         */
-        "htmlRole": null | string;
         /**
           * input helper message
          */
@@ -1241,64 +1085,52 @@ export namespace Components {
     interface ZList {
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
           * Sets role of the element.
-          * @default "list"
          */
         "role": string;
         /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
     interface ZListElement {
         /**
           * [optional] Align expandable button left or right.
-          * @default ExpandableListButtonAlign.LEFT
          */
         "alignButton"?: ExpandableListButtonAlign;
         /**
           * [optional] Sets element clickable.
-          * @default false
          */
         "clickable"?: boolean;
         /**
           * [optional] Sets text color of the element.
-          * @default "none"
          */
         "color"?: string;
         /**
           * [optional] Sets disabled style of the element.
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
-          * @default "color-surface03"
          */
         "dividerColor"?: string;
         /**
           * [optional] Sets the divider size.
-          * @default DividerSize.SMALL
          */
         "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
-          * @default ListDividerType.NONE
          */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets element as expandable.
-          * @default false
          */
         "expandable"?: boolean;
         /**
           * [optional] Sets expandable style to element.
-          * @default ExpandableListStyle.ACCORDION
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
@@ -1307,7 +1139,6 @@ export namespace Components {
         "hasTreeItems"?: boolean;
         /**
           * set tabindex to Host tag (optional). Defaults to 0.
-          * @default 0
          */
         "htmlTabindex"?: number | null;
         /**
@@ -1316,39 +1147,32 @@ export namespace Components {
         "listElementId"?: number;
         /**
           * [optional] position of the list element inside the list or the group
-          * @default "0"
          */
         "listElementPosition"?: string;
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
           * Sets element role.
-          * @default "listitem"
          */
         "role": string;
         /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
     interface ZListGroup {
         /**
           * [optional] Sets the divider color.
-          * @default "gray200"
          */
         "dividerColor"?: string;
         /**
           * [optional] Sets the divider size.
-          * @default DividerSize.SMALL
          */
         "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
-          * @default ListDividerType.NONE
          */
         "dividerType"?: ListDividerType;
         /**
@@ -1357,17 +1181,10 @@ export namespace Components {
         "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
-          * Sets element role.
-          * @default "group"
-         */
-        "role": string;
-        /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
@@ -1407,7 +1224,6 @@ export namespace Components {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default true
          */
         "floating"?: boolean;
         /**
@@ -1416,12 +1232,10 @@ export namespace Components {
         "focusLastItem": () => Promise<void>;
         /**
           * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
-          * @default -1
          */
         "htmlTabindex": number;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open": boolean;
         /**
@@ -1430,7 +1244,6 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         /**
           * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
          */
         "verticalContext": boolean;
     }
@@ -1444,17 +1257,14 @@ export namespace Components {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
          */
         "floating"?: boolean;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open": boolean;
         /**
           * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
          */
         "verticalContext": boolean;
     }
@@ -1472,7 +1282,6 @@ export namespace Components {
         "focusLastItem": () => Promise<void>;
         /**
           * Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
-          * @default -1
          */
         "htmlTabindex": number;
         /**
@@ -1499,12 +1308,10 @@ export namespace Components {
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
-          * @default false
          */
         "alertdialog"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
-          * @default true
          */
         "closable"?: boolean;
         /**
@@ -1513,12 +1320,10 @@ export namespace Components {
         "close": () => Promise<void>;
         /**
           * aria-label for close button (optional)
-          * @default "chiudi modale"
          */
         "closeButtonLabel": string;
         /**
           * if true, the page scroll is locked when the modal is open (optional, default is true)
-          * @default true
          */
         "lockPageScroll"?: boolean;
         /**
@@ -1539,7 +1344,6 @@ export namespace Components {
         "open": () => Promise<void>;
         /**
           * if true, the modal can scroll inside, if false the viewport can scroll
-          * @default true
          */
         "scrollInside"?: boolean;
     }
@@ -1554,12 +1358,10 @@ export namespace Components {
         "faded": boolean;
         /**
           * highlighted status
-          * @default false
          */
         "ishighlighted": boolean;
         /**
           * pressed status
-          * @default false
          */
         "ispressed": boolean;
     }
@@ -1608,22 +1410,18 @@ export namespace Components {
         "cover": string;
         /**
           * card is disabled
-          * @default false
          */
         "disabled": boolean;
         /**
           * flip button label
-          * @default "INFO"
          */
         "flipbuttonlabel": string;
         /**
           * card is flipped
-          * @default false
          */
         "flipped": boolean;
         /**
           * hide info button
-          * @default false
          */
         "hideinfobtn": boolean;
         /**
@@ -1642,7 +1440,6 @@ export namespace Components {
         "cardtype"?: LicenseType;
         /**
           * display footer custom slotted content
-          * @default false
          */
         "customContent": boolean;
         /**
@@ -1655,7 +1452,6 @@ export namespace Components {
         "isbn": string;
         /**
           * footer opened by default (optional)
-          * @default false
          */
         "opened"?: boolean;
         /**
@@ -1682,7 +1478,6 @@ export namespace Components {
     interface ZMyzCardIcon {
         /**
           * description of the icon
-          * @default ""
          */
         "ariaLabel": string;
         /**
@@ -1691,7 +1486,6 @@ export namespace Components {
         "icon": string;
         /**
           * disabled status flag
-          * @default false
          */
         "isdisabled": boolean;
     }
@@ -1702,7 +1496,6 @@ export namespace Components {
         "data": string | DictionaryData;
         /**
           * tabindex link attribute (optional)
-          * @default 0
          */
         "htmltabindex"?: number;
     }
@@ -1737,7 +1530,6 @@ export namespace Components {
         "link"?: string;
         /**
           * link target (optional)
-          * @default "_self"
          */
         "linktarget"?: string;
         /**
@@ -1750,7 +1542,6 @@ export namespace Components {
         "text": string;
         /**
           * underlined style flag
-          * @default true
          */
         "underlined": boolean;
     }
@@ -1763,30 +1554,24 @@ export namespace Components {
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
-          * @default ""
          */
         "ariaLabel": string;
         /**
           * Navigation tabs orientation.
-          * @default NavigationTabsOrientation.HORIZONTAL
          */
         "orientation"?: NavigationTabsOrientation;
         /**
           * Index of the selected tab. Useful to programmatically select a tab. The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
-          * @default undefined
          */
         "selectedTab": number;
         /**
           * Navigation tabs size.
-          * @default NavigationTabsSize.BIG
          */
         "size"?: NavigationTabsSize;
     }
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
@@ -1794,28 +1579,20 @@ export namespace Components {
          */
         "actiontext"?: string;
         /**
-          * Border position
-          * @default "bottom"
-         */
-        "borderposition"?: "top" | "bottom";
-        /**
           * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
         /**
           * Enable close icon
-          * @default false
          */
         "showclose"?: boolean;
         /**
           * Enable shadow.
           * @deprecated shadow is available only for the `sticky` version of the notification.
-          * @default false
          */
         "showshadow"?: boolean;
         /**
           * Enable sticky notification bar.
-          * @default false
          */
         "sticky"?: boolean;
         /**
@@ -1831,35 +1608,29 @@ export namespace Components {
     interface ZOffcanvas {
         /**
           * Whether the offcanvas is open. Default: false
-          * @default false
          */
         "open": boolean;
         /**
           * Whether to show the backdrop when the offcanvas is open. Default: true
-          * @default true
          */
         "showBackdrop": boolean;
         /**
           * Skip the opening transition when the offcanvas is already open at the first render.
           * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
-          * @default false
          */
         "skipLoadAnimation": boolean;
         /**
           * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
-          * @default TransitionDirection.LEFT
          */
         "transitiondirection"?: TransitionDirection;
         /**
           * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
-          * @default OffCanvasVariant.PUSHCONTENT
          */
         "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
         /**
           * Input number
-          * @default 6
          */
         "inputNum"?: number;
         /**
@@ -1879,12 +1650,10 @@ export namespace Components {
     interface ZPagination {
         /**
           * Current page.
-          * @default 1
          */
         "currentPage": number;
         /**
           * Enable buttons to go to the first and last pages.
-          * @default false
          */
         "edges": boolean;
         /**
@@ -1897,12 +1666,10 @@ export namespace Components {
         "label"?: string;
         /**
           * Enable navigation arrows.
-          * @default true
          */
         "navArrows": boolean;
         /**
           * Number of pages to skip.
-          * @default 0
          */
         "skip": number;
         /**
@@ -1937,7 +1704,6 @@ export namespace Components {
         "imgurl"?: string;
         /**
           * disabled status flag (optional)
-          * @default false
          */
         "isdisabled"?: boolean;
         /**
@@ -1950,7 +1716,6 @@ export namespace Components {
         "linklabel": string;
         /**
           * link target (optional)
-          * @default "_blank"
          */
         "target"?: string;
         /**
@@ -1976,27 +1741,22 @@ export namespace Components {
         "bindTo"?: string | HTMLElement;
         /**
           * Whether to center the popup on the main side (according to "position").
-          * @default false
          */
         "center": boolean;
         /**
-          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
-          * @default true
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable": boolean;
         /**
-          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
-          * @default false
+          * The open state of the popover.
          */
         "open": boolean;
         /**
           * The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise.
-          * @default PopoverPosition.TOP
          */
         "position"?: PopoverPosition;
         /**
           * Whether to show popover's arrow.
-          * @default false
          */
         "showArrow": boolean;
     }
@@ -2011,27 +1771,22 @@ export namespace Components {
         "firstLabel"?: string;
         /**
           * readonly mode
-          * @default ""
          */
         "firstPickerPlaceholder": string;
         /**
           * readonly mode
-          * @default false
          */
         "firstPickerReadOnly": boolean;
         /**
           * readonly mode
-          * @default ""
          */
         "lastPickerPlaceholder": string;
         /**
           * readonly mode
-          * @default false
          */
         "lastPickerReadOnly": boolean;
         /**
           * [Optional] datepicker mode: date or datetime
-          * @default ZRangePickerMode.DATE
          */
         "mode": ZRangePickerMode;
         /**
@@ -2070,12 +1825,10 @@ export namespace Components {
         "fallbackCover"?: string;
         /**
           * Whether to show a stack of covers to represent multiple books.
-          * @default false
          */
         "hasMultipleCovers": boolean;
         /**
           * Enables the "info" variant of the card.
-          * @default false
          */
         "isInfoCard": boolean;
         /**
@@ -2091,38 +1844,26 @@ export namespace Components {
     interface ZSearchbar {
         /**
           * Show autocomplete results
-          * @default false
          */
         "autocomplete"?: boolean;
         /**
           * Minimun number of characters to dispatch typing event
-          * @default 3
          */
         "autocompleteMinChars"?: number;
         /**
-          * The input aria-label
-         */
-        "htmlAriaLabel"?: string;
-        /**
-          * The id of the searchbar element
-          * @default `searchbar-${randomId()}`
+          * the id of the searchbar element
          */
         "htmlid": string;
-        /**
-          * The input label
-         */
-        "label"?: string;
         /**
           * Search input placeholder
          */
         "placeholder"?: string;
         /**
           * Prevent submit action
-          * @default false
          */
         "preventSubmit"?: boolean;
         /**
-          * Number of results shown. Default: all
+          * Number of results shown - default all
          */
         "resultsCount"?: number;
         /**
@@ -2130,28 +1871,23 @@ export namespace Components {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
-          * Hide the label of the submit button, showing only the icon
-          * @default false
+          * Set button icon without label
          */
         "searchButtonIconOnly"?: boolean;
         /**
           * Search helper text
-          * @default "Cerca {searchString}"
          */
         "searchHelperLabel"?: string;
         /**
           * Show submit button
-          * @default false
          */
         "showSearchButton"?: boolean;
         /**
-          * Size of the `z-input` and submit `z-button`
-          * @default ControlSize.BIG
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
         /**
           * Sort autocomplete results items
-          * @default false
          */
         "sortResultsItems"?: boolean;
         /**
@@ -2159,8 +1895,7 @@ export namespace Components {
          */
         "value"?: string;
         /**
-          * Submit `z-button` variant
-          * @default ButtonVariant.PRIMARY
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariant;
     }
@@ -2172,29 +1907,24 @@ export namespace Components {
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
-          * @default ZSectionTitleDividerPosition.BEFORE
          */
         "dividerPosition": ZSectionTitleDividerPosition;
         /**
           * Whether the primary title text is uppercase.
-          * @default true
          */
         "uppercase": boolean;
     }
     interface ZSelect {
         /**
           * the input aria-label
-          * @default ""
          */
         "ariaLabel": string;
         /**
           * the input has autocomplete option
-          * @default false
          */
         "autocomplete"?: boolean;
         /**
           * the input is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -2209,7 +1939,6 @@ export namespace Components {
         "hasTreeItems"?: boolean;
         /**
           * the id of the input element
-          * @default `id-${randomId()}`
          */
         "htmlid": string;
         /**
@@ -2218,12 +1947,10 @@ export namespace Components {
         "htmltitle"?: string;
         /**
           * When fixed, it occupies space and pushes down next elements.
-          * @default false
          */
         "isfixed"?: boolean;
         /**
           * the input select options
-          * @default []
          */
         "items": SelectItem[] | string;
         /**
@@ -2232,7 +1959,6 @@ export namespace Components {
         "label"?: string;
         /**
           * input helper message (optional) - if set to `false` message won't be displayed
-          * @default true
          */
         "message"?: string | boolean;
         /**
@@ -2241,7 +1967,6 @@ export namespace Components {
         "name"?: string;
         /**
           * no result text message
-          * @default "Nessun risultato"
          */
         "noresultslabel"?: string;
         /**
@@ -2250,7 +1975,6 @@ export namespace Components {
         "placeholder"?: string;
         /**
           * the input is readonly
-          * @default false
          */
         "readonly"?: boolean;
         "resetItem"?: string;
@@ -2264,7 +1988,6 @@ export namespace Components {
         "showChildrenOfMatchingParent"?: boolean;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
@@ -2278,7 +2001,6 @@ export namespace Components {
     interface ZSkipToContent {
         /**
           * Array to fill link into skip-content
-          * @default []
          */
         "links": string | SkipToContentLink[];
         /**
@@ -2327,7 +2049,6 @@ export namespace Components {
     interface ZTable {
         /**
           * Whether the table cells should show a border between them.
-          * @default false
          */
         "bordered": boolean;
     }
@@ -2361,17 +2082,14 @@ export namespace Components {
         "colspan": number;
         /**
           * Set the popover position, the default is "auto".
-          * @default PopoverPosition.AUTO
          */
         "popoverPosition"?: PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
-          * @default null
          */
         "showMenu": VisibilityCondition;
         /**
           * Whether the cell should stick.
-          * @default false
          */
         "sticky": boolean;
     }
@@ -2381,7 +2099,6 @@ export namespace Components {
     interface ZTfoot {
         /**
           * If true, the footer will be stuck to the bottom of the table.
-          * @default false
          */
         "sticky": boolean;
     }
@@ -2395,17 +2112,14 @@ export namespace Components {
         "colspan": number;
         /**
           * Set popover position.
-          * @default PopoverPosition.AUTO
          */
         "popoverPosition": PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
-          * @default null
          */
         "showMenu": VisibilityCondition;
         /**
           * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
-          * @default null
          */
         "showSorting": VisibilityCondition;
         /**
@@ -2414,12 +2128,10 @@ export namespace Components {
         "sortDirection"?: SortDirection;
         /**
           * Sorted state of the column.
-          * @default false
          */
         "sorted": boolean | null;
         /**
           * Whether the cell should stick.
-          * @default false
          */
         "sticky": boolean;
     }
@@ -2429,12 +2141,10 @@ export namespace Components {
     interface ZThead {
         /**
           * The element is focusable
-          * @default false
          */
         "isFocusable": boolean;
         /**
           * If true, the header will be stuck to the top of the table.
-          * @default false
          */
         "sticky": boolean;
     }
@@ -2452,7 +2162,6 @@ export namespace Components {
         "closebutton": boolean;
         /**
           * toast notification draggable percentage
-          * @default 80
          */
         "draggablepercentage"?: number;
         /**
@@ -2461,7 +2170,6 @@ export namespace Components {
         "heading"?: string;
         /**
           * toast notification can be draggable
-          * @default true
          */
         "isdraggable"?: boolean;
         /**
@@ -2470,7 +2178,6 @@ export namespace Components {
         "message": string;
         /**
           * toast notification autoclose can be paused
-          * @default true
          */
         "pauseonfocusloss"?: boolean;
         /**
@@ -2485,19 +2192,16 @@ export namespace Components {
     interface ZToastNotificationList {
         /**
           * Set the entry position of new notification in the list
-          * @default true
          */
         "newestontop"?: boolean;
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
-          * @default ToastNotificationPosition.TOP_RIGHT
          */
         "position": ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
           * aria-label for the button
-          * @default ""
          */
         "ariaLabel": string;
         /**
@@ -2506,7 +2210,6 @@ export namespace Components {
         "avoidclick": boolean;
         /**
           * disabled status flag (optional)
-          * @default false
          */
         "isdisabled"?: boolean;
         /**
@@ -2515,97 +2218,26 @@ export namespace Components {
         "label": string;
         /**
           * open by default (optional)
-          * @default false
          */
         "opened"?: boolean;
     }
     interface ZToggleSwitch {
         /**
           * Checked state
-          * @default false
          */
         "checked"?: boolean;
         /**
           * Disabled flag
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * HTML id attribute to set to the internal checkbox
-          * @default `toggle-switch-id-${randomId()}`
          */
         "htmlid": string;
         /**
           * Label position
-          * @default LabelPosition.LEFT
          */
         "labelPosition"?: LabelPosition;
-    }
-    /**
-     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     */
-    interface ZTool {
-        /**
-          * Visual active state.
-          * @default false
-         */
-        "active": boolean;
-        /**
-          * Closes the tooltip.
-         */
-        "closeTooltip": () => Promise<void>;
-        /**
-          * Disabled state.
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * Accessible label for the tool trigger. Falls back to tooltip content.
-         */
-        "htmlAriaLabel"?: string;
-        /**
-          * Tool icon
-         */
-        "icon": IconName;
-        /**
-          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
-         */
-        "indicatorColor"?: string;
-        /**
-          * Open state.
-          * @default false
-         */
-        "open": boolean;
-        /**
-          * Focuses the tool's button element.
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * Sets the tab index of the tool's internal button element.
-         */
-        "setTabIndex": (value: number) => Promise<void>;
-        /**
-          * Text displayed inside the tooltip.
-         */
-        "tooltip"?: string;
-        /**
-          * Preferred tooltip position. Defaults to true.
-          * @default PopoverPosition.TOP
-         */
-        "tooltipPosition": PopoverPosition;
-    }
-    /**
-     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
-     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
-     * Tools can be visually grouped using `z-divider` elements as separators.
-     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
-     */
-    interface ZToolbar {
-        /**
-          * Accessible label for the toolbar.
-         */
-        "htmlAriaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -2621,22 +2253,18 @@ export namespace Components {
         "bindTo"?: string | HTMLElement;
         /**
           * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
-          * @default true
          */
         "closable": boolean;
         /**
           * Enable tooltip dark mode.
-          * @default false
          */
         "dark": boolean;
         /**
           * The open state of the tooltip.
-          * @default false
          */
         "open": boolean;
         /**
           * Tooltip position.
-          * @default PopoverPosition.AUTO
          */
         "position": PopoverPosition;
     }
@@ -2648,7 +2276,6 @@ export namespace Components {
     interface ZTr {
         /**
           * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
-          * @default false
          */
         "expandable": boolean;
     }
@@ -2663,7 +2290,6 @@ export namespace Components {
         "htmlSectionTitle": string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
-          * @default []
          */
         "items": TreeListItem[] | string;
     }
@@ -2709,10 +2335,6 @@ export interface ZCarouselCustomEvent<T> extends CustomEvent<T> {
 export interface ZChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZChipElement;
-}
-export interface ZColorPickerCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZColorPickerElement;
 }
 export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2837,14 +2459,6 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
-}
-export interface ZToolCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZToolElement;
-}
-export interface ZTooltipCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZTooltipElement;
 }
 export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3204,27 +2818,6 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
-    interface HTMLZColorPickerElementEventMap {
-        "colorSelected": ColorPickerPalette;
-    }
-    /**
-     * Color picker component.
-     * This component allows the user to pick a color from a predefined set.
-     */
-    interface HTMLZColorPickerElement extends Components.ZColorPicker, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZColorPickerElement: {
-        prototype: HTMLZColorPickerElement;
-        new (): HTMLZColorPickerElement;
-    };
     interface HTMLZComboboxElementEventMap {
         "comboboxChange": any;
     }
@@ -3336,10 +2929,6 @@ declare global {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
     };
-    /**
-     * Component to render an SVG icon from the internal icon set, selected by `name`.
-     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
-     */
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
     var HTMLZIconElement: {
@@ -3397,6 +2986,12 @@ declare global {
     var HTMLZInputElement: {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
+    };
+    interface HTMLZInputGroupElement extends Components.ZInputGroup, HTMLStencilElement {
+    }
+    var HTMLZInputGroupElement: {
+        prototype: HTMLZInputGroupElement;
+        new (): HTMLZInputGroupElement;
     };
     interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
     }
@@ -3700,8 +3295,6 @@ declare global {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3785,8 +3378,8 @@ declare global {
         new (): HTMLZPanelElemElement;
     };
     interface HTMLZPopoverElementEventMap {
-        "positionChange": {position: PopoverPosition};
-        "openChange": {open: boolean};
+        "positionChange": any;
+        "openChange": any;
     }
     /**
      * Popover component.
@@ -4064,43 +3657,6 @@ declare global {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
-    interface HTMLZToolElementEventMap {
-        "toggleSubmenu": any;
-        "toggleTooltip": any;
-    }
-    /**
-     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     */
-    interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZToolElement: {
-        prototype: HTMLZToolElement;
-        new (): HTMLZToolElement;
-    };
-    /**
-     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
-     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
-     * Tools can be visually grouped using `z-divider` elements as separators.
-     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
-     */
-    interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
-    }
-    var HTMLZToolbarElement: {
-        prototype: HTMLZToolbarElement;
-        new (): HTMLZToolbarElement;
-    };
-    interface HTMLZTooltipElementEventMap {
-        "openChange": {open: boolean};
-    }
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -4109,14 +3665,6 @@ declare global {
      * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTooltipElement: {
         prototype: HTMLZTooltipElement;
@@ -4185,7 +3733,6 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
-        "z-color-picker": HTMLZColorPickerElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
@@ -4198,6 +3745,7 @@ declare global {
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
+        "z-input-group": HTMLZInputGroupElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
@@ -4248,8 +3796,6 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
-        "z-tool": HTMLZToolElement;
-        "z-toolbar": HTMLZToolbarElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -4257,8 +3803,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
-
     /**
      * Accordion component.
      * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
@@ -4275,7 +3819,6 @@ declare namespace LocalJSX {
     interface ZAccordion {
         /**
           * Enable highlight band on the `summary`'s left edge.
-          * @default false
          */
         "highlight"?: boolean;
         /**
@@ -4284,7 +3827,6 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * Disabled state of the accordion.
-          * @default false
          */
         "isDisabled"?: boolean;
         /**
@@ -4297,22 +3839,18 @@ declare namespace LocalJSX {
         "onToggled"?: (event: ZAccordionCustomEvent<boolean>) => void;
         /**
           * The open state of the accordion.
-          * @default false
          */
         "open"?: boolean;
         /**
           * Enable box-shadow on the accordion. Only applies when `variant` is `BACKGROUND`.
-          * @default true
          */
         "shadow"?: boolean;
         /**
           * Size of the component.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
           * Accordion variant.
-          * @default AccordionVariant.DEFAULT
          */
         "variant"?: AccordionVariant;
     }
@@ -4338,22 +3876,18 @@ declare namespace LocalJSX {
     interface ZAnchorNavigation {
         /**
           * Enables automatic inference of the current item, listening for hash change and checking the `href` of the slotted anchors. When disabled, the highlight of current item must be handled manually by setting the `data-current` attribute to the correct slotted items and the `aria-current` attribute to the anchors.
-          * @default true
          */
         "autoCurrent"?: boolean;
         /**
           * Sets the label of the button displayed on mobile viewport when the anchor navigation is collapsed
-          * @default "salta a"
          */
         "collapsedLabel"?: string;
         /**
           * If enabled, the text of each anchor will be hidden unless for the current one or the one the user is hovering.
-          * @default false
          */
         "hideUnselected"?: boolean;
         /**
           * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
-          * @default false
          */
         "isCollapsed"?: boolean;
     }
@@ -4368,22 +3902,18 @@ declare namespace LocalJSX {
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
-          * @default false
          */
         "drawerOpen"?: boolean;
         /**
           * When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.
-          * @default false
          */
         "enableOffcanvas"?: boolean;
         /**
           * Enable the search bar.
-          * @default false
          */
         "enableSearch"?: boolean;
         /**
           * Enable laZ logo.
-          * @default true
          */
         "enableZLogo"?: boolean;
         /**
@@ -4396,17 +3926,14 @@ declare namespace LocalJSX {
         "searchPageUrl"?: string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
         "searchPlaceholder"?: string;
         /**
           * Search string for the search bar.
-          * @default ""
          */
         "searchString"?: string;
         /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
          */
         "stuck"?: boolean;
     }
@@ -4468,17 +3995,14 @@ declare namespace LocalJSX {
     interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
-          * @default false
          */
         "drawerOpen"?: boolean;
         /**
           * Enable the search bar.
-          * @default false
          */
         "enableSearch"?: boolean;
         /**
           * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-          * @default "auto"
          */
         "flow"?: "auto" | "stack" | "offcanvas";
         /**
@@ -4491,7 +4015,6 @@ declare namespace LocalJSX {
         "onSticking"?: (event: ZAppHeaderDeprecatedCustomEvent<any>) => void;
         /**
           * Should place an overlay over the hero image. Useful for legibility purpose.
-          * @default false
          */
         "overlay"?: boolean;
         /**
@@ -4500,31 +4023,26 @@ declare namespace LocalJSX {
         "searchPageUrl"?: string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
         "searchPlaceholder"?: string;
         /**
           * Search string for the search bar.
-          * @default ""
          */
         "searchString"?: string;
         /**
           * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
          */
         "stuck"?: boolean;
     }
     interface ZAriaAlert {
         /**
           * Aria live mode
-          * @default ZAriaAlertMode.POLITE
          */
         "mode"?: ZAriaAlertMode;
     }
     interface ZAvatar {
         /**
           * [optional] Avatar background color
-          * @default "gray700"
          */
         "backgroundColor"?: string;
         /**
@@ -4533,7 +4051,6 @@ declare namespace LocalJSX {
         "image"?: string;
         /**
           * [optional] Avatar size
-          * @default AvatarSize.MEDIUM
          */
         "size"?: AvatarSize;
         /**
@@ -4542,7 +4059,6 @@ declare namespace LocalJSX {
         "text"?: string;
         /**
           * [optional] Avatar text color
-          * @default "color-white"
          */
         "textColor"?: string;
     }
@@ -4574,7 +4090,6 @@ declare namespace LocalJSX {
         "fallbackCover"?: string;
         /**
           * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
-          * @default false
          */
         "hasMultipleCovers"?: boolean;
         /**
@@ -4583,12 +4098,10 @@ declare namespace LocalJSX {
         "isbn"?: string;
         /**
           * [optional] ISBN label
-          * @default ""
          */
         "isbnLabel"?: string;
         /**
           * [optional] Value for the `target` attribute of the links created by `ebookUrl` prop.
-          * @default "_blank"
          */
         "linkTarget"?: string;
         /**
@@ -4613,7 +4126,6 @@ declare namespace LocalJSX {
         "titleHtmlTag"?: string;
         /**
           * Card variant: landscape, portrait
-          * @default BookCardVariant.PORTRAIT
          */
         "variant"?: BookCardVariant;
         /**
@@ -4637,7 +4149,6 @@ declare namespace LocalJSX {
         "info"?: string;
         /**
           * Show or hide laZ prefix before app name
-          * @default true
          */
         "laz"?: boolean;
         /**
@@ -4686,7 +4197,6 @@ declare namespace LocalJSX {
         "isbn"?: string;
         /**
           * [optional] ISBN label
-          * @default ""
          */
         "isbnLabel"?: string;
         /**
@@ -4735,7 +4245,6 @@ declare namespace LocalJSX {
     interface ZBookCover {
         /**
           * Whether to apply a border around the cover image (always applied when `multiple` is enabled).
-          * @default false
          */
         "bordered"?: boolean;
         /**
@@ -4748,19 +4257,16 @@ declare namespace LocalJSX {
         "fallbackCover"?: string;
         /**
           * Whether to show a stack of covers to represent multiple books.
-          * @default false
          */
         "multiple"?: boolean;
     }
     interface ZBreadcrumb {
         /**
           * [optional] Variant of first node
-          * @default BreadcrumbHomepageVariant.ICON
          */
         "homepageVariant"?: BreadcrumbHomepageVariant;
         /**
           * [optional] Sets max number of element to show
-          * @default 5
          */
         "maxNodesToShow"?: number;
         /**
@@ -4769,34 +4275,28 @@ declare namespace LocalJSX {
         "onClickOnNode"?: (event: ZBreadcrumbCustomEvent<BreadcrumbPath["path"]>) => void;
         /**
           * [optional] Sets max number of row for each path inside the popover. Zero equals unlimited
-          * @default 0
          */
         "overflowMenuItemRows"?: number;
         /**
           * [optional] Sets the path style
-          * @default BreadcrumbPathStyle.UNDERLINED
          */
         "pathStyle"?: BreadcrumbPathStyle;
         /**
           * [optional] Controls the behaviour on <a> tag click/enter
-          * @default false
          */
         "preventFollowUrl"?: boolean;
         /**
           * [optional] Sets the maximun number of chars per single node
-          * @default 30
          */
         "truncateChar"?: number;
     }
     interface ZButton {
         /**
           * defines a string value that labels the internal interactive element. Used for accessibility.
-          * @default undefined
          */
         "ariaLabel"?: string | undefined;
         /**
           * HTML button disabled attribute.
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -4817,7 +4317,6 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * the button icon position. Defaults to `left`
-          * @default IconPosition.LEFT
          */
         "iconPosition"?: IconPosition;
         /**
@@ -4827,12 +4326,10 @@ declare namespace LocalJSX {
         /**
           * **Deprecated:** Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
-          * @default ""
          */
         "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ButtonSize | ControlSize;
         /**
@@ -4841,12 +4338,10 @@ declare namespace LocalJSX {
         "target"?: string;
         /**
           * HTML button type attribute.
-          * @default ButtonType.BUTTON
          */
         "type"?: ButtonType;
         /**
           * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
-          * @default ButtonVariant.PRIMARY
          */
         "variant"?: ButtonVariant;
     }
@@ -4865,7 +4360,6 @@ declare namespace LocalJSX {
         "desclabel"?: string;
         /**
           * selected flag (optional)
-          * @default false
          */
         "isselected"?: boolean;
         /**
@@ -4878,17 +4372,14 @@ declare namespace LocalJSX {
         "onButtonSortClick"?: (event: ZButtonSortCustomEvent<any>) => void;
         /**
           * sortable flag (optional)
-          * @default true
          */
         "sortasc"?: boolean;
         /**
           * sort label content (ascending) (optional)
-          * @default "A-Z"
          */
         "sortlabelasc"?: string;
         /**
           * sort label content (descending) (optional)
-          * @default "Z-A"
          */
         "sortlabeldesc"?: string;
     }
@@ -4906,7 +4397,6 @@ declare namespace LocalJSX {
     interface ZCard {
         /**
           * Enable "clickable" styles like hover background and cursor, focus shadow on the whole card, etc. Always set this to `true` when putting an `<a>` tag in the `title` slot.
-          * @default false
          */
         "clickable"?: boolean;
         /**
@@ -4915,7 +4405,6 @@ declare namespace LocalJSX {
         "coverIcon"?: string;
         /**
           * Enable shadow. Default: false.
-          * @default false
          */
         "showShadow"?: boolean;
         /**
@@ -4935,17 +4424,14 @@ declare namespace LocalJSX {
         "arrowsPosition"?: CarouselArrowsPosition;
         /**
           * Whether the navigation arrow buttons over the items are always visible or only on mouse hover. If set to `false`, the arrows will not be visible on mobile. Only meaningful with `arrowsPosition` set to `OVER`.
-          * @default true
          */
         "fixedArrows"?: boolean;
         /**
           * The height of the ghost loader (only visible when `isLoading` is set to `true`)
-          * @default 100
          */
         "ghostLoadingHeight"?: number;
         /**
           * When enabled, navigating next the last item will go back to the first item and vice versa.
-          * @default false
          */
         "infinite"?: boolean;
         /**
@@ -4966,19 +4452,16 @@ declare namespace LocalJSX {
         "progressMode"?: CarouselProgressMode;
         /**
           * Shows only one content at a time
-          * @default false
          */
         "single"?: boolean;
     }
     interface ZChip {
         /**
           * z-chip aria-label string
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
           * set z-chip as disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
@@ -4995,52 +4478,20 @@ declare namespace LocalJSX {
         "onInteractiveIconClick"?: (event: ZChipCustomEvent<any>) => void;
         /**
           * z-chip size type, can be default, medium or small
-          * @default ZChipType.DEFAULT
          */
         "type"?: ZChipType;
-    }
-    /**
-     * Color picker component.
-     * This component allows the user to pick a color from a predefined set.
-     */
-    interface ZColorPicker {
-        /**
-          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
-          * @default false
-         */
-        "disableTransparent"?: boolean;
-        /**
-          * The aria-label for the color picker, e.g. "Select a background color for the label".
-         */
-        "htmlAriaLabel"?: string;
-        /**
-          * The language for the aria labels inside the color picker.
-          * @default "it"
-         */
-        "lng"?: "it" | "en";
-        /**
-          * Event emitted when a color is selected.
-         */
-        "onColorSelected"?: (event: ZColorPickerCustomEvent<ColorPickerPalette>) => void;
-        /**
-          * The selected color to highlight.
-         */
-        "selectedColor"?: ColorPickerPalette;
     }
     interface ZCombobox {
         /**
           * check all label (optional)
-          * @default "Seleziona tutti"
          */
         "checkalltext"?: string;
         /**
           * the combobox is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * show "check all" checkbox (optional)
-          * @default false
          */
         "hascheckall"?: boolean;
         /**
@@ -5049,26 +4500,18 @@ declare namespace LocalJSX {
         "hasgroupitems"?: boolean;
         /**
           * show search input flag (optional)
-          * @default false
          */
         "hassearch"?: boolean;
         /**
-          * the combobox aria-label
-         */
-        "htmlAriaLabel"?: string;
-        /**
           * input unique id
-          * @default `combo-${randomId()}`
          */
         "inputid"?: string;
         /**
           * fixed style flag
-          * @default false
          */
         "isfixed"?: boolean;
         /**
           * toggle combo list opening flag
-          * @default false
          */
         "isopen"?: boolean;
         /**
@@ -5081,12 +4524,10 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * max number of checkable items (0 = unlimited)
-          * @default 0
          */
         "maxcheckableitems"?: number;
         /**
           * no result text message
-          * @default "Nessun risultato"
          */
         "noresultslabel"?: string;
         /**
@@ -5107,12 +4548,10 @@ declare namespace LocalJSX {
         "searchtitle"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
           * uncheck all label (optional)
-          * @default "Deseleziona tutti"
          */
         "uncheckalltext"?: string;
     }
@@ -5126,24 +4565,20 @@ declare namespace LocalJSX {
     interface ZCoverHero {
         /**
           * Vertical content position (for `STACKED` variant).
-          * @default CoverHeroContentPosition.TOP
          */
         "contentPosition"?: CoverHeroContentPosition;
         /**
           * Whether to keep the image aspect ratio. If set to `false`, the cssprop `--cover-hero-aspect-ratio` will not affect the component's size; instead, the height of the component follows the content's one. Note: it may be necessary to set a min and/or max height to the component.
-          * @default true
          */
         "preserveAspectRatio"?: boolean;
         /**
           * Cover hero variant. Can be `OVERLAY` or `STACKED`.
-          * @default CoverHeroVariant.OVERLAY
          */
         "variant"?: CoverHeroVariant;
     }
     interface ZDatePicker {
         /**
           * z-input aria label
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
@@ -5156,12 +4591,10 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * [Optional] datepicker mode: date, datetime, only months
-          * @default ZDatePickerMode.DATE
          */
         "mode"?: ZDatePickerMode;
         /**
           * [Optional] the datepicker input name
-          * @default undefined
          */
         "name"?: string;
         /**
@@ -5170,24 +4603,20 @@ declare namespace LocalJSX {
         "onDateSelect"?: (event: ZDatePickerCustomEvent<any>) => void;
         /**
           * [Optional] the datepicker input value
-          * @default undefined
          */
         "value"?: string;
     }
     interface ZDivider {
         /**
           * [optional] Divider color
-          * @default "gray200"
          */
         "color"?: string;
         /**
           * [optional] Divider orintation
-          * @default DividerOrientation.HORIZONTAL
          */
         "orientation"?: DividerOrientation;
         /**
           * [optional] Divider size
-          * @default DividerSize.SMALL
          */
         "size"?: DividerSize;
     }
@@ -5234,7 +4663,6 @@ declare namespace LocalJSX {
         "description"?: string;
         /**
           * drag & drop button label
-          * @default "Rilascia i file in questa area per allegarli."
          */
         "dragAndDropLabel"?: string;
         /**
@@ -5243,7 +4671,6 @@ declare namespace LocalJSX {
         "errorModalMessage"?: string;
         /**
           * error modal title
-          * @default "Errore di caricamento"
          */
         "errorModalTitle"?: string;
         /**
@@ -5252,12 +4679,10 @@ declare namespace LocalJSX {
         "fileMaxSize"?: number;
         /**
           * uploaded files history rendering
-          * @default true
          */
         "hasFileSection"?: boolean;
         /**
           * Value to set on the file input's `name` attribute (for use with forms)
-          * @default "z-file-upload"
          */
         "inputName"?: string;
         /**
@@ -5274,64 +4699,50 @@ declare namespace LocalJSX {
         "onFileInput"?: (event: ZFileUploadCustomEvent<File>) => void;
         /**
           * Whether to show errors in the internal modal or leave the handling to the app. Errors will still be emitted.
-          * @default true
          */
         "showErrors"?: boolean;
         /**
           * Prop indicating the file upload type - can be default or dragdrop
-          * @default ZFileUploadType.DEFAULT
          */
         "type"?: ZFileUploadType;
         /**
           * upoload button label
-          * @default "allega"
          */
         "uploadBtnLabel"?: string;
         /**
           * upload clickable message
-          * @default "Carica"
          */
         "uploadClickableMessage"?: string;
         /**
           * upload message
-          * @default "o trascina dal tuo computer"
          */
         "uploadMessage"?: string;
         /**
           * loaded files label
-          * @default "File appena caricati"
          */
         "uploadedFilesLabel"?: string;
     }
     interface ZGhostLoading {
     }
-    /**
-     * Component to render an SVG icon from the internal icon set, selected by `name`.
-     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
-     */
     interface ZIcon {
         /**
-          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
+          * icon fill (optional)
          */
         "fill"?: string;
         /**
-          * Icon height (optional)
+          * icon height (optional)
          */
         "height"?: number | string;
         /**
-          * HTML `id` attribute (optional)
+          * icon id (optional)
          */
         "iconid"?: string;
         /**
-          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
-         */
-        "indicatorColor"?: string;
-        /**
-          * Icon name
+          * icon name
          */
         "name"?: string;
         /**
-          * Icon width (optional)
+          * icon width (optional)
          */
         "width"?: number | string;
     }
@@ -5342,7 +4753,6 @@ declare namespace LocalJSX {
         "boxid"?: string;
         /**
           * render close icon flag
-          * @default true
          */
         "isclosable"?: boolean;
         /**
@@ -5360,12 +4770,10 @@ declare namespace LocalJSX {
     interface ZInfoReveal {
         /**
           * Aria label of the trigger button. It will be only used when `label` prop is empty.
-          * @default "Apri pannello informazioni"
          */
         "ariaLabel"?: string;
         /**
           * Name of the icon for the trigger button
-          * @default "informationsource"
          */
         "icon"?: string;
         /**
@@ -5374,19 +4782,16 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * The position of the z-info-reveal in the page. This helps to correctly place the info panel. The panel will grow in the opposite direction of the position. For example, with the default position `BOTTOM_RIGHT`, the panel will grow vertically upwards and horizontally to the left.
-          * @default InfoRevealPosition.BOTTOM_RIGHT
          */
         "position"?: InfoRevealPosition;
         /**
           * Size of the trigger button
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
     }
     interface ZInput {
         /**
           * the input aria-label
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
@@ -5395,17 +4800,14 @@ declare namespace LocalJSX {
         "autocomplete"?: string;
         /**
           * checked: available for checkbox, radio
-          * @default false
          */
         "checked"?: boolean;
         /**
           * the input is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * render clear icon when typing (optional): available for text
-          * @default true
          */
         "hasclearicon"?: boolean;
         /**
@@ -5421,17 +4823,11 @@ declare namespace LocalJSX {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
-         */
-        "htmlAriaDescribedBy"?: string;
-        /**
           * the input aria-expaded: available for text, password, number, email
-          * @default ""
          */
         "htmlAriaExpanded"?: string;
         /**
           * the id of the input element
-          * @default `id-${randomId()}`
          */
         "htmlid"?: string;
         /**
@@ -5448,7 +4844,6 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * the input label position: available for checkbox, radio
-          * @default LabelPosition.RIGHT
          */
         "labelPosition"?: LabelPosition;
         /**
@@ -5461,7 +4856,6 @@ declare namespace LocalJSX {
         "maxlength"?: number;
         /**
           * input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed
-          * @default true
          */
         "message"?: string | boolean;
         /**
@@ -5510,22 +4904,18 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * the input is readonly
-          * @default false
          */
         "readonly"?: boolean;
         /**
           * the input is required (optional): available for text, password, number, email, textarea, checkbox
-          * @default false
          */
         "required"?: boolean;
         /**
           * the input role
-          * @default ""
          */
         "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
@@ -5545,21 +4935,21 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ZInputGroup {
+        /**
+          * Whether to visually hide the legend while keeping it accessible to screen readers. Useful when the legend text is redundant with a visible heading.
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility to provide context to screen reader users.
+         */
+        "legend": string;
+    }
     interface ZInputMessage {
         /**
           * input disabled status (optional)
          */
         "disabled"?: boolean;
-        /**
-          * the id of the message element (optional)
-          * @default `id-${randomId()}`
-         */
-        "htmlId"?: string;
-        /**
-          * the role to set when both the message and the status are populated (optional)
-          * @default "alert"
-         */
-        "htmlRole"?: null | string;
         /**
           * input helper message
          */
@@ -5572,64 +4962,52 @@ declare namespace LocalJSX {
     interface ZList {
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
           * Sets role of the element.
-          * @default "list"
          */
         "role"?: string;
         /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
     interface ZListElement {
         /**
           * [optional] Align expandable button left or right.
-          * @default ExpandableListButtonAlign.LEFT
          */
         "alignButton"?: ExpandableListButtonAlign;
         /**
           * [optional] Sets element clickable.
-          * @default false
          */
         "clickable"?: boolean;
         /**
           * [optional] Sets text color of the element.
-          * @default "none"
          */
         "color"?: string;
         /**
           * [optional] Sets disabled style of the element.
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * [optional] Sets the divider color.
-          * @default "color-surface03"
          */
         "dividerColor"?: string;
         /**
           * [optional] Sets the divider size.
-          * @default DividerSize.SMALL
          */
         "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
-          * @default ListDividerType.NONE
          */
         "dividerType"?: ListDividerType;
         /**
           * [optional] Sets element as expandable.
-          * @default false
          */
         "expandable"?: boolean;
         /**
           * [optional] Sets expandable style to element.
-          * @default ExpandableListStyle.ACCORDION
          */
         "expandableStyle"?: ExpandableListStyle;
         /**
@@ -5638,7 +5016,6 @@ declare namespace LocalJSX {
         "hasTreeItems"?: boolean;
         /**
           * set tabindex to Host tag (optional). Defaults to 0.
-          * @default 0
          */
         "htmlTabindex"?: number | null;
         /**
@@ -5647,12 +5024,10 @@ declare namespace LocalJSX {
         "listElementId"?: number;
         /**
           * [optional] position of the list element inside the list or the group
-          * @default "0"
          */
         "listElementPosition"?: string;
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
@@ -5669,29 +5044,24 @@ declare namespace LocalJSX {
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
           * Sets element role.
-          * @default "listitem"
          */
         "role"?: string;
         /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
     interface ZListGroup {
         /**
           * [optional] Sets the divider color.
-          * @default "gray200"
          */
         "dividerColor"?: string;
         /**
           * [optional] Sets the divider size.
-          * @default DividerSize.SMALL
          */
         "dividerSize"?: DividerSize;
         /**
           * [optional] Sets the position where to insert the divider.
-          * @default ListDividerType.NONE
          */
         "dividerType"?: ListDividerType;
         /**
@@ -5700,17 +5070,10 @@ declare namespace LocalJSX {
         "hasTreeItems"?: boolean;
         /**
           * [optional] type of the list marker for each element
-          * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
-          * Sets element role.
-          * @default "group"
-         */
-        "role"?: string;
-        /**
           * [optional] Sets size of inside elements.
-          * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
     }
@@ -5750,12 +5113,10 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default true
          */
         "floating"?: boolean;
         /**
           * Tabindex value to set on the menu label. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
-          * @default -1
          */
         "htmlTabindex"?: number;
         /**
@@ -5768,12 +5129,10 @@ declare namespace LocalJSX {
         "onOpened"?: (event: ZMenuCustomEvent<any>) => void;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open"?: boolean;
         /**
           * Tells the component that it's placed in a vertical context with other `ZMenu`s (usually in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
          */
         "verticalContext"?: boolean;
     }
@@ -5787,7 +5146,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
          */
         "floating"?: boolean;
         /**
@@ -5800,12 +5158,10 @@ declare namespace LocalJSX {
         "onOpened"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
         /**
           * The opening state of the menu.
-          * @default false
          */
         "open"?: boolean;
         /**
           * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
          */
         "verticalContext"?: boolean;
     }
@@ -5819,7 +5175,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         /**
           * Tabindex value to set on the label button. Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZMenu).
-          * @default -1
          */
         "htmlTabindex"?: number;
         /**
@@ -5858,22 +5213,18 @@ declare namespace LocalJSX {
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
-          * @default false
          */
         "alertdialog"?: boolean;
         /**
           * if true, the modal is closable (optional, default is true)
-          * @default true
          */
         "closable"?: boolean;
         /**
           * aria-label for close button (optional)
-          * @default "chiudi modale"
          */
         "closeButtonLabel"?: string;
         /**
           * if true, the page scroll is locked when the modal is open (optional, default is true)
-          * @default true
          */
         "lockPageScroll"?: boolean;
         /**
@@ -5902,7 +5253,6 @@ declare namespace LocalJSX {
         "onModalHeaderActive"?: (event: ZModalCustomEvent<any>) => void;
         /**
           * if true, the modal can scroll inside, if false the viewport can scroll
-          * @default true
          */
         "scrollInside"?: boolean;
     }
@@ -5917,12 +5267,10 @@ declare namespace LocalJSX {
         "faded"?: boolean;
         /**
           * highlighted status
-          * @default false
          */
         "ishighlighted"?: boolean;
         /**
           * pressed status
-          * @default false
          */
         "ispressed"?: boolean;
     }
@@ -5975,22 +5323,18 @@ declare namespace LocalJSX {
         "cover"?: string;
         /**
           * card is disabled
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * flip button label
-          * @default "INFO"
          */
         "flipbuttonlabel"?: string;
         /**
           * card is flipped
-          * @default false
          */
         "flipped"?: boolean;
         /**
           * hide info button
-          * @default false
          */
         "hideinfobtn"?: boolean;
         /**
@@ -6013,7 +5357,6 @@ declare namespace LocalJSX {
         "cardtype"?: LicenseType;
         /**
           * display footer custom slotted content
-          * @default false
          */
         "customContent"?: boolean;
         /**
@@ -6026,7 +5369,6 @@ declare namespace LocalJSX {
         "isbn"?: string;
         /**
           * footer opened by default (optional)
-          * @default false
          */
         "opened"?: boolean;
         /**
@@ -6053,7 +5395,6 @@ declare namespace LocalJSX {
     interface ZMyzCardIcon {
         /**
           * description of the icon
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
@@ -6062,7 +5403,6 @@ declare namespace LocalJSX {
         "icon"?: string;
         /**
           * disabled status flag
-          * @default false
          */
         "isdisabled"?: boolean;
     }
@@ -6073,7 +5413,6 @@ declare namespace LocalJSX {
         "data"?: string | DictionaryData;
         /**
           * tabindex link attribute (optional)
-          * @default 0
          */
         "htmltabindex"?: number;
         /**
@@ -6112,7 +5451,6 @@ declare namespace LocalJSX {
         "link"?: string;
         /**
           * link target (optional)
-          * @default "_self"
          */
         "linktarget"?: string;
         /**
@@ -6133,7 +5471,6 @@ declare namespace LocalJSX {
         "text"?: string;
         /**
           * underlined style flag
-          * @default true
          */
         "underlined"?: boolean;
     }
@@ -6146,7 +5483,6 @@ declare namespace LocalJSX {
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
@@ -6155,36 +5491,26 @@ declare namespace LocalJSX {
         "onSelected"?: (event: ZNavigationTabsCustomEvent<number>) => void;
         /**
           * Navigation tabs orientation.
-          * @default NavigationTabsOrientation.HORIZONTAL
          */
         "orientation"?: NavigationTabsOrientation;
         /**
           * Index of the selected tab. Useful to programmatically select a tab. The tab can also be selected by setting the `aria-selected` attribute to `true` on the desired tab.
-          * @default undefined
          */
         "selectedTab"?: number;
         /**
           * Navigation tabs size.
-          * @default NavigationTabsSize.BIG
          */
         "size"?: NavigationTabsSize;
     }
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
           * Action button text
          */
         "actiontext"?: string;
-        /**
-          * Border position
-          * @default "bottom"
-         */
-        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */
@@ -6199,18 +5525,15 @@ declare namespace LocalJSX {
         "onNotificationClose"?: (event: ZNotificationCustomEvent<any>) => void;
         /**
           * Enable close icon
-          * @default false
          */
         "showclose"?: boolean;
         /**
           * Enable shadow.
           * @deprecated shadow is available only for the `sticky` version of the notification.
-          * @default false
          */
         "showshadow"?: boolean;
         /**
           * Enable sticky notification bar.
-          * @default false
          */
         "sticky"?: boolean;
         /**
@@ -6230,35 +5553,29 @@ declare namespace LocalJSX {
         "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
         /**
           * Whether the offcanvas is open. Default: false
-          * @default false
          */
         "open"?: boolean;
         /**
           * Whether to show the backdrop when the offcanvas is open. Default: true
-          * @default true
          */
         "showBackdrop"?: boolean;
         /**
           * Skip the opening transition when the offcanvas is already open at the first render.
           * @deprecated This prop is not needed anymore, the component will automatically skip the transition when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
-          * @default false
          */
         "skipLoadAnimation"?: boolean;
         /**
           * Open the content transitioning to a specified direction. The `up` direction always show the `overlay`, also when the variant is `pushcontent`.
-          * @default TransitionDirection.LEFT
          */
         "transitiondirection"?: TransitionDirection;
         /**
           * Offcanvas variant. - `overlay`: The offcanvas covers the page content putting an overlay. - `pushcontent`: The offcanvas isn't absolutely positioned and "pushes" the page content. > NB: `pushcontent` variant may need some extra style tuning of the context around the component to work properly. Also, the `pushcontent` variant doesn't have the open/close transition.
-          * @default OffCanvasVariant.PUSHCONTENT
          */
         "variant"?: OffCanvasVariant;
     }
     interface ZOtp {
         /**
           * Input number
-          * @default 6
          */
         "inputNum"?: number;
         /**
@@ -6282,12 +5599,10 @@ declare namespace LocalJSX {
     interface ZPagination {
         /**
           * Current page.
-          * @default 1
          */
         "currentPage"?: number;
         /**
           * Enable buttons to go to the first and last pages.
-          * @default false
          */
         "edges"?: boolean;
         /**
@@ -6300,7 +5615,6 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * Enable navigation arrows.
-          * @default true
          */
         "navArrows"?: boolean;
         /**
@@ -6309,7 +5623,6 @@ declare namespace LocalJSX {
         "onPageChanged"?: (event: ZPaginationCustomEvent<any>) => void;
         /**
           * Number of pages to skip.
-          * @default 0
          */
         "skip"?: number;
         /**
@@ -6344,7 +5657,6 @@ declare namespace LocalJSX {
         "imgurl"?: string;
         /**
           * disabled status flag (optional)
-          * @default false
          */
         "isdisabled"?: boolean;
         /**
@@ -6357,7 +5669,6 @@ declare namespace LocalJSX {
         "linklabel"?: string;
         /**
           * link target (optional)
-          * @default "_blank"
          */
         "target"?: string;
         /**
@@ -6383,35 +5694,30 @@ declare namespace LocalJSX {
         "bindTo"?: string | HTMLElement;
         /**
           * Whether to center the popup on the main side (according to "position").
-          * @default false
          */
         "center"?: boolean;
         /**
-          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
-          * @default true
+          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
          */
         "closable"?: boolean;
         /**
-          * Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true).
+          * Open change event.
          */
-        "onOpenChange"?: (event: ZPopoverCustomEvent<{open: boolean}>) => void;
+        "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
           * Fired when the position changes.
          */
-        "onPositionChange"?: (event: ZPopoverCustomEvent<{position: PopoverPosition}>) => void;
+        "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
-          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
-          * @default false
+          * The open state of the popover.
          */
         "open"?: boolean;
         /**
           * The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise.
-          * @default PopoverPosition.TOP
          */
         "position"?: PopoverPosition;
         /**
           * Whether to show popover's arrow.
-          * @default false
          */
         "showArrow"?: boolean;
     }
@@ -6426,27 +5732,22 @@ declare namespace LocalJSX {
         "firstLabel"?: string;
         /**
           * readonly mode
-          * @default ""
          */
         "firstPickerPlaceholder"?: string;
         /**
           * readonly mode
-          * @default false
          */
         "firstPickerReadOnly"?: boolean;
         /**
           * readonly mode
-          * @default ""
          */
         "lastPickerPlaceholder"?: string;
         /**
           * readonly mode
-          * @default false
          */
         "lastPickerReadOnly"?: boolean;
         /**
           * [Optional] datepicker mode: date or datetime
-          * @default ZRangePickerMode.DATE
          */
         "mode"?: ZRangePickerMode;
         /**
@@ -6489,12 +5790,10 @@ declare namespace LocalJSX {
         "fallbackCover"?: string;
         /**
           * Whether to show a stack of covers to represent multiple books.
-          * @default false
          */
         "hasMultipleCovers"?: boolean;
         /**
           * Enables the "info" variant of the card.
-          * @default false
          */
         "isInfoCard"?: boolean;
         /**
@@ -6510,27 +5809,16 @@ declare namespace LocalJSX {
     interface ZSearchbar {
         /**
           * Show autocomplete results
-          * @default false
          */
         "autocomplete"?: boolean;
         /**
           * Minimun number of characters to dispatch typing event
-          * @default 3
          */
         "autocompleteMinChars"?: number;
         /**
-          * The input aria-label
-         */
-        "htmlAriaLabel"?: string;
-        /**
-          * The id of the searchbar element
-          * @default `searchbar-${randomId()}`
+          * the id of the searchbar element
          */
         "htmlid"?: string;
-        /**
-          * The input label
-         */
-        "label"?: string;
         /**
           * Emitted on search result click, return item
          */
@@ -6549,11 +5837,10 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * Prevent submit action
-          * @default false
          */
         "preventSubmit"?: boolean;
         /**
-          * Number of results shown. Default: all
+          * Number of results shown - default all
          */
         "resultsCount"?: number;
         /**
@@ -6561,28 +5848,23 @@ declare namespace LocalJSX {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
-          * Hide the label of the submit button, showing only the icon
-          * @default false
+          * Set button icon without label
          */
         "searchButtonIconOnly"?: boolean;
         /**
           * Search helper text
-          * @default "Cerca {searchString}"
          */
         "searchHelperLabel"?: string;
         /**
           * Show submit button
-          * @default false
          */
         "showSearchButton"?: boolean;
         /**
-          * Size of the `z-input` and submit `z-button`
-          * @default ControlSize.BIG
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
         /**
           * Sort autocomplete results items
-          * @default false
          */
         "sortResultsItems"?: boolean;
         /**
@@ -6590,8 +5872,7 @@ declare namespace LocalJSX {
          */
         "value"?: string;
         /**
-          * Submit `z-button` variant
-          * @default ButtonVariant.PRIMARY
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
          */
         "variant"?: ButtonVariant;
     }
@@ -6603,36 +5884,30 @@ declare namespace LocalJSX {
     interface ZSectionTitle {
         /**
           * Divider position for the primary title. This prop only works if the secondary title is not set.
-          * @default ZSectionTitleDividerPosition.BEFORE
          */
         "dividerPosition"?: ZSectionTitleDividerPosition;
         /**
           * Whether the primary title text is uppercase.
-          * @default true
          */
         "uppercase"?: boolean;
     }
     interface ZSelect {
         /**
           * the input aria-label
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
           * the input has autocomplete option
-          * @default false
          */
         "autocomplete"?: boolean;
         /**
           * the input is disabled
-          * @default false
          */
         "disabled"?: boolean;
         "hasGroupItems"?: boolean;
         "hasTreeItems"?: boolean;
         /**
           * the id of the input element
-          * @default `id-${randomId()}`
          */
         "htmlid"?: string;
         /**
@@ -6641,12 +5916,10 @@ declare namespace LocalJSX {
         "htmltitle"?: string;
         /**
           * When fixed, it occupies space and pushes down next elements.
-          * @default false
          */
         "isfixed"?: boolean;
         /**
           * the input select options
-          * @default []
          */
         "items"?: SelectItem[] | string;
         /**
@@ -6655,7 +5928,6 @@ declare namespace LocalJSX {
         "label"?: string;
         /**
           * input helper message (optional) - if set to `false` message won't be displayed
-          * @default true
          */
         "message"?: string | boolean;
         /**
@@ -6664,7 +5936,6 @@ declare namespace LocalJSX {
         "name"?: string;
         /**
           * no result text message
-          * @default "Nessun risultato"
          */
         "noresultslabel"?: string;
         /**
@@ -6681,7 +5952,6 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         /**
           * the input is readonly
-          * @default false
          */
         "readonly"?: boolean;
         "resetItem"?: string;
@@ -6691,7 +5961,6 @@ declare namespace LocalJSX {
         "showChildrenOfMatchingParent"?: boolean;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
-          * @default ControlSize.BIG
          */
         "size"?: ControlSize;
         /**
@@ -6705,7 +5974,6 @@ declare namespace LocalJSX {
     interface ZSkipToContent {
         /**
           * Array to fill link into skip-content
-          * @default []
          */
         "links"?: string | SkipToContentLink[];
         /**
@@ -6754,7 +6022,6 @@ declare namespace LocalJSX {
     interface ZTable {
         /**
           * Whether the table cells should show a border between them.
-          * @default false
          */
         "bordered"?: boolean;
     }
@@ -6792,17 +6059,14 @@ declare namespace LocalJSX {
         "onColspanChange"?: (event: ZTdCustomEvent<number>) => void;
         /**
           * Set the popover position, the default is "auto".
-          * @default PopoverPosition.AUTO
          */
         "popoverPosition"?: PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
-          * @default null
          */
         "showMenu"?: VisibilityCondition;
         /**
           * Whether the cell should stick.
-          * @default false
          */
         "sticky"?: boolean;
     }
@@ -6812,7 +6076,6 @@ declare namespace LocalJSX {
     interface ZTfoot {
         /**
           * If true, the footer will be stuck to the bottom of the table.
-          * @default false
          */
         "sticky"?: boolean;
     }
@@ -6830,17 +6093,14 @@ declare namespace LocalJSX {
         "onSort"?: (event: ZThCustomEvent<any>) => void;
         /**
           * Set popover position.
-          * @default PopoverPosition.AUTO
          */
         "popoverPosition"?: PopoverPosition;
         /**
           * Enables the contextual menu. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the menu button.
-          * @default null
          */
         "showMenu"?: VisibilityCondition;
         /**
           * Enables the sorting button. Can be set to "hover" or "always" to show the button only on cell hover or always. Set a nullish value to hide the sort button.
-          * @default null
          */
         "showSorting"?: VisibilityCondition;
         /**
@@ -6849,12 +6109,10 @@ declare namespace LocalJSX {
         "sortDirection"?: SortDirection;
         /**
           * Sorted state of the column.
-          * @default false
          */
         "sorted"?: boolean | null;
         /**
           * Whether the cell should stick.
-          * @default false
          */
         "sticky"?: boolean;
     }
@@ -6864,12 +6122,10 @@ declare namespace LocalJSX {
     interface ZThead {
         /**
           * The element is focusable
-          * @default false
          */
         "isFocusable"?: boolean;
         /**
           * If true, the header will be stuck to the top of the table.
-          * @default false
          */
         "sticky"?: boolean;
     }
@@ -6887,7 +6143,6 @@ declare namespace LocalJSX {
         "closebutton"?: boolean;
         /**
           * toast notification draggable percentage
-          * @default 80
          */
         "draggablepercentage"?: number;
         /**
@@ -6896,7 +6151,6 @@ declare namespace LocalJSX {
         "heading"?: string;
         /**
           * toast notification can be draggable
-          * @default true
          */
         "isdraggable"?: boolean;
         /**
@@ -6909,7 +6163,6 @@ declare namespace LocalJSX {
         "onToastClose"?: (event: ZToastNotificationCustomEvent<any>) => void;
         /**
           * toast notification autoclose can be paused
-          * @default true
          */
         "pauseonfocusloss"?: boolean;
         /**
@@ -6924,19 +6177,16 @@ declare namespace LocalJSX {
     interface ZToastNotificationList {
         /**
           * Set the entry position of new notification in the list
-          * @default true
          */
         "newestontop"?: boolean;
         /**
           * Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right
-          * @default ToastNotificationPosition.TOP_RIGHT
          */
         "position"?: ToastNotificationPosition;
     }
     interface ZToggleButton {
         /**
           * aria-label for the button
-          * @default ""
          */
         "ariaLabel"?: string;
         /**
@@ -6945,7 +6195,6 @@ declare namespace LocalJSX {
         "avoidclick"?: boolean;
         /**
           * disabled status flag (optional)
-          * @default false
          */
         "isdisabled"?: boolean;
         /**
@@ -6958,97 +6207,30 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleButtonCustomEvent<any>) => void;
         /**
           * open by default (optional)
-          * @default false
          */
         "opened"?: boolean;
     }
     interface ZToggleSwitch {
         /**
           * Checked state
-          * @default false
          */
         "checked"?: boolean;
         /**
           * Disabled flag
-          * @default false
          */
         "disabled"?: boolean;
         /**
           * HTML id attribute to set to the internal checkbox
-          * @default `toggle-switch-id-${randomId()}`
          */
         "htmlid"?: string;
         /**
           * Label position
-          * @default LabelPosition.LEFT
          */
         "labelPosition"?: LabelPosition;
         /**
           * Toggle click event
          */
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
-    }
-    /**
-     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     */
-    interface ZTool {
-        /**
-          * Visual active state.
-          * @default false
-         */
-        "active"?: boolean;
-        /**
-          * Disabled state.
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * Accessible label for the tool trigger. Falls back to tooltip content.
-         */
-        "htmlAriaLabel"?: string;
-        /**
-          * Tool icon
-         */
-        "icon"?: IconName;
-        /**
-          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
-         */
-        "indicatorColor"?: string;
-        /**
-          * Emitted when the open state changes.
-         */
-        "onToggleSubmenu"?: (event: ZToolCustomEvent<any>) => void;
-        /**
-          * Emitted when the tooltip open state changes.
-         */
-        "onToggleTooltip"?: (event: ZToolCustomEvent<any>) => void;
-        /**
-          * Open state.
-          * @default false
-         */
-        "open"?: boolean;
-        /**
-          * Text displayed inside the tooltip.
-         */
-        "tooltip"?: string;
-        /**
-          * Preferred tooltip position. Defaults to true.
-          * @default PopoverPosition.TOP
-         */
-        "tooltipPosition"?: PopoverPosition;
-    }
-    /**
-     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
-     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
-     * Tools can be visually grouped using `z-divider` elements as separators.
-     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
-     */
-    interface ZToolbar {
-        /**
-          * Accessible label for the toolbar.
-         */
-        "htmlAriaLabel"?: string;
     }
     /**
      * Tooltip component.
@@ -7064,26 +6246,18 @@ declare namespace LocalJSX {
         "bindTo"?: string | HTMLElement;
         /**
           * Reflects `closable` prop of the popover. "If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`)."
-          * @default true
          */
         "closable"?: boolean;
         /**
           * Enable tooltip dark mode.
-          * @default false
          */
         "dark"?: boolean;
         /**
-          * Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically.
-         */
-        "onOpenChange"?: (event: ZTooltipCustomEvent<{open: boolean}>) => void;
-        /**
           * The open state of the tooltip.
-          * @default false
          */
         "open"?: boolean;
         /**
           * Tooltip position.
-          * @default PopoverPosition.AUTO
          */
         "position"?: PopoverPosition;
     }
@@ -7095,7 +6269,6 @@ declare namespace LocalJSX {
     interface ZTr {
         /**
           * Whether the row is expandable. Use a `z-td` as the last cell of the row for the additional content. It will show a button to expand/collapse the row. The last cell will be hidden until the button or row is clicked.  If some element inside the expandable row contains the `prevent-expand` css class, the row will not expand by clicking that element.
-          * @default false
          */
         "expandable"?: boolean;
         /**
@@ -7114,7 +6287,6 @@ declare namespace LocalJSX {
         "htmlSectionTitle"?: string;
         /**
           * Items to render, if they have the url property they will be rendered as clickable links
-          * @default []
          */
         "items"?: TreeListItem[] | string;
         /**
@@ -7124,729 +6296,90 @@ declare namespace LocalJSX {
     }
     interface ZVisuallyHidden {
     }
-
-    interface ZAccordionAttributes {
-        "label": string;
-        "icon": string;
-        "size": ControlSize;
-        "isDisabled": boolean;
-        "open": boolean;
-        "highlight": boolean;
-        "variant": AccordionVariant;
-        "shadow": boolean;
-    }
-    interface ZAlertAttributes {
-        "type": AlertType;
-    }
-    interface ZAnchorNavigationAttributes {
-        "hideUnselected": boolean;
-        "autoCurrent": boolean;
-        "collapsedLabel": string;
-        "isCollapsed": boolean;
-    }
-    interface ZAppHeaderAttributes {
-        "stuck": boolean;
-        "enableOffcanvas": boolean;
-        "enableSearch": boolean;
-        "searchPlaceholder": string;
-        "searchString": string;
-        "searchPageUrl": string;
-        "enableZLogo": boolean;
-        "drawerOpen": boolean;
-    }
-    interface ZAppHeaderDeprecatedAttributes {
-        "stuck": boolean;
-        "hero": string;
-        "overlay": boolean;
-        "flow": "auto" | "stack" | "offcanvas";
-        "drawerOpen": boolean;
-        "enableSearch": boolean;
-        "searchPlaceholder": string;
-        "searchString": string;
-        "searchPageUrl": string;
-    }
-    interface ZAriaAlertAttributes {
-        "mode": ZAriaAlertMode;
-    }
-    interface ZAvatarAttributes {
-        "size": AvatarSize;
-        "text": string;
-        "textColor": string;
-        "backgroundColor": string;
-        "image": string;
-    }
-    interface ZBookCardAttributes {
-        "variant": BookCardVariant;
-        "cover": string;
-        "operaTitle": string;
-        "volumeTitle": string;
-        "authors": string;
-        "isbn": string;
-        "isbnLabel": string;
-        "year": string;
-        "ebookUrl": string;
-        "linkTarget": string;
-        "fallbackCover": string;
-        "hasMultipleCovers": boolean;
-        "titleHtmlTag": string;
-    }
-    interface ZBookCardAppAttributes {
-        "logo": string;
-        "name": string;
-        "link": string;
-        "laz": boolean;
-        "info": string;
-    }
-    interface ZBookCardDeprecatedAttributes {
-        "variant": BookCardDeprecatedVariant;
-        "cover": string;
-        "operaTitle": string;
-        "volumeTitle": string;
-        "authors": string;
-        "isbn": string;
-        "isbnLabel": string;
-        "ribbon": string;
-        "ribbonIcon": string;
-        "ribbonInteractive": boolean;
-        "borderless": boolean;
-        "fallbackCover": string;
-        "operaTitleTag": string;
-    }
-    interface ZBookCoverAttributes {
-        "cover": string;
-        "fallbackCover": string;
-        "multiple": boolean;
-        "bordered": boolean;
-    }
-    interface ZBreadcrumbAttributes {
-        "pathStyle": BreadcrumbPathStyle;
-        "homepageVariant": BreadcrumbHomepageVariant;
-        "maxNodesToShow": number;
-        "preventFollowUrl": boolean;
-        "overflowMenuItemRows": number;
-        "truncateChar": number;
-    }
-    interface ZButtonAttributes {
-        "ariaLabel": string | undefined;
-        "role": string;
-        "htmlrole": string;
-        "href": string;
-        "target": string;
-        "htmlid": string;
-        "name": string;
-        "disabled": boolean;
-        "type": ButtonType;
-        "variant": ButtonVariant;
-        "icon": string;
-        "iconPosition": IconPosition;
-        "size": ButtonSize | ControlSize;
-    }
-    interface ZButtonSortAttributes {
-        "buttonid": string;
-        "label": string;
-        "desclabel": string;
-        "counter": number;
-        "sortlabelasc": string;
-        "sortlabeldesc": string;
-        "isselected": boolean;
-        "sortasc": boolean;
-    }
-    interface ZCardAttributes {
-        "variant": CardVariant;
-        "coverIcon": string;
-        "showShadow": boolean;
-        "clickable": boolean;
-    }
-    interface ZCarouselAttributes {
-        "isLoading": boolean;
-        "label": string;
-        "single": boolean;
-        "arrowsPosition": CarouselArrowsPosition;
-        "progressMode": CarouselProgressMode;
-        "fixedArrows": boolean;
-        "ghostLoadingHeight": number;
-        "infinite": boolean;
-    }
-    interface ZChipAttributes {
-        "icon": string;
-        "type": ZChipType;
-        "interactiveIcon": string;
-        "disabled": boolean;
-        "ariaLabel": string;
-    }
-    interface ZColorPickerAttributes {
-        "selectedColor": ColorPickerPalette;
-        "lng": "it" | "en";
-        "htmlAriaLabel": string;
-        "disableTransparent": boolean;
-    }
-    interface ZComboboxAttributes {
-        "inputid": string;
-        "items": ComboItem[] | string;
-        "label": string;
-        "disabled": boolean;
-        "hassearch": boolean;
-        "searchlabel": string;
-        "searchplaceholder": string;
-        "searchtitle": string;
-        "noresultslabel": string;
-        "isopen": boolean;
-        "isfixed": boolean;
-        "hascheckall": boolean;
-        "checkalltext": string;
-        "uncheckalltext": string;
-        "maxcheckableitems": number;
-        "hasgroupitems": boolean;
-        "size": ControlSize;
-        "htmlAriaLabel": string;
-    }
-    interface ZCoverHeroAttributes {
-        "variant": CoverHeroVariant;
-        "contentPosition": CoverHeroContentPosition;
-        "preserveAspectRatio": boolean;
-    }
-    interface ZDatePickerAttributes {
-        "datePickerId": string;
-        "ariaLabel": string;
-        "label": string;
-        "mode": ZDatePickerMode;
-        "name": string;
-        "value": string;
-    }
-    interface ZDividerAttributes {
-        "size": DividerSize;
-        "color": string;
-        "orientation": DividerOrientation;
-    }
-    interface ZDragdropAreaAttributes {
-        "dragAndDropLabel": string;
-    }
-    interface ZFileAttributes {
-        "fileNumber": number;
-        "fileName": string;
-    }
-    interface ZFileUploadAttributes {
-        "type": ZFileUploadType;
-        "buttonVariant": ButtonVariant;
-        "acceptedFormat": string;
-        "fileMaxSize": number;
-        "mainTitle": string;
-        "description": string;
-        "uploadBtnLabel": string;
-        "dragAndDropLabel": string;
-        "allowedFilesMessage": string;
-        "uploadClickableMessage": string;
-        "uploadMessage": string;
-        "errorModalTitle": string;
-        "errorModalMessage": string;
-        "uploadedFilesLabel": string;
-        "hasFileSection": boolean;
-        "inputName": string;
-        "showErrors": boolean;
-    }
-    interface ZIconAttributes {
-        "name": string;
-        "height": string;
-        "width": string;
-        "iconid": string;
-        "fill": string;
-        "indicatorColor": string;
-    }
-    interface ZInfoBoxAttributes {
-        "boxid": string;
-        "isclosable": boolean;
-    }
-    interface ZInfoRevealAttributes {
-        "icon": string;
-        "position": InfoRevealPosition;
-        "label": string;
-        "ariaLabel": string;
-        "size": ControlSize;
-    }
-    interface ZInputAttributes {
-        "htmlid": string;
-        "type": InputType;
-        "name": string;
-        "label": string;
-        "ariaLabel": string;
-        "htmlAriaExpanded": string;
-        "htmlAriaControls": string;
-        "htmlAriaAutocomplete": string;
-        "htmlAriaActivedescendant": string;
-        "value": string;
-        "disabled": boolean;
-        "readonly": boolean;
-        "required": boolean;
-        "checked": boolean;
-        "placeholder": string;
-        "htmltitle": string;
-        "status": InputStatus;
-        "message": string;
-        "htmlAriaDescribedBy": string;
-        "labelPosition": LabelPosition;
-        "autocomplete": string;
-        "role": string;
-        "hasclearicon": boolean;
-        "icon": string;
-        "min": number;
-        "minlength": number;
-        "max": number;
-        "maxlength": number;
-        "step": number;
-        "pattern": string;
-        "size": ControlSize;
-    }
-    interface ZInputMessageAttributes {
-        "message": string;
-        "htmlId": string;
-        "htmlRole": null | string;
-        "status": InputStatus;
-        "disabled": boolean;
-    }
-    interface ZListAttributes {
-        "size": ListSize;
-        "listType": ListType;
-        "role": string;
-    }
-    interface ZListElementAttributes {
-        "alignButton": ExpandableListButtonAlign;
-        "clickable": boolean;
-        "dividerColor": string;
-        "dividerType": ListDividerType;
-        "dividerSize": DividerSize;
-        "expandable": boolean;
-        "expandableStyle": ExpandableListStyle;
-        "listElementId": number;
-        "size": ListSize;
-        "color": string;
-        "disabled": boolean;
-        "listElementPosition": string;
-        "listType": ListType;
-        "hasTreeItems": boolean;
-        "role": string;
-        "htmlTabindex": number | null;
-    }
-    interface ZListGroupAttributes {
-        "size": ListSize;
-        "dividerType": ListDividerType;
-        "dividerSize": DividerSize;
-        "dividerColor": string;
-        "listType": ListType;
-        "hasTreeItems": boolean;
-        "role": string;
-    }
-    interface ZLogoAttributes {
-        "width": number;
-        "height": number;
-        "imageAlt": string;
-        "link": string;
-        "targetBlank": boolean;
-        "mobileLogo": boolean;
-    }
-    interface ZMenuAttributes {
-        "active": boolean;
-        "floating": boolean;
-        "open": boolean;
-        "verticalContext": boolean;
-        "htmlTabindex": number;
-    }
-    interface ZMenuDeprecatedAttributes {
-        "active": boolean;
-        "floating": boolean;
-        "open": boolean;
-        "verticalContext": boolean;
-    }
-    interface ZMenuSectionAttributes {
-        "active": boolean;
-        "htmlTabindex": number;
-        "open": boolean;
-    }
-    interface ZMenuSectionDeprecatedAttributes {
-        "active": boolean;
-    }
-    interface ZModalAttributes {
-        "modalid": string;
-        "modaltitle": string;
-        "modalsubtitle": string;
-        "closeButtonLabel": string;
-        "alertdialog": boolean;
-        "closable": boolean;
-        "scrollInside": boolean;
-        "lockPageScroll": boolean;
-    }
-    interface ZMyzCardAttributes {
-        "faded": boolean;
-        "cardtype": LicenseType;
-        "ispressed": boolean;
-        "ishighlighted": boolean;
-    }
-    interface ZMyzCardAlertAttributes {
-        "iconname": string;
-        "contenttext": string;
-        "actiontext": string;
-        "type": string;
-    }
-    interface ZMyzCardCoverAttributes {
-        "img": string;
-        "titolo": string;
-        "faded": boolean;
-        "defaultimg": string;
-    }
-    interface ZMyzCardDictionaryAttributes {
-        "name": string;
-        "cover": string;
-        "disabled": boolean;
-        "flipped": boolean;
-        "flipbuttonlabel": string;
-        "hideinfobtn": boolean;
-    }
-    interface ZMyzCardFooterAttributes {
-        "titolo": string;
-        "autori": string;
-        "isbn": string;
-        "faded": boolean;
-        "cardtype": LicenseType;
-        "opened": boolean;
-        "customContent": boolean;
-    }
-    interface ZMyzCardHeaderAttributes {
-        "titolo": string;
-        "faded": boolean;
-        "cardtype": LicenseType;
-    }
-    interface ZMyzCardIconAttributes {
-        "icon": string;
-        "isdisabled": boolean;
-        "ariaLabel": string;
-    }
-    interface ZMyzCardInfoAttributes {
-        "data": string | DictionaryData;
-        "htmltabindex": number;
-    }
-    interface ZMyzCardListAttributes {
-        "listdata": string;
-    }
-    interface ZMyzListAttributes {
-        "inputrawdata": string;
-    }
-    interface ZMyzListItemAttributes {
-        "text": string;
-        "link": string;
-        "linktarget": string;
-        "icon": string;
-        "listitemid": string;
-        "action": string;
-        "underlined": boolean;
-    }
-    interface ZNavigationTabsAttributes {
-        "ariaLabel": string;
-        "orientation": NavigationTabsOrientation;
-        "size": NavigationTabsSize;
-        "selectedTab": number;
-    }
-    interface ZNotificationAttributes {
-        "contenticonname": string;
-        "actiontext": string;
-        "type": NotificationType;
-        "showclose": boolean;
-        "showshadow": boolean;
-        "sticky": boolean;
-        "borderposition": "top" | "bottom";
-    }
-    interface ZOffcanvasAttributes {
-        "variant": OffCanvasVariant;
-        "open": boolean;
-        "transitiondirection": TransitionDirection;
-        "skipLoadAnimation": boolean;
-        "showBackdrop": boolean;
-    }
-    interface ZOtpAttributes {
-        "inputNum": number;
-        "status": InputStatus;
-        "message": string;
-    }
-    interface ZPaginationAttributes {
-        "label": string;
-        "navArrows": boolean;
-        "totalPages": number;
-        "skip": number;
-        "edges": boolean;
-        "split": number;
-        "visiblePages": number;
-        "currentPage": number;
-        "goToPage": boolean;
-    }
-    interface ZPanelElemAttributes {
-        "elemid": string;
-        "imgurl": string;
-        "imgalt": string;
-        "linkicon": string;
-        "linklabel": string;
-        "url": string;
-        "target": string;
-        "isdisabled": boolean;
-        "descrSlotName": string;
-    }
-    interface ZPopoverAttributes {
-        "position": PopoverPosition;
-        "open": boolean;
-        "bindTo": string | HTMLElement;
-        "showArrow": boolean;
-        "center": boolean;
-        "closable": boolean;
-    }
-    interface ZRangePickerAttributes {
-        "rangePickerId": string;
-        "firstAriaLabel": string;
-        "firstLabel": string;
-        "secondAriaLabel": string;
-        "secondLabel": string;
-        "mode": ZRangePickerMode;
-        "firstPickerReadOnly": boolean;
-        "lastPickerReadOnly": boolean;
-        "firstPickerPlaceholder": string;
-        "lastPickerPlaceholder": string;
-    }
-    interface ZResultCardAttributes {
-        "cardTitle": string;
-        "cardSubtitle": string;
-        "authors": string;
-        "cover": string;
-        "fallbackCover": string;
-        "hasMultipleCovers": boolean;
-        "isInfoCard": boolean;
-        "titleHtmlTag": string;
-    }
-    interface ZSearchbarAttributes {
-        "htmlid": string;
-        "preventSubmit": boolean;
-        "label": string;
-        "htmlAriaLabel": string;
-        "value": string;
-        "placeholder": string;
-        "autocomplete": boolean;
-        "autocompleteMinChars": number;
-        "resultsCount": number;
-        "searchHelperLabel": string;
-        "resultsItems": SearchbarItem[] | string;
-        "sortResultsItems": boolean;
-        "showSearchButton": boolean;
-        "searchButtonIconOnly": boolean;
-        "size": ControlSize;
-        "variant": ButtonVariant;
-    }
-    interface ZSectionTitleAttributes {
-        "dividerPosition": ZSectionTitleDividerPosition;
-        "uppercase": boolean;
-    }
-    interface ZSelectAttributes {
-        "htmlid": string;
-        "items": SelectItem[] | string;
-        "name": string;
-        "label": string;
-        "ariaLabel": string;
-        "disabled": boolean;
-        "readonly": boolean;
-        "placeholder": string;
-        "htmltitle": string;
-        "status": InputStatus;
-        "message": string;
-        "autocomplete": boolean;
-        "noresultslabel": string;
-        "hasGroupItems": boolean;
-        "hasTreeItems": boolean;
-        "showChildrenOfMatchingParent": boolean;
-        "isfixed": boolean;
-        "resetItem": string;
-        "size": ControlSize;
-    }
-    interface ZSkipToContentAttributes {
-        "variant": ThemeVariant;
-        "links": string | SkipToContentLink[];
-    }
-    interface ZSlideshowAttributes {
-        "slideshowid": string;
-        "data": string[] | string;
-    }
-    interface ZStepperItemAttributes {
-        "index": number;
-        "href": string;
-        "pressed": boolean;
-        "checked": boolean;
-        "disabled": boolean;
-    }
-    interface ZTableAttributes {
-        "bordered": boolean;
-    }
-    interface ZTagAttributes {
-        "icon": string;
-        "expandable": boolean;
-    }
-    interface ZTdAttributes {
-        "colspan": number;
-        "sticky": boolean;
-        "showMenu": VisibilityCondition;
-        "popoverPosition": PopoverPosition;
-    }
-    interface ZTfootAttributes {
-        "sticky": boolean;
-    }
-    interface ZThAttributes {
-        "colspan": number;
-        "showMenu": VisibilityCondition;
-        "showSorting": VisibilityCondition;
-        "sticky": boolean;
-        "sortDirection": SortDirection;
-        "sorted": boolean | null;
-        "popoverPosition": PopoverPosition;
-    }
-    interface ZTheadAttributes {
-        "sticky": boolean;
-        "isFocusable": boolean;
-    }
-    interface ZToastNotificationAttributes {
-        "heading": string;
-        "message": string;
-        "closebutton": boolean;
-        "autoclose": number;
-        "pauseonfocusloss": boolean;
-        "type": ToastNotification;
-        "isdraggable": boolean;
-        "draggablepercentage": number;
-        "transition": ToastNotificationTransition;
-    }
-    interface ZToastNotificationListAttributes {
-        "position": ToastNotificationPosition;
-        "newestontop": boolean;
-    }
-    interface ZToggleButtonAttributes {
-        "label": string;
-        "isdisabled": boolean;
-        "avoidclick": boolean;
-        "opened": boolean;
-        "ariaLabel": string;
-    }
-    interface ZToggleSwitchAttributes {
-        "disabled": boolean;
-        "labelPosition": LabelPosition;
-        "checked": boolean;
-        "htmlid": string;
-    }
-    interface ZToolAttributes {
-        "icon": IconName;
-        "tooltip": string;
-        "tooltipPosition": PopoverPosition;
-        "htmlAriaLabel": string;
-        "active": boolean;
-        "disabled": boolean;
-        "open": boolean;
-        "indicatorColor": string;
-    }
-    interface ZToolbarAttributes {
-        "htmlAriaLabel": string;
-    }
-    interface ZTooltipAttributes {
-        "position": PopoverPosition;
-        "dark": boolean;
-        "open": boolean;
-        "bindTo": string | HTMLElement;
-        "closable": boolean;
-    }
-    interface ZTrAttributes {
-        "expandable": boolean;
-    }
-    interface ZTreeListAttributes {
-        "items": TreeListItem[] | string;
-        "htmlAriaLabelledby": string;
-        "htmlSectionTitle": string;
-    }
-
     interface IntrinsicElements {
-        "z-accordion": Omit<ZAccordion, keyof ZAccordionAttributes> & { [K in keyof ZAccordion & keyof ZAccordionAttributes]?: ZAccordion[K] } & { [K in keyof ZAccordion & keyof ZAccordionAttributes as `attr:${K}`]?: ZAccordionAttributes[K] } & { [K in keyof ZAccordion & keyof ZAccordionAttributes as `prop:${K}`]?: ZAccordion[K] };
-        "z-alert": Omit<ZAlert, keyof ZAlertAttributes> & { [K in keyof ZAlert & keyof ZAlertAttributes]?: ZAlert[K] } & { [K in keyof ZAlert & keyof ZAlertAttributes as `attr:${K}`]?: ZAlertAttributes[K] } & { [K in keyof ZAlert & keyof ZAlertAttributes as `prop:${K}`]?: ZAlert[K] };
-        "z-anchor-navigation": Omit<ZAnchorNavigation, keyof ZAnchorNavigationAttributes> & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes]?: ZAnchorNavigation[K] } & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes as `attr:${K}`]?: ZAnchorNavigationAttributes[K] } & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes as `prop:${K}`]?: ZAnchorNavigation[K] };
-        "z-app-header": Omit<ZAppHeader, keyof ZAppHeaderAttributes> & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes]?: ZAppHeader[K] } & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes as `attr:${K}`]?: ZAppHeaderAttributes[K] } & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes as `prop:${K}`]?: ZAppHeader[K] };
-        "z-app-header-deprecated": Omit<ZAppHeaderDeprecated, keyof ZAppHeaderDeprecatedAttributes> & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes]?: ZAppHeaderDeprecated[K] } & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes as `attr:${K}`]?: ZAppHeaderDeprecatedAttributes[K] } & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes as `prop:${K}`]?: ZAppHeaderDeprecated[K] };
-        "z-aria-alert": Omit<ZAriaAlert, keyof ZAriaAlertAttributes> & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes]?: ZAriaAlert[K] } & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes as `attr:${K}`]?: ZAriaAlertAttributes[K] } & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes as `prop:${K}`]?: ZAriaAlert[K] };
-        "z-avatar": Omit<ZAvatar, keyof ZAvatarAttributes> & { [K in keyof ZAvatar & keyof ZAvatarAttributes]?: ZAvatar[K] } & { [K in keyof ZAvatar & keyof ZAvatarAttributes as `attr:${K}`]?: ZAvatarAttributes[K] } & { [K in keyof ZAvatar & keyof ZAvatarAttributes as `prop:${K}`]?: ZAvatar[K] };
-        "z-book-card": Omit<ZBookCard, keyof ZBookCardAttributes> & { [K in keyof ZBookCard & keyof ZBookCardAttributes]?: ZBookCard[K] } & { [K in keyof ZBookCard & keyof ZBookCardAttributes as `attr:${K}`]?: ZBookCardAttributes[K] } & { [K in keyof ZBookCard & keyof ZBookCardAttributes as `prop:${K}`]?: ZBookCard[K] };
-        "z-book-card-app": Omit<ZBookCardApp, keyof ZBookCardAppAttributes> & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes]?: ZBookCardApp[K] } & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes as `attr:${K}`]?: ZBookCardAppAttributes[K] } & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes as `prop:${K}`]?: ZBookCardApp[K] };
-        "z-book-card-deprecated": Omit<ZBookCardDeprecated, keyof ZBookCardDeprecatedAttributes> & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes]?: ZBookCardDeprecated[K] } & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes as `attr:${K}`]?: ZBookCardDeprecatedAttributes[K] } & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes as `prop:${K}`]?: ZBookCardDeprecated[K] };
-        "z-book-cover": Omit<ZBookCover, keyof ZBookCoverAttributes> & { [K in keyof ZBookCover & keyof ZBookCoverAttributes]?: ZBookCover[K] } & { [K in keyof ZBookCover & keyof ZBookCoverAttributes as `attr:${K}`]?: ZBookCoverAttributes[K] } & { [K in keyof ZBookCover & keyof ZBookCoverAttributes as `prop:${K}`]?: ZBookCover[K] };
-        "z-breadcrumb": Omit<ZBreadcrumb, keyof ZBreadcrumbAttributes> & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes]?: ZBreadcrumb[K] } & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes as `attr:${K}`]?: ZBreadcrumbAttributes[K] } & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes as `prop:${K}`]?: ZBreadcrumb[K] };
-        "z-button": Omit<ZButton, keyof ZButtonAttributes> & { [K in keyof ZButton & keyof ZButtonAttributes]?: ZButton[K] } & { [K in keyof ZButton & keyof ZButtonAttributes as `attr:${K}`]?: ZButtonAttributes[K] } & { [K in keyof ZButton & keyof ZButtonAttributes as `prop:${K}`]?: ZButton[K] };
-        "z-button-sort": Omit<ZButtonSort, keyof ZButtonSortAttributes> & { [K in keyof ZButtonSort & keyof ZButtonSortAttributes]?: ZButtonSort[K] } & { [K in keyof ZButtonSort & keyof ZButtonSortAttributes as `attr:${K}`]?: ZButtonSortAttributes[K] } & { [K in keyof ZButtonSort & keyof ZButtonSortAttributes as `prop:${K}`]?: ZButtonSort[K] };
-        "z-card": Omit<ZCard, keyof ZCardAttributes> & { [K in keyof ZCard & keyof ZCardAttributes]?: ZCard[K] } & { [K in keyof ZCard & keyof ZCardAttributes as `attr:${K}`]?: ZCardAttributes[K] } & { [K in keyof ZCard & keyof ZCardAttributes as `prop:${K}`]?: ZCard[K] };
-        "z-carousel": Omit<ZCarousel, keyof ZCarouselAttributes> & { [K in keyof ZCarousel & keyof ZCarouselAttributes]?: ZCarousel[K] } & { [K in keyof ZCarousel & keyof ZCarouselAttributes as `attr:${K}`]?: ZCarouselAttributes[K] } & { [K in keyof ZCarousel & keyof ZCarouselAttributes as `prop:${K}`]?: ZCarousel[K] };
-        "z-chip": Omit<ZChip, keyof ZChipAttributes> & { [K in keyof ZChip & keyof ZChipAttributes]?: ZChip[K] } & { [K in keyof ZChip & keyof ZChipAttributes as `attr:${K}`]?: ZChipAttributes[K] } & { [K in keyof ZChip & keyof ZChipAttributes as `prop:${K}`]?: ZChip[K] };
-        "z-color-picker": Omit<ZColorPicker, keyof ZColorPickerAttributes> & { [K in keyof ZColorPicker & keyof ZColorPickerAttributes]?: ZColorPicker[K] } & { [K in keyof ZColorPicker & keyof ZColorPickerAttributes as `attr:${K}`]?: ZColorPickerAttributes[K] } & { [K in keyof ZColorPicker & keyof ZColorPickerAttributes as `prop:${K}`]?: ZColorPicker[K] };
-        "z-combobox": Omit<ZCombobox, keyof ZComboboxAttributes> & { [K in keyof ZCombobox & keyof ZComboboxAttributes]?: ZCombobox[K] } & { [K in keyof ZCombobox & keyof ZComboboxAttributes as `attr:${K}`]?: ZComboboxAttributes[K] } & { [K in keyof ZCombobox & keyof ZComboboxAttributes as `prop:${K}`]?: ZCombobox[K] };
-        "z-cover-hero": Omit<ZCoverHero, keyof ZCoverHeroAttributes> & { [K in keyof ZCoverHero & keyof ZCoverHeroAttributes]?: ZCoverHero[K] } & { [K in keyof ZCoverHero & keyof ZCoverHeroAttributes as `attr:${K}`]?: ZCoverHeroAttributes[K] } & { [K in keyof ZCoverHero & keyof ZCoverHeroAttributes as `prop:${K}`]?: ZCoverHero[K] };
-        "z-date-picker": Omit<ZDatePicker, keyof ZDatePickerAttributes> & { [K in keyof ZDatePicker & keyof ZDatePickerAttributes]?: ZDatePicker[K] } & { [K in keyof ZDatePicker & keyof ZDatePickerAttributes as `attr:${K}`]?: ZDatePickerAttributes[K] } & { [K in keyof ZDatePicker & keyof ZDatePickerAttributes as `prop:${K}`]?: ZDatePicker[K] };
-        "z-divider": Omit<ZDivider, keyof ZDividerAttributes> & { [K in keyof ZDivider & keyof ZDividerAttributes]?: ZDivider[K] } & { [K in keyof ZDivider & keyof ZDividerAttributes as `attr:${K}`]?: ZDividerAttributes[K] } & { [K in keyof ZDivider & keyof ZDividerAttributes as `prop:${K}`]?: ZDivider[K] };
-        "z-dragdrop-area": Omit<ZDragdropArea, keyof ZDragdropAreaAttributes> & { [K in keyof ZDragdropArea & keyof ZDragdropAreaAttributes]?: ZDragdropArea[K] } & { [K in keyof ZDragdropArea & keyof ZDragdropAreaAttributes as `attr:${K}`]?: ZDragdropAreaAttributes[K] } & { [K in keyof ZDragdropArea & keyof ZDragdropAreaAttributes as `prop:${K}`]?: ZDragdropArea[K] };
-        "z-file": Omit<ZFile, keyof ZFileAttributes> & { [K in keyof ZFile & keyof ZFileAttributes]?: ZFile[K] } & { [K in keyof ZFile & keyof ZFileAttributes as `attr:${K}`]?: ZFileAttributes[K] } & { [K in keyof ZFile & keyof ZFileAttributes as `prop:${K}`]?: ZFile[K] };
-        "z-file-upload": Omit<ZFileUpload, keyof ZFileUploadAttributes> & { [K in keyof ZFileUpload & keyof ZFileUploadAttributes]?: ZFileUpload[K] } & { [K in keyof ZFileUpload & keyof ZFileUploadAttributes as `attr:${K}`]?: ZFileUploadAttributes[K] } & { [K in keyof ZFileUpload & keyof ZFileUploadAttributes as `prop:${K}`]?: ZFileUpload[K] };
+        "z-accordion": ZAccordion;
+        "z-alert": ZAlert;
+        "z-anchor-navigation": ZAnchorNavigation;
+        "z-app-header": ZAppHeader;
+        "z-app-header-deprecated": ZAppHeaderDeprecated;
+        "z-aria-alert": ZAriaAlert;
+        "z-avatar": ZAvatar;
+        "z-book-card": ZBookCard;
+        "z-book-card-app": ZBookCardApp;
+        "z-book-card-deprecated": ZBookCardDeprecated;
+        "z-book-cover": ZBookCover;
+        "z-breadcrumb": ZBreadcrumb;
+        "z-button": ZButton;
+        "z-button-sort": ZButtonSort;
+        "z-card": ZCard;
+        "z-carousel": ZCarousel;
+        "z-chip": ZChip;
+        "z-combobox": ZCombobox;
+        "z-cover-hero": ZCoverHero;
+        "z-date-picker": ZDatePicker;
+        "z-divider": ZDivider;
+        "z-dragdrop-area": ZDragdropArea;
+        "z-file": ZFile;
+        "z-file-upload": ZFileUpload;
         "z-ghost-loading": ZGhostLoading;
-        "z-icon": Omit<ZIcon, keyof ZIconAttributes> & { [K in keyof ZIcon & keyof ZIconAttributes]?: ZIcon[K] } & { [K in keyof ZIcon & keyof ZIconAttributes as `attr:${K}`]?: ZIconAttributes[K] } & { [K in keyof ZIcon & keyof ZIconAttributes as `prop:${K}`]?: ZIcon[K] };
-        "z-info-box": Omit<ZInfoBox, keyof ZInfoBoxAttributes> & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes]?: ZInfoBox[K] } & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes as `attr:${K}`]?: ZInfoBoxAttributes[K] } & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes as `prop:${K}`]?: ZInfoBox[K] };
-        "z-info-reveal": Omit<ZInfoReveal, keyof ZInfoRevealAttributes> & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes]?: ZInfoReveal[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `attr:${K}`]?: ZInfoRevealAttributes[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `prop:${K}`]?: ZInfoReveal[K] };
-        "z-input": Omit<ZInput, keyof ZInputAttributes> & { [K in keyof ZInput & keyof ZInputAttributes]?: ZInput[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `attr:${K}`]?: ZInputAttributes[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `prop:${K}`]?: ZInput[K] };
-        "z-input-message": Omit<ZInputMessage, keyof ZInputMessageAttributes> & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes]?: ZInputMessage[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `attr:${K}`]?: ZInputMessageAttributes[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `prop:${K}`]?: ZInputMessage[K] };
-        "z-list": Omit<ZList, keyof ZListAttributes> & { [K in keyof ZList & keyof ZListAttributes]?: ZList[K] } & { [K in keyof ZList & keyof ZListAttributes as `attr:${K}`]?: ZListAttributes[K] } & { [K in keyof ZList & keyof ZListAttributes as `prop:${K}`]?: ZList[K] };
-        "z-list-element": Omit<ZListElement, keyof ZListElementAttributes> & { [K in keyof ZListElement & keyof ZListElementAttributes]?: ZListElement[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `attr:${K}`]?: ZListElementAttributes[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `prop:${K}`]?: ZListElement[K] };
-        "z-list-group": Omit<ZListGroup, keyof ZListGroupAttributes> & { [K in keyof ZListGroup & keyof ZListGroupAttributes]?: ZListGroup[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `attr:${K}`]?: ZListGroupAttributes[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `prop:${K}`]?: ZListGroup[K] };
-        "z-logo": Omit<ZLogo, keyof ZLogoAttributes> & { [K in keyof ZLogo & keyof ZLogoAttributes]?: ZLogo[K] } & { [K in keyof ZLogo & keyof ZLogoAttributes as `attr:${K}`]?: ZLogoAttributes[K] } & { [K in keyof ZLogo & keyof ZLogoAttributes as `prop:${K}`]?: ZLogo[K] };
-        "z-menu": Omit<ZMenu, keyof ZMenuAttributes> & { [K in keyof ZMenu & keyof ZMenuAttributes]?: ZMenu[K] } & { [K in keyof ZMenu & keyof ZMenuAttributes as `attr:${K}`]?: ZMenuAttributes[K] } & { [K in keyof ZMenu & keyof ZMenuAttributes as `prop:${K}`]?: ZMenu[K] };
-        "z-menu-deprecated": Omit<ZMenuDeprecated, keyof ZMenuDeprecatedAttributes> & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes]?: ZMenuDeprecated[K] } & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes as `attr:${K}`]?: ZMenuDeprecatedAttributes[K] } & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes as `prop:${K}`]?: ZMenuDeprecated[K] };
-        "z-menu-section": Omit<ZMenuSection, keyof ZMenuSectionAttributes> & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes]?: ZMenuSection[K] } & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes as `attr:${K}`]?: ZMenuSectionAttributes[K] } & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes as `prop:${K}`]?: ZMenuSection[K] };
-        "z-menu-section-deprecated": Omit<ZMenuSectionDeprecated, keyof ZMenuSectionDeprecatedAttributes> & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes]?: ZMenuSectionDeprecated[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `attr:${K}`]?: ZMenuSectionDeprecatedAttributes[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `prop:${K}`]?: ZMenuSectionDeprecated[K] };
-        "z-modal": Omit<ZModal, keyof ZModalAttributes> & { [K in keyof ZModal & keyof ZModalAttributes]?: ZModal[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `attr:${K}`]?: ZModalAttributes[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `prop:${K}`]?: ZModal[K] };
-        "z-myz-card": Omit<ZMyzCard, keyof ZMyzCardAttributes> & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes]?: ZMyzCard[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `attr:${K}`]?: ZMyzCardAttributes[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `prop:${K}`]?: ZMyzCard[K] };
-        "z-myz-card-alert": Omit<ZMyzCardAlert, keyof ZMyzCardAlertAttributes> & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes]?: ZMyzCardAlert[K] } & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes as `attr:${K}`]?: ZMyzCardAlertAttributes[K] } & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes as `prop:${K}`]?: ZMyzCardAlert[K] };
+        "z-icon": ZIcon;
+        "z-info-box": ZInfoBox;
+        "z-info-reveal": ZInfoReveal;
+        "z-input": ZInput;
+        "z-input-group": ZInputGroup;
+        "z-input-message": ZInputMessage;
+        "z-list": ZList;
+        "z-list-element": ZListElement;
+        "z-list-group": ZListGroup;
+        "z-logo": ZLogo;
+        "z-menu": ZMenu;
+        "z-menu-deprecated": ZMenuDeprecated;
+        "z-menu-section": ZMenuSection;
+        "z-menu-section-deprecated": ZMenuSectionDeprecated;
+        "z-modal": ZModal;
+        "z-myz-card": ZMyzCard;
+        "z-myz-card-alert": ZMyzCardAlert;
         "z-myz-card-body": ZMyzCardBody;
-        "z-myz-card-cover": Omit<ZMyzCardCover, keyof ZMyzCardCoverAttributes> & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes]?: ZMyzCardCover[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `attr:${K}`]?: ZMyzCardCoverAttributes[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `prop:${K}`]?: ZMyzCardCover[K] };
-        "z-myz-card-dictionary": Omit<ZMyzCardDictionary, keyof ZMyzCardDictionaryAttributes> & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes]?: ZMyzCardDictionary[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `attr:${K}`]?: ZMyzCardDictionaryAttributes[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `prop:${K}`]?: ZMyzCardDictionary[K] };
-        "z-myz-card-footer": Omit<ZMyzCardFooter, keyof ZMyzCardFooterAttributes> & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes]?: ZMyzCardFooter[K] } & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes as `attr:${K}`]?: ZMyzCardFooterAttributes[K] } & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes as `prop:${K}`]?: ZMyzCardFooter[K] };
+        "z-myz-card-cover": ZMyzCardCover;
+        "z-myz-card-dictionary": ZMyzCardDictionary;
+        "z-myz-card-footer": ZMyzCardFooter;
         "z-myz-card-footer-sections": ZMyzCardFooterSections;
-        "z-myz-card-header": Omit<ZMyzCardHeader, keyof ZMyzCardHeaderAttributes> & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes]?: ZMyzCardHeader[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `attr:${K}`]?: ZMyzCardHeaderAttributes[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `prop:${K}`]?: ZMyzCardHeader[K] };
-        "z-myz-card-icon": Omit<ZMyzCardIcon, keyof ZMyzCardIconAttributes> & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes]?: ZMyzCardIcon[K] } & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes as `attr:${K}`]?: ZMyzCardIconAttributes[K] } & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes as `prop:${K}`]?: ZMyzCardIcon[K] };
-        "z-myz-card-info": Omit<ZMyzCardInfo, keyof ZMyzCardInfoAttributes> & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes]?: ZMyzCardInfo[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `attr:${K}`]?: ZMyzCardInfoAttributes[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `prop:${K}`]?: ZMyzCardInfo[K] };
-        "z-myz-card-list": Omit<ZMyzCardList, keyof ZMyzCardListAttributes> & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes]?: ZMyzCardList[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `attr:${K}`]?: ZMyzCardListAttributes[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `prop:${K}`]?: ZMyzCardList[K] };
-        "z-myz-list": Omit<ZMyzList, keyof ZMyzListAttributes> & { [K in keyof ZMyzList & keyof ZMyzListAttributes]?: ZMyzList[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `attr:${K}`]?: ZMyzListAttributes[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `prop:${K}`]?: ZMyzList[K] };
-        "z-myz-list-item": Omit<ZMyzListItem, keyof ZMyzListItemAttributes> & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes]?: ZMyzListItem[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `attr:${K}`]?: ZMyzListItemAttributes[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `prop:${K}`]?: ZMyzListItem[K] };
-        "z-navigation-tabs": Omit<ZNavigationTabs, keyof ZNavigationTabsAttributes> & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes]?: ZNavigationTabs[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `attr:${K}`]?: ZNavigationTabsAttributes[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `prop:${K}`]?: ZNavigationTabs[K] };
-        "z-notification": Omit<ZNotification, keyof ZNotificationAttributes> & { [K in keyof ZNotification & keyof ZNotificationAttributes]?: ZNotification[K] } & { [K in keyof ZNotification & keyof ZNotificationAttributes as `attr:${K}`]?: ZNotificationAttributes[K] } & { [K in keyof ZNotification & keyof ZNotificationAttributes as `prop:${K}`]?: ZNotification[K] };
-        "z-offcanvas": Omit<ZOffcanvas, keyof ZOffcanvasAttributes> & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes]?: ZOffcanvas[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `attr:${K}`]?: ZOffcanvasAttributes[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `prop:${K}`]?: ZOffcanvas[K] };
-        "z-otp": Omit<ZOtp, keyof ZOtpAttributes> & { [K in keyof ZOtp & keyof ZOtpAttributes]?: ZOtp[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `attr:${K}`]?: ZOtpAttributes[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `prop:${K}`]?: ZOtp[K] };
-        "z-pagination": Omit<ZPagination, keyof ZPaginationAttributes> & { [K in keyof ZPagination & keyof ZPaginationAttributes]?: ZPagination[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `attr:${K}`]?: ZPaginationAttributes[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `prop:${K}`]?: ZPagination[K] } & OneOf<"totalPages", ZPagination["totalPages"], ZPaginationAttributes["totalPages"]>;
-        "z-panel-elem": Omit<ZPanelElem, keyof ZPanelElemAttributes> & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes]?: ZPanelElem[K] } & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes as `attr:${K}`]?: ZPanelElemAttributes[K] } & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes as `prop:${K}`]?: ZPanelElem[K] };
-        "z-popover": Omit<ZPopover, keyof ZPopoverAttributes> & { [K in keyof ZPopover & keyof ZPopoverAttributes]?: ZPopover[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `attr:${K}`]?: ZPopoverAttributes[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `prop:${K}`]?: ZPopover[K] };
-        "z-range-picker": Omit<ZRangePicker, keyof ZRangePickerAttributes> & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes]?: ZRangePicker[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `attr:${K}`]?: ZRangePickerAttributes[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `prop:${K}`]?: ZRangePicker[K] };
-        "z-result-card": Omit<ZResultCard, keyof ZResultCardAttributes> & { [K in keyof ZResultCard & keyof ZResultCardAttributes]?: ZResultCard[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `attr:${K}`]?: ZResultCardAttributes[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `prop:${K}`]?: ZResultCard[K] };
-        "z-searchbar": Omit<ZSearchbar, keyof ZSearchbarAttributes> & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes]?: ZSearchbar[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `attr:${K}`]?: ZSearchbarAttributes[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `prop:${K}`]?: ZSearchbar[K] };
-        "z-section-title": Omit<ZSectionTitle, keyof ZSectionTitleAttributes> & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes]?: ZSectionTitle[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `attr:${K}`]?: ZSectionTitleAttributes[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `prop:${K}`]?: ZSectionTitle[K] };
-        "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] };
-        "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
-        "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
+        "z-myz-card-header": ZMyzCardHeader;
+        "z-myz-card-icon": ZMyzCardIcon;
+        "z-myz-card-info": ZMyzCardInfo;
+        "z-myz-card-list": ZMyzCardList;
+        "z-myz-list": ZMyzList;
+        "z-myz-list-item": ZMyzListItem;
+        "z-navigation-tabs": ZNavigationTabs;
+        "z-notification": ZNotification;
+        "z-offcanvas": ZOffcanvas;
+        "z-otp": ZOtp;
+        "z-pagination": ZPagination;
+        "z-panel-elem": ZPanelElem;
+        "z-popover": ZPopover;
+        "z-range-picker": ZRangePicker;
+        "z-result-card": ZResultCard;
+        "z-searchbar": ZSearchbar;
+        "z-section-title": ZSectionTitle;
+        "z-select": ZSelect;
+        "z-skip-to-content": ZSkipToContent;
+        "z-slideshow": ZSlideshow;
         "z-stepper": ZStepper;
-        "z-stepper-item": Omit<ZStepperItem, keyof ZStepperItemAttributes> & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes]?: ZStepperItem[K] } & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes as `attr:${K}`]?: ZStepperItemAttributes[K] } & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes as `prop:${K}`]?: ZStepperItem[K] };
-        "z-table": Omit<ZTable, keyof ZTableAttributes> & { [K in keyof ZTable & keyof ZTableAttributes]?: ZTable[K] } & { [K in keyof ZTable & keyof ZTableAttributes as `attr:${K}`]?: ZTableAttributes[K] } & { [K in keyof ZTable & keyof ZTableAttributes as `prop:${K}`]?: ZTable[K] };
-        "z-tag": Omit<ZTag, keyof ZTagAttributes> & { [K in keyof ZTag & keyof ZTagAttributes]?: ZTag[K] } & { [K in keyof ZTag & keyof ZTagAttributes as `attr:${K}`]?: ZTagAttributes[K] } & { [K in keyof ZTag & keyof ZTagAttributes as `prop:${K}`]?: ZTag[K] };
+        "z-stepper-item": ZStepperItem;
+        "z-table": ZTable;
+        "z-tag": ZTag;
         "z-tbody": ZTbody;
-        "z-td": Omit<ZTd, keyof ZTdAttributes> & { [K in keyof ZTd & keyof ZTdAttributes]?: ZTd[K] } & { [K in keyof ZTd & keyof ZTdAttributes as `attr:${K}`]?: ZTdAttributes[K] } & { [K in keyof ZTd & keyof ZTdAttributes as `prop:${K}`]?: ZTd[K] };
-        "z-tfoot": Omit<ZTfoot, keyof ZTfootAttributes> & { [K in keyof ZTfoot & keyof ZTfootAttributes]?: ZTfoot[K] } & { [K in keyof ZTfoot & keyof ZTfootAttributes as `attr:${K}`]?: ZTfootAttributes[K] } & { [K in keyof ZTfoot & keyof ZTfootAttributes as `prop:${K}`]?: ZTfoot[K] };
-        "z-th": Omit<ZTh, keyof ZThAttributes> & { [K in keyof ZTh & keyof ZThAttributes]?: ZTh[K] } & { [K in keyof ZTh & keyof ZThAttributes as `attr:${K}`]?: ZThAttributes[K] } & { [K in keyof ZTh & keyof ZThAttributes as `prop:${K}`]?: ZTh[K] };
-        "z-thead": Omit<ZThead, keyof ZTheadAttributes> & { [K in keyof ZThead & keyof ZTheadAttributes]?: ZThead[K] } & { [K in keyof ZThead & keyof ZTheadAttributes as `attr:${K}`]?: ZTheadAttributes[K] } & { [K in keyof ZThead & keyof ZTheadAttributes as `prop:${K}`]?: ZThead[K] };
-        "z-toast-notification": Omit<ZToastNotification, keyof ZToastNotificationAttributes> & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes]?: ZToastNotification[K] } & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes as `attr:${K}`]?: ZToastNotificationAttributes[K] } & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes as `prop:${K}`]?: ZToastNotification[K] };
-        "z-toast-notification-list": Omit<ZToastNotificationList, keyof ZToastNotificationListAttributes> & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes]?: ZToastNotificationList[K] } & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes as `attr:${K}`]?: ZToastNotificationListAttributes[K] } & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes as `prop:${K}`]?: ZToastNotificationList[K] };
-        "z-toggle-button": Omit<ZToggleButton, keyof ZToggleButtonAttributes> & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes]?: ZToggleButton[K] } & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes as `attr:${K}`]?: ZToggleButtonAttributes[K] } & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes as `prop:${K}`]?: ZToggleButton[K] };
-        "z-toggle-switch": Omit<ZToggleSwitch, keyof ZToggleSwitchAttributes> & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes]?: ZToggleSwitch[K] } & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes as `attr:${K}`]?: ZToggleSwitchAttributes[K] } & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes as `prop:${K}`]?: ZToggleSwitch[K] };
-        "z-tool": Omit<ZTool, keyof ZToolAttributes> & { [K in keyof ZTool & keyof ZToolAttributes]?: ZTool[K] } & { [K in keyof ZTool & keyof ZToolAttributes as `attr:${K}`]?: ZToolAttributes[K] } & { [K in keyof ZTool & keyof ZToolAttributes as `prop:${K}`]?: ZTool[K] };
-        "z-toolbar": Omit<ZToolbar, keyof ZToolbarAttributes> & { [K in keyof ZToolbar & keyof ZToolbarAttributes]?: ZToolbar[K] } & { [K in keyof ZToolbar & keyof ZToolbarAttributes as `attr:${K}`]?: ZToolbarAttributes[K] } & { [K in keyof ZToolbar & keyof ZToolbarAttributes as `prop:${K}`]?: ZToolbar[K] };
-        "z-tooltip": Omit<ZTooltip, keyof ZTooltipAttributes> & { [K in keyof ZTooltip & keyof ZTooltipAttributes]?: ZTooltip[K] } & { [K in keyof ZTooltip & keyof ZTooltipAttributes as `attr:${K}`]?: ZTooltipAttributes[K] } & { [K in keyof ZTooltip & keyof ZTooltipAttributes as `prop:${K}`]?: ZTooltip[K] };
-        "z-tr": Omit<ZTr, keyof ZTrAttributes> & { [K in keyof ZTr & keyof ZTrAttributes]?: ZTr[K] } & { [K in keyof ZTr & keyof ZTrAttributes as `attr:${K}`]?: ZTrAttributes[K] } & { [K in keyof ZTr & keyof ZTrAttributes as `prop:${K}`]?: ZTr[K] };
-        "z-tree-list": Omit<ZTreeList, keyof ZTreeListAttributes> & { [K in keyof ZTreeList & keyof ZTreeListAttributes]?: ZTreeList[K] } & { [K in keyof ZTreeList & keyof ZTreeListAttributes as `attr:${K}`]?: ZTreeListAttributes[K] } & { [K in keyof ZTreeList & keyof ZTreeListAttributes as `prop:${K}`]?: ZTreeList[K] };
+        "z-td": ZTd;
+        "z-tfoot": ZTfoot;
+        "z-th": ZTh;
+        "z-thead": ZThead;
+        "z-toast-notification": ZToastNotification;
+        "z-toast-notification-list": ZToastNotificationList;
+        "z-toggle-button": ZToggleButton;
+        "z-toggle-switch": ZToggleSwitch;
+        "z-tooltip": ZTooltip;
+        "z-tr": ZTr;
+        "z-tree-list": ZTreeList;
         "z-visually-hidden": ZVisuallyHidden;
     }
 }
@@ -7867,8 +6400,8 @@ declare module "@stencil/core" {
              * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
              * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
              */
-            "z-accordion": LocalJSX.IntrinsicElements["z-accordion"] & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
-            "z-alert": LocalJSX.IntrinsicElements["z-alert"] & JSXBase.HTMLAttributes<HTMLZAlertElement>;
+            "z-accordion": LocalJSX.ZAccordion & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
+            "z-alert": LocalJSX.ZAlert & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             /**
              * Anchor navigation component.
              * @example ```
@@ -7882,7 +6415,7 @@ declare module "@stencil/core" {
              * </z-anchor-navigation>
              * ```
              */
-            "z-anchor-navigation": LocalJSX.IntrinsicElements["z-anchor-navigation"] & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
+            "z-anchor-navigation": LocalJSX.ZAnchorNavigation & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             /**
              * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
              * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
@@ -7891,7 +6424,7 @@ declare module "@stencil/core" {
              * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
-            "z-app-header": LocalJSX.IntrinsicElements["z-app-header"] & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
+            "z-app-header": LocalJSX.ZAppHeader & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
             /**
              * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
              * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
@@ -7947,9 +6480,9 @@ declare module "@stencil/core" {
              * Defaults to `--app-header-typography-3-tracking`.
              * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
              */
-            "z-app-header-deprecated": LocalJSX.IntrinsicElements["z-app-header-deprecated"] & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
-            "z-aria-alert": LocalJSX.IntrinsicElements["z-aria-alert"] & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
-            "z-avatar": LocalJSX.IntrinsicElements["z-avatar"] & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
+            "z-app-header-deprecated": LocalJSX.ZAppHeaderDeprecated & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
+            "z-aria-alert": LocalJSX.ZAriaAlert & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
+            "z-avatar": LocalJSX.ZAvatar & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             /**
              * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
              * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
@@ -7959,20 +6492,20 @@ declare module "@stencil/core" {
              * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
              * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
              */
-            "z-book-card": LocalJSX.IntrinsicElements["z-book-card"] & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
+            "z-book-card": LocalJSX.ZBookCard & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             /**
              * ZBookCardApp component
              * @cssprop --z-book-card-app-padding-x - set left and right padding
              * @cssprop --z-book-card-app-padding-y - set top and bottom padding
              */
-            "z-book-card-app": LocalJSX.IntrinsicElements["z-book-card-app"] & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
+            "z-book-card-app": LocalJSX.ZBookCardApp & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
             /**
              * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
              * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
              * @cssprop --z-book-card-compact-width - compact card custom width
              * @cssprop --z-book-card-compact-height - compact card custom height
              */
-            "z-book-card-deprecated": LocalJSX.IntrinsicElements["z-book-card-deprecated"] & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
+            "z-book-card-deprecated": LocalJSX.ZBookCardDeprecated & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
             /**
              * This component displays a book cover image,
              * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
@@ -7983,10 +6516,10 @@ declare module "@stencil/core" {
              * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
              * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
              */
-            "z-book-cover": LocalJSX.IntrinsicElements["z-book-cover"] & JSXBase.HTMLAttributes<HTMLZBookCoverElement>;
-            "z-breadcrumb": LocalJSX.IntrinsicElements["z-breadcrumb"] & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
-            "z-button": LocalJSX.IntrinsicElements["z-button"] & JSXBase.HTMLAttributes<HTMLZButtonElement>;
-            "z-button-sort": LocalJSX.IntrinsicElements["z-button-sort"] & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
+            "z-book-cover": LocalJSX.ZBookCover & JSXBase.HTMLAttributes<HTMLZBookCoverElement>;
+            "z-breadcrumb": LocalJSX.ZBreadcrumb & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
+            "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
+            "z-button-sort": LocalJSX.ZButtonSort & JSXBase.HTMLAttributes<HTMLZButtonSortElement>;
             /**
              * ZCard component.
              * The width of the card must be set by its container, following the grid indications of the design.
@@ -7998,20 +6531,15 @@ declare module "@stencil/core" {
              * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
              * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
              */
-            "z-card": LocalJSX.IntrinsicElements["z-card"] & JSXBase.HTMLAttributes<HTMLZCardElement>;
+            "z-card": LocalJSX.ZCard & JSXBase.HTMLAttributes<HTMLZCardElement>;
             /**
              * ZCarousel component.
              * @cssprop --z-carousel-gutter - The gutter between items.
              * @cssprop --z-carousel-items-shadow - The shadow around the items.
              */
-            "z-carousel": LocalJSX.IntrinsicElements["z-carousel"] & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
-            "z-chip": LocalJSX.IntrinsicElements["z-chip"] & JSXBase.HTMLAttributes<HTMLZChipElement>;
-            /**
-             * Color picker component.
-             * This component allows the user to pick a color from a predefined set.
-             */
-            "z-color-picker": LocalJSX.IntrinsicElements["z-color-picker"] & JSXBase.HTMLAttributes<HTMLZColorPickerElement>;
-            "z-combobox": LocalJSX.IntrinsicElements["z-combobox"] & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
+            "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
+            "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             /**
              * Cover hero component.
              * Component to display a hero image with content.
@@ -8019,19 +6547,15 @@ declare module "@stencil/core" {
              * @cssprop --cover-hero-text-color - color of the text.
              * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
              */
-            "z-cover-hero": LocalJSX.IntrinsicElements["z-cover-hero"] & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
-            "z-date-picker": LocalJSX.IntrinsicElements["z-date-picker"] & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
-            "z-divider": LocalJSX.IntrinsicElements["z-divider"] & JSXBase.HTMLAttributes<HTMLZDividerElement>;
-            "z-dragdrop-area": LocalJSX.IntrinsicElements["z-dragdrop-area"] & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
-            "z-file": LocalJSX.IntrinsicElements["z-file"] & JSXBase.HTMLAttributes<HTMLZFileElement>;
-            "z-file-upload": LocalJSX.IntrinsicElements["z-file-upload"] & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
-            "z-ghost-loading": LocalJSX.IntrinsicElements["z-ghost-loading"] & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
-            /**
-             * Component to render an SVG icon from the internal icon set, selected by `name`.
-             * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
-             */
-            "z-icon": LocalJSX.IntrinsicElements["z-icon"] & JSXBase.HTMLAttributes<HTMLZIconElement>;
-            "z-info-box": LocalJSX.IntrinsicElements["z-info-box"] & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
+            "z-cover-hero": LocalJSX.ZCoverHero & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
+            "z-date-picker": LocalJSX.ZDatePicker & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
+            "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-dragdrop-area": LocalJSX.ZDragdropArea & JSXBase.HTMLAttributes<HTMLZDragdropAreaElement>;
+            "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
+            "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
+            "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
+            "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
+            "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             /**
              * Info reveal component.
              * @cssprop --z-info-reveal-panel-width - Width of the info panel.
@@ -8039,74 +6563,73 @@ declare module "@stencil/core" {
              * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
              * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
              */
-            "z-info-reveal": LocalJSX.IntrinsicElements["z-info-reveal"] & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
-            "z-input": LocalJSX.IntrinsicElements["z-input"] & JSXBase.HTMLAttributes<HTMLZInputElement>;
-            "z-input-message": LocalJSX.IntrinsicElements["z-input-message"] & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
-            "z-list": LocalJSX.IntrinsicElements["z-list"] & JSXBase.HTMLAttributes<HTMLZListElement>;
-            "z-list-element": LocalJSX.IntrinsicElements["z-list-element"] & JSXBase.HTMLAttributes<HTMLZListElementElement>;
-            "z-list-group": LocalJSX.IntrinsicElements["z-list-group"] & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
-            "z-logo": LocalJSX.IntrinsicElements["z-logo"] & JSXBase.HTMLAttributes<HTMLZLogoElement>;
+            "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
+            "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-group": LocalJSX.ZInputGroup & JSXBase.HTMLAttributes<HTMLZInputGroupElement>;
+            "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
+            "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
+            "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
+            "z-list-group": LocalJSX.ZListGroup & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
+            "z-logo": LocalJSX.ZLogo & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             /**
              * @cssprop --z-menu-label-color - Color of the label's text.
              */
-            "z-menu": LocalJSX.IntrinsicElements["z-menu"] & JSXBase.HTMLAttributes<HTMLZMenuElement>;
+            "z-menu": LocalJSX.ZMenu & JSXBase.HTMLAttributes<HTMLZMenuElement>;
             /**
              * @cssprop --z-menu-label-color - Color of the label's text.
              */
-            "z-menu-deprecated": LocalJSX.IntrinsicElements["z-menu-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
+            "z-menu-deprecated": LocalJSX.ZMenuDeprecated & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
             /**
              * A component to create submenus inside the ZMenu.
              */
-            "z-menu-section": LocalJSX.IntrinsicElements["z-menu-section"] & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
+            "z-menu-section": LocalJSX.ZMenuSection & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
             /**
              * A component to create submenus inside the ZMenu.
              */
-            "z-menu-section-deprecated": LocalJSX.IntrinsicElements["z-menu-section-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
+            "z-menu-section-deprecated": LocalJSX.ZMenuSectionDeprecated & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             /**
              * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
              */
-            "z-modal": LocalJSX.IntrinsicElements["z-modal"] & JSXBase.HTMLAttributes<HTMLZModalElement>;
-            "z-myz-card": LocalJSX.IntrinsicElements["z-myz-card"] & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
-            "z-myz-card-alert": LocalJSX.IntrinsicElements["z-myz-card-alert"] & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
-            "z-myz-card-body": LocalJSX.IntrinsicElements["z-myz-card-body"] & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
-            "z-myz-card-cover": LocalJSX.IntrinsicElements["z-myz-card-cover"] & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
-            "z-myz-card-dictionary": LocalJSX.IntrinsicElements["z-myz-card-dictionary"] & JSXBase.HTMLAttributes<HTMLZMyzCardDictionaryElement>;
-            "z-myz-card-footer": LocalJSX.IntrinsicElements["z-myz-card-footer"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
-            "z-myz-card-footer-sections": LocalJSX.IntrinsicElements["z-myz-card-footer-sections"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
-            "z-myz-card-header": LocalJSX.IntrinsicElements["z-myz-card-header"] & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
-            "z-myz-card-icon": LocalJSX.IntrinsicElements["z-myz-card-icon"] & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
-            "z-myz-card-info": LocalJSX.IntrinsicElements["z-myz-card-info"] & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
-            "z-myz-card-list": LocalJSX.IntrinsicElements["z-myz-card-list"] & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
-            "z-myz-list": LocalJSX.IntrinsicElements["z-myz-list"] & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
-            "z-myz-list-item": LocalJSX.IntrinsicElements["z-myz-list-item"] & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
+            "z-modal": LocalJSX.ZModal & JSXBase.HTMLAttributes<HTMLZModalElement>;
+            "z-myz-card": LocalJSX.ZMyzCard & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
+            "z-myz-card-alert": LocalJSX.ZMyzCardAlert & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
+            "z-myz-card-body": LocalJSX.ZMyzCardBody & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
+            "z-myz-card-cover": LocalJSX.ZMyzCardCover & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
+            "z-myz-card-dictionary": LocalJSX.ZMyzCardDictionary & JSXBase.HTMLAttributes<HTMLZMyzCardDictionaryElement>;
+            "z-myz-card-footer": LocalJSX.ZMyzCardFooter & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
+            "z-myz-card-footer-sections": LocalJSX.ZMyzCardFooterSections & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
+            "z-myz-card-header": LocalJSX.ZMyzCardHeader & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
+            "z-myz-card-icon": LocalJSX.ZMyzCardIcon & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
+            "z-myz-card-info": LocalJSX.ZMyzCardInfo & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
+            "z-myz-card-list": LocalJSX.ZMyzCardList & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
+            "z-myz-list": LocalJSX.ZMyzList & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
+            "z-myz-list-item": LocalJSX.ZMyzListItem & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             /**
              * Navigation tabs component.
              * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
              * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
              * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
              */
-            "z-navigation-tabs": LocalJSX.IntrinsicElements["z-navigation-tabs"] & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
+            "z-navigation-tabs": LocalJSX.ZNavigationTabs & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             /**
              * Notification bar component.
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-             * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-             * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
              */
-            "z-notification": LocalJSX.IntrinsicElements["z-notification"] & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
+            "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             /**
              * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
              * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
              * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
              */
-            "z-offcanvas": LocalJSX.IntrinsicElements["z-offcanvas"] & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
-            "z-otp": LocalJSX.IntrinsicElements["z-otp"] & JSXBase.HTMLAttributes<HTMLZOtpElement>;
+            "z-offcanvas": LocalJSX.ZOffcanvas & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
+            "z-otp": LocalJSX.ZOtp & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**
              * Pagination bar component.
              * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
              * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
              */
-            "z-pagination": LocalJSX.IntrinsicElements["z-pagination"] & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
-            "z-panel-elem": LocalJSX.IntrinsicElements["z-panel-elem"] & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
+            "z-pagination": LocalJSX.ZPagination & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
+            "z-panel-elem": LocalJSX.ZPanelElem & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             /**
              * Popover component.
              * This component displays a popover bound to an element.
@@ -8118,79 +6641,67 @@ declare module "@stencil/core" {
              * @cssprop --z-popover-padding - padding of the popover.
              * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
              */
-            "z-popover": LocalJSX.IntrinsicElements["z-popover"] & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
-            "z-range-picker": LocalJSX.IntrinsicElements["z-range-picker"] & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
-            "z-result-card": LocalJSX.IntrinsicElements["z-result-card"] & JSXBase.HTMLAttributes<HTMLZResultCardElement>;
+            "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
+            "z-range-picker": LocalJSX.ZRangePicker & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
+            "z-result-card": LocalJSX.ZResultCard & JSXBase.HTMLAttributes<HTMLZResultCardElement>;
             /**
              * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
              * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
              * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
              */
-            "z-searchbar": LocalJSX.IntrinsicElements["z-searchbar"] & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
+            "z-searchbar": LocalJSX.ZSearchbar & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
             /**
              * Section title component.
              * An optional secondary title can be put over the primary one.
              * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
              */
-            "z-section-title": LocalJSX.IntrinsicElements["z-section-title"] & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
-            "z-select": LocalJSX.IntrinsicElements["z-select"] & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-section-title": LocalJSX.ZSectionTitle & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
+            "z-select": LocalJSX.ZSelect & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             /**
              * Component short description.
              */
-            "z-skip-to-content": LocalJSX.IntrinsicElements["z-skip-to-content"] & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
-            "z-slideshow": LocalJSX.IntrinsicElements["z-slideshow"] & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
-            "z-stepper": LocalJSX.IntrinsicElements["z-stepper"] & JSXBase.HTMLAttributes<HTMLZStepperElement>;
-            "z-stepper-item": LocalJSX.IntrinsicElements["z-stepper-item"] & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
+            "z-skip-to-content": LocalJSX.ZSkipToContent & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
+            "z-slideshow": LocalJSX.ZSlideshow & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
+            "z-stepper": LocalJSX.ZStepper & JSXBase.HTMLAttributes<HTMLZStepperElement>;
+            "z-stepper-item": LocalJSX.ZStepperItem & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             /**
              * ZTable component.
              * @cssprop --z-table--cells-padding - Padding of the cells.
              */
-            "z-table": LocalJSX.IntrinsicElements["z-table"] & JSXBase.HTMLAttributes<HTMLZTableElement>;
+            "z-table": LocalJSX.ZTable & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**
              * Ztag component.
              * @cssprop --z-tag-text-color - text and icon color using tokens.
              * @cssprop --z-tag-bg - background color of the z-tag.
              */
-            "z-tag": LocalJSX.IntrinsicElements["z-tag"] & JSXBase.HTMLAttributes<HTMLZTagElement>;
+            "z-tag": LocalJSX.ZTag & JSXBase.HTMLAttributes<HTMLZTagElement>;
             /**
              * ZTbody component.
              */
-            "z-tbody": LocalJSX.IntrinsicElements["z-tbody"] & JSXBase.HTMLAttributes<HTMLZTbodyElement>;
+            "z-tbody": LocalJSX.ZTbody & JSXBase.HTMLAttributes<HTMLZTbodyElement>;
             /**
              * ZTd component.
              */
-            "z-td": LocalJSX.IntrinsicElements["z-td"] & JSXBase.HTMLAttributes<HTMLZTdElement>;
+            "z-td": LocalJSX.ZTd & JSXBase.HTMLAttributes<HTMLZTdElement>;
             /**
              * ZTFoot component.
              */
-            "z-tfoot": LocalJSX.IntrinsicElements["z-tfoot"] & JSXBase.HTMLAttributes<HTMLZTfootElement>;
+            "z-tfoot": LocalJSX.ZTfoot & JSXBase.HTMLAttributes<HTMLZTfootElement>;
             /**
              * ZTh component.
              */
-            "z-th": LocalJSX.IntrinsicElements["z-th"] & JSXBase.HTMLAttributes<HTMLZThElement>;
+            "z-th": LocalJSX.ZTh & JSXBase.HTMLAttributes<HTMLZThElement>;
             /**
              * ZThead component.
              */
-            "z-thead": LocalJSX.IntrinsicElements["z-thead"] & JSXBase.HTMLAttributes<HTMLZTheadElement>;
+            "z-thead": LocalJSX.ZThead & JSXBase.HTMLAttributes<HTMLZTheadElement>;
             /**
              * ZToastNotification component.
              */
-            "z-toast-notification": LocalJSX.IntrinsicElements["z-toast-notification"] & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
-            "z-toast-notification-list": LocalJSX.IntrinsicElements["z-toast-notification-list"] & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
-            "z-toggle-button": LocalJSX.IntrinsicElements["z-toggle-button"] & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
-            "z-toggle-switch": LocalJSX.IntrinsicElements["z-toggle-switch"] & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
-            /**
-             * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-             */
-            "z-tool": LocalJSX.IntrinsicElements["z-tool"] & JSXBase.HTMLAttributes<HTMLZToolElement>;
-            /**
-             * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
-             * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
-             * Tools can be visually grouped using `z-divider` elements as separators.
-             * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-             * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
-             */
-            "z-toolbar": LocalJSX.IntrinsicElements["z-toolbar"] & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
+            "z-toast-notification": LocalJSX.ZToastNotification & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
+            "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
+            "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
+            "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -8198,15 +6709,15 @@ declare module "@stencil/core" {
              * @cssprop --z-tooltip-theme--text - foreground color of the popover.
              * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
              */
-            "z-tooltip": LocalJSX.IntrinsicElements["z-tooltip"] & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
+            "z-tooltip": LocalJSX.ZTooltip & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             /**
              * ZTr component.
              * When the row is `expandable`, you can set the `prevent-expand` css class on an interactive element inside the row
              * to prevent the row from expanding.
              */
-            "z-tr": LocalJSX.IntrinsicElements["z-tr"] & JSXBase.HTMLAttributes<HTMLZTrElement>;
-            "z-tree-list": LocalJSX.IntrinsicElements["z-tree-list"] & JSXBase.HTMLAttributes<HTMLZTreeListElement>;
-            "z-visually-hidden": LocalJSX.IntrinsicElements["z-visually-hidden"] & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
+            "z-tr": LocalJSX.ZTr & JSXBase.HTMLAttributes<HTMLZTrElement>;
+            "z-tree-list": LocalJSX.ZTreeList & JSXBase.HTMLAttributes<HTMLZTreeListElement>;
+            "z-visually-hidden": LocalJSX.ZVisuallyHidden & JSXBase.HTMLAttributes<HTMLZVisuallyHiddenElement>;
         }
     }
 }
