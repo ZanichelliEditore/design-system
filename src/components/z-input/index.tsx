@@ -263,6 +263,7 @@ export class ZInput {
       disabled: this.disabled,
       readonly: this.readonly,
       required: this.required,
+      "aria-required": this.required ? "true" : undefined,
       title: this.htmltitle,
       minlength: this.minlength,
       maxlength: this.maxlength,
@@ -513,6 +514,7 @@ export class ZInput {
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
+          aria-required={this.required ? "true" : undefined}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getRoleAttribute()}
