@@ -3,3 +3,9 @@
 @import "./tokens/main.css";
 @import "./tokens/themes/index.css";
 @import "components/z-accordion/z-accordion-globals.css";
+
+/* Ensure all links have visible focus indicators for WCAG 2.4.7 compliance */
+a:focus-visible {
+  outline: 2px solid var(--color-primary-default, #002c63);
+  outline-offset: 2px;
+}
