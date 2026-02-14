@@ -262,6 +262,7 @@ export class ZFileUpload {
         multiple
         onChange={(e) => this.onFilesChange(e)}
         accept={this.acceptedFormat}
+        aria-labelledby={this.description ? "description" : undefined}
         ref={(val) => (this.input = val)}
       />
     );
