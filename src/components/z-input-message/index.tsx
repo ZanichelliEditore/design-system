@@ -44,8 +44,12 @@ export class ZInputMessage {
 
   render(): HTMLZInputMessageElement {
     const idAttr = this.htmlid ? {id: this.htmlid} : {};
+
     return (
-      <Host {...this.statusRole} {...idAttr}>
+      <Host
+        {...this.statusRole}
+        {...idAttr}
+      >
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span innerHTML={this.message} />
       </Host>

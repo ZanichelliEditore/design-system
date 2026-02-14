@@ -315,7 +315,8 @@ export class ZInput {
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
     const invalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
-    const describedby = this.status && boolean(this.message) !== false ? {"aria-describedby": `${this.htmlid}_message`} : {};
+    const describedby =
+      this.status && boolean(this.message) !== false ? {"aria-describedby": `${this.htmlid}_message`} : {};
 
     return {
       ...expanded,
