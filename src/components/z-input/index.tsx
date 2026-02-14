@@ -479,6 +479,7 @@ export class ZInput implements ComponentInterface {
         class="input-icon toggle-password-icon"
         disabled={this.disabled}
         aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
+        aria-pressed={!this.passwordHidden ? "true" : "false"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
         <z-icon
