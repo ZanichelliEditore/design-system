@@ -314,12 +314,14 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const required = this.required ? {"aria-required": "true"} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...required,
     };
   }
 
@@ -487,6 +489,7 @@ export class ZInput {
             }}
             aria-label={this.ariaLabel || undefined}
             {...this.getRoleAttribute()}
+            {...this.getAriaAttrubutes()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -503,6 +506,8 @@ export class ZInput {
 
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
+
     return (
       <div class="checkbox-wrapper">
         <input
@@ -517,6 +522,7 @@ export class ZInput {
           value={this.value}
           {...this.getRoleAttribute()}
           {...this.getFocusBlurAttributes()}
+          {...ariaRequired}
         />
 
         <label
@@ -541,6 +547,8 @@ export class ZInput {
 
   /* START radio */
   private renderRadio(): HTMLDivElement {
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
+
     return (
       <div class="radio-wrapper">
         <input
@@ -550,10 +558,12 @@ export class ZInput {
           checked={this.checked}
           disabled={this.disabled}
           readonly={this.readonly}
+          required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getRoleAttribute()}
           {...this.getFocusBlurAttributes()}
+          {...ariaRequired}
         />
 
         <label
