@@ -110,7 +110,10 @@ export class ZIcon implements ComponentInterface {
 
   render(): HTMLZIconElement {
     return (
-      <Host aria-hidden="true">
+      <Host
+        aria-hidden="true"
+        tabindex="-1"
+      >
         {this.hasColorIndicator && !this.needsTransparentIndicator ? (
           <div class="icon-wrapper">
             {this.renderColorIndicator()}
