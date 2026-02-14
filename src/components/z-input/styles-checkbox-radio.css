@@ -117,6 +117,19 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
+/* Fallback focus styles using :focus (without :focus-visible) for better browser compatibility */
+.radio-wrapper > input:focus + .radio-label > z-icon {
+  outline: 2px solid var(--color-form-active-primary);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.checkbox-wrapper > input:focus + .checkbox-label > z-icon {
+  outline: 2px solid var(--color-form-active-primary);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-small);
+}
+
 /* disabled */
 .radio-wrapper > input:disabled + .radio-label,
 .checkbox-wrapper > input:disabled + .checkbox-label {
