@@ -1058,6 +1058,16 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ZInputGroup {
+        /**
+          * Whether to visually hide the legend while keeping it accessible to screen readers. Useful when the legend text is redundant with a visible heading.
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility to provide context to screen reader users.
+         */
+        "legend": string;
+    }
     interface ZInputMessage {
         /**
           * input disabled status (optional)
@@ -2977,6 +2987,12 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
+    interface HTMLZInputGroupElement extends Components.ZInputGroup, HTMLStencilElement {
+    }
+    var HTMLZInputGroupElement: {
+        prototype: HTMLZInputGroupElement;
+        new (): HTMLZInputGroupElement;
+    };
     interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
     }
     var HTMLZInputMessageElement: {
@@ -3729,6 +3745,7 @@ declare global {
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
+        "z-input-group": HTMLZInputGroupElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
@@ -4917,6 +4934,16 @@ declare namespace LocalJSX {
           * the input value
          */
         "value"?: string;
+    }
+    interface ZInputGroup {
+        /**
+          * Whether to visually hide the legend while keeping it accessible to screen readers. Useful when the legend text is redundant with a visible heading.
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility to provide context to screen reader users.
+         */
+        "legend": string;
     }
     interface ZInputMessage {
         /**
@@ -6299,6 +6326,7 @@ declare namespace LocalJSX {
         "z-info-box": ZInfoBox;
         "z-info-reveal": ZInfoReveal;
         "z-input": ZInput;
+        "z-input-group": ZInputGroup;
         "z-input-message": ZInputMessage;
         "z-list": ZList;
         "z-list-element": ZListElement;
@@ -6537,6 +6565,7 @@ declare module "@stencil/core" {
              */
             "z-info-reveal": LocalJSX.ZInfoReveal & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.ZInput & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-group": LocalJSX.ZInputGroup & JSXBase.HTMLAttributes<HTMLZInputGroupElement>;
             "z-input-message": LocalJSX.ZInputMessage & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-list": LocalJSX.ZList & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.ZListElement & JSXBase.HTMLAttributes<HTMLZListElementElement>;
