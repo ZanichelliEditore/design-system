@@ -157,12 +157,28 @@ export class ZModal {
     const activeElement = this.host.ownerDocument.activeElement;
     const firstFocusableElement = focusableElements[0];
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    // Check if current active element is in the focusable list
+    const isActiveElementInList = focusableElements.some((el) => el === shadowActiveElement || el === activeElement);
+
+    // If focus has escaped the modal's focusable elements, bring it back
+    if (!isActiveElementInList) {
+      e.preventDefault();
+      if (e.shiftKey) {
+        lastFocusableElement.focus();
+      } else {
+        firstFocusableElement.focus();
+      }
+
+      return;
+    }
+
     if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
       // shift + tab was pressed and current active element is the first focusable element
       e.preventDefault();
       lastFocusableElement.focus();
     } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
+      // tab was pressed and current active element is the last focusable element
       e.preventDefault();
       firstFocusableElement.focus();
     }
