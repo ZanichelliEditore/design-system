@@ -92,13 +92,14 @@ export class ZButton implements ComponentInterface {
   render(): HTMLAnchorElement | HTMLButtonElement {
     const normalizedAriaLabel = this.ariaLabel?.trim() || undefined;
     const normalizedRole = this.htmlrole || this.role?.trim() || undefined;
+    const shouldRenderAsLink = normalizedRole === "link";
 
-    if (this.href) {
+    if (this.href || shouldRenderAsLink) {
       return (
         <a
           {...this.attributes}
           aria-label={normalizedAriaLabel}
-          href={this.href}
+          href={this.href || "#"}
           target={this.target}
         >
           {this.renderIcon()}
