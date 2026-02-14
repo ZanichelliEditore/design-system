@@ -37,7 +37,10 @@ export class ZIcon {
 
   render(): SVGElement {
     return (
-      <Host aria-hidden="true">
+      <Host
+        aria-hidden="true"
+        tabindex="-1"
+      >
         <svg
           viewBox="0 0 1000 1000"
           width={this.width}
