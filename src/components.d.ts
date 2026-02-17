@@ -1063,7 +1063,6 @@ export namespace Components {
           * input disabled status (optional)
          */
         "disabled"?: boolean;
-        "htmlRole"?: string;
         /**
           * input helper message
          */
@@ -4924,7 +4923,6 @@ declare namespace LocalJSX {
           * input disabled status (optional)
          */
         "disabled"?: boolean;
-        "htmlRole"?: string;
         /**
           * input helper message
          */

@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
 
 @Component({
@@ -19,25 +19,63 @@ export class ZInputMessage {
   @Prop({reflect: true})
   disabled?: boolean;
 
-  @Prop()
-  htmlRole?: string;
-
   private statusIcons = {
     success: "checkmark-circle",
     error: "multiply-circled",
     warning: "exclamation-circle",
   };
 
-  getStatus() {
-    if (this.htmlRole) return {role: this.htmlRole};
-    return {};
+  @State()
+  statusMessage: {critical: string; notCritical: string; noStatus: string};
+
+  @Watch("status")
+  @Watch("message")
+  onMessageOrStatusChange() {
+    if (!this.message) {
+      this.statusMessage = this.getInitialMessageObj();
+      return;
+    }
+
+    switch (this.status) {
+      case InputStatus.ERROR:
+        this.statusMessage = {...this.getInitialMessageObj(), critical: this.message};
+        break;
+      case InputStatus.SUCCESS:
+      case InputStatus.WARNING:
+        this.statusMessage = {...this.getInitialMessageObj(), notCritical: this.message};
+        break;
+      default:
+        this.statusMessage = {...this.getInitialMessageObj(), noStatus: this.message};
+        break;
+    }
+  }
+
+  getInitialMessageObj() {
+    return {critical: "", notCritical: "", noStatus: ""};
+  }
+
+  componentWillLoad(): void {
+    this.onMessageOrStatusChange();
+  }
+
+  renderIcon() {
+    return this.statusIcons[this.status] && <z-icon name={this.statusIcons[this.status]}></z-icon>;
   }
 
   render(): HTMLZInputMessageElement {
     return (
-      <Host {...this.getStatus()}>
-        {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
-        <span innerHTML={this.message} />
+      <Host>
+        <div role="alert">
+          {this.statusMessage.critical && this.renderIcon()}
+          <span innerHTML={this.statusMessage.critical} />
+        </div>
+        <div role="status">
+          {this.statusMessage.notCritical && this.renderIcon()}
+          <span innerHTML={this.statusMessage.notCritical} />
+        </div>
+        <div>
+          <span innerHTML={this.statusMessage.noStatus} />
+        </div>
       </Host>
     );
   }

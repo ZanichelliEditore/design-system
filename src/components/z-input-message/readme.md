@@ -5,12 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                      | Type                                                              | Default     |
-| ---------- | ----------- | -------------------------------- | ----------------------------------------------------------------- | ----------- |
-| `disabled` | `disabled`  | input disabled status (optional) | `boolean`                                                         | `undefined` |
-| `htmlRole` | `html-role` |                                  | `string`                                                          | `undefined` |
-| `message`  | `message`   | input helper message             | `string`                                                          | `undefined` |
-| `status`   | `status`    | input status (optional)          | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
+| Property   | Attribute  | Description                      | Type                                                              | Default     |
+| ---------- | ---------- | -------------------------------- | ----------------------------------------------------------------- | ----------- |
+| `disabled` | `disabled` | input disabled status (optional) | `boolean`                                                         | `undefined` |
+| `message`  | `message`  | input helper message             | `string`                                                          | `undefined` |
+| `status`   | `status`   | input status (optional)          | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
 
 
 ## Dependencies

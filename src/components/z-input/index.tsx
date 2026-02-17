@@ -359,7 +359,7 @@ export class ZInput {
           />
           {this.renderIcons()}
         </div>
-        {this.renderMessage(true)}
+        {this.renderMessage()}
       </div>
     );
   }
@@ -447,18 +447,13 @@ export class ZInput {
     );
   }
 
-  private renderMessage(alwaysPresent: boolean): HTMLZInputMessageElement {
-    if (!alwaysPresent && boolean(this.message) === false) {
-      return;
-    }
-
+  private renderMessage(): HTMLZInputMessageElement {
     return (
       <z-input-message
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
         disabled={this.disabled}
-        html-role="alert"
       />
     );
   }
@@ -490,7 +485,7 @@ export class ZInput {
             {...this.getRoleAttribute()}
           ></textarea>
         </div>
-        {this.renderMessage(false)}
+        {this.renderMessage()}
       </Fragment>
     );
   }
