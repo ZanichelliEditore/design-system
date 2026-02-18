@@ -104,13 +104,13 @@ export class ZToolbar {
   @Listen("toggleSubmenu")
   closeSibilingSubmenusOnOpen(event: CustomEvent): void {
     if (event.detail === true) {
-    const tools = this.hostElement.querySelectorAll<HTMLZToolElement>(":scope > z-tool");
-        tools.forEach((tool) => {
-          if (tool !== (event.target as HTMLElement).closest("z-tool") && tool.open) {
-            tool.open = false;
-          }
-    });
-  }
+      const tools = this.hostElement.querySelectorAll<HTMLZToolElement>(":scope > z-tool");
+      tools.forEach((tool) => {
+        if (tool !== (event.target as HTMLElement).closest("z-tool") && tool.open) {
+          tool.open = false;
+        }
+      });
+    }
   }
 
   @Listen("keydown")

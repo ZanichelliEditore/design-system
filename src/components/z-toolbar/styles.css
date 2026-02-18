@@ -26,16 +26,16 @@
     display: inline-grid;
     align-items: stretch;
     background: repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent calc(var(--space-unit) * 4.5),
-      var(--color-surface03) calc(var(--space-unit) * 4.5),
-      var(--color-surface03) calc(var(--space-unit) * 4.5 + 1px)
-    ) center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
+        to bottom,
+        transparent 0,
+        transparent calc(var(--space-unit) * 4.5),
+        var(--color-surface03) calc(var(--space-unit) * 4.5),
+        var(--color-surface03) calc(var(--space-unit) * 4.5 + 1px)
+      )
+      center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
     column-gap: calc(var(--space-unit) / 2);
     grid-template-columns: repeat(var(--z-toolbar-columns, auto-fill), auto);
     row-gap: var(--border-size-small);
-
 
     /* Overrides z-tool submenu positioning */
     --z-tool-host-position: static;
@@ -52,5 +52,4 @@
   ::slotted(z-tool) {
     border-radius: var(--border-radius);
   }
-
 }
