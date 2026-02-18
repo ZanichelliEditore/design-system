@@ -29,6 +29,10 @@ export class ZToolbar {
   componentDidLoad(): void {
     this.collectToolItems();
     this.updateTabIndexes();
+    //set css variable --z-toolbar-columns based on the number of tools in the toolbar, so that the background pattern can adapt to the number of rows
+    let colBreakpoint = parseInt(getComputedStyle(this.hostElement).getPropertyValue("--z-toolbar-columns") || "8");
+    colBreakpoint = this.toolItems.length <= colBreakpoint ? this.toolItems.length : colBreakpoint;
+    this.hostElement.style.setProperty("--z-toolbar-columns", colBreakpoint.toString());
   }
 
   /** Collect all z-tool elements in the toolbar (not nested ones). */

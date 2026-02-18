@@ -28,13 +28,11 @@
     background: repeating-linear-gradient(
       to bottom,
       transparent 0,
-      transparent 44px,
-      var(--color-surface03) 44px,
-      var(--color-surface03) 45px
+      transparent calc(var(--space-unit) * 4.5),
+      var(--color-surface03) calc(var(--space-unit) * 4.5),
+      var(--color-surface03) calc(var(--space-unit) * 4.5 + 1px)
     ) center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
-    column-gap: 4px;
-
-    /* grid-template-columns: repeat(var(--z-toolbar-columns, 27), auto); 27 is the max number of tools that can fit in a single row at the biggest breakpoint (1151px) with the current tool size and spacing. */
+    column-gap: calc(var(--space-unit) / 2);
     grid-template-columns: repeat(var(--z-toolbar-columns, auto-fill), auto);
     row-gap: var(--border-size-small);
 
@@ -42,7 +40,7 @@
     /* Overrides z-tool submenu positioning */
     --z-tool-host-position: static;
     --z-tool-submenu-top: auto;
-    --z-tool-submenu-bottom: calc(100% + 4px);
+    --z-tool-submenu-bottom: calc(100% + calc(var(--space-unit) / 2));
     --z-tool-submenu-left: 0;
     --z-tool-submenu-transform: none;
   }

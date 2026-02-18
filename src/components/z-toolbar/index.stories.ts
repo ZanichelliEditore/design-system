@@ -296,7 +296,7 @@ export const WithActiveTool = {
 export const MultilineMobile = {
   parameters: {
     viewport: {
-      defaultViewport: "tablet",
+      defaultViewport: "mobile",
     },
   },
   render: (args) => html`
@@ -304,9 +304,12 @@ export const MultilineMobile = {
       .multiline-container {
         --z-toolbar-columns: 4;
       }
+      .inner-different-columns {
+        --z-toolbar-columns: 2;
+      }
     </style>
     <div
-      style="display: flex; justify-content: center; align-items: flex-start; min-height: 300px; padding-top: 40px;"
+      style="display: flex; justify-content: center; align-items: flex-start; min-height: 300px; padding-top: 150px;"
     >
       <z-toolbar class="multiline-container" html-aria-label=${args.htmlAriaLabel}>
         <z-tool icon="gear" tooltip="Impostazioni"></z-tool>
@@ -314,7 +317,10 @@ export const MultilineMobile = {
         <z-divider orientation="vertical"></z-divider>
         <z-tool icon="upload" tooltip="Carica"></z-tool>
         <z-tool icon="copy" tooltip="Copia">
-          <z-toolbar html-aria-label="Sotto-toolbar copia">
+          <z-toolbar class="inner-different-columns" html-aria-label="Sotto-toolbar copia">
+            <z-tool icon="chevron-up" tooltip="Su"></z-tool>
+            <z-tool icon="chevron-down" tooltip="Giù"></z-tool>
+            <z-tool icon="chevron-up" tooltip="Su"></z-tool>
             <z-tool icon="chevron-up" tooltip="Su"></z-tool>
             <z-tool icon="chevron-down" tooltip="Giù"></z-tool>
           </z-toolbar>
