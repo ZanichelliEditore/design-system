@@ -1,10 +1,10 @@
-import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, Element, Host, Listen, Method, Prop, State, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 
 /**
  * ZToolbar component.
  * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
- * Tools can be visually grouped using wrapper elements with the `z-toolbar-group` CSS class.
+ * Tools can be visually grouped using `z-divider` elements as separators.
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
  */
 @Component({
@@ -45,13 +45,19 @@ export class ZToolbar {
     });
   }
 
-  private focusToolAt(index: number): void {
+  private focusToolAt(index: number, fallback: "previous" | "next" = "next"): void {
     const tool = this.toolItems[index];
     if (tool) {
       const button = tool.shadowRoot?.querySelector("button");
-      if (button) {
+      this.currentFocusIndex = index;
+      if (button.disabled || !button) {
+        if (fallback === "next") {
+          this.focusNextTool();
+        } else {
+          this.focusPreviousTool();
+        }
+      } else if (button) {
         button.focus();
-        this.currentFocusIndex = index;
         this.updateTabIndexes();
       }
     }
@@ -64,7 +70,7 @@ export class ZToolbar {
 
   private focusPreviousTool(): void {
     const prevIndex = (this.currentFocusIndex - 1 + this.toolItems.length) % this.toolItems.length;
-    this.focusToolAt(prevIndex);
+    this.focusToolAt(prevIndex, "previous");
   }
 
   private focusParentTool(event: KeyboardEvent): void {
@@ -72,12 +78,35 @@ export class ZToolbar {
     if (parentTool) {
       event.preventDefault();
       event.stopPropagation();
-      parentTool.active = false;
+      parentTool.open = false;
       const parentButton = parentTool.shadowRoot?.querySelector("button");
       if (parentButton) {
         parentButton.focus();
       }
     }
+  }
+
+  /** Close all open submenus in the toolbar. */
+  @Method()
+  async closeSubmenus(): Promise<void> {
+    const tools = this.hostElement.querySelectorAll<HTMLZToolElement>(":scope > z-tool");
+    tools.forEach((tool) => {
+      if (tool.open) {
+        tool.open = false;
+      }
+    });
+  }
+
+  @Listen("toggleSubmenu")
+  closeSibilingSubmenusOnOpen(event: CustomEvent): void {
+    if (event.detail === true) {
+    const tools = this.hostElement.querySelectorAll<HTMLZToolElement>(":scope > z-tool");
+        tools.forEach((tool) => {
+          if (tool !== (event.target as HTMLElement).closest("z-tool") && tool.open) {
+            tool.open = false;
+          }
+    });
+  }
   }
 
   @Listen("keydown")

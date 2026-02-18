@@ -1,3 +1,8 @@
+:host,
+* {
+  box-sizing: border-box;
+}
+
 .z-tool {
   --z-tool-size: calc(var(--space-unit) * 5.5);
   --z-tool-icon-size: calc(var(--space-unit) * 2.5);
@@ -16,6 +21,10 @@
 }
 
 :host([active]) .z-tool {
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
+}
+
+:host([open]) .z-tool {
   box-shadow: inset 0 0 0 2px var(--color-primary01);
 }
 
@@ -58,17 +67,24 @@ z-icon {
   font-family: var(--font-family-sans);
 }
 
+@media (max-width: 767px) {
+  .z-tool-tooltip {
+    display: none !important;
+  }
+}
+
 :host {
-  position: relative;
+  position: var(--z-tool-host-position, relative);
 }
 
 .z-tool-submenu {
-  position: absolute;
+  position: var(--z-tool-submenu-position, absolute);
   z-index: 1;
-  top: calc(100% + 4px);
-  left: 50%;
+  top: var(--z-tool-submenu-top, calc(100% + 4px));
+  bottom: var(--z-tool-submenu-bottom, auto);
+  left: var(--z-tool-submenu-left, 50%);
   display: none;
-  transform: translateX(-50%);
+  transform: var(--z-tool-submenu-transform, translateX(-50%));
 }
 
 .z-tool-submenu-open {

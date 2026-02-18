@@ -13,21 +13,18 @@ describe("z-toolbar e2e", () => {
     expect(tools.length).toBe(2);
   });
 
-  it("render con gruppi", async () => {
+  it("render con divider", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <z-toolbar>
-        <div class="z-toolbar-group">
-          <z-tool icon="gear"></z-tool>
-          <z-tool icon="download"></z-tool>
-        </div>
-        <div class="z-toolbar-group">
-          <z-tool icon="upload"></z-tool>
-        </div>
+        <z-tool icon="gear"></z-tool>
+        <z-tool icon="download"></z-tool>
+        <z-divider orientation="vertical"></z-divider>
+        <z-tool icon="upload"></z-tool>
       </z-toolbar>
     `);
-    const groups = await page.findAll("z-toolbar .z-toolbar-group");
-    expect(groups.length).toBe(2);
+    const dividers = await page.findAll("z-toolbar > z-divider");
+    expect(dividers.length).toBe(1);
   });
 
   it("roving tabindex: primo tool ha tabindex 0", async () => {
@@ -59,17 +56,16 @@ describe("z-toolbar e2e", () => {
     const page = await newE2EPage();
     await page.setContent(`
       <z-toolbar>
-        <div class="z-toolbar-group">
-          <z-tool icon="gear"></z-tool>
-          <z-tool icon="download"></z-tool>
-        </div>
+        <z-tool icon="gear"></z-tool>
+        <z-tool icon="download"></z-tool>
+        <z-divider orientation="vertical"></z-divider>
         <z-tool icon="upload"></z-tool>
       </z-toolbar>
     `);
     await page.waitForChanges();
 
     const tabIndexes = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > .z-toolbar-group > z-tool, z-toolbar > z-tool");
+      const tools = document.querySelectorAll("z-toolbar > z-tool");
 
       return Array.from(tools).map((tool) => tool.shadowRoot.querySelector("button").tabIndex);
     });
@@ -184,7 +180,7 @@ describe("z-toolbar e2e", () => {
     expect(nestedToolbar).not.toBeNull();
   });
 
-  it("click su tool con submenu attiva active", async () => {
+  it("click su tool con submenu apre il submenu", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <z-toolbar>
@@ -201,10 +197,10 @@ describe("z-toolbar e2e", () => {
     await tool.click();
     await page.waitForChanges();
 
-    expect(await tool.getProperty("active")).toBe(true);
+    expect(await tool.getProperty("open")).toBe(true);
   });
 
-  it("tool disabled non attiva active al click", async () => {
+  it("tool disabled non apre il submenu al click", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <z-toolbar>
@@ -221,7 +217,54 @@ describe("z-toolbar e2e", () => {
     await tool.click();
     await page.waitForChanges();
 
-    expect(await tool.getProperty("active")).toBe(false);
+    expect(await tool.getProperty("open")).toBe(false);
+  });
+
+  it("aprire un submenu chiude gli altri submenu aperti", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <z-toolbar id="main">
+        <z-tool icon="gear">
+          <z-toolbar>
+            <z-tool icon="chevron-up"></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-tool icon="download">
+          <z-toolbar>
+            <z-tool icon="chevron-down"></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-tool icon="upload">
+          <z-toolbar>
+            <z-tool icon="copy"></z-tool>
+          </z-toolbar>
+        </z-tool>
+      </z-toolbar>
+    `);
+    await page.waitForChanges();
+
+    const tools = await page.findAll("#main > z-tool");
+
+    // Open first submenu
+    await tools[0].click();
+    await page.waitForChanges();
+    expect(await tools[0].getProperty("open")).toBe(true);
+    expect(await tools[1].getProperty("open")).toBe(false);
+    expect(await tools[2].getProperty("open")).toBe(false);
+
+    // Open second submenu: first should close
+    await tools[1].click();
+    await page.waitForChanges();
+    expect(await tools[0].getProperty("open")).toBe(false);
+    expect(await tools[1].getProperty("open")).toBe(true);
+    expect(await tools[2].getProperty("open")).toBe(false);
+
+    // Open third submenu: second should close
+    await tools[2].click();
+    await page.waitForChanges();
+    expect(await tools[0].getProperty("open")).toBe(false);
+    expect(await tools[1].getProperty("open")).toBe(false);
+    expect(await tools[2].getProperty("open")).toBe(true);
   });
 
   it("secondo click su tool chiude submenu", async () => {
@@ -240,10 +283,10 @@ describe("z-toolbar e2e", () => {
     const tool = await page.find("z-toolbar > z-tool");
     await tool.click();
     await page.waitForChanges();
-    expect(await tool.getProperty("active")).toBe(true);
+    expect(await tool.getProperty("open")).toBe(true);
 
     await tool.click();
     await page.waitForChanges();
-    expect(await tool.getProperty("active")).toBe(false);
+    expect(await tool.getProperty("open")).toBe(false);
   });
 });

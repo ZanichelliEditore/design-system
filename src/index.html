@@ -30,11 +30,162 @@
         <h1 slot="title">Albe test app</h1>
       </z-app-header>
     </header>
-    <main></main>
+    <main style="display: flex; justify-content: center; align-items: flex-start; min-height: 200px; padding-top: 40px">
+      <z-toolbar
+        html-aria-label="Toolbar principale"
+        mobile-line-size="8"
+      >
+        <z-tool
+          id="pippo"
+          icon="gear"
+          tooltip="Impostazioni"
+        >
+          <div>
+            <input style="height: 500px" type="text" placeholder="test input" />
+          </div>
+          <!-- <z-toolbar html-aria-label="Sotto-toolbar impostazioni">
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-down"
+              tooltip="Giù"
+            ></z-tool>
+          </z-toolbar> -->
+        </z-tool>
+        <z-tool
+          icon="download"
+          tooltip="Scarica"
+        ></z-tool>
+        <z-divider orientation="vertical"></z-divider>
+        <z-tool
+          icon="upload"
+          tooltip="Carica"
+        ></z-tool>
+        <z-tool
+          icon="copy"
+          tooltip="Copia"
+        >
+          <z-toolbar html-aria-label="Sotto-toolbar copia">
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-down"
+              tooltip="Giù"
+            ></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-divider orientation="vertical"></z-divider>
+        <z-tool
+          icon="gear"
+          tooltip="Impostazioni 2"
+        ></z-tool>
+        <z-tool
+          icon="download"
+          tooltip="Scarica 2"
+        >
+        </z-tool>
+        <z-tool
+          icon="upload"
+          tooltip="Carica 2"
+        >
+          <z-toolbar html-aria-label="Sotto-toolbar carica">
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-down"
+              tooltip="Giù"
+            ></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-tool
+          icon="gear"
+          tooltip="Impostazioni 3"
+          onclick="console.log('clicked!')"
+          disabled
+        ></z-tool>
+        <z-tool
+          icon="copy"
+          tooltip="Copia 2"
+        ></z-tool>
+        <z-tool
+          icon="upload"
+          tooltip="Carica 2"
+        >
+          <z-toolbar html-aria-label="Sotto-toolbar carica">
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-down"
+              tooltip="Giù"
+            ></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-tool
+          icon="gear"
+          tooltip="Impostazioni 3"
+          onclick="console.log('clicked!')"
+        ></z-tool>
+        <z-tool
+          icon="copy"
+          tooltip="Copia 2"
+          active
+        ></z-tool>
+        <z-tool
+          icon="upload"
+          tooltip="Carica 2"
+        >
+          <z-toolbar html-aria-label="Sotto-toolbar carica">
+            <z-tool
+              icon="chevron-up"
+              tooltip="Su"
+            ></z-tool>
+            <z-tool
+              icon="chevron-down"
+              tooltip="Giù"
+            ></z-tool>
+          </z-toolbar>
+        </z-tool>
+        <z-tool
+          icon="gear"
+          tooltip="Impostazioni 3"
+          onclick="console.log('clicked!')"
+        ></z-tool>
+        <z-tool
+          id="testelement"
+          icon="copy"
+          tooltip="Copia 2"
+        ></z-tool>
+      </z-toolbar>
+
+      <script>
+        document.querySelector("z-toolbar").addEventListener("toggleSubmenu", (e) => {
+          console.log("toggleSubmenu", e);
+        });
+        document.querySelector("z-toolbar").addEventListener("activeChange", (e) => {
+          console.log("activeChange", e);
+        });
+        document.getElementById("testelement").addEventListener("click", (e) => {
+          //activate this element and open its submenu if it has one
+          console.log("click", e);
+          const tool = e.currentTarget;
+          tool.active = !tool.active;
+        });
+      </script>
+    </main>
   </body>
   <style>
     body {
       margin: 0;
+
+      --z-toolbar-columns: 4;
     }
   </style>
 </html>

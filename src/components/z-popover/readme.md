@@ -65,6 +65,7 @@ Notes:
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-td](../table/cells/z-td)
  - [z-th](../table/cells/z-th)
+ - [z-tool](../z-tool)
  - [z-tooltip](../z-tooltip)
 
 ### Graph
@@ -75,6 +76,7 @@ graph TD;
   z-myz-card-info --> z-popover
   z-td --> z-popover
   z-th --> z-popover
+  z-tool --> z-popover
   z-tooltip --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

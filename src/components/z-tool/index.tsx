@@ -1,9 +1,9 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
 
 /**
  * ZTool component.
- * @slot - Optional slot for nested content (e.g., a secondary z-toolbar) that appears when the tool is active/clicked.
+ * @slot - Optional slot for nested content (e.g., a secondary z-toolbar) that appears when the tool is open/clicked.
  */
 @Component({
   tag: "z-tool",
@@ -30,12 +30,16 @@ export class ZTool {
   htmlAriaLabel?: string;
 
   /** Visual selected state. */
-  @Prop({reflect: true, mutable: true})
+  @Prop({reflect: true})
   active = false;
 
   /** Disabled state. */
   @Prop({reflect: true})
   disabled = false;
+
+  /** Open state. */
+  @Prop({reflect: true, mutable: true})
+  open = false;
 
   @State()
   tooltipOpen = false;
@@ -46,9 +50,18 @@ export class ZTool {
   @State()
   isNested = false;
 
+  /** Emitted when the open state changes. */
+  @Event()
+  toggleSubmenu: EventEmitter;
+
   private iconRef?: HTMLElement;
 
   private hoverDelay?: ReturnType<typeof setTimeout>;
+
+  @Watch("open")
+  handleOpenChange(): void {
+    this.toggleSubmenu.emit(this.open);
+  }
 
   private handleTooltipOpen = (): void => {
     //This.isNested check prevents tooltips from showing on nested tools, e.g. inside submenus
@@ -71,9 +84,13 @@ export class ZTool {
   };
 
   private handleClick = (): void => {
-    if (this.hasSlottedContent && !this.disabled) {
-      this.active = !this.active;
-      if (this.active) {
+    if (this.disabled) {
+      return;
+    }
+
+    if (this.hasSlottedContent) {
+      this.open = !this.open;
+      if (this.open) {
         this.focusNestedToolbar();
       }
     }
@@ -122,7 +139,7 @@ export class ZTool {
           class="z-tool"
           type="button"
           aria-pressed={this.active ? "true" : "false"}
-          aria-expanded={this.hasSlottedContent ? (this.active ? "true" : "false") : undefined}
+          aria-expanded={this.hasSlottedContent ? (this.open ? "true" : "false") : undefined}
           aria-label={this.htmlAriaLabel || this.tooltip || undefined}
           disabled={this.disabled}
           onClick={this.handleClick}
@@ -153,7 +170,7 @@ export class ZTool {
           <div
             class={{
               "z-tool-submenu": true,
-              "z-tool-submenu-open": this.active,
+              "z-tool-submenu-open": this.open,
             }}
             onClick={(e) => e.stopPropagation()}
             onKeyDown={(e) => e.stopPropagation()}
