@@ -18,9 +18,9 @@
   height: calc(var(--space-unit) * 4.5) !important;
 }
 
-@media (max-width: 1151px) {
+@media (max-width: 767px) {
   :host {
-    --z-toolbar-columns: ;
+    --z-toolbar-columns: 8;
 
     position: relative;
     display: inline-grid;
@@ -32,8 +32,7 @@
       var(--color-surface03) 44px,
       var(--color-surface03) 45px
     ) center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
-    column-gap: 0;
-    gap: 4px;
+    column-gap: 4px;
 
     /* grid-template-columns: repeat(var(--z-toolbar-columns, 27), auto); 27 is the max number of tools that can fit in a single row at the biggest breakpoint (1151px) with the current tool size and spacing. */
     grid-template-columns: repeat(var(--z-toolbar-columns, auto-fill), auto);

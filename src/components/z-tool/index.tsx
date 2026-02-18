@@ -172,8 +172,6 @@ export class ZTool {
               "z-tool-submenu": true,
               "z-tool-submenu-open": this.open,
             }}
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => e.stopPropagation()}
           >
             <slot></slot>
           </div>
