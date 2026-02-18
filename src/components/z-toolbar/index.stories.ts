@@ -306,10 +306,9 @@ export const MultilineMobile = {
       }
     </style>
     <div
-      class="multiline-container"
       style="display: flex; justify-content: center; align-items: flex-start; min-height: 300px; padding-top: 40px;"
     >
-      <z-toolbar html-aria-label=${args.htmlAriaLabel}>
+      <z-toolbar class="multiline-container" html-aria-label=${args.htmlAriaLabel}>
         <z-tool icon="gear" tooltip="Impostazioni"></z-tool>
         <z-tool icon="download" tooltip="Scarica"></z-tool>
         <z-divider orientation="vertical"></z-divider>

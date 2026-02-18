@@ -25,10 +25,18 @@
     position: relative;
     display: inline-grid;
     align-items: stretch;
-    /* background-color: var(--color-surface03); */
-    /* box-shadow: var(--shadow-4), inset 4px 0px 0 0 var(--color-surface01), inset -4px -44px 0 0 var(--color-surface01); */
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 44px,
+      var(--color-surface03) 44px,
+      var(--color-surface03) 45px
+    ) center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
     column-gap: 0;
-    grid-template-columns: repeat(var(--z-toolbar-columns, 27), auto); /* 27 is the max number of tools that can fit in a single row at the biggest breakpoint (1151px) with the current tool size and spacing. */
+    gap: 4px;
+
+    /* grid-template-columns: repeat(var(--z-toolbar-columns, 27), auto); 27 is the max number of tools that can fit in a single row at the biggest breakpoint (1151px) with the current tool size and spacing. */
+    grid-template-columns: repeat(var(--z-toolbar-columns, auto-fill), auto);
     row-gap: var(--border-size-small);
 
 
@@ -42,12 +50,6 @@
 
   ::slotted(z-divider) {
     display: none !important;
-  }
-
-  ::slotted(*:not(z-divider)) {
-    padding-right: calc(var(--space-unit) / 4);
-    padding-left: calc(var(--space-unit) / 4);
-    background-color: var(--color-surface01);
   }
 
   ::slotted(z-tool) {
