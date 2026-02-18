@@ -11,7 +11,9 @@ button.z-link {
   cursor: pointer;
   font-family: var(--font-family-sans);
   line-height: inherit;
-  text-decoration: none;
+  /* WCAG 1.4.1: Links must have visual indicators beyond color */
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 a.z-link.z-link-icon,
@@ -40,6 +42,7 @@ button.z-link:focus-visible,
 a.z-link:active,
 button.z-link:active {
   text-decoration: underline;
+  text-decoration-thickness: 0.125em;
 }
 
 a.z-link:focus-visible,
