@@ -1738,7 +1738,7 @@ export namespace Components {
          */
         "closable": boolean;
         /**
-          * The open state of the popover.
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
          */
         "open": boolean;
         /**
@@ -5682,7 +5682,7 @@ declare namespace LocalJSX {
          */
         "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
         /**
-          * The open state of the popover.
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
          */
         "open"?: boolean;
         /**

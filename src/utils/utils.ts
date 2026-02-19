@@ -173,6 +173,10 @@ export function getParentElement(element: Element): Element {
     return element.shadowRoot.host;
   }
 
+  if (element.parentNode instanceof ShadowRoot) {
+    return element.parentNode.host;
+  }
+
   return element.parentElement;
 }
 

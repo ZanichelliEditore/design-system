@@ -39,7 +39,11 @@ export class ZPopover {
   @Prop({reflect: true, mutable: true})
   position?: PopoverPosition = PopoverPosition.TOP;
 
-  /** The open state of the popover. */
+  /**
+   * The initial open state of the popover.
+   * Internal changes of this prop are emitted through the `openChange` event.
+   * Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
+   */
   @Prop({reflect: true, mutable: true})
   open = false;
 
@@ -203,7 +207,11 @@ export class ZPopover {
     } else if (this.bindTo) {
       this.boundElement = this.bindTo;
     } else {
-      this.boundElement = this.host.parentElement as HTMLElement;
+      this.boundElement = getParentElement(this.host) as HTMLElement;
+      if (this.boundElement.tagName.toLowerCase() === "z-tooltip") {
+        // If the popover is used inside a tooltip without a specified `bindTo`, bind it to the parent of the tooltip.
+        this.boundElement = getParentElement(this.boundElement) as HTMLElement;
+      }
     }
   }
 
