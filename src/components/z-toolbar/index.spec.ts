@@ -8,7 +8,7 @@ describe("ZToolbar", () => {
       html: `<z-toolbar></z-toolbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-toolbar role="toolbar">
+      <z-toolbar role="toolbar" style="--z-toolbar-columns: 0;">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
