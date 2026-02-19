@@ -2230,6 +2230,55 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
+     * ZTool component.
+     */
+    interface ZTool {
+        /**
+          * Visual selected state.
+         */
+        "active": boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon": string;
+        /**
+          * Open state.
+         */
+        "open": boolean;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition": PopoverPosition;
+    }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface ZToolbar {
+        /**
+          * Close all open submenus in the toolbar.
+         */
+        "closeSubmenus": () => Promise<void>;
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -2449,6 +2498,10 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
+}
+export interface ZToolCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZToolElement;
 }
 export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3641,6 +3694,38 @@ declare global {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
+    interface HTMLZToolElementEventMap {
+        "toggleSubmenu": any;
+    }
+    /**
+     * ZTool component.
+     */
+    interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZToolElement: {
+        prototype: HTMLZToolElement;
+        new (): HTMLZToolElement;
+    };
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
+    }
+    var HTMLZToolbarElement: {
+        prototype: HTMLZToolbarElement;
+        new (): HTMLZToolbarElement;
+    };
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -3779,6 +3864,8 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tool": HTMLZToolElement;
+        "z-toolbar": HTMLZToolbarElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -6206,6 +6293,55 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
+     * ZTool component.
+     */
+    interface ZTool {
+        /**
+          * Visual selected state.
+         */
+        "active"?: boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon"?: string;
+        /**
+          * Emitted when the open state changes.
+         */
+        "onToggleSubmenu"?: (event: ZToolCustomEvent<any>) => void;
+        /**
+          * Open state.
+         */
+        "open"?: boolean;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition"?: PopoverPosition;
+    }
+    /**
+     * ZToolbar component.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     */
+    interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -6349,6 +6485,8 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tool": ZTool;
+        "z-toolbar": ZToolbar;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
         "z-tree-list": ZTreeList;
@@ -6673,6 +6811,17 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            /**
+             * ZTool component.
+             */
+            "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
+            /**
+             * ZToolbar component.
+             * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+             * Tools can be visually grouped using `z-divider` elements as separators.
+             * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+             */
+            "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
