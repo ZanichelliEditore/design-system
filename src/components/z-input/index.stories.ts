@@ -303,3 +303,29 @@ export const ZInputNumber = {
     ></z-input>
   `,
 } satisfies Story;
+
+export const ZInputPasswordWithRequirements = {
+  parameters: {
+    controls: {
+      include: ["label", "placeholder", "message", "required", "minlength"],
+    },
+  },
+  args: {
+    type: InputType.PASSWORD,
+    label: "Password",
+    placeholder: "Inserisci la password",
+    required: true,
+    minlength: 8,
+    message: "La password deve contenere almeno 8 caratteri",
+  },
+  render: (args) => html`
+    <z-input
+      type=${args.type}
+      label=${args.label}
+      placeholder=${args.placeholder}
+      .required=${args.required}
+      minlength=${args.minlength}
+      message=${args.message}
+    ></z-input>
+  `,
+} satisfies Story;
