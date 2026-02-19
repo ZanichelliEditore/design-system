@@ -503,6 +503,7 @@ export class ZInput {
 
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
     return (
       <div class="checkbox-wrapper">
         <input
@@ -515,6 +516,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...ariaRequired}
           {...this.getRoleAttribute()}
           {...this.getFocusBlurAttributes()}
         />
