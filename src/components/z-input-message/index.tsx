@@ -40,10 +40,7 @@ export class ZInputMessage {
 
   render(): HTMLZInputMessageElement {
     return (
-      <Host
-        {...this.statusRole}
-        aria-label={this.message}
-      >
+      <Host {...this.statusRole}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span innerHTML={this.message} />
       </Host>

@@ -11,7 +11,7 @@ import {Component, Host, h} from "@stencil/core";
 export class ZStepper {
   render(): HTMLSlotElement {
     return (
-      <Host role="list">
+      <Host role="navigation">
         <slot />
       </Host>
     );

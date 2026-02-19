@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.1.3](https://github.com/ZanichelliEditore/design-system/compare/v19.1.2...v19.1.3) (2026-02-19)
+
+
+### Bug Fixes
+
+* avoids z-input-message screenreader alert duplication ([d734c76](https://github.com/ZanichelliEditore/design-system/commit/d734c76381a09cebfb42cbe7d3f4bcb332fff47d))
+* **DS-963:** accessibility for zstepper ([e77344f](https://github.com/ZanichelliEditore/design-system/commit/e77344ff7974c920c873a21838d164409514ab06))
+* handle popover positioning when its containing block isn't the document element ([e10cb00](https://github.com/ZanichelliEditore/design-system/commit/e10cb00d58c488cc94e27c9b93af2178e2517439))
+
 ## [19.1.2](https://github.com/ZanichelliEditore/design-system/compare/v19.1.1...v19.1.2) (2026-02-11)
 
 

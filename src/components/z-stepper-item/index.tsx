@@ -40,8 +40,8 @@ export class ZStepperItem {
     const href =
       this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
     const role = href ? {role: "link"} : undefined;
-    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
-    const tabindex = this.pressed || this.href === "" ? {tabindex: -1} : undefined;
+    const current = this.pressed && !this.disabled ? {"aria-current": "step"} : undefined;
+    const tabindex = this.pressed || this.href === "" ? {tabIndex: -1} : undefined;
 
     return {
       ...href,
