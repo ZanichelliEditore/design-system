@@ -28,9 +28,9 @@
     background: repeating-linear-gradient(
         to bottom,
         transparent 0,
-        transparent calc(var(--space-unit) * 4.5),
-        var(--color-surface03) calc(var(--space-unit) * 4.5),
-        var(--color-surface03) calc(var(--space-unit) * 4.5 + 1px)
+        transparent calc(var(--space-unit) * 5.5),
+        var(--color-surface03) calc(var(--space-unit) * 5.5),
+        var(--color-surface03) calc(var(--space-unit) * 5.5 + 1px)
       )
       center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);
     column-gap: calc(var(--space-unit) / 2);
