@@ -4,7 +4,6 @@
   padding: calc(var(--space-unit) * 2);
   background: var(--color-surface01);
   gap: var(--space-unit);
-  grid-auto-flow: column;
   grid-template-columns: repeat(9, calc(var(--space-unit) * 3));
   grid-template-rows: repeat(5, calc(var(--space-unit) * 3));
 }
