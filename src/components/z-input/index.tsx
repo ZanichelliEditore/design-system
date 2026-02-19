@@ -376,7 +376,15 @@ export class ZInput {
         htmlFor={this.htmlid}
       >
         {this.label}
-        {this.required && <span class="required-indicator" aria-hidden="true"> *</span>}
+        {this.required && (
+          <span
+            class="required-indicator"
+            aria-hidden="true"
+          >
+            {" "}
+            *
+          </span>
+        )}
       </label>
     );
   }
