@@ -104,4 +104,22 @@ describe("Suite test ZInput - checkbox", () => {
         </z-input>
       `);
   });
+
+  it("Test render ZInput required with aria-required", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="checkid" type="checkbox" required label="Required checkbox"></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input htmlid="checkid" type="checkbox" required label="Required checkbox" size="big">
+        <div class="checkbox-wrapper">
+          <input id="checkid" type="checkbox" required aria-required="true" />
+          <label htmlFor="checkid" class="checkbox-label after">
+            <z-icon name="checkbox" class="big"></z-icon>
+            <span>Required checkbox</span>
+          </label>
+        </div>
+      </z-input>
+    `);
+  });
 });
