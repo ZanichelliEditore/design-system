@@ -84,6 +84,10 @@ export class ZInput {
   @Prop()
   message?: string | boolean = true;
 
+  /** helper text displayed below the input (optional): for providing instructions or format guidance */
+  @Prop()
+  helperText?: string;
+
   /** the input label position: available for checkbox, radio */
   @Prop()
   labelPosition?: LabelPosition = LabelPosition.RIGHT;
@@ -360,6 +364,7 @@ export class ZInput {
           {this.renderIcons()}
         </div>
         {this.renderMessage()}
+        {this.renderHelperText()}
       </div>
     );
   }
@@ -459,6 +464,25 @@ export class ZInput {
         class={this.size}
         disabled={this.disabled}
       />
+    );
+  }
+
+  private renderHelperText(): HTMLDivElement {
+    let text = this.helperText;
+
+    // Provide default password requirements for new password fields
+    if (!text && this.type === InputType.PASSWORD && this.autocomplete === "new-password") {
+      text = "La password deve contenere almeno 8 caratteri, includere almeno una lettera maiuscola, una minuscola e un numero.";
+    }
+
+    if (!text) {
+      return;
+    }
+
+    return (
+      <div class="helper-text body-6" aria-live="polite">
+        {text}
+      </div>
     );
   }
 
