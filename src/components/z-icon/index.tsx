@@ -44,6 +44,7 @@ export class ZIcon {
           height={this.height}
           id={this.iconid}
           fill={this.fill ? `var(--${this.fill})` : ""}
+          aria-hidden="true"
         >
           {this.selectPathOrPolygon(ICONS[this.name])}
         </svg>
