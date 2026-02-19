@@ -35,7 +35,6 @@
 }
 
 :host([disabled]) .z-tool {
-  background-color: var(--color-surface01);
   color: var(--color-disabled01-icon);
   cursor: not-allowed;
 }
