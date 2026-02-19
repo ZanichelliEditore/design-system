@@ -314,12 +314,19 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const invalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+    const describedby =
+      this.status === InputStatus.ERROR && boolean(this.message) !== false
+        ? {"aria-describedby": `${this.htmlid}_message`}
+        : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...invalid,
+      ...describedby,
     };
   }
 
@@ -454,6 +461,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        htmlid={`${this.htmlid}_message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
