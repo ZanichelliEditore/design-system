@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -643,6 +643,24 @@ export namespace Components {
           * z-chip size type, can be default, medium or small
          */
         "type"?: ZChipType;
+    }
+    /**
+     * Color picker component.
+     * This component allow the user to pick a color from a predefined set.
+     */
+    interface ZColorPicker {
+        /**
+          * The aria-label for the color picker, e.g. "Select a background color for the label".
+         */
+        "htmlAriaLabel": string;
+        /**
+          * The language for the aria labels inside the color picker.
+         */
+        "lng": "it" | "en";
+        /**
+          * The selected color to highlight.
+         */
+        "selectedColor": ColorPickerPalette;
     }
     interface ZCombobox {
         /**
@@ -2375,6 +2393,10 @@ export interface ZChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZChipElement;
 }
+export interface ZColorPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZColorPickerElement;
+}
 export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZComboboxElement;
@@ -2860,6 +2882,27 @@ declare global {
     var HTMLZChipElement: {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
+    };
+    interface HTMLZColorPickerElementEventMap {
+        "colorSelected": ColorPickerPalette;
+    }
+    /**
+     * Color picker component.
+     * This component allow the user to pick a color from a predefined set.
+     */
+    interface HTMLZColorPickerElement extends Components.ZColorPicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZColorPickerElement: {
+        prototype: HTMLZColorPickerElement;
+        new (): HTMLZColorPickerElement;
     };
     interface HTMLZComboboxElementEventMap {
         "comboboxChange": any;
@@ -3802,6 +3845,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-color-picker": HTMLZColorPickerElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
@@ -4550,6 +4594,28 @@ declare namespace LocalJSX {
           * z-chip size type, can be default, medium or small
          */
         "type"?: ZChipType;
+    }
+    /**
+     * Color picker component.
+     * This component allow the user to pick a color from a predefined set.
+     */
+    interface ZColorPicker {
+        /**
+          * The aria-label for the color picker, e.g. "Select a background color for the label".
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * The language for the aria labels inside the color picker.
+         */
+        "lng"?: "it" | "en";
+        /**
+          * Event emitted when a color is selected.
+         */
+        "onColorSelected"?: (event: ZColorPickerCustomEvent<ColorPickerPalette>) => void;
+        /**
+          * The selected color to highlight.
+         */
+        "selectedColor"?: ColorPickerPalette;
     }
     interface ZCombobox {
         /**
@@ -6423,6 +6489,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-color-picker": ZColorPicker;
         "z-combobox": ZCombobox;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
@@ -6649,6 +6716,11 @@ declare module "@stencil/core" {
              */
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            /**
+             * Color picker component.
+             * This component allow the user to pick a color from a predefined set.
+             */
+            "z-color-picker": LocalJSX.ZColorPicker & JSXBase.HTMLAttributes<HTMLZColorPickerElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             /**
              * Cover hero component.
