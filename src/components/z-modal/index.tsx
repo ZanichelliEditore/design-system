@@ -155,17 +155,30 @@ export class ZModal {
     const focusableElements = this.focusableElements;
     const shadowActiveElement = this.host.shadowRoot.activeElement;
     const activeElement = this.host.ownerDocument.activeElement;
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
+
+    // Find the currently focused element in our ordered list
+    const currentElement = shadowActiveElement || activeElement;
+    const currentIndex = focusableElements.findIndex(el => el === currentElement);
+
+    // If no element is focused or element not found, focus the first element
+    if (currentIndex === -1) {
       e.preventDefault();
-      lastFocusableElement.focus();
-    } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
-      e.preventDefault();
-      firstFocusableElement.focus();
+      focusableElements[0]?.focus();
+      return;
     }
+
+    // Calculate next index based on direction
+    let nextIndex: number;
+    if (e.shiftKey) {
+      // Shift+Tab: move backward, wrap to last if at first
+      nextIndex = currentIndex === 0 ? focusableElements.length - 1 : currentIndex - 1;
+    } else {
+      // Tab: move forward, wrap to first if at last
+      nextIndex = currentIndex === focusableElements.length - 1 ? 0 : currentIndex + 1;
+    }
+
+    e.preventDefault();
+    focusableElements[nextIndex]?.focus();
   }
 
   private closeButtonSlot(): HTMLElement | void {
