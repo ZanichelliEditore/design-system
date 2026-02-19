@@ -89,6 +89,9 @@ export class ZModal {
   }
 
   componentDidLoad(): void {
+    // Ensure host element is not focusable to prevent keyboard trap (WCAG 2.4.3)
+    this.host.setAttribute("tabindex", "-1");
+
     if (typeof window.HTMLDialogElement !== "function") {
       /* workaround to fix `registerDialog` in test environment:
       stencil converts html elements to MockHTMLElement but this element is missing the `localName` property,
