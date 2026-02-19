@@ -540,6 +540,69 @@ export class ZInput {
   /* END checkbox */
 
   /* START radio */
+  private handleRadioKeyDown(ev: KeyboardEvent): void {
+    if (!this.name || this.disabled || this.readonly) {
+      return;
+    }
+
+    const key = ev.key;
+    if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
+      return;
+    }
+
+    ev.preventDefault();
+
+    const radioGroup = Array.from(
+      document.querySelectorAll<HTMLZInputElement>(`z-input[type="radio"][name="${this.name}"]`)
+    ).filter((radio) => !radio.disabled && !radio.readonly);
+
+    if (radioGroup.length === 0) {
+      return;
+    }
+
+    const currentIndex = radioGroup.findIndex((radio) => radio.htmlid === this.htmlid);
+    if (currentIndex === -1) {
+      return;
+    }
+
+    let nextIndex: number;
+    if (key === "ArrowDown" || key === "ArrowRight") {
+      nextIndex = (currentIndex + 1) % radioGroup.length;
+    } else {
+      nextIndex = (currentIndex - 1 + radioGroup.length) % radioGroup.length;
+    }
+
+    const nextRadio = radioGroup[nextIndex];
+    const nextInput = nextRadio.querySelector("input[type='radio']") as HTMLInputElement;
+    if (nextInput) {
+      nextInput.focus();
+      nextInput.checked = true;
+      const changeEvent = document.createEvent("Event");
+      changeEvent.initEvent("change", true, true);
+      nextInput.dispatchEvent(changeEvent);
+    }
+  }
+
+  private getRadioTabIndex(): number {
+    if (!this.name) {
+      return 0;
+    }
+
+    const radioGroup = Array.from(
+      document.querySelectorAll<HTMLZInputElement>(`z-input[type="radio"][name="${this.name}"]`)
+    ).filter((radio) => !radio.disabled && !radio.readonly);
+
+    const hasCheckedRadio = radioGroup.some((radio) => radio.checked);
+
+    if (hasCheckedRadio) {
+      return this.checked ? 0 : -1;
+    }
+
+    const isFirstRadio = radioGroup[0]?.htmlid === this.htmlid;
+
+    return isFirstRadio ? 0 : -1;
+  }
+
   private renderRadio(): HTMLDivElement {
     return (
       <div class="radio-wrapper">
@@ -551,7 +614,9 @@ export class ZInput {
           disabled={this.disabled}
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
+          onKeyDown={this.handleRadioKeyDown.bind(this)}
           value={this.value}
+          tabindex={this.getRadioTabIndex()}
           {...this.getRoleAttribute()}
           {...this.getFocusBlurAttributes()}
         />
