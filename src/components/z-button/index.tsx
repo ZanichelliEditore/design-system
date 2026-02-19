@@ -84,11 +84,14 @@ export class ZButton {
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
+    const normalizedAriaLabel = this.ariaLabel?.trim() || undefined;
+    const normalizedRole = this.htmlrole || this.role?.trim() || undefined;
+
     if (this.href) {
       return (
         <a
           {...this.getAttributes()}
-          aria-label={this.ariaLabel || undefined}
+          aria-label={normalizedAriaLabel}
           href={this.href}
           target={this.target}
         >
@@ -101,11 +104,11 @@ export class ZButton {
     return (
       <button
         {...this.getAttributes()}
-        aria-label={this.ariaLabel || undefined}
+        aria-label={normalizedAriaLabel}
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        role={this.htmlrole || this.role || undefined}
+        role={normalizedRole}
       >
         {this.renderIcon()}
         <slot />
