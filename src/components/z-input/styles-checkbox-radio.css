@@ -28,6 +28,8 @@
   display: inline-flex;
   align-items: center;
   margin: 0;
+  padding: var(--space-half-unit) var(--space-unit);
+  min-height: 24px;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -45,6 +47,8 @@
 .checkbox-wrapper .checkbox-label z-icon {
   cursor: pointer;
   fill: inherit;
+  min-width: 24px;
+  min-height: 24px;
 }
 
 :host([size="small"]) .radio-wrapper .radio-label z-icon,
