@@ -78,6 +78,8 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         show-search-button="true"
+        label="search"
+        html-aria-label="search and select option"
       ></z-searchbar>`,
     });
     page.rootInstance.searchString = "item";
@@ -90,13 +92,15 @@ describe("Suite test ZSearchbar", () => {
         autocomplete="true"
         results-items='${JSON.stringify(getItems())}'
         show-search-button="true"
+        label="search"
+        html-aria-label="search and select option"
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big" value="item"></z-input>
+            <z-input htmlid="input-my-id" size="big" value="item" label="search" aria-label="search and select option"></z-input>
             <div class="results-wrapper">
               <div class="results">
-                <z-list role="listbox" id="list-my-id">
+                <z-list role="listbox" id="list-my-id" aria-label="search and select option">
                   ${searchHelper()}
                   ${resultsItems()}
                 </z-list>
