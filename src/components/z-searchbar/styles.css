@@ -28,6 +28,20 @@
   flex-direction: column;
 }
 
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: calc(var(--space-unit) / 2);
+}
+
+.searchbar-label {
+  color: var(--color-default-text);
+  font-size: var(--font-size-2);
+  font-weight: var(--font-sb);
+  line-height: var(--font-size-4);
+}
+
 .results-wrapper {
   position: absolute;
   top: calc(100% - 1px);
