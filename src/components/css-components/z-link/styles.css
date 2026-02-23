@@ -89,6 +89,7 @@ a.z-link.z-link-blue.z-link-active,
 button.z-link.z-link-blue.z-link-active {
   color: var(--color-text-link-blue);
   fill: var(--color-text-link-blue);
+  text-decoration: underline;
 }
 
 a.z-link.z-link-red,
