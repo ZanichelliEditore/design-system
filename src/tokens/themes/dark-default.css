@@ -1,6 +1,6 @@
 .theme-dark {
   --color-background: var(--gray900);
-  --shadow-focus-primary: 0 0 0 2px var(--gray900), 0 0 2px 5px var(--blue25);
+  --shadow-focus-primary: 0 0 0 3px var(--gray900), 0 0 0 5px var(--blue25);
 
   /* primary */
   --color-active-primary: var(--gray25);
