@@ -68,10 +68,14 @@
   cursor: pointer;
 }
 
-.modal-container > header button:focus-visible {
+.modal-container > header button:focus {
   border-radius: 50%;
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
+}
+
+.modal-container > header button:focus:not(:focus-visible) {
+  box-shadow: none;
 }
 
 .modal-container > header button::after {
