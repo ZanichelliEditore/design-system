@@ -51,6 +51,8 @@ const StoryMeta = {
     "htmlid": "myId",
     "placeholder": "my placeholder",
     "value": "",
+    "label": "",
+    "htmlAriaLabel": "",
     "--z-searchbar-results-height": "",
     "--z-searchbar-tag-text-color": "var(--color-primary03)",
     "--z-searchbar-tag-bg": "var(--color-hover-primary)",
@@ -81,6 +83,8 @@ export const Default = {
       style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -88,7 +92,7 @@ export const Default = {
 export const SimpleSearch = {
   parameters: {
     controls: {
-      include: ["value", "placeholder", "htmlid", "size"],
+      include: ["value", "placeholder", "htmlid", "size", "label", "htmlAriaLabel"],
     },
   },
   args: {
@@ -104,6 +108,8 @@ export const SimpleSearch = {
       placeholder=${args.placeholder}
       htmlid=${args.htmlid}
       size=${args.size}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -132,6 +138,8 @@ export const Autocomplete = {
       style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -206,6 +214,8 @@ export const AutocompleteWithComplexItems = {
       ]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -343,6 +353,8 @@ export const AutocompleteWithComplexTreeItems = {
       ]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
