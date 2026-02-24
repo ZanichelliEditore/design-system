@@ -5,10 +5,23 @@
   vertical-align: middle;
 }
 
-:host svg:not([width]) {
+.icon-wrapper {
+  position: relative;
+  z-index: 0;
+  display: block;
+}
+
+svg:not([width]) {
   width: var(--z-icon-width, 1.125rem);
 }
 
-:host svg:not([height]) {
+svg:not([height]) {
   height: var(--z-icon-height, 1.125rem);
+}
+
+svg.color-indicator {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
 }

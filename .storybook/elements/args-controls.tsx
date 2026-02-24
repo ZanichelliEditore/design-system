@@ -110,7 +110,7 @@ export const ArgsControls = (() => {
         updateArgs={updateArgs}
         resetArgs={resetArgs}
         inAddonPanel
-        sort={sort}
+        sort={sort || "alpha"}
         isLoading={isLoading}
       />
     </AddonWrapper>

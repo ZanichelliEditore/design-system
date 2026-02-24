@@ -16,40 +16,36 @@ const THEMES_MAP = {
 const preview: Preview = {
   parameters: {
     viewport: {
-      viewports: [
-        {
-          type: "mobile",
+      viewports: {
+        mobile: {
           name: "mobile",
           styles: {
             width: "375px",
             height: "667px",
           },
         },
-        {
-          type: "tablet",
+        tablet: {
           name: "tablet",
           styles: {
             width: "768px",
             height: "1024px",
           },
         },
-        {
-          type: "desktop",
+        desktop: {
           name: "desktop",
           styles: {
             width: "1152px",
             height: "100%",
           },
         },
-        {
-          type: "desktop",
+        wide: {
           name: "wide",
           styles: {
             width: "1366px",
             height: "100%",
           },
         },
-      ],
+      },
     },
     options: {
       storySort: {

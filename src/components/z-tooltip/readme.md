@@ -44,6 +44,10 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 
 ## Dependencies
 
+### Used by
+
+ - [z-tool](../z-tool)
+
 ### Depends on
 
 - [z-popover](../z-popover)
@@ -52,6 +56,7 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 ```mermaid
 graph TD;
   z-tooltip --> z-popover
+  z-tool --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
