@@ -22,6 +22,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -43,6 +44,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="small" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -64,6 +66,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="x-small" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -86,6 +89,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -107,6 +111,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -129,6 +134,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" disabled="" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -151,6 +157,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -233,6 +240,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -259,6 +267,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
+            <z-input-message class="big" message="false"></z-input-message>
           </div>
       </z-input>
     `);
@@ -353,6 +362,7 @@ describe("Suite test ZInput - text", () => {
               </button>
             </span>
           </div>
+          <z-input-message class="big" message="false"></z-input-message>
         </div>
       </z-input>
     `);

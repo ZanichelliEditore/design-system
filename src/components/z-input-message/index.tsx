@@ -9,7 +9,7 @@ import {InputStatus} from "../../beans";
 export class ZInputMessage {
   /** input helper message */
   @Prop()
-  message: string;
+  message?: string;
 
   /** input status (optional) */
   @Prop({reflect: true})
@@ -67,15 +67,13 @@ export class ZInputMessage {
       <Host>
         <div role="alert">
           {this.statusMessage.critical && this.renderIcon()}
-          <span innerHTML={this.statusMessage.critical} />
+          {this.statusMessage.critical && <span innerHTML={this.statusMessage.critical} />}
         </div>
         <div role="status">
           {this.statusMessage.notCritical && this.renderIcon()}
-          <span innerHTML={this.statusMessage.notCritical} />
+          {this.statusMessage.notCritical && <span innerHTML={this.statusMessage.notCritical} />}
         </div>
-        <div>
-          <span innerHTML={this.statusMessage.noStatus} />
-        </div>
+        <div>{this.statusMessage.noStatus && <span innerHTML={this.statusMessage.noStatus} />}</div>
       </Host>
     );
   }
