@@ -35,7 +35,18 @@
   white-space: nowrap;
 }
 
-:host .z-button--container:focus:focus-visible {
+:host .z-button--container:focus {
+  outline: 2px solid var(--color-primary01);
+  outline-offset: 2px;
+}
+
+:host .z-button--container:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:host .z-button--container:focus-visible {
+  outline: 2px solid var(--color-primary01);
+  outline-offset: 2px;
   box-shadow: var(--shadow-focus-primary);
 }
 
