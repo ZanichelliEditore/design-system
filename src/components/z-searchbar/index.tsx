@@ -46,6 +46,10 @@ export class ZSearchbar {
   @Prop()
   placeholder?: string;
 
+  /** Visible label text for the search input (WCAG 3.3.2) */
+  @Prop()
+  label?: string;
+
   /** Show autocomplete results */
   @Prop()
   autocomplete?: boolean = false;
@@ -275,8 +279,8 @@ export class ZSearchbar {
     this.showResults = false;
   }
 
-  private renderInput(): HTMLZInputElement {
-    return (
+  private renderInput(): HTMLElement {
+    const input = (
       <z-input
         ref={(val) => {
           this.inputRef = val;
@@ -295,6 +299,22 @@ export class ZSearchbar {
         aria-label={this.htmlAriaLabel || this.placeholder}
       />
     );
+
+    if (this.label) {
+      return (
+        <div class="input-wrapper">
+          <label
+            htmlFor={`input-${this.htmlid}`}
+            class="searchbar-label"
+          >
+            {this.label}
+          </label>
+          {input}
+        </div>
+      );
+    }
+
+    return input;
   }
 
   private renderButton(): HTMLZButtonElement | null {
