@@ -75,7 +75,7 @@
     "plop": "^4.0.1",
     "prettier": "^3.5.0",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "puppeteer": "^21.0.0",
+    "puppeteer": "^24",
     "rimraf": "^6.0.1",
     "storybook": "^8.5.3",
     "storybook-addon-stencil": "^0.2.3",
