@@ -9,10 +9,12 @@ import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVarian
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
+import { IconName } from "./constants/iconset";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
+export { IconName } from "./constants/iconset";
 export namespace Components {
     /**
      * Accordion component.
@@ -889,25 +891,33 @@ export namespace Components {
     }
     interface ZGhostLoading {
     }
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface ZIcon {
         /**
-          * icon fill (optional)
+          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
          */
         "fill"?: string;
         /**
-          * icon height (optional)
+          * Icon height (optional)
          */
         "height"?: number | string;
         /**
-          * icon id (optional)
+          * HTML `id` attribute (optional)
          */
         "iconid"?: string;
         /**
-          * icon name
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Icon name
          */
         "name": string;
         /**
-          * icon width (optional)
+          * Icon width (optional)
          */
         "width"?: number | string;
     }
@@ -3015,6 +3025,10 @@ declare global {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
     };
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
     var HTMLZIconElement: {
@@ -4860,25 +4874,33 @@ declare namespace LocalJSX {
     }
     interface ZGhostLoading {
     }
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface ZIcon {
         /**
-          * icon fill (optional)
+          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
          */
         "fill"?: string;
         /**
-          * icon height (optional)
+          * Icon height (optional)
          */
         "height"?: number | string;
         /**
-          * icon id (optional)
+          * HTML `id` attribute (optional)
          */
         "iconid"?: string;
         /**
-          * icon name
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Icon name
          */
         "name"?: string;
         /**
-          * icon width (optional)
+          * Icon width (optional)
          */
         "width"?: number | string;
     }
@@ -6736,6 +6758,10 @@ declare module "@stencil/core" {
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
+            /**
+             * Component to render an SVG icon from the internal icon set, selected by `name`.
+             * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+             */
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             /**
