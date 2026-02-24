@@ -66,8 +66,37 @@ export class ZSkipToContent {
     }
   }
 
-  private handleLinkClick(): void {
+  private handleLinkClick(event: MouseEvent): void {
     this.visible = false;
+
+    // Get the target ID from the href
+    const target = event.currentTarget as HTMLAnchorElement;
+    const targetId = target.getAttribute('href')?.substring(1);
+
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        // Temporarily set tabindex="-1" to make the element focusable
+        const originalTabIndex = targetElement.getAttribute('tabindex');
+        targetElement.setAttribute('tabindex', '-1');
+
+        // Move focus to the target element
+        targetElement.focus();
+
+        // Remove tabindex after blur to preserve natural tab order
+        const handleBlur = () => {
+          if (originalTabIndex === null) {
+            targetElement.removeAttribute('tabindex');
+          } else {
+            targetElement.setAttribute('tabindex', originalTabIndex);
+          }
+          targetElement.removeEventListener('blur', handleBlur);
+        };
+
+        targetElement.addEventListener('blur', handleBlur, { once: true });
+      }
+    }
   }
 
   render(): HTMLZSkipToContentElement {
@@ -96,7 +125,7 @@ export class ZSkipToContent {
                 aria-label={link.ariaLabel || link.label}
                 href={link.href}
                 onFocus={() => (this.visibleLink = id)}
-                onClick={() => this.handleLinkClick()}
+                onClick={(e) => this.handleLinkClick(e)}
                 onKeyUp={(e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this))}
               >
                 {link.label}
