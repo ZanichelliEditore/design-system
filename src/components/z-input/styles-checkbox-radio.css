@@ -28,12 +28,14 @@
   display: inline-flex;
   align-items: center;
   margin: 0;
+  padding: 3px 0;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
   line-height: 1;
   text-transform: inherit;
+  min-height: 24px;
 }
 
 .radio-wrapper input:not(:disabled) + .radio-label,
