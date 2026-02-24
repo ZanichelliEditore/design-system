@@ -255,6 +255,10 @@ export class ZInput {
   /* START text/password/email/number */
 
   private getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    const messageId = `${this.htmlid}_message`;
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+    const ariaDescribedby = this.status && boolean(this.message) !== false ? {"aria-describedby": messageId} : {};
+
     return {
       id: this.htmlid,
       name: this.name,
@@ -271,6 +275,8 @@ export class ZInput {
       },
       autocomplete: this.autocomplete,
       onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
+      ...ariaInvalid,
+      ...ariaDescribedby,
     };
   }
 
@@ -454,6 +460,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        htmlid={`${this.htmlid}_message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
@@ -468,6 +475,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
 
     return (
       <Fragment>
@@ -485,7 +493,7 @@ export class ZInput {
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
             }}
-            aria-label={this.ariaLabel || undefined}
+            {...ariaLabel}
             {...this.getRoleAttribute()}
           ></textarea>
         </div>
