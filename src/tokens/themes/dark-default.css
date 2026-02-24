@@ -28,6 +28,7 @@
   --color-default-text: var(--gray100);
   --color-hover-text: var(--gray300);
   --color-pressed-text: var(--gray300);
+  --color-secondary-text: var(--gray300);
   --color-text-inverse: var(--gray900);
   --color-text02: var(--gray900);
   --color-text03: var(--gray700);

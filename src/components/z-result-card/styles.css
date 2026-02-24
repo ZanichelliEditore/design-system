@@ -34,7 +34,7 @@ z-book-cover {
 
 .authors-label {
   overflow: hidden;
-  color: var(--color-default-text);
+  color: var(--color-secondary-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   text-overflow: ellipsis;
@@ -56,7 +56,7 @@ z-book-cover {
 
 .card-subtitle {
   overflow: hidden;
-  color: var(--color-default-text);
+  color: var(--color-secondary-text);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -73,7 +73,7 @@ z-book-cover {
   display: flex;
   flex-grow: 1;
   align-items: end;
-  color: var(--color-default-text);
+  color: var(--color-secondary-text);
   font-size: var(--font-size-1);
 }
 
