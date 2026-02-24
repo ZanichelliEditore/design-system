@@ -434,7 +434,7 @@ export class ZPopover {
         return parent as HTMLElement;
       }
 
-      const style = window.getComputedStyle(parent);
+      const style = getComputedStyle(parent);
       const {overflow, overflowX, overflowY} = style;
       const hasHiddenOverflow = overflow === "hidden" || overflowY === "hidden" || overflowX === "hidden";
       const isScrollable =
@@ -556,11 +556,14 @@ export class ZPopover {
     const boundElementWidth = this.boundElement.offsetWidth;
     const boundElementHeight = this.boundElement.offsetHeight;
     const offsetModifier = this.offsetModifier;
-    /** Distance between the arrow center and the popover edge. Needed to align the center of the arrow with the center of the bound element when `showArrow` and `center` are enabled. */
+    /**
+     * Distance between the arrow center and the popover edge.
+     * Needed to align the center of the arrow with the center of the bound element when `showArrow` and `center` are enabled.
+     */
     const arrowModifier = this.showArrow && this.center ? 8 : 0;
     const hostStyle = this.host.style;
-    /** Gap between the popover and the bound element. */
-    const distanceFromBound = parseInt(hostStyle.getPropertyValue("--space-unit")) || 8;
+    /** Gap between the popover and the bound element, set as margin in CSS. */
+    const distanceFromBound = parseFloat(getComputedStyle(this.host).marginTop.replace("px", "")) || 0;
     const positionOffsets = this.computePositionOffsets();
 
     /**
@@ -580,7 +583,7 @@ export class ZPopover {
     switch (position) {
       case PopoverPosition.TOP:
       case PopoverPosition.TOP_RIGHT:
-        hostStyle.bottom = `${bottomBase + distanceFromBound}px`;
+        hostStyle.bottom = `${bottomBase}px`;
         hostStyle.left = `${leftBase - (position === PopoverPosition.TOP_RIGHT ? arrowModifier : 0)}px`;
         maxHeight = availableSpace.top - distanceFromBound;
         if (position === PopoverPosition.TOP_RIGHT) {
@@ -590,14 +593,14 @@ export class ZPopover {
 
       case PopoverPosition.TOP_LEFT:
         hostStyle.right = `${rightBase - arrowModifier}px`;
-        hostStyle.bottom = `${bottomBase + distanceFromBound}px`;
+        hostStyle.bottom = `${bottomBase}px`;
         maxWidth = availableSpace.left + boundElementWidth * offsetModifier;
         maxHeight = availableSpace.top - distanceFromBound;
         break;
 
       case PopoverPosition.BOTTOM:
       case PopoverPosition.BOTTOM_RIGHT:
-        hostStyle.top = `${topBase + distanceFromBound}px`;
+        hostStyle.top = `${topBase}px`;
         hostStyle.left = `${leftBase - (position === PopoverPosition.BOTTOM_RIGHT ? arrowModifier : 0)}px`;
         maxHeight = availableSpace.bottom - distanceFromBound;
         if (position === PopoverPosition.BOTTOM_RIGHT) {
@@ -606,7 +609,7 @@ export class ZPopover {
         break;
 
       case PopoverPosition.BOTTOM_LEFT:
-        hostStyle.top = `${topBase + distanceFromBound}px`;
+        hostStyle.top = `${topBase}px`;
         hostStyle.right = `${rightBase - arrowModifier}px`;
         maxWidth = availableSpace.left + boundElementWidth * offsetModifier;
         maxHeight = availableSpace.bottom - distanceFromBound;
@@ -615,7 +618,7 @@ export class ZPopover {
       case PopoverPosition.RIGHT:
       case PopoverPosition.RIGHT_BOTTOM:
         hostStyle.top = `${sideTopBase - (position === PopoverPosition.RIGHT_BOTTOM ? arrowModifier : 0)}px`;
-        hostStyle.left = `${positionOffsets.left + boundElementWidth + distanceFromBound}px`;
+        hostStyle.left = `${positionOffsets.left + boundElementWidth}px`;
         maxWidth = availableSpace.right - distanceFromBound;
         if (position === PopoverPosition.RIGHT) {
           maxHeight = availableSpace.top + availableSpace.bottom + boundElementHeight;
@@ -626,7 +629,7 @@ export class ZPopover {
 
       case PopoverPosition.RIGHT_TOP:
         hostStyle.bottom = `${sideBottomBase - arrowModifier}px`;
-        hostStyle.left = `${positionOffsets.left + boundElementWidth + distanceFromBound}px`;
+        hostStyle.left = `${positionOffsets.left + boundElementWidth}px`;
         maxWidth = availableSpace.right - distanceFromBound;
         maxHeight = availableSpace.top + boundElementHeight * offsetModifier;
         break;
@@ -634,7 +637,7 @@ export class ZPopover {
       case PopoverPosition.LEFT:
       case PopoverPosition.LEFT_BOTTOM:
         hostStyle.top = `${sideTopBase - (position === PopoverPosition.LEFT_BOTTOM ? arrowModifier : 0)}px`;
-        hostStyle.right = `${positionOffsets.right + boundElementWidth + distanceFromBound}px`;
+        hostStyle.right = `${positionOffsets.right + boundElementWidth}px`;
         maxWidth = availableSpace.left - distanceFromBound;
         if (position === PopoverPosition.LEFT_BOTTOM) {
           maxHeight = availableSpace.bottom + boundElementHeight * offsetModifier;
@@ -642,7 +645,7 @@ export class ZPopover {
         break;
 
       case PopoverPosition.LEFT_TOP:
-        hostStyle.right = `${positionOffsets.right + boundElementWidth + distanceFromBound}px`;
+        hostStyle.right = `${positionOffsets.right + boundElementWidth}px`;
         hostStyle.bottom = `${sideBottomBase - arrowModifier}px`;
         maxWidth = availableSpace.left - distanceFromBound;
         maxHeight = availableSpace.top + boundElementHeight * offsetModifier;

@@ -648,7 +648,7 @@ export namespace Components {
     }
     /**
      * Color picker component.
-     * This component allow the user to pick a color from a predefined set.
+     * This component allows the user to pick a color from a predefined set.
      */
     interface ZColorPicker {
         /**
@@ -2258,11 +2258,12 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
-     * ZTool component.
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface ZTool {
         /**
-          * Visual selected state.
+          * Visual active state.
          */
         "active": boolean;
         /**
@@ -2276,11 +2277,19 @@ export namespace Components {
         /**
           * Tool icon
          */
-        "icon": string;
+        "icon": IconName;
+        /**
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
+         */
+        "indicatorColor"?: string;
         /**
           * Open state.
          */
         "open": boolean;
+        /**
+          * Focuses the tool's button element.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Text displayed inside the tooltip.
          */
@@ -2291,16 +2300,13 @@ export namespace Components {
         "tooltipPosition": PopoverPosition;
     }
     /**
-     * ZToolbar component.
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface ZToolbar {
-        /**
-          * Close all open submenus in the toolbar.
-         */
-        "closeSubmenus": () => Promise<void>;
         /**
           * Accessible label for the toolbar.
          */
@@ -2898,7 +2904,7 @@ declare global {
     }
     /**
      * Color picker component.
-     * This component allow the user to pick a color from a predefined set.
+     * This component allows the user to pick a color from a predefined set.
      */
     interface HTMLZColorPickerElement extends Components.ZColorPicker, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3755,7 +3761,8 @@ declare global {
         "toggleSubmenu": any;
     }
     /**
-     * ZTool component.
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3772,10 +3779,11 @@ declare global {
         new (): HTMLZToolElement;
     };
     /**
-     * ZToolbar component.
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
     }
@@ -4611,7 +4619,7 @@ declare namespace LocalJSX {
     }
     /**
      * Color picker component.
-     * This component allow the user to pick a color from a predefined set.
+     * This component allows the user to pick a color from a predefined set.
      */
     interface ZColorPicker {
         /**
@@ -6381,11 +6389,12 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
-     * ZTool component.
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface ZTool {
         /**
-          * Visual selected state.
+          * Visual active state.
          */
         "active"?: boolean;
         /**
@@ -6399,7 +6408,11 @@ declare namespace LocalJSX {
         /**
           * Tool icon
          */
-        "icon"?: string;
+        "icon"?: IconName;
+        /**
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
+         */
+        "indicatorColor"?: string;
         /**
           * Emitted when the open state changes.
          */
@@ -6418,10 +6431,11 @@ declare namespace LocalJSX {
         "tooltipPosition"?: PopoverPosition;
     }
     /**
-     * ZToolbar component.
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface ZToolbar {
         /**
@@ -6740,7 +6754,7 @@ declare module "@stencil/core" {
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
             /**
              * Color picker component.
-             * This component allow the user to pick a color from a predefined set.
+             * This component allows the user to pick a color from a predefined set.
              */
             "z-color-picker": LocalJSX.ZColorPicker & JSXBase.HTMLAttributes<HTMLZColorPickerElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
@@ -6910,14 +6924,16 @@ declare module "@stencil/core" {
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             /**
-             * ZTool component.
+             * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+             * @method setFocus() - Public method to set focus on the tool's button element.
              */
             "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
             /**
-             * ZToolbar component.
+             * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
              * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
              * Tools can be visually grouped using `z-divider` elements as separators.
              * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+             * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
              */
             "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**

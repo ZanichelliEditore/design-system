@@ -8,7 +8,7 @@
 ## Overview
 
 Color picker component.
-This component allow the user to pick a color from a predefined set.
+This component allows the user to pick a color from a predefined set.
 
 ## Properties
 

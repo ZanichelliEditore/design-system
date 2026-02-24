@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Prop, h} from "@stencil/core";
 import {ColorPickerPalette} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -58,8 +58,7 @@ export class ZColorPicker {
   /**
    * The color keys arranged in row-major order for rendering and navigation.
    */
-  @State()
-  colorKeysByRow: ColorPickerPalette[] = [];
+  private colorKeysByRow: ColorPickerPalette[] = [];
 
   private _colorButtons: HTMLButtonElement[] = [];
 
@@ -207,7 +206,7 @@ export class ZColorPicker {
     this.colorSelected.emit(color);
   }
 
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     this.colorKeysByRow = this.sortColorKeysByRow();
   }
 
