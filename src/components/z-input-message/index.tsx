@@ -7,6 +7,10 @@ import {InputStatus} from "../../beans";
   shadow: true,
 })
 export class ZInputMessage {
+  /** the id of the message element */
+  @Prop()
+  htmlid?: string;
+
   /** input helper message */
   @Prop()
   message: string;
@@ -39,8 +43,14 @@ export class ZInputMessage {
   }
 
   render(): HTMLZInputMessageElement {
+    const hostAttributes = {
+      ...this.statusRole,
+      ...(this.htmlid ? {id: this.htmlid} : {}),
+      ...(this.status === InputStatus.ERROR && this.message ? {"aria-live": "polite"} : {}),
+    };
+
     return (
-      <Host {...this.statusRole}>
+      <Host {...hostAttributes}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span innerHTML={this.message} />
       </Host>
