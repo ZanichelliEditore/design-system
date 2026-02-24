@@ -7,7 +7,7 @@
   display: flex;
   overflow: hidden;
   min-width: 0;
-  height: 11.125rem;
+  min-height: 11.125rem;
   padding: var(--space-unit);
   border: var(--border-size-medium) solid var(--color-surface02);
   background-color: var(--color-surface01);
@@ -48,17 +48,21 @@ z-book-cover {
   -webkit-box-orient: vertical;
   font-size: var(--font-size-3);
   font-weight: var(--font-bd);
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   line-height: 1.5;
   word-break: break-word;
 }
 
 .card-subtitle {
+  display: -webkit-box;
   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   color: var(--color-default-text);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-clamp: 2;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .tags-container {
@@ -134,6 +138,12 @@ z-book-cover {
     display: block;
     overflow: hidden;
     line-height: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-subtitle {
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
