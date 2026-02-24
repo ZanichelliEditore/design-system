@@ -262,6 +262,9 @@ export class ZToastNotification {
   render(): HTMLZToastNotificationElement {
     return (
       <Host
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
         style={{"--percentuale": `${this.percentage}%`}}
         class={this.transition ? this.transition : ""}
         onAnimationEnd={(e: AnimationEvent) => {
