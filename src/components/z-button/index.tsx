@@ -84,12 +84,15 @@ export class ZButton {
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
-    if (this.href) {
+    // If htmlrole or role is "link", render as anchor element
+    const shouldRenderAsLink = this.htmlrole === "link" || this.role === "link";
+
+    if (this.href || shouldRenderAsLink) {
       return (
         <a
           {...this.getAttributes()}
           aria-label={this.ariaLabel || undefined}
-          href={this.href}
+          href={this.href || "#"}
           target={this.target}
         >
           {this.renderIcon()}
@@ -105,7 +108,6 @@ export class ZButton {
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        role={this.htmlrole || this.role || undefined}
       >
         {this.renderIcon()}
         <slot />
