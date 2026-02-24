@@ -9,6 +9,11 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v20.0.0](#v2000)
+
+  - [ZSelect](#v20_zselect)
+    - [La prop items ora è _required_](#la-prop-items-ora-è-required)
+
 - [v19.0.0](#v1900)
 
   - [Rimosso colore di background per il tema dark](#rimozione-background-dal-tema-dark)
@@ -123,6 +128,16 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v20.0.0
+
+<a id="v20_zselect"></a>
+
+### ZSelect
+
+#### La prop items ora è required
+
+Il componente `ZSelect` non può più essere istanziato senza `items`. Un array vuoto di `items` invece è ancora ammesso.
 
 ## v19.0.0
 
