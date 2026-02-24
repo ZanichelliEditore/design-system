@@ -18,7 +18,7 @@ import {getDevice, handleEnterKeydSubmit, randomId} from "../../utils/utils";
  */
 @Component({
   tag: "z-searchbar",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../css-components/z-label/styles.css"],
   shadow: true,
 })
 export class ZSearchbar {
@@ -29,6 +29,14 @@ export class ZSearchbar {
   /** Prevent submit action */
   @Prop()
   preventSubmit?: boolean = false;
+
+  /** the input label */
+  @Prop()
+  label?: string;
+
+  /** the input aria-label */
+  @Prop()
+  htmlAriaLabel?: string;
 
   /** Input search string */
   @Prop()
@@ -282,8 +290,9 @@ export class ZSearchbar {
           this.handleArrowsNavigation(e);
         }}
         value={this.searchString || this.selectedItem?.label}
-        ariaLabel={this.placeholder}
         size={this.size}
+        label={this.label}
+        aria-label={this.htmlAriaLabel || this.placeholder}
       />
     );
   }
@@ -347,6 +356,7 @@ export class ZSearchbar {
       <z-list
         role="listbox"
         id={`list-${this.htmlid}`}
+        aria-label={this.htmlAriaLabel || this.label}
       >
         {this.renderSearchHelper(!!this.resultsItemsList?.length)}
         {this.renderItems()}

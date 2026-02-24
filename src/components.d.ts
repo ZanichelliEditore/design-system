@@ -1841,9 +1841,17 @@ export namespace Components {
          */
         "autocompleteMinChars"?: number;
         /**
+          * the input aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * the id of the searchbar element
          */
         "htmlid": string;
+        /**
+          * the input label
+         */
+        "label"?: string;
         /**
           * Search input placeholder
          */
@@ -5876,9 +5884,17 @@ declare namespace LocalJSX {
          */
         "autocompleteMinChars"?: number;
         /**
+          * the input aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * the id of the searchbar element
          */
         "htmlid"?: string;
+        /**
+          * the input label
+         */
+        "label"?: string;
         /**
           * Emitted on search result click, return item
          */
