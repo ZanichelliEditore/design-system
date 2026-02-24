@@ -96,9 +96,9 @@
 }
 
 :host([disabled]) .indicator {
-  border-color: var(--color-disabled02);
-  background: var(--color-disabled01);
-  color: var(--color-disabled03);
+  border-color: var(--gray600);
+  background: var(--gray600);
+  color: var(--color-surface01);
 }
 
 :host([checked]:not([disabled])) .indicator {
