@@ -1066,7 +1066,7 @@ export namespace Components {
         /**
           * input helper message
          */
-        "message": string;
+        "message"?: string;
         /**
           * input status (optional)
          */
