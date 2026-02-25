@@ -448,6 +448,10 @@ export class ZInput {
   }
 
   private renderMessage(): HTMLZInputMessageElement {
+    if (boolean(this.message) === false) {
+      return;
+    }
+
     return (
       <z-input-message
         message={boolean(this.message) === true ? undefined : (this.message as string)}

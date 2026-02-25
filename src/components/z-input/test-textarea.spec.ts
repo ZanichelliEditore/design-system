@@ -14,7 +14,6 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textarea-wrapper">
           <textarea id="test" placeholder="placeholder" value="value" class="z-scrollbar"></textarea>
         </div>
-        <z-input-message class="big" message="false"></z-input-message>
       </z-input>
     `);
   });
@@ -30,7 +29,6 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textarea-wrapper readonly">
           <textarea disabled readonly id="test" placeholder="placeholder" value="value" class="z-scrollbar"></textarea>
         </div>
-        <z-input-message class="big" disabled="" message="false"></z-input-message>
       </z-input>
     `);
   });
