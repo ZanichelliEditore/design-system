@@ -304,9 +304,9 @@ export class ZCombobox {
     };
   }
 
-  private renderHeader(): HTMLDivElement {
+  private renderHeader(): HTMLLabelElement {
     return (
-      <div
+      <label
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
@@ -326,7 +326,7 @@ export class ZCombobox {
           name="caret-down"
           class={this.size}
         />
-      </div>
+      </label>
     );
   }
 

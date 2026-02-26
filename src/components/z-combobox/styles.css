@@ -41,7 +41,7 @@
   outline-offset: -2px;
 }
 
-:host > div > div.header:focus:focus-visible {
+:host > div > .header:focus:focus-visible {
   z-index: 16;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
