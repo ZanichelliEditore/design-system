@@ -706,6 +706,14 @@ export namespace Components {
          */
         "searchtitle"?: string;
         /**
+          * label for selected items count in plural form (optional, e.g., "selezionati")
+         */
+        "selectedlabelplural"?: string;
+        /**
+          * label for selected items count in singular form (optional, e.g., "selezionato")
+         */
+        "selectedlabelsingular"?: string;
+        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
         "size"?: ControlSize;
@@ -4624,6 +4632,14 @@ declare namespace LocalJSX {
           * search input title text (optional)
          */
         "searchtitle"?: string;
+        /**
+          * label for selected items count in plural form (optional, e.g., "selezionati")
+         */
+        "selectedlabelplural"?: string;
+        /**
+          * label for selected items count in singular form (optional, e.g., "selezionato")
+         */
+        "selectedlabelsingular"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
          */
