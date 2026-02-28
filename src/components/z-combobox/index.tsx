@@ -304,9 +304,9 @@ export class ZCombobox {
     };
   }
 
-  private renderHeader(): HTMLLabelElement {
+  private renderHeader(): HTMLDivElement {
     return (
-      <label
+      <div
         class="header"
         onClick={() => this.toggleComboBox()}
         onKeyDown={(ev: KeyboardEvent) => {
@@ -318,7 +318,10 @@ export class ZCombobox {
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
       >
-        <span class="body-3">
+        <span
+          class="body-3"
+          id={`${this.inputid}_label`}
+        >
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </span>
@@ -326,7 +329,7 @@ export class ZCombobox {
           name="caret-down"
           class={this.size}
         />
-      </label>
+      </div>
     );
   }
 
@@ -465,7 +468,7 @@ export class ZCombobox {
     return (
       <z-input
         htmlid={`${this.inputid}_search`}
-        label={this.searchlabel}
+        label={this.searchlabel || this.label}
         placeholder={this.searchplaceholder}
         htmltitle={this.searchtitle}
         type={this.inputType}
@@ -473,6 +476,7 @@ export class ZCombobox {
         message={false}
         size={this.size}
         html-aria-autocomplete="list"
+        html-aria-labelledby={`${this.inputid}_label`}
         {...this.getComboboxA11yAttributes(true)}
         onKeyUp={(e: KeyboardEvent) => {
           if (e.key === KeyboardCode.ESC) {
