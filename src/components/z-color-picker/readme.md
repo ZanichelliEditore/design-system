@@ -26,6 +26,19 @@ This component allows the user to pick a color from a predefined set.
 | `colorSelected` | Event emitted when a color is selected. | `CustomEvent<"#FFFFFF00" \| "#FFFFFF" \| "#CCCCCC" \| "#7E7E7E" \| "#333333" \| "#FFCCCC" \| "#FF9999" \| "#FF3333" \| "#CC0000" \| "#660000" \| "#FFE1CC" \| "#FFC399" \| "#FF8933" \| "#CC5500" \| "#662B00" \| "#FFF7CC" \| "#FFEE99" \| "#FFDD33" \| "#CCAA00" \| "#665600" \| "#DDFFCC" \| "#BBFF99" \| "#77FF33" \| "#44CC00" \| "#226600" \| "#CCFFE5" \| "#99FFCC" \| "#33FF99" \| "#00CC66" \| "#006633" \| "#CCEEFF" \| "#99DDFF" \| "#33BBFF" \| "#0088CC" \| "#004466" \| "#D4CCFF" \| "#AA99FF" \| "#5533FF" \| "#2200CC" \| "#110066" \| "#FFCCFF" \| "#FF99FF" \| "#FF33FF" \| "#CC00CC" \| "#660066">` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Focus to the first color button and make the container non-tabbable.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

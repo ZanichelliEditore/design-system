@@ -1,5 +1,6 @@
-import {Component, Listen, Prop, h} from "@stencil/core";
+import {Component, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
+import {ZPopoverCustomEvent} from "../../components";
 
 /**
  * Tooltip component.
@@ -43,6 +44,9 @@ export class ZTooltip {
   @Prop()
   closable = true;
 
+  @Event()
+  openChange: EventEmitter<ZPopoverCustomEvent<{open: boolean}>>;
+
   private popoverEl: HTMLZPopoverElement;
 
   @Listen("openChange")
@@ -60,6 +64,7 @@ export class ZTooltip {
         closable={this.closable}
         center
         showArrow
+        onOpenChange={(event: ZPopoverCustomEvent<{open: boolean}>) => this.openChange.emit(event)}
       >
         <slot></slot>
       </z-popover>

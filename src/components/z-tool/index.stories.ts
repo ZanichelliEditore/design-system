@@ -89,11 +89,61 @@ export const Disabled = {
     </div>`,
 } satisfies Story;
 
+export const WithToolbar = {
+  render: (args) =>
+    html`<div class="tool-container">
+      <z-tool
+        icon=${args.icon}
+        tooltip=${args.tooltip}
+        tooltip-position=${args.tooltipPosition}
+        .indicatorColor=${args.indicatorColor}
+        html-aria-label=${args.htmlAriaLabel}
+        ?active=${args.active}
+        ?disabled=${args.disabled}
+      >
+        <z-toolbar html-aria-label=${args.htmlAriaLabel}>
+          <z-tool
+            icon="gear"
+            tooltip="Impostazioni"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-divider orientation="vertical"></z-divider>
+          <z-tool
+            icon="download"
+            tooltip="Scarica"
+          ></z-tool>
+          <z-tool
+            icon="upload"
+            tooltip="Carica"
+          ></z-tool>
+          <z-tool
+            icon="copy"
+            tooltip="Copia"
+          ></z-tool> </z-toolbar
+      ></z-tool>
+    </div>`,
+} satisfies Story;
+
 export const ColorPicker = {
   args: {
     icon: "bg-color",
     indicatorColor: "#ff0000",
     tooltip: "Colore di sfondo",
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: "300px",
+      },
+    },
   },
   render: (args) =>
     html`<div class="tool-container">

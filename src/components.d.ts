@@ -10,11 +10,13 @@ import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
+import { ZPopoverCustomEvent } from "./components";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
 export { IconName } from "./constants/iconset";
+export { ZPopoverCustomEvent } from "./components";
 export namespace Components {
     /**
      * Accordion component.
@@ -663,6 +665,10 @@ export namespace Components {
           * The selected color to highlight.
          */
         "selectedColor": ColorPickerPalette;
+        /**
+          * Focus to the first color button and make the container non-tabbable.
+         */
+        "setFocus": () => Promise<void>;
     }
     interface ZCombobox {
         /**
@@ -2541,6 +2547,10 @@ export interface ZToolCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToolElement;
 }
+export interface ZTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTooltipElement;
+}
 export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZTrElement;
@@ -3479,7 +3489,7 @@ declare global {
     };
     interface HTMLZPopoverElementEventMap {
         "positionChange": any;
-        "openChange": any;
+        "openChange": {open: boolean};
     }
     /**
      * Popover component.
@@ -3791,6 +3801,9 @@ declare global {
         prototype: HTMLZToolbarElement;
         new (): HTMLZToolbarElement;
     };
+    interface HTMLZTooltipElementEventMap {
+        "openChange": ZPopoverCustomEvent<{open: boolean}>;
+    }
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -3799,6 +3812,14 @@ declare global {
      * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTooltipElement: {
         prototype: HTMLZTooltipElement;
@@ -5859,7 +5880,7 @@ declare namespace LocalJSX {
         /**
           * Open change event.
          */
-        "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
+        "onOpenChange"?: (event: ZPopoverCustomEvent<{open: boolean}>) => void;
         /**
           * Fired when the position changes.
          */
@@ -6463,6 +6484,7 @@ declare namespace LocalJSX {
           * Enable tooltip dark mode.
          */
         "dark"?: boolean;
+        "onOpenChange"?: (event: ZTooltipCustomEvent<ZPopoverCustomEvent<{open: boolean}>>) => void;
         /**
           * The open state of the tooltip.
          */

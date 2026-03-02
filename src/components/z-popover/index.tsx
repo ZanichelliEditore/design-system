@@ -114,7 +114,7 @@ export class ZPopover {
 
   /** Open change event. */
   @Event()
-  openChange: EventEmitter;
+  openChange: EventEmitter<{open: boolean}>;
 
   @Listen("keyup", {target: "window"})
   closePopoverWithKeyboard(e: KeyboardEvent): void {

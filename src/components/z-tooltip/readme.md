@@ -42,6 +42,13 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 | `position` | `position` | Tooltip position.                                                                                                                                                                                                      | `PopoverPosition.AUTO \| PopoverPosition.BOTTOM \| PopoverPosition.BOTTOM_LEFT \| PopoverPosition.BOTTOM_RIGHT \| PopoverPosition.LEFT \| PopoverPosition.LEFT_BOTTOM \| PopoverPosition.LEFT_TOP \| PopoverPosition.RIGHT \| PopoverPosition.RIGHT_BOTTOM \| PopoverPosition.RIGHT_TOP \| PopoverPosition.TOP \| PopoverPosition.TOP_LEFT \| PopoverPosition.TOP_RIGHT` | `PopoverPosition.AUTO` |
 
 
+## Events
+
+| Event        | Description | Type                                                   |
+| ------------ | ----------- | ------------------------------------------------------ |
+| `openChange` |             | `CustomEvent<ZPopoverCustomEvent<{ open: boolean; }>>` |
+
+
 ## Dependencies
 
 ### Used by

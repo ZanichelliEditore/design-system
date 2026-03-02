@@ -86,8 +86,8 @@ export class ZTool {
     this.toggleSubmenu.emit(this.open);
   }
 
-  private handleTooltipOpen = (): void => {
-    if (!this.tooltip) {
+  private handleTooltipOpen = (ev: FocusEvent | MouseEvent): void => {
+    if (!this.tooltip || !this.buttonRef.contains(ev.target as Node)) {
       return;
     }
 
@@ -98,9 +98,9 @@ export class ZTool {
   };
 
   /**
-   * Closes the tooltip immediately on button blur, clearing any pending hover delay.
+   * Closes the tooltip immediately on button blur or when the mouse leaves the button or the tooltip, clearing any pending hover delay.
    */
-  private onButtonBlur = (ev: FocusEvent | MouseEvent): void => {
+  private handleTooltipClose = (ev: FocusEvent | MouseEvent): void => {
     if (!this.tooltip || (ev.relatedTarget as HTMLElement)?.closest("z-tooltip") === this.tooltipRef) {
       return;
     }
@@ -109,7 +109,8 @@ export class ZTool {
     this.tooltipOpen = false;
   };
 
-  /** Handles click events on the tool's button element.
+  /**
+   * Handles click events on the tool's button element.
    * If the tool has slotted content, toggles the open state and focuses the first tool in the nested toolbar.
    */
   private handleClick = (): void => {
@@ -120,9 +121,13 @@ export class ZTool {
     if (this.hasSlottedContent) {
       this.open = !this.open;
       if (this.open) {
-        requestAnimationFrame(() => {
-          (this.hostElement.querySelector("z-toolbar z-tool") as HTMLZToolElement)?.setFocus();
-        });
+        if (this.hostElement.querySelector("z-color-picker")) {
+          (this.hostElement.querySelector("z-color-picker") as HTMLZColorPickerElement).setFocus();
+
+          return;
+        }
+
+        (this.hostElement.querySelector("z-toolbar z-tool") as HTMLZToolElement)?.setFocus();
       }
     }
   };
@@ -152,12 +157,25 @@ export class ZTool {
     this.open = false;
   }
 
+  /**
+   * Handle esc key to close the submenu and move focus back to the tool button.
+   */
+  @Listen("keydown")
+  handleKeyDown(event: KeyboardEvent): void {
+    if (event.key === "Escape" && this.open) {
+      event.preventDefault();
+      event.stopPropagation();
+      this.open = false;
+      this.setFocus();
+    }
+  }
+
   /** Focuses the tool's button element. */
   @Method()
   async setFocus(): Promise<void> {
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       this.buttonRef?.focus();
-    });
+    }, 10);
   }
 
   componentWillLoad(): void {
@@ -178,7 +196,7 @@ export class ZTool {
 
   render(): HTMLZToolElement {
     return (
-      <Host>
+      <Host class={{"z-tool-tooltip-open": this.tooltipOpen}}>
         <button
           class="z-tool"
           type="button"
@@ -190,9 +208,9 @@ export class ZTool {
           disabled={this.disabled}
           onClick={this.handleClick}
           onMouseEnter={this.handleTooltipOpen}
-          onMouseLeave={this.onButtonBlur}
+          onMouseLeave={this.handleTooltipClose}
           onFocus={this.handleTooltipOpen}
-          onBlur={this.onButtonBlur}
+          onBlur={this.handleTooltipClose}
         >
           <z-icon
             ref={(el) => (this.iconRef = el)}
@@ -208,6 +226,8 @@ export class ZTool {
             open={this.tooltipOpen}
             position={this.isNested ? PopoverPosition.BOTTOM : this.tooltipPosition}
             dark
+            onMouseLeave={this.handleTooltipClose}
+            onBlur={this.handleTooltipClose}
           >
             <span class="body-4">{this.tooltip}</span>
           </z-tooltip>

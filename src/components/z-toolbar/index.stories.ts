@@ -31,7 +31,7 @@ const StoryMeta = {
         class="toolbar-container"
         @click=${(e: Event) => {
           const tool = (e.target as HTMLElement).closest("z-tool") as HTMLZToolElement | null;
-          if (tool && !tool.disabled && !tool.querySelector("z-toolbar")) {
+          if (tool && !tool.disabled && !tool.children.length) {
             tool.active = !tool.active;
           }
         }}
@@ -99,6 +99,12 @@ export const WithDividers = {
 export const WithNestedToolbar = {
   render: (args) => html`
     <z-toolbar html-aria-label=${args.htmlAriaLabel}>
+      <z-tool
+        icon="bg-color"
+        tooltip="Scegli un colore"
+      >
+        <z-color-picker></z-color-picker>
+      </z-tool>
       <z-tool
         icon="gear"
         tooltip="Impostazioni"
@@ -284,6 +290,33 @@ export const MultilineMobile = {
         icon="download"
         tooltip="Scarica 2"
       ></z-tool>
+      <z-tool
+        icon="plus"
+        tooltip="Aggiungi"
+      >
+        <z-toolbar html-aria-label="Sotto-toolbar aggiungi">
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+        </z-toolbar>
+      </z-tool>
       <z-tool
         icon="upload"
         tooltip="Carica 2"

@@ -25,9 +25,14 @@
   box-shadow: inset 0 0 0 2px var(--color-primary01);
 }
 
+:host([open]) .z-tool {
+  background: var(--color-primary03);
+}
+
 @media (hover: hover) {
   :host(:hover),
-  :host:has(.z-tool:focus-visible) {
+  :host:has(.z-tool:focus:focus-visible),
+  :host(.z-tool-tooltip-open) {
     /* ensure any open tooltip is shown over sibling elements */
     z-index: 1;
   }
@@ -42,7 +47,7 @@
   cursor: not-allowed;
 }
 
-.z-tool:focus-visible {
+.z-tool:focus:focus-visible {
   box-shadow: inset 0 0 0 2px var(--color-primary01);
   outline: none;
 }
@@ -68,6 +73,7 @@ z-icon {
 }
 
 .z-tool-submenu {
+  z-index: 3;
   border-radius: calc(var(--border-radius) + var(--border-size-small));
 }
 

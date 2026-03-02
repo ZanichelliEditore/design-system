@@ -37,7 +37,7 @@ export class ZToolbar {
     this.hostElement.style.setProperty("--z-toolbar-columns", colBreakpoint.toString());
   }
 
-  /** Collect all z-tool elements in the toolbar (not nested ones). */
+  /** Collect first level children `z-tool` elements in the toolbar (not nested ones). */
   private collectToolItems(): void {
     this.toolItems = Array.from(this.hostElement.querySelectorAll("z-tool:not(:scope z-tool z-tool)"));
   }
@@ -100,6 +100,7 @@ export class ZToolbar {
     if (event.detail !== true) {
       return;
     }
+
     const targetTool = (event.target as HTMLElement).closest("z-tool") as HTMLZToolElement | null;
     if (!targetTool || !this.toolItems.includes(targetTool)) {
       return;

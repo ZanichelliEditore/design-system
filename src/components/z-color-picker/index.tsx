@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, h} from "@stencil/core";
 import {ColorPickerPalette} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -92,17 +92,20 @@ export class ZColorPicker {
   }
 
   /**
-   * When the container receives focus, move focus to the first color button and make the container non-tabbable.
+   * Focus to the first color button and make the container non-tabbable.
    */
   @Listen("focus")
-  handleContainerFocus(): void {
+  @Method()
+  async setFocus(): Promise<void> {
     if (!this.colorButtons.length) {
       return;
     }
 
     // Set first button as tabbable
     this.colorButtons[0].tabIndex = 0;
-    this.colorButtons[0].focus();
+    setTimeout(() => {
+      this.colorButtons[0].focus();
+    }, 10);
     // Set container as non-tabbable
     this.host.tabIndex = -1;
   }
@@ -186,6 +189,7 @@ export class ZColorPicker {
       this.colorButtons[newIndex].tabIndex = 0;
       this.colorButtons[newIndex].focus();
       event.preventDefault();
+      event.stopPropagation();
     }
   }
 

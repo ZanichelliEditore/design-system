@@ -50,10 +50,10 @@ Notes:
 
 ## Events
 
-| Event            | Description                      | Type               |
-| ---------------- | -------------------------------- | ------------------ |
-| `openChange`     | Open change event.               | `CustomEvent<any>` |
-| `positionChange` | Fired when the position changes. | `CustomEvent<any>` |
+| Event            | Description                      | Type                              |
+| ---------------- | -------------------------------- | --------------------------------- |
+| `openChange`     | Open change event.               | `CustomEvent<{ open: boolean; }>` |
+| `positionChange` | Fired when the position changes. | `CustomEvent<any>`                |
 
 
 ## Dependencies
