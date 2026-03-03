@@ -296,24 +296,12 @@ export const MultilineMobile = {
       >
         <z-toolbar html-aria-label="Sotto-toolbar aggiungi">
           <z-tool
-            icon="chevron-up"
-            tooltip="Su"
+            icon="copy"
+            tooltip="Copia"
           ></z-tool>
           <z-tool
-            icon="chevron-down"
-            tooltip="Giù"
-          ></z-tool>
-          <z-tool
-            icon="chevron-up"
-            tooltip="Su"
-          ></z-tool>
-          <z-tool
-            icon="chevron-up"
-            tooltip="Su"
-          ></z-tool>
-          <z-tool
-            icon="chevron-down"
-            tooltip="Giù"
+            icon="edit"
+            tooltip="Modifica"
           ></z-tool>
         </z-toolbar>
       </z-tool>

@@ -1,6 +1,7 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
 import {IconName} from "../../constants/iconset";
+import {containsElement} from "../../utils/utils";
 
 /**
  * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
@@ -111,24 +112,23 @@ export class ZTool {
 
   /**
    * Handles click events on the tool's button element.
-   * If the tool has slotted content, toggles the open state and focuses the first tool in the nested toolbar.
+   * If the tool has slotted content, toggles the open state and focuses the first tool in the nested toolbar or the first color of the color picker.
    */
   private handleClick = (): void => {
-    if (this.disabled) {
+    if (this.disabled || !this.hasSlottedContent) {
       return;
     }
 
-    if (this.hasSlottedContent) {
-      this.open = !this.open;
-      if (this.open) {
-        if (this.hostElement.querySelector("z-color-picker")) {
-          (this.hostElement.querySelector("z-color-picker") as HTMLZColorPickerElement).setFocus();
+    this.open = !this.open;
+    if (this.open) {
+      const colorPicker = this.hostElement.querySelector("z-color-picker") as HTMLZColorPickerElement | null;
+      if (colorPicker) {
+        colorPicker.setFocus();
 
-          return;
-        }
-
-        (this.hostElement.querySelector("z-toolbar z-tool") as HTMLZToolElement)?.setFocus();
+        return;
       }
+
+      (this.hostElement.querySelector("z-toolbar z-tool") as HTMLZToolElement)?.setFocus();
     }
   };
 
@@ -141,6 +141,29 @@ export class ZTool {
     }
 
     this.open = event.detail.open;
+  }
+
+  /**
+   * Close the popover on clicks outside the component.
+   */
+  private onOutsideClick = (event: MouseEvent): void => {
+    const target = event.composedPath()[0] as HTMLElement;
+    if (!this.open || containsElement(this.hostElement, target)) {
+      // don't close the popover if the click was inside this component. toggling when clicking on trigger button is already handled.
+      return;
+    }
+
+    this.open = false;
+  };
+
+  @Watch("isMobile")
+  onMobileChange(): void {
+    if (this.isMobile) {
+      // listen to clicks outside the popover to close it in mobile view: since in mobile the popover is bound to the main toolbar and not the tool itself, click inside the toolbar would close the popover but aren't propagated so won't trigger the actions of other tools
+      this.hostElement.ownerDocument.addEventListener("click", this.onOutsideClick, {capture: true});
+    } else {
+      this.hostElement.ownerDocument.removeEventListener("click", this.onOutsideClick);
+    }
   }
 
   /**
@@ -238,6 +261,7 @@ export class ZTool {
             open={this.open}
             bindTo={this.isMobile && this.mainToolbar ? this.mainToolbar : this.hostElement}
             center
+            closable={!this.isMobile}
             position={this.isMobile ? PopoverPosition.TOP : PopoverPosition.BOTTOM}
             onOpenChange={(ev) => this.onSubmenuOpenChange(ev)}
           >
