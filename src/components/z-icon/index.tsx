@@ -71,7 +71,7 @@ export class ZIcon {
           {COLOR_INDICATOR_ICONS.includes(this.name) && (
             <svg
               class="color-indicator"
-              fill={this.indicatorColor || "transparent"}
+              fill={this.indicatorColor || "#FFFFFF00"}
               {...svgAttrs}
             >
               {this.selectPathOrPolygon(ICONS["picker-color"])}
