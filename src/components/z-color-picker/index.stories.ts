@@ -24,6 +24,7 @@ const StoryMeta = {
     lng: "it",
     htmlAriaLabel: "Seleziona un colore",
     selectedColor: undefined,
+    disableTransparent: false,
   },
 } satisfies Meta<ZColorPicker>;
 
@@ -32,5 +33,9 @@ export default StoryMeta;
 type Story = StoryObj<ZColorPicker>;
 
 export const Default = {
-  render: (args) => html`<z-color-picker .selectedColor=${args.selectedColor}></z-color-picker>`,
+  render: (args) =>
+    html`<z-color-picker
+      .selectedColor=${args.selectedColor}
+      .disableTransparent=${args.disableTransparent}
+    ></z-color-picker>`,
 } satisfies Story;

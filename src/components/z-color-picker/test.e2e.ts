@@ -79,7 +79,7 @@ describe("z-color-picker test end2end", () => {
 
     await page.evaluate(() => {
       const picker = document.querySelector("z-color-picker");
-      picker.focus();
+      picker.setFocus();
     });
     await page.waitForChanges();
 
@@ -118,5 +118,19 @@ describe("z-color-picker test end2end", () => {
 
     expect(blurState.hostTabIndex).toBe(0);
     expect(blurState.allButtonsTabIndexMinusOne).toBe(true);
+  });
+
+  it("Should set default dark gray 2 when disabling transparent while it's selected", async () => {
+    const page = await newE2EPage({
+      html: `<z-color-picker selected-color="#FFFFFF00"></z-color-picker>`,
+    });
+    await page.waitForChanges();
+
+    const picker = await page.find("z-color-picker");
+    picker.setProperty("disableTransparent", true);
+    await page.waitForChanges();
+    const selectedColor = await picker.getProperty("selectedColor");
+
+    expect(selectedColor).toBe("#333333");
   });
 });

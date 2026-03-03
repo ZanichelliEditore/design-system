@@ -654,6 +654,10 @@ export namespace Components {
      */
     interface ZColorPicker {
         /**
+          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
+         */
+        "disableTransparent": boolean;
+        /**
           * The aria-label for the color picker, e.g. "Select a background color for the label".
          */
         "htmlAriaLabel": string;
@@ -4643,6 +4647,10 @@ declare namespace LocalJSX {
      * This component allows the user to pick a color from a predefined set.
      */
     interface ZColorPicker {
+        /**
+          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
+         */
+        "disableTransparent"?: boolean;
         /**
           * The aria-label for the color picker, e.g. "Select a background color for the label".
          */

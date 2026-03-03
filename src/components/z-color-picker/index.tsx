@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, Watch, h} from "@stencil/core";
 import {ColorPickerPalette} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -50,6 +50,13 @@ export class ZColorPicker {
   htmlAriaLabel: string;
 
   /**
+   * Disables the transparent color option.
+   * Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
+   */
+  @Prop({reflect: true})
+  disableTransparent = false;
+
+  /**
    * Event emitted when a color is selected.
    */
   @Event()
@@ -89,6 +96,19 @@ export class ZColorPicker {
     }
 
     return ordered;
+  }
+
+  @Watch("disableTransparent")
+  @Watch("selectedColor")
+  validateTransparentSelection(): void {
+    if (this.disableTransparent && this.selectedColor === "#FFFFFF00") {
+      this.selectedColor = "#333333"; // Default to dark gray 2 if transparent is disabled and currently selected
+    }
+  }
+
+  @Watch("selectedColor")
+  emitColorSelected(): void {
+    this.colorSelected.emit(this.selectedColor);
   }
 
   /**
@@ -187,7 +207,9 @@ export class ZColorPicker {
       this.colorButtons[currentIndex].tabIndex = -1;
       // Set tabindex on new button
       this.colorButtons[newIndex].tabIndex = 0;
-      this.colorButtons[newIndex].focus();
+      setTimeout(() => {
+        this.colorButtons[newIndex].focus();
+      }, 10);
       event.preventDefault();
       event.stopPropagation();
     }
@@ -203,11 +225,6 @@ export class ZColorPicker {
       this.host.tabIndex = 0;
       this.colorButtons.forEach((btn) => (btn.tabIndex = -1));
     }
-  }
-
-  private selectColor(color: ColorPickerPalette): void {
-    this.selectedColor = color;
-    this.colorSelected.emit(color);
   }
 
   componentWillLoad(): void {
@@ -228,13 +245,14 @@ export class ZColorPicker {
             role="option"
             aria-selected={this.selectedColor?.toUpperCase() === colorKey.toUpperCase() ? "true" : "false"}
             tabIndex={-1}
-            onClick={() => this.selectColor(colorKey)}
+            onClick={() => (this.selectedColor = colorKey)}
           >
             <div
               class="color-swatch"
               role="img"
               aria-roledescription={LOCALES[this.lng]["Color swatch"]}
               aria-label={ColorPickerPalette[colorKey][this.lng]}
+              title={ColorPickerPalette[colorKey][this.lng]}
               style={{backgroundColor: colorKey}}
             ></div>
           </button>

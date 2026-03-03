@@ -14,6 +14,8 @@
 }
 
 button {
+  --border-color: var(--color-surface05);
+
   padding: 0;
   border: none;
   appearance: none;
@@ -36,8 +38,8 @@ button[data-color="#FFFFFF00"]::after {
   background: linear-gradient(
     -45deg,
     transparent 48%,
-    var(--color-surface05) 48%,
-    var(--color-surface05) 52%,
+    var(--border-color) 48%,
+    var(--border-color) 52%,
     transparent 52%
   );
   border-radius: var(--border-radius);
@@ -57,6 +59,16 @@ button:focus-visible {
 button .color-swatch {
   width: calc(var(--space-unit) * 3);
   height: calc(var(--space-unit) * 3);
-  border: var(--border-size-small) solid var(--color-surface05);
+  border: var(--border-size-small) solid var(--border-color);
   border-radius: var(--border-radius);
+}
+
+:host([disable-transparent]) button[data-color="#FFFFFF00"] {
+  --border-color: var(--color-disabled01-icon);
+
+  cursor: not-allowed;
+}
+
+:host([disable-transparent]) button[data-color="#FFFFFF00"] .color-swatch {
+  background-color: var(--color-disabled02);
 }
