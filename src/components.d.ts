@@ -1064,6 +1064,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * the id of the message element
+         */
+        "htmlid"?: string;
+        /**
           * input helper message
          */
         "message"?: string;
@@ -4923,6 +4927,10 @@ declare namespace LocalJSX {
           * input disabled status (optional)
          */
         "disabled"?: boolean;
+        /**
+          * the id of the message element
+         */
+        "htmlid"?: string;
         /**
           * input helper message
          */

@@ -1,5 +1,6 @@
 import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
+import {randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-input-message",
@@ -7,6 +8,9 @@ import {InputStatus} from "../../beans";
   shadow: true,
 })
 export class ZInputMessage {
+  /** the id of the message element */
+  @Prop()
+  htmlid?: string;
   /** input helper message */
   @Prop()
   message?: string;
@@ -67,13 +71,30 @@ export class ZInputMessage {
       <Host>
         <div role="alert">
           {this.statusMessage.critical && this.renderIcon()}
-          {this.statusMessage.critical && <span innerHTML={this.statusMessage.critical} />}
+          {this.statusMessage.critical && (
+            <span
+              id={this.htmlid ?? `id-${randomId()}`}
+              innerHTML={this.statusMessage.critical}
+            />
+          )}
         </div>
         <div role="status">
           {this.statusMessage.notCritical && this.renderIcon()}
-          {this.statusMessage.notCritical && <span innerHTML={this.statusMessage.notCritical} />}
+          {this.statusMessage.notCritical && (
+            <span
+              id={this.htmlid ?? `id-${randomId()}`}
+              innerHTML={this.statusMessage.notCritical}
+            />
+          )}
         </div>
-        <div>{this.statusMessage.noStatus && <span innerHTML={this.statusMessage.noStatus} />}</div>
+        <div>
+          {this.statusMessage.noStatus && (
+            <span
+              id={this.htmlid ?? `id-${randomId()}`}
+              innerHTML={this.statusMessage.noStatus}
+            />
+          )}
+        </div>
       </Host>
     );
   }

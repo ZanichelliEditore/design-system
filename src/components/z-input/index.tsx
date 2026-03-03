@@ -314,12 +314,14 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const ariaDescriptdBy = typeof this.message == "boolean" ? {} : {"aria-describedby": `${this.htmlid}-message`};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...ariaDescriptdBy,
     };
   }
 
@@ -454,6 +456,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        htmlid={`${this.htmlid}-message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}

@@ -8,6 +8,7 @@
 | Property   | Attribute  | Description                      | Type                                                              | Default     |
 | ---------- | ---------- | -------------------------------- | ----------------------------------------------------------------- | ----------- |
 | `disabled` | `disabled` | input disabled status (optional) | `boolean`                                                         | `undefined` |
+| `htmlid`   | `htmlid`   | the id of the message element    | `string`                                                          | `undefined` |
 | `message`  | `message`  | input helper message             | `string`                                                          | `undefined` |
 | `status`   | `status`   | input status (optional)          | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
 
