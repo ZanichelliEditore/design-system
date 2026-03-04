@@ -59,6 +59,8 @@ export class ZOffcanvas {
 
   private canvasContent: HTMLElement;
 
+  private allFocusableElements: HTMLElement[] = [];
+
   private previouslyFocusedElement: HTMLElement | null = null;
 
   /**
@@ -68,14 +70,12 @@ export class ZOffcanvas {
    * - They are visible in the layout
    * - They have a non-negative tabIndex or an explicit tabindex="0"
    */
-  private getFocusableElements(): HTMLElement[] {
+  private getFocusableElements(focusableElements: HTMLElement[]): HTMLElement[] {
     if (!this.canvasContent) {
       return [];
     }
 
-    const all = Array.from(this.canvasContent.querySelectorAll<HTMLElement>("*"));
-
-    return all.filter((el) => {
+    return focusableElements.filter((el) => {
       const tabindex = el.getAttribute("tabindex");
       const isDisabled = el.hasAttribute("disabled");
       const isHidden = el.offsetParent === null;
@@ -91,13 +91,12 @@ export class ZOffcanvas {
    * - If Tab is pressed on the last focusable element, move focus to the first.
    */
   private trapFocus(event: KeyboardEvent): void {
-    const focusable = this.getFocusableElements();
-    if (!focusable.length) {
+    if (!this.allFocusableElements.length) {
       return;
     }
 
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
+    const first = this.allFocusableElements[0];
+    const last = this.allFocusableElements[this.allFocusableElements.length - 1];
     const active = document.activeElement as HTMLElement;
 
     if (event.shiftKey && active === first) {
@@ -170,10 +169,8 @@ export class ZOffcanvas {
       this.previouslyFocusedElement = document.activeElement as HTMLElement;
 
       // Move focus inside the offcanvas once it is rendered.
-      const focusable = this.getFocusableElements();
-
-      if (focusable.length > 0) {
-        focusable[0].focus();
+      if (this.allFocusableElements.length > 0) {
+        this.allFocusableElements[0].focus();
       } else {
         this.canvasContent?.focus();
       }
@@ -205,6 +202,9 @@ export class ZOffcanvas {
 
   componentDidRender(): void {
     this.skipAnimation = false;
+    this.allFocusableElements = this.getFocusableElements(
+      Array.from(this.canvasContent.querySelectorAll<HTMLElement>("*"))
+    );
   }
 
   connectedCallback(): void {
