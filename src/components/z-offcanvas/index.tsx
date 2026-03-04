@@ -70,17 +70,19 @@ export class ZOffcanvas {
    * - They are visible in the layout
    * - They have a non-negative tabIndex or an explicit tabindex="0"
    */
-  private getFocusableElements(focusableElements: HTMLElement[]): HTMLElement[] {
+  private getFocusableElements(): HTMLElement[] {
     if (!this.canvasContent) {
       return [];
     }
 
-    return focusableElements.filter((el) => {
+    const all = Array.from(this.canvasContent.querySelectorAll<HTMLElement>("*"));
+
+    return all.filter((el) => {
       const tabindex = el.getAttribute("tabindex");
       const isDisabled = el.hasAttribute("disabled");
       const isHidden = el.offsetParent === null;
 
-      return !isDisabled && !isHidden && (el.tabIndex >= 0 || tabindex === "0");
+      return !isDisabled && !isHidden && parseInt(tabindex) >= 0;
     });
   }
 
@@ -202,9 +204,7 @@ export class ZOffcanvas {
 
   componentDidRender(): void {
     this.skipAnimation = false;
-    this.allFocusableElements = this.getFocusableElements(
-      Array.from(this.canvasContent.querySelectorAll<HTMLElement>("*"))
-    );
+    this.allFocusableElements = this.getFocusableElements();
   }
 
   connectedCallback(): void {
