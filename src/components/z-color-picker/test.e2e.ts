@@ -52,19 +52,13 @@ describe("z-color-picker test end2end", () => {
       html: `<z-color-picker></z-color-picker>`,
     });
     await page.waitForChanges();
+    const picker = await page.find("z-color-picker");
+    const buttons = await page.findAll("z-color-picker >>> button");
 
-    const focusState = await page.evaluate(() => {
-      const picker = document.querySelector("z-color-picker");
-      const buttons = Array.from(picker.shadowRoot.querySelectorAll("button")) as HTMLButtonElement[];
-
-      return {
-        hostTabIndex: picker.tabIndex,
-        allButtonsTabIndexMinusOne: buttons.every((button) => button.tabIndex === -1),
-      };
-    });
-
-    expect(focusState.hostTabIndex).toBe(0);
-    expect(focusState.allButtonsTabIndexMinusOne).toBe(true);
+    expect(await picker.getProperty("tabIndex")).toBe(0);
+    for (const button of buttons) {
+      expect(await button.getProperty("tabIndex")).toBe(-1);
+    }
   });
 
   it("Should navigate with ArrowRight and reset tabindex on blur", async () => {
@@ -77,47 +71,56 @@ describe("z-color-picker test end2end", () => {
     });
     await page.waitForChanges();
 
-    await page.evaluate(() => {
-      const picker = document.querySelector("z-color-picker");
-      picker.setFocus();
+    const picker = await page.find("z-color-picker");
+    await picker.callMethod("setFocus");
+    await new Promise((resolve) => setTimeout(resolve, 80));
+    await page.waitForChanges();
+
+    const focusedSwatch = await page.find("z-color-picker >>> button[tabindex='0']");
+    await focusedSwatch.press("ArrowRight");
+    await page.waitForChanges();
+
+    const firstButton = await page.find("z-color-picker >>> button:nth-of-type(1)");
+    const secondButton = await page.find("z-color-picker >>> button:nth-of-type(2)");
+    expect(await firstButton.getProperty("tabIndex")).toBe(-1);
+    expect(await secondButton.getProperty("tabIndex")).toBe(0);
+
+    const outsideButton = await page.find("#outside");
+    await outsideButton.click();
+    await page.waitForChanges();
+
+    const buttons = await page.findAll("z-color-picker >>> button");
+    expect(await picker.getProperty("tabIndex")).toBe(0);
+    for (const button of buttons) {
+      expect(await button.getProperty("tabIndex")).toBe(-1);
+    }
+  });
+
+  it("Should skip disabled swatch and move focus to next enabled with ArrowRight", async () => {
+    const page = await newE2EPage({
+      html: `<z-color-picker disable-transparent></z-color-picker>`,
     });
     await page.waitForChanges();
 
-    await page.keyboard.press("ArrowRight");
+    const picker = await page.find("z-color-picker");
+    await picker.callMethod("setFocus");
+    await new Promise((resolve) => setTimeout(resolve, 80));
     await page.waitForChanges();
 
-    const navigationState = await page.evaluate(() => {
-      const picker = document.querySelector("z-color-picker");
-      const buttons = Array.from(picker.shadowRoot.querySelectorAll("button")) as HTMLButtonElement[];
-      const focusedButton = picker.shadowRoot.activeElement as HTMLButtonElement;
+    const firstButton = await page.find("z-color-picker >>> button:nth-of-type(1)");
+    const firstEnabledButton = await page.find("z-color-picker >>> button[tabindex='0']");
 
-      return {
-        focusedIndex: buttons.findIndex((button) => button === focusedButton),
-        focusedTabIndex: focusedButton?.tabIndex,
-      };
-    });
+    expect(await firstButton.getProperty("disabled")).toBe(true);
 
-    expect(navigationState.focusedIndex).toBe(1);
-    expect(navigationState.focusedTabIndex).toBe(0);
-
-    await page.evaluate(() => {
-      const outsideButton = document.getElementById("outside") as HTMLButtonElement;
-      outsideButton.focus();
-    });
+    await firstEnabledButton.press("ArrowLeft");
     await page.waitForChanges();
 
-    const blurState = await page.evaluate(() => {
-      const picker = document.querySelector("z-color-picker");
-      const buttons = Array.from(picker.shadowRoot.querySelectorAll("button")) as HTMLButtonElement[];
+    const buttonBeforeDisabled = await page.find("z-color-picker >>> button[tabindex='0']");
+    await buttonBeforeDisabled.press("ArrowRight");
+    await page.waitForChanges();
 
-      return {
-        hostTabIndex: picker.tabIndex,
-        allButtonsTabIndexMinusOne: buttons.every((button) => button.tabIndex === -1),
-      };
-    });
-
-    expect(blurState.hostTabIndex).toBe(0);
-    expect(blurState.allButtonsTabIndexMinusOne).toBe(true);
+    const secondButton = await page.find("z-color-picker >>> button:nth-of-type(2)");
+    expect(await secondButton.getProperty("tabIndex")).toBe(0);
   });
 
   it("Should set default dark gray 2 when disabling transparent while it's selected", async () => {

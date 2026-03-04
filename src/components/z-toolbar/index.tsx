@@ -1,5 +1,6 @@
 import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
+import {ZToolCustomEvent} from "../../components";
 
 /**
  * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
@@ -53,19 +54,22 @@ export class ZToolbar {
 
   private focusToolAt(index: number, fallback: "previous" | "next" = "next"): void {
     const tool = this.toolItems[index];
-    if (tool) {
-      const button = tool.shadowRoot?.querySelector("button");
-      this.currentFocusIndex = index;
-      if (button.disabled || !button) {
-        if (fallback === "next") {
-          this.focusNextTool();
-        } else {
-          this.focusPreviousTool();
-        }
-      } else if (button) {
-        button.focus();
-        this.updateTabIndexes();
-      }
+    if (!tool) {
+      return;
+    }
+
+    this.currentFocusIndex = index;
+    if (!tool.disabled) {
+      tool.setFocus();
+      this.updateTabIndexes();
+
+      return;
+    }
+
+    if (fallback === "next") {
+      this.focusNextTool();
+    } else {
+      this.focusPreviousTool();
     }
   }
 
@@ -85,18 +89,16 @@ export class ZToolbar {
       event.preventDefault();
       event.stopPropagation();
       parentTool.open = false;
-      const parentButton = parentTool.shadowRoot?.querySelector("button");
-      if (parentButton) {
-        parentButton.focus();
-      }
+      parentTool.setFocus();
     }
   }
 
   /**
-   * Listen for custom "toggleSubmenu" events from child tools and close sibling submenus when one is opened.
+   * Listen for custom "toggleSubmenu" events from child tools and close sibling submenus when one is opened,
+   * to prevent multiple submenus from being open at the same time.
    */
   @Listen("toggleSubmenu")
-  closeSibilingSubmenusOnOpen(event: CustomEvent): void {
+  closeSiblingSubmenusOnOpen(event: ZToolCustomEvent<boolean>): void {
     if (event.detail !== true) {
       return;
     }
@@ -109,6 +111,28 @@ export class ZToolbar {
     this.toolItems.forEach((tool) => {
       if (tool !== targetTool && tool.open) {
         tool.open = false;
+      }
+    });
+  }
+
+  /**
+   * Listen for custom "toggleTooltip" events from child tools and close sibling tooltips when one is opened,
+   * to prevent multiple tooltips from being open at the same time.
+   */
+  @Listen("toggleTooltip")
+  closeSiblingTooltipsOnOpen(event: ZToolCustomEvent<boolean>): void {
+    if (event.detail !== true) {
+      return;
+    }
+
+    const targetTool = (event.target as HTMLElement).closest("z-tool") as HTMLZToolElement | null;
+    if (!targetTool || !this.toolItems.includes(targetTool)) {
+      return;
+    }
+
+    this.toolItems.forEach((tool) => {
+      if (tool !== targetTool) {
+        tool.closeTooltip();
       }
     });
   }

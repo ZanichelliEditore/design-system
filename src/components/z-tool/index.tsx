@@ -6,7 +6,6 @@ import {containsElement} from "../../utils/utils";
 /**
  * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
  * @slot - Optional slot for nested content (e.g., a secondary `z-toolbar`) that appears when the tool is open/clicked.
- * @method setFocus() - Public method to set focus on the tool's button element.
  */
 @Component({
   tag: "z-tool",
@@ -68,6 +67,10 @@ export class ZTool {
   @Event()
   toggleSubmenu: EventEmitter;
 
+  /** Emitted when the tooltip open state changes. */
+  @Event()
+  toggleTooltip: EventEmitter;
+
   private buttonRef?: HTMLButtonElement;
 
   private iconRef?: HTMLElement;
@@ -82,13 +85,17 @@ export class ZTool {
   /** Main `z-toolbar` ancestor element, meant to be the top-level toolbar not nested inside another tool. */
   private mainToolbar?: HTMLZToolbarElement;
 
-  @Watch("open")
-  handleOpenChange(): void {
-    this.toggleSubmenu.emit(this.open);
-  }
+  /** Media query list for detecting mobile view. */
+  private mql?: MediaQueryList;
 
+  /** Listener for changes in the mobile view media query. */
+  private onMobileViewChange?: (e: MediaQueryListEvent) => void;
+
+  /**
+   * Opens the tooltip with a delay when the button is hovered or focused, and if the tool's content isn't already visible.
+   */
   private handleTooltipOpen = (ev: FocusEvent | MouseEvent): void => {
-    if (!this.tooltip || !this.buttonRef.contains(ev.target as Node)) {
+    if (!this.tooltip || this.open || !this.buttonRef.contains(ev.target as Node)) {
       return;
     }
 
@@ -156,13 +163,23 @@ export class ZTool {
     this.open = false;
   };
 
+  @Watch("open")
+  handleOpenChange(): void {
+    this.toggleSubmenu.emit(this.open);
+  }
+
+  @Watch("tooltipOpen")
+  handleTooltipOpenChange(): void {
+    this.toggleTooltip.emit(this.tooltipOpen);
+  }
+
   @Watch("isMobile")
   onMobileChange(): void {
     if (this.isMobile) {
       // listen to clicks outside the popover to close it in mobile view: since in mobile the popover is bound to the main toolbar and not the tool itself, click inside the toolbar would close the popover but aren't propagated so won't trigger the actions of other tools
       this.hostElement.ownerDocument.addEventListener("click", this.onOutsideClick, {capture: true});
     } else {
-      this.hostElement.ownerDocument.removeEventListener("click", this.onOutsideClick);
+      this.hostElement.ownerDocument.removeEventListener("click", this.onOutsideClick, {capture: true});
     }
   }
 
@@ -198,7 +215,14 @@ export class ZTool {
   async setFocus(): Promise<void> {
     setTimeout(() => {
       this.buttonRef?.focus();
-    }, 10);
+    }, 50);
+  }
+
+  /** Closes the tooltip. */
+  @Method()
+  async closeTooltip(): Promise<void> {
+    clearTimeout(this.hoverDelay);
+    this.tooltipOpen = false;
   }
 
   componentWillLoad(): void {
@@ -206,15 +230,18 @@ export class ZTool {
     this.isNested = !!this.hostElement.closest("z-tool:not(:scope)");
     this.mainToolbar = this.hostElement.closest("z-toolbar:not(z-toolbar z-toolbar)");
 
-    const mql = matchMedia("(max-width: 767px)");
-    this.isMobile = mql.matches;
-    mql.addEventListener("change", (e) => {
-      this.isMobile = e.matches;
-    });
+    this.mql = matchMedia("(max-width: 767px)");
+    this.onMobileViewChange = (e: MediaQueryListEvent) => (this.isMobile = e.matches);
+    this.mql.addEventListener("change", this.onMobileViewChange);
+    this.isMobile = this.mql.matches;
   }
 
   disconnectedCallback(): void {
     clearTimeout(this.hoverDelay);
+    if (this.isMobile) {
+      this.hostElement.ownerDocument.removeEventListener("click", this.onOutsideClick, {capture: true});
+    }
+    this.mql?.removeEventListener("change", this.onMobileViewChange);
   }
 
   render(): HTMLZToolElement {
@@ -251,6 +278,7 @@ export class ZTool {
             dark
             onMouseLeave={this.handleTooltipClose}
             onBlur={this.handleTooltipClose}
+            onOpenChange={(ev) => (this.tooltipOpen = ev.detail.open)}
           >
             <span class="body-4">{this.tooltip}</span>
           </z-tooltip>

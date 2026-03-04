@@ -25,12 +25,23 @@ ZTool component. Can display an icon, an optional tooltip (mainly for hints abou
 
 ## Events
 
-| Event           | Description                          | Type               |
-| --------------- | ------------------------------------ | ------------------ |
-| `toggleSubmenu` | Emitted when the open state changes. | `CustomEvent<any>` |
+| Event           | Description                                  | Type               |
+| --------------- | -------------------------------------------- | ------------------ |
+| `toggleSubmenu` | Emitted when the open state changes.         | `CustomEvent<any>` |
+| `toggleTooltip` | Emitted when the tooltip open state changes. | `CustomEvent<any>` |
 
 
 ## Methods
+
+### `closeTooltip() => Promise<void>`
+
+Closes the tooltip.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `setFocus() => Promise<void>`
 

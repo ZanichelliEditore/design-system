@@ -41,6 +41,7 @@ export const config: Config = {
     moduleNameMapper: {
       "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/src/__mocks__/fileMock.ts",
     },
-    testPathIgnorePatterns: ["./storybook/*", "./dist/*"],
+    modulePathIgnorePatterns: ["<rootDir>/dist/"],
+    testPathIgnorePatterns: ["/storybook/", "/dist/"],
   },
 } satisfies Config;

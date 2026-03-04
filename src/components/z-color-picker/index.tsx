@@ -53,7 +53,7 @@ export class ZColorPicker {
    * Disables the transparent color option.
    * Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
    */
-  @Prop({reflect: true})
+  @Prop()
   disableTransparent = false;
 
   /**
@@ -98,6 +98,13 @@ export class ZColorPicker {
     return ordered;
   }
 
+  /** Move focus to the specified color button by index. */
+  private moveFocusTo(index: number): void {
+    // Reset tabindex of other buttons and set tabindex to 0 on selected button
+    this.colorButtons.forEach((btn, i) => (btn.tabIndex = i === index ? 0 : -1));
+    this.colorButtons[index].focus();
+  }
+
   @Watch("disableTransparent")
   @Watch("selectedColor")
   validateTransparentSelection(): void {
@@ -117,37 +124,30 @@ export class ZColorPicker {
   @Listen("focus")
   @Method()
   async setFocus(): Promise<void> {
-    if (!this.colorButtons.length) {
+    // Reset tabindex of all buttons
+    this.colorButtons.forEach((btn) => (btn.tabIndex = -1));
+    const firstEnabled = this.colorButtons.find((btn) => !btn.disabled);
+    if (!firstEnabled) {
       return;
     }
 
-    // Set first button as tabbable
-    this.colorButtons[0].tabIndex = 0;
+    firstEnabled.tabIndex = 0;
     setTimeout(() => {
-      this.colorButtons[0].focus();
-    }, 10);
+      firstEnabled.focus();
+    }, 50);
     // Set container as non-tabbable
     this.host.tabIndex = -1;
   }
 
   /**
-   * Handle keyboard navigation within the color picker.
-   * Arrow keys move focus in the expected direction, wrapping around edges. The grid is navigated in row-major order.
+   * Compute next index in row-major grid according to keyboard direction.
    */
-  @Listen("keydown")
-  handleKeyDown(event: KeyboardEvent): void {
-    const target = event.composedPath()[0] as HTMLElement;
-    if (!target.dataset.color) {
-      return;
-    }
-
-    const currentIndex = this.colorButtons.indexOf(target as HTMLButtonElement);
-    const totalColors = this.colorButtons.length;
+  private getNextIndexByKey(currentIndex: number, key: string, totalColors: number): number {
     const row = Math.floor(currentIndex / COLOR_GROUPS);
     const col = currentIndex % COLOR_GROUPS;
     let newIndex = currentIndex;
 
-    switch (event.key) {
+    switch (key) {
       case "ArrowRight": {
         const newCol = col + 1;
         const newRow = newCol >= COLOR_GROUPS ? (row + 1) % COLOR_GROUP_SIZE : row;
@@ -198,18 +198,43 @@ export class ZColorPicker {
 
         break;
       }
-      default:
-        return;
     }
 
-    if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalColors) {
-      // Remove tabindex from current button
-      this.colorButtons[currentIndex].tabIndex = -1;
-      // Set tabindex on new button
-      this.colorButtons[newIndex].tabIndex = 0;
-      setTimeout(() => {
-        this.colorButtons[newIndex].focus();
-      }, 10);
+    return newIndex;
+  }
+
+  /**
+   * Handle keyboard navigation within the color picker.
+   * Arrow keys move focus in the expected direction, wrapping around edges. The grid is navigated in row-major order.
+   */
+  @Listen("keydown")
+  handleKeyDown(event: KeyboardEvent): void {
+    const target = event.composedPath()[0] as HTMLElement;
+    if (!target.dataset.color) {
+      return;
+    }
+
+    const currentIndex = this.colorButtons.indexOf(target as HTMLButtonElement);
+    const totalColors = this.colorButtons.length;
+    if (currentIndex < 0 || !["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) {
+      return;
+    }
+
+    let newIndex = currentIndex;
+    let attempts = 0;
+
+    do {
+      newIndex = this.getNextIndexByKey(newIndex, event.key, totalColors);
+      attempts++;
+    } while (attempts < totalColors && this.colorButtons[newIndex]?.disabled);
+
+    if (
+      newIndex !== currentIndex &&
+      newIndex >= 0 &&
+      newIndex < totalColors &&
+      !this.colorButtons[newIndex]?.disabled
+    ) {
+      this.moveFocusTo(newIndex);
       event.preventDefault();
       event.stopPropagation();
     }
@@ -246,6 +271,7 @@ export class ZColorPicker {
             aria-selected={this.selectedColor?.toUpperCase() === colorKey.toUpperCase() ? "true" : "false"}
             tabIndex={-1}
             onClick={() => (this.selectedColor = colorKey)}
+            disabled={this.disableTransparent && colorKey === "#FFFFFF00"}
           >
             <div
               class="color-swatch"

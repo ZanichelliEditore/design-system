@@ -63,8 +63,9 @@ export class ZPopover {
   center = false;
 
   /**
-   * If true, the popover can be closed by clicking outside of it or pressing the escape key.
+   * Whether the popover can be closed by clicking outside of it or pressing the escape key.
    * Otherwise, it will be closed only programmatically (by setting `open` to `false`).
+   * Default: `true`.
    */
   @Prop()
   closable = true;
@@ -110,9 +111,9 @@ export class ZPopover {
 
   /** Fired when the position changes. */
   @Event()
-  positionChange: EventEmitter;
+  positionChange: EventEmitter<{position: PopoverPosition}>;
 
-  /** Open change event. */
+  /** Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true). */
   @Event()
   openChange: EventEmitter<{open: boolean}>;
 

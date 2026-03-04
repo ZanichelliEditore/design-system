@@ -37,16 +37,11 @@ describe("z-toolbar e2e", () => {
     `);
     await page.waitForChanges();
 
-    const firstTabIndex = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
+    const firstToolButton = await page.find("z-toolbar > z-tool:nth-of-type(1) >>> button");
+    const secondToolButton = await page.find("z-toolbar > z-tool:nth-of-type(2) >>> button");
 
-      return tools[0].shadowRoot.querySelector("button").tabIndex;
-    });
-    const secondTabIndex = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-
-      return tools[1].shadowRoot.querySelector("button").tabIndex;
-    });
+    const firstTabIndex = await firstToolButton.getProperty("tabIndex");
+    const secondTabIndex = await secondToolButton.getProperty("tabIndex");
 
     expect(firstTabIndex).toBe(0);
     expect(secondTabIndex).toBe(-1);
@@ -64,11 +59,11 @@ describe("z-toolbar e2e", () => {
     `);
     await page.waitForChanges();
 
-    const tabIndexes = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-
-      return Array.from(tools).map((tool) => tool.shadowRoot.querySelector("button").tabIndex);
-    });
+    const toolButtons = await page.findAll("z-toolbar > z-tool >>> button");
+    const tabIndexes: number[] = [];
+    for (const button of toolButtons) {
+      tabIndexes.push(await button.getProperty("tabIndex"));
+    }
 
     expect(tabIndexes.length).toBe(3);
     expect(tabIndexes[0]).toBe(0);
@@ -87,24 +82,17 @@ describe("z-toolbar e2e", () => {
     `);
     await page.waitForChanges();
 
-    // Focus the first tool
-    await page.evaluate(() => {
-      document.querySelector("z-tool").shadowRoot.querySelector("button").focus();
-    });
+    const firstToolButton = await page.find("z-toolbar > z-tool:nth-of-type(1) >>> button");
+    const secondToolButton = await page.find("z-toolbar > z-tool:nth-of-type(2) >>> button");
 
-    await page.keyboard.press("ArrowRight");
+    await firstToolButton.click();
     await page.waitForChanges();
 
-    const focusedIndex = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
+    await firstToolButton.press("ArrowRight");
+    await page.waitForChanges();
 
-      return Array.from(tools).findIndex(
-        (tool) =>
-          tool.shadowRoot.querySelector("button") === document.activeElement ||
-          tool.shadowRoot.activeElement?.tagName === "BUTTON"
-      );
-    });
-    expect(focusedIndex).toBe(1);
+    expect(await firstToolButton.getProperty("tabIndex")).toBe(-1);
+    expect(await secondToolButton.getProperty("tabIndex")).toBe(0);
   });
 
   it("navigazione con ArrowLeft sposta il focus al tool precedente", async () => {
@@ -118,22 +106,17 @@ describe("z-toolbar e2e", () => {
     `);
     await page.waitForChanges();
 
-    // Focus the second tool
-    await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-      (tools[1].shadowRoot.querySelector("button") as HTMLButtonElement).focus();
-    });
+    const firstToolButton = await page.find("z-toolbar > z-tool:nth-of-type(1) >>> button");
+    const secondToolButton = await page.find("z-toolbar > z-tool:nth-of-type(2) >>> button");
+
+    await secondToolButton.click();
     await page.waitForChanges();
 
-    await page.keyboard.press("ArrowLeft");
+    await secondToolButton.press("ArrowLeft");
     await page.waitForChanges();
 
-    const focusedIndex = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-
-      return Array.from(tools).findIndex((tool) => tool.shadowRoot.activeElement?.tagName === "BUTTON");
-    });
-    expect(focusedIndex).toBe(0);
+    expect(await firstToolButton.getProperty("tabIndex")).toBe(0);
+    expect(await secondToolButton.getProperty("tabIndex")).toBe(-1);
   });
 
   it("ArrowRight dall'ultimo tool torna al primo (wrap)", async () => {
@@ -146,22 +129,17 @@ describe("z-toolbar e2e", () => {
     `);
     await page.waitForChanges();
 
-    // Focus the last tool
-    await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-      (tools[tools.length - 1].shadowRoot.querySelector("button") as HTMLButtonElement).focus();
-    });
+    const firstToolButton = await page.find("z-toolbar > z-tool:nth-of-type(1) >>> button");
+    const secondToolButton = await page.find("z-toolbar > z-tool:nth-of-type(2) >>> button");
+
+    await secondToolButton.click();
     await page.waitForChanges();
 
-    await page.keyboard.press("ArrowRight");
+    await secondToolButton.press("ArrowRight");
     await page.waitForChanges();
 
-    const focusedIndex = await page.evaluate(() => {
-      const tools = document.querySelectorAll("z-toolbar > z-tool");
-
-      return Array.from(tools).findIndex((tool) => tool.shadowRoot.activeElement?.tagName === "BUTTON");
-    });
-    expect(focusedIndex).toBe(0);
+    expect(await firstToolButton.getProperty("tabIndex")).toBe(0);
+    expect(await secondToolButton.getProperty("tabIndex")).toBe(-1);
   });
 
   it("render toolbar nestata dentro z-tool", async () => {

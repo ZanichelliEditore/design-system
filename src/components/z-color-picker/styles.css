@@ -63,12 +63,12 @@ button .color-swatch {
   border-radius: var(--border-radius);
 }
 
-:host([disable-transparent]) button[data-color="#FFFFFF00"] {
+button[data-color="#FFFFFF00"]:disabled {
   --border-color: var(--color-disabled01-icon);
 
   cursor: not-allowed;
 }
 
-:host([disable-transparent]) button[data-color="#FFFFFF00"] .color-swatch {
+button[data-color="#FFFFFF00"]:disabled .color-swatch {
   background-color: var(--color-disabled02);
 }

@@ -10,13 +10,11 @@ import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
-import { ZPopoverCustomEvent } from "./components";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
 export { IconName } from "./constants/iconset";
-export { ZPopoverCustomEvent } from "./components";
 export namespace Components {
     /**
      * Accordion component.
@@ -1772,7 +1770,7 @@ export namespace Components {
          */
         "center": boolean;
         /**
-          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
          */
         "closable": boolean;
         /**
@@ -2269,13 +2267,16 @@ export namespace Components {
     }
     /**
      * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface ZTool {
         /**
           * Visual active state.
          */
         "active": boolean;
+        /**
+          * Closes the tooltip.
+         */
+        "closeTooltip": () => Promise<void>;
         /**
           * Disabled state.
          */
@@ -3492,7 +3493,7 @@ declare global {
         new (): HTMLZPanelElemElement;
     };
     interface HTMLZPopoverElementEventMap {
-        "positionChange": any;
+        "positionChange": {position: PopoverPosition};
         "openChange": {open: boolean};
     }
     /**
@@ -3773,10 +3774,10 @@ declare global {
     };
     interface HTMLZToolElementEventMap {
         "toggleSubmenu": any;
+        "toggleTooltip": any;
     }
     /**
      * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3806,7 +3807,7 @@ declare global {
         new (): HTMLZToolbarElement;
     };
     interface HTMLZTooltipElementEventMap {
-        "openChange": ZPopoverCustomEvent<{open: boolean}>;
+        "openChange": {open: boolean};
     }
     /**
      * Tooltip component.
@@ -5882,17 +5883,17 @@ declare namespace LocalJSX {
          */
         "center"?: boolean;
         /**
-          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
          */
         "closable"?: boolean;
         /**
-          * Open change event.
+          * Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true).
          */
         "onOpenChange"?: (event: ZPopoverCustomEvent<{open: boolean}>) => void;
         /**
           * Fired when the position changes.
          */
-        "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
+        "onPositionChange"?: (event: ZPopoverCustomEvent<{position: PopoverPosition}>) => void;
         /**
           * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
          */
@@ -6419,7 +6420,6 @@ declare namespace LocalJSX {
     }
     /**
      * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-     * @method setFocus() - Public method to set focus on the tool's button element.
      */
     interface ZTool {
         /**
@@ -6446,6 +6446,10 @@ declare namespace LocalJSX {
           * Emitted when the open state changes.
          */
         "onToggleSubmenu"?: (event: ZToolCustomEvent<any>) => void;
+        /**
+          * Emitted when the tooltip open state changes.
+         */
+        "onToggleTooltip"?: (event: ZToolCustomEvent<any>) => void;
         /**
           * Open state.
          */
@@ -6492,7 +6496,10 @@ declare namespace LocalJSX {
           * Enable tooltip dark mode.
          */
         "dark"?: boolean;
-        "onOpenChange"?: (event: ZTooltipCustomEvent<ZPopoverCustomEvent<{open: boolean}>>) => void;
+        /**
+          * Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically.
+         */
+        "onOpenChange"?: (event: ZTooltipCustomEvent<{open: boolean}>) => void;
         /**
           * The open state of the tooltip.
          */
@@ -6955,7 +6962,6 @@ declare module "@stencil/core" {
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             /**
              * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
-             * @method setFocus() - Public method to set focus on the tool's button element.
              */
             "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
             /**

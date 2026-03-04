@@ -44,9 +44,9 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 
 ## Events
 
-| Event        | Description | Type                                                   |
-| ------------ | ----------- | ------------------------------------------------------ |
-| `openChange` |             | `CustomEvent<ZPopoverCustomEvent<{ open: boolean; }>>` |
+| Event        | Description                                                                                                                                                                                                                                                               | Type                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `openChange` | Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically. | `CustomEvent<{ open: boolean; }>` |
 
 
 ## Dependencies
