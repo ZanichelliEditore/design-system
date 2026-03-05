@@ -83,16 +83,6 @@ export class ZToolbar {
     this.focusToolAt(prevIndex, "previous");
   }
 
-  private focusParentTool(event: KeyboardEvent): void {
-    const parentTool = this.hostElement.closest("z-tool") as HTMLZToolElement;
-    if (parentTool) {
-      event.preventDefault();
-      event.stopPropagation();
-      parentTool.open = false;
-      parentTool.setFocus();
-    }
-  }
-
   /**
    * Listen for custom "toggleSubmenu" events from child tools and close sibling submenus when one is opened,
    * to prevent multiple submenus from being open at the same time.
@@ -161,10 +151,6 @@ export class ZToolbar {
       case KeyboardCode.ARROW_LEFT:
         event.preventDefault();
         this.focusPreviousTool();
-        break;
-      case KeyboardCode.ESC:
-      case KeyboardCode.TAB:
-        this.focusParentTool(event);
         break;
     }
   }

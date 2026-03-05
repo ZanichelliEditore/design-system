@@ -1,5 +1,5 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
-import {PopoverPosition} from "../../beans";
+import {KeyboardCode, PopoverPosition} from "../../beans";
 import {IconName} from "../../constants/iconset";
 import {containsElement} from "../../utils/utils";
 
@@ -128,14 +128,17 @@ export class ZTool {
 
     this.open = !this.open;
     if (this.open) {
-      const colorPicker = this.hostElement.querySelector("z-color-picker") as HTMLZColorPickerElement | null;
+      const colorPicker = this.hostElement.querySelector(":scope > z-color-picker") as HTMLZColorPickerElement | null;
       if (colorPicker) {
         colorPicker.setFocus();
 
         return;
       }
 
-      (this.hostElement.querySelector("z-toolbar z-tool") as HTMLZToolElement)?.setFocus();
+      const firstNestedTool = this.hostElement.querySelector(
+        ":scope > z-toolbar z-tool:not(:disabled)"
+      ) as HTMLZToolElement | null;
+      firstNestedTool?.setFocus();
     }
   };
 
@@ -143,10 +146,14 @@ export class ZTool {
    * Handles `openChange` events from the submenu popover to keep the `open` state in sync.
    */
   private onSubmenuOpenChange(event: CustomEvent): void {
-    if (!Array.from(this.hostElement.shadowRoot!.children).includes(event.target as Element)) {
+    const targetParentTool = event.composedPath().find((el) => (el as HTMLElement).tagName === "Z-TOOL") as
+      | HTMLZToolElement
+      | undefined;
+    if (targetParentTool !== this.hostElement) {
       return;
     }
 
+    event.stopPropagation();
     this.open = event.detail.open;
   }
 
@@ -195,6 +202,7 @@ export class ZTool {
 
     this.indicatorColor = event.detail;
     this.open = false;
+    this.setFocus();
   }
 
   /**
@@ -202,17 +210,22 @@ export class ZTool {
    */
   @Listen("keydown")
   handleKeyDown(event: KeyboardEvent): void {
-    if (event.key === "Escape" && this.open) {
-      event.preventDefault();
-      event.stopPropagation();
-      this.open = false;
-      this.setFocus();
+    if (!this.open || event.key !== KeyboardCode.ESC) {
+      return;
     }
+
+    event.stopPropagation();
+    this.open = false;
+    this.setFocus();
   }
 
   /** Focuses the tool's button element. */
   @Method()
   async setFocus(): Promise<void> {
+    if (this.disabled) {
+      return;
+    }
+
     setTimeout(() => {
       this.buttonRef?.focus();
     }, 50);

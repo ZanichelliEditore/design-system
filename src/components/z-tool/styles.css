@@ -31,7 +31,6 @@
 
 @media (hover: hover) {
   :host(:hover),
-  :host:has(.z-tool:focus:focus-visible),
   :host(.z-tool-tooltip-open) {
     /* ensure any open tooltip is shown over sibling elements */
     z-index: 1;
@@ -42,12 +41,8 @@
   }
 }
 
-:host([disabled]) .z-tool {
-  color: var(--color-disabled01-icon);
-  cursor: not-allowed;
-}
-
 .z-tool:focus:focus-visible {
+  background-color: var(--color-primary03);
   box-shadow: inset 0 0 0 2px var(--color-primary01);
   outline: none;
 }
@@ -60,6 +55,11 @@ z-icon {
   fill: var(--color-default-icon);
 }
 
+:host([disabled]) .z-tool {
+  color: var(--color-disabled01-icon);
+  cursor: not-allowed;
+}
+
 :host([disabled]) z-icon {
   fill: var(--color-disabled01-icon);
 }
@@ -68,8 +68,10 @@ z-icon {
   --z-tooltip-padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
   --z-tooltip-shadow-filter: drop-shadow(0 4px 8px var(--shadow-color-base));
 
+  position: relative;
   z-index: 2;
   font-family: var(--font-family-sans);
+  white-space: nowrap;
 }
 
 .z-tool-submenu {

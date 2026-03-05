@@ -117,9 +117,10 @@ export class ZPopover {
   @Event()
   openChange: EventEmitter<{open: boolean}>;
 
-  @Listen("keyup", {target: "window"})
+  @Listen("keyup", {target: "window", capture: true})
   closePopoverWithKeyboard(e: KeyboardEvent): void {
     if (this.closable && e.key === KeyboardCode.ESC) {
+      e.stopPropagation();
       this.open = false;
     }
   }
