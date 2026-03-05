@@ -1,5 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, PopoverPosition} from "../../beans";
+import {ZPopoverCustomEvent} from "../../components";
 import {IconName} from "../../constants/iconset";
 import {containsElement} from "../../utils/utils";
 
@@ -77,10 +78,15 @@ export class ZTool {
 
   private tooltipRef?: HTMLZTooltipElement;
 
+  private popoverRef?: HTMLZPopoverElement;
+
   private hoverDelay?: ReturnType<typeof setTimeout>;
 
   /** Indicates if the tool is nested inside another tool. */
   private isNested = false;
+
+  /** Indicates if the tool has no nested tools. */
+  private isLeaf = true;
 
   /** Main `z-toolbar` ancestor element, meant to be the top-level toolbar not nested inside another tool. */
   private mainToolbar?: HTMLZToolbarElement;
@@ -145,11 +151,8 @@ export class ZTool {
   /**
    * Handles `openChange` events from the submenu popover to keep the `open` state in sync.
    */
-  private onSubmenuOpenChange(event: CustomEvent): void {
-    const targetParentTool = event.composedPath().find((el) => (el as HTMLElement).tagName === "Z-TOOL") as
-      | HTMLZToolElement
-      | undefined;
-    if (targetParentTool !== this.hostElement) {
+  private onSubmenuOpenChange(event: ZPopoverCustomEvent<{open: boolean}>): void {
+    if ((event.target as HTMLElement) !== this.popoverRef) {
       return;
     }
 
@@ -159,6 +162,7 @@ export class ZTool {
 
   /**
    * Close the popover on clicks outside the component.
+   * Only used in mobile view.
    */
   private onOutsideClick = (event: MouseEvent): void => {
     const target = event.composedPath()[0] as HTMLElement;
@@ -241,6 +245,7 @@ export class ZTool {
   componentWillLoad(): void {
     this.hasSlottedContent = this.hostElement.children.length > 0;
     this.isNested = !!this.hostElement.closest("z-tool:not(:scope)");
+    this.isLeaf = !this.hostElement.querySelector("z-tool");
     this.mainToolbar = this.hostElement.closest("z-toolbar:not(z-toolbar z-toolbar)");
 
     this.mql = matchMedia("(max-width: 767px)");
@@ -286,12 +291,18 @@ export class ZTool {
             class="z-tool-tooltip"
             ref={(el) => (this.tooltipRef = el)}
             bindTo={this.iconRef}
-            open={this.tooltipOpen}
+            open={this.tooltipOpen && !this.open}
             position={this.isNested ? PopoverPosition.BOTTOM : this.tooltipPosition}
             dark
             onMouseLeave={this.handleTooltipClose}
             onBlur={this.handleTooltipClose}
-            onOpenChange={(ev) => (this.tooltipOpen = ev.detail.open)}
+            onOpenChange={(ev) => {
+              if ((ev.target as HTMLElement) === this.tooltipRef) {
+                return;
+              }
+
+              this.tooltipOpen = ev.detail.open;
+            }}
           >
             <span class="body-4">{this.tooltip}</span>
           </z-tooltip>
@@ -299,10 +310,14 @@ export class ZTool {
         {this.hasSlottedContent && (
           <z-popover
             class="z-tool-submenu"
+            ref={(el) => (this.popoverRef = el)}
             open={this.open}
             bindTo={this.isMobile && this.mainToolbar ? this.mainToolbar : this.hostElement}
             center
-            closable={!this.isMobile}
+            closable={
+              /* auto close only the submenu of the deepest level tool when clicking outside or pressing ESC */
+              !this.isMobile && this.isLeaf
+            }
             position={this.isMobile ? PopoverPosition.TOP : PopoverPosition.BOTTOM}
             onOpenChange={(ev) => this.onSubmenuOpenChange(ev)}
           >

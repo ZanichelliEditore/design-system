@@ -106,8 +106,8 @@ export const WithNestedToolbar = {
         <z-color-picker></z-color-picker>
       </z-tool>
       <z-tool
-        icon="gear"
-        tooltip="Impostazioni"
+        icon="plus"
+        tooltip="Apri sotto-toolbar"
       >
         <z-toolbar html-aria-label="Sotto-toolbar">
           <z-tool
@@ -123,6 +123,12 @@ export const WithNestedToolbar = {
             icon="chevron-up"
             tooltip="Su"
           ></z-tool>
+          <z-tool
+            icon="bg-color"
+            tooltip="Scegli un colore"
+          >
+            <z-color-picker></z-color-picker>
+          </z-tool>
         </z-toolbar>
       </z-tool>
       <z-tool
