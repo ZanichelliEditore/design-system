@@ -314,7 +314,8 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
-    const ariaDescriptdBy = typeof this.message == "boolean" ? {} : {"aria-describedby": `${this.htmlid}-message`};
+    const ariaDescriptdBy =
+      !this.message || typeof this.message == "boolean" ? {} : {"aria-describedby": `${this.htmlid}-message`};
 
     return {
       ...expanded,
