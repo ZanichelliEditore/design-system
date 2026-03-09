@@ -316,6 +316,7 @@ export class ZInput {
       : {};
     const ariaDescriptdBy =
       !this.message || typeof this.message == "boolean" ? {} : {"aria-describedby": `${this.htmlid}-message`};
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
       ...expanded,
@@ -323,6 +324,7 @@ export class ZInput {
       ...autocomplete,
       ...activedescendant,
       ...ariaDescriptdBy,
+      ...ariaInvalid,
     };
   }
 
