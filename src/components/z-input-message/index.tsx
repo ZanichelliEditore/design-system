@@ -1,4 +1,4 @@
-import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Host, Prop, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -29,39 +29,6 @@ export class ZInputMessage {
     warning: "exclamation-circle",
   };
 
-  @State()
-  statusMessage: {critical: string; notCritical: string; noStatus: string};
-
-  @Watch("status")
-  @Watch("message")
-  onMessageOrStatusChange() {
-    if (!this.message) {
-      this.statusMessage = this.getInitialMessageObj();
-      return;
-    }
-
-    switch (this.status) {
-      case InputStatus.ERROR:
-        this.statusMessage = {...this.getInitialMessageObj(), critical: this.message};
-        break;
-      case InputStatus.SUCCESS:
-      case InputStatus.WARNING:
-        this.statusMessage = {...this.getInitialMessageObj(), notCritical: this.message};
-        break;
-      default:
-        this.statusMessage = {...this.getInitialMessageObj(), noStatus: this.message};
-        break;
-    }
-  }
-
-  getInitialMessageObj() {
-    return {critical: "", notCritical: "", noStatus: ""};
-  }
-
-  componentWillLoad(): void {
-    this.onMessageOrStatusChange();
-  }
-
   renderIcon() {
     return this.statusIcons[this.status] && <z-icon name={this.statusIcons[this.status]}></z-icon>;
   }
@@ -69,29 +36,12 @@ export class ZInputMessage {
   render(): HTMLZInputMessageElement {
     return (
       <Host>
-        <div role="alert">
-          {this.statusMessage.critical && this.renderIcon()}
-          {this.statusMessage.critical && (
-            <span
-              id={this.htmlid ?? `id-${randomId()}`}
-              innerHTML={this.statusMessage.critical}
-            />
-          )}
-        </div>
-        <div role="status">
-          {this.statusMessage.notCritical && this.renderIcon()}
-          {this.statusMessage.notCritical && (
-            <span
-              id={this.htmlid ?? `id-${randomId()}`}
-              innerHTML={this.statusMessage.notCritical}
-            />
-          )}
-        </div>
         <div>
-          {this.statusMessage.noStatus && (
+          {this.message && this.renderIcon()}
+          {this.message && (
             <span
               id={this.htmlid ?? `id-${randomId()}`}
-              innerHTML={this.statusMessage.noStatus}
+              innerHTML={this.message}
             />
           )}
         </div>
