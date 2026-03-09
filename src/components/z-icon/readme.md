@@ -73,6 +73,7 @@
  - [z-toast-notification](../z-toast-notification)
  - [z-toggle-button](../z-toggle-button)
  - [z-toggle-switch](../z-toggle-switch)
+ - [z-tool](../z-tool)
  - [z-tr](../table/z-tr)
  - [z-tree-list](../list/z-tree-list)
 
@@ -118,6 +119,7 @@ graph TD;
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
+  z-tool --> z-icon
   z-tr --> z-icon
   z-tree-list --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

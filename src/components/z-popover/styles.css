@@ -32,22 +32,6 @@
   transform: translateY(-50%);
 }
 
-:host([current-position^="top"]) {
-  margin: 0 0 var(--space-unit);
-}
-
-:host([current-position^="bottom"]) {
-  margin: var(--space-unit) 0 0;
-}
-
-:host([current-position^="left"]) {
-  margin: 0 var(--space-unit) 0 0;
-}
-
-:host([current-position^="right"]) {
-  margin: 0 0 0 var(--space-unit);
-}
-
 /* Arrow style */
 
 :host([current-position])::before {

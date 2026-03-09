@@ -1,0 +1,91 @@
+:host,
+* {
+  box-sizing: border-box;
+}
+
+.z-tool {
+  --z-tool-size: calc(var(--space-unit) * 5.5);
+  --z-tool-icon-size: calc(var(--space-unit) * 2.5);
+
+  display: inline-flex;
+  width: var(--z-tool-size);
+  height: var(--z-tool-size);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  margin: 0;
+  background-color: var(--color-surface01);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+:host([active]) .z-tool {
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
+}
+
+:host([open]) .z-tool {
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
+}
+
+@media (hover: hover) {
+  :host(:not([disabled])) .z-tool:hover {
+    background-color: var(--color-primary03);
+  }
+}
+
+:host([disabled]) .z-tool {
+  color: var(--color-disabled01-icon);
+  cursor: not-allowed;
+}
+
+.z-tool:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--color-primary01);
+  outline: none;
+}
+
+z-icon {
+  --z-icon-width: var(--z-tool-icon-size);
+  --z-icon-height: var(--z-tool-icon-size);
+
+  display: block;
+  fill: var(--color-default-icon);
+}
+
+:host([disabled]) z-icon {
+  fill: var(--color-disabled01-icon);
+}
+
+.z-tool-tooltip {
+  --z-popover-padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
+  --z-popover-theme--surface: var(--color-surface05);
+  --z-popover-theme--text: var(--color-text-inverse);
+  --z-popover-shadow-filter: drop-shadow(0 4px 8px var(--shadow-color-base));
+
+  z-index: 2;
+  font-family: var(--font-family-sans);
+}
+
+@media (max-width: 767px) {
+  .z-tool-tooltip {
+    display: none !important;
+  }
+}
+
+:host {
+  position: var(--z-tool-host-position, relative);
+}
+
+.z-tool-submenu {
+  position: var(--z-tool-submenu-position, absolute);
+  z-index: 1;
+  top: var(--z-tool-submenu-top, calc(100% + 4px));
+  bottom: var(--z-tool-submenu-bottom, auto);
+  left: var(--z-tool-submenu-left, 50%);
+  display: none;
+  transform: var(--z-tool-submenu-transform, translateX(-50%));
+}
+
+.z-tool-submenu-open {
+  display: block;
+}

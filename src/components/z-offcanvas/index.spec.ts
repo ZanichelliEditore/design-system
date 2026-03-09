@@ -60,4 +60,30 @@ describe("Suite test ZOffcanvas", () => {
       </z-offcanvas>
     `);
   });
+
+  it("Should close the offcanvas when Escape key is pressed", async () => {
+    const page = await newSpecPage({
+      components: [ZOffcanvas],
+      html: `<z-offcanvas open>
+      <div slot="canvasContent"></div>
+    </z-offcanvas>`,
+    });
+
+    const offcanvas = page.root as HTMLZOffcanvasElement;
+
+    // Ensure it starts open
+    expect(offcanvas.open).toBe(true);
+
+    const event = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    document.dispatchEvent(event);
+
+    await page.waitForChanges();
+
+    // After Escape, open should be false
+    expect(offcanvas.open).toBe(false);
+  });
 });
