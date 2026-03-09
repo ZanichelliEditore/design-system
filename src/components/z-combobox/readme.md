@@ -37,6 +37,7 @@
 | `hascheckall`       | `hascheckall`       | show "check all" checkbox (optional)                              | `boolean`                                                     | `false`                 |
 | `hasgroupitems`     | `hasgroupitems`     | group items by category                                           | `boolean`                                                     | `undefined`             |
 | `hassearch`         | `hassearch`         | show search input flag (optional)                                 | `boolean`                                                     | `false`                 |
+| `htmlAriaLabel`     | `html-aria-label`   | the combobox aria-label                                           | `string`                                                      | `undefined`             |
 | `inputid`           | `inputid`           | input unique id                                                   | `string`                                                      | ``combo-${randomId()}`` |
 | `isfixed`           | `isfixed`           | fixed style flag                                                  | `boolean`                                                     | `false`                 |
 | `isopen`            | `isopen`            | toggle combo list opening flag                                    | `boolean`                                                     | `false`                 |
@@ -64,22 +65,22 @@
 
 - [z-icon](../z-icon)
 - [z-list-element](../list/z-list-element)
-- [z-input](../z-input)
 - [z-list-group](../list/z-list-group)
+- [z-input](../z-input)
 
 ### Graph
 ```mermaid
 graph TD;
   z-combobox --> z-icon
   z-combobox --> z-list-element
-  z-combobox --> z-input
   z-combobox --> z-list-group
+  z-combobox --> z-input
   z-list-element --> z-icon
   z-list-element --> z-divider
+  z-list-group --> z-divider
   z-input --> z-icon
   z-input --> z-input-message
   z-input-message --> z-icon
-  z-list-group --> z-divider
   style z-combobox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

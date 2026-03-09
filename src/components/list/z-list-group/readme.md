@@ -5,15 +5,16 @@
 
 ## Properties
 
-| Property       | Attribute        | Description                                               | Type                                                                                       | Default                |
-| -------------- | ---------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------- |
-| `dividerColor` | `divider-color`  | [optional] Sets the divider color.                        | `string`                                                                                   | `"gray200"`            |
-| `dividerSize`  | `divider-size`   | [optional] Sets the divider size.                         | `DividerSize.LARGE \| DividerSize.MEDIUM \| DividerSize.SMALL`                             | `DividerSize.SMALL`    |
-| `dividerType`  | `divider-type`   | [optional] Sets the position where to insert the divider. | `ListDividerType.ELEMENT \| ListDividerType.HEADER \| ListDividerType.NONE`                | `ListDividerType.NONE` |
-| `hasTreeItems` | `has-tree-items` | [optional] check for tree items in grouped lists          | `boolean`                                                                                  | `undefined`            |
-| `listType`     | `list-type`      | [optional] type of the list marker for each element       | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                                  | `ListType.NONE`        |
-| `role`         | `role`           | Sets element role.                                        | `string`                                                                                   | `"group"`              |
-| `size`         | `size`           | [optional] Sets size of inside elements.                  | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.NONE \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM`      |
+| Property         | Attribute         | Description                                               | Type                                                                                       | Default                |
+| ---------------- | ----------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------- |
+| `ariaLabelledby` | `aria-labelledby` | [optional] Sets aria-labelledby attribute                 | `string`                                                                                   | `undefined`            |
+| `dividerColor`   | `divider-color`   | [optional] Sets the divider color.                        | `string`                                                                                   | `"gray200"`            |
+| `dividerSize`    | `divider-size`    | [optional] Sets the divider size.                         | `DividerSize.LARGE \| DividerSize.MEDIUM \| DividerSize.SMALL`                             | `DividerSize.SMALL`    |
+| `dividerType`    | `divider-type`    | [optional] Sets the position where to insert the divider. | `ListDividerType.ELEMENT \| ListDividerType.HEADER \| ListDividerType.NONE`                | `ListDividerType.NONE` |
+| `hasTreeItems`   | `has-tree-items`  | [optional] check for tree items in grouped lists          | `boolean`                                                                                  | `undefined`            |
+| `listType`       | `list-type`       | [optional] type of the list marker for each element       | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                                  | `ListType.NONE`        |
+| `role`           | `role`            | Sets element role.                                        | `string`                                                                                   | `"group"`              |
+| `size`           | `size`            | [optional] Sets size of inside elements.                  | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.NONE \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM`      |
 
 
 ## Dependencies

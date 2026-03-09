@@ -666,6 +666,10 @@ export namespace Components {
          */
         "hassearch"?: boolean;
         /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * input unique id
          */
         "inputid": string;
@@ -4588,6 +4592,10 @@ declare namespace LocalJSX {
           * show search input flag (optional)
          */
         "hassearch"?: boolean;
+        /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
         /**
           * input unique id
          */

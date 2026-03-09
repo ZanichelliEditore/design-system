@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, getClickedElement, getElementTree, randomId} from "../../utils/utils";
+import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -235,12 +235,6 @@ export class ZSelect {
     });
   }
 
-  private getPlainText(html: string): string {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-
-    return doc.body.textContent || "";
-  }
-
   private filterItems(searchString: string): void {
     let prevList = this.mapSelectedItemToItemsArray();
 
@@ -250,7 +244,7 @@ export class ZSelect {
       return;
     }
 
-    prevList = prevList.map((item) => ({...item, name: this.getPlainText(item.name)}));
+    prevList = prevList.map((item) => ({...item, name: getPlainText(item.name)}));
 
     if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString, false);
@@ -277,7 +271,7 @@ export class ZSelect {
         const newItem: SelectItem = {...item};
         if (newItem.children && newItem.children.length > 0) {
           newItem.children = this.filterTree(
-            newItem.children.map((item) => ({...item, name: this.getPlainText(item.name)})),
+            newItem.children.map((item) => ({...item, name: getPlainText(item.name)})),
             searchString,
             match
           );
