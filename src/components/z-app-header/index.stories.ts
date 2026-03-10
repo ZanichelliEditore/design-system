@@ -162,6 +162,27 @@ export const TopTitle = {
     </z-app-header>`,
 } satisfies Story;
 
+export const TopTitleWithProductLogo = {
+  parameters: {
+    controls: {
+      exclude: ["enableOffcanvas", "enableZLogo"],
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+      <h1 slot="title">Applicazione</h1>
+      <div
+        class="story-product-logo"
+        slot="product-logo"
+      ></div>
+    </z-app-header>`,
+} satisfies Story;
+
 export const CustomMenuButton = {
   parameters: {
     controls: {
@@ -195,6 +216,29 @@ export const MenuWithTopTitle = {
     >
       <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
       <h1 slot="title">Applicazione</h1>
+      ${menuTemplate()}
+    </z-app-header>`,
+} satisfies Story;
+
+export const MenuWithTopTitleAndProductLogo = {
+  parameters: {
+    controls: {
+      exclude: ["enableZLogo"],
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableOffcanvas=${args.enableOffcanvas}
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+      <h1 slot="title">Applicazione</h1>
+      <div
+        class="story-product-logo"
+        slot="product-logo"
+      ></div>
       ${menuTemplate()}
     </z-app-header>`,
 } satisfies Story;

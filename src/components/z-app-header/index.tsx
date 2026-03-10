@@ -1,5 +1,12 @@
 import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
+import {
+  ButtonVariant,
+  ControlSize,
+  KeyboardCode,
+  OffCanvasVariant,
+  ProductLogoMode,
+  TransitionDirection,
+} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 import {containsElement} from "../../utils/utils";
 
@@ -359,10 +366,10 @@ export class ZAppHeader {
     );
   }
 
-  private renderProductLogos(): HTMLElement | null {
+  private renderProductLogos(mode: ProductLogoMode = ProductLogoMode.ALL): HTMLElement | null {
     return (
       <Fragment>
-        {this.enableZLogo && (
+        {mode === ProductLogoMode.ALL && this.enableZLogo && (
           <span class="z-logo">
             <img alt="Logo Zanichelli" />
           </span>
@@ -489,13 +496,14 @@ export class ZAppHeader {
         >
           <div class="heading-container">
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-              <div class="top-subtitle">
+              <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
                 <slot name="top-subtitle" />
               </div>
             )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
+              {!this._stuck &&
+                this.renderProductLogos(hasTopSubtitle ? ProductLogoMode.PRODUCT_ONLY : ProductLogoMode.ALL)}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>

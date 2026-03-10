@@ -133,6 +133,60 @@ describe("Suite test ZAppHeader", () => {
     `);
   });
 
+  it("Test render ZAppHeader with top-subtitle and product-logo (no z-logo)", async () => {
+    const page = await newSpecPage({
+      components: [ZAppHeader],
+      html: `<z-app-header>
+        <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+        <h1 slot="title">Titolo di test</h1>
+        <img
+          slot="product-logo"
+          src="https://picsum.photos/id/237/320/320"
+          alt=""
+        />
+      </z-app-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-app-header enable-z-logo="" menu-length="0">
+        <mock:shadow-root>
+          <div class="heading-panel">
+            <div class="heading-container">
+              <div class="has-product-logo top-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
+              <div class="heading-title">
+                <slot name="menu-button"></slot>
+                <span class="product-logo">
+                  <slot name="product-logo"></slot>
+                </span>
+                <slot name="title"></slot>
+              </div>
+            </div>
+            <nav aria-label="Titolo di test" class="menu-container"></nav>
+          </div>
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
+            <div slot="canvasContent">
+              <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
+                <z-icon name="close"></z-icon>
+              </button>
+              <div aria-hidden="true" class="drawer-content">
+                <slot name="menu"></slot>
+              </div>
+            </div>
+          </z-offcanvas>
+        </mock:shadow-root>
+        <h2 slot="top-subtitle">
+          Payoff dell'applicazione
+        </h2>
+        <h1 slot="title">
+          Titolo di test
+        </h1>
+        <img alt="" slot="product-logo" src="https://picsum.photos/id/237/320/320">
+      </z-app-header>
+    `);
+  });
+
   it("Test render ZAppHeader with z-logo and product-logo", async () => {
     const page = await newSpecPage({
       components: [ZAppHeader],

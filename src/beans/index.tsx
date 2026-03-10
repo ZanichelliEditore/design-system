@@ -4,6 +4,11 @@ export type MyzLink = {
   link: string;
 };
 
+export enum ProductLogoMode {
+  ALL = "all",
+  PRODUCT_ONLY = "product-only",
+}
+
 export enum LicenseType {
   REAL = "reale",
   VIRTUAL = "virtuale",
