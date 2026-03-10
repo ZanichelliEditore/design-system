@@ -82,7 +82,7 @@ export class ZOffcanvas {
       const isDisabled = el.hasAttribute("disabled");
       const isHidden = el.offsetParent === null;
 
-      return !isDisabled && !isHidden && parseInt(tabindex) >= 0;
+      return !isDisabled && !isHidden && (el.tabIndex >= 0 || tabindex === "0");
     });
   }
 
