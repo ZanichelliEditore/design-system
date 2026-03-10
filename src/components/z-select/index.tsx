@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
 import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
 
@@ -99,13 +99,7 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
-  private flattenedList: {item: SelectItem; key: number}[] = [];
-
   private itemsList: SelectItem[] = [];
-
-  private itemIdKeyMap: Record<string, number> = {};
-
-  private readonly resetKey = -1;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -117,11 +111,6 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
-  }
-
-  @Listen("ariaDescendantFocus")
-  getFocusedItemHandler(e: CustomEvent): void {
-    this.focusedItemId = (e.target as Element).id;
   }
 
   /** get the input selected options */
@@ -180,7 +169,6 @@ export class ZSelect {
 
   componentWillRender(): void {
     this.filterItems(this.searchString);
-    this.updateFlattenedList();
   }
 
   private getInitialItemsArray(): SelectItem[] {
@@ -197,6 +185,14 @@ export class ZSelect {
 
   private getSelectedValue(): string {
     return this.selectedItem?.id;
+  }
+
+  private getOptionId(item: SelectItem): string {
+    return `${this.htmlid}_key_${item.id}`;
+  }
+
+  private getItemIdFromOptionId(optionId: string): string {
+    return optionId.replace(`${this.htmlid}_key_`, ``);
   }
 
   private getGroupedItems(): [string, SelectItem[]][] {
@@ -216,23 +212,6 @@ export class ZSelect {
         {} as Record<string, SelectItem[]>
       )
     );
-  }
-
-  private updateFlattenedList(): void {
-    let orderedItems: SelectItem[];
-    if (this.hasGroupItems) {
-      orderedItems = this.getGroupedItems()
-        .map((item) => item[1])
-        .flat();
-    } else {
-      orderedItems = this.itemsList;
-    }
-
-    this.flattenedList = this.flattenTreeItems(orderedItems);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
   }
 
   private filterItems(searchString: string): void {
@@ -366,29 +345,28 @@ export class ZSelect {
     }
   }
 
-  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
-    const flatItems: {item: SelectItem; key: number}[] = [];
-    let index = 0;
-
-    const flatten = (subItems: SelectItem[], disabledAncestor?: boolean): void => {
-      subItems.forEach((itm) => {
-        const isDisabled = itm.disabled || disabledAncestor;
-        flatItems.push({item: {...itm, disabled: isDisabled}, key: index++});
-        if (itm.children && itm.children.length > 0) {
-          flatten(itm.children, isDisabled);
+  private handleInputKeyDown(e: KeyboardEvent): void {
+    switch (e.code as KeyboardCode) {
+      case KeyboardCode.ENTER:
+      case KeyboardCode.SPACE:
+        if (this.focusedItemId) {
+          const itemId = this.getItemIdFromOptionId(this.focusedItemId);
+          const item = this.itemsList.find((e) => e.id === itemId) || null;
+          if (item) {
+            this.selectedItem = item;
+            this.emitOptionSelect();
+            this.toggleSelectUl();
+          }
         }
-      });
-    };
-
-    if (items) {
-      flatten(items);
+        break;
+      case KeyboardCode.ARROW_DOWN:
+      case KeyboardCode.ARROW_UP:
+        this.arrowsSelectNav(e);
+        break;
     }
-
-    return flatItems;
   }
 
-  private arrowsSelectNav(e: KeyboardEvent, idOrReset: string | number): void {
-    const showResetIcon = this.resetItem && !!this.selectedItem;
+  private arrowsSelectNav(e: KeyboardEvent /*  itemId?: string | number */): void {
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
 
     if (!arrows.includes(e.key as KeyboardCode)) {
@@ -398,73 +376,42 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
-    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled);
+    const currElem = this.focusedItemId ? this.host.querySelector(`#${this.focusedItemId}`) : null;
+    const options = Array.from(this.host.querySelectorAll('[role="option"]'));
 
-    if (this.resetItem && showResetIcon) {
-      flatItems.unshift({
-        item: {id: "__RESET_ITEM__"} as SelectItem,
-        key: this.resetKey,
-      });
-    }
-
-    if (!flatItems.length) {
+    if (!options.length) {
       return;
     }
 
-    let currentIndex: number;
-    if (typeof idOrReset === "number") {
-      currentIndex = flatItems.findIndex((f) => f.key === idOrReset);
-    } else {
-      const k = this.itemIdKeyMap[idOrReset];
-      currentIndex = flatItems.findIndex((f) => f.key === k);
-    }
+    const currElemIndex = currElem ? options.indexOf(currElem) : null;
+    const firstElemIndex = 0;
+    const lastElemIndex = options.length - 1;
 
     if (!this.isOpen) {
       this.toggleSelectUl();
 
-      if (currentIndex > -1) {
-        this.focusSelectItem(flatItems[currentIndex].key);
-
+      if (this.selectedItem) {
+        this.focusSelectItem(this.getOptionId(this.selectedItem));
         return;
       }
     }
 
-    if (currentIndex > -1 && !this.focusedItemId) {
-      this.focusSelectItem(flatItems[currentIndex].key);
+    let nextElem = null;
+    if (e.code === KeyboardCode.ARROW_DOWN) {
+      nextElem =
+        currElemIndex === null ? options[firstElemIndex] : options[currElemIndex + 1] || options[lastElemIndex];
+    } else if (e.code === KeyboardCode.ARROW_UP) {
+      nextElem =
+        currElemIndex === null ? options[lastElemIndex] : options[currElemIndex - 1] || options[firstElemIndex];
     }
 
-    const lastIndex = flatItems.length - 1;
-
-    let newIndex = currentIndex;
-
-    if (e.key === KeyboardCode.ARROW_DOWN) {
-      do {
-        if (newIndex === lastIndex) {
-          return;
-        }
-
-        newIndex = newIndex + 1;
-      } while (flatItems[newIndex].item.disabled);
-    } else {
-      do {
-        if (newIndex <= 0) {
-          return;
-        }
-
-        newIndex = newIndex - 1;
-      } while (flatItems[newIndex].item.disabled);
-    }
-
-    this.focusSelectItem(flatItems[newIndex].key);
+    this.focusSelectItem(nextElem.id);
   }
 
-  private focusSelectItem(key: number): void {
-    const elemId = `${this.htmlid}_key_${key}`;
-    const elem = this.host.querySelector<HTMLDivElement>(`#${elemId}`);
-    if (elem) {
-      this.focusedItemId = elemId;
-      elem.focus();
-    }
+  private focusSelectItem(optionId: string): void {
+    this.focusedItemId = optionId;
+    const elem = this.host.querySelector(`#${optionId}`);
+    elem.scrollIntoView(false);
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -533,14 +480,14 @@ export class ZSelect {
       return;
     }
 
-    const foundItem = this.itemsList.findIndex(
+    const foundItem = this.itemsList.find(
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
-    if (foundItem > -1) {
+    if (foundItem) {
       if (!this.isOpen) {
         this.toggleSelectUl();
       }
-      this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
+      this.focusSelectItem(this.getOptionId(foundItem));
     }
   }
 
@@ -603,18 +550,8 @@ export class ZSelect {
         onClick={(e: MouseEvent) => {
           this.handleInputClick(e);
         }}
-        onKeyDown={(e: KeyboardEvent) => {
-          const current = this.selectedItem
-            ? this.itemIdKeyMap[this.selectedItem.id]
-            : this.resetItem
-              ? this.resetKey
-              : "";
-
-          return this.arrowsSelectNav(e, current);
-        }}
-        onInputChange={(e: CustomEvent) => {
-          this.handleInputChange(e);
-        }}
+        onKeyDown={(e: KeyboardEvent) => this.handleInputKeyDown(e)}
+        onInputChange={(e: CustomEvent) => this.handleInputChange(e)}
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.hasAutocomplete()) {
             e.preventDefault();
@@ -671,14 +608,16 @@ export class ZSelect {
         role="option"
         html-tabindex={0}
         aria-selected="false"
-        id={`${this.htmlid}_key_${this.resetKey}`}
+        // TODO: handle
+        // id={`${this.htmlid}_key_${this.resetKey}`}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         onClickItem={() => {
           this.selectedItem = null;
           this.searchString = null;
           this.emitResetSelect();
         }}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
+        // TODO: handle
+        // onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
       >
         <div
           class={{
@@ -694,24 +633,24 @@ export class ZSelect {
   }
 
   private renderItem(item: SelectItem, lastItem: boolean): HTMLZListElementElement {
-    const thisItemKey = this.itemIdKeyMap[item.id];
-
     return (
       <z-list-element
         clickable={!item.disabled}
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
-        role="option"
-        html-tabindex={
-          item.disabled || !this.isOpen || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0
-        }
+        role={item.disabled ? "presentation" : "option"}
+        html-tabindex={-1}
         aria-selected={item.selected ? "true" : "false"}
-        id={`${this.htmlid}_key_${thisItemKey}`}
+        id={this.getOptionId(item)}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item)}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, thisItemKey)}
       >
-        <div class="list-element-container">
+        <div
+          class={{
+            "list-element-container": true,
+            "active": this.focusedItemId === this.getOptionId(item),
+          }}
+        >
           <div
             class={{
               "selected": !!item.selected,
@@ -772,7 +711,6 @@ export class ZSelect {
     isTopLevel?: boolean,
     disabledAncestor?: boolean
   ): HTMLZListElementElement[] {
-    const thisItemKey = this.itemIdKeyMap[item.id];
     const isDisabled = item.disabled || disabledAncestor;
 
     const hasDivider = this.hasGroupItems
@@ -800,17 +738,10 @@ export class ZSelect {
         role="presentation"
       >
         <div
-          id={`${this.htmlid}_key_${thisItemKey}`}
-          role="option"
-          class="list-element"
-          tabIndex={!this.isOpen || isDisabled || this.focusedItemId !== `${this.htmlid}_key_${thisItemKey}` ? -1 : 0}
+          id={this.getOptionId(item)}
+          role={isDisabled ? "presentation" : "option"}
+          class={{"list-element": true, "active": this.focusedItemId === this.getOptionId(item)}}
           onClick={() => this.selectItem(item)}
-          onKeyDown={(e: KeyboardEvent) => {
-            this.arrowsSelectNav(e, thisItemKey);
-            if (e.key === KeyboardCode.ENTER) {
-              this.selectItem(item);
-            }
-          }}
         >
           <span class="item ellipsis">
             <span
