@@ -150,7 +150,7 @@ export class ZCombobox {
   }
 
   private handleHeaderKeyDown(e: KeyboardEvent): void {
-    if (e.code === KeyboardCode.ENTER) {
+    if (e.code === KeyboardCode.ENTER && !this.focusedItemId) {
       this.toggleComboBox();
     }
 
@@ -160,6 +160,7 @@ export class ZCombobox {
 
     switch (e.code as KeyboardCode) {
       case KeyboardCode.SPACE:
+      case KeyboardCode.ENTER:
         if (this.focusedItemId) {
           e.preventDefault();
           this.checkOption(this.focusedItemId);
@@ -334,6 +335,8 @@ export class ZCombobox {
   }
 
   private renderHeader(): HTMLDivElement {
+    const comboboxA11yAttributes = !this.hassearch ? this.getComboboxA11yAttributes(false) : {};
+
     return (
       <div
         class="header"
@@ -343,6 +346,7 @@ export class ZCombobox {
         tabindex={0}
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
+        {...comboboxA11yAttributes}
       >
         <span class="body-3">
           {this.label}
@@ -363,7 +367,6 @@ export class ZCombobox {
         class="open-combo-data"
       >
         {this.hassearch && this.renderSearchInput()}
-        {!this.hassearch ? <span {...this.getComboboxA11yAttributes(false)} /> : null}
         <div
           role="listbox"
           aria-label={this.label}
@@ -394,7 +397,6 @@ export class ZCombobox {
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
     const optionId = this.getOptionId(item.id);
     const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
-    console.log(item.name, getPlainText(item.name));
 
     return (
       <z-list-element
