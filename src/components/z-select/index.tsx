@@ -508,31 +508,6 @@ export class ZSelect {
   }
 
   private renderInput(): HTMLElement[] {
-    const ariaExpanded = this.isOpen ? "true" : "false";
-    const ariaControls = `${this.htmlid}_list`;
-    const ariaActivedescendant = this.isOpen ? this.focusedItemId : "";
-
-    let wrapperAriaComboboxAttributes, inputAriaComboboxAttributes;
-
-    if (this.hasAutocomplete()) {
-      wrapperAriaComboboxAttributes = {};
-      inputAriaComboboxAttributes = {
-        "role": "combobox",
-        "html-aria-expanded": ariaExpanded,
-        "html-aria-controls": ariaControls,
-        "html-aria-activedescendant": ariaActivedescendant,
-        "html-aria-autocomplete": "list",
-      };
-    } else {
-      wrapperAriaComboboxAttributes = {
-        "role": "combobox",
-        "aria-expanded": ariaExpanded,
-        "aria-controls": ariaControls,
-        "aria-activedescendant": ariaActivedescendant,
-      };
-      inputAriaComboboxAttributes = {role: "presentation"};
-    }
-
     let value = null;
     if (!this.isOpen && this.selectedItem) {
       value = this.selectedItem.name.replace(/<[^>]+>/g, "");
@@ -562,10 +537,12 @@ export class ZSelect {
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
         size={this.size}
-        {...inputAriaComboboxAttributes}
-        onClick={(e: MouseEvent) => {
-          this.handleInputClick(e);
-        }}
+        role="combobox"
+        html-aria-expanded={this.isOpen ? "true" : "false"}
+        html-aria-controls={`${this.htmlid}_list`}
+        html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
+        html-aria-autocomplete={this.hasAutocomplete() ? "list" : undefined}
+        onClick={(e: MouseEvent) => this.handleInputClick(e)}
         onKeyDown={(e: KeyboardEvent) => this.handleInputKeyDown(e)}
         onInputChange={(e: CustomEvent) => this.handleInputChange(e)}
         onKeyPress={(e: KeyboardEvent) => {
@@ -575,7 +552,6 @@ export class ZSelect {
           }
         }}
       />,
-      <div {...wrapperAriaComboboxAttributes}></div>,
     ];
   }
 
