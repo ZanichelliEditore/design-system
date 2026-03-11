@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ColorPickerPalette, KeyboardCode, PopoverPosition} from "../../beans";
-import {ZColorPickerCustomEvent, ZPopoverCustomEvent, ZToolCustomEvent, ZTooltipCustomEvent} from "../../components";
+import {ZColorPickerCustomEvent, ZToolCustomEvent, ZTooltipCustomEvent} from "../../components";
 import {IconName} from "../../constants/iconset";
 import {containsElement} from "../../utils/utils";
 
@@ -82,8 +82,6 @@ export class ZTool {
 
   private tooltipRef?: HTMLZTooltipElement;
 
-  private popoverRef?: HTMLZPopoverElement;
-
   private hoverDelay?: ReturnType<typeof setTimeout>;
 
   /** Indicates if the tool is nested inside another tool. */
@@ -163,18 +161,6 @@ export class ZTool {
     this.tooltipOpen = event.detail.open;
   };
 
-  /**
-   * Handles `openChange` events from the submenu popover to keep the `open` state in sync, but only if the event is coming from this tool's popover (and not from nested tools' popovers).
-   */
-  private onSubmenuOpenChange = (event: ZPopoverCustomEvent<{open: boolean}>): void => {
-    if ((event.target as HTMLElement) !== this.popoverRef) {
-      return;
-    }
-
-    event.stopPropagation();
-    this.open = event.detail.open;
-  };
-
   @Watch("open")
   handleOpenChange(): void {
     this.toggleSubmenu.emit(this.open);
@@ -186,17 +172,26 @@ export class ZTool {
   }
 
   /**
-   * Handle esc key to close the submenu and move focus back to the tool button.
+   * Handle `ESC` and `shift+TAB` to close the submenu and move focus back to the button.
    */
   @Listen("keydown")
   handleKeyDown(event: KeyboardEvent): void {
-    if (!this.open || event.key !== KeyboardCode.ESC || this.hasNestedOpenTools) {
+    if (!this.open || this.hasNestedOpenTools) {
       return;
     }
 
-    event.stopPropagation();
-    this.open = false;
-    this.setFocus();
+    switch (event.key) {
+      case KeyboardCode.ESC:
+        event.stopPropagation();
+        this.open = false;
+        this.setFocus();
+        break;
+      case KeyboardCode.TAB:
+        if (event.shiftKey && (event.target as Element).closest("z-tool:not(:scope)") === this.hostElement) {
+          this.open = false;
+        }
+        break;
+    }
   }
 
   /**
@@ -246,7 +241,7 @@ export class ZTool {
   /**
    * Close the submenu when focus moves outside the tool.
    */
-  @Listen("focusin", {target: "body"})
+  @Listen("focusin", {target: "body", passive: true})
   handleExternalFocusin(ev: FocusEvent): void {
     const target = ev.target as Node;
     if (!containsElement(this.hostElement, target)) {
@@ -264,6 +259,12 @@ export class ZTool {
     setTimeout(() => {
       this.buttonRef?.focus();
     }, 50);
+  }
+
+  /** Sets the tab index of the tool's internal button element. */
+  @Method()
+  async setTabIndex(value: number): Promise<void> {
+    this.buttonRef.tabIndex = this.disabled ? -1 : value;
   }
 
   /** Closes the tooltip. */
@@ -332,14 +333,13 @@ export class ZTool {
         {this.hasSlottedContent && (
           <z-popover
             class="z-tool-submenu"
-            ref={(el) => (this.popoverRef = el)}
             open={this.open}
             bindTo={this.isMobile && this.mainToolbar ? this.mainToolbar : this.hostElement}
             center
-            /* disable auto-close to prevent unwanted close behavior */
+            /* disable auto-close to prevent unwanted close behaviors on mobile,
+            when the bound element is the main toolbar */
             closable={false}
             position={this.isMobile ? PopoverPosition.TOP : PopoverPosition.BOTTOM}
-            onOpenChange={this.onSubmenuOpenChange}
           >
             <slot></slot>
           </z-popover>

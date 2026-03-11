@@ -2302,6 +2302,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
+          * Sets the tab index of the tool's internal button element.
+         */
+        "setTabIndex": (value: number) => Promise<void>;
+        /**
           * Text displayed inside the tooltip.
          */
         "tooltip"?: string;

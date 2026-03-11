@@ -32,10 +32,10 @@ export class ZToolbar {
   componentDidLoad(): void {
     this.collectToolItems();
     this.updateTabIndexes();
-    //set css variable --z-toolbar-columns based on the number of tools in the toolbar, so that the background pattern can adapt to the number of rows
-    let colBreakpoint = parseInt(getComputedStyle(this.hostElement).getPropertyValue("--z-toolbar-columns") || "6");
-    colBreakpoint = this.toolItems.length <= colBreakpoint ? this.toolItems.length : colBreakpoint;
-    this.hostElement.style.setProperty("--z-toolbar-columns", colBreakpoint.toString());
+    // set css variable `--z-toolbar-columns` based on the number of tools in the toolbar, so that the background pattern can adapt to the number of rows
+    let mobileColumnCount = parseInt(getComputedStyle(this.hostElement).getPropertyValue("--z-toolbar-columns") || "6");
+    mobileColumnCount = this.toolItems.length <= mobileColumnCount ? this.toolItems.length : mobileColumnCount;
+    this.hostElement.style.setProperty("--z-toolbar-columns", mobileColumnCount.toString());
   }
 
   /** Collect first level children `z-tool` elements in the toolbar (not nested ones). */
@@ -43,12 +43,13 @@ export class ZToolbar {
     this.toolItems = Array.from(this.hostElement.querySelectorAll("z-tool:not(:scope z-tool z-tool)"));
   }
 
+  /**
+   * Update the `tabindex` of all children tools based on the current focus index,
+   * so that only the currently focusable tool is in the tab order (tabindex="0") and all others are not focusable via keyboard (tabindex="-1").
+   */
   private updateTabIndexes(): void {
     this.toolItems.forEach((tool, index) => {
-      const button = tool.shadowRoot?.querySelector("button");
-      if (button) {
-        button.tabIndex = index === this.currentFocusIndex ? 0 : -1;
-      }
+      tool.setTabIndex(index === this.currentFocusIndex ? 0 : -1);
     });
   }
 
@@ -115,8 +116,8 @@ export class ZToolbar {
       return;
     }
 
-    const targetTool = (event.target as HTMLElement).closest("z-tool") as HTMLZToolElement | null;
-    if (!targetTool || !this.toolItems.includes(targetTool)) {
+    const targetTool = event.target;
+    if (!this.toolItems.includes(targetTool)) {
       return;
     }
 
@@ -129,8 +130,6 @@ export class ZToolbar {
 
   @Listen("keydown")
   handleKeyDown(event: KeyboardEvent): void {
-    this.collectToolItems();
-
     const target = event.target as HTMLElement;
     const toolElement = target.closest("z-tool") as HTMLZToolElement;
 
@@ -155,18 +154,18 @@ export class ZToolbar {
     }
   }
 
+  /**
+   * When focus enters the toolbar, update the current focus index to match the focused tool,
+   * so that roving tabindex is in sync with actual focus.
+   */
   @Listen("focusin")
   handleFocusIn(event: FocusEvent): void {
-    // When focus enters the toolbar, update the current focus index
     const target = event.target as HTMLElement;
     const toolElement = target.closest("z-tool") as HTMLZToolElement;
-
-    if (toolElement && this.toolItems.includes(toolElement)) {
-      const index = this.toolItems.indexOf(toolElement);
-      if (index !== -1 && index !== this.currentFocusIndex) {
-        this.currentFocusIndex = index;
-        this.updateTabIndexes();
-      }
+    const index = this.toolItems.indexOf(toolElement);
+    if (index !== -1 && index !== this.currentFocusIndex) {
+      this.currentFocusIndex = index;
+      this.updateTabIndexes();
     }
   }
 

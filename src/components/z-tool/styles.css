@@ -43,7 +43,6 @@
 
 .z-tool:focus:focus-visible {
   background-color: var(--color-primary03);
-  box-shadow: inset 0 0 0 2px var(--color-primary01);
   outline: none;
 }
 

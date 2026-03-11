@@ -53,6 +53,22 @@ Type: `Promise<void>`
 
 
 
+### `setTabIndex(value: number) => Promise<void>`
+
+Sets the tab index of the tool's internal button element.
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `value` | `number` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Slots
 
