@@ -191,6 +191,10 @@ export class ZSelect {
     return `${this.htmlid}_key_${item.id}`;
   }
 
+  private getResetOptionId(): string {
+    return `${this.htmlid}_key_reset`;
+  }
+
   private getItemIdFromOptionId(optionId: string): string {
     return optionId.replace(`${this.htmlid}_key_`, ``);
   }
@@ -345,17 +349,29 @@ export class ZSelect {
     }
   }
 
+  private handleResetClick(): void {
+    this.selectedItem = null;
+    this.searchString = null;
+    this.focusedItemId = "";
+    this.emitResetSelect();
+    this.toggleSelectUl();
+  }
+
   private handleInputKeyDown(e: KeyboardEvent): void {
     switch (e.code as KeyboardCode) {
       case KeyboardCode.ENTER:
       case KeyboardCode.SPACE:
         if (this.focusedItemId) {
-          const itemId = this.getItemIdFromOptionId(this.focusedItemId);
-          const item = this.itemsList.find((e) => e.id === itemId) || null;
-          if (item) {
-            this.selectedItem = item;
-            this.emitOptionSelect();
-            this.toggleSelectUl();
+          if (this.focusedItemId === this.getResetOptionId()) {
+            this.handleResetClick();
+          } else {
+            const itemId = this.getItemIdFromOptionId(this.focusedItemId);
+            const item = this.itemsList.find((e) => e.id === itemId) || null;
+            if (item) {
+              this.selectedItem = item;
+              this.emitOptionSelect();
+              this.toggleSelectUl();
+            }
           }
         }
         break;
@@ -410,8 +426,8 @@ export class ZSelect {
 
   private focusSelectItem(optionId: string): void {
     this.focusedItemId = optionId;
-    const elem = this.host.querySelector(`#${optionId}`);
-    elem.scrollIntoView(false);
+    const elem = this.host.querySelector(`#${optionId}`) as HTMLElement;
+    elem.scrollIntoView({block: "start"});
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -595,34 +611,29 @@ export class ZSelect {
   }
 
   private renderResetItem(): HTMLZListElementElement {
+    const hidden = !this.selectedItem || !this.resetItem;
     return (
       <z-list-element
         class={{
-          "hide": !this.selectedItem || !this.resetItem,
+          "hide": hidden,
           "reset-item": true,
           "reset-item-margin": !this.hasGroupItems,
         }}
         clickable={true}
         disabled={false}
         dividerType={ListDividerType.ELEMENT}
-        role="option"
+        role={hidden ? "presentation" : "option"}
         html-tabindex={0}
         aria-selected="false"
-        // TODO: handle
-        // id={`${this.htmlid}_key_${this.resetKey}`}
+        id={this.getResetOptionId()}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
-        onClickItem={() => {
-          this.selectedItem = null;
-          this.searchString = null;
-          this.emitResetSelect();
-        }}
-        // TODO: handle
-        // onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
+        onClickItem={() => this.handleResetClick()}
       >
         <div
           class={{
             "reset-item-content": true,
             "tree-list-reset-item": this.hasTreeItems,
+            "active": this.focusedItemId === this.getResetOptionId(),
           }}
         >
           <z-icon name="multiply-circled" />

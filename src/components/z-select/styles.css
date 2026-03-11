@@ -142,6 +142,10 @@
   align-items: center;
 }
 
+.reset-item .reset-item-content.active {
+  box-shadow: var(--shadow-focus-primary);
+}
+
 .reset-item.reset-item-margin .reset-item-content {
   margin-left: var(--space-unit);
 }
