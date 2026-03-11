@@ -42,7 +42,18 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 | `position` | `position` | Tooltip position.                                                                                                                                                                                                      | `PopoverPosition.AUTO \| PopoverPosition.BOTTOM \| PopoverPosition.BOTTOM_LEFT \| PopoverPosition.BOTTOM_RIGHT \| PopoverPosition.LEFT \| PopoverPosition.LEFT_BOTTOM \| PopoverPosition.LEFT_TOP \| PopoverPosition.RIGHT \| PopoverPosition.RIGHT_BOTTOM \| PopoverPosition.RIGHT_TOP \| PopoverPosition.TOP \| PopoverPosition.TOP_LEFT \| PopoverPosition.TOP_RIGHT` | `PopoverPosition.AUTO` |
 
 
+## Events
+
+| Event        | Description                                                                                                                                                                                                                                                               | Type                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `openChange` | Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically. | `CustomEvent<{ open: boolean; }>` |
+
+
 ## Dependencies
+
+### Used by
+
+ - [z-tool](../z-tool)
 
 ### Depends on
 
@@ -52,6 +63,7 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 ```mermaid
 graph TD;
   z-tooltip --> z-popover
+  z-tool --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
