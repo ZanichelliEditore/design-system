@@ -1,12 +1,5 @@
 import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
-import {
-  ButtonVariant,
-  ControlSize,
-  KeyboardCode,
-  OffCanvasVariant,
-  ProductLogoMode,
-  TransitionDirection,
-} from "../../beans";
+import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 import {containsElement} from "../../utils/utils";
 
@@ -366,10 +359,10 @@ export class ZAppHeader {
     );
   }
 
-  private renderProductLogos(mode: ProductLogoMode = ProductLogoMode.ALL): HTMLElement | null {
+  private renderProductLogos(): HTMLElement | null {
     return (
       <Fragment>
-        {mode === ProductLogoMode.ALL && this.enableZLogo && (
+        {this.enableZLogo && (
           <span class="z-logo">
             <img alt="Logo Zanichelli" />
           </span>
@@ -494,7 +487,7 @@ export class ZAppHeader {
           class={{"heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
-          <div class="heading-container">
+          <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
               <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
                 <slot name="top-subtitle" />
@@ -502,8 +495,7 @@ export class ZAppHeader {
             )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!this._stuck &&
-                this.renderProductLogos(hasTopSubtitle ? ProductLogoMode.PRODUCT_ONLY : ProductLogoMode.ALL)}
+              {!this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>

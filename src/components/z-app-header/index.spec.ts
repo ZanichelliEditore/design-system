@@ -101,12 +101,13 @@ describe("Suite test ZAppHeader", () => {
       <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
           <div class="heading-panel">
-            <div class="heading-container">
+            <div class="has-top-subtitle heading-container">
               <div class="top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <slot name="menu-button"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <slot name="title"></slot>
               </div>
             </div>
@@ -133,7 +134,7 @@ describe("Suite test ZAppHeader", () => {
     `);
   });
 
-  it("Test render ZAppHeader with top-subtitle and product-logo (no z-logo)", async () => {
+  it("Test render ZAppHeader with top-subtitle and product-logo", async () => {
     const page = await newSpecPage({
       components: [ZAppHeader],
       html: `<z-app-header>
@@ -151,12 +152,13 @@ describe("Suite test ZAppHeader", () => {
       <z-app-header enable-z-logo="" menu-length="0">
         <mock:shadow-root>
           <div class="heading-panel">
-            <div class="heading-container">
+            <div class="has-top-subtitle heading-container">
               <div class="has-product-logo top-subtitle">
                 <slot name="top-subtitle"></slot>
               </div>
               <div class="heading-title">
                 <slot name="menu-button"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
                 <span class="product-logo">
                   <slot name="product-logo"></slot>
                 </span>
