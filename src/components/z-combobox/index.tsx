@@ -348,7 +348,10 @@ export class ZCombobox {
         aria-expanded={this.isopen ? "true" : "false"}
         {...comboboxA11yAttributes}
       >
-        <span class="body-3">
+        <span
+          class="body-3"
+          aria-label={`${this.label}${this.selectedCounter > 0 && ` - ${this.selectedCounter} selezionati`}`}
+        >
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </span>
