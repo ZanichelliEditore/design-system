@@ -96,6 +96,39 @@ describe("z-color-picker test end2end", () => {
     }
   });
 
+  it("Should focus the selected swatch when setFocus is called", async () => {
+    const page = await newE2EPage({
+      html: `<div>
+          <z-color-picker></z-color-picker>
+          <button id="outside">outside</button>
+        </div>
+      `,
+    });
+    await page.waitForChanges();
+
+    const picker = await page.find("z-color-picker");
+    const secondSwatch = await page.find("z-color-picker >>> button:nth-of-type(2)");
+
+    await secondSwatch.click();
+    await page.waitForChanges();
+
+    const outsideButton = await page.find("#outside");
+    await outsideButton.click();
+    await page.waitForChanges();
+
+    await picker.callMethod("setFocus");
+    await new Promise((resolve) => setTimeout(resolve, 80));
+    await page.waitForChanges();
+
+    const focusedSwatch = await page.find("z-color-picker >>> button[tabindex='0']");
+    const firstSwatch = await page.find("z-color-picker >>> button:nth-of-type(1)");
+
+    expect(focusedSwatch).toEqual(secondSwatch);
+    expect(await focusedSwatch.getAttribute("aria-selected")).toBe("true");
+    expect(await secondSwatch.getProperty("tabIndex")).toBe(0);
+    expect(await firstSwatch.getProperty("tabIndex")).toBe(-1);
+  });
+
   it("Should skip disabled swatch and move focus to next enabled with ArrowRight", async () => {
     const page = await newE2EPage({
       html: `<z-color-picker disable-transparent></z-color-picker>`,
@@ -107,20 +140,20 @@ describe("z-color-picker test end2end", () => {
     await new Promise((resolve) => setTimeout(resolve, 80));
     await page.waitForChanges();
 
-    const firstButton = await page.find("z-color-picker >>> button:nth-of-type(1)");
-    const firstEnabledButton = await page.find("z-color-picker >>> button[tabindex='0']");
+    const firstSwatch = await page.find("z-color-picker >>> button:nth-of-type(1)");
+    const firstEnabledSwatch = await page.find("z-color-picker >>> button[tabindex='0']");
 
-    expect(await firstButton.getProperty("disabled")).toBe(true);
+    expect(await firstSwatch.getProperty("disabled")).toBe(true);
 
-    await firstEnabledButton.press("ArrowLeft");
+    await firstEnabledSwatch.press("ArrowLeft");
     await page.waitForChanges();
 
-    const buttonBeforeDisabled = await page.find("z-color-picker >>> button[tabindex='0']");
-    await buttonBeforeDisabled.press("ArrowRight");
+    const swatchBeforeDisabled = await page.find("z-color-picker >>> button[tabindex='0']");
+    await swatchBeforeDisabled.press("ArrowRight");
     await page.waitForChanges();
 
-    const secondButton = await page.find("z-color-picker >>> button:nth-of-type(2)");
-    expect(await secondButton.getProperty("tabIndex")).toBe(0);
+    const secondSwatch = await page.find("z-color-picker >>> button:nth-of-type(2)");
+    expect(await secondSwatch.getProperty("tabIndex")).toBe(0);
   });
 
   it("Should set default dark gray 2 when disabling transparent while it's selected", async () => {

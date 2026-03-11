@@ -668,7 +668,7 @@ export namespace Components {
          */
         "selectedColor": ColorPickerPalette;
         /**
-          * Focus to the first color button and make the container non-tabbable.
+          * Focuses the selected or first enabled color button and makes the container non-tabbable.
          */
         "setFocus": () => Promise<void>;
     }

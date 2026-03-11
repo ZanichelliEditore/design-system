@@ -119,21 +119,22 @@ export class ZColorPicker {
   }
 
   /**
-   * Focus to the first color button and make the container non-tabbable.
+   * Focuses the selected or first enabled color button and makes the container non-tabbable.
    */
   @Listen("focus")
   @Method()
   async setFocus(): Promise<void> {
     // Reset tabindex of all buttons
     this.colorButtons.forEach((btn) => (btn.tabIndex = -1));
-    const firstEnabled = this.colorButtons.find((btn) => !btn.disabled);
-    if (!firstEnabled) {
+    const firstSelectedOrEnabled =
+      this.colorButtons.find((btn) => btn.ariaSelected === "true") || this.colorButtons.find((btn) => !btn.disabled);
+    if (!firstSelectedOrEnabled) {
       return;
     }
 
-    firstEnabled.tabIndex = 0;
+    firstSelectedOrEnabled.tabIndex = 0;
     setTimeout(() => {
-      firstEnabled.focus();
+      firstSelectedOrEnabled.focus();
     }, 50);
     // Set container as non-tabbable
     this.host.tabIndex = -1;

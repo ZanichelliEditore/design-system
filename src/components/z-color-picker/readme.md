@@ -31,7 +31,7 @@ This component allows the user to pick a color from a predefined set.
 
 ### `setFocus() => Promise<void>`
 
-Focus to the first color button and make the container non-tabbable.
+Focuses the selected or first enabled color button and makes the container non-tabbable.
 
 #### Returns
 
