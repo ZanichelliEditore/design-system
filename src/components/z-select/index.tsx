@@ -408,6 +408,7 @@ export class ZSelect {
 
       if (this.selectedItem) {
         this.focusSelectItem(this.getOptionId(this.selectedItem));
+
         return;
       }
     }
@@ -588,6 +589,7 @@ export class ZSelect {
 
   private renderResetItem(): HTMLZListElementElement {
     const hidden = !this.selectedItem || !this.resetItem;
+
     return (
       <z-list-element
         class={{
