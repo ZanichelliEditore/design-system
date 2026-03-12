@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>z-input-group Test</title>
+  <script type="module" src="./loader/index.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin-bottom: 2rem;
+    }
+    .test-section {
+      margin-bottom: 3rem;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>z-input-group Component Test</h1>
+
+  <div class="test-section">
+    <h2>Test 1: Radio Group with Visible Legend</h2>
+    <z-input-group legend="Frequenti">
+      <z-input type="radio" name="test1" value="underGdpr" label="la scuola e hai meno di 14 anni" size="big"></z-input>
+      <z-input type="radio" name="test1" value="overGdpr" label="la scuola e hai più di 14 anni" size="big"></z-input>
+      <z-input type="radio" name="test1" value="university" label="l'università" size="big"></z-input>
+    </z-input-group>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: Radio Group with Hidden Legend (WCAG Compliant)</h2>
+    <h3 class="heading-4-lt">Frequenti</h3>
+    <z-input-group legend="Frequenti" hide-legend>
+      <z-input type="radio" name="test2" value="underGdpr" label="la scuola e hai meno di 14 anni" size="big"></z-input>
+      <z-input type="radio" name="test2" value="overGdpr" label="la scuola e hai più di 14 anni" size="big" checked></z-input>
+      <z-input type="radio" name="test2" value="university" label="l'università" size="big"></z-input>
+    </z-input-group>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 3: Checkbox Group</h2>
+    <z-input-group legend="Select your preferences">
+      <z-input type="checkbox" name="prefs" value="newsletter" label="Receive newsletter" size="big"></z-input>
+      <z-input type="checkbox" name="prefs" value="updates" label="Product updates" size="big" checked></z-input>
+    </z-input-group>
+  </div>
+
+  <script>
+    // Verify DOM structure
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('Testing z-input-group component...');
+
+      const groups = document.querySelectorAll('z-input-group');
+      groups.forEach((group, index) => {
+        console.log(`Group ${index + 1}:`);
+        console.log('- Has fieldset:', !!group.querySelector('fieldset'));
+        console.log('- Has legend:', !!group.querySelector('legend'));
+        console.log('- Legend text:', group.querySelector('legend')?.textContent);
+      });
+    });
+  </script>
+</body>
+</html>
