@@ -172,6 +172,7 @@ export const TopTitleWithProductLogo = {
     html`<z-app-header
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${false}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
@@ -231,6 +232,7 @@ export const MenuWithTopTitleAndProductLogo = {
       .enableOffcanvas=${args.enableOffcanvas}
       .enableSearch=${args.enableSearch}
       .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${false}
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
       <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
