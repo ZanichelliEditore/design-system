@@ -264,6 +264,10 @@ export class ZTool {
   /** Sets the tab index of the tool's internal button element. */
   @Method()
   async setTabIndex(value: number): Promise<void> {
+    if (!this.buttonRef) {
+      return;
+    }
+
     this.buttonRef.tabIndex = this.disabled ? -1 : value;
   }
 
