@@ -33,15 +33,17 @@ jobs:
         run: |
           echo "A release candidate version tag is missing."
           exit 1
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Enable Corepack
         run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: 20
           check-latest: true
+          cache: yarn
+          cache-dependency-path: yarn.lock
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Prepare package
@@ -56,15 +58,17 @@ jobs:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Enable Corepack
         run: corepack enable
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: 20
           check-latest: true
+          cache: yarn
+          cache-dependency-path: yarn.lock
           registry-url: "https://registry.npmjs.org"
           always-auth: true
       - name: Prepare package

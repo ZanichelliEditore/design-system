@@ -10,6 +10,9 @@ jobs:
   prettier:
     name: Run prettier
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -17,13 +20,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run prettier
@@ -34,7 +32,10 @@ jobs:
   eslint:
     name: Run eslint
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     continue-on-error: true
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -42,13 +43,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run eslint
@@ -56,7 +52,10 @@ jobs:
   stylelint:
     name: Stylelint
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     continue-on-error: true
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     steps:
       - uses: actions/checkout@v4
       - name: Enable Corepack
@@ -64,13 +63,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run stylelint

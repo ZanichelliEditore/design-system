@@ -1,4 +1,4 @@
-import {Component, Listen, Prop, h} from "@stencil/core";
+import {Component, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
 
 /**
@@ -43,6 +43,13 @@ export class ZTooltip {
   @Prop()
   closable = true;
 
+  /**
+   * Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`.
+   * This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically.
+   */
+  @Event()
+  openChange: EventEmitter<{open: boolean}>;
+
   private popoverEl: HTMLZPopoverElement;
 
   @Listen("openChange")
@@ -60,6 +67,7 @@ export class ZTooltip {
         closable={this.closable}
         center
         showArrow
+        onOpenChange={(event) => this.openChange.emit(event.detail)}
       >
         <slot></slot>
       </z-popover>

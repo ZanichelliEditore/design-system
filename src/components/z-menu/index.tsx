@@ -46,7 +46,7 @@ export class ZMenu {
    * Tabindex value to set on the menu label.
    * Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
    */
-  @Prop()
+  @Prop({mutable: true})
   htmlTabindex = -1;
 
   @State()

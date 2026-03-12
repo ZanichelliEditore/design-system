@@ -344,6 +344,14 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     align-items: center;
   }
 
+  .has-top-subtitle .z-logo {
+    display: none;
+  }
+
+  .top-subtitle.has-product-logo {
+    padding-left: calc(32px + var(--space-unit));
+  }
+
   z-searchbar {
     width: 30%;
     height: calc(var(--title-font-size) * var(--title-line-height));
