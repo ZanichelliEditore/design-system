@@ -1194,10 +1194,6 @@ export namespace Components {
     }
     interface ZListGroup {
         /**
-          * [optional] Sets aria-labelledby attribute
-         */
-        "ariaLabelledby"?: string;
-        /**
           * [optional] Sets the divider color.
          */
         "dividerColor"?: string;
@@ -5266,10 +5262,6 @@ declare namespace LocalJSX {
         "size"?: ListSize;
     }
     interface ZListGroup {
-        /**
-          * [optional] Sets aria-labelledby attribute
-         */
-        "ariaLabelledby"?: string;
         /**
           * [optional] Sets the divider color.
          */

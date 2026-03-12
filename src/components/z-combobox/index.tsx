@@ -484,7 +484,7 @@ export class ZCombobox {
           <z-list-group
             size={this.getControlToListSize()}
             divider-type={ListDividerType.ELEMENT}
-            ariaLabelledby={`${this.inputid}_list_group_${index}`}
+            aria-labelledby={`${this.inputid}_list_group_${index}`}
           >
             <span
               class="body-3-sb z-list-group-title"

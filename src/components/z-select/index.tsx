@@ -510,10 +510,10 @@ export class ZSelect {
 
   private renderInput(): HTMLElement[] {
     let value = null;
-    if (!this.isOpen && this.selectedItem) {
-      value = this.selectedItem.name.replace(/<[^>]+>/g, "");
+    if (this.selectedItem) {
+      value = getPlainText(this.selectedItem.name);
     }
-    if (this.isOpen && this.searchString) {
+    if (this.isOpen && this.searchString !== undefined) {
       value = this.searchString;
     }
 
@@ -773,7 +773,7 @@ export class ZSelect {
         <z-list-group
           divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
           hasTreeItems={true}
-          ariaLabelledby={`${this.htmlid}_tree_${index}`}
+          aria-labelledby={`${this.htmlid}_tree_${index}`}
         >
           <span
             class="body-3-sb z-list-group-title"
@@ -809,7 +809,7 @@ export class ZSelect {
       return (
         <z-list-group
           divider-type={ListDividerType.ELEMENT}
-          ariaLabelledby={`${this.htmlid}_group_${index}`}
+          aria-labelledby={`${this.htmlid}_group_${index}`}
         >
           <span
             class="body-3-sb z-list-group-title"

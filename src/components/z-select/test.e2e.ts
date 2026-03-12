@@ -100,6 +100,12 @@ describe("z-select test end2end", () => {
     expect((await page.$$("z-list-element")).length).toBe(3);
 
     const input = await page.find("z-select input");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
     await input.press("1");
     await page.waitForChanges();
 

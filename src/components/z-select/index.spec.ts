@@ -158,6 +158,7 @@ describe("Suite test ZSelect", () => {
               html-aria-controls="checkid_list"
               role="combobox"
               size="big"
+              value="primo elemento"
             ></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
@@ -541,7 +542,9 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select autocomplete="true" htmlid="checkid" items="[{&quot;id&quot;:&quot;item_0&quot;,&quot;name&quot;:&quot;SELECT HERE questa opzione con etichetta lunga lunghissima&quot;,&quot;selected&quot;:true}]" label="default" placeholder="select here" reset-item="Pulisci selezione">
           <div class="select-wrapper">
-            <z-input html-aria-expanded="true" aria-label="" autocomplete="off" html-aria-autocomplete="list" html-aria-controls="checkid_list" role="combobox" class="active-select" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"></z-input>
+            <z-input autocomplete="off" class="active-select" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"
+              html-aria-expanded="true" aria-label="" html-aria-autocomplete="list" html-aria-controls="checkid_list" role="combobox"
+              value="SELECT HERE questa opzione con etichetta lunga lunghissima"></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list id="checkid_list" role="listbox" aria-label="default" size="medium" tabindex="0" class="z-scrollbar">
