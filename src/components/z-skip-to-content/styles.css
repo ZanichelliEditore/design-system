@@ -17,7 +17,8 @@
 }
 
 :host.skip-to-content-visible,
-:host:focus {
+:host:focus,
+:host:focus-within {
   position: static;
   display: block;
 }
