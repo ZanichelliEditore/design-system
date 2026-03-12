@@ -23,6 +23,9 @@ permissions:
   id-token: write # Required for OIDC
   contents: write
 
+env:
+  PUPPETEER_SKIP_DOWNLOAD: true
+
 jobs:
   rc:
     if: ${{ github.ref_name != 'master' }}
