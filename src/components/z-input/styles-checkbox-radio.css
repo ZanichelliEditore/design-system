@@ -128,3 +128,20 @@
   cursor: default;
   fill: var(--color-disabled01);
 }
+
+/* WCAG 2.5.8 Target Size: Ensure minimum 24px spacing between radio buttons */
+:host([type="radio"]) {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+/* Increase clickable area height for radio buttons to improve accessibility */
+.radio-wrapper {
+  min-height: 24px;
+}
+
+.radio-wrapper .radio-label {
+  min-height: 24px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
