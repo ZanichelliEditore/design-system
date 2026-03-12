@@ -103,6 +103,12 @@
   margin-right: calc(var(--space-unit) * 0.5);
 }
 
+/* checked state - add visual indicator beyond color */
+.radio-wrapper > input:checked + .radio-label > z-icon {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
 /* focus */
 .radio-wrapper > input:focus:focus-visible + .radio-label > z-icon {
   border-radius: 50%;
@@ -127,4 +133,9 @@
 .checkbox-wrapper > input:disabled + .checkbox-label > z-icon {
   cursor: default;
   fill: var(--color-disabled01);
+}
+
+/* disabled and checked - outline should still be visible */
+.radio-wrapper > input:disabled:checked + .radio-label > z-icon {
+  outline-color: var(--color-disabled03);
 }
