@@ -69,6 +69,10 @@ export class ZCarousel {
   @State()
   canNavigateNext: boolean;
 
+  /** Status message for screen readers */
+  @State()
+  statusMessage: string = "";
+
   /** Reference for the items container element. */
   protected itemsContainer: HTMLUListElement;
 
@@ -88,6 +92,7 @@ export class ZCarousel {
   @Watch("current")
   onIndexChange(): void {
     this.indexChange.emit({currentItem: this.current});
+    this.updateStatusMessage();
   }
 
   @Watch("single")
@@ -229,6 +234,38 @@ export class ZCarousel {
     });
   }
 
+  /**
+   * Extract text content from an item for screen reader announcement
+   */
+  private getItemText(item: HTMLLIElement): string {
+    const heading = item.querySelector("h1, h2, h3, h4, h5, h6");
+    if (heading) {
+      return heading.textContent?.trim() || "";
+    }
+    return item.textContent?.trim().substring(0, 100) || "";
+  }
+
+  /**
+   * Update status message for screen readers when carousel navigates
+   */
+  private updateStatusMessage(): void {
+    if (!this.items || this.items.length === 0) {
+      return;
+    }
+
+    const currentItem = this.items[this.current];
+    if (!currentItem) {
+      return;
+    }
+
+    const itemText = this.getItemText(currentItem);
+    if (this.single) {
+      this.statusMessage = `Elemento ${this.current + 1} di ${this.items.length}${itemText ? `: ${itemText}` : ""}`;
+    } else {
+      this.statusMessage = itemText || `Elemento ${this.current + 1}`;
+    }
+  }
+
   /** Check if navigation of at least one direction is enabled */
   private get canNavigate(): boolean {
     return this.canNavigatePrev || this.canNavigateNext;
@@ -305,6 +342,14 @@ export class ZCarousel {
               hidden={this.arrowsPosition !== CarouselArrowsPosition.OVER || !this.canNavigate}
               ariaLabel={this.single ? "Mostra l'elemento successivo" : "Mostra gli elementi successivi"}
             />
+          </div>
+          <div
+            class="z-carousel-status"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {this.statusMessage}
           </div>
         </div>
 
