@@ -1,7 +1,7 @@
 :root,
 .theme-default {
   --color-background: var(--gray50);
-  --shadow-focus-primary: 0 0 0 2px var(--color-white), 0 0 2px 5px var(--blue800);
+  --shadow-focus-primary: 0 0 0 3px var(--color-white), 0 0 0 5px var(--blue800);
 
   /* primary */
   --color-active-primary: var(--blue400);
