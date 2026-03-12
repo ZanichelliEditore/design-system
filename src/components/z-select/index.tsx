@@ -39,6 +39,10 @@ export class ZSelect {
   @Prop()
   readonly?: boolean = false;
 
+  /** the input is required */
+  @Prop()
+  required?: boolean = false;
+
   /** the input placeholder (optional) */
   @Prop()
   placeholder?: string;
@@ -570,6 +574,7 @@ export class ZSelect {
         name={this.name}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
+        required={this.required}
         status={this.isOpen ? undefined : this.status}
         role="combobox"
         size={this.size}
