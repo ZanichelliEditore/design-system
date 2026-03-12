@@ -431,6 +431,9 @@ export class ZInput {
   }
 
   private renderShowHidePassword(): HTMLButtonElement {
+    // WCAG 2.5.2 (Pointer Cancellation): onClick fires on pointer/touch up-event,
+    // allowing users to cancel by moving away before release. Do not add touchstart
+    // or pointerdown handlers that execute the toggle action.
     return (
       <button
         type="button"
