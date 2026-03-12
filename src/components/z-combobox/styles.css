@@ -137,6 +137,10 @@
   --background-active-color-list-element: var(--color-form-surface03);
 }
 
+:host .open-combo-data z-list-element[disabled] {
+  pointer-events: none;
+}
+
 :host .open-combo-data z-list-element .option-wrap {
   display: flex;
   flex-direction: row;
@@ -156,6 +160,10 @@
 
 :host .open-combo-data z-list-element .option-wrap > z-icon {
   fill: var(--color-primary01);
+}
+
+:host .open-combo-data z-list-element[disabled] .option-wrap > z-icon {
+  fill: var(--color-disabled01);
 }
 
 :host .open-combo-data z-list-element .option-wrap > z-icon.focused {

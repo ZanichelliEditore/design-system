@@ -22,7 +22,7 @@ it("Emits an event when clicking on the ebook cover", async () => {
 
   await page.evaluate(() => {
     const card = document.querySelector("z-book-card");
-    const coverLink = card.shadowRoot.querySelector(".cover a");
+    const coverLink = card.shadowRoot.querySelector("a.cover");
     (coverLink as HTMLElement).click();
   });
 

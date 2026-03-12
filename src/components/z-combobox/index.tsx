@@ -93,13 +93,11 @@ export class ZCombobox {
   renderItemsList: ComboItem[] = []; // used for render only
 
   @State()
-  focusedItemId: string;
+  focusedItemId = "";
 
   private itemsList: ComboItem[] = [];
 
   private inputType: InputType = InputType.TEXT;
-
-  private checkAllId = "check-all";
 
   @Watch("items")
   watchItems(): void {
@@ -146,7 +144,19 @@ export class ZCombobox {
   }
 
   private getOptionId(itemId: string): string {
-    return `option-${itemId}`;
+    return `${this.inputid}-option-${itemId}`;
+  }
+
+  private getCheckAllOptionId(): string {
+    return `${this.inputid}-check-all`;
+  }
+
+  private allOptionsSelected(): boolean {
+    return this.selectedCounter === this.itemsList.length;
+  }
+
+  private hasReachedMaxSelections(): boolean {
+    return !!(this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems);
   }
 
   private handleHeaderKeyDown(e: KeyboardEvent): void {
@@ -206,15 +216,13 @@ export class ZCombobox {
   }
 
   private checkOption(optionId: string): void {
-    if (optionId === this.checkAllId) {
-      const allChecked = this.selectedCounter === this.itemsList.length;
-
+    if (optionId === this.getCheckAllOptionId()) {
       this.itemsList = this.itemsList.map((item: ComboItem) => ({
         ...item,
-        checked: !allChecked,
+        checked: !this.allOptionsSelected(),
       }));
 
-      this.focusedItemId = this.checkAllId;
+      this.focusedItemId = this.getCheckAllOptionId();
     } else {
       this.itemsList = this.itemsList.map((i: ComboItem) => {
         if (optionId === this.getOptionId(i.id)) {
@@ -350,7 +358,11 @@ export class ZCombobox {
       >
         <span
           class="body-3"
-          aria-label={`${this.label}${this.selectedCounter > 0 && ` - ${this.selectedCounter} selezionati`}`}
+          aria-label={
+            this.label
+              ? `${this.label}${this.selectedCounter > 0 ? ` - ${this.selectedCounter} selezionati` : ``}`
+              : undefined
+          }
         >
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
@@ -399,7 +411,7 @@ export class ZCombobox {
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
     const optionId = this.getOptionId(item.id);
-    const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
+    const isDisabled = !item.checked && this.hasReachedMaxSelections();
 
     return (
       <z-list-element
@@ -407,7 +419,7 @@ export class ZCombobox {
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
         role="presentation"
-        disabled={isDisabled}
+        disabled={!!isDisabled}
       >
         <span
           class="option-wrap"
@@ -423,7 +435,7 @@ export class ZCombobox {
           />
           <span
             id={optionId}
-            role="option"
+            role={isDisabled ? "presentation" : "option"}
             aria-selected={item.checked ? "true" : "false"}
             aria-label={getPlainText(item.name)}
             innerHTML={item.name}
@@ -531,8 +543,10 @@ export class ZCombobox {
       return;
     }
 
-    const optionId = this.checkAllId;
-    const allChecked = this.selectedCounter === this.itemsList.length;
+    const optionId = this.getCheckAllOptionId();
+    const allChecked = this.allOptionsSelected();
+    const isDisabled =
+      this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length);
 
     return (
       <z-list-element
@@ -542,6 +556,7 @@ export class ZCombobox {
         dividerType={ListDividerType.ELEMENT}
         dividerColor="gray800"
         size={this.getControlToListSize()}
+        disabled={!!isDisabled}
       >
         <span
           class="option-wrap"
@@ -554,7 +569,7 @@ export class ZCombobox {
           />
           <span
             id={optionId}
-            role="option"
+            role={isDisabled ? "presentation" : "option"}
             aria-selected={allChecked ? "true" : "false"}
           >
             {allChecked ? this.uncheckalltext : this.checkalltext}
