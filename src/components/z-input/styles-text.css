@@ -85,3 +85,8 @@
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
   -webkit-text-fill-color: currentcolor;
 }
+
+.text-wrapper .helper-text {
+  margin-top: calc(var(--space-unit) * 0.5);
+  color: var(--color-text-default-tertiary);
+}
