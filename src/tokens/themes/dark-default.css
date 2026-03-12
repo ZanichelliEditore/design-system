@@ -31,7 +31,7 @@
   --color-text-inverse: var(--gray900);
   --color-text02: var(--gray900);
   --color-text03: var(--gray700);
-  --color-text05: var(--gray500);
+  --color-text05: var(--gray400);
 
   /* disabled */
   --color-disabled01: var(--gray700);

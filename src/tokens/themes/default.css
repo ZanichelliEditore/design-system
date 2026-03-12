@@ -34,7 +34,7 @@
   --color-text-inverse: var(--color-white);
   --color-text02: var(--gray100);
   --color-text03: var(--gray300);
-  --color-text05: var(--gray500);
+  --color-text05: var(--gray600);
 
   /* disabled */
   --color-disabled01: var(--gray300);
@@ -72,7 +72,7 @@
   --color-form-background: var(--color-white);
   --color-form-default-icon: var(--gray900);
   --color-form-default-text: var(--gray900);
-  --color-form-disabled-text: var(--gray500);
+  --color-form-disabled-text: var(--gray600);
   --color-form-disabled01-icon: var(--gray500);
   --color-form-disabled03: var(--gray500);
   --color-form-hover-error: var(--red800);
@@ -82,7 +82,7 @@
   --color-form-inverse-error: var(--red50);
   --color-form-inverse-success: var(--green50);
   --color-form-inverse-warning: var(--yellow50);
-  --color-form-placeholder-text: var(--gray500);
+  --color-form-placeholder-text: var(--gray600);
   --color-form-success01: var(--green500);
   --color-form-surface03: var(--gray200);
   --color-form-surface04: var(--gray600);
