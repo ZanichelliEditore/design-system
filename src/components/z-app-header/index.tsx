@@ -487,15 +487,15 @@ export class ZAppHeader {
           class={{"heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
-          <div class="heading-container">
+          <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-              <div class="top-subtitle">
+              <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
                 <slot name="top-subtitle" />
               </div>
             )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
+              {!this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>
