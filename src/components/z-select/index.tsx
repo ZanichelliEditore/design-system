@@ -382,7 +382,7 @@ export class ZSelect {
     }
   }
 
-  private arrowsSelectNav(e: KeyboardEvent /*  itemId?: string | number */): void {
+  private arrowsSelectNav(e: KeyboardEvent): void {
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
 
     if (!arrows.includes(e.key as KeyboardCode)) {
@@ -428,7 +428,7 @@ export class ZSelect {
   private focusSelectItem(optionId: string): void {
     this.focusedItemId = optionId;
     const elem = this.host.querySelector(`#${optionId}`) as HTMLElement;
-    elem.scrollIntoView({block: "start"});
+    elem.scrollIntoView({block: "center"});
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
