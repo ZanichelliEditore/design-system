@@ -162,3 +162,8 @@ textarea::placeholder {
 :host([disabled]:not([disabled="false"])) label.z-label {
   color: var(--color-disabled03);
 }
+
+/* REQUIRED INDICATOR */
+label.z-label .required-indicator {
+  color: var(--color-form-hover-error);
+}
