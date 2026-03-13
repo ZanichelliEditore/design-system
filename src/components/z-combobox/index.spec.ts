@@ -508,4 +508,34 @@ describe("Suite test ZCombobox", () => {
       </z-combobox>
     `);
   });
+
+  it("Test render ZCombobox - ariaLabel on header button and listbox", async () => {
+    const page = await newSpecPage({
+      components: [ZCombobox],
+      html: `<z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false}]' inputid="combobox" label="combo" aria-label="Filtra per combo"></z-combobox>`,
+    });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
+
+    const header = page.root.shadowRoot.querySelector(".header");
+    expect(header.getAttribute("aria-label")).toBe("Filtra per combo");
+
+    const listbox = page.root.shadowRoot.querySelector("[role='listbox']");
+    expect(listbox.getAttribute("aria-label")).toBe("Filtra per combo");
+  });
+
+  it("Test render ZCombobox - listbox falls back to label when ariaLabel not set", async () => {
+    const page = await newSpecPage({
+      components: [ZCombobox],
+      html: `<z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false}]' inputid="combobox" label="combo"></z-combobox>`,
+    });
+    page.rootInstance.isopen = true;
+    await page.waitForChanges();
+
+    const header = page.root.shadowRoot.querySelector(".header");
+    expect(header.getAttribute("aria-label")).toBeNull();
+
+    const listbox = page.root.shadowRoot.querySelector("[role='listbox']");
+    expect(listbox.getAttribute("aria-label")).toBe("combo");
+  });
 });

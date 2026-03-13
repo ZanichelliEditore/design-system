@@ -23,6 +23,10 @@ export class ZCombobox {
   @Prop()
   label: string;
 
+  /** the combobox aria-label */
+  @Prop()
+  ariaLabel = "";
+
   /** the combobox is disabled */
   @Prop({reflect: true})
   disabled?: boolean = false;
@@ -317,6 +321,7 @@ export class ZCombobox {
         tabindex={0}
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
+        aria-label={this.ariaLabel || undefined}
       >
         <span class="body-3">
           {this.label}
@@ -340,7 +345,7 @@ export class ZCombobox {
         {!this.hassearch ? <span {...this.getComboboxA11yAttributes(false)} /> : null}
         <div
           role="listbox"
-          aria-label={this.label}
+          aria-label={this.ariaLabel || this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
           aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
