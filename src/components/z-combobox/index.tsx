@@ -317,6 +317,11 @@ export class ZCombobox {
         tabindex={0}
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
+        aria-label={
+          this.selectedCounter > 0
+            ? `${this.label}: ${this.selectedCounter} ${this.selectedCounter === 1 ? "elemento selezionato" : "elementi selezionati"}`
+            : undefined
+        }
       >
         <span class="body-3">
           {this.label}

@@ -87,7 +87,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' inputid="combobox" label="label">
         <mock:shadow-root>
           <div data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="false" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="false" aria-label="label: 1 elemento selezionato" class="header" role="button" tabindex="0">
               <span class="body-3">
                 label
                 <span>(1)</span>
@@ -155,7 +155,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
             <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -191,7 +191,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
             <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -228,7 +228,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
             <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -262,7 +262,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
             <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -296,7 +296,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hassearch=true searchlabel="cerca" searchplaceholder="placeholder" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]' noresultslabel='non ci sono risultati'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
               <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -327,7 +327,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
               <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -366,7 +366,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 2 elementi selezionati" class="header" role="button" tabindex="0">
               <span class="body-3">combo<span>(2)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -405,7 +405,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" maxcheckableitems="1" items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
              <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -441,7 +441,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" maxcheckableitems="3" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
               <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
@@ -480,7 +480,7 @@ describe("Suite test ZCombobox", () => {
       <z-combobox inputid="combobox" label="combo" maxcheckableitems="1" hascheckall="true" checkalltext="CHECK" uncheckalltext="UNCHECK" items='[{"id":"item_1","name":"primo elemento","checked":true},{"id":"item_2","name":"secondo elemento","checked":false}]'>
         <mock:shadow-root>
           <div class="open" data-action="combo-combobox" id="combobox">
-            <div aria-controls="open-combo-data" aria-expanded="true" class="header" role="button" tabindex="0">
+            <div aria-controls="open-combo-data" aria-expanded="true" aria-label="combo: 1 elemento selezionato" class="header" role="button" tabindex="0">
               <span class="body-3">combo<span>(1)</span></span>
               <z-icon class="big" name="caret-down" />
             </div>
