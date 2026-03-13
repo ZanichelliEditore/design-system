@@ -11,12 +11,12 @@
   outline: none;
 }
 
-:host[sticky] {
+:host([sticky]) {
   position: sticky;
   top: var(--z-notification--top-offset);
 }
 
-:host[sticky],
+:host([sticky]),
 :host([showshadow]) {
   box-shadow: var(--shadow-3);
 }

@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.0](https://github.com/ZanichelliEditore/design-system/compare/v19.1.3...v19.2.0) (2026-03-12)
+
+
+### Features
+
+* color picker component ([39f6fc3](https://github.com/ZanichelliEditore/design-system/commit/39f6fc3418a58c3254bd90058ce006ffee564141))
+* color-picker/tool integration; improve parent/descendant retrieval functions ([cac6cb4](https://github.com/ZanichelliEditore/design-system/commit/cac6cb415de7690f197258a6be666e8ba4d46be8))
+* **DS-960:** z-tool component ([055db4b](https://github.com/ZanichelliEditore/design-system/commit/055db4b515a6a659e643959c8933f3ff0bfcbdbd))
+* **DS-961:** raw toolbar implementation ([268bf92](https://github.com/ZanichelliEditore/design-system/commit/268bf925c337b02c671b66c8013d6c0e11c72cbf))
+* **DS-965:** add app header variant without logo with aligned top-subtitle to the title ([1e4d387](https://github.com/ZanichelliEditore/design-system/commit/1e4d3879aee30655879d4fa7d20452da17e5f29f))
+* **DS-965:** explicitly pass zlogo prop ([d5bc6f8](https://github.com/ZanichelliEditore/design-system/commit/d5bc6f85237264a02825d36d3c898c11434a925c))
+* **DS-965:** use css to hide logo based on top-title ([25d6d10](https://github.com/ZanichelliEditore/design-system/commit/25d6d108c376a4bb8a0e5736dbfe95cf6c4647fe))
+* **z-color-picker:** new prop to disable the transparent option ([c0d1d06](https://github.com/ZanichelliEditore/design-system/commit/c0d1d068f46b9c029200fa506fae53329cb18892))
+* z-icon now handles icons with color indicator via the new `indicatorColor` prop ([f7e2d1a](https://github.com/ZanichelliEditore/design-system/commit/f7e2d1a26f77245fd7c1121757d8c01306c9b0be))
+* **ZANIT-961:** accessibility for toolbar navigation ([707afea](https://github.com/ZanichelliEditore/design-system/commit/707afead5891a40932a97d2cf53846c8bfefd247))
+* **ZANIT-961:** tests and storybook ([7fca7fe](https://github.com/ZanichelliEditore/design-system/commit/7fca7fe232168d1d6281db1d85412ecaa73fdc49))
+
+
+### Bug Fixes
+
+* active state from outside and multiline toolbar ([89cf91b](https://github.com/ZanichelliEditore/design-system/commit/89cf91b15badc3f03076f1cd3ae814ab5c54d594))
+* background ([b2f87d0](https://github.com/ZanichelliEditore/design-system/commit/b2f87d0348e09f92152e91f202fc2043d78dfde5))
+* css selectors for background and gap ([d02bec8](https://github.com/ZanichelliEditore/design-system/commit/d02bec847414b7726fbb53a1772d20ec5c6c9dcb))
+* **DS-873:** removed unuseful OR condition ([aaf85a8](https://github.com/ZanichelliEditore/design-system/commit/aaf85a81e888e69c77bfe8fd635ebde065ca2d02))
+* **DS-973:** fix accessibility for zoffcanvas ([32c2d94](https://github.com/ZanichelliEditore/design-system/commit/32c2d94dbd2335573a5a2aa6a87350d090dfe6b1))
+* **DS-973:** refactor ([5407f7c](https://github.com/ZanichelliEditore/design-system/commit/5407f7c4dcb3544078fdd7e162d6f27ab7cec095))
+* dynamic column behaviour with gap fix ([17f01a6](https://github.com/ZanichelliEditore/design-system/commit/17f01a6f29c5d659e0eab6473619d779c26cdda8))
+* eslint ([3fbfe02](https://github.com/ZanichelliEditore/design-system/commit/3fbfe0244635567a935bbd6bd6d7e782d0206923))
+* gap between colums and event listener ([c08d589](https://github.com/ZanichelliEditore/design-system/commit/c08d589ab267435cd61db2357a0c067e1064fd24))
+* getFocusableElements return condition zoffcanvas ([faefb5d](https://github.com/ZanichelliEditore/design-system/commit/faefb5d3f0d19d4a5a2e18dbf70ccd97699e6cf0))
+* **github-workflow:** try fixing workflows ([8985909](https://github.com/ZanichelliEditore/design-system/commit/89859095053a285ae764606a06a97ed4e330f867))
+* linear gradient dimensions ([cdafda8](https://github.com/ZanichelliEditore/design-system/commit/cdafda8d74195a690b8d636a910ad24049c91fc0))
+* remove useless style override ([b94f5a3](https://github.com/ZanichelliEditore/design-system/commit/b94f5a3a7d01950df2b9ed4ffc2b05e68bb736a9))
+* **storybook deploy workflow:** enable Corepack before using yarn ([96a5940](https://github.com/ZanichelliEditore/design-system/commit/96a594043d3e2b68cd67c04dba1d78eb887c140c))
+* test with default toolbar columns style ([4da2e7a](https://github.com/ZanichelliEditore/design-system/commit/4da2e7ad0dafd9a20f2b398b0334251e3bb03055))
+* unit test --> e2e tests due to jquery selector ([f944c41](https://github.com/ZanichelliEditore/design-system/commit/f944c4156641dcac8422e84d6a02abfd3400f96a))
+* z-searchbar improve a11y ([d807f5c](https://github.com/ZanichelliEditore/design-system/commit/d807f5cf923629b11b688046c2d61585ecb6b729))
+* z-searchbar readme ([07b9b01](https://github.com/ZanichelliEditore/design-system/commit/07b9b0104d51419fa7577f7aac68c824f79ecddd))
+* **z-tool,z-color-picker:** submenu open behavior; focus first active item instead of first enabled ([110ddb4](https://github.com/ZanichelliEditore/design-system/commit/110ddb4069e6036984223e7a492c74ec11168403))
+* **z-tool:** close submenu when it loses focus; clean some code ([1bf2a73](https://github.com/ZanichelliEditore/design-system/commit/1bf2a736538cde08a0c8afe38ba9eeb5b2c4023f))
+
 ## [19.1.3](https://github.com/ZanichelliEditore/design-system/compare/v19.1.2...v19.1.3) (2026-02-19)
 
 

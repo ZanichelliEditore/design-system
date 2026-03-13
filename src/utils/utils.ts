@@ -157,26 +157,63 @@ export function isSelectorValid(selector: string): boolean {
 }
 
 /**
- * Check if an element contains another element, checking both light and shadow DOM.
+ * Check if an element contains another element, checking both light and shadow DOM recursively.
+ * This function also checks slot assignments, so it correctly handles nested slots across components.
  * @param ancestor Ancestor element
  * @param descendant Descendant element
  */
 export function containsElement(ancestor: HTMLElement, descendant: Node): boolean {
-  return ancestor.contains(descendant) || !!ancestor.shadowRoot?.contains(descendant);
+  if (ancestor.contains(descendant) || ancestor.shadowRoot?.contains(descendant)) {
+    return true;
+  }
+
+  const checkRecursive = (node: Node): boolean => {
+    if (node === descendant) {
+      return true;
+    }
+
+    const shadowRoot = (node as HTMLElement).shadowRoot;
+    if (!shadowRoot) {
+      // Check light DOM children only
+      return Array.from(node.childNodes).some(checkRecursive);
+    }
+
+    if (shadowRoot.contains(descendant)) {
+      return true;
+    }
+
+    // Check slot assigned nodes
+    const hasDescendantInAssignedNodes = Array.from(shadowRoot.querySelectorAll("slot")).some((slot) =>
+      (slot as HTMLSlotElement)
+        .assignedNodes({flatten: true})
+        .some((assigned) => (assigned as HTMLElement).contains?.(descendant) || checkRecursive(assigned))
+    );
+    if (hasDescendantInAssignedNodes) {
+      return true;
+    }
+
+    // Check shadow and light DOM children
+    return Array.from(shadowRoot.children).some(checkRecursive) || Array.from(node.childNodes).some(checkRecursive);
+  };
+
+  return checkRecursive(ancestor);
 }
 
 /** Get the parent of passed element, accounting for shadow DOM.
  * @param element The element whose parent is to be found.
  */
-export function getParentElement(element: Element): Element {
-  if (element.parentNode === element.shadowRoot) {
-    return element.shadowRoot.host;
+export function getParentElement(element: Element): Element | null {
+  // If the element is slotted, the direct rendered parent is the target slot in shadow DOM.
+  if (element.assignedSlot) {
+    return element.assignedSlot;
   }
 
+  // If the element is in a shadow root, the parent is the shadow host.
   if (element.parentNode instanceof ShadowRoot) {
     return element.parentNode.host;
   }
 
+  // Otherwise fall back to standard light DOM parent.
   return element.parentElement;
 }
 
