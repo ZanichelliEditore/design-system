@@ -7,14 +7,13 @@
   box-sizing: border-box;
 }
 
-input::-ms-clear,
-input::-ms-reveal {
-  display: none;
-}
-
 /* GENERAL */
-:host input::-ms-clear,
-:host input::-ms-reveal {
+input::-ms-clear,
+input::-ms-reveal,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
