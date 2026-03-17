@@ -95,7 +95,7 @@ describe("Suite test ZCombobox", () => {
                 <z-icon class="big" name="caret-down" />
               </div>
               <div class="open-combo-data" id="open-combo-data">
-                <div aria-label="label" aria-multiselectable="true" aria-owns="" id="combobox_list" role="listbox">
+                <div aria-label="label" aria-multiselectable="true" aria-owns="combobox-option-item_1 combobox-option-item_2" id="combobox_list" role="listbox">
                   <div role="presentation" tabindex="-1">
                     <ul role="presentation">
                       <z-list-element dividertype="element" htmltabindex="-1" role="presentation" size="large">
@@ -430,7 +430,7 @@ describe("Suite test ZCombobox", () => {
                 <z-icon class="big" name="caret-down" />
               </div>
               <div class="open-combo-data" id="open-combo-data">
-                <div aria-label="combo" aria-multiselectable="true" aria-owns="combobox-option-item_2" id="combobox_list" role="listbox">
+                <div aria-label="combo" aria-multiselectable="true" aria-owns="combobox-option-item_1 combobox-option-item_2" id="combobox_list" role="listbox">
                   <div role="presentation" tabindex="-1">
                     <ul role="presentation">
                       <z-list-element dividertype="element" htmltabindex="-1" role="presentation" size="large" disabled="">
@@ -526,7 +526,7 @@ describe("Suite test ZCombobox", () => {
                 <z-icon class="big" name="caret-down" />
               </div>
               <div class="open-combo-data" id="open-combo-data">
-                <div aria-label="combo" aria-multiselectable="true" aria-owns="combobox-option-item_1" id="combobox_list" role="listbox">
+                <div aria-label="combo" aria-multiselectable="true" aria-owns="combobox-check-all combobox-option-item_1 combobox-option-item_2" id="combobox_list" role="listbox">
                   <div role="presentation" tabindex="-1">
                     <ul role="presentation">
                       <z-list-element dividertype="element" dividercolor="gray800" htmltabindex="-1" role="presentation" size="large" class="check-all-wrapper" disabled="">

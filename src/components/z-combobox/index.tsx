@@ -387,9 +387,7 @@ export class ZCombobox {
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll('[role="option"]'))
-            .map((item) => item.id)
-            .join(" ")}
+          aria-owns={`${this.hascheckall ? `${this.getCheckAllOptionId()} ` : ``}${this.itemsList.map((item) => this.getOptionId(item.id)).join(" ")}`}
         >
           {this.renderItems()}
         </div>
