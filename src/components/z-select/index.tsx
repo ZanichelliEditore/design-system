@@ -427,8 +427,9 @@ export class ZSelect {
 
   private focusSelectItem(optionId: string): void {
     this.focusedItemId = optionId;
-    const elem = this.host.querySelector(`#${optionId}`) as HTMLElement;
-    elem.scrollIntoView({block: "center"});
+    const elem = this.host.querySelector(`#${optionId}`);
+    // @ts-expect-error 'container' does not exist in type 'ScrollIntoViewOptions'
+    elem.scrollIntoView({block: "nearest", container: "nearest"});
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {

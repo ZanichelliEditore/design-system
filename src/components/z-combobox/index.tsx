@@ -266,7 +266,7 @@ export class ZCombobox {
     }
 
     this.focusedItemId = nextElem.id;
-    nextElem.scrollIntoView({block: "center"});
+    nextElem.scrollIntoView({block: "nearest", container: "nearest"});
   }
 
   private updateRenderItemsList(): void {
