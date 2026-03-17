@@ -387,7 +387,7 @@ export class ZCombobox {
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
+          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll('[role="option"]'))
             .map((item) => item.id)
             .join(" ")}
         >
@@ -437,9 +437,13 @@ export class ZCombobox {
             id={optionId}
             role={isDisabled ? "presentation" : "option"}
             aria-selected={item.checked ? "true" : "false"}
-            aria-label={getPlainText(item.name)}
-            innerHTML={item.name}
-          />
+            aria-label={isDisabled ? undefined : getPlainText(item.name)}
+          >
+            <span
+              aria-hidden="true"
+              innerHTML={item.name}
+            />
+          </span>
         </span>
       </z-list-element>
     );

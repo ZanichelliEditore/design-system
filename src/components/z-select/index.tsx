@@ -603,6 +603,7 @@ export class ZSelect {
         role={hidden ? "presentation" : "option"}
         html-tabindex={0}
         aria-selected="false"
+        aria-label={hidden ? undefined : this.resetItem}
         id={this.getResetOptionId()}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         onClickItem={() => this.handleResetClick()}
@@ -613,6 +614,7 @@ export class ZSelect {
             "tree-list-reset-item": this.hasTreeItems,
             "active": this.focusedItemId === this.getResetOptionId(),
           }}
+          aria-hidden="true"
         >
           <z-icon name="multiply-circled" />
           <span>{this.resetItem}</span>
@@ -630,6 +632,7 @@ export class ZSelect {
         role={item.disabled ? "presentation" : "option"}
         html-tabindex={-1}
         aria-selected={item.selected ? "true" : "false"}
+        aria-label={item.disabled ? undefined : getPlainText(item.name)}
         id={this.getOptionId(item)}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item)}
@@ -639,6 +642,7 @@ export class ZSelect {
             "list-element-container": true,
             "active": this.focusedItemId === this.getOptionId(item),
           }}
+          aria-hidden="true"
         >
           <div
             class={{
@@ -729,10 +733,14 @@ export class ZSelect {
         <div
           id={this.getOptionId(item)}
           role={isDisabled ? "presentation" : "option"}
+          aria-label={isDisabled ? undefined : getPlainText(item.name)}
           class={{"list-element": true, "active": this.focusedItemId === this.getOptionId(item)}}
           onClick={() => this.selectItem(item)}
         >
-          <span class="item ellipsis">
+          <span
+            class="item ellipsis"
+            aria-hidden="true"
+          >
             <span
               class={{
                 "item-label": true,
