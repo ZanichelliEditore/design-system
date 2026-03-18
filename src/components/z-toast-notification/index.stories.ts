@@ -29,7 +29,7 @@ const StoryMeta = {
   argTypes: {
     type: {
       control: {
-        type: "select",
+        type: "inline-radio",
       },
       options: Object.values(ToastNotification),
     },
@@ -144,6 +144,7 @@ export const SlottedButtonLongText = {
 
 export const SlottedMessage = {
   args: {transition: ToastNotificationTransition.SLIDE_IN_DOWN},
+  parameters: {controls: {exclude: ["message"]}},
   render: (args) =>
     html`<div class="toast-container">
       <z-toast-notification
@@ -171,6 +172,7 @@ export const SlottedMessage = {
 
 export const SlottedMessageLongText = {
   args: {transition: ToastNotificationTransition.SLIDE_IN_DOWN},
+  parameters: {controls: {exclude: ["message"]}},
   render: (args) =>
     html`<div class="toast-container">
       <z-toast-notification
