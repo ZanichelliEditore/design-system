@@ -51,33 +51,40 @@ export class ZIcon {
     return <polygon points={iconValue}></polygon>;
   }
 
-  render(): SVGElement {
-    const svgAttrs = {
-      viewBox: "0 0 1000 1000",
-      width: this.width,
-      height: this.height,
-    };
+  private renderBaseIcon(): SVGElement {
+    return (
+      <svg
+        id={this.iconid || undefined}
+        fill={this.fill ? `var(--${this.fill})` : undefined}
+        viewBox="0 0 1000 1000"
+        width={this.width}
+        height={this.height}
+      >
+        {this.selectPathOrPolygon(ICONS[this.name])}
+      </svg>
+    );
+  }
 
+  render(): HTMLZIconElement {
     return (
       <Host aria-hidden="true">
-        <div class="icon-wrapper">
-          <svg
-            id={this.iconid || undefined}
-            fill={this.fill ? `var(--${this.fill})` : undefined}
-            {...svgAttrs}
-          >
-            {this.selectPathOrPolygon(ICONS[this.name])}
-          </svg>
-          {COLOR_INDICATOR_ICONS.includes(this.name) && (
+        {COLOR_INDICATOR_ICONS.includes(this.name) ? (
+          <div class="icon-wrapper">
             <svg
               class="color-indicator"
               fill={this.indicatorColor || "#FFFFFF00"}
-              {...svgAttrs}
+              viewBox="0 0 1000 1000"
+              width={this.width}
+              height={this.height}
             >
               {this.selectPathOrPolygon(ICONS["picker-color"])}
             </svg>
-          )}
-        </div>
+
+            {this.renderBaseIcon()}
+          </div>
+        ) : (
+          this.renderBaseIcon()
+        )}
       </Host>
     );
   }

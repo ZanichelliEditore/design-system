@@ -1,4 +1,5 @@
 :host {
+  display: inline;
   margin-right: var(--z-icon-right-margin, 0);
   margin-left: var(--z-icon-left-margin, 0);
   line-height: 0;
@@ -8,7 +9,7 @@
 .icon-wrapper {
   position: relative;
   z-index: 0;
-  display: block;
+  display: inline-block;
 }
 
 svg:not([width]) {
@@ -19,7 +20,7 @@ svg:not([height]) {
   height: var(--z-icon-height, 1.125rem);
 }
 
-svg.color-indicator {
+.icon-wrapper svg.color-indicator {
   position: absolute;
   z-index: -1;
   bottom: 0;
