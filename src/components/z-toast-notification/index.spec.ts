@@ -18,6 +18,9 @@ describe("Suite test ZToastNotification", () => {
                   <slot name="message"></slot>
                 </span>
               </div>
+              <div class="button-container" hidden>
+                <slot name="button"></slot>
+              </div>
             </div>
           </div>
         </mock:shadow-root>
@@ -65,6 +68,9 @@ describe("Suite test ZToastNotification", () => {
                     </span>
                   </slot>
                 </span>
+              </div>
+              <div class="button-container" hidden>
+                <slot name="button"></slot>
               </div>
             </div>
             <button class="close-button" aria-label="Chiudi notifica">

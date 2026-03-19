@@ -244,26 +244,25 @@ export class ZToastNotification {
             <div class="toast-notification-text">
               {this.heading && <span class="title">{this.heading}</span>}
               <span class="message">
-                <slot
-                  name="message"
-                  onSlotchange={() => this.checkSlottedButton()}
-                >
-                  {this.message && <span innerHTML={DOMPurify.sanitize(this.message)} />}
-                </slot>
+                <slot name="message">{this.message && <span innerHTML={DOMPurify.sanitize(this.message)} />}</slot>
               </span>
             </div>
-            {this.hasSlottedButton && (
-              <div class="button-container">
-                <slot name="button" />
-              </div>
-            )}
+            <div
+              class="button-container"
+              hidden={!this.hasSlottedButton}
+            >
+              <slot
+                name="button"
+                onSlotchange={() => this.checkSlottedButton()}
+              />
+            </div>
           </div>
           {this.closebutton && (
             <button
               class="close-button"
               aria-label="Chiudi notifica"
               onClick={() => this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true)}
-              onKeyPress={(e) => {
+              onKeyDown={(e) => {
                 if (e.code == KeyboardCode.SPACE || e.code == KeyboardCode.ENTER) {
                   e.preventDefault();
                   this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true);
