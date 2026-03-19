@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.1](https://github.com/ZanichelliEditore/design-system/compare/v19.2.0...v19.2.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **z-accordion:** fix overflowing non rounded corners; don't render the tags container when empty ([58ac4e3](https://github.com/ZanichelliEditore/design-system/commit/58ac4e379d61d79baa9242fc705260d620421818))
+* **z-toast-notification:** fix close icon; don't force min-height; baseline alignment as per design ([926253b](https://github.com/ZanichelliEditore/design-system/commit/926253b2d406ed3c5b359def312f8e0d432823a1))
+
 ## [19.2.0](https://github.com/ZanichelliEditore/design-system/compare/v19.1.3...v19.2.0) (2026-03-12)
 
 
