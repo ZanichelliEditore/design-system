@@ -50,7 +50,9 @@ export class ZOtp {
               }}
               onKeyUp={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) {
-                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
+                  if (i < this.inputNum - 1) {
+                    this.otpRef[i + 1].focus();
+                  }
                 }
               }}
               onInput={(e: InputEvent) => {

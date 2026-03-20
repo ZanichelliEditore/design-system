@@ -24,13 +24,11 @@ export class ZTag {
   expandable?: boolean;
 
   render(): HTMLZTagElement {
-    const hasText = this.host.textContent?.trim().length > 0;
-
     return (
       <Host
         class={{
           "expandable": this.expandable && !!this.icon,
-          "has-text": hasText,
+          "has-text": !!this.host.textContent.trim(),
         }}
       >
         {this.icon && <z-icon name={this.icon} />}

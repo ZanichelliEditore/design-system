@@ -63,7 +63,9 @@ export class ZDatePicker {
     }
 
     if (ev.key === "Enter" || ev.key === " ") {
-      !this.hasChildren && this.picker?.open();
+      if (!this.hasChildren) {
+        this.picker?.open();
+      }
 
       const isCrossIconEntered = document.activeElement.classList.contains("reset-icon");
 
@@ -81,12 +83,18 @@ export class ZDatePicker {
       const isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
       const arrowPressed = isPrevArrowEntered || isNextArrowEntered;
 
-      arrowPressed && ev.key === " " && ev.preventDefault();
+      if (arrowPressed && ev.key === " ") {
+        ev.preventDefault();
+      }
 
       if (this.mode === ZDatePickerMode.MONTHS) {
-        isPrevArrowEntered && this.picker?.changeYear(this.picker.currentYear - 1);
+        if (isPrevArrowEntered) {
+          this.picker?.changeYear(this.picker.currentYear - 1);
+        }
 
-        isNextArrowEntered && this.picker?.changeYear(this.picker.currentYear + 1);
+        if (isNextArrowEntered) {
+          this.picker?.changeYear(this.picker.currentYear + 1);
+        }
 
         if (arrowPressed) {
           const calendar = this.element.getElementsByClassName("flatpickr-calendar")[0];
@@ -96,23 +104,26 @@ export class ZDatePicker {
           });
 
           //Force check of the current day
-          months &&
-            Array.from(months).forEach((element, index) => {
-              const curMonth = new Date().getMonth();
-              const curYear = new Date().getFullYear();
+          Array.from(months ?? []).forEach((element, index) => {
+            const curMonth = new Date().getMonth();
+            const curYear = new Date().getFullYear();
 
-              if (index === curMonth) {
-                if (this.picker?.currentYear === curYear) {
-                  element.setAttribute("class", "flatpickr-monthSelect-month today");
-                } else {
-                  element.setAttribute("class", "flatpickr-monthSelect-month");
-                }
+            if (index === curMonth) {
+              if (this.picker?.currentYear === curYear) {
+                element.setAttribute("class", "flatpickr-monthSelect-month today");
+              } else {
+                element.setAttribute("class", "flatpickr-monthSelect-month");
               }
-            });
+            }
+          });
         }
       } else {
-        isPrevArrowEntered && this.picker?.changeMonth(-1);
-        isNextArrowEntered && this.picker?.changeMonth(1);
+        if (isPrevArrowEntered) {
+          this.picker?.changeMonth(-1);
+        }
+        if (isNextArrowEntered) {
+          this.picker?.changeMonth(1);
+        }
       }
     }
   }
@@ -120,7 +131,9 @@ export class ZDatePicker {
   componentWillLoad(): void {
     const customToggle = this.element.querySelector("[slot=toggle]");
     this.hasChildren = !!customToggle;
-    this.hasChildren && customToggle.setAttribute("data-toggle", "data-toggle");
+    if (this.hasChildren) {
+      customToggle.setAttribute("data-toggle", "data-toggle");
+    }
   }
 
   componentDidLoad(): void {
@@ -139,7 +152,6 @@ export class ZDatePicker {
       dateFormat: this.mode === ZDatePickerMode.DATE_TIME ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: this.mode === ZDatePickerMode.MONTHS ? "F Y" : "d F Y",
       minuteIncrement: 1,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
       onChange: (_selectedDates, dateStr) => {
         this.emitDateSelect(dateStr);

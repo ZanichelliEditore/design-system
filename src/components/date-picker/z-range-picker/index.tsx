@@ -86,9 +86,12 @@ export class ZRangePicker {
     this.getFocusedInput();
 
     if (ev.key === "Escape") {
-      document.activeElement.classList.contains(`${this.rangePickerId}-1`) && this.firstPicker?.close();
-
-      document.activeElement.classList.contains(`${this.rangePickerId}-2`) && this.lastPicker?.close();
+      if (document.activeElement.classList.contains(`${this.rangePickerId}-1`)) {
+        this.firstPicker?.close();
+      }
+      if (document.activeElement.classList.contains(`${this.rangePickerId}-2`)) {
+        this.lastPicker?.close();
+      }
     }
 
     if (ev.key === "Enter" || ev.key === " ") {
@@ -118,10 +121,16 @@ export class ZRangePicker {
       const isNextArrowEntered = document.activeElement.classList.contains("flatpickr-next-month");
       const arrowPressed = isPrevArrowEntered || isNextArrowEntered;
 
-      arrowPressed && ev.key === " " && ev.preventDefault();
+      if (arrowPressed && ev.key === " ") {
+        ev.preventDefault();
+      }
 
-      isPrevArrowEntered && currentPicker?.changeMonth(-1);
-      isNextArrowEntered && currentPicker?.changeMonth(1);
+      if (isPrevArrowEntered) {
+        currentPicker?.changeMonth(-1);
+      }
+      if (isNextArrowEntered) {
+        currentPicker?.changeMonth(1);
+      }
     }
   }
 
@@ -149,7 +158,6 @@ export class ZRangePicker {
       dateFormat: this.mode === ZRangePickerMode.DATE_TIME ? "d-m-Y - H:i" : "d-m-Y",
       ariaDateFormat: "d F Y",
       minuteIncrement: 1,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       time_24hr: true,
       onValueUpdate: () => {
         const firstInputActive = this.activeInput === "start-input";
@@ -272,7 +280,6 @@ export class ZRangePicker {
   private replaceMonths(date, time): Date {
     const month = date.split(" ")[1];
     const months = {
-      /* eslint-disable @typescript-eslint/naming-convention */
       Gennaio: "01",
       Febbraio: "02",
       Marzo: "03",
@@ -285,7 +292,6 @@ export class ZRangePicker {
       Ottobre: "10",
       Novembre: "11",
       Dicembre: "12",
-      /* eslint-enable @typescript-eslint/naming-convention */
     };
 
     const pieces = date.replace(month, months[month]).split(" ");

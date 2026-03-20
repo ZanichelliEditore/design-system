@@ -148,7 +148,9 @@ export class ZSlideshow {
         height={this.getBulletDimension()}
         name={`chevron-${direction}-circle`}
         onClick={() => {
-          !disabled && this.setCurrentSlide(nextSlide);
+          if (!disabled) {
+            this.setCurrentSlide(nextSlide);
+          }
         }}
         onKeyUp={(e: KeyboardEvent) =>
           !disabled &&

@@ -37,7 +37,11 @@ export class ZMenuSectionDeprecated {
     }
 
     this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
+    if (this.open) {
+      this.opened.emit();
+    } else {
+      this.closed.emit();
+    }
   }
 
   /** Close the list when a click is performed outside of this Element. */

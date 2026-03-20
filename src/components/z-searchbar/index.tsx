@@ -418,7 +418,9 @@ export class ZSearchbar {
       this.items = Array.from(list.querySelectorAll(".list-element"));
     }
 
-    this.items.forEach((item) => item.classList.contains("focused") && item.classList.remove("focused"));
+    this.items.forEach((item) => {
+      item.classList.toggle("focused", false);
+    });
 
     const currentIndex = this.items.indexOf(currentElement as HTMLZListElementElement);
 
@@ -467,7 +469,7 @@ export class ZSearchbar {
           }}
           onMouseLeave={(e: MouseEvent) => {
             const currentElement = e.target as HTMLElement;
-            currentElement.classList.contains("hovered") && currentElement.classList.remove("hovered");
+            currentElement.classList.toggle("hovered", false);
           }}
         >
           <span class="item ellipsis">

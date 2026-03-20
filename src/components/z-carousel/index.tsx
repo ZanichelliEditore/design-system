@@ -9,7 +9,7 @@ import {ButtonVariant, CarouselArrowsPosition, CarouselProgressMode} from "../..
  */
 @Component({
   tag: "z-carousel",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../tokens/typography.css"],
   shadow: true,
 })
 export class ZCarousel {
@@ -99,6 +99,26 @@ export class ZCarousel {
 
   @Watch("infinite")
   onInfiniteModeChange(): void {
+    this.checkNavigationValidity();
+  }
+
+  @Watch("isLoading")
+  onLoadingChange(): void {
+    if (!this.isLoading) {
+      // when loading is finished, we need to set up things with the real items that were not present during the loading phase
+      this.setupObserversAndListeners();
+    }
+  }
+
+  /** Set up all observers and listeners related to the rendered items. */
+  private setupObserversAndListeners(): void {
+    this.setupItems();
+    this.itemsContainer?.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
+    this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
+    this.resizeObserver.observe(this.itemsContainer);
+    if (this.single) {
+      this.setIntersectionObserver();
+    }
     this.checkNavigationValidity();
   }
 
@@ -242,14 +262,11 @@ export class ZCarousel {
   }
 
   componentDidLoad(): void {
-    this.itemsContainer?.addEventListener("scroll", this.checkNavigationValidity.bind(this), {passive: true});
-    this.resizeObserver = new ResizeObserver(this.checkNavigationValidity.bind(this));
-    this.resizeObserver?.observe(this.itemsContainer);
-    this.setupItems();
-    if (this.single) {
-      this.setIntersectionObserver();
+    if (this.isLoading) {
+      return;
     }
-    this.checkNavigationValidity();
+
+    this.setupObserversAndListeners();
   }
 
   disconnectedCallback(): void {

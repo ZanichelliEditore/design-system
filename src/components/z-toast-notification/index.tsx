@@ -124,9 +124,11 @@ export class ZToastNotification {
 
   private visibilityChangeEventHandler(): void {
     if (document.visibilityState === "hidden") {
-      this.timeoutHandle && this.onBlur();
-    } else {
-      this.elapsedTime && this.onFocus();
+      if (this.timeoutHandle) {
+        this.onBlur();
+      }
+    } else if (this.elapsedTime) {
+      this.onFocus();
     }
   }
 
@@ -222,7 +224,9 @@ export class ZToastNotification {
       }
     }
 
-    this.isdraggable && this.handleSlideOutDragAnimation();
+    if (this.isdraggable) {
+      this.handleSlideOutDragAnimation();
+    }
   }
 
   render(): HTMLZToastNotificationElement {
