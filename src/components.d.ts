@@ -1064,13 +1064,17 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * the id of the message element
+          * set role:presentation and aria-hidden:true on the host element (optional)
+         */
+        "hidehost"?: boolean;
+        /**
+          * the id of the message element (optional)
          */
         "htmlid"?: string;
         /**
           * input helper message
          */
-        "message"?: string;
+        "message": string;
         /**
           * input status (optional)
          */
@@ -4928,7 +4932,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * the id of the message element
+          * set role:presentation and aria-hidden:true on the host element (optional)
+         */
+        "hidehost"?: boolean;
+        /**
+          * the id of the message element (optional)
          */
         "htmlid"?: string;
         /**

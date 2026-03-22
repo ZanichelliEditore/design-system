@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -8,12 +8,17 @@ import {randomId} from "../../utils/utils";
   shadow: true,
 })
 export class ZInputMessage {
-  /** the id of the message element */
-  @Prop()
-  htmlid?: string;
   /** input helper message */
   @Prop()
-  message?: string;
+  message: string;
+
+  /** the id of the message element (optional)*/
+  @Prop()
+  htmlid?: string;
+
+  /** set role:presentation and aria-hidden:true on the host element (optional)*/
+  @Prop()
+  hidehost?: boolean = false;
 
   /** input status (optional) */
   @Prop({reflect: true})
@@ -29,22 +34,34 @@ export class ZInputMessage {
     warning: "exclamation-circle",
   };
 
-  renderIcon() {
-    return this.statusIcons[this.status] && <z-icon name={this.statusIcons[this.status]}></z-icon>;
+  @State()
+  statusRole = {};
+
+  @Watch("message")
+  @Watch("status")
+  onMessageChange(): void {
+    if (this.hidehost) {
+      this.statusRole = {role: "presentation"};
+    } else {
+      this.statusRole = this.message && this.status ? {role: "alert"} : {};
+    }
+  }
+
+  componentWillLoad(): void {
+    this.onMessageChange();
   }
 
   render(): HTMLZInputMessageElement {
     return (
-      <Host>
-        <div>
-          {this.message && this.renderIcon()}
-          {this.message && (
-            <span
-              id={this.htmlid ?? `id-${randomId()}`}
-              innerHTML={this.message}
-            />
-          )}
-        </div>
+      <Host
+        {...this.statusRole}
+        aria-hidden={!!this.hidehost}
+      >
+        {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
+        <span
+          id={!!this.htmlid ? this.htmlid : `id-${randomId()}`}
+          innerHTML={this.message}
+        />
       </Host>
     );
   }
