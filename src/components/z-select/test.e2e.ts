@@ -100,6 +100,12 @@ describe("z-select test end2end", () => {
     expect((await page.$$("z-list-element")).length).toBe(3);
 
     const input = await page.find("z-select input");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
+    await input.press("Backspace");
     await input.press("1");
     await page.waitForChanges();
 
@@ -154,43 +160,43 @@ describe("z-select test end2end", () => {
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_0");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_2");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_3");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_2");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_3");
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_0");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_0");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
 
     await select.press("ArrowDown");
     await page.waitForChanges();
@@ -205,7 +211,7 @@ describe("z-select test end2end", () => {
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
   });
 
   it("Should open the select list with tree items", async () => {

@@ -1,6 +1,6 @@
 import {Component, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {ComboItem, ControlSize, InputType, KeyboardCode, ListDividerType, ListSize} from "../../beans";
-import {handleKeyboardSubmit, randomId} from "../../utils/utils";
+import {getPlainText, randomId} from "../../utils/utils";
 import {ZInput} from "../z-input";
 
 @Component({
@@ -79,6 +79,10 @@ export class ZCombobox {
   @Prop()
   size?: ControlSize = ControlSize.BIG;
 
+  /** the combobox aria-label */
+  @Prop()
+  htmlAriaLabel?: string;
+
   @State()
   searchValue: string;
 
@@ -89,10 +93,7 @@ export class ZCombobox {
   renderItemsList: ComboItem[] = []; // used for render only
 
   @State()
-  focusedItemId: string;
-
-  @State()
-  checkboxes: HTMLInputElement[] = [];
+  focusedItemId = "";
 
   private itemsList: ComboItem[] = [];
 
@@ -108,11 +109,6 @@ export class ZCombobox {
   @Watch("searchValue")
   watchSearchValue(): void {
     this.filterItems(this.searchValue);
-  }
-
-  @Watch("checkboxes")
-  watchCheckboxes(): void {
-    this.checkboxes.forEach((item, index) => item.setAttribute("tabindex", index === 0 ? "0" : "-1"));
   }
 
   /** Emitted when value is checked/unchecked. Returns id, items. */
@@ -136,27 +132,6 @@ export class ZCombobox {
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
   }
 
-  componentDidRender(): void {
-    const checkboxes = this.getAllCheckboxes();
-    if (JSON.stringify(checkboxes) !== JSON.stringify(this.checkboxes)) {
-      this.checkboxes = checkboxes;
-    }
-  }
-
-  private getItemId(item: ComboItem): string {
-    return `combo-checkbox-${this.inputid}-${item.id}`;
-  }
-
-  private getCheckboxClass(): string {
-    return `combo-item-checkbox-input-${this.inputid}`;
-  }
-
-  private getAllCheckboxes(): HTMLInputElement[] {
-    return Array.from(
-      this.element.shadowRoot.querySelectorAll(`.${this.getCheckboxClass()} input:not([disabled])`)
-    ) as HTMLInputElement[];
-  }
-
   private getControlToListSize(): ListSize {
     switch (this.size) {
       case ControlSize.X_SMALL:
@@ -168,61 +143,130 @@ export class ZCombobox {
     }
   }
 
-  private handleSelectArrowsNavigation(e: KeyboardEvent, currId?: string): void {
-    if (![KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP].includes(e.key as KeyboardCode) || !this.isopen) {
+  private getOptionId(itemId: string): string {
+    return `${this.inputid}-option-${itemId}`;
+  }
+
+  private getCheckAllOptionId(): string {
+    return `${this.inputid}-check-all`;
+  }
+
+  private allOptionsSelected(): boolean {
+    return this.selectedCounter === this.itemsList.length;
+  }
+
+  private hasReachedMaxSelections(): boolean {
+    return !!(this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems);
+  }
+
+  private handleHeaderKeyDown(e: KeyboardEvent): void {
+    if (e.code === KeyboardCode.ENTER && !this.focusedItemId) {
+      this.toggleComboBox();
+    }
+
+    if (!this.isopen || this.hassearch) {
+      return;
+    }
+
+    switch (e.code as KeyboardCode) {
+      case KeyboardCode.SPACE:
+      case KeyboardCode.ENTER:
+        if (this.focusedItemId) {
+          e.preventDefault();
+          this.checkOption(this.focusedItemId);
+        }
+        break;
+      case KeyboardCode.ESC:
+        if (this.focusedItemId) {
+          this.focusedItemId = "";
+        }
+        break;
+      case KeyboardCode.ARROW_DOWN:
+      case KeyboardCode.ARROW_UP:
+        this.handleArrowsNavigation(e);
+        break;
+    }
+  }
+
+  private handleInputKeyDown(e: KeyboardEvent): void {
+    switch (e.code as KeyboardCode) {
+      case KeyboardCode.ENTER:
+      case KeyboardCode.SPACE:
+        if (this.focusedItemId) {
+          e.preventDefault();
+          this.checkOption(this.focusedItemId);
+          break;
+        }
+        break;
+      case KeyboardCode.ARROW_DOWN:
+      case KeyboardCode.ARROW_UP:
+        this.handleArrowsNavigation(e);
+        break;
+      case KeyboardCode.ESC:
+        if (this.focusedItemId) {
+          this.focusedItemId = "";
+          break;
+        }
+        this.closeFilterItems();
+        break;
+      case KeyboardCode.TAB:
+        this.focusedItemId = "";
+        break;
+    }
+  }
+
+  private checkOption(optionId: string): void {
+    if (optionId === this.getCheckAllOptionId()) {
+      this.itemsList = this.itemsList.map((item: ComboItem) => ({
+        ...item,
+        checked: !this.allOptionsSelected(),
+      }));
+
+      this.focusedItemId = this.getCheckAllOptionId();
+    } else {
+      this.itemsList = this.itemsList.map((i: ComboItem) => {
+        if (optionId === this.getOptionId(i.id)) {
+          i.checked = !i.checked;
+        }
+
+        return i;
+      });
+    }
+
+    this.updateRenderItemsList();
+    this.emitComboboxChange();
+  }
+
+  private handleArrowsNavigation(e: KeyboardEvent): void {
+    if (![KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP].includes(e.code as KeyboardCode) || !this.isopen) {
       return;
     }
 
     e.preventDefault();
     e.stopPropagation();
 
-    const currElem = this.element.shadowRoot.querySelector(`#${currId}`) as HTMLInputElement;
+    const currElem = this.focusedItemId ? this.element.shadowRoot.querySelector(`#${this.focusedItemId}`) : null;
+    const options = Array.from(this.element.shadowRoot.querySelectorAll('[role="option"]'));
 
-    const checkboxes = this.checkboxes;
-    if (!checkboxes.length) {
+    if (!options.length) {
       return;
     }
 
-    const currElemIndex = currElem ? checkboxes.indexOf(currElem) : null;
+    const currElemIndex = currElem ? options.indexOf(currElem) : null;
     const firstElemIndex = 0;
-    const lastElemIndex = checkboxes.length - 1;
+    const lastElemIndex = options.length - 1;
 
     let nextElem = null;
-    if (e.key === KeyboardCode.ARROW_DOWN) {
+    if (e.code === KeyboardCode.ARROW_DOWN) {
       nextElem =
-        currElemIndex === null || currElemIndex === lastElemIndex
-          ? checkboxes[firstElemIndex]
-          : checkboxes[currElemIndex + 1];
-    } else if (e.key === KeyboardCode.ARROW_UP) {
+        currElemIndex === null ? options[firstElemIndex] : options[currElemIndex + 1] || options[lastElemIndex];
+    } else if (e.code === KeyboardCode.ARROW_UP) {
       nextElem =
-        currElemIndex === null || currElemIndex === firstElemIndex
-          ? checkboxes[lastElemIndex]
-          : checkboxes[currElemIndex - 1];
+        currElemIndex === null ? options[lastElemIndex] : options[currElemIndex - 1] || options[firstElemIndex];
     }
 
-    this.focusComboboxItem(nextElem);
-  }
-
-  private handleHeaderKeyboardEvent(ev: KeyboardEvent): void {
-    if (ev.key === KeyboardCode.SPACE) {
-      ev.preventDefault();
-    }
-    if ((ev.key === KeyboardCode.ARROW_DOWN && !this.isopen) || (ev.key === KeyboardCode.ARROW_UP && this.isopen)) {
-      this.toggleComboBox();
-    }
-  }
-
-  private handleCheckboxFocus(id: string): void {
-    this.focusedItemId = id;
-  }
-
-  private focusComboboxItem(elem): void {
-    this.checkboxes.forEach(function (item) {
-      item.setAttribute("tabindex", "-1");
-    });
-
-    elem.setAttribute("tabindex", "0");
-    elem.focus();
+    this.focusedItemId = nextElem.id;
+    nextElem.scrollIntoView({block: "nearest", container: "nearest"});
   }
 
   private updateRenderItemsList(): void {
@@ -263,15 +307,6 @@ export class ZCombobox {
     });
   }
 
-  private checkAll(checked = true): void {
-    this.itemsList = this.itemsList.map((item: ComboItem) => ({
-      ...item,
-      checked: checked,
-    }));
-    this.resetRenderItemsList();
-    this.emitComboboxChange();
-  }
-
   private closeFilterItems(): void {
     this.searchValue = "";
     this.resetRenderItemsList();
@@ -283,6 +318,7 @@ export class ZCombobox {
 
   private getComboboxA11yAttributes(isZInput: boolean): Record<string, string> {
     const role = "combobox";
+    const ariaLabel = this.htmlAriaLabel;
     const ariaExpanded = this.isopen ? "true" : "false";
     const ariaActivedescendant = this.isopen ? this.focusedItemId : "";
     const ariaControls = `${this.inputid}_list`;
@@ -290,6 +326,7 @@ export class ZCombobox {
     if (isZInput) {
       return {
         "role": role,
+        "aria-label": ariaLabel,
         "html-aria-expanded": ariaExpanded,
         "html-aria-activedescendant": ariaActivedescendant,
         "html-aria-controls": ariaControls,
@@ -298,6 +335,7 @@ export class ZCombobox {
 
     return {
       "role": role,
+      "aria-label": ariaLabel,
       "aria-expanded": ariaExpanded,
       "aria-activedescendant": ariaActivedescendant,
       "aria-controls": ariaControls,
@@ -305,20 +343,27 @@ export class ZCombobox {
   }
 
   private renderHeader(): HTMLDivElement {
+    const comboboxA11yAttributes = !this.hassearch ? this.getComboboxA11yAttributes(false) : {};
+
     return (
       <div
         class="header"
         onClick={() => this.toggleComboBox()}
-        onKeyDown={(ev: KeyboardEvent) => {
-          this.handleHeaderKeyboardEvent(ev);
-        }}
-        onKeyUp={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.toggleComboBox)}
+        onKeyDown={(e: KeyboardEvent) => this.handleHeaderKeyDown(e)}
         role="button"
         tabindex={0}
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
+        {...comboboxA11yAttributes}
       >
-        <span class="body-3">
+        <span
+          class="body-3"
+          aria-label={
+            this.label
+              ? `${this.label}${this.selectedCounter > 0 ? ` - ${this.selectedCounter} selezionati` : ``}`
+              : undefined
+          }
+        >
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </span>
@@ -337,17 +382,13 @@ export class ZCombobox {
         class="open-combo-data"
       >
         {this.hassearch && this.renderSearchInput()}
-        {!this.hassearch ? <span {...this.getComboboxA11yAttributes(false)} /> : null}
         <div
           role="listbox"
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={Array.from(this.element.shadowRoot.querySelectorAll("[role='option']"))
-            .map((item) => item.id)
-            .join(" ")}
+          aria-owns={`${this.hascheckall ? `${this.getCheckAllOptionId()} ` : ``}${this.itemsList.map((item) => this.getOptionId(item.id)).join(" ")}`}
         >
-          {this.hascheckall && this.renderCheckAll()}
           {this.renderItems()}
         </div>
       </div>
@@ -367,39 +408,41 @@ export class ZCombobox {
   }
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
-    const isDisabled = !item.checked && this.maxcheckableitems && this.selectedCounter >= this.maxcheckableitems;
+    const optionId = this.getOptionId(item.id);
+    const isDisabled = !item.checked && this.hasReachedMaxSelections();
 
     return (
       <z-list-element
-        id={`option-${item.id}`}
-        htmlTabindex={null}
+        htmlTabindex={-1}
         dividerType={index !== length - 1 ? ListDividerType.ELEMENT : ListDividerType.NONE}
         size={this.getControlToListSize()}
-        role={isDisabled ? "presentation" : "option"}
-        aria-selected={item.checked ? "true" : "false"}
+        role="presentation"
+        disabled={!!isDisabled}
       >
-        <z-input
-          type={InputType.CHECKBOX}
-          checked={item.checked}
-          htmlid={this.getItemId(item)}
-          label={item.name}
-          class={this.getCheckboxClass()}
-          disabled={isDisabled}
-          size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, this.getItemId(item))}
-          onInputCheck={(e: CustomEvent) => {
-            this.itemsList = this.itemsList.map((i: ComboItem) => {
-              if (item.id === i.id) {
-                i.checked = e.detail.checked;
-              }
-
-              return i;
-            });
-            this.updateRenderItemsList();
-            this.emitComboboxChange();
+        <span
+          class="option-wrap"
+          role="presentation"
+          onClick={() => {
+            this.focusedItemId = "";
+            this.checkOption(optionId);
           }}
-          onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
-        />
+        >
+          <z-icon
+            name={item.checked ? "checkbox-checked" : "checkbox"}
+            class={this.focusedItemId === optionId ? "focused" : ""}
+          />
+          <span
+            id={optionId}
+            role={isDisabled ? "presentation" : "option"}
+            aria-selected={item.checked ? "true" : "false"}
+            aria-label={isDisabled ? undefined : getPlainText(item.name)}
+          >
+            <span
+              aria-hidden="true"
+              innerHTML={item.name}
+            />
+          </span>
+        </span>
       </z-list-element>
     );
   }
@@ -418,6 +461,7 @@ export class ZCombobox {
 
     return (
       <ul role="presentation">
+        {this.renderCheckAll()}
         {items.map((item, i) => {
           return this.renderItem(item, i, items.length);
         })}
@@ -427,7 +471,7 @@ export class ZCombobox {
 
   private renderGroups(items: ComboItem[]): HTMLUListElement {
     const newData = items.reduce((group, item, index) => {
-      const {category} = item;
+      const category = item.category || "Altra categoria";
       const zListItem = this.renderItem(item, index, items.length);
 
       group[category] = group[category] ?? [];
@@ -436,21 +480,34 @@ export class ZCombobox {
       return group;
     }, {});
 
-    const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(([key, value]) => {
-      return (
-        <z-list-group divider-type={ListDividerType.ELEMENT}>
-          <span
-            class="body-3-sb z-list-group-title"
-            slot="header-title"
+    const listGroups = Object.entries(newData as {[key: string]: HTMLZListElementElement[]}).map(
+      ([key, value], index) => {
+        return (
+          <z-list-group
+            size={this.getControlToListSize()}
+            divider-type={ListDividerType.ELEMENT}
+            aria-labelledby={`${this.inputid}_list_group_${index}`}
           >
-            {key}
-          </span>
-          {value.map((item) => item)}
-        </z-list-group>
-      );
-    });
+            <span
+              class="body-3-sb z-list-group-title"
+              slot="header-title"
+              id={`${this.inputid}_list_group_${index}`}
+              aria-hidden="true"
+            >
+              {key}
+            </span>
+            {value.map((item) => item)}
+          </z-list-group>
+        );
+      }
+    );
 
-    return <ul role="presentation">{listGroups}</ul>;
+    return (
+      <ul role="presentation">
+        {this.renderCheckAll()}
+        {listGroups}
+      </ul>
+    );
   }
 
   private renderNoSearchResults(): HTMLUListElement {
@@ -474,46 +531,53 @@ export class ZCombobox {
         size={this.size}
         html-aria-autocomplete="list"
         {...this.getComboboxA11yAttributes(true)}
-        onKeyUp={(e: KeyboardEvent) => {
-          if (e.key === KeyboardCode.ESC) {
-            this.closeFilterItems();
-          }
-          this.handleSelectArrowsNavigation(e);
-        }}
+        onKeyDown={(e: KeyboardEvent) => this.handleInputKeyDown(e)}
         onInputChange={(e: CustomEvent) => {
           this.searchValue = e.detail.value;
+          this.focusedItemId = "";
         }}
       />
     );
   }
 
   private renderCheckAll(): HTMLDivElement {
-    if (this.searchValue) {
+    if (!this.hascheckall || this.searchValue) {
       return;
     }
 
-    const checkAllId = `combo-checkbox-${this.inputid}-check-all`;
-    const allChecked = this.selectedCounter === this.itemsList.length;
+    const optionId = this.getCheckAllOptionId();
+    const allChecked = this.allOptionsSelected();
+    const isDisabled =
+      this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length);
 
     return (
-      <div
+      <z-list-element
         class="check-all-wrapper"
-        id="option-check-all"
-        role="option"
+        role="presentation"
+        htmlTabindex={-1}
+        dividerType={ListDividerType.ELEMENT}
+        dividerColor="gray800"
+        size={this.getControlToListSize()}
+        disabled={!!isDisabled}
       >
-        <z-input
-          type={InputType.CHECKBOX}
-          checked={allChecked}
-          htmlid={checkAllId}
-          class={this.getCheckboxClass()}
-          label={allChecked ? this.uncheckalltext : this.checkalltext}
-          disabled={this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length}
-          size={this.size === ControlSize.X_SMALL ? ControlSize.SMALL : this.size}
-          onKeyDown={(e: KeyboardEvent) => this.handleSelectArrowsNavigation(e, checkAllId)}
-          onInputCheck={(e: CustomEvent) => this.checkAll(e.detail.checked)}
-          onInputFocus={(e: CustomEvent) => this.handleCheckboxFocus(e.detail.id)}
-        />
-      </div>
+        <span
+          class="option-wrap"
+          role="presentation"
+          onClick={() => this.checkOption(optionId)}
+        >
+          <z-icon
+            name={allChecked ? "checkbox-checked" : "checkbox"}
+            class={this.focusedItemId === optionId ? "focused" : ""}
+          />
+          <span
+            id={optionId}
+            role={isDisabled ? "presentation" : "option"}
+            aria-selected={allChecked ? "true" : "false"}
+          >
+            {allChecked ? this.uncheckalltext : this.checkalltext}
+          </span>
+        </span>
+      </z-list-element>
     );
   }
 
