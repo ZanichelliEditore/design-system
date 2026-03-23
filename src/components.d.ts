@@ -694,6 +694,10 @@ export namespace Components {
          */
         "hassearch"?: boolean;
         /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * input unique id
          */
         "inputid": string;
@@ -1209,6 +1213,10 @@ export namespace Components {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * Sets element role.
+         */
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -4703,6 +4711,10 @@ declare namespace LocalJSX {
          */
         "hassearch"?: boolean;
         /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * input unique id
          */
         "inputid"?: string;
@@ -5270,6 +5282,10 @@ declare namespace LocalJSX {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */

@@ -318,3 +318,10 @@ export function findContainingBlockAncestor(element: HTMLElement): HTMLElement {
 
   return element.ownerDocument.documentElement;
 }
+
+/** Convert HTML to plain text */
+export const getPlainText = (html: string): string => {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+
+  return doc.body.textContent || "";
+};

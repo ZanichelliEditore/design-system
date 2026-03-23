@@ -17,7 +17,7 @@ export class ZToastNotificationList {
   @Prop()
   newestontop?: boolean = true;
 
-  private notificationArray: Element[];
+  private notificationArray: Element[] = [];
 
   @Watch("newestontop")
   watchPropNewestontop(newValue: boolean): void {

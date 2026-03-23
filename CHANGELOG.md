@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.2](https://github.com/ZanichelliEditore/design-system/compare/v19.2.1...v19.2.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* a11y ([3e087b7](https://github.com/ZanichelliEditore/design-system/commit/3e087b7d049e09e3fa69c5a0f923a3612d880d54))
+* lint ([77fb9a7](https://github.com/ZanichelliEditore/design-system/commit/77fb9a704ee248ecd3364fbdca594973e1330c3b))
+* z-book-card center cover in portrait mode ([5f718c1](https://github.com/ZanichelliEditore/design-system/commit/5f718c1b71dc0ce3131c27d85e35ca34187835e4))
+* z-book-card landscape width ([325fda7](https://github.com/ZanichelliEditore/design-system/commit/325fda764323c645720947b5478318a188d28ed2))
+* z-combobox accessibility ([9deba55](https://github.com/ZanichelliEditore/design-system/commit/9deba550fcf291057415df278651c7bc1c367efd))
+* z-combobox aria-label ([bd6642e](https://github.com/ZanichelliEditore/design-system/commit/bd6642e3b90dcaef63dad496afd2fc0384368a07))
+* z-combobox aria-owns ([35e9e8c](https://github.com/ZanichelliEditore/design-system/commit/35e9e8c3e00ef7b580ef00c5eb5cd294c8136a9e))
+* z-combobox improve accessibility ([c1be3cd](https://github.com/ZanichelliEditore/design-system/commit/c1be3cdd562de3aa32032039e09ddc83959ff6b7))
+* z-combobox moved checkall wip ([ab3decc](https://github.com/ZanichelliEditore/design-system/commit/ab3deccc89fd62f94077dac0c16856ae9637bd98))
+* z-combobox remove tests ([751be4c](https://github.com/ZanichelliEditore/design-system/commit/751be4cd5a23ae03da27c23450cef4665952e647))
+* z-combobox removed inputs wip ([a35a06b](https://github.com/ZanichelliEditore/design-system/commit/a35a06b5614624e8ababc5c4035a4b8e08e6e49d))
+* z-combobox roles and navigazion ([7a49221](https://github.com/ZanichelliEditore/design-system/commit/7a49221f16472c749c8bdac3362d58c7415ace43))
+* z-combobox strong label ([eca358c](https://github.com/ZanichelliEditore/design-system/commit/eca358c4c75e8e0adce28de7b0c761dfd3f18460))
+* z-combobox style ([1925ca9](https://github.com/ZanichelliEditore/design-system/commit/1925ca9a200e55909a9162432191320381794b05))
+* z-combobox style ([fde7272](https://github.com/ZanichelliEditore/design-system/commit/fde727230740e7ff82f9800afa3ef0c4d1ea6aff))
+* z-combobox z-select keyboard nav scroll ([fade832](https://github.com/ZanichelliEditore/design-system/commit/fade83244347802ef8325c20c2d4c7cd6fa49b33))
+* z-searchbar result height in rem ([705b15e](https://github.com/ZanichelliEditore/design-system/commit/705b15eb699a9969ebb0de0fbe210e6f34680c8c))
+* z-select a11y attributes ([9973406](https://github.com/ZanichelliEditore/design-system/commit/9973406b1d41d7469827888793de650a345e39a8))
+* z-select a11y attributes ([6c18bfe](https://github.com/ZanichelliEditore/design-system/commit/6c18bfeb5707eab93007faeb2134777510a36302))
+* z-select a11y attributes ([0a3cc6c](https://github.com/ZanichelliEditore/design-system/commit/0a3cc6c9898cb59ebf5e21c91c0002c333feb415))
+* z-select autocomplete focus ([14bd8ad](https://github.com/ZanichelliEditore/design-system/commit/14bd8ad1323cd25b140dd9239539ea6b5f369498))
+* z-select groups ([cd72908](https://github.com/ZanichelliEditore/design-system/commit/cd729088f52664dc1187e93c87467c3b5a5dd07a))
+* z-select handle reset option ([4a10e0a](https://github.com/ZanichelliEditore/design-system/commit/4a10e0ad3950ecff62e892a488f3d192c67a535f))
+* z-select list roles ([9182706](https://github.com/ZanichelliEditore/design-system/commit/9182706449def99d4528fc8ab95fbf9bb3afac5e))
+* z-select navigation refactoring ([a5ab33a](https://github.com/ZanichelliEditore/design-system/commit/a5ab33ae4c65e8687ad986d74de3bc09a7519e3b))
+* z-select restored aria attributes ([329f20e](https://github.com/ZanichelliEditore/design-system/commit/329f20e944854efdcf6f20cd64ac0528a99931e4))
+* z-select z-combobox a11y hide html label ([c77f32a](https://github.com/ZanichelliEditore/design-system/commit/c77f32a5e7a8e5592e87ab83aaf121b83794de95))
+* z-select z-combobox focus scroll ([4e35eee](https://github.com/ZanichelliEditore/design-system/commit/4e35eee16063c7288ba45b0437796e166086cb45))
+* z-select z-combobox tests ([7946ac3](https://github.com/ZanichelliEditore/design-system/commit/7946ac3119407f7166c0e74fabd66bf91c64108e))
+* z-toast-notification-list default notifications array ([0dc098f](https://github.com/ZanichelliEditore/design-system/commit/0dc098f02851f738acc8f65e0d753085439c84e1))
+
 ## [19.2.1](https://github.com/ZanichelliEditore/design-system/compare/v19.2.0...v19.2.1) (2026-03-19)
 
 
