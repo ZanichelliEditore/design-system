@@ -69,12 +69,18 @@ export class ZButton {
   @Prop({reflect: true})
   size?: ButtonSize | ControlSize = ControlSize.BIG;
 
-  private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
+  private hasText = false;
+
+  componentWillLoad(): void {
+    this.hasText = !!this.hostElement.textContent?.trim();
+  }
+
+  private get attributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {
       id: this.htmlid,
       class: {
         "z-button--container": true,
-        "z-button--has-text": !!this.hostElement.textContent.trim(),
+        "z-button--has-text": this.hasText,
       },
     };
   }
@@ -90,7 +96,7 @@ export class ZButton {
     if (this.href) {
       return (
         <a
-          {...this.getAttributes()}
+          {...this.attributes}
           aria-label={normalizedAriaLabel}
           href={this.href}
           target={this.target}
@@ -103,7 +109,7 @@ export class ZButton {
 
     return (
       <button
-        {...this.getAttributes()}
+        {...this.attributes}
         aria-label={normalizedAriaLabel}
         name={this.name}
         type={this.type}
