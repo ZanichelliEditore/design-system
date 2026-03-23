@@ -99,6 +99,9 @@
       "optional": true
     }
   },
+  "resolutions": {
+    "@stencil/core": "~4.43.3"
+  },
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "es2015": "dist/esm/index.mjs",
