@@ -48,4 +48,20 @@ describe("Suite test ZInputMessage", () => {
       </z-input-message>
     `);
   });
+
+  it("Test render ZInputMessage - with status/message but withrole=false", async () => {
+    const page = await newSpecPage({
+      components: [ZInputMessage],
+      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" withrole="false"></z-input-message>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" withrole="false">
+        <mock:shadow-root>
+          <z-icon name="checkmark-circle"></z-icon>
+          <span id="esempio">message</span>
+        </mock:shadow-root>
+      </z-input-message>
+    `);
+  });
 });
