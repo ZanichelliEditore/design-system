@@ -1064,10 +1064,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * set role:presentation and aria-hidden:true on the host element (optional)
-         */
-        "hidehost"?: boolean;
-        /**
           * the id of the message element (optional)
          */
         "htmlid"?: string;
@@ -1079,6 +1075,10 @@ export namespace Components {
           * input status (optional)
          */
         "status"?: InputStatus;
+        /**
+          * set role=alert if the message and the status are populated (optional)
+         */
+        "withrole"?: boolean;
     }
     interface ZList {
         /**
@@ -4932,10 +4932,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * set role:presentation and aria-hidden:true on the host element (optional)
-         */
-        "hidehost"?: boolean;
-        /**
           * the id of the message element (optional)
          */
         "htmlid"?: string;
@@ -4947,6 +4943,10 @@ declare namespace LocalJSX {
           * input status (optional)
          */
         "status"?: InputStatus;
+        /**
+          * set role=alert if the message and the status are populated (optional)
+         */
+        "withrole"?: boolean;
     }
     interface ZList {
         /**

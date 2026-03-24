@@ -16,9 +16,9 @@ export class ZInputMessage {
   @Prop()
   htmlid?: string;
 
-  /** set role:presentation and aria-hidden:true on the host element (optional)*/
+  /** set role=alert if the message and the status are populated (optional)*/
   @Prop()
-  hidehost?: boolean = false;
+  withrole?: boolean = true;
 
   /** input status (optional) */
   @Prop({reflect: true})
@@ -40,11 +40,7 @@ export class ZInputMessage {
   @Watch("message")
   @Watch("status")
   onMessageChange(): void {
-    if (this.hidehost) {
-      this.statusRole = {role: "presentation"};
-    } else {
-      this.statusRole = this.message && this.status ? {role: "alert"} : {};
-    }
+    this.statusRole = this.withrole && this.message && this.status ? {role: "alert"} : {};
   }
 
   componentWillLoad(): void {
@@ -53,10 +49,7 @@ export class ZInputMessage {
 
   render(): HTMLZInputMessageElement {
     return (
-      <Host
-        {...this.statusRole}
-        aria-hidden={!!this.hidehost}
-      >
+      <Host {...this.statusRole}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span
           id={!!this.htmlid ? this.htmlid : `id-${randomId()}`}

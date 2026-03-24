@@ -5,13 +5,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                               | Type                                                              | Default     |
-| ---------- | ---------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
-| `disabled` | `disabled` | input disabled status (optional)                                          | `boolean`                                                         | `undefined` |
-| `hidehost` | `hidehost` | set role:presentation and aria-hidden:true on the host element (optional) | `boolean`                                                         | `false`     |
-| `htmlid`   | `htmlid`   | the id of the message element (optional)                                  | `string`                                                          | `undefined` |
-| `message`  | `message`  | input helper message                                                      | `string`                                                          | `undefined` |
-| `status`   | `status`   | input status (optional)                                                   | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
+| Property   | Attribute  | Description                                                           | Type                                                              | Default     |
+| ---------- | ---------- | --------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- |
+| `disabled` | `disabled` | input disabled status (optional)                                      | `boolean`                                                         | `undefined` |
+| `htmlid`   | `htmlid`   | the id of the message element (optional)                              | `string`                                                          | `undefined` |
+| `message`  | `message`  | input helper message                                                  | `string`                                                          | `undefined` |
+| `status`   | `status`   | input status (optional)                                               | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
+| `withrole` | `withrole` | set role=alert if the message and the status are populated (optional) | `boolean`                                                         | `true`      |
 
 
 ## Dependencies

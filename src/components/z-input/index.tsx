@@ -307,6 +307,15 @@ export class ZInput {
     return this.role ? {role: this.role} : {};
   }
 
+  private getAriaValidityAttributes() {
+    const ariaDescribedby = this.status === InputStatus.ERROR ? {"aria-describedby": `${this.htmlid}-message`} : {};
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+    return {
+      ...ariaDescribedby,
+      ...ariaInvalid,
+    };
+  }
+
   private getAriaAttrubutes(): Record<string, unknown> {
     const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
     const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
@@ -314,16 +323,13 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
-    const ariaDescribedby = this.status === InputStatus.ERROR ? {"aria-describedby": `${this.htmlid}-message`} : {};
-    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
-      ...ariaDescribedby,
-      ...ariaInvalid,
+      ...this.getAriaValidityAttributes(),
     };
   }
 
@@ -458,7 +464,7 @@ export class ZInput {
 
     return (
       <z-input-message
-        hidehost={false}
+        withrole={true}
         htmlid={`${this.htmlid}-message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
@@ -474,6 +480,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaAttributes = this.getAriaValidityAttributes();
 
     return (
       <Fragment>
@@ -487,6 +494,7 @@ export class ZInput {
         >
           <textarea
             {...attributes}
+            {...ariaAttributes}
             class={{
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,

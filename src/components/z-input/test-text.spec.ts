@@ -173,7 +173,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="helper message"></z-input-message>
+            <z-input-message class="big" message="helper message" htmlid="test-message" withrole=""></z-input-message>
           </div>
       </z-input>
     `);
@@ -196,7 +196,30 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="success message" status="success"></z-input-message>
+            <z-input-message class="big" message="success message" status="success" htmlid="test-message" withrole=""></z-input-message>
+          </div>
+      </z-input>
+    `);
+  });
+
+  it("Test render ZInput con status=error e message", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input type="text" htmlid="test" placeholder="placeholder" value="value" label="label" status="error" message="error message"></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="error" message="error message">
+          <div class="text-wrapper">
+            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <div>
+              <input class="input-error has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"/>
+              <span class="icons-wrapper">
+                <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
+            </div>
+            <z-input-message class="big" message="error message" status="error" htmlid="test-message" withrole=""></z-input-message>
           </div>
       </z-input>
     `);
@@ -282,7 +305,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
           </div>
       </z-input>
     `);
@@ -306,7 +329,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
           </div>
       </z-input>
     `);
@@ -331,7 +354,7 @@ describe("Suite test ZInput - text", () => {
                 <z-icon class="big input-icon" name="pdf"></z-icon>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
           </div>
       </z-input>
     `);
