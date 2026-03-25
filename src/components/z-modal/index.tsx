@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
 import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../beans";
 
@@ -15,7 +15,7 @@ const FOCUSABLE_ELEMENTS_SELECTOR =
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZModal {
+export class ZModal implements ComponentInterface {
   /** unique id */
   @Prop()
   modalid: string;

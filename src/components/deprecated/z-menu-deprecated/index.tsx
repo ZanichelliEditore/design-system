@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 
 /**
  * @slot - Menu label
@@ -11,7 +23,7 @@ import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watc
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenuDeprecated {
+export class ZMenuDeprecated implements ComponentInterface {
   @Element() hostElement: HTMLZMenuDeprecatedElement;
 
   /** Flag to set the active status of the menu. */

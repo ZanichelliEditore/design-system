@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {
   ButtonVariant,
   ControlSize,
@@ -21,7 +33,7 @@ import {getDevice, handleEnterKeydSubmit, randomId} from "../../utils/utils";
   styleUrls: ["styles.css", "../css-components/z-label/styles.css"],
   shadow: true,
 })
-export class ZSearchbar {
+export class ZSearchbar implements ComponentInterface {
   /** the id of the searchbar element */
   @Prop({reflect: true})
   htmlid = `searchbar-${randomId()}`;

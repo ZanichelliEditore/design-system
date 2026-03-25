@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {InputStatus} from "../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {InputStatus} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZOtp {
+export class ZOtp implements ComponentInterface {
   /** Input number */
   @Prop()
   inputNum?: number = 6;

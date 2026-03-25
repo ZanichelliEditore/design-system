@@ -1,11 +1,11 @@
-import {Component, Event, EventEmitter, Host, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Host, Prop, State, h} from "@stencil/core";
 
 @Component({
   tag: "z-dragdrop-area",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZDragdropArea {
+export class ZDragdropArea implements ComponentInterface {
   /** drag & drop button label */
   @Prop()
   dragAndDropLabel: string;

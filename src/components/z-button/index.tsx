@@ -1,4 +1,4 @@
-import {Component, Element, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Prop, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "../../beans";
 
@@ -11,7 +11,7 @@ import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "
   shadow: false,
   scoped: true,
 })
-export class ZButton {
+export class ZButton implements ComponentInterface {
   @Element() hostElement: HTMLZButtonElement;
 
   /** defines a string value that labels the internal interactive element. Used for accessibility. */

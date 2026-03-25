@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, h} from "@stencil/core";
 import {Action} from "../../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {Action} from "../../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardList {
+export class ZMyzCardList implements ComponentInterface {
   /** list data stringified array */
   @Prop()
   listdata: string;

@@ -1,4 +1,4 @@
-import {Component, Element, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Prop, State, Watch, h} from "@stencil/core";
 import {Device} from "../../../beans";
 import {convertJson, getDevice, handleKeyboardSubmit} from "../../../utils/utils";
 
@@ -20,7 +20,7 @@ function isStringArray(data: unknown): data is string[] {
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZSlideshow {
+export class ZSlideshow implements ComponentInterface {
   @Element() el: HTMLZSlideshowElement;
 
   /** slideshow id */

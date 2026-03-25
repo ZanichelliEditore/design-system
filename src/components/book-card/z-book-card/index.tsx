@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
@@ -21,7 +21,7 @@ import {BookCardVariant, ControlSize} from "../../../beans";
   styleUrls: ["styles.css", "../../../tokens/typography.css", "../../css-components/z-link/styles.css"],
   shadow: true,
 })
-export class ZBookCard {
+export class ZBookCard implements ComponentInterface {
   @Element() hostElement: HTMLZBookCardElement;
 
   /** Card variant: landscape, portrait */

@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
 import {KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 
 /**
@@ -13,7 +13,7 @@ import {KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
   shadow: false,
   scoped: true,
 })
-export class ZOffcanvas {
+export class ZOffcanvas implements ComponentInterface {
   /**
    * Offcanvas variant.
    * - `overlay`: The offcanvas covers the page content putting an overlay.

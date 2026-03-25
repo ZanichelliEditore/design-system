@@ -1,4 +1,4 @@
-import {Component, Element, h, Host, Prop, State} from "@stencil/core";
+import {Component, ComponentInterface, Element, h, Host, Prop, State} from "@stencil/core";
 import {ButtonVariant, ControlSize} from "../../beans";
 
 /**
@@ -21,7 +21,7 @@ import {ButtonVariant, ControlSize} from "../../beans";
   styleUrl: "styles.css",
   shadow: false,
 })
-export class ZAnchorNavigation {
+export class ZAnchorNavigation implements ComponentInterface {
   /**
    * If enabled, the text of each anchor will be hidden unless
    * for the current one or the one the user is hovering.

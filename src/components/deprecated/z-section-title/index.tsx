@@ -1,4 +1,4 @@
-import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {Component, ComponentInterface, Element, h, Host, Prop} from "@stencil/core";
 import {DividerSize, ZSectionTitleDividerPosition} from "../../../beans";
 
 /**
@@ -15,7 +15,7 @@ import {DividerSize, ZSectionTitleDividerPosition} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZSectionTitle {
+export class ZSectionTitle implements ComponentInterface {
   /**
    * Divider position for the primary title.
    * This prop only works if the secondary title is not set.

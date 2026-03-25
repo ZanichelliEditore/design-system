@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../../beans";
 
 import DOMPurify from "dompurify";
@@ -22,7 +22,7 @@ const SLIDE_OUT_TRANSITION_MAP = {
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZToastNotification {
+export class ZToastNotification implements ComponentInterface {
   @Element() hostElement: HTMLZToastNotificationElement;
 
   /** toast notification's title */

@@ -1,4 +1,15 @@
-import {Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h
+} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
 import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
 
@@ -8,7 +19,7 @@ import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from
   shadow: false,
   scoped: true,
 })
-export class ZSelect {
+export class ZSelect implements ComponentInterface {
   @Element() host: HTMLZSelectElement;
 
   /** the id of the input element */

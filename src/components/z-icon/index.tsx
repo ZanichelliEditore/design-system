@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 import {COLOR_INDICATOR_ICONS, ICONS} from "../../constants/iconset";
 
 /**
@@ -10,7 +10,7 @@ import {COLOR_INDICATOR_ICONS, ICONS} from "../../constants/iconset";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZIcon {
+export class ZIcon implements ComponentInterface {
   /** Icon name */
   @Prop()
   name: string;

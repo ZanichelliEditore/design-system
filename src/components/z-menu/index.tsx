@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -16,7 +29,7 @@ const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZM
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenu {
+export class ZMenu implements ComponentInterface {
   @Element() host: HTMLZMenuElement;
 
   /** Flag to set the active status of the menu. */

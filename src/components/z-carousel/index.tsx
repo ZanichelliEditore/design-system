@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
 
 /**
@@ -12,7 +12,7 @@ import {ButtonVariant, CarouselArrowsPosition, CarouselProgressMode} from "../..
   styleUrls: ["styles.css", "../../tokens/typography.css"],
   shadow: true,
 })
-export class ZCarousel {
+export class ZCarousel implements ComponentInterface {
   @Element() host: HTMLZCarouselElement;
 
   /** The z-carousel is on loading state */

@@ -1,4 +1,15 @@
-import {Component, Element, Event, EventEmitter, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 
 import flatpickr from "flatpickr";
 import {Italian} from "flatpickr/dist/l10n/it.js";
@@ -11,7 +22,7 @@ import {setAriaOptions, setFlatpickrPosition, validateDate} from "../utils";
   styleUrl: "../styles.css",
   shadow: false,
 })
-export class ZRangePicker {
+export class ZRangePicker implements ComponentInterface {
   @Element() element: HTMLZRangePickerElement;
 
   /** unique id */

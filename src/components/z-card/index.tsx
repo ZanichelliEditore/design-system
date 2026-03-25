@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, h} from "@stencil/core";
 import {CardVariant} from "../../beans";
 
 /**
@@ -23,7 +23,7 @@ import {CardVariant} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZCard {
+export class ZCard implements ComponentInterface {
   /**
    * Card variant.
    * Can be one of "text", "border", "shadow", "overlay".
