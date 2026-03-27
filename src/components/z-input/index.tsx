@@ -84,6 +84,10 @@ export class ZInput {
   @Prop()
   message?: string | boolean = true;
 
+  /** external input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value */
+  @Prop()
+  externalHelperId?: string;
+
   /** the input label position: available for checkbox, radio */
   @Prop()
   labelPosition?: LabelPosition = LabelPosition.RIGHT;
@@ -307,8 +311,16 @@ export class ZInput {
     return this.role ? {role: this.role} : {};
   }
 
+  private inputHasMessage(): boolean {
+    if (boolean(this.message) === false || boolean(this.message) === true) return false;
+    return true;
+  }
+
   private getAriaValidityAttributes() {
-    const ariaDescribedby = this.status === InputStatus.ERROR ? {"aria-describedby": `${this.htmlid}-message`} : {};
+    const ariaDescribedby =
+      this.externalHelperId || this.inputHasMessage()
+        ? {"aria-describedby": this.externalHelperId || `${this.htmlid}-message`}
+        : {};
     const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
     return {
       ...ariaDescribedby,
