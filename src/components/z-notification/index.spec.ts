@@ -15,7 +15,7 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" showclose="true" type="success">
+      <z-notification actiontext="Annulla" borderposition="bottom" contenticonname="gear" showclose="true" type="success">
         <mock:shadow-root>
           <z-icon
             class="status-icon"
@@ -47,7 +47,7 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification type="success">
+      <z-notification borderposition="bottom" type="success">
         <mock:shadow-root>
           <div class="content-container">
             <div class="content-text"><slot></slot></div>
@@ -70,7 +70,7 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" showclose="false" type="success">
+      <z-notification actiontext="Annulla" borderposition="bottom" contenticonname="gear" showclose="false" type="success">
         <mock:shadow-root>
           <z-icon
             class="status-icon"
