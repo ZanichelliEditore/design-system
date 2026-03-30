@@ -166,7 +166,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
+              <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message"/>
               <span class="icons-wrapper">
                 <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
@@ -189,7 +189,7 @@ describe("Suite test ZInput - text", () => {
           <div class="text-wrapper">
             <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
             <div>
-              <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
+              <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message"/>
               <span class="icons-wrapper">
                 <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
