@@ -85,7 +85,7 @@
 }
 
 .content-text {
-  max-width: 100%;
+  max-width: 1280px;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
