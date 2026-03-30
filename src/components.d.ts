@@ -1613,6 +1613,10 @@ export namespace Components {
          */
         "actiontext"?: string;
         /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
+        /**
           * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
@@ -5725,6 +5729,10 @@ declare namespace LocalJSX {
           * Action button text
          */
         "actiontext"?: string;
+        /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */

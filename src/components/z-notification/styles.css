@@ -6,7 +6,6 @@
   box-sizing: border-box;
   align-items: flex-start;
   padding: calc(var(--space-unit) * 2);
-  border-bottom: var(--border-size-medium) solid var(--color-surface03);
   font-family: var(--font-family-sans);
   outline: none;
 }
@@ -54,6 +53,14 @@
   fill: var(--color-default-error);
 }
 
+:host([borderposition="bottom"]) {
+  border-bottom: var(--border-size-medium) solid var(--color-surface03);
+}
+
+:host([borderposition="top"]) {
+  border-top: var(--border-size-medium) solid var(--color-surface03);
+}
+
 :host > button,
 .content-container > button {
   padding: 0;
@@ -78,7 +85,7 @@
 }
 
 .content-text {
-  max-width: 800px;
+  max-width: 100%;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);

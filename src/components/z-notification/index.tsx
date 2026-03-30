@@ -39,6 +39,10 @@ export class ZNotification {
   @Prop({reflect: true})
   sticky?: boolean = false;
 
+  /** Border position */
+  @Prop({reflect: true})
+  borderposition?: "top" | "bottom" = "bottom";
+
   /** Call to action clicked */
   @Event()
   notificationAction: EventEmitter;

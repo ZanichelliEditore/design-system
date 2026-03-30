@@ -45,6 +45,27 @@ export const Default = {
   `,
 } satisfies Story;
 
+/**
+ * To use the border top variant set the `borderposition` property to `top`.
+ */
+export const BorderTop = {
+  args: {
+    borderposition: "top",
+  },
+  render: (args) => html`
+    <z-notification
+      .contenticonname=${args.contenticonname}
+      .actiontext=${args.actiontext}
+      .type=${args.type}
+      .showclose=${args.showclose}
+      .sticky=${args.sticky}
+      .borderposition=${args.borderposition}
+    >
+      <div class="notification-container"><strong>NOVITÀ</strong>: Testo che descrive le novità.</div>
+    </z-notification>
+  `,
+} satisfies Story;
+
 export const LongText = {
   render: (args) => html`
     <z-notification
