@@ -1617,6 +1617,10 @@ export namespace Components {
          */
         "borderposition"?: "top" | "bottom";
         /**
+          * Center content in the page layout
+         */
+        "centered"?: boolean;
+        /**
           * Name of the icon on the left of the content
          */
         "contenticonname"?: string;
@@ -5733,6 +5737,10 @@ declare namespace LocalJSX {
           * Border position
          */
         "borderposition"?: "top" | "bottom";
+        /**
+          * Center content in the page layout
+         */
+        "centered"?: boolean;
         /**
           * Name of the icon on the left of the content
          */

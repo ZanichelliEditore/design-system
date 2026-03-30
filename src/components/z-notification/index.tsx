@@ -43,6 +43,10 @@ export class ZNotification {
   @Prop({reflect: true})
   borderposition?: "top" | "bottom" = "bottom";
 
+  /** Center content in the page layout */
+  @Prop({reflect: true})
+  centered?: boolean = false;
+
   /** Call to action clicked */
   @Event()
   notificationAction: EventEmitter;

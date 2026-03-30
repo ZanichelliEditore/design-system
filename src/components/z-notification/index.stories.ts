@@ -177,3 +177,21 @@ export const InlineVariant = {
     </div>
   `,
 } satisfies Story;
+
+export const Centered = {
+  args: {
+    centered: true,
+  },
+  render: (args) => html`
+    <z-notification
+      .contenticonname=${args.contenticonname}
+      .actiontext=${args.actiontext}
+      .type=${args.type}
+      .showclose=${args.showclose}
+      .sticky=${args.sticky}
+      .centered=${args.centered}
+    >
+      Questo è il testo della notifica
+    </z-notification>
+  `,
+} satisfies Story;

@@ -10,6 +10,14 @@
   outline: none;
 }
 
+:host([centered]) {
+  justify-content: center;
+}
+
+:host([centered]) .content-container {
+  max-width: 1280px;
+}
+
 :host([sticky]) {
   position: sticky;
   top: var(--z-notification--top-offset);

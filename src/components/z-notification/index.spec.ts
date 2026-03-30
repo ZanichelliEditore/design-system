@@ -87,4 +87,22 @@ describe("Suite test ZNotification", () => {
       </z-notification>
     `);
   });
+
+  it("Test render ZNotification with centered 'true'", async () => {
+    const page = await newSpecPage({
+      components: [ZNotification],
+      html: `<z-notification centered type="success">Testo della notifica</z-notification>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-notification borderposition="bottom" centered type="success">
+        <mock:shadow-root>
+          <div class="content-container">
+            <div class="content-text"><slot></slot></div>
+          </div>
+        </mock:shadow-root>
+        Testo della notifica
+      </z-notification>
+    `);
+  });
 });
