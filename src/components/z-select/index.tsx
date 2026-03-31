@@ -8,7 +8,7 @@ import {
   Prop,
   State,
   Watch,
-  h
+  h,
 } from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
 import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
