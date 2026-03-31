@@ -1,21 +1,19 @@
 :host {
   --z-notification--top-offset: 0;
+  --z-notification--content-max-width: 100%;
 
-  display: flex;
+  display: block;
   width: 100%;
-  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  max-width: var(--z-notification--content-max-width);
   align-items: flex-start;
   padding: calc(var(--space-unit) * 2);
+  margin: 0 auto;
+  background-color: transparent;
   font-family: var(--font-family-sans);
-  outline: none;
-}
-
-:host([centered]) {
-  justify-content: center;
-}
-
-:host([centered]) .content-container {
-  max-width: 1280px;
 }
 
 :host([sticky]) {
@@ -69,8 +67,7 @@
   border-top: var(--border-size-medium) solid var(--color-surface03);
 }
 
-:host > button,
-.content-container > button {
+button {
   padding: 0;
   border: none;
   margin: 0;
@@ -93,7 +90,6 @@
 }
 
 .content-text {
-  max-width: 1280px;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);

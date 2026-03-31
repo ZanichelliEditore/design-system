@@ -5,6 +5,7 @@ import {NotificationType} from "../../beans";
  * Notification bar component.
  * @slot - The text of the notification.
  * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+ * @cssprop --z-notification--content-max-width - The max width of the notification content.
  */
 @Component({
   tag: "z-notification",
@@ -43,10 +44,6 @@ export class ZNotification {
   @Prop({reflect: true})
   borderposition?: "top" | "bottom" = "bottom";
 
-  /** Center content in the page layout */
-  @Prop({reflect: true})
-  centered?: boolean = false;
-
   /** Call to action clicked */
   @Event()
   notificationAction: EventEmitter;
@@ -73,41 +70,43 @@ export class ZNotification {
   render(): HTMLZNotificationElement {
     return (
       <Host>
-        {this.contenticonname && (
-          <z-icon
-            class="status-icon"
-            name={this.contenticonname}
-            width={16}
-            height={16}
-          />
-        )}
-        <div class="content-container">
-          <div class="content-text">
-            <slot></slot>
-          </div>
-          {!!this.actiontext?.trim() && (
-            <button
-              class="action-button"
-              type="button"
-              onClick={this.handleActionButtonClick}
-            >
-              {this.actiontext}
-            </button>
-          )}
-        </div>
-        {this.showclose && (
-          <button
-            class="close-button"
-            type="button"
-            onClick={this.handleCloseButtonClick}
-          >
+        <div class="main-container">
+          {this.contenticonname && (
             <z-icon
-              name="multiply-circle"
+              class="status-icon"
+              name={this.contenticonname}
               width={16}
               height={16}
             />
-          </button>
-        )}
+          )}
+          <div class="content-container">
+            <div class="content-text">
+              <slot></slot>
+            </div>
+            {!!this.actiontext?.trim() && (
+              <button
+                class="action-button"
+                type="button"
+                onClick={this.handleActionButtonClick}
+              >
+                {this.actiontext}
+              </button>
+            )}
+          </div>
+          {this.showclose && (
+            <button
+              class="close-button"
+              type="button"
+              onClick={this.handleCloseButtonClick}
+            >
+              <z-icon
+                name="multiply-circle"
+                width={16}
+                height={16}
+              />
+            </button>
+          )}
+        </div>
       </Host>
     );
   }
