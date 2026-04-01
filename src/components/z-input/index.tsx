@@ -312,16 +312,21 @@ export class ZInput {
   }
 
   private inputHasMessage(): boolean {
-    if (boolean(this.message) === false || boolean(this.message) === true) return false;
+    if (boolean(this.message) === false || boolean(this.message) === true) {
+      return false;
+    }
+
     return true;
   }
 
-  private getAriaValidityAndMessageAttributes() {
+  private getAriaValidityAndMessageAttributes(): Record<string, string> {
     const ariaDescribedby =
       this.externalHelperId || this.inputHasMessage()
         ? {"aria-describedby": this.externalHelperId || `${this.htmlid}-message`}
         : {};
+
     const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+
     return {
       ...ariaDescribedby,
       ...ariaInvalid,

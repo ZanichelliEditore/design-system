@@ -14,7 +14,7 @@ export class ZInputMessage {
 
   /** the id of the message element (optional)*/
   @Prop()
-  htmlid?: string;
+  htmlid?: string = `id-${randomId()}`;
 
   /** set role=alert if the message and the status are populated (optional)*/
   @Prop()
@@ -52,7 +52,7 @@ export class ZInputMessage {
       <Host {...this.statusRole}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span
-          id={!!this.htmlid ? this.htmlid : `id-${randomId()}`}
+          id={this.htmlid}
           innerHTML={this.message}
         />
       </Host>
