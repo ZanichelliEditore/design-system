@@ -316,7 +316,7 @@ export class ZInput {
     return true;
   }
 
-  private getAriaValidityAttributes() {
+  private getAriaValidityAndMessageAttributes() {
     const ariaDescribedby =
       this.externalHelperId || this.inputHasMessage()
         ? {"aria-describedby": this.externalHelperId || `${this.htmlid}-message`}
@@ -341,7 +341,7 @@ export class ZInput {
       ...controls,
       ...autocomplete,
       ...activedescendant,
-      ...this.getAriaValidityAttributes(),
+      ...this.getAriaValidityAndMessageAttributes(),
     };
   }
 
@@ -492,7 +492,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
-    const ariaAttributes = this.getAriaValidityAttributes();
+    const ariaAttributes = this.getAriaValidityAndMessageAttributes();
 
     return (
       <Fragment>
