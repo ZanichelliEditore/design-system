@@ -50,11 +50,18 @@
 }
 
 .main-content .card-info {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
   gap: var(--space-unit);
+}
+
+.main-content .card-info .cta-slot {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .main-content .card-info .top {
