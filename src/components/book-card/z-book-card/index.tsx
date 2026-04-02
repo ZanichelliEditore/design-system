@@ -150,14 +150,11 @@ export class ZBookCard {
     }
 
     return (
-      <div class="cta-wrapper">
-        <div
-          class="authors ellipsis body-4"
-          aria-description="autori"
-        >
-          {this.authors}
-        </div>
-        {this.variant === BookCardVariant.LANDSCAPE ? this.renderCtaSlot() : null}
+      <div
+        class="authors ellipsis body-4"
+        aria-description="autori"
+      >
+        {this.authors}
       </div>
     );
   }
@@ -188,7 +185,6 @@ export class ZBookCard {
         ) : (
           operaTitle
         )}
-        {this.variant === BookCardVariant.PORTRAIT ? this.renderCtaSlot() : null}
       </div>
     );
   }
@@ -261,6 +257,7 @@ export class ZBookCard {
               <slot name="tags"></slot>
               <slot name="data"></slot>
             </div>
+            <div class="cta-slot">{this.renderCtaSlot()}</div>
             <slot name="ebook">{!!this.ebookUrl && <div class="bottom">{this.renderEbook()}</div>}</slot>
           </div>
         </div>
