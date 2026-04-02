@@ -255,22 +255,25 @@ export class ZInput {
   /* START text/password/email/number */
 
   private getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+    const describedbyId = boolean(this.message) !== false && this.message ? `${this.htmlid}_message` : undefined;
+
     return {
-      id: this.htmlid,
-      name: this.name,
-      placeholder: this.placeholder,
-      value: this.value,
-      disabled: this.disabled,
-      readonly: this.readonly,
-      required: this.required,
-      title: this.htmltitle,
-      minlength: this.minlength,
-      maxlength: this.maxlength,
-      class: {
+      "id": this.htmlid,
+      "name": this.name,
+      "placeholder": this.placeholder,
+      "value": this.value,
+      "disabled": this.disabled,
+      "readonly": this.readonly,
+      "required": this.required,
+      "title": this.htmltitle,
+      "minlength": this.minlength,
+      "maxlength": this.maxlength,
+      "class": {
         [`input-${this.status}`]: !!this.status,
       },
-      autocomplete: this.autocomplete,
-      onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
+      "autocomplete": this.autocomplete,
+      "aria-describedby": describedbyId,
+      "onInput": (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
     };
   }
 
@@ -371,7 +374,7 @@ export class ZInput {
 
     return (
       <label
-        class="z-label body-5-sb"
+        class="input-label body-5-sb"
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
       >
@@ -454,6 +457,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        id={`${this.htmlid}_message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
