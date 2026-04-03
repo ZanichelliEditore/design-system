@@ -12,18 +12,21 @@ jobs:
   build-deploy:
     name: Build and deploy storybook
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
       - uses: actions/checkout@v4
       - name: Enable Corepack
         run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: yarn.lock
       - name: Install dependencies
-        run: |
-          yarn cache clean
-          yarn install --immutable
+        run: yarn install --immutable
       - name: Build Storybook
         run: yarn build-storybook
       - name: Deploy

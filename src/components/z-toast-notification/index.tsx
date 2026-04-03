@@ -4,6 +4,14 @@ import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../.
 import DOMPurify from "dompurify";
 import Hammer from "hammerjs";
 
+/** Map of slide-in transitions to their corresponding slide-out transitions */
+const SLIDE_OUT_TRANSITION_MAP = {
+  [ToastNotificationTransition.SLIDE_IN_DOWN]: ToastNotificationTransition.SLIDE_OUT_UP,
+  [ToastNotificationTransition.SLIDE_IN_UP]: ToastNotificationTransition.SLIDE_OUT_DOWN,
+  [ToastNotificationTransition.SLIDE_IN_LEFT]: ToastNotificationTransition.SLIDE_OUT_RIGHT,
+  [ToastNotificationTransition.SLIDE_IN_RIGHT]: ToastNotificationTransition.SLIDE_OUT_LEFT,
+};
+
 /**
  * ZToastNotification component.
  * @slot message - Custom HTML message
@@ -56,6 +64,14 @@ export class ZToastNotification {
   @State()
   percentage: number;
 
+  /** Indicates if the toast notification has a slotted button. */
+  @State()
+  hasSlottedButton: boolean;
+
+  /** notification close event */
+  @Event()
+  toastClose: EventEmitter;
+
   private sliderManager: HammerManager;
 
   private elapsedTime: number;
@@ -92,41 +108,18 @@ export class ZToastNotification {
     }
   }
 
-  /** notification close event */
-  @Event()
-  toastClose: EventEmitter;
-
-  private emitToastClose(cssClass: string, stopTimer: boolean): void {
+  private close(closingTransition: string, stopTimer: boolean): void {
     if (stopTimer && this.timeoutHandle) {
       clearTimeout(this.timeoutHandle);
     }
     this.timeoutHandle = null;
     this.elapsedTime = null;
     this.toastClose.emit();
-    if (cssClass) {
-      this.hostElement.classList.add(cssClass);
+    if (closingTransition) {
+      this.hostElement.classList.add(closingTransition);
     } else {
       this.hostElement.parentNode.removeChild(this.hostElement);
     }
-  }
-
-  componentWillLoad(): void {
-    this.validateAutoclose();
-    this.percentage = 0;
-  }
-
-  componentDidLoad(): void {
-    this.startTime = Date.now();
-    if (this.autoclose) {
-      if (this.pauseonfocusloss) {
-        document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
-      }
-      if (!this.transition) {
-        this.startClosingTimeout(this.autoclose);
-      }
-    }
-
-    this.isdraggable && this.handleSlideOutDragAnimation();
   }
 
   private visibilityChangeEventHandler(): void {
@@ -140,21 +133,6 @@ export class ZToastNotification {
   private validateAutoclose(): void {
     if (!this.autoclose && !this.closebutton) {
       console.error("At least one between autoclose and closebutton must be present");
-    }
-  }
-
-  private mapSlideOutClass(): ToastNotificationTransition {
-    switch (this.transition) {
-      case ToastNotificationTransition.SLIDE_IN_DOWN:
-        return ToastNotificationTransition.SLIDE_OUT_UP;
-      case ToastNotificationTransition.SLIDE_IN_UP:
-        return ToastNotificationTransition.SLIDE_OUT_DOWN;
-      case ToastNotificationTransition.SLIDE_IN_LEFT:
-        return ToastNotificationTransition.SLIDE_OUT_RIGHT;
-      case ToastNotificationTransition.SLIDE_IN_RIGHT:
-        return ToastNotificationTransition.SLIDE_OUT_LEFT;
-      default:
-        return null;
     }
   }
 
@@ -186,7 +164,12 @@ export class ZToastNotification {
         this.hostElement.style.transform = translateObj.translate;
         if (Math.abs(this.percentage) > this.draggablepercentage && !this.isCloseEventCalled) {
           this.isCloseEventCalled = true;
-          this.emitToastClose(e.direction === Hammer.DIRECTION_LEFT ? "slide-out-left" : "slide-out-right", true);
+          this.close(
+            e.direction === Hammer.DIRECTION_LEFT
+              ? ToastNotificationTransition.SLIDE_OUT_LEFT
+              : ToastNotificationTransition.SLIDE_OUT_RIGHT,
+            true
+          );
         }
       }
 
@@ -215,55 +198,38 @@ export class ZToastNotification {
   }
 
   private startClosingTimeout(time: number): void {
-    this.timeoutHandle = window.setTimeout(() => this.emitToastClose(this.mapSlideOutClass(), false), time);
+    this.timeoutHandle = window.setTimeout(() => this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], false), time);
   }
 
-  private renderContent(): HTMLDivElement {
-    return (
-      <div
-        id="external-container"
-        tabIndex={0}
-        class={{[this.type]: !!this.type}}
-      >
-        <div id="inner-container">
-          <div id="text">
-            {this.heading && <span class="title">{this.heading}</span>}
-            <span class="message">
-              <slot name="message">
-                <span innerHTML={DOMPurify.sanitize(this.message || " ")} />
-              </slot>
-            </span>
-          </div>
-          <div id="button">
-            <slot name="button" />
-          </div>
-        </div>
-        <div id="icon">
-          {this.closebutton && (
-            <z-icon
-              tabIndex={0}
-              name="multiply-circled"
-              width={15}
-              height={15}
-              onClick={() => this.emitToastClose(this.mapSlideOutClass(), true)}
-              onKeyPress={(e) => {
-                if (e.code == KeyboardCode.SPACE || e.code == KeyboardCode.ENTER) {
-                  e.preventDefault();
-                  this.emitToastClose(this.mapSlideOutClass(), true);
-                }
-              }}
-            />
-          )}
-        </div>
-      </div>
-    );
+  private checkSlottedButton(): void {
+    this.hasSlottedButton = !!this.hostElement.querySelector("[slot='button']");
+  }
+
+  componentWillLoad(): void {
+    this.validateAutoclose();
+    this.checkSlottedButton();
+    this.percentage = 0;
+  }
+
+  componentDidLoad(): void {
+    this.startTime = Date.now();
+    if (this.autoclose) {
+      if (this.pauseonfocusloss) {
+        document.addEventListener("visibilitychange", this.visibilityChangeEventHandler);
+      }
+      if (!this.transition) {
+        this.startClosingTimeout(this.autoclose);
+      }
+    }
+
+    this.isdraggable && this.handleSlideOutDragAnimation();
   }
 
   render(): HTMLZToastNotificationElement {
     return (
       <Host
         style={{"--percentuale": `${this.percentage}%`}}
-        class={this.transition ? this.transition : ""}
+        class={{[this.transition]: !!this.transition, [this.type]: !!this.type}}
         onAnimationEnd={(e: AnimationEvent) => {
           if (this.autoclose && e.animationName.includes("slidein")) {
             this.startClosingTimeout(this.autoclose);
@@ -273,7 +239,40 @@ export class ZToastNotification {
           }
         }}
       >
-        {this.renderContent()}
+        <div class="toast-notification-container">
+          <div class="toast-notification-content">
+            <div class="toast-notification-text">
+              {this.heading && <span class="title">{this.heading}</span>}
+              <span class="message">
+                <slot name="message">{this.message && <span innerHTML={DOMPurify.sanitize(this.message)} />}</slot>
+              </span>
+            </div>
+            <div
+              class="button-container"
+              hidden={!this.hasSlottedButton}
+            >
+              <slot
+                name="button"
+                onSlotchange={() => this.checkSlottedButton()}
+              />
+            </div>
+          </div>
+          {this.closebutton && (
+            <button
+              class="close-button"
+              aria-label="Chiudi notifica"
+              onClick={() => this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true)}
+              onKeyDown={(e) => {
+                if (e.code == KeyboardCode.SPACE || e.code == KeyboardCode.ENTER) {
+                  e.preventDefault();
+                  this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true);
+                }
+              }}
+            >
+              <z-icon name="multiply-circled" />
+            </button>
+          )}
+        </div>
       </Host>
     );
   }

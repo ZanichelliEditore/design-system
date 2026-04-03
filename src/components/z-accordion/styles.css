@@ -177,6 +177,8 @@ summary z-icon.z-accordion-chevron {
 
 :host([variant="background"]) .z-accordion-content {
   padding-right: calc(var(--space-unit) * 2);
+  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
+  border-bottom-right-radius: calc(var(--border-radius) - var(--border-size-small));
 }
 
 :host([is-disabled]) .z-accordion-label {
@@ -223,38 +225,4 @@ summary z-icon.z-accordion-chevron {
     --z-icon-width: 18px;
     --z-icon-height: 18px;
   }
-}
-
-/* Style for sibling accordions in a stack context */
-
-z-accordion + z-accordion {
-  border-top: none;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"] {
-  border-radius: 0;
-}
-
-z-accordion[variant="background"]:first-of-type:not(:last-of-type) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type {
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-}
-
-z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary) {
-  border-radius: 0;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary) {
-  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
-  border-bottom-right-radius: calc(var(--border-radius) - var(--border-size-small));
 }

@@ -2,10 +2,13 @@ import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZNotification} from ".";
 import {NotificationType} from "../../beans";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
 import "./index";
 import "./index.stories.css";
 
-type ZNotificationStoriesArgs = ZNotification & {notificationText: string};
+type ZNotificationStoriesArgs = ZNotification & {
+  notificationText: string;
+} & CSSVarsArguments<"--z-notification--content-max-width">;
 
 const StoryMeta = {
   title: "ZNotification",
@@ -19,11 +22,12 @@ const StoryMeta = {
     },
   },
   args: {
-    contenticonname: "checkmark-circle-filled",
-    actiontext: "Annulla",
-    showclose: false,
-    sticky: false,
-    type: NotificationType.SUCCESS,
+    "--z-notification--content-max-width": "100%",
+    "contenticonname": "checkmark-circle-filled",
+    "actiontext": "Annulla",
+    "showclose": false,
+    "sticky": false,
+    "type": NotificationType.SUCCESS,
   },
 } satisfies Meta<ZNotificationStoriesArgs>;
 
@@ -39,6 +43,29 @@ export const Default = {
       .type=${args.type}
       .showclose=${args.showclose}
       .sticky=${args.sticky}
+      style="--z-notification--content-max-width: ${args["--z-notification--content-max-width"]}"
+    >
+      <div class="notification-container"><strong>NOVITÀ</strong>: Testo che descrive le novità.</div>
+    </z-notification>
+  `,
+} satisfies Story;
+
+/**
+ * To use the border top variant set the `borderposition` property to `top`.
+ */
+export const BorderTop = {
+  args: {
+    borderposition: "top",
+  },
+  render: (args) => html`
+    <z-notification
+      .contenticonname=${args.contenticonname}
+      .actiontext=${args.actiontext}
+      .type=${args.type}
+      .showclose=${args.showclose}
+      .sticky=${args.sticky}
+      .borderposition=${args.borderposition}
+      style="--z-notification--content-max-width: ${args["--z-notification--content-max-width"]}"
     >
       <div class="notification-container"><strong>NOVITÀ</strong>: Testo che descrive le novità.</div>
     </z-notification>
@@ -53,6 +80,7 @@ export const LongText = {
       .type=${args.type}
       .showclose=${args.showclose}
       .sticky=${args.sticky}
+      style="--z-notification--content-max-width: ${args["--z-notification--content-max-width"]}"
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum.
       Curabitur volutpat mi purus, in maximus nisl volutpat quis. Suspendisse sed vestibulum magna. Quisque molestie,
@@ -82,6 +110,7 @@ export const BannerVariant = {
         .type=${args.type}
         .showclose=${args.showclose}
         sticky="true"
+        style="--z-notification--content-max-width: ${args["--z-notification--content-max-width"]}"
       >
         ${args.notificationText}
       </z-notification>
@@ -143,6 +172,7 @@ export const InlineVariant = {
         type=${args.type}
         showclose=${args.showclose}
         sticky="false"
+        style="--z-notification--content-max-width: ${args["--z-notification--content-max-width"]}"
       >
         ${args.notificationText}
       </z-notification>

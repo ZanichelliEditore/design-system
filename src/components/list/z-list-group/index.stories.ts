@@ -43,6 +43,7 @@ const StoryMeta = {
     dividerSize: DividerSize.SMALL,
     dividerColor: "gray200",
     listType: ListType.NONE,
+    role: "group",
   },
 } satisfies Meta<ZListGroup>;
 export default StoryMeta;
@@ -56,6 +57,7 @@ export const Default = {
         divider-size=${args.dividerSize}
         divider-color=${args.dividerColor}
         list-type=${args.listType}
+        role=${args.role}
       >
         <div slot="header-title">Gruppo 1</div>
         <z-list-element
@@ -89,6 +91,7 @@ export const Default = {
         divider-size=${args.dividerSize}
         divider-color=${args.dividerColor}
         list-type=${args.listType}
+        role=${args.role}
       >
         <div slot="header-title">Gruppo 1</div>
         <z-list-element

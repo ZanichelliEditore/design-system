@@ -1,6 +1,6 @@
-import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, getClickedElement, getElementTree, randomId} from "../../utils/utils";
+import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -17,7 +17,7 @@ export class ZSelect {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | string;
+  items: SelectItem[] | string = [];
 
   /** the input name */
   @Prop()
@@ -99,13 +99,7 @@ export class ZSelect {
   @State()
   searchString: null | string;
 
-  private flattenedList: {item: SelectItem; key: number}[] = [];
-
   private itemsList: SelectItem[] = [];
-
-  private itemIdKeyMap: Record<string, number> = {};
-
-  private readonly resetKey = -1;
 
   constructor() {
     this.toggleSelectUl = this.toggleSelectUl.bind(this);
@@ -117,11 +111,6 @@ export class ZSelect {
     this.itemsList = this.getInitialItemsArray();
 
     this.selectedItem = this.findSelectedItem(this.itemsList);
-  }
-
-  @Listen("ariaDescendantFocus")
-  getFocusedItemHandler(e: CustomEvent): void {
-    this.focusedItemId = (e.target as Element).id;
   }
 
   /** get the input selected options */
@@ -180,7 +169,6 @@ export class ZSelect {
 
   componentWillRender(): void {
     this.filterItems(this.searchString);
-    this.updateFlattenedList();
   }
 
   private getInitialItemsArray(): SelectItem[] {
@@ -190,18 +178,32 @@ export class ZSelect {
   private mapSelectedItemToItemsArray(): SelectItem[] {
     const initialItemsList = this.getInitialItemsArray();
 
-    return initialItemsList.map((item: SelectItem) => {
-      item.selected = item.id === this.selectedItem?.id;
+    this.updateSelection(initialItemsList, this.selectedItem?.id);
 
-      return item;
-    });
+    return initialItemsList;
   }
 
   private getSelectedValue(): string {
     return this.selectedItem?.id;
   }
 
+  private getOptionId(item: SelectItem): string {
+    return `${this.htmlid}_key_${item.id}`;
+  }
+
+  private getResetOptionId(): string {
+    return `${this.htmlid}_key_reset`;
+  }
+
+  private getItemIdFromOptionId(optionId: string): string {
+    return optionId.replace(`${this.htmlid}_key_`, ``);
+  }
+
   private getGroupedItems(): [string, SelectItem[]][] {
+    if (!this.itemsList.length) {
+      return [];
+    }
+
     return Object.entries(
       this.itemsList.reduce(
         (group, item) => {
@@ -216,29 +218,16 @@ export class ZSelect {
     );
   }
 
-  private updateFlattenedList(): void {
-    let orderedItems = this.itemsList;
-    if (this.hasGroupItems) {
-      orderedItems = this.getGroupedItems()
-        .map((item) => item[1])
-        .flat();
-    }
-
-    this.flattenedList = this.flattenTreeItems(orderedItems);
-    this.itemIdKeyMap = {};
-    this.flattenedList.forEach(({item, key}) => {
-      this.itemIdKeyMap[item.id] = key;
-    });
-  }
-
   private filterItems(searchString: string): void {
-    const prevList = this.mapSelectedItemToItemsArray();
+    let prevList = this.mapSelectedItemToItemsArray();
 
     if (!searchString?.length) {
       this.itemsList = prevList;
 
       return;
     }
+
+    prevList = prevList.map((item) => ({...item, name: getPlainText(item.name)}));
 
     if (this.hasTreeItems) {
       this.itemsList = this.filterTree(prevList, searchString, false);
@@ -264,7 +253,11 @@ export class ZSelect {
 
         const newItem: SelectItem = {...item};
         if (newItem.children && newItem.children.length > 0) {
-          newItem.children = this.filterTree(newItem.children, searchString, match);
+          newItem.children = this.filterTree(
+            newItem.children.map((item) => ({...item, name: getPlainText(item.name)})),
+            searchString,
+            match
+          );
         }
 
         if (match) {
@@ -356,29 +349,40 @@ export class ZSelect {
     }
   }
 
-  private flattenTreeItems(items: SelectItem[]): {item: SelectItem; key: number}[] {
-    const flatItems: {item: SelectItem; key: number}[] = [];
-    let index = 0;
-
-    const flatten = (subItems: SelectItem[], disabledAncestor?: boolean): void => {
-      subItems.forEach((itm) => {
-        const isDisabled = itm.disabled || disabledAncestor;
-        flatItems.push({item: {...itm, disabled: isDisabled}, key: index++});
-        if (itm.children && itm.children.length > 0) {
-          flatten(itm.children, isDisabled);
-        }
-      });
-    };
-
-    if (items) {
-      flatten(items);
-    }
-
-    return flatItems;
+  private handleResetClick(): void {
+    this.selectedItem = null;
+    this.searchString = null;
+    this.focusedItemId = "";
+    this.emitResetSelect();
+    this.toggleSelectUl();
   }
 
-  private arrowsSelectNav(e: KeyboardEvent, idOrReset: string | number): void {
-    const showResetIcon = this.resetItem && !!this.selectedItem;
+  private handleInputKeyDown(e: KeyboardEvent): void {
+    switch (e.code as KeyboardCode) {
+      case KeyboardCode.ENTER:
+      case KeyboardCode.SPACE:
+        if (this.focusedItemId) {
+          if (this.focusedItemId === this.getResetOptionId()) {
+            this.handleResetClick();
+          } else {
+            const itemId = this.getItemIdFromOptionId(this.focusedItemId);
+            const item = this.itemsList.find((e) => e.id === itemId) || null;
+            if (item) {
+              this.selectedItem = item;
+              this.emitOptionSelect();
+              this.toggleSelectUl();
+            }
+          }
+        }
+        break;
+      case KeyboardCode.ARROW_DOWN:
+      case KeyboardCode.ARROW_UP:
+        this.arrowsSelectNav(e);
+        break;
+    }
+  }
+
+  private arrowsSelectNav(e: KeyboardEvent): void {
     const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
 
     if (!arrows.includes(e.key as KeyboardCode)) {
@@ -388,54 +392,44 @@ export class ZSelect {
     e.preventDefault();
     e.stopPropagation();
 
-    const flatItems = [...this.flattenedList].filter((f) => !f.item.disabled);
+    const currElem = this.focusedItemId ? this.host.querySelector(`#${this.focusedItemId}`) : null;
+    const options = Array.from(this.host.querySelectorAll('[role="option"]'));
 
-    if (this.resetItem && showResetIcon) {
-      flatItems.unshift({
-        item: {id: "__RESET_ITEM__"} as SelectItem,
-        key: this.resetKey,
-      });
-    }
-
-    if (!flatItems.length) {
+    if (!options.length) {
       return;
     }
 
-    let currentIndex: number;
-    if (typeof idOrReset === "number") {
-      currentIndex = flatItems.findIndex((f) => f.key === idOrReset);
-    } else {
-      const k = this.itemIdKeyMap[idOrReset];
-      currentIndex = flatItems.findIndex((f) => f.key === k);
-    }
+    const currElemIndex = currElem ? options.indexOf(currElem) : null;
+    const firstElemIndex = 0;
+    const lastElemIndex = options.length - 1;
 
     if (!this.isOpen) {
       this.toggleSelectUl();
 
-      if (currentIndex === -1) {
-        currentIndex = -1;
+      if (this.selectedItem) {
+        this.focusSelectItem(this.getOptionId(this.selectedItem));
+
+        return;
       }
     }
 
-    const lastIndex = flatItems.length - 1;
-
-    let newIndex = currentIndex;
-
-    if (e.key === KeyboardCode.ARROW_DOWN) {
-      do {
-        newIndex = newIndex === lastIndex ? 0 : newIndex + 1;
-      } while (flatItems[newIndex].item.disabled);
-    } else {
-      do {
-        newIndex = newIndex <= 0 ? lastIndex : newIndex - 1;
-      } while (flatItems[newIndex].item.disabled);
+    let nextElem = null;
+    if (e.code === KeyboardCode.ARROW_DOWN) {
+      nextElem =
+        currElemIndex === null ? options[firstElemIndex] : options[currElemIndex + 1] || options[lastElemIndex];
+    } else if (e.code === KeyboardCode.ARROW_UP) {
+      nextElem =
+        currElemIndex === null ? options[lastElemIndex] : options[currElemIndex - 1] || options[firstElemIndex];
     }
 
-    this.focusSelectItem(flatItems[newIndex].key);
+    this.focusSelectItem(nextElem.id);
   }
 
-  private focusSelectItem(key: number): void {
-    this.host.querySelector<HTMLDivElement>(`#${this.htmlid}_key_${key}`)?.focus();
+  private focusSelectItem(optionId: string): void {
+    this.focusedItemId = optionId;
+    const elem = this.host.querySelector(`#${optionId}`);
+    // @ts-expect-error 'container' does not exist in type 'ScrollIntoViewOptions'
+    elem.scrollIntoView({block: "nearest", container: "nearest"});
   }
 
   private toggleSelectUl(selfFocusOnClose = false): void {
@@ -474,18 +468,18 @@ export class ZSelect {
   }
 
   private handleSelectFocus(e: MouseEvent | KeyboardEvent): void {
-    const clickedElement = getClickedElement();
-    if (clickedElement?.hasAttribute("disabled")) {
-      return;
-    }
-
     if (e instanceof KeyboardEvent && e.key === KeyboardCode.ESC) {
       e.stopPropagation();
 
       return this.toggleSelectUl(true);
     }
 
-    if (e instanceof KeyboardEvent && (e.key === KeyboardCode.ENTER || e.key !== KeyboardCode.TAB)) {
+    if (e instanceof KeyboardEvent && e.key !== KeyboardCode.TAB) {
+      return;
+    }
+
+    const clickedElement = getClickedElement();
+    if (clickedElement?.hasAttribute("disabled")) {
       return;
     }
 
@@ -494,21 +488,37 @@ export class ZSelect {
         (elem: HTMLElement) => elem.nodeName.toLowerCase() === "z-input" && elem.id === `${this.htmlid}_input`
       )
     ) {
-      this.toggleSelectUl(true);
+      const zSelect = getElementTree(clickedElement).find((e) => e.nodeName === "Z-SELECT");
+      this.toggleSelectUl(zSelect === this.host);
     }
   }
 
   private scrollToLetter(letter: string): void {
-    const foundItem = this.itemsList.findIndex(
+    if (!this.itemsList.length) {
+      return;
+    }
+
+    const foundItem = this.itemsList.find(
       (item: SelectItem) => item.name.toLowerCase().charAt(0) === letter.toLowerCase()
     );
-    if (foundItem > -1) {
-      this.focusSelectItem(this.itemIdKeyMap[this.itemsList[foundItem].id]);
+    if (foundItem) {
+      if (!this.isOpen) {
+        this.toggleSelectUl();
+      }
+      this.focusSelectItem(this.getOptionId(foundItem));
     }
   }
 
-  private renderInput(): HTMLZInputElement {
-    return (
+  private renderInput(): HTMLElement[] {
+    let value = null;
+    if (this.selectedItem) {
+      value = getPlainText(this.selectedItem.name);
+    }
+    if (this.isOpen && this.searchString !== undefined) {
+      value = this.searchString;
+    }
+
+    return [
       <z-input
         class={{
           "active-select": this.isOpen,
@@ -517,14 +527,10 @@ export class ZSelect {
         id={`${this.htmlid}_input`}
         htmlid={`${this.htmlid}_select_input`}
         placeholder={this.placeholder}
-        value={!this.isOpen && this.selectedItem ? this.selectedItem.name.replace(/<[^>]+>/g, "") : null}
+        value={value}
         label={this.label}
         autocomplete="off"
         aria-label={this.ariaLabel}
-        html-aria-expanded={this.isOpen ? "true" : "false"}
-        html-aria-controls={`${this.htmlid}_list`}
-        html-aria-autocomplete={this.hasAutocomplete() ? "list" : "none"}
-        html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={false}
         message={false}
@@ -532,39 +538,23 @@ export class ZSelect {
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
         status={this.isOpen ? undefined : this.status}
-        role="combobox"
         size={this.size}
-        onClick={(e: MouseEvent) => {
-          this.handleInputClick(e);
-        }}
-        onKeyUp={(e: KeyboardEvent) => {
-          e.preventDefault();
-          if (this.hasAutocomplete()) {
-            if (!this.isOpen) {
-              this.toggleSelectUl();
-            }
-          }
-        }}
-        onKeyDown={(e: KeyboardEvent) => {
-          const current = this.selectedItem
-            ? this.itemIdKeyMap[this.selectedItem.id]
-            : this.resetItem
-              ? this.resetKey
-              : "";
-
-          return this.arrowsSelectNav(e, current);
-        }}
-        onInputChange={(e: CustomEvent) => {
-          this.handleInputChange(e);
-        }}
+        role="combobox"
+        html-aria-expanded={this.isOpen ? "true" : "false"}
+        html-aria-controls={`${this.htmlid}_list`}
+        html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
+        html-aria-autocomplete={this.hasAutocomplete() ? "list" : undefined}
+        onClick={(e: MouseEvent) => this.handleInputClick(e)}
+        onKeyDown={(e: KeyboardEvent) => this.handleInputKeyDown(e)}
+        onInputChange={(e: CustomEvent) => this.handleInputChange(e)}
         onKeyPress={(e: KeyboardEvent) => {
           if (!this.hasAutocomplete()) {
             e.preventDefault();
             this.scrollToLetter(e.key);
           }
         }}
-      />
-    );
+      />,
+    ];
   }
 
   private renderSelectUl(): HTMLDivElement {
@@ -599,33 +589,33 @@ export class ZSelect {
   }
 
   private renderResetItem(): HTMLZListElementElement {
+    const hidden = !this.selectedItem || !this.resetItem;
+
     return (
       <z-list-element
         class={{
-          "hide": !this.selectedItem || !this.resetItem,
+          "hide": hidden,
           "reset-item": true,
           "reset-item-margin": !this.hasGroupItems,
         }}
         clickable={true}
         disabled={false}
         dividerType={ListDividerType.ELEMENT}
-        role="option"
+        role={hidden ? "presentation" : "option"}
         html-tabindex={0}
         aria-selected="false"
-        id={`${this.htmlid}_key_${this.resetKey}`}
+        aria-label={hidden ? undefined : this.resetItem}
+        id={this.getResetOptionId()}
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
-        onClickItem={() => {
-          this.selectedItem = null;
-          this.searchString = null;
-          this.emitResetSelect();
-        }}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, this.resetKey)}
+        onClickItem={() => this.handleResetClick()}
       >
         <div
           class={{
             "reset-item-content": true,
             "tree-list-reset-item": this.hasTreeItems,
+            "active": this.focusedItemId === this.getResetOptionId(),
           }}
+          aria-hidden="true"
         >
           <z-icon name="multiply-circled" />
           <span>{this.resetItem}</span>
@@ -635,22 +625,26 @@ export class ZSelect {
   }
 
   private renderItem(item: SelectItem, lastItem: boolean): HTMLZListElementElement {
-    const thisItemKey = this.itemIdKeyMap[item.id];
-
     return (
       <z-list-element
         clickable={!item.disabled}
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
-        role="option"
-        html-tabindex={item.disabled || !this.isOpen ? -1 : 0}
+        role={item.disabled ? "presentation" : "option"}
+        html-tabindex={-1}
         aria-selected={item.selected ? "true" : "false"}
-        id={`${this.htmlid}_key_${thisItemKey}`}
+        aria-label={item.disabled ? undefined : getPlainText(item.name)}
+        id={this.getOptionId(item)}
         size={this.listSizeType()}
         onClickItem={() => this.selectItem(item)}
-        onKeyDown={(e: KeyboardEvent) => this.arrowsSelectNav(e, thisItemKey)}
       >
-        <div class="list-element-container">
+        <div
+          class={{
+            "list-element-container": true,
+            "active": this.focusedItemId === this.getOptionId(item),
+          }}
+          aria-hidden="true"
+        >
           <div
             class={{
               "selected": !!item.selected,
@@ -711,7 +705,6 @@ export class ZSelect {
     isTopLevel?: boolean,
     disabledAncestor?: boolean
   ): HTMLZListElementElement[] {
-    const thisItemKey = this.itemIdKeyMap[item.id];
     const isDisabled = item.disabled || disabledAncestor;
 
     const hasDivider = this.hasGroupItems
@@ -736,34 +729,32 @@ export class ZSelect {
         dividerType={hasDivider}
         hasTreeItems={this.hasTreeItems}
         html-tabindex={null}
+        role="presentation"
       >
         <div
-          id={`${this.htmlid}_key_${thisItemKey}`}
-          role="option"
-          class="list-element"
-          tabIndex={!this.isOpen || isDisabled ? -1 : 0}
+          id={this.getOptionId(item)}
+          role={isDisabled ? "presentation" : "option"}
+          aria-label={isDisabled ? undefined : getPlainText(item.name)}
+          class={{"list-element": true, "active": this.focusedItemId === this.getOptionId(item)}}
           onClick={() => this.selectItem(item)}
-          onKeyDown={(e: KeyboardEvent) => {
-            this.arrowsSelectNav(e, thisItemKey);
-            if (e.key === KeyboardCode.ENTER) {
-              this.selectItem(item);
-            }
-          }}
         >
-          <span class="item ellipsis">
+          <span
+            class="item ellipsis"
+            aria-hidden="true"
+          >
             <span
               class={{
                 "item-label": true,
                 "selected": !!item.selected,
               }}
               title={item.name}
-              innerHTML={item.selected ? `<strong>${item.name}</strong>` : item.name}
+              innerHTML={item.name}
             />
           </span>
           {item.icon && <z-tag icon={item.icon}></z-tag>}
         </div>
         {item.children && item.children.length > 0 ? (
-          <z-list>
+          <z-list role="presentation">
             <div class="children-node">
               {item.children.map((child, index, arr) =>
                 this.renderTreeItems(
@@ -786,20 +777,22 @@ export class ZSelect {
 
     return groupedItems.map(([category, items], index, entries) => {
       const parentHasSiblings = Object.values(groupedItems).some((groupItems) => groupItems.length > 1);
-      // const parentHasSiblings = items.length > 1;
 
       return (
         <z-list-group
           divider-type={index === entries.length - 1 ? undefined : ListDividerType.ELEMENT}
           hasTreeItems={true}
+          aria-labelledby={`${this.htmlid}_tree_${index}`}
         >
           <span
             class="body-3-sb z-list-group-title"
             slot="header-title"
+            id={`${this.htmlid}_tree_${index}`}
+            aria-hidden="true"
           >
             {category}
           </span>
-          <z-list>
+          <z-list role="presentation">
             {items.map((item, i, arr) => [
               this.renderTreeItems(item, i === arr.length - 1, parentHasSiblings, true, item.disabled),
               i < arr.length - 1 ? (
@@ -823,10 +816,15 @@ export class ZSelect {
       const isLastGroup = groupedItems.length === index + 1;
 
       return (
-        <z-list-group divider-type={ListDividerType.ELEMENT}>
+        <z-list-group
+          divider-type={ListDividerType.ELEMENT}
+          aria-labelledby={`${this.htmlid}_group_${index}`}
+        >
           <span
             class="body-3-sb z-list-group-title"
             slot="header-title"
+            id={`${this.htmlid}_group_${index}`}
+            aria-hidden="true"
           >
             {key}
           </span>
@@ -846,6 +844,7 @@ export class ZSelect {
         class="no-results"
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
         html-tabindex={null}
+        role="presentation"
       >
         {this.noresultslabel}
       </z-list-element>

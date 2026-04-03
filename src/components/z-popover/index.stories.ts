@@ -7,6 +7,7 @@ import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-ut
 import "../list/z-list-element/index";
 import "../list/z-list/index";
 import "../z-button/index";
+import "../z-offcanvas/index";
 import "./index";
 import "./index.stories.css";
 
@@ -255,5 +256,55 @@ export const TooltipWithNestedContainer = {
           ></z-button>
         </div>
       </div>
+    </div>`,
+} satisfies Story;
+
+export const PopoverInsideTransformedElement = {
+  args: {
+    "position": PopoverPosition.TOP,
+    "--z-popover-padding": "var(--space-unit)",
+  },
+  render: (args, {parameters}) =>
+    html`<div class="popover-container">
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const offcanvasTrigger = document.querySelector("#offcanvas-trigger");
+          if (offcanvasTrigger) {
+            offcanvasTrigger.addEventListener("click", () => {
+              const offcanvas = document.querySelector(".popover-container z-offcanvas");
+              if (offcanvas) {
+                offcanvas.open = true;
+              }
+            });
+          }
+        });
+      </script>
+      <z-button id="offcanvas-trigger">open offcanvas</z-button>
+      <z-offcanvas
+        transitiondirection="up"
+        show-backdrop
+      >
+        <div slot="canvasContent">
+          <z-popover
+            style=${styleMap({
+              "--z-popover-theme--surface": args["--z-popover-theme--surface"],
+              "--z-popover-theme--text": args["--z-popover-theme--text"],
+              "--z-popover-padding": args["--z-popover-padding"],
+            })}
+            .position=${args.position}
+            bind-to="#popover-trigger"
+          >
+            <div class="popover-content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
+            </div>
+          </z-popover>
+          <z-button
+            id="popover-trigger"
+            icon="plus-filled"
+            .onclick=${parameters.onTriggerClick}
+          ></z-button>
+        </div>
+      </z-offcanvas>
     </div>`,
 } satisfies Story;

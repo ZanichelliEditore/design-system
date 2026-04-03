@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  min-width: 290px;
   color: var(--color-form-default-text);
   fill: var(--color-form-default-icon);
   font-family: var(--font-family-sans);
@@ -134,6 +135,46 @@
   --background-color-list-element: var(--color-form-background);
   --background-hover-color-list-element: var(--color-form-surface03);
   --background-active-color-list-element: var(--color-form-surface03);
+}
+
+:host .open-combo-data z-list-element[disabled] {
+  pointer-events: none;
+}
+
+:host .open-combo-data z-list-element .option-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--space-unit);
+}
+
+:host .open-combo-data z-list-element[size="medium"] .option-wrap,
+:host .open-combo-data z-list-element[size="small"] .option-wrap {
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+
+  font-size: var(--font-size-2);
+  gap: calc(var(--space-unit) / 2);
+}
+
+:host .open-combo-data z-list-element .option-wrap > z-icon {
+  fill: var(--color-primary01);
+}
+
+:host .open-combo-data z-list-element[disabled] .option-wrap > z-icon {
+  fill: var(--color-disabled01);
+}
+
+:host .open-combo-data z-list-element .option-wrap > z-icon.focused {
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
+:host .open-combo-data z-list-element .option-wrap > [role="option"]:focus,
+:host .open-combo-data z-list-element .option-wrap > [role="option"]:focus-visible {
+  outline: none;
 }
 
 ::-webkit-scrollbar {

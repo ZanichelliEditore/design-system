@@ -1,35 +1,33 @@
+/* Styles for stacked z-accordions */
+
 z-accordion + z-accordion {
   border-top: none;
 }
 
-z-accordion[variant="background"]:first-of-type:not(:last-of-type),
-z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary),
-z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(summary)::before,
-z-accordion[variant="background"]:first-of-type:not(:last-of-type)::part(content)::before {
+/* all z-accordions with some sibling z-accordion */
+z-accordion[variant="background"]:not(:first-of-type, :last-of-type),
+z-accordion[variant="background"]:not(:first-of-type, :last-of-type)::part(summary),
+z-accordion[variant="background"]:not(:first-of-type, :last-of-type)::part(content),
+z-accordion[variant="background"]:not(:first-of-type, :last-of-type)::part(summary)::before,
+z-accordion[variant="background"]:not(:first-of-type, :last-of-type)::part(content)::before {
+  border-radius: 0;
+}
+
+/* first z-accordion with some sibling z-accordion */
+z-accordion[variant="background"]:first-of-type:not(:only-of-type),
+z-accordion[variant="background"]:first-of-type:not(:only-of-type)::part(summary),
+z-accordion[variant="background"]:first-of-type:not(:only-of-type)::part(content),
+z-accordion[variant="background"][highlight]:first-of-type:not(:only-of-type)::part(summary)::before,
+z-accordion[variant="background"][highlight]:first-of-type:not(:only-of-type)::part(content)::before {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-z-accordion[variant="background"] + z-accordion[variant="background"],
-z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary),
-z-accordion[variant="background"] + z-accordion[variant="background"]::part(summary)::before,
-z-accordion[variant="background"] + z-accordion[variant="background"]::part(content)::before {
-  border-radius: 0;
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type {
-  border-bottom-left-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary) {
-  /* border-radius of the accordion - width of the accordion's border */
-  border-bottom-right-radius: calc(var(--border-radius) - var(--border-size-small));
-}
-
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary),
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type:not([open])::part(summary)::before,
-z-accordion[variant="background"] + z-accordion[variant="background"]:last-of-type::part(content)::before {
-  /* border-radius of the accordion - width of the accordion's border */
-  border-bottom-left-radius: calc(var(--border-radius) - var(--border-size-small));
+/* last z-accordion with some sibling z-accordion */
+z-accordion[variant="background"]:last-of-type:not(:only-of-type),
+z-accordion[variant="background"]:last-of-type:not(:only-of-type)::part(summary),
+z-accordion[variant="background"][highlight]:last-of-type:not(:only-of-type)::part(summary)::before,
+z-accordion[variant="background"][highlight]:last-of-type:not(:only-of-type)::part(content)::before {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

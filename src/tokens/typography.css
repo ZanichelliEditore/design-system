@@ -29,8 +29,8 @@
   --font-size-17: 5.75rem; /* 92px */
 
   /* cssprops to use with `font` shorthand property */
-  --section-title-1: var(--font-sb) var(--font-size-11) / 0.9166 var(--font-family-serif);
-  --section-title-2: var(--font-sb) var(--font-size-10) / 1.1904 var(--font-family-serif);
+  --section-title-1: var(--font-sb) var(--font-size-11) / 1.083 var(--font-family-serif);
+  --section-title-2: var(--font-sb) var(--font-size-10) / 1.142 var(--font-family-serif);
   --section-title-3: var(--font-sb) var(--font-size-9) / 1.222 var(--font-family-serif);
   --section-title-4: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);
   --section-title-5: var(--font-sb) var(--font-size-7) / 1.2857 var(--font-family-serif);

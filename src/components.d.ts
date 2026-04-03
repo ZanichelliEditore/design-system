@@ -5,14 +5,16 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { IconName } from "./constants/iconset";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
+export { IconName } from "./constants/iconset";
 export namespace Components {
     /**
      * Accordion component.
@@ -644,6 +646,32 @@ export namespace Components {
          */
         "type"?: ZChipType;
     }
+    /**
+     * Color picker component.
+     * This component allows the user to pick a color from a predefined set.
+     */
+    interface ZColorPicker {
+        /**
+          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
+         */
+        "disableTransparent": boolean;
+        /**
+          * The aria-label for the color picker, e.g. "Select a background color for the label".
+         */
+        "htmlAriaLabel": string;
+        /**
+          * The language for the aria labels inside the color picker.
+         */
+        "lng": "it" | "en";
+        /**
+          * The selected color to highlight.
+         */
+        "selectedColor": ColorPickerPalette;
+        /**
+          * Focuses the selected or first enabled color button and makes the container non-tabbable.
+         */
+        "setFocus": () => Promise<void>;
+    }
     interface ZCombobox {
         /**
           * check all label (optional)
@@ -665,6 +693,10 @@ export namespace Components {
           * show search input flag (optional)
          */
         "hassearch"?: boolean;
+        /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
         /**
           * input unique id
          */
@@ -871,25 +903,33 @@ export namespace Components {
     }
     interface ZGhostLoading {
     }
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface ZIcon {
         /**
-          * icon fill (optional)
+          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
          */
         "fill"?: string;
         /**
-          * icon height (optional)
+          * Icon height (optional)
          */
         "height"?: number | string;
         /**
-          * icon id (optional)
+          * HTML `id` attribute (optional)
          */
         "iconid"?: string;
         /**
-          * icon name
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Icon name
          */
         "name": string;
         /**
-          * icon width (optional)
+          * Icon width (optional)
          */
         "width"?: number | string;
     }
@@ -1185,6 +1225,10 @@ export namespace Components {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * Sets element role.
+         */
+        "role": string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -1574,12 +1618,17 @@ export namespace Components {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface ZNotification {
         /**
           * Action button text
          */
         "actiontext"?: string;
+        /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */
@@ -1746,11 +1795,11 @@ export namespace Components {
          */
         "center": boolean;
         /**
-          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
          */
         "closable": boolean;
         /**
-          * The open state of the popover.
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
          */
         "open": boolean;
         /**
@@ -1853,9 +1902,17 @@ export namespace Components {
          */
         "autocompleteMinChars"?: number;
         /**
+          * the input aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * the id of the searchbar element
          */
         "htmlid": string;
+        /**
+          * the input label
+         */
+        "label"?: string;
         /**
           * Search input placeholder
          */
@@ -2242,6 +2299,68 @@ export namespace Components {
         "labelPosition"?: LabelPosition;
     }
     /**
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     */
+    interface ZTool {
+        /**
+          * Visual active state.
+         */
+        "active": boolean;
+        /**
+          * Closes the tooltip.
+         */
+        "closeTooltip": () => Promise<void>;
+        /**
+          * Disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon": IconName;
+        /**
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Open state.
+         */
+        "open": boolean;
+        /**
+          * Focuses the tool's button element.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Sets the tab index of the tool's internal button element.
+         */
+        "setTabIndex": (value: number) => Promise<void>;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition": PopoverPosition;
+    }
+    /**
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
+     */
+    interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -2337,6 +2456,10 @@ export interface ZCarouselCustomEvent<T> extends CustomEvent<T> {
 export interface ZChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZChipElement;
+}
+export interface ZColorPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZColorPickerElement;
 }
 export interface ZComboboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2461,6 +2584,14 @@ export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToggleSwitchElement;
+}
+export interface ZToolCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZToolElement;
+}
+export interface ZTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZTooltipElement;
 }
 export interface ZTrCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2820,6 +2951,27 @@ declare global {
         prototype: HTMLZChipElement;
         new (): HTMLZChipElement;
     };
+    interface HTMLZColorPickerElementEventMap {
+        "colorSelected": ColorPickerPalette;
+    }
+    /**
+     * Color picker component.
+     * This component allows the user to pick a color from a predefined set.
+     */
+    interface HTMLZColorPickerElement extends Components.ZColorPicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZColorPickerElementEventMap>(type: K, listener: (this: HTMLZColorPickerElement, ev: ZColorPickerCustomEvent<HTMLZColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZColorPickerElement: {
+        prototype: HTMLZColorPickerElement;
+        new (): HTMLZColorPickerElement;
+    };
     interface HTMLZComboboxElementEventMap {
         "comboboxChange": any;
     }
@@ -2931,6 +3083,10 @@ declare global {
         prototype: HTMLZGhostLoadingElement;
         new (): HTMLZGhostLoadingElement;
     };
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface HTMLZIconElement extends Components.ZIcon, HTMLStencilElement {
     }
     var HTMLZIconElement: {
@@ -3291,6 +3447,7 @@ declare global {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3374,8 +3531,8 @@ declare global {
         new (): HTMLZPanelElemElement;
     };
     interface HTMLZPopoverElementEventMap {
-        "positionChange": any;
-        "openChange": any;
+        "positionChange": {position: PopoverPosition};
+        "openChange": {open: boolean};
     }
     /**
      * Popover component.
@@ -3653,6 +3810,43 @@ declare global {
         prototype: HTMLZToggleSwitchElement;
         new (): HTMLZToggleSwitchElement;
     };
+    interface HTMLZToolElementEventMap {
+        "toggleSubmenu": any;
+        "toggleTooltip": any;
+    }
+    /**
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     */
+    interface HTMLZToolElement extends Components.ZTool, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZToolElementEventMap>(type: K, listener: (this: HTMLZToolElement, ev: ZToolCustomEvent<HTMLZToolElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZToolElement: {
+        prototype: HTMLZToolElement;
+        new (): HTMLZToolElement;
+    };
+    /**
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
+     */
+    interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
+    }
+    var HTMLZToolbarElement: {
+        prototype: HTMLZToolbarElement;
+        new (): HTMLZToolbarElement;
+    };
+    interface HTMLZTooltipElementEventMap {
+        "openChange": {open: boolean};
+    }
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
@@ -3661,6 +3855,14 @@ declare global {
      * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLZTooltipElement: {
         prototype: HTMLZTooltipElement;
@@ -3729,6 +3931,7 @@ declare global {
         "z-card": HTMLZCardElement;
         "z-carousel": HTMLZCarouselElement;
         "z-chip": HTMLZChipElement;
+        "z-color-picker": HTMLZColorPickerElement;
         "z-combobox": HTMLZComboboxElement;
         "z-cover-hero": HTMLZCoverHeroElement;
         "z-date-picker": HTMLZDatePickerElement;
@@ -3791,6 +3994,8 @@ declare global {
         "z-toast-notification-list": HTMLZToastNotificationListElement;
         "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
+        "z-tool": HTMLZToolElement;
+        "z-toolbar": HTMLZToolbarElement;
         "z-tooltip": HTMLZTooltipElement;
         "z-tr": HTMLZTrElement;
         "z-tree-list": HTMLZTreeListElement;
@@ -4476,6 +4681,32 @@ declare namespace LocalJSX {
          */
         "type"?: ZChipType;
     }
+    /**
+     * Color picker component.
+     * This component allows the user to pick a color from a predefined set.
+     */
+    interface ZColorPicker {
+        /**
+          * Disables the transparent color option. Setting `selectedColor` prop to `#FFFFFF00` while `disableTransparent` is true will default to `#333333` ("dark gray 2").
+         */
+        "disableTransparent"?: boolean;
+        /**
+          * The aria-label for the color picker, e.g. "Select a background color for the label".
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * The language for the aria labels inside the color picker.
+         */
+        "lng"?: "it" | "en";
+        /**
+          * Event emitted when a color is selected.
+         */
+        "onColorSelected"?: (event: ZColorPickerCustomEvent<ColorPickerPalette>) => void;
+        /**
+          * The selected color to highlight.
+         */
+        "selectedColor"?: ColorPickerPalette;
+    }
     interface ZCombobox {
         /**
           * check all label (optional)
@@ -4497,6 +4728,10 @@ declare namespace LocalJSX {
           * show search input flag (optional)
          */
         "hassearch"?: boolean;
+        /**
+          * the combobox aria-label
+         */
+        "htmlAriaLabel"?: string;
         /**
           * input unique id
          */
@@ -4719,25 +4954,33 @@ declare namespace LocalJSX {
     }
     interface ZGhostLoading {
     }
+    /**
+     * Component to render an SVG icon from the internal icon set, selected by `name`.
+     * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+     */
     interface ZIcon {
         /**
-          * icon fill (optional)
+          * Name of the CSS color token to use for the icon fill color (e.g. `blue500`).
          */
         "fill"?: string;
         /**
-          * icon height (optional)
+          * Icon height (optional)
          */
         "height"?: number | string;
         /**
-          * icon id (optional)
+          * HTML `id` attribute (optional)
          */
         "iconid"?: string;
         /**
-          * icon name
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Icon name
          */
         "name"?: string;
         /**
-          * icon width (optional)
+          * Icon width (optional)
          */
         "width"?: number | string;
     }
@@ -5069,6 +5312,10 @@ declare namespace LocalJSX {
           * [optional] type of the list marker for each element
          */
         "listType"?: ListType;
+        /**
+          * Sets element role.
+         */
+        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
          */
@@ -5502,12 +5749,17 @@ declare namespace LocalJSX {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface ZNotification {
         /**
           * Action button text
          */
         "actiontext"?: string;
+        /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */
@@ -5694,19 +5946,19 @@ declare namespace LocalJSX {
          */
         "center"?: boolean;
         /**
-          * If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
          */
         "closable"?: boolean;
         /**
-          * Open change event.
+          * Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true).
          */
-        "onOpenChange"?: (event: ZPopoverCustomEvent<any>) => void;
+        "onOpenChange"?: (event: ZPopoverCustomEvent<{open: boolean}>) => void;
         /**
           * Fired when the position changes.
          */
-        "onPositionChange"?: (event: ZPopoverCustomEvent<any>) => void;
+        "onPositionChange"?: (event: ZPopoverCustomEvent<{position: PopoverPosition}>) => void;
         /**
-          * The open state of the popover.
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
          */
         "open"?: boolean;
         /**
@@ -5813,9 +6065,17 @@ declare namespace LocalJSX {
          */
         "autocompleteMinChars"?: number;
         /**
+          * the input aria-label
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * the id of the searchbar element
          */
         "htmlid"?: string;
+        /**
+          * the input label
+         */
+        "label"?: string;
         /**
           * Emitted on search result click, return item
          */
@@ -6230,6 +6490,64 @@ declare namespace LocalJSX {
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
     }
     /**
+     * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+     */
+    interface ZTool {
+        /**
+          * Visual active state.
+         */
+        "active"?: boolean;
+        /**
+          * Disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * Accessible label for the tool trigger. Falls back to tooltip content.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * Tool icon
+         */
+        "icon"?: IconName;
+        /**
+          * Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. The value of this prop is passed down to the `z-icon` component inside the tool.  If `z-color-picker` component is used inside the tool's slot, its `colorSelected` event is listened to automatically update `indicatorColor` and change the color of the icon indicator accordingly.
+         */
+        "indicatorColor"?: string;
+        /**
+          * Emitted when the open state changes.
+         */
+        "onToggleSubmenu"?: (event: ZToolCustomEvent<any>) => void;
+        /**
+          * Emitted when the tooltip open state changes.
+         */
+        "onToggleTooltip"?: (event: ZToolCustomEvent<any>) => void;
+        /**
+          * Open state.
+         */
+        "open"?: boolean;
+        /**
+          * Text displayed inside the tooltip.
+         */
+        "tooltip"?: string;
+        /**
+          * Preferred tooltip position. Defaults to true.
+         */
+        "tooltipPosition"?: PopoverPosition;
+    }
+    /**
+     * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
+     * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+     * Tools can be visually grouped using `z-divider` elements as separators.
+     * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
+     */
+    interface ZToolbar {
+        /**
+          * Accessible label for the toolbar.
+         */
+        "htmlAriaLabel"?: string;
+    }
+    /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
      * @cssprop --z-tooltip-theme--surface - background color of the popover.
@@ -6249,6 +6567,10 @@ declare namespace LocalJSX {
           * Enable tooltip dark mode.
          */
         "dark"?: boolean;
+        /**
+          * Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically.
+         */
+        "onOpenChange"?: (event: ZTooltipCustomEvent<{open: boolean}>) => void;
         /**
           * The open state of the tooltip.
          */
@@ -6311,6 +6633,7 @@ declare namespace LocalJSX {
         "z-card": ZCard;
         "z-carousel": ZCarousel;
         "z-chip": ZChip;
+        "z-color-picker": ZColorPicker;
         "z-combobox": ZCombobox;
         "z-cover-hero": ZCoverHero;
         "z-date-picker": ZDatePicker;
@@ -6373,6 +6696,8 @@ declare namespace LocalJSX {
         "z-toast-notification-list": ZToastNotificationList;
         "z-toggle-button": ZToggleButton;
         "z-toggle-switch": ZToggleSwitch;
+        "z-tool": ZTool;
+        "z-toolbar": ZToolbar;
         "z-tooltip": ZTooltip;
         "z-tr": ZTr;
         "z-tree-list": ZTreeList;
@@ -6535,6 +6860,11 @@ declare module "@stencil/core" {
              */
             "z-carousel": LocalJSX.ZCarousel & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.ZChip & JSXBase.HTMLAttributes<HTMLZChipElement>;
+            /**
+             * Color picker component.
+             * This component allows the user to pick a color from a predefined set.
+             */
+            "z-color-picker": LocalJSX.ZColorPicker & JSXBase.HTMLAttributes<HTMLZColorPickerElement>;
             "z-combobox": LocalJSX.ZCombobox & JSXBase.HTMLAttributes<HTMLZComboboxElement>;
             /**
              * Cover hero component.
@@ -6550,6 +6880,10 @@ declare module "@stencil/core" {
             "z-file": LocalJSX.ZFile & JSXBase.HTMLAttributes<HTMLZFileElement>;
             "z-file-upload": LocalJSX.ZFileUpload & JSXBase.HTMLAttributes<HTMLZFileUploadElement>;
             "z-ghost-loading": LocalJSX.ZGhostLoading & JSXBase.HTMLAttributes<HTMLZGhostLoadingElement>;
+            /**
+             * Component to render an SVG icon from the internal icon set, selected by `name`.
+             * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+             */
             "z-icon": LocalJSX.ZIcon & JSXBase.HTMLAttributes<HTMLZIconElement>;
             "z-info-box": LocalJSX.ZInfoBox & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             /**
@@ -6609,6 +6943,7 @@ declare module "@stencil/core" {
             /**
              * Notification bar component.
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+             * @cssprop --z-notification--content-max-width - The max width of the notification content.
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             /**
@@ -6697,6 +7032,18 @@ declare module "@stencil/core" {
             "z-toast-notification-list": LocalJSX.ZToastNotificationList & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
             "z-toggle-button": LocalJSX.ZToggleButton & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.ZToggleSwitch & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
+            /**
+             * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
+             */
+            "z-tool": LocalJSX.ZTool & JSXBase.HTMLAttributes<HTMLZToolElement>;
+            /**
+             * ZToolbar component. This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
+             * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
+             * Tools can be visually grouped using `z-divider` elements as separators.
+             * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
+             * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
+             */
+            "z-toolbar": LocalJSX.ZToolbar & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
