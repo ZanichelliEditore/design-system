@@ -14,11 +14,11 @@ export class ZInputMessage {
 
   /** the id of the message element (optional)*/
   @Prop()
-  htmlid? = `id-${randomId()}`;
+  htmlId? = `id-${randomId()}`;
 
   /** the role to set when both the message and the status are populated (optional)*/
   @Prop()
-  htmlrole: null | string = "alert";
+  htmlRole: null | string = "alert";
 
   /** input status (optional) */
   @Prop({reflect: true})
@@ -39,9 +39,9 @@ export class ZInputMessage {
 
   @Watch("message")
   @Watch("status")
-  @Watch("htmlrole")
+  @Watch("htmlRole")
   onMessageChange(): void {
-    this.statusRole = this.htmlrole && this.message && this.status ? {role: this.htmlrole} : {};
+    this.statusRole = this.htmlRole && this.message && this.status ? {role: this.htmlRole} : {};
   }
 
   componentWillLoad(): void {
@@ -53,7 +53,7 @@ export class ZInputMessage {
       <Host {...this.statusRole}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
         <span
-          id={this.htmlid}
+          id={this.htmlId}
           innerHTML={this.message}
         />
       </Host>

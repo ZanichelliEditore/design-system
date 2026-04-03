@@ -49,14 +49,14 @@ describe("Suite test ZInputMessage", () => {
     `);
   });
 
-  it("Test render ZInputMessage - with status/message and htmlrole=status", async () => {
+  it("Test render ZInputMessage - with status/message and html-role=status", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" htmlrole="status"></z-input-message>`,
+      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" html-role="status"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success"  htmlrole="status" role="status">
+      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success"  html-role="status" role="status">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
           <span id="esempio">message</span>

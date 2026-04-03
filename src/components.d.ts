@@ -1110,11 +1110,11 @@ export namespace Components {
         /**
           * the id of the message element (optional)
          */
-        "htmlid"?: string;
+        "htmlId"?: string;
         /**
           * the role to set when both the message and the status are populated (optional)
          */
-        "htmlrole": null | string;
+        "htmlRole": null | string;
         /**
           * input helper message
          */
@@ -5185,11 +5185,11 @@ declare namespace LocalJSX {
         /**
           * the id of the message element (optional)
          */
-        "htmlid"?: string;
+        "htmlId"?: string;
         /**
           * the role to set when both the message and the status are populated (optional)
          */
-        "htmlrole"?: null | string;
+        "htmlRole"?: null | string;
         /**
           * input helper message
          */

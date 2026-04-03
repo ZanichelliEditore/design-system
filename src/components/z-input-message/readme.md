@@ -5,13 +5,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                   | Type                                                              | Default              |
-| ---------- | ---------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------- |
-| `disabled` | `disabled` | input disabled status (optional)                                              | `boolean`                                                         | `undefined`          |
-| `htmlid`   | `htmlid`   | the id of the message element (optional)                                      | `string`                                                          | ``id-${randomId()}`` |
-| `htmlrole` | `htmlrole` | the role to set when both the message and the status are populated (optional) | `string`                                                          | `"alert"`            |
-| `message`  | `message`  | input helper message                                                          | `string`                                                          | `undefined`          |
-| `status`   | `status`   | input status (optional)                                                       | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
+| Property   | Attribute   | Description                                                                   | Type                                                              | Default              |
+| ---------- | ----------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------- |
+| `disabled` | `disabled`  | input disabled status (optional)                                              | `boolean`                                                         | `undefined`          |
+| `htmlId`   | `html-id`   | the id of the message element (optional)                                      | `string`                                                          | ``id-${randomId()}`` |
+| `htmlRole` | `html-role` | the role to set when both the message and the status are populated (optional) | `string`                                                          | `"alert"`            |
+| `message`  | `message`   | input helper message                                                          | `string`                                                          | `undefined`          |
+| `status`   | `status`    | input status (optional)                                                       | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined`          |
 
 
 ## Dependencies
