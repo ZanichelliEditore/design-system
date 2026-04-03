@@ -20,6 +20,12 @@ const StoryMeta = {
       },
       options: Object.values(NotificationType),
     },
+    borderposition: {
+      control: {
+        type: "inline-radio",
+      },
+      options: ["top", "bottom"],
+    },
   },
   args: {
     "--z-notification--content-max-width": "100%",
@@ -51,9 +57,9 @@ export const Default = {
 } satisfies Story;
 
 /**
- * To use the border top variant set the `borderposition` property to `top`.
+ * The position of the border can be changed to correctly display the notification on the bottom of the screen.
  */
-export const BorderTop = {
+export const BorderPosition = {
   args: {
     borderposition: "top",
   },

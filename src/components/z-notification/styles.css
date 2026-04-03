@@ -1,6 +1,7 @@
 :host {
   --z-notification--top-offset: 0;
   --z-notification--content-max-width: 100%;
+  --z-notification--inline-padding: ;
 
   display: block;
   width: 100%;
@@ -10,7 +11,7 @@
   display: flex;
   max-width: var(--z-notification--content-max-width);
   align-items: flex-start;
-  padding: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) var(--z-notification--inline-padding, calc(var(--space-unit) * 2));
   margin: 0 auto;
   background-color: transparent;
   font-family: var(--font-family-sans);
@@ -90,6 +91,7 @@ button {
 }
 
 .content-text {
+  width: 100%;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
