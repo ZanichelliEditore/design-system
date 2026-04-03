@@ -14,7 +14,7 @@ export class ZInputMessage {
 
   /** the id of the message element (optional)*/
   @Prop()
-  htmlid?: string = `id-${randomId()}`;
+  htmlid? = `id-${randomId()}`;
 
   /** set role=alert if the message and the status are populated (optional)*/
   @Prop()
@@ -39,6 +39,7 @@ export class ZInputMessage {
 
   @Watch("message")
   @Watch("status")
+  @Watch("withrole")
   onMessageChange(): void {
     this.statusRole = this.withrole && this.message && this.status ? {role: "alert"} : {};
   }
