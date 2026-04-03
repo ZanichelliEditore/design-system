@@ -49,14 +49,30 @@ describe("Suite test ZInputMessage", () => {
     `);
   });
 
-  it("Test render ZInputMessage - with status/message but withrole=false", async () => {
+  it("Test render ZInputMessage - with status/message and htmlrole=status", async () => {
     const page = await newSpecPage({
       components: [ZInputMessage],
-      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" withrole="false"></z-input-message>`,
+      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" htmlrole="status"></z-input-message>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" withrole="false">
+      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success"  htmlrole="status" role="status">
+        <mock:shadow-root>
+          <z-icon name="checkmark-circle"></z-icon>
+          <span id="esempio">message</span>
+        </mock:shadow-root>
+      </z-input-message>
+    `);
+  });
+
+  it("Test render ZInputMessage - with status/message but empty htmlrole", async () => {
+    const page = await newSpecPage({
+      components: [ZInputMessage],
+      html: `<z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" htmlrole=""></z-input-message>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-input-message htmlid="esempio" tabindex="0" aria-label="message" message="message" status="success" htmlrole="">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
           <span id="esempio">message</span>

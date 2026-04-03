@@ -1112,6 +1112,10 @@ export namespace Components {
          */
         "htmlid"?: string;
         /**
+          * the role to set when both the message and the status are populated (optional)
+         */
+        "htmlrole": null | string;
+        /**
           * input helper message
          */
         "message": string;
@@ -1119,10 +1123,6 @@ export namespace Components {
           * input status (optional)
          */
         "status"?: InputStatus;
-        /**
-          * set role=alert if the message and the status are populated (optional)
-         */
-        "withrole"?: boolean;
     }
     interface ZList {
         /**
@@ -5187,6 +5187,10 @@ declare namespace LocalJSX {
          */
         "htmlid"?: string;
         /**
+          * the role to set when both the message and the status are populated (optional)
+         */
+        "htmlrole"?: null | string;
+        /**
           * input helper message
          */
         "message"?: string;
@@ -5194,10 +5198,6 @@ declare namespace LocalJSX {
           * input status (optional)
          */
         "status"?: InputStatus;
-        /**
-          * set role=alert if the message and the status are populated (optional)
-         */
-        "withrole"?: boolean;
     }
     interface ZList {
         /**

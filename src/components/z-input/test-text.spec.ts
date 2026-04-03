@@ -173,7 +173,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="helper message" htmlid="test-message" withrole=""></z-input-message>
+            <z-input-message class="big" message="helper message" htmlid="test-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -196,7 +196,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="success message" status="success" htmlid="test-message" withrole=""></z-input-message>
+            <z-input-message class="big" message="success message" status="success" htmlid="test-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -219,7 +219,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="error message" status="error" htmlid="test-message" withrole=""></z-input-message>
+            <z-input-message class="big" message="error message" status="error" htmlid="test-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -305,7 +305,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
+            <z-input-message class="big" htmlid="id-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -329,7 +329,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
+            <z-input-message class="big" htmlid="id-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -354,7 +354,7 @@ describe("Suite test ZInput - text", () => {
                 <z-icon class="big input-icon" name="pdf"></z-icon>
               </span>
             </div>
-            <z-input-message class="big" htmlid="id-message" withrole=""></z-input-message>
+            <z-input-message class="big" htmlid="id-message"></z-input-message>
           </div>
       </z-input>
     `);

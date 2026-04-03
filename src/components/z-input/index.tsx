@@ -474,7 +474,6 @@ export class ZInput {
 
     return (
       <z-input-message
-        withrole={true}
         htmlid={`${this.htmlid}-message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}

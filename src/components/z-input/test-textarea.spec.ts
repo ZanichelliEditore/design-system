@@ -44,7 +44,7 @@ describe("Suite test ZInput - textarea", () => {
         <div class="textarea-wrapper input-error">
           <textarea class="input-error z-scrollbar" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"></textarea>
         </div>
-        <z-input-message class="big" htmlid="test-message" message="error message" status="error" withrole=""></z-input-message>
+        <z-input-message class="big" htmlid="test-message" message="error message" status="error"></z-input-message>
       </z-input>
     `);
   });
