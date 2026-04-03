@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.3](https://github.com/ZanichelliEditore/design-system/compare/v19.2.2...v19.2.3) (2026-04-02)
+
+
+### Features
+
+* adding borderposition propt to z-notification for top border ([5116e71](https://github.com/ZanichelliEditore/design-system/commit/5116e717717681ec2ed22bdf865e13b90f6b4e37))
+* adding prop to center component in layout ([48aac9a](https://github.com/ZanichelliEditore/design-system/commit/48aac9ac87279b3a16c532abb19514910c42084c))
+
+
+### Bug Fixes
+
+* removing prop and adding cssprop ([b4424ab](https://github.com/ZanichelliEditore/design-system/commit/b4424ab467604e2b49d9ea310e800a7a698584a3))
+* reverted last workbackAI commits ([46ce4f8](https://github.com/ZanichelliEditore/design-system/commit/46ce4f8d5b3b5d835c9426ad9734502fa815670e))
+* separate ::-ms prefix to prevent the browser from skipping the entire block ([e5aaaa5](https://github.com/ZanichelliEditore/design-system/commit/e5aaaa570edd26363893f96d2cd546f78f6e8306))
+* **tokens:** enhance focus indicator visibility ([ca6dc46](https://github.com/ZanichelliEditore/design-system/commit/ca6dc4616f848faa6de88f1633d30b7db6f092d3))
+* **z-button:** add opacity to disabled state for WCAG 1.4.1 ([d25b0cc](https://github.com/ZanichelliEditore/design-system/commit/d25b0cccf762e1ecfad7ef29eef4580fd750a422))
+* **z-input:** avoid double clear icon in search input ([7730cd1](https://github.com/ZanichelliEditore/design-system/commit/7730cd1260dc40722c93546ea8eb1f8e615a8308))
+* **z-input:** increase radio button target size for WCAG 2.5.8 ([deee92b](https://github.com/ZanichelliEditore/design-system/commit/deee92bc11e8446bbf9cbd70992043d0c8daacc3))
+* z-notification tests ([022ea65](https://github.com/ZanichelliEditore/design-system/commit/022ea65bbf4d50341f34aa86628cfe83e3c58171))
+
 ## [19.2.2](https://github.com/ZanichelliEditore/design-system/compare/v19.2.1...v19.2.2) (2026-03-23)
 
 

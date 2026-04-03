@@ -1606,12 +1606,17 @@ export namespace Components {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface ZNotification {
         /**
           * Action button text
          */
         "actiontext"?: string;
+        /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */
@@ -3430,6 +3435,7 @@ declare global {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5719,12 +5725,17 @@ declare namespace LocalJSX {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content.
      */
     interface ZNotification {
         /**
           * Action button text
          */
         "actiontext"?: string;
+        /**
+          * Border position
+         */
+        "borderposition"?: "top" | "bottom";
         /**
           * Name of the icon on the left of the content
          */
@@ -6908,6 +6919,7 @@ declare module "@stencil/core" {
             /**
              * Notification bar component.
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+             * @cssprop --z-notification--content-max-width - The max width of the notification content.
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             /**
