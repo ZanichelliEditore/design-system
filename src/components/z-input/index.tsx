@@ -84,9 +84,9 @@ export class ZInput {
   @Prop()
   message?: string | boolean = true;
 
-  /** external input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value */
+  /** input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value */
   @Prop()
-  externalHelperId?: string;
+  htmlAriaDescribedBy?: string;
 
   /** the input label position: available for checkbox, radio */
   @Prop()
@@ -319,20 +319,6 @@ export class ZInput {
     return true;
   }
 
-  private getAriaValidityAndMessageAttributes(): Record<string, string> {
-    const ariaDescribedby =
-      this.externalHelperId || this.inputHasMessage()
-        ? {"aria-describedby": this.externalHelperId || `${this.htmlid}-message`}
-        : {};
-
-    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
-
-    return {
-      ...ariaDescribedby,
-      ...ariaInvalid,
-    };
-  }
-
   private getAriaAttrubutes(): Record<string, unknown> {
     const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
     const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
@@ -340,13 +326,20 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const ariaDescribedby =
+      this.htmlAriaDescribedBy || this.inputHasMessage()
+        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
+        : {};
+
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
-      ...this.getAriaValidityAndMessageAttributes(),
+      ...ariaDescribedby,
+      ...ariaInvalid,
     };
   }
 
@@ -497,7 +490,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
-    const ariaAttributes = this.getAriaValidityAndMessageAttributes();
+    const ariaAttributes = this.getAriaAttrubutes();
 
     return (
       <Fragment>

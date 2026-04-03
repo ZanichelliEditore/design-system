@@ -990,10 +990,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * external input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
-         */
-        "externalHelperId"?: string;
-        /**
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
@@ -1009,6 +1005,10 @@ export namespace Components {
           * the input aria-controls (optional): available for text, password, number, email
          */
         "htmlAriaControls"?: string;
+        /**
+          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+         */
+        "htmlAriaDescribedBy"?: string;
         /**
           * the input aria-expaded: available for text, password, number, email
          */
@@ -5045,10 +5045,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * external input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
-         */
-        "externalHelperId"?: string;
-        /**
           * render clear icon when typing (optional): available for text
          */
         "hasclearicon"?: boolean;
@@ -5064,6 +5060,10 @@ declare namespace LocalJSX {
           * the input aria-controls (optional): available for text, password, number, email
          */
         "htmlAriaControls"?: string;
+        /**
+          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+         */
+        "htmlAriaDescribedBy"?: string;
         /**
           * the input aria-expaded: available for text, password, number, email
          */
