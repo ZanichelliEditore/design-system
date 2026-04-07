@@ -42,9 +42,9 @@ describe("Suite test ZInput - textarea", () => {
       <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" size="big" status="error" message="error message" value="value">
         <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
         <div class="textarea-wrapper input-error">
-          <textarea class="input-error z-scrollbar" id="test" placeholder="placeholder" value="value"></textarea>
+          <textarea class="input-error z-scrollbar" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"></textarea>
         </div>
-        <z-input-message class="big" message="error message" status="error"></z-input-message>
+        <z-input-message class="big" html-id="test-message" message="error message" status="error"></z-input-message>
       </z-input>
     `);
   });

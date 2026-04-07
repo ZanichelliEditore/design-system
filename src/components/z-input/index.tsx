@@ -84,6 +84,10 @@ export class ZInput {
   @Prop()
   message?: string | boolean = true;
 
+  /** input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value */
+  @Prop()
+  htmlAriaDescribedBy?: string;
+
   /** the input label position: available for checkbox, radio */
   @Prop()
   labelPosition?: LabelPosition = LabelPosition.RIGHT;
@@ -307,6 +311,14 @@ export class ZInput {
     return this.role ? {role: this.role} : {};
   }
 
+  private inputHasMessage(): boolean {
+    if (boolean(this.message) === false || boolean(this.message) === true) {
+      return false;
+    }
+
+    return true;
+  }
+
   private getAriaAttrubutes(): Record<string, unknown> {
     const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
     const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
@@ -314,12 +326,20 @@ export class ZInput {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const ariaDescribedby =
+      this.htmlAriaDescribedBy || this.inputHasMessage()
+        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
+        : {};
+
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...ariaDescribedby,
+      ...ariaInvalid,
     };
   }
 
@@ -454,6 +474,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        html-id={`${this.htmlid}-message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
@@ -468,6 +489,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaAttributes = this.getAriaAttrubutes();
 
     return (
       <Fragment>
@@ -481,6 +503,7 @@ export class ZInput {
         >
           <textarea
             {...attributes}
+            {...ariaAttributes}
             class={{
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
