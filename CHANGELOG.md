@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.4](https://github.com/ZanichelliEditore/design-system/compare/v19.2.3...v19.2.4) (2026-04-07)
+
+
+### Bug Fixes
+
+* **IDP-283:** add aria-invalid to input text ([592e67c](https://github.com/ZanichelliEditore/design-system/commit/592e67c9c1fce9c8dca9c42521a6389ec813da66))
+* **IDP-283:** added the aria-describedby attribute in compliance with WCAG 1.3.1 ([388c577](https://github.com/ZanichelliEditore/design-system/commit/388c577f2a96602b874e22c8157fb345af93255e))
+* **IDP-283:** fix for the visibility condition of aria-describedby ([ecf6a67](https://github.com/ZanichelliEditore/design-system/commit/ecf6a677383a9fc6f2e89a3ed09e788b49f02c09))
+* **IDP-283:** fix github failures ([92e77b6](https://github.com/ZanichelliEditore/design-system/commit/92e77b6a8d2ad1929b1d639eadc50b6c69f99ea2))
+* **IDP-283:** fix prop name and behavior ([3985574](https://github.com/ZanichelliEditore/design-system/commit/398557492d109cca4b2634d1930b8e658c7f3cf8))
+* **IDP-283:** fix prop name,  removed method getAriaValidityAndMessageAttributes ([d0ccf1d](https://github.com/ZanichelliEditore/design-system/commit/d0ccf1d65b4f39a29a433a1f5284b40b4de4369c))
+* **IDP-283:** fix test and message visibility span ([75d2233](https://github.com/ZanichelliEditore/design-system/commit/75d2233ec32630eeb0fa86938f3b416dae18aa22))
+* **IDP-283:** push components.d.ts update ([81571cb](https://github.com/ZanichelliEditore/design-system/commit/81571cbd03644917accb9e687902901d1d812e7d))
+* **IDP-283:** removed prop type and added watch on withrole ([f82c75b](https://github.com/ZanichelliEditore/design-system/commit/f82c75b4c775ade30918de1d91a4c8b85f3955b1))
+* **IDP-283:** removed role status and alert from z-input-message ([b94d987](https://github.com/ZanichelliEditore/design-system/commit/b94d987128cdf77a12574b37746b60822e0636c7))
+* **IDP-283:** rename new props to comply with the naming convention ([f3d19a4](https://github.com/ZanichelliEditore/design-system/commit/f3d19a448e68ba7d9cedfdf40b0a820b2dc4d734))
+* **IDP-283:** restored the ability to disable rendering of the <z-input-message in the <z-input ([4d7a91f](https://github.com/ZanichelliEditore/design-system/commit/4d7a91ff5e89028aab0d00cd0e5cf77df79a9d38))
+* **IDP-283:** status-based message handling(wip) ([4d62e94](https://github.com/ZanichelliEditore/design-system/commit/4d62e94c83732278c17ff276baf5dfa61d9421ad))
+* **IDP-283:** the element with the role must be present in the page's markup first  (wip) ([b2bacb0](https://github.com/ZanichelliEditore/design-system/commit/b2bacb03c2a0824a13c4d9f046f2a6d8318fcb90))
+
 ## [19.2.3](https://github.com/ZanichelliEditore/design-system/compare/v19.2.2...v19.2.3) (2026-04-02)
 
 
