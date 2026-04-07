@@ -1006,6 +1006,10 @@ export namespace Components {
          */
         "htmlAriaControls"?: string;
         /**
+          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+         */
+        "htmlAriaDescribedBy"?: string;
+        /**
           * the input aria-expaded: available for text, password, number, email
          */
         "htmlAriaExpanded": string;
@@ -1103,6 +1107,14 @@ export namespace Components {
           * input disabled status (optional)
          */
         "disabled"?: boolean;
+        /**
+          * the id of the message element (optional)
+         */
+        "htmlId"?: string;
+        /**
+          * the role to set when both the message and the status are populated (optional)
+         */
+        "htmlRole": null | string;
         /**
           * input helper message
          */
@@ -5049,6 +5061,10 @@ declare namespace LocalJSX {
          */
         "htmlAriaControls"?: string;
         /**
+          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+         */
+        "htmlAriaDescribedBy"?: string;
+        /**
           * the input aria-expaded: available for text, password, number, email
          */
         "htmlAriaExpanded"?: string;
@@ -5166,6 +5182,14 @@ declare namespace LocalJSX {
           * input disabled status (optional)
          */
         "disabled"?: boolean;
+        /**
+          * the id of the message element (optional)
+         */
+        "htmlId"?: string;
+        /**
+          * the role to set when both the message and the status are populated (optional)
+         */
+        "htmlRole"?: null | string;
         /**
           * input helper message
          */
