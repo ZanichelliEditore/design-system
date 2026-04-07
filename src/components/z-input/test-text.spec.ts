@@ -210,7 +210,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="error" message="error message">
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
               <input class="input-error has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"/>
               <span class="icons-wrapper">
