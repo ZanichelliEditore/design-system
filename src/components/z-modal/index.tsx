@@ -157,14 +157,30 @@ export class ZModal implements ComponentInterface {
     const activeElement = this.host.ownerDocument.activeElement;
     const firstFocusableElement = focusableElements[0];
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
+
+    const focusIsOnFirst = shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement;
+    const focusIsOnLast = shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement;
+    const focusIsInList =
+      focusIsOnFirst ||
+      focusIsOnLast ||
+      focusableElements.includes(shadowActiveElement as HTMLElement) ||
+      focusableElements.includes(activeElement as HTMLElement);
+
+    if (e.shiftKey && focusIsOnFirst) {
       e.preventDefault();
       lastFocusableElement.focus();
-    } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
+    } else if (!e.shiftKey && focusIsOnLast) {
       e.preventDefault();
       firstFocusableElement.focus();
+    } else if (!focusIsInList) {
+      // Focus has escaped to a non-focusable element (e.g., the host or dialog container).
+      // Redirect it back into the modal.
+      e.preventDefault();
+      if (e.shiftKey) {
+        lastFocusableElement.focus();
+      } else {
+        firstFocusableElement.focus();
+      }
     }
   }
 
