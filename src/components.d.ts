@@ -1618,7 +1618,8 @@ export namespace Components {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
+     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
@@ -3447,7 +3448,8 @@ declare global {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
+     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5749,7 +5751,8 @@ declare namespace LocalJSX {
     /**
      * Notification bar component.
      * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content.
+     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
+     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
@@ -6943,7 +6946,8 @@ declare module "@stencil/core" {
             /**
              * Notification bar component.
              * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-             * @cssprop --z-notification--content-max-width - The max width of the notification content.
+             * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
+             * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
              */
             "z-notification": LocalJSX.ZNotification & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             /**

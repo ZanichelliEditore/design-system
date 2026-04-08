@@ -1,6 +1,7 @@
 :host {
   --z-notification--top-offset: 0;
   --z-notification--content-max-width: 100%;
+  --z-notification--inline-padding: ;
 
   display: block;
   width: 100%;
@@ -10,7 +11,7 @@
   display: flex;
   max-width: var(--z-notification--content-max-width);
   align-items: flex-start;
-  padding: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) var(--z-notification--inline-padding, calc(var(--space-unit) * 2));
   margin: 0 auto;
   background-color: transparent;
   font-family: var(--font-family-sans);
@@ -90,11 +91,12 @@ button {
 }
 
 .content-text {
+  width: 100%;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;
-  line-height: 20px;
+  line-height: 1.4;
 }
 
 .action-button {
@@ -102,12 +104,12 @@ button {
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   letter-spacing: 0.32px;
-  line-height: 16px;
+  line-height: 1.333;
+  outline: none;
 }
 
-.action-button:focus {
+.action-button:focus-visible {
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
 }
 
 .content-container + .close-button {
@@ -119,7 +121,7 @@ button {
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .content-container {
     flex-wrap: nowrap;
   }

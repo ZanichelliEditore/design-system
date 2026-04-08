@@ -20,7 +20,7 @@ describe("Suite test ZBreadcrumb", () => {
               <a href="http://testing.stenciljs.com/link1">
                 <z-icon name="home"></z-icon>
               </a>
-              <z-icon class="separator" name="chevron-right"></z-icon>
+              <z-icon aria-hidden="true" class="separator" name="chevron-right"></z-icon>
             </li>
             <li>
               <a href="http://testing.stenciljs.com/link2">
