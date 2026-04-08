@@ -69,6 +69,10 @@ export class ZCarousel {
   @State()
   canNavigateNext: boolean;
 
+  /** Status message for screen reader announcements. */
+  @State()
+  statusMessage = "";
+
   /** Reference for the items container element. */
   protected itemsContainer: HTMLUListElement;
 
@@ -88,6 +92,9 @@ export class ZCarousel {
   @Watch("current")
   onIndexChange(): void {
     this.indexChange.emit({currentItem: this.current});
+    if (this.single && this.items) {
+      this.statusMessage = `Elemento ${this.current + 1} di ${this.items.length}`;
+    }
   }
 
   @Watch("single")
@@ -158,6 +165,7 @@ export class ZCarousel {
           : -this.itemsContainer.clientWidth / 2,
       behavior: "smooth",
     });
+    this.statusMessage = "Elementi precedenti visualizzati";
   }
 
   private onNext(): void {
@@ -178,6 +186,7 @@ export class ZCarousel {
           : this.itemsContainer.clientWidth / 2,
       behavior: "smooth",
     });
+    this.statusMessage = "Elementi successivi visualizzati";
   }
 
   /**
@@ -276,6 +285,14 @@ export class ZCarousel {
           aria-label={this.label || "Carousel"}
         >
           {this.label && <div class="z-carousel-title heading-3-sb">{this.label}</div>}
+          <div
+            class="z-carousel-status"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {this.statusMessage}
+          </div>
           <div class="z-carousel-wrapper">
             <z-button
               class="z-carousel-navigation-arrow"
