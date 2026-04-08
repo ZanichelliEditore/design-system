@@ -96,7 +96,7 @@ button {
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;
-  line-height: 20px;
+  line-height: 1.4;
 }
 
 .action-button {
@@ -104,12 +104,12 @@ button {
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   letter-spacing: 0.32px;
-  line-height: 16px;
+  line-height: 1.333;
+  outline: none;
 }
 
-.action-button:focus {
+.action-button:focus-visible {
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
 }
 
 .content-container + .close-button {
@@ -121,7 +121,7 @@ button {
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .content-container {
     flex-wrap: nowrap;
   }
