@@ -14,14 +14,12 @@ import {
 import {
   ButtonVariant,
   ControlSize,
-  Device,
   KeyboardCode,
-  ListDividerType,
   SearchbarGroup,
   SearchbarGroupedItem,
   SearchbarItem,
 } from "../../beans";
-import {getDevice, handleEnterKeydSubmit, randomId} from "../../utils/utils";
+import {handleEnterKeydSubmit, randomId} from "../../utils/utils";
 
 /**
  * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
@@ -30,11 +28,18 @@ import {getDevice, handleEnterKeydSubmit, randomId} from "../../utils/utils";
  */
 @Component({
   tag: "z-searchbar",
-  styleUrls: ["styles.css", "../css-components/z-label/styles.css"],
+  styleUrls: [
+    "styles.css",
+    "../css-components/z-label/styles.css",
+    "../css-components/z-scrollbar/styles.css",
+    "../../tokens/typography.css",
+  ],
   shadow: true,
 })
 export class ZSearchbar implements ComponentInterface {
-  /** the id of the searchbar element */
+  @Element() host: HTMLZSearchbarElement;
+
+  /** The id of the searchbar element */
   @Prop({reflect: true})
   htmlid = `searchbar-${randomId()}`;
 
@@ -42,11 +47,11 @@ export class ZSearchbar implements ComponentInterface {
   @Prop()
   preventSubmit?: boolean = false;
 
-  /** the input label */
+  /** The input label */
   @Prop()
   label?: string;
 
-  /** the input aria-label */
+  /** The input aria-label */
   @Prop()
   htmlAriaLabel?: string;
 
@@ -66,7 +71,7 @@ export class ZSearchbar implements ComponentInterface {
   @Prop()
   autocompleteMinChars?: number = 3;
 
-  /** Number of results shown - default all */
+  /** Number of results shown. Default: all */
   @Prop()
   resultsCount?: number;
 
@@ -86,15 +91,15 @@ export class ZSearchbar implements ComponentInterface {
   @Prop()
   showSearchButton?: boolean = false;
 
-  /** Set button icon without label*/
+  /** Hide the label of the submit button, showing only the icon */
   @Prop()
   searchButtonIconOnly?: boolean = false;
 
-  /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
+  /** Size of the `z-input` and submit `z-button` */
   @Prop()
   size?: ControlSize = ControlSize.BIG;
 
-  /** Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`. */
+  /** Submit `z-button` variant */
   @Prop()
   variant?: ButtonVariant = ButtonVariant.PRIMARY;
 
@@ -102,7 +107,7 @@ export class ZSearchbar implements ComponentInterface {
   searchString = this.value;
 
   @State()
-  currResultsCount = 0;
+  currResultsCount: number | undefined = this.resultsCount;
 
   @State()
   showResults = false;
@@ -113,31 +118,23 @@ export class ZSearchbar implements ComponentInterface {
   @State()
   selectedItem?: SearchbarItem;
 
-  @Element() element: HTMLZSearchbarElement;
-
   private resultsItemsList: SearchbarItem[] | undefined = null;
 
   private inputRef: HTMLZInputElement;
 
-  private resizeObserver: ResizeObserver;
+  /** Media query list for detecting mobile view. */
+  private mql?: MediaQueryList;
 
-  private items: HTMLElement[] = [];
+  /** Listener for changes in the mobile view media query. */
+  private onMobileViewChange?: (e: MediaQueryListEvent) => void;
 
   /** Emitted on search submit, return search string */
   @Event()
   searchSubmit: EventEmitter<string>;
 
-  private emitSearchSubmit(): void {
-    this.searchSubmit.emit(this.inputRef.value);
-  }
-
   /** Emitted on search typing, return search string */
   @Event()
   searchTyping: EventEmitter<string>;
-
-  private emitSearchTyping(search: string): void {
-    this.searchTyping.emit(search);
-  }
 
   /** Emitted on search result click, return item */
   @Event()
@@ -147,6 +144,10 @@ export class ZSearchbar implements ComponentInterface {
     this.searchItemClick.emit(item);
     this.selectedItem = item;
     this.searchString = "";
+  }
+
+  private emitSearchSubmit(): void {
+    this.searchSubmit.emit(this.inputRef.value);
   }
 
   @Watch("resultsItems")
@@ -166,48 +167,19 @@ export class ZSearchbar implements ComponentInterface {
 
   @Watch("searchString")
   watchSearchString(): void {
-    this.emitSearchTyping(this.searchString);
-    this.items = [];
+    this.searchTyping.emit(this.searchString);
     if (!this.searchString) {
       this.currResultsCount = this.resultsCount;
     }
-  }
-
-  @Watch("showResults")
-  watchShowResults(): void {
-    if (!this.showResults) {
-      this.items = [];
-    }
-  }
-
-  disconnectedCallback(): void {
-    this.resizeObserver?.disconnect();
-  }
-
-  componentDidLoad(): void {
-    this.resizeObserver = new ResizeObserver(() => {
-      if (getDevice() === Device.MOBILE && !this.isMobile) {
-        this.isMobile = true;
-      }
-      if (getDevice() !== Device.MOBILE && this.isMobile) {
-        this.isMobile = false;
-      }
-    });
-    this.resizeObserver.observe(this.element);
-  }
-
-  componentWillLoad(): void {
-    this.resultsItemsList = this.getResultsItemsList();
-    this.currResultsCount = this.resultsCount;
   }
 
   private getResultsItemsList(): SearchbarItem[] | undefined {
     return typeof this.resultsItems === "string" ? JSON.parse(this.resultsItems) : this.resultsItems;
   }
 
-  private getGroupedItems(items: SearchbarItem[]): SearchbarGroupedItem {
+  private getGroupedItems(): SearchbarGroupedItem {
     const groupedItems = {};
-    items.forEach((item: SearchbarItem) => {
+    this.resultsItemsList.forEach((item: SearchbarItem) => {
       const key = `${item?.category}${item?.subcategory}`;
       groupedItems[key] = groupedItems[key] ?? {
         category: item?.category,
@@ -244,204 +216,42 @@ export class ZSearchbar implements ComponentInterface {
     return groupedItems;
   }
 
-  private checkResultsCount(counter: number): boolean {
-    if (!this.currResultsCount || counter < this.currResultsCount) {
-      return true;
-    }
-
-    return false;
-  }
-
-  private handleStopTyping(e: CustomEvent): void {
-    e.stopPropagation();
-    this.searchString = e.detail.value;
-    if (this.selectedItem) {
-      this.selectedItem = undefined;
-    }
-  }
-
-  private handleSubmit(): void {
-    if (this.preventSubmit) {
-      return;
-    }
-    this.emitSearchSubmit();
-  }
-
-  @Listen("click", {target: "document"})
-  private handleOutsideClick(e: MouseEvent): void {
-    const cp = e.composedPath();
-
-    const searchbar = cp.find((elem: HTMLElement) => elem.nodeName === "Z-SEARCHBAR");
-    if (!searchbar || (searchbar as HTMLZSearchbarElement).htmlid !== this.htmlid) {
-      this.showResults = false;
+  private onListItemKeyDown(e: KeyboardEvent, item: SearchbarItem): void {
+    if (e.key === KeyboardCode.ENTER) {
+      e.preventDefault();
+      this.emitSearchItemClick(item);
 
       return;
     }
 
-    if (cp.find((elem: HTMLElement) => elem?.nodeName === "Z-INPUT" || elem?.classList?.contains("results"))) {
-      this.showResults = true;
+    this.handleArrowsNavigation(e);
+  }
+
+  private onSearchHelperKeyDown(e: KeyboardEvent): void {
+    if (e.key === KeyboardCode.ENTER) {
+      e.preventDefault();
+      this.emitSearchSubmit();
 
       return;
     }
 
-    this.showResults = false;
-  }
-
-  private renderInput(): HTMLZInputElement {
-    return (
-      <z-input
-        ref={(val) => {
-          this.inputRef = val;
-        }}
-        htmlid={`input-${this.htmlid}`}
-        message={false}
-        placeholder={this.placeholder}
-        onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
-        onKeyUp={(e: KeyboardEvent) => {
-          handleEnterKeydSubmit(e, () => this.handleSubmit());
-          this.handleArrowsNavigation(e);
-        }}
-        value={this.searchString || this.selectedItem?.label}
-        size={this.size}
-        label={this.label}
-        aria-label={this.htmlAriaLabel || this.placeholder}
-      />
-    );
-  }
-
-  private renderButton(): HTMLZButtonElement | null {
-    if (!this.showSearchButton) {
-      return null;
-    }
-
-    const iconProp = this.searchButtonIconOnly ? {icon: "search"} : null;
-    const buttonLabel = this.searchButtonIconOnly ? "" : "CERCA";
-    const ariaLabel = this.searchButtonIconOnly ? {"aria-label": "CERCA"} : null;
-    const defaultProps = {
-      disabled: this.preventSubmit,
-      variant: this.variant,
-      size: this.size,
-      onClick: () => this.handleSubmit(),
-      ...iconProp,
-      ...ariaLabel,
-    };
-
-    return <z-button {...defaultProps}>{buttonLabel}</z-button>;
-  }
-
-  private renderResults(): HTMLDivElement | null {
-    if (
-      !this.showResults ||
-      !this.autocomplete ||
-      !this.searchString ||
-      this.searchString.length < this.autocompleteMinChars ||
-      !this.resultsItemsList
-    ) {
-      return null;
-    }
-
-    return (
-      <div class="results-wrapper">
-        <div class="results">{this.renderResultsList()}</div>
-      </div>
-    );
-  }
-
-  private renderResultsList(): HTMLZListElement | HTMLSpanElement {
-    if (this.preventSubmit && !this.resultsItemsList?.length) {
-      return (
-        <span class="item item-no-results">
-          Non abbiamo trovato risultati per <b>{this.searchString}</b>
-          <br />
-          <br />
-          Cosa puoi fare?
-          <ul>
-            <li>Verificare di aver scritto bene</li>
-            <li>Provare a cercare un'altra parola</li>
-            <li>Provare a cercare qualcosa di più generico</li>
-          </ul>
-        </span>
-      );
-    }
-
-    return (
-      <z-list
-        role="listbox"
-        id={`list-${this.htmlid}`}
-        aria-label={this.htmlAriaLabel || this.label}
-      >
-        {this.renderSearchHelper(!!this.resultsItemsList?.length)}
-        {this.renderItems()}
-        {this.renderShowAllResults()}
-      </z-list>
-    );
-  }
-
-  private renderItems(): HTMLZListGroupElement[] {
-    if (!this.resultsItemsList?.length) {
-      return [];
-    }
-
-    const groupedItems = this.getGroupedItems(this.resultsItemsList);
-    const listGroups: HTMLZListGroupElement[] = [];
-    let counter = 0;
-
-    Object.values(groupedItems).forEach((groupItem: SearchbarGroup, index: number, array) => {
-      if (this.checkResultsCount(counter)) {
-        const listGroupsElements: HTMLZListElement[] = [];
-        groupItem.items.forEach((item: SearchbarItem, subindex: number, subarray) => {
-          if (this.checkResultsCount(counter)) {
-            const isLast = index === array.length - 1 && subindex === subarray.length - 1;
-            listGroupsElements.push(this.renderItem(item, subindex, !isLast));
-          }
-          counter++;
-        });
-
-        if (listGroupsElements.length) {
-          listGroups.push(
-            <z-list-group divider-type={ListDividerType.ELEMENT}>
-              {this.renderItemCategory(groupItem)}
-              {listGroupsElements}
-            </z-list-group>
-          );
-        }
-      }
-    });
-
-    return listGroups;
+    this.handleArrowsNavigation(e);
   }
 
   private handleArrowsNavigation(e: KeyboardEvent): void {
-    const currentElement = e.target as HTMLElement;
-    const arrows = [KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP];
-
-    if (!arrows.includes(e.key as KeyboardCode)) {
-      e.preventDefault();
-
+    if (![KeyboardCode.ARROW_DOWN, KeyboardCode.ARROW_UP].includes(e.key as KeyboardCode)) {
       return;
     }
 
-    if (!this.items.length) {
-      const list = this.element.shadowRoot.querySelector("z-list");
-      if (!list) {
-        return;
-      }
-
-      this.items = Array.from(list.querySelectorAll(".list-element"));
-    }
-
-    this.items.forEach((item) => {
-      item.classList.toggle("focused", false);
-    });
-
-    const currentIndex = this.items.indexOf(currentElement as HTMLZListElementElement);
+    const currentElement = e.target as HTMLElement;
+    const items = Array.from(this.host.shadowRoot?.querySelectorAll("z-list .list-item") ?? []);
+    const currentIndex = items.indexOf(currentElement);
 
     if (e.key === KeyboardCode.ARROW_DOWN) {
       e.preventDefault();
       const nextIndex = currentIndex + 1;
-      if (nextIndex < this.items.length) {
-        (this.items[nextIndex] as HTMLElement).focus();
-        this.items[nextIndex].classList.add("focused");
+      if (nextIndex < items.length) {
+        (items[nextIndex] as HTMLElement).focus();
       }
     }
 
@@ -449,63 +259,52 @@ export class ZSearchbar implements ComponentInterface {
       e.preventDefault();
       const prevIndex = currentIndex - 1;
       if (prevIndex < 0) {
-        this.element.shadowRoot.querySelector("input").focus();
-        this.element.shadowRoot
-          .querySelector("input")
-          .setSelectionRange(this.inputRef.value.length, this.inputRef.value.length);
+        this.host.shadowRoot?.querySelector("input")?.focus();
+        this.host.shadowRoot
+          ?.querySelector("input")
+          ?.setSelectionRange(this.inputRef.value.length, this.inputRef.value.length);
       }
       if (prevIndex >= 0) {
-        (this.items[prevIndex] as HTMLElement).focus();
-        this.items[prevIndex].classList.add("focused");
+        (items[prevIndex] as HTMLElement).focus();
       }
     }
   }
 
-  private renderItem(item: SearchbarItem, key: number, divider: boolean): HTMLZListElementElement {
-    return (
-      <z-list-element
-        id={`list-item-${this.htmlid}-${key}`}
-        tabIndex={0}
-        role="option"
-        dividerType={divider ? ListDividerType.ELEMENT : undefined}
-        onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
-      >
-        <div
-          class="list-element"
-          tabIndex={0}
-          onClick={() => this.emitSearchItemClick(item)}
-          onKeyDown={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.emitSearchItemClick(item))}
-          onMouseEnter={(e: MouseEvent) => {
-            const currentElement = e.target as HTMLElement;
-            currentElement.classList.add("hovered");
-          }}
-          onMouseLeave={(e: MouseEvent) => {
-            const currentElement = e.target as HTMLElement;
-            currentElement.classList.toggle("hovered", false);
-          }}
-        >
-          <span class="item ellipsis">
-            {item?.icon && (
-              <z-icon
-                class="item-icon"
-                name={item.icon}
-              />
-            )}
-            <span
-              class="item-label"
-              title={item.label}
-              innerHTML={this.renderItemLabel(item.label)}
-            />
-          </span>
-          {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
-        </div>
-        {item.children && item.children.length > 0 ? (
-          <z-list>
-            <div class="children-node">{item.children.map((child, index) => this.renderItem(child, index, false))}</div>
-          </z-list>
-        ) : null}
-      </z-list-element>
-    );
+  private handleStopTyping(e: CustomEvent): void {
+    e.stopPropagation();
+    this.searchString = e.detail.value;
+    this.selectedItem = undefined;
+  }
+
+  private handleSubmit(): void {
+    if (this.preventSubmit) {
+      return;
+    }
+
+    this.emitSearchSubmit();
+  }
+
+  @Listen("click", {target: "document"})
+  private handleOutsideClick(e: MouseEvent): void {
+    const cp = e.composedPath();
+    if (cp.includes(this.host)) {
+      return;
+    }
+
+    this.showResults = false;
+  }
+
+  componentWillLoad(): void {
+    this.resultsItemsList = this.getResultsItemsList();
+
+    this.mql = matchMedia("(max-width: 767px)");
+    this.onMobileViewChange = (e: MediaQueryListEvent) => (this.isMobile = e.matches);
+    this.mql.addEventListener("change", this.onMobileViewChange);
+    this.isMobile = this.mql.matches;
+  }
+
+  disconnectedCallback(): void {
+    this.mql?.removeEventListener("change", this.onMobileViewChange);
   }
 
   private renderItemLabel(label: string): string {
@@ -519,91 +318,220 @@ export class ZSearchbar implements ComponentInterface {
     );
   }
 
-  private renderItemCategory(groupItem: SearchbarGroup): HTMLSpanElement | null {
-    if (!groupItem?.category) {
-      return null;
-    }
-
-    return (
-      <span
-        class="category-heading"
-        slot="header-title"
-      >
-        <span class="category">{groupItem.category}</span>
-        {groupItem?.subcategory && <span class="subcategory">{groupItem.subcategory}</span>}
-      </span>
-    );
-  }
-
-  private renderSearchHelper(hasDivider = true): HTMLZListElement | null {
-    if (!this.autocomplete || this.preventSubmit || !this.searchString) {
-      return null;
-    }
-
+  private renderItem(item: SearchbarItem, index: number): HTMLZListElementElement {
     return (
       <z-list-element
-        role="option"
-        dividerType={hasDivider ? ListDividerType.ELEMENT : undefined}
-        id={`list-item-${this.htmlid}-search`}
-        onKeyDown={(e: KeyboardEvent) => this.handleArrowsNavigation(e)}
+        id={`list-item-${this.htmlid}-${index}`}
+        role="presentation"
+        htmlTabindex={-1}
+        onKeyDown={(e: KeyboardEvent) => this.onListItemKeyDown(e, item)}
+        onClick={() => this.emitSearchItemClick(item)}
       >
         <div
+          class="list-item ellipsis"
+          role="option"
           tabindex={0}
-          onClick={() => this.emitSearchSubmit()}
-          onKeyDown={(e: KeyboardEvent) => handleEnterKeydSubmit(e, () => this.emitSearchSubmit())}
-          class="list-element"
         >
-          <span class="item item-search">
+          {item?.icon && (
             <z-icon
-              class="search-icon"
-              name="left-magnifying-glass"
+              class="item-icon"
+              name={item.icon}
             />
-            <span
-              class="item-label"
-              innerHTML={this.searchHelperLabel.replace("{searchString}", `<mark>${this.searchString}</mark>`)}
-            />
-          </span>
+          )}
+
+          <div
+            class="item-label body-3 mobile-body-4"
+            title={item.label}
+            innerHTML={this.renderItemLabel(item.label)}
+          />
+          {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
         </div>
+        {item.children?.length && (
+          <z-list
+            class="sub-list"
+            role="group"
+            aria-label={item.label || undefined}
+          >
+            {item.children.map((child, index) => this.renderItem(child, index))}
+          </z-list>
+        )}
       </z-list-element>
     );
   }
 
-  private renderShowAllResults(): HTMLZListElement | null {
-    if (
-      !this.currResultsCount ||
-      !this.searchString ||
-      !this.resultsItemsList?.length ||
-      this.currResultsCount >= this.resultsItemsList?.length
-    ) {
-      return null;
+  /**
+   * Renders the item grouped by category and subcategory. If `resultsCount` is set, it limits the number of rendered items.
+   */
+  private renderItemGroups(): HTMLZListGroupElement[] | undefined {
+    if (!this.resultsItemsList?.length) {
+      return;
     }
 
-    return (
-      <z-list-element
-        role="option"
-        tabindex={0}
-        clickable
-        id={`list-item-${this.htmlid}-show-all`}
-        onClickItem={() => (this.currResultsCount = 0)}
-        color="color-primary01"
-      >
-        <div class="item-show-all">Vedi tutti i risultati</div>
-      </z-list-element>
-    );
+    const groupedItems = Object.values(this.getGroupedItems()) as SearchbarGroup[];
+    const listGroups: HTMLZListGroupElement[] = [];
+    const hasResultsLimit = !!this.currResultsCount;
+    let renderedCount = 0;
+
+    for (const groupItem of groupedItems) {
+      const remaining = hasResultsLimit ? this.currResultsCount - renderedCount : groupItem.items.length;
+      if (remaining <= 0) {
+        break;
+      }
+
+      const visibleItems = groupItem.items.slice(0, remaining);
+      const listGroupsElements: HTMLZListElement[] = visibleItems.map((item: SearchbarItem, subindex: number) =>
+        this.renderItem(item, subindex)
+      );
+      renderedCount += listGroupsElements.length;
+
+      if (!listGroupsElements.length) {
+        continue;
+      }
+
+      const ariaLabel = [groupItem.category, groupItem.subcategory].filter(Boolean).join(" ");
+
+      listGroups.push(
+        <z-list-group aria-label={ariaLabel || undefined}>
+          {groupItem.category && (
+            <z-list-element
+              class="category-heading body-3 mobile-body-4"
+              slot="header-title"
+              role="presentation"
+              htmlTabindex={-1}
+            >
+              <div class="category">{groupItem.category}</div>
+              {groupItem.subcategory && <div class="subcategory">{groupItem.subcategory}</div>}
+            </z-list-element>
+          )}
+
+          {listGroupsElements}
+        </z-list-group>
+      );
+    }
+
+    return listGroups;
   }
 
   render(): HTMLZSearchbarElement {
     return (
       <Host
         onFocus={() => (this.showResults = true)}
-        onClick={(e) => this.handleOutsideClick(e)}
-        class={{"has-submit": this.showSearchButton, "has-results": this.autocomplete}}
+        onClick={(e: MouseEvent) => this.handleOutsideClick(e)}
+        class={{"has-submit": !!this.showSearchButton, "has-results": !!this.autocomplete}}
       >
         <div class="input-container">
-          {this.renderInput()}
-          {this.renderResults()}
+          <z-input
+            ref={(el) => (this.inputRef = el)}
+            htmlid={`input-${this.htmlid}`}
+            message={false}
+            placeholder={this.placeholder}
+            onStopTyping={(e: CustomEvent) => this.handleStopTyping(e)}
+            onKeyUp={(e: KeyboardEvent) => {
+              handleEnterKeydSubmit(e, () => this.handleSubmit());
+              this.handleArrowsNavigation(e);
+            }}
+            onFocus={() => (this.showResults = true)}
+            value={this.searchString || this.selectedItem?.label}
+            size={this.size}
+            label={this.label}
+            aria-label={this.htmlAriaLabel || this.placeholder || undefined}
+          />
+
+          {!!(
+            this.showResults &&
+            this.autocomplete &&
+            this.searchString &&
+            this.searchString.length >= this.autocompleteMinChars &&
+            this.resultsItemsList
+          ) && (
+            <div class="results z-scrollbar">
+              {this.preventSubmit && !this.resultsItemsList?.length ? (
+                <div class="item-no-results body-3 mobile-body-4">
+                  Non abbiamo trovato risultati per <b>{this.searchString}</b>
+                  <br />
+                  <br />
+                  Cosa puoi fare?
+                  <ul>
+                    <li>Verificare di aver scritto bene</li>
+                    <li>Provare a cercare un'altra parola</li>
+                    <li>Provare a cercare qualcosa di più generico</li>
+                  </ul>
+                </div>
+              ) : (
+                <z-list
+                  role="listbox"
+                  id={`list-${this.htmlid}`}
+                  aria-label={this.htmlAriaLabel || this.label || undefined}
+                >
+                  {this.autocomplete && !this.preventSubmit && this.searchString && (
+                    <z-list-element
+                      role="presentation"
+                      htmlTabindex={-1}
+                      id={`list-item-${this.htmlid}-search`}
+                      onKeyDown={(e: KeyboardEvent) => this.onSearchHelperKeyDown(e)}
+                      onClick={() => this.emitSearchSubmit()}
+                    >
+                      <div
+                        class="list-item item-search"
+                        role="option"
+                        tabindex={0}
+                      >
+                        <z-icon
+                          class="search-icon"
+                          name="left-magnifying-glass"
+                        />
+                        <div
+                          class="item-label body-3 mobile-body-4"
+                          innerHTML={this.searchHelperLabel?.replace(
+                            "{searchString}",
+                            `<mark>${this.searchString}</mark>`
+                          )}
+                        />
+                      </div>
+                    </z-list-element>
+                  )}
+
+                  {this.renderItemGroups()}
+
+                  {!!(
+                    this.searchString &&
+                    this.resultsItemsList?.length &&
+                    this.currResultsCount &&
+                    this.currResultsCount < this.resultsItemsList?.length
+                  ) && (
+                    <z-list-element
+                      role="presentation"
+                      htmlTabindex={-1}
+                      id={`list-item-${this.htmlid}-show-all`}
+                    >
+                      <div
+                        role="option"
+                        class="item-show-all body-3 mobile-body-4"
+                        tabindex={0}
+                        onClick={() => (this.currResultsCount = undefined)}
+                      >
+                        Vedi tutti i risultati
+                      </div>
+                    </z-list-element>
+                  )}
+                </z-list>
+              )}
+            </div>
+          )}
         </div>
-        {this.renderButton()}
+
+        {this.showSearchButton && (
+          <z-button
+            icon={this.searchButtonIconOnly ? "search" : undefined}
+            aria-label={this.searchButtonIconOnly ? "CERCA" : undefined}
+            disabled={!!this.preventSubmit}
+            variant={this.variant}
+            size={this.size}
+            onClick={() => this.handleSubmit()}
+          >
+            {this.searchButtonIconOnly ? "" : "CERCA"}
+          </z-button>
+        )}
       </Host>
     );
   }
