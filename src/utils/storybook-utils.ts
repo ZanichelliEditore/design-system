@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import {OptionsConfig} from "@storybook/blocks";
 import {Args} from "@storybook/web-components";
 

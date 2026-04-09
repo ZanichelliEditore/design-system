@@ -1,4 +1,15 @@
-import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Method,
+  Prop,
+  State,
+  h,
+} from "@stencil/core";
 import {Fragment, Host, JSXBase} from "@stencil/core/internal";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
 import {boolean, randomId} from "../../utils/utils";
@@ -9,7 +20,7 @@ import {boolean, randomId} from "../../utils/utils";
   shadow: false,
   scoped: true,
 })
-export class ZInput {
+export class ZInput implements ComponentInterface {
   @Element() hostElement: HTMLZInputElement;
 
   /** the id of the input element */

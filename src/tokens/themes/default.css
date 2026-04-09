@@ -82,7 +82,7 @@
   --color-form-inverse-error: var(--red50);
   --color-form-inverse-success: var(--green50);
   --color-form-inverse-warning: var(--yellow50);
-  --color-form-placeholder-text: var(--gray500);
+  --color-form-placeholder-text: var(--gray600);
   --color-form-success01: var(--green500);
   --color-form-surface03: var(--gray200);
   --color-form-surface04: var(--gray600);

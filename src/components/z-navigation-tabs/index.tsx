@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {NavigationTabsKeyboardEvents, NavigationTabsOrientation, NavigationTabsSize} from "../../beans";
 
 /**
@@ -12,7 +24,7 @@ import {NavigationTabsKeyboardEvents, NavigationTabsOrientation, NavigationTabsS
   tag: "z-navigation-tabs",
   styleUrl: "styles.css",
 })
-export class ZNavigationTabs {
+export class ZNavigationTabs implements ComponentInterface {
   /**
    * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
    */

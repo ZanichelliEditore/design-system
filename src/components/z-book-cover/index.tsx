@@ -1,4 +1,4 @@
-import {Component, Fragment, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Fragment, Host, Prop, h} from "@stencil/core";
 import defaultFallbackCover from "../../assets/images/png/placeholder-cover.png";
 
 /**
@@ -18,7 +18,7 @@ import defaultFallbackCover from "../../assets/images/png/placeholder-cover.png"
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZBookCover {
+export class ZBookCover implements ComponentInterface {
   /** URL of the cover image. */
   @Prop()
   cover: string;

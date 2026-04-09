@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ColorPickerPalette} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -28,7 +40,7 @@ const COLOR_GROUPS = 9;
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZColorPicker {
+export class ZColorPicker implements ComponentInterface {
   @Element() host: HTMLZColorPickerElement;
 
   /**

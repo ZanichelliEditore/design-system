@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, h} from "@stencil/core";
 
 /**
  * Component short description.
@@ -8,7 +8,7 @@ import {Component, Prop, h} from "@stencil/core";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class {{properCase name}} {
+export class {{properCase name}} implements ComponentInterface {
   /**
    * Property description.
    */

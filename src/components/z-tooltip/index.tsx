@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
 import {PopoverPosition} from "../../beans";
 
 /**
@@ -14,7 +14,7 @@ import {PopoverPosition} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTooltip {
+export class ZTooltip implements ComponentInterface {
   /** Tooltip position. */
   @Prop({reflect: true})
   position: PopoverPosition = PopoverPosition.AUTO;

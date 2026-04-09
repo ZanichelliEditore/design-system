@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ColorPickerPalette, KeyboardCode, PopoverPosition} from "../../beans";
 import {ZColorPickerCustomEvent, ZToolCustomEvent, ZTooltipCustomEvent} from "../../components";
 import {IconName} from "../../constants/iconset";
@@ -13,7 +26,7 @@ import {containsElement} from "../../utils/utils";
   styleUrls: ["styles.css", "../../tokens/typography.css"],
   shadow: true,
 })
-export class ZTool {
+export class ZTool implements ComponentInterface {
   @Element() hostElement: HTMLZToolElement;
 
   /** Tool icon */

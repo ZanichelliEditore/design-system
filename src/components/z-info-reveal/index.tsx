@@ -1,4 +1,4 @@
-import {Component, Element, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InfoRevealPosition} from "../../beans";
 
 /**
@@ -15,7 +15,7 @@ import {ControlSize, InfoRevealPosition} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZInfoReveal {
+export class ZInfoReveal implements ComponentInterface {
   /** Name of the icon for the trigger button */
   @Prop()
   icon? = "informationsource";

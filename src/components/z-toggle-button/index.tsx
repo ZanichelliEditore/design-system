@@ -1,11 +1,11 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-toggle-button",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZToggleButton {
+export class ZToggleButton implements ComponentInterface {
   /** label text */
   @Prop()
   label: string;

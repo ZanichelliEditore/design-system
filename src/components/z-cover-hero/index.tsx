@@ -1,4 +1,4 @@
-import {Component, Element, Host, Listen, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Listen, Prop, h} from "@stencil/core";
 import {CoverHeroContentPosition, CoverHeroVariant} from "../../beans";
 
 /**
@@ -17,7 +17,7 @@ import {CoverHeroContentPosition, CoverHeroVariant} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZCoverHero {
+export class ZCoverHero implements ComponentInterface {
   @Element() host: HTMLZCoverHeroElement;
 
   /**

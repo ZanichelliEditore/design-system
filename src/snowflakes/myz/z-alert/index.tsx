@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, h} from "@stencil/core";
 import {AlertType} from "../../../beans/index";
 
 /**
@@ -10,7 +10,7 @@ import {AlertType} from "../../../beans/index";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAlert {
+export class ZAlert implements ComponentInterface {
   /** alert variant type */
   @Prop()
   type: AlertType;

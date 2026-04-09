@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.5](https://github.com/ZanichelliEditore/design-system/compare/v19.2.4...v19.2.5) (2026-04-08)
+
+
+### Bug Fixes
+
+* apply prettier formatting ([b5daa52](https://github.com/ZanichelliEditore/design-system/commit/b5daa525f8e81d52184a8641de7e8aa194bfbab2))
+* prevent empty aria-label and role attributes on z-button ([67a3d00](https://github.com/ZanichelliEditore/design-system/commit/67a3d00142af2b57a495ae19f438a1fa30fc73c4))
+* **tokens:** improve placeholder text contrast for WCAG 1.4.3 ([e6096db](https://github.com/ZanichelliEditore/design-system/commit/e6096db869d135c322b42aa0bba505467b3328bd)), closes [#9b9b9](https://github.com/ZanichelliEditore/design-system/issues/9b9b9) [#666](https://github.com/ZanichelliEditore/design-system/issues/666)
+* **z-breadcrumb:** add aria-hidden to separator icons ([89d1429](https://github.com/ZanichelliEditore/design-system/commit/89d142957f268db3975232d8b41796a99352047e))
+* **z-notification:** content width ([d79a561](https://github.com/ZanichelliEditore/design-system/commit/d79a5612e9c13a8dad9a854b8af798db42ce867f))
+
 ## [19.2.4](https://github.com/ZanichelliEditore/design-system/compare/v19.2.3...v19.2.4) (2026-04-07)
 
 

@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 @Component({
@@ -6,7 +6,7 @@ import {handleKeyboardSubmit} from "../../../../utils/utils";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzListItem {
+export class ZMyzListItem implements ComponentInterface {
   /** content text */
   @Prop()
   text: string;
