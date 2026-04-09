@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {BookCardDeprecatedVariant} from "../../../beans";
 import {Breakpoints} from "../../../constants/breakpoints";
 import {randomId} from "../../../utils/utils";
@@ -18,7 +18,7 @@ import {randomId} from "../../../utils/utils";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZBookCardDeprecated {
+export class ZBookCardDeprecated implements ComponentInterface {
   @Element() hostElement: HTMLZBookCardDeprecatedElement;
 
   /**

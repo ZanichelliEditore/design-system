@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {AlertType} from "../../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {AlertType} from "../../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardAlert {
+export class ZMyzCardAlert implements ComponentInterface {
   /** icon name */
   @Prop()
   iconname: string;

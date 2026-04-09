@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {Device, KeyboardCode, PopoverPosition} from "../../beans";
 import {
   containsElement,
@@ -30,7 +42,7 @@ type Offsets = {top: number; right: number; bottom: number; left: number};
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZPopover {
+export class ZPopover implements ComponentInterface {
   /**
    * The preferred position to render the popover.
    * The popover will automatically search another position if not enough space is available for the preferred position.

@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 import {containsElement} from "../../utils/utils";
@@ -23,7 +36,7 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAppHeader {
+export class ZAppHeader implements ComponentInterface {
   @Element() hostElement: HTMLZAppHeaderElement;
 
   /**

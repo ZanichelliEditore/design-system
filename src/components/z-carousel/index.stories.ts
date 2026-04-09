@@ -13,7 +13,7 @@ type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CSSVarsArguments<
 /**
  * This component was conceived as a list of elements to respect the rules of accessibility (https://www.w3.org/WAI/tutorials/carousels/working-example/).
  * Pass any number of elements inside its main `slot`.
- * @example```html
+ * @example```
  * <z-carousel>
  *  <li>element</li>
  *  <li>element</li>
@@ -22,7 +22,7 @@ type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CSSVarsArguments<
  * ```
  * > Note: always use `li` elements as direct children of `z-carousel`, as it wraps them with an `ul` element.
  * You can set the gutter between the elements by using the `--z-carousel-gutter` custom property.
- * @example```css
+ * @example```
  * z-carousel {
  *  --z-carousel-gutter: calc(var(--space-unit) * 2);
  * }```

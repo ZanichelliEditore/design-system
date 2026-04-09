@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {ZChipType} from "../../beans";
 
 @Component({
@@ -7,7 +7,7 @@ import {ZChipType} from "../../beans";
   shadow: false,
   scoped: true,
 })
-export class ZChip {
+export class ZChip implements ComponentInterface {
   @Element() el: HTMLZChipElement;
 
   /** Non interactive icon */

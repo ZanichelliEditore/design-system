@@ -1,11 +1,11 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-stepper-item",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZStepperItem {
+export class ZStepperItem implements ComponentInterface {
   /**
    * The number of the step item.
    */

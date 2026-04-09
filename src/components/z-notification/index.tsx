@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {NotificationType} from "../../beans";
 
 /**
@@ -13,7 +13,7 @@ import {NotificationType} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZNotification {
+export class ZNotification implements ComponentInterface {
   /** Name of the icon on the left of the content */
   @Prop()
   contenticonname?: string;

@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {InputType} from "../../beans";
 
 /**
@@ -10,7 +22,7 @@ import {InputType} from "../../beans";
   tag: "z-pagination",
   styleUrl: "styles.css",
 })
-export class ZPagination {
+export class ZPagination implements ComponentInterface {
   @Element() host: HTMLZPaginationElement;
 
   /** Pagination label placed before the bar. */

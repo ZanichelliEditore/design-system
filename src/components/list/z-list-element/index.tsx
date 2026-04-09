@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -14,7 +14,7 @@ import {
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZListElement {
+export class ZListElement implements ComponentInterface {
   @Element() host: HTMLZListElementElement;
 
   /** remove filter click event, returns filterid */

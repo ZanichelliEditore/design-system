@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, h} from "@stencil/core";
 import "../z-tbody/index";
 import "../z-tfoot/index";
 import "../z-thead/index";
@@ -14,7 +14,7 @@ import "../z-tr/index";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTable {
+export class ZTable implements ComponentInterface {
   @Element() host: HTMLZTableElement;
 
   /**

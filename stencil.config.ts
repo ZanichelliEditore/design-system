@@ -35,7 +35,12 @@ export const config: Config = {
   ],
   extras: {
     enableImportInjection: true,
-    experimentalSlotFixes: true,
+    experimentalScopedSlotChanges: true,
+    appendChildSlotFix: true,
+    cloneNodeFix: true,
+    scopedSlotTextContentFix:
+      false /* setting this to true will break the retrieval of `textContent` in the `componentWillLoad` lifecycle method */,
+    slotChildNodesFix: true,
   },
   testing: {
     moduleNameMapper: {

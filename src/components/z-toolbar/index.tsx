@@ -1,4 +1,4 @@
-import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Listen, Prop, State, h} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 import {ZToolCustomEvent} from "../../components";
 
@@ -15,7 +15,7 @@ import {ZToolCustomEvent} from "../../components";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZToolbar {
+export class ZToolbar implements ComponentInterface {
   @Element() hostElement: HTMLZToolbarElement;
 
   /** Accessible label for the toolbar. */

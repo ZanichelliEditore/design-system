@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 import {DividerOrientation, DividerSize} from "../../beans";
 @Component({
   tag: "z-divider",
@@ -6,7 +6,7 @@ import {DividerOrientation, DividerSize} from "../../beans";
   shadow: false,
   scoped: true,
 })
-export class ZDivider {
+export class ZDivider implements ComponentInterface {
   /** [optional] Divider size */
   @Prop()
   size?: DividerSize = DividerSize.SMALL;

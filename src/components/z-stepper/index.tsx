@@ -1,4 +1,4 @@
-import {Component, Host, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, h} from "@stencil/core";
 
 /**
  * @slot - slot for `z-stepper-item`
@@ -8,7 +8,7 @@ import {Component, Host, h} from "@stencil/core";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZStepper {
+export class ZStepper implements ComponentInterface {
   render(): HTMLSlotElement {
     return (
       <Host role="navigation">

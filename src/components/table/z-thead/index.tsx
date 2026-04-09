@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, h} from "@stencil/core";
 
 /**
  * ZThead component.
@@ -9,7 +9,7 @@ import {Component, Element, Host, Prop, h} from "@stencil/core";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZThead {
+export class ZThead implements ComponentInterface {
   @Element() host: HTMLZTheadElement;
 
   /**

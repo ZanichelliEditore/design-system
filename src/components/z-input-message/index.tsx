@@ -1,4 +1,4 @@
-import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -7,7 +7,7 @@ import {randomId} from "../../utils/utils";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZInputMessage {
+export class ZInputMessage implements ComponentInterface {
   /** input helper message */
   @Prop()
   message: string;

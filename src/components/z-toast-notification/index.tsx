@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../../beans";
 
 import DOMPurify from "dompurify";
@@ -22,7 +22,7 @@ const SLIDE_OUT_TRANSITION_MAP = {
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZToastNotification {
+export class ZToastNotification implements ComponentInterface {
   @Element() hostElement: HTMLZToastNotificationElement;
 
   /** toast notification's title */
@@ -124,9 +124,11 @@ export class ZToastNotification {
 
   private visibilityChangeEventHandler(): void {
     if (document.visibilityState === "hidden") {
-      this.timeoutHandle && this.onBlur();
-    } else {
-      this.elapsedTime && this.onFocus();
+      if (this.timeoutHandle) {
+        this.onBlur();
+      }
+    } else if (this.elapsedTime) {
+      this.onFocus();
     }
   }
 
@@ -222,7 +224,9 @@ export class ZToastNotification {
       }
     }
 
-    this.isdraggable && this.handleSlideOutDragAnimation();
+    if (this.isdraggable) {
+      this.handleSlideOutDragAnimation();
+    }
   }
 
   render(): HTMLZToastNotificationElement {
