@@ -289,6 +289,7 @@ export class ZPagination implements ComponentInterface {
       <button
         class="navigation-button"
         type="button"
+        aria-label="Vai alla pagina precedente"
         title="Vai alla pagina precedente"
         disabled={this.currentPage === 1}
         onClick={() => this.selectPage(this.currentPage - 1)}
@@ -303,6 +304,7 @@ export class ZPagination implements ComponentInterface {
       <button
         class="navigation-button"
         type="button"
+        aria-label="Vai alla prossima pagina"
         title="Vai alla prossima pagina"
         disabled={this.currentPage === this.totalPages}
         onClick={() => this.selectPage(this.currentPage + 1)}
