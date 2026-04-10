@@ -14,12 +14,12 @@ jobs:
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Enable Corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install dependencies
@@ -37,12 +37,12 @@ jobs:
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Enable Corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install dependencies
@@ -57,12 +57,12 @@ jobs:
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Enable Corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install dependencies
