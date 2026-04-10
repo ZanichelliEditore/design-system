@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.6](https://github.com/ZanichelliEditore/design-system/compare/v19.2.5...v19.2.6) (2026-04-10)
+
+
+### Bug Fixes
+
+* prettier ([51c83bf](https://github.com/ZanichelliEditore/design-system/commit/51c83bf0299ce13d273548af48b48c9d37952fd3))
+* prevent storybook-addon-stencil to override stencil version for storybook ([f637c44](https://github.com/ZanichelliEditore/design-system/commit/f637c44775e0c723a2e50317a12664637fb84703))
+* textContent on scoped components ([1932dad](https://github.com/ZanichelliEditore/design-system/commit/1932dadf4c7a9867be68e77180c42da673fa309c))
+* **z-navigation-tabs, z-pagination:** consistent aria-labels on navigation buttons ([0f08361](https://github.com/ZanichelliEditore/design-system/commit/0f083611d450d48324544e0726f82bc34109025d))
+* **z-navigation-tabs, z-pagination:** revert z-navigation-tabs commit ([42664db](https://github.com/ZanichelliEditore/design-system/commit/42664db3d90dcb7a9f127692cfb0b2023f00c0c1))
+
 ## [19.2.5](https://github.com/ZanichelliEditore/design-system/compare/v19.2.4...v19.2.5) (2026-04-08)
 
 
