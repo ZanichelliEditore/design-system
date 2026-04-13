@@ -5,7 +5,7 @@ import {ZInput} from "../z-input";
 
 @Component({
   tag: "z-combobox",
-  styleUrl: "styles.css",
+  styleUrls: ["../css-components/z-label/styles.css", "styles.css"],
   shadow: true,
 })
 export class ZCombobox implements ComponentInterface {
