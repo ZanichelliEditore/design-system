@@ -332,7 +332,7 @@ export class ZSearchbar implements ComponentInterface {
           role="option"
           tabindex={0}
         >
-          {item?.icon && (
+          {!!item?.icon && (
             <z-icon
               class="item-icon"
               name={item.icon}
@@ -344,9 +344,9 @@ export class ZSearchbar implements ComponentInterface {
             title={item.label}
             innerHTML={this.renderItemLabel(item.label)}
           />
-          {item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
+          {!!item?.tag && <z-tag icon={item.tag.icon}>{!this.isMobile ? item.tag.text : ""}</z-tag>}
         </div>
-        {item.children?.length && (
+        {!!item.children?.length && (
           <z-list
             class="sub-list"
             role="group"
@@ -463,7 +463,7 @@ export class ZSearchbar implements ComponentInterface {
                   id={`list-${this.htmlid}`}
                   aria-label={this.htmlAriaLabel || this.label || undefined}
                 >
-                  {this.autocomplete && !this.preventSubmit && this.searchString && (
+                  {this.autocomplete && !this.preventSubmit && !!this.searchString && (
                     <z-list-element
                       role="presentation"
                       htmlTabindex={-1}
