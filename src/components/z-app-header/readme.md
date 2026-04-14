@@ -52,20 +52,20 @@ graph TD;
   z-app-header --> z-icon
   z-app-header --> z-offcanvas
   z-button --> z-icon
-  z-searchbar --> z-input
-  z-searchbar --> z-button
-  z-searchbar --> z-list
-  z-searchbar --> z-list-group
   z-searchbar --> z-list-element
   z-searchbar --> z-icon
   z-searchbar --> z-tag
-  z-input --> z-icon
-  z-input --> z-input-message
-  z-input-message --> z-icon
-  z-list-group --> z-divider
+  z-searchbar --> z-list
+  z-searchbar --> z-list-group
+  z-searchbar --> z-input
+  z-searchbar --> z-button
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-tag --> z-icon
+  z-list-group --> z-divider
+  z-input --> z-icon
+  z-input --> z-input-message
+  z-input-message --> z-icon
   style z-app-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

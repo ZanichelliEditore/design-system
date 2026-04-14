@@ -31,29 +31,16 @@ const StoryMeta = {
     "searchButtonIconOnly": false,
     "autocomplete": false,
     "autocompleteMinChars": 3,
-    "resultsCount": null,
+    "resultsCount": undefined,
     "searchHelperLabel": "Cerca {searchString}",
-    "resultsItems": [
-      {
-        label: "first item",
-      },
-      {
-        label: "second item",
-      },
-      {
-        label: "third item",
-      },
-      {
-        label: "fourth item",
-      },
-    ],
+    "resultsItems": [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
     "sortResultsItems": false,
     "htmlid": "myId",
     "placeholder": "my placeholder",
     "value": "",
     "label": "",
     "htmlAriaLabel": "",
-    "--z-searchbar-results-height": "",
+    "--z-searchbar-results-height": "540px",
     "--z-searchbar-tag-text-color": "var(--color-primary03)",
     "--z-searchbar-tag-bg": "var(--color-hover-primary)",
     "size": ControlSize.BIG,
