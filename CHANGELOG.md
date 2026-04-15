@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.7](https://github.com/ZanichelliEditore/design-system/compare/v19.2.6...v19.2.7) (2026-04-15)
+
+
+### Bug Fixes
+
+* missing styles when importing multiple css files in one file ([f35809b](https://github.com/ZanichelliEditore/design-system/commit/f35809be8ae92743d2df505860bbfacfd5d28861))
+* remove unnecessary auth settings ([a5df1a3](https://github.com/ZanichelliEditore/design-system/commit/a5df1a3711526d0eaac58878ec77866efb4f526a))
+* update action to node version 24 ([ee573b8](https://github.com/ZanichelliEditore/design-system/commit/ee573b8402125fc9782b826e3c71bbb4f51801a3))
+* **z-searchbar:** hover style of result items; tree indicators alignment ([83d90c8](https://github.com/ZanichelliEditore/design-system/commit/83d90c8cdd773c827eb01c6abc7a65c8dab6cf15))
+
 ## [19.2.6](https://github.com/ZanichelliEditore/design-system/compare/v19.2.5...v19.2.6) (2026-04-10)
 
 
