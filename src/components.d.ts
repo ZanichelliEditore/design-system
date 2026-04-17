@@ -2100,16 +2100,16 @@ export namespace Components {
          */
         "autocompleteMinChars"?: number;
         /**
-          * the input aria-label
+          * The input aria-label
          */
         "htmlAriaLabel"?: string;
         /**
-          * the id of the searchbar element
+          * The id of the searchbar element
           * @default `searchbar-${randomId()}`
          */
         "htmlid": string;
         /**
-          * the input label
+          * The input label
          */
         "label"?: string;
         /**
@@ -2122,7 +2122,7 @@ export namespace Components {
          */
         "preventSubmit"?: boolean;
         /**
-          * Number of results shown - default all
+          * Number of results shown. Default: all
          */
         "resultsCount"?: number;
         /**
@@ -2130,7 +2130,7 @@ export namespace Components {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
-          * Set button icon without label
+          * Hide the label of the submit button, showing only the icon
           * @default false
          */
         "searchButtonIconOnly"?: boolean;
@@ -2145,7 +2145,7 @@ export namespace Components {
          */
         "showSearchButton"?: boolean;
         /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+          * Size of the `z-input` and submit `z-button`
           * @default ControlSize.BIG
          */
         "size"?: ControlSize;
@@ -2159,7 +2159,7 @@ export namespace Components {
          */
         "value"?: string;
         /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+          * Submit `z-button` variant
           * @default ButtonVariant.PRIMARY
          */
         "variant"?: ButtonVariant;
@@ -6518,16 +6518,16 @@ declare namespace LocalJSX {
          */
         "autocompleteMinChars"?: number;
         /**
-          * the input aria-label
+          * The input aria-label
          */
         "htmlAriaLabel"?: string;
         /**
-          * the id of the searchbar element
+          * The id of the searchbar element
           * @default `searchbar-${randomId()}`
          */
         "htmlid"?: string;
         /**
-          * the input label
+          * The input label
          */
         "label"?: string;
         /**
@@ -6552,7 +6552,7 @@ declare namespace LocalJSX {
          */
         "preventSubmit"?: boolean;
         /**
-          * Number of results shown - default all
+          * Number of results shown. Default: all
          */
         "resultsCount"?: number;
         /**
@@ -6560,7 +6560,7 @@ declare namespace LocalJSX {
          */
         "resultsItems"?: SearchbarItem[] | string;
         /**
-          * Set button icon without label
+          * Hide the label of the submit button, showing only the icon
           * @default false
          */
         "searchButtonIconOnly"?: boolean;
@@ -6575,7 +6575,7 @@ declare namespace LocalJSX {
          */
         "showSearchButton"?: boolean;
         /**
-          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+          * Size of the `z-input` and submit `z-button`
           * @default ControlSize.BIG
          */
         "size"?: ControlSize;
@@ -6589,7 +6589,7 @@ declare namespace LocalJSX {
          */
         "value"?: string;
         /**
-          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+          * Submit `z-button` variant
           * @default ButtonVariant.PRIMARY
          */
         "variant"?: ButtonVariant;

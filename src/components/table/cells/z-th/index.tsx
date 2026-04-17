@@ -8,7 +8,7 @@ import {ButtonVariant, ControlSize, PopoverPosition, SortDirection, VisibilityCo
  */
 @Component({
   tag: "z-th",
-  styleUrl: "styles.css",
+  styleUrls: ["../z-table-cells.css", "styles.css"],
   shadow: true,
 })
 export class ZTh implements ComponentInterface {

@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       rc_version_tag:
-        description: "For a release candidate, provide a name that will be used as version tag"
+        description: "For a release candidate, provide a name that will be used as version tag (e.g. 'github-action-test')"
         required: false
         type: string
       rc_version_name:
@@ -36,19 +36,18 @@ jobs:
         run: |
           echo "A release candidate version tag is missing."
           exit 1
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Enable Corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           check-latest: true
           cache: yarn
           cache-dependency-path: yarn.lock
           registry-url: "https://registry.npmjs.org"
-          always-auth: true
       - name: Prepare package
         run: |
           git checkout ${{ github.ref_name }}
@@ -61,19 +60,18 @@ jobs:
     if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Enable Corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           check-latest: true
           cache: yarn
           cache-dependency-path: yarn.lock
           registry-url: "https://registry.npmjs.org"
-          always-auth: true
       - name: Prepare package
         run: bash ./scripts/pre-release.sh
       - name: Standard version

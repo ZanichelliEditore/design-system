@@ -1,5 +1,3 @@
-@import "../css-components/z-label/styles.css";
-
 :host {
   display: block;
   min-width: 290px;
