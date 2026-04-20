@@ -504,6 +504,7 @@ export class ZInput {
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
     const ariaRequired = this.required ? {"aria-required": "true"} : {};
+
     return (
       <div class="checkbox-wrapper">
         <input
