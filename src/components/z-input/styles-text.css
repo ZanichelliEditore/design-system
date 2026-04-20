@@ -43,14 +43,14 @@
   display: flex;
   min-width: 24px;
   min-height: 24px;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: 0;
   background: none;
   color: inherit;
   font: inherit;
   pointer-events: initial;
-  align-items: center;
-  justify-content: center;
 }
 
 .text-wrapper .icons-wrapper > .input-icon + .input-icon {
