@@ -45,9 +45,9 @@
 }
 
 :host .z-button--container:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
   outline: 2px solid var(--color-primary01);
   outline-offset: 2px;
-  box-shadow: var(--shadow-focus-primary);
 }
 
 :host .z-button--container.z-button--has-text {
