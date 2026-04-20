@@ -26,10 +26,10 @@
 .radio-wrapper .radio-label,
 .checkbox-wrapper .checkbox-label {
   display: inline-flex;
-  align-items: center;
-  margin: 0;
   min-height: 24px;
+  align-items: center;
   padding: calc(var(--space-unit) * 0.375) 0;
+  margin: 0;
   color: inherit;
   font-family: inherit;
   font-size: inherit;
