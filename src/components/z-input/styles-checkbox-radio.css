@@ -131,6 +131,6 @@
 
 /* WCAG 2.5.2 Pointer Cancellation: Ensure radio inputs use standard pointer behavior */
 .radio-wrapper > input[type="radio"] {
-  touch-action: auto;
   pointer-events: auto;
+  touch-action: auto;
 }
