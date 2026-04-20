@@ -1,5 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
-import {Host} from "@stencil/core/internal";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 
 /**
  * @slot - Content containing form inputs (typically radio buttons or checkboxes)
@@ -10,28 +9,20 @@ import {Host} from "@stencil/core/internal";
   shadow: false,
   scoped: true,
 })
-export class ZInputGroup {
-  /**
-   * The legend text that describes the group of inputs.
-   * Required for accessibility to provide context to screen reader users.
-   */
+export class ZInputGroup implements ComponentInterface {
+  /** The legend text that describes the group of inputs. Required for accessibility. */
   @Prop()
   legend!: string;
 
-  /**
-   * Whether to visually hide the legend while keeping it accessible to screen readers.
-   * Useful when the legend text is redundant with a visible heading.
-   */
+  /** [optional] Whether to visually hide the legend while keeping it accessible to screen readers. */
   @Prop()
   hideLegend?: boolean = false;
 
-  render() {
+  render(): HTMLZInputGroupElement {
     return (
       <Host>
         <fieldset>
-          <legend class={{hidden: this.hideLegend}}>
-            {this.legend}
-          </legend>
+          <legend class={{hidden: this.hideLegend}}>{this.legend}</legend>
           <slot />
         </fieldset>
       </Host>
