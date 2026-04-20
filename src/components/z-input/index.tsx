@@ -256,22 +256,22 @@ export class ZInput {
 
   private getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return {
-      id: this.htmlid,
-      name: this.name,
-      placeholder: this.placeholder,
-      value: this.value,
-      disabled: this.disabled,
-      readonly: this.readonly,
-      required: this.required,
+      "id": this.htmlid,
+      "name": this.name,
+      "placeholder": this.placeholder,
+      "value": this.value,
+      "disabled": this.disabled,
+      "readonly": this.readonly,
+      "required": this.required,
       "aria-required": this.required ? "true" : undefined,
-      title: this.htmltitle,
-      minlength: this.minlength,
-      maxlength: this.maxlength,
-      class: {
+      "title": this.htmltitle,
+      "minlength": this.minlength,
+      "maxlength": this.maxlength,
+      "class": {
         [`input-${this.status}`]: !!this.status,
       },
-      autocomplete: this.autocomplete,
-      onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
+      "autocomplete": this.autocomplete,
+      "onInput": (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
     };
   }
 
