@@ -119,15 +119,15 @@
 
 /* Fallback focus styles using :focus (without :focus-visible) for better browser compatibility */
 .radio-wrapper > input:focus + .radio-label > z-icon {
+  border-radius: 50%;
   outline: 2px solid var(--color-form-active-primary);
   outline-offset: 2px;
-  border-radius: 50%;
 }
 
 .checkbox-wrapper > input:focus + .checkbox-label > z-icon {
+  border-radius: var(--border-radius-small);
   outline: 2px solid var(--color-form-active-primary);
   outline-offset: 2px;
-  border-radius: var(--border-radius-small);
 }
 
 /* disabled */
