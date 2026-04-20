@@ -158,12 +158,13 @@ export class ZModal implements ComponentInterface {
 
     // Find the currently focused element in our ordered list
     const currentElement = shadowActiveElement || activeElement;
-    const currentIndex = focusableElements.findIndex(el => el === currentElement);
+    const currentIndex = focusableElements.findIndex((el) => el === currentElement);
 
     // If no element is focused or element not found, focus the first element
     if (currentIndex === -1) {
       e.preventDefault();
       focusableElements[0]?.focus();
+
       return;
     }
 
