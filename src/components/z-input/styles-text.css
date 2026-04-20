@@ -88,5 +88,5 @@
 
 .text-wrapper .helper-text {
   margin-top: calc(var(--space-unit) * 0.5);
-  color: var(--color-text-default-tertiary);
+  color: var(--color-text03);
 }
