@@ -95,6 +95,10 @@ export class ZSearchbar implements ComponentInterface {
   @Prop()
   searchButtonIconOnly?: boolean = false;
 
+  /** The label of the submit button */
+  @Prop()
+  searchButtonLabel?: string = "CERCA";
+
   /** Size of the `z-input` and submit `z-button` */
   @Prop()
   size?: ControlSize = ControlSize.BIG;
@@ -523,13 +527,13 @@ export class ZSearchbar implements ComponentInterface {
         {this.showSearchButton && (
           <z-button
             icon={this.searchButtonIconOnly ? "search" : undefined}
-            aria-label={this.searchButtonIconOnly ? "CERCA" : undefined}
+            aria-label={this.searchButtonIconOnly ? this.searchButtonLabel.trim() || "CERCA" : undefined}
             disabled={!!this.preventSubmit}
             variant={this.variant}
             size={this.size}
             onClick={() => this.handleSubmit()}
           >
-            {this.searchButtonIconOnly ? "" : "CERCA"}
+            {this.searchButtonIconOnly ? "" : this.searchButtonLabel.trim() || "CERCA"}
           </z-button>
         )}
       </Host>

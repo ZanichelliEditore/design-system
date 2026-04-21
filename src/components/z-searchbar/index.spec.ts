@@ -283,33 +283,33 @@ describe("Suite test ZSearchbar", () => {
     `);
   });
 
-  it("Simple searchbar change button variant", async () => {
+  it("Simple searchbar change button variant, label and custom placeholder", async () => {
     const page = await newSpecPage({
       components: [ZSearchbar],
-      html: `<z-searchbar htmlid="my-id" show-search-button="true" variant="secondary"></z-searchbar>`,
+      html: `<z-searchbar htmlid="my-id" show-search-button="true" variant="secondary" search-button-label="cliccami" placeholder="Scrivi qui"></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" variant="secondary">
+      <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" variant="secondary" search-button-label="cliccami" placeholder="Scrivi qui">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big"></z-input>
+            <z-input htmlid="input-my-id" size="big" placeholder="Scrivi qui" aria-label="Scrivi qui"></z-input>
           </div>
-          <z-button size="big" variant="secondary">CERCA</z-button>
+          <z-button size="big" variant="secondary">cliccami</z-button>
         </mock:shadow-root>
       </z-searchbar>
     `);
   });
 
-  it("Simple searchbar with search button icon only", async () => {
+  it("Simple searchbar with search button icon only and custom placeholder", async () => {
     const page = await newSpecPage({
       components: [ZSearchbar],
-      html: `<z-searchbar htmlid="my-id" show-search-button="true" search-button-icon-only="true"></z-searchbar>`,
+      html: `<z-searchbar htmlid="my-id" placeholder="Scrivi qui" show-search-button="true" search-button-icon-only="true"></z-searchbar>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" search-button-icon-only="true">
+      <z-searchbar class="has-submit" htmlid="my-id" placeholder="Scrivi qui" show-search-button="true" search-button-icon-only="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big"></z-input>
+            <z-input htmlid="input-my-id" size="big" aria-label="Scrivi qui" placeholder="Scrivi qui"></z-input>
           </div>
           <z-button icon="search" size="big" variant="primary" aria-label="CERCA"></z-button>
         </mock:shadow-root>

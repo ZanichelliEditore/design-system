@@ -23,6 +23,8 @@ const StoryMeta = {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
+    "searchPlaceholder": "Digita qui quello che vuoi",
+    "searchButtonLabel": "Cliccami",
     "enableZLogo": false,
     "enableOffcanvas": false,
   },
@@ -110,7 +112,7 @@ type Story = Meta<ZAppHeaderStoriesArgs>;
 export const Title = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -127,7 +129,7 @@ export const Title = {
 export const ProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -148,7 +150,7 @@ export const ProductLogo = {
 export const TopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo"],
+      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -165,7 +167,7 @@ export const TopTitle = {
 export const TopTitleWithProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo"],
+      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -187,7 +189,7 @@ export const TopTitleWithProductLogo = {
 export const CustomMenuButton = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -205,7 +207,7 @@ export const CustomMenuButton = {
 export const MenuWithTopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableZLogo"],
+      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -224,7 +226,7 @@ export const MenuWithTopTitle = {
 export const MenuWithTopTitleAndProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableZLogo"],
+      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -248,7 +250,14 @@ export const MenuWithTopTitleAndProductLogo = {
 export const LongTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo", "enableSearch", "searchPageUrl"],
+      exclude: [
+        "enableOffcanvas",
+        "enableZLogo",
+        "enableSearch",
+        "searchPageUrl",
+        "searchPlaceholder",
+        "searchButtonLabel",
+      ],
     },
   },
   render: (args) =>
@@ -262,6 +271,11 @@ export const LongTitle = {
 export const OffcanvasMenu = {
   args: {
     enableOffcanvas: true,
+  },
+  parameters: {
+    controls: {
+      exclude: ["searchPlaceholder", "searchButtonLabel"],
+    },
   },
   render: (args) =>
     html`<z-app-header
@@ -291,7 +305,7 @@ export const Stuck = {
       },
     },
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -325,6 +339,8 @@ export const SearchPageButton = {
     html`<z-app-header
       enable-search
       .enableZLogo=${args.enableZLogo}
+      .searchPlaceholder=${args.searchPlaceholder}
+      .searchButtonLabel=${args.searchButtonLabel}
       search-page-url="https://www.zanichelli.it"
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >
