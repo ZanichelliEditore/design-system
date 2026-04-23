@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components";
+import {Meta, StoryObj} from "@storybook/web-components-vite";
 import {html, type TemplateResult} from "lit";
 import {type ZToastNotificationList} from ".";
 import {ToastNotificationPosition, ToastNotificationTransition} from "../../beans";

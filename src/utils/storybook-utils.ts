@@ -1,4 +1,4 @@
-import {OptionsConfig} from "@storybook/blocks";
+import {OptionsConfig} from "@storybook/addon-docs/blocks";
 import {Args} from "@storybook/web-components";
 
 type CSSCustomProp = `--${string}`;

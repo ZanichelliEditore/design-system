@@ -1,4 +1,4 @@
-import {Meta} from "@storybook/web-components";
+import {Meta} from "@storybook/web-components-vite";
 import {html} from "lit";
 import {type ZStepperItem} from ".";
 import "./index";

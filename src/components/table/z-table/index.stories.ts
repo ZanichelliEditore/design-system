@@ -1,4 +1,4 @@
-import {Meta} from "@storybook/web-components";
+import {Meta} from "@storybook/web-components-vite";
 import {html, type TemplateResult} from "lit";
 import {repeat} from "lit/directives/repeat.js";
 import {styleMap} from "lit/directives/style-map.js";

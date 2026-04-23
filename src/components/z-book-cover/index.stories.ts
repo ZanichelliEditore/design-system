@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from "@storybook/web-components";
+import type {Meta, StoryObj} from "@storybook/web-components-vite";
 import {html} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZBookCover} from ".";

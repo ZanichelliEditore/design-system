@@ -1,7 +1,7 @@
 /** @jsx React.createElement */
 /** @jsxFrag React.Fragment */
 
-import {ArgTypes, Description, Meta, Stories, Title, useOf} from "@storybook/blocks";
+import {ArgTypes, Description, Meta, Stories, Title, useOf} from "@storybook/addon-docs/blocks";
 import * as React from "react";
 
 export default (() => {

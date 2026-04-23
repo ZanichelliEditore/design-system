@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components";
+import {Meta, StoryObj} from "@storybook/web-components-vite";
 import {html} from "lit";
 import {type ZSearchbar} from ".";
 import {ButtonVariant, ControlSize} from "../../beans";

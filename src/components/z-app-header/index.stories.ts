@@ -1,4 +1,4 @@
-import {Meta} from "@storybook/web-components";
+import {Meta} from "@storybook/web-components-vite";
 import {TemplateResult, html} from "lit";
 import {ZAppHeader} from ".";
 import {CSSVarsArguments} from "../../utils/storybook-utils";

@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components";
+import {Meta, StoryObj} from "@storybook/web-components-vite";
 import {html} from "lit";
 import {ZCombobox} from ".";
 import {ComboItem, ControlSize} from "../../beans";
