@@ -1,4 +1,4 @@
-import {Meta} from "@storybook/web-components-vite";
+import {Meta} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZInfoBox} from ".";
 import "./index";

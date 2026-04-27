@@ -1,5 +1,5 @@
 import {withThemeByClassName} from "@storybook/addon-themes";
-import {type Preview} from "@storybook/web-components-vite";
+import {type Preview} from "@storybook/web-components";
 import "../src/global.css";
 import DocTemplate from "./elements/docs-template";
 import {lightTheme} from "./theme";
@@ -16,7 +16,7 @@ const THEMES_MAP = {
 const preview: Preview = {
   parameters: {
     viewport: {
-      options: {
+      viewports: {
         mobile: {
           name: "mobile",
           styles: {

@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components-vite";
+import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {ZList} from ".";
 import {ListSize, ListType} from "../../../beans";

@@ -1,7 +1,7 @@
 /** @jsx React.createElement */
 /** @jsxFrag React.Fragment */
 
-import {addons, types} from "storybook/manager-api";
+import {addons, types} from "@storybook/manager-api";
 import {ADDON_ID, ArgsControls, ArgsControlsTitle, PARAM_KEY} from "./elements/args-controls";
 import {darkTheme} from "./theme";
 

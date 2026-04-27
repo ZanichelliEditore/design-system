@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components-vite";
+import {Meta, StoryObj} from "@storybook/web-components";
 import {TemplateResult, html} from "lit";
 import "./index";
 

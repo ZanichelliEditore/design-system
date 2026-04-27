@@ -1,10 +1,10 @@
-import {PresetColor, PureArgsTable, SortType} from "@storybook/addon-docs/blocks";
-import {type ArgTypes} from "@storybook/web-components-vite";
+import {PresetColor, PureArgsTable, SortType} from "@storybook/blocks";
+import {Badge, Spaced} from "@storybook/components";
+import {useArgTypes, useArgs, useGlobals, useParameter, useStorybookState} from "@storybook/manager-api";
+import {styled} from "@storybook/theming";
+import {type ArgTypes} from "@storybook/web-components";
 import React, {useEffect, useState} from "react";
-import {Badge, Spaced} from "storybook/internal/components";
 import {includeConditionalArg} from "storybook/internal/csf";
-import {useArgTypes, useArgs, useGlobals, useParameter, useStorybookState} from "storybook/manager-api";
-import {styled} from "storybook/theming";
 
 export const ADDON_ID = "args-controls";
 export const PARAM_KEY = "addon-args-controls";

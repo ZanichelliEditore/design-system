@@ -1,5 +1,5 @@
-import type {ThemeVarsPartial} from "storybook/theming";
-import {create} from "storybook/theming/create";
+import type {ThemeVarsPartial} from "@storybook/theming";
+import {create} from "@storybook/theming/create";
 
 const branding = {
   brandTitle: "Design System — Zanichelli Editore",

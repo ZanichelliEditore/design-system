@@ -1,4 +1,4 @@
-import type {Meta, StoryObj} from "@storybook/web-components-vite";
+import type {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZToolbar} from ".";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
@@ -236,6 +236,11 @@ export const MultilineMobile = {
   args: {
     "--z-toolbar-columns": "4",
   },
+  parameters: {
+    viewport: {
+      defaultViewport: "mobile",
+    },
+  },
   render: (args) => html`
     <z-toolbar
       class="multiline-container"
@@ -325,10 +330,4 @@ export const MultilineMobile = {
       ></z-tool>
     </z-toolbar>
   `,
-  globals: {
-    viewport: {
-      value: "mobile",
-      isRotated: false,
-    },
-  },
 } satisfies Story;

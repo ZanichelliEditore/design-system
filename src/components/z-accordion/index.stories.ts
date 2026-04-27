@@ -1,4 +1,4 @@
-import {Args, Meta, StoryObj} from "@storybook/web-components-vite";
+import {Args, Meta, StoryObj} from "@storybook/web-components";
 import {html, type TemplateResult} from "lit";
 import {styleMap} from "lit/directives/style-map.js";
 import {type ZAccordion} from ".";
