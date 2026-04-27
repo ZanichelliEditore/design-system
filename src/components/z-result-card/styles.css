@@ -55,14 +55,11 @@ z-book-cover {
 }
 
 .card-subtitle {
-  display: -webkit-box;
   overflow: hidden;
-  -webkit-box-orient: vertical;
   color: var(--color-default-text);
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
   line-height: 1.4;
-  word-break: break-word;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tags-container {
@@ -138,8 +135,8 @@ z-book-cover {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     line-height: 1.4;
     word-break: break-word;
   }
