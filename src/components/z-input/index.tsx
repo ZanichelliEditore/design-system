@@ -65,7 +65,7 @@ export class ZInput implements ComponentInterface {
 
   /** the input aria-labelledby (optional) */
   @Prop()
-  htmlAriaLabelledBy?: string;
+  htmlAriaLabelledby?: string;
 
   /** the input value */
   @Prop({mutable: true})
@@ -334,7 +334,7 @@ export class ZInput implements ComponentInterface {
     return {
       ...(this.role ? {role: this.role} : {}),
       ...(this.htmlAriaDescribedBy ? {"aria-describedby": this.htmlAriaDescribedBy} : {}),
-      ...(this.htmlAriaLabelledBy ? {"aria-labelledby": this.htmlAriaLabelledBy} : {}),
+      ...(this.htmlAriaLabelledby ? {"aria-labelledby": this.htmlAriaLabelledby} : {}),
     };
   }
 

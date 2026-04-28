@@ -1,6 +1,6 @@
 import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {ComboItem, ControlSize, InputType, KeyboardCode, ListDividerType, ListSize} from "../../beans";
-import {getPlainText, randomId} from "../../utils/utils";
+import {encodeString, getPlainText, randomId} from "../../utils/utils";
 import {ZInput} from "../z-input";
 
 @Component({
@@ -144,7 +144,7 @@ export class ZCombobox implements ComponentInterface {
   }
 
   private getOptionId(itemId: string): string {
-    return `${this.inputid}-option-${itemId}`;
+    return `${this.inputid}-option-${encodeString(itemId)}`;
   }
 
   private getCheckAllOptionId(): string {

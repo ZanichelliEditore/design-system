@@ -46,7 +46,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                     >
@@ -105,7 +105,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                     >
@@ -120,7 +120,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_1"
+                      id="checkid_key_6974656d5f31"
                       size="medium"
                       aria-label="primo elemento"
                     >
@@ -180,7 +180,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     html-tabindex="-1"
                     class=""
-                    id="checkid_key_item_0"
+                    id="checkid_key_6974656d5f30"
                     size="medium"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
@@ -195,7 +195,7 @@ describe("Suite test ZSelect", () => {
                     html-tabindex="-1"
                     aria-selected="true"
                     class=""
-                    id="checkid_key_item_1"
+                    id="checkid_key_6974656d5f31"
                     size="medium"
                     aria-label="primo elemento"
                   >
@@ -256,7 +256,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                     >
@@ -271,7 +271,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_1"
+                      id="checkid_key_6974656d5f31"
                       size="medium"
                       aria-label="primo elemento"
                     >
@@ -331,7 +331,7 @@ describe("Suite test ZSelect", () => {
                         role="option"
                         html-tabindex="-1"
                         class=""
-                        id="checkid_key_item_0"
+                        id="checkid_key_6974656d5f30"
                         size="medium"
                         aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                       >
@@ -346,7 +346,7 @@ describe("Suite test ZSelect", () => {
                         role="option"
                         html-tabindex="-1"
                         class=""
-                        id="checkid_key_item_1"
+                        id="checkid_key_6974656d5f31"
                         size="medium"
                         aria-label="primo elemento"
                       >
@@ -405,7 +405,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                     >
@@ -419,7 +419,7 @@ describe("Suite test ZSelect", () => {
                       dividertype="header"
                       role="presentation"
                       html-tabindex="-1"
-                      id="checkid_key_item_1"
+                      id="checkid_key_6974656d5f31"
                       size="medium"
                     >
                     <div aria-hidden="true" class="list-element-container">
@@ -477,7 +477,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     html-tabindex="-1"
                     class=""
-                    id="checkid_key_item_0"
+                    id="checkid_key_6974656d5f30"
                     size="medium"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
@@ -492,7 +492,7 @@ describe("Suite test ZSelect", () => {
                     role="option"
                     html-tabindex="-1"
                     class=""
-                    id="checkid_key_item_1"
+                    id="checkid_key_6974656d5f31"
                     size="medium"
                     aria-label="primo elemento"
                   >
@@ -524,7 +524,7 @@ describe("Suite test ZSelect", () => {
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list class="z-scrollbar" id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
-                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_item_0" role="option" size="medium" html-tabindex="-1"
+                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" html-tabindex="-1"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
                   <div aria-hidden="true" class="list-element-container">
@@ -570,7 +570,7 @@ describe("Suite test ZSelect", () => {
                       </span>
                     </div>
                   </z-list-element>
-                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_key_item_0" role="option" size="medium" html-tabindex="-1"
+                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" html-tabindex="-1"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
                   <div aria-hidden="true" class="list-element-container">
@@ -630,7 +630,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                     >
@@ -645,7 +645,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_1"
+                      id="checkid_key_6974656d5f31"
                       size="medium"
                       aria-label="primo elemento"
                     >
@@ -704,7 +704,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_0"
+                      id="checkid_key_6974656d5f30"
                       size="medium"
                       aria-label="item 0"
                     >
@@ -720,7 +720,7 @@ describe("Suite test ZSelect", () => {
                       role="option"
                       html-tabindex="-1"
                       class=""
-                      id="checkid_key_item_1"
+                      id="checkid_key_6974656d5f31"
                       size="medium"
                       aria-label="item 1"
                     >
@@ -791,7 +791,7 @@ describe("Suite test ZSelect", () => {
                 role="option"
                 html-tabindex="-1"
                 class=""
-                id="checkid_key_item_0"
+                id="checkid_key_6974656d5f30"
                 size="medium"
                 aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
               >
@@ -805,7 +805,7 @@ describe("Suite test ZSelect", () => {
                 aria-selected="false"
                 clickable=""
                 dividertype="header"
-                id="checkid_key_item_1"
+                id="checkid_key_6974656d5f31"
                 role="option"
                 size="medium"
                 html-tabindex="-1"

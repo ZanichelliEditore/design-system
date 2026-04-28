@@ -1125,7 +1125,7 @@ export namespace Components {
         /**
           * the input aria-labelledby (optional)
          */
-        "htmlAriaLabelledBy"?: string;
+        "htmlAriaLabelledby"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -5449,7 +5449,7 @@ declare namespace LocalJSX {
         /**
           * the input aria-labelledby (optional)
          */
-        "htmlAriaLabelledBy"?: string;
+        "htmlAriaLabelledby"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -7401,7 +7401,7 @@ declare namespace LocalJSX {
         "htmlAriaAutocomplete": string;
         "htmlAriaActivedescendant": string;
         "htmlAriaDescribedBy": string;
-        "htmlAriaLabelledBy": string;
+        "htmlAriaLabelledby": string;
         "value": string;
         "disabled": boolean;
         "readonly": boolean;
