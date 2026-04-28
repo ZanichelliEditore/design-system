@@ -1114,7 +1114,7 @@ export namespace Components {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+          * the input aria-describedby (optional)
          */
         "htmlAriaDescribedBy"?: string;
         /**
@@ -1122,6 +1122,10 @@ export namespace Components {
           * @default ""
          */
         "htmlAriaExpanded": string;
+        /**
+          * the input aria-labelledby (optional)
+         */
+        "htmlAriaLabelledBy"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -5434,7 +5438,7 @@ declare namespace LocalJSX {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+          * the input aria-describedby (optional)
          */
         "htmlAriaDescribedBy"?: string;
         /**
@@ -5442,6 +5446,10 @@ declare namespace LocalJSX {
           * @default ""
          */
         "htmlAriaExpanded"?: string;
+        /**
+          * the input aria-labelledby (optional)
+         */
+        "htmlAriaLabelledBy"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -7392,6 +7400,8 @@ declare namespace LocalJSX {
         "htmlAriaControls": string;
         "htmlAriaAutocomplete": string;
         "htmlAriaActivedescendant": string;
+        "htmlAriaDescribedBy": string;
+        "htmlAriaLabelledBy": string;
         "value": string;
         "disabled": boolean;
         "readonly": boolean;
@@ -7401,7 +7411,6 @@ declare namespace LocalJSX {
         "htmltitle": string;
         "status": InputStatus;
         "message": string;
-        "htmlAriaDescribedBy": string;
         "labelPosition": LabelPosition;
         "autocomplete": string;
         "role": string;
