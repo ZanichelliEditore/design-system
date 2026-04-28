@@ -472,6 +472,10 @@ export namespace Components {
          */
         "cover": string;
         /**
+          * [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies.
+         */
+        "coverAlt"?: string;
+        /**
           * URL of the fallback cover image.
          */
         "fallbackCover": string;
@@ -2068,6 +2072,10 @@ export namespace Components {
           * The URL of the cover image of the opera.
          */
         "cover"?: string;
+        /**
+          * [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies.
+         */
+        "coverAlt"?: string;
         /**
           * [optional] Fallback cover URL.
          */
@@ -4756,6 +4764,10 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
+          * [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies.
+         */
+        "coverAlt"?: string;
+        /**
           * URL of the fallback cover image.
          */
         "fallbackCover"?: string;
@@ -6497,6 +6509,10 @@ declare namespace LocalJSX {
          */
         "cover"?: string;
         /**
+          * [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies.
+         */
+        "coverAlt"?: string;
+        /**
           * [optional] Fallback cover URL.
          */
         "fallbackCover"?: string;
@@ -7236,6 +7252,7 @@ declare namespace LocalJSX {
         "fallbackCover": string;
         "multiple": boolean;
         "bordered": boolean;
+        "coverAlt": string;
     }
     interface ZBreadcrumbAttributes {
         "pathStyle": BreadcrumbPathStyle;
@@ -7632,6 +7649,7 @@ declare namespace LocalJSX {
         "authors": string;
         "cover": string;
         "fallbackCover": string;
+        "coverAlt": string;
         "hasMultipleCovers": boolean;
         "isInfoCard": boolean;
         "titleHtmlTag": string;
