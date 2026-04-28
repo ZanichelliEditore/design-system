@@ -99,6 +99,10 @@ export class ZInput implements ComponentInterface {
   @Prop()
   htmlAriaDescribedBy?: string;
 
+  /** helper text displayed below the input (optional): for providing instructions or format guidance */
+  @Prop()
+  helperText?: string;
+
   /** the input label position: available for checkbox, radio */
   @Prop()
   labelPosition?: LabelPosition = LabelPosition.RIGHT;
@@ -337,10 +341,16 @@ export class ZInput implements ComponentInterface {
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
-    const ariaDescribedby =
-      this.htmlAriaDescribedBy || this.inputHasMessage()
-        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
-        : {};
+    const describedByIds: string[] = [];
+    if (this.htmlAriaDescribedBy) {
+      describedByIds.push(this.htmlAriaDescribedBy);
+    } else if (this.inputHasMessage()) {
+      describedByIds.push(`${this.htmlid}-message`);
+    }
+    if (this.getHelperTextContent()) {
+      describedByIds.push(`${this.htmlid}-helper`);
+    }
+    const ariaDescribedby = describedByIds.length > 0 ? {"aria-describedby": describedByIds.join(" ")} : {};
 
     const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
@@ -391,6 +401,7 @@ export class ZInput implements ComponentInterface {
           {this.renderIcons()}
         </div>
         {this.renderMessage()}
+        {this.renderHelperText()}
       </div>
     );
   }
@@ -491,6 +502,34 @@ export class ZInput implements ComponentInterface {
         class={this.size}
         disabled={this.disabled}
       />
+    );
+  }
+
+  private getHelperTextContent(): string | undefined {
+    if (this.helperText) {
+      return this.helperText;
+    }
+
+    if (this.type === InputType.PASSWORD && this.autocomplete === "new-password") {
+      return "La password deve contenere almeno 8 caratteri, includere almeno una lettera maiuscola, una minuscola e un numero.";
+    }
+
+    return undefined;
+  }
+
+  private renderHelperText(): HTMLDivElement {
+    const text = this.getHelperTextContent();
+    if (!text) {
+      return;
+    }
+
+    return (
+      <div
+        id={`${this.htmlid}-helper`}
+        class="helper-text body-6"
+      >
+        {text}
+      </div>
     );
   }
 
