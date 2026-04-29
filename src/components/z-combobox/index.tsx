@@ -143,8 +143,8 @@ export class ZCombobox implements ComponentInterface {
     }
   }
 
-  private getOptionId(itemId: string): string {
-    return `${this.inputid}-option-${encodeString(`${itemId}` || randomId())}`;
+  private getOptionId(item: ComboItem): string {
+    return `${this.inputid}-option-${item.id ? encodeString(`${item.id}`) : encodeString(`${item.name}`)}`;
   }
 
   private getCheckAllOptionId(): string {
@@ -225,7 +225,7 @@ export class ZCombobox implements ComponentInterface {
       this.focusedItemId = this.getCheckAllOptionId();
     } else {
       this.itemsList = this.itemsList.map((i: ComboItem) => {
-        if (optionId === this.getOptionId(i.id)) {
+        if (optionId === this.getOptionId(i)) {
           i.checked = !i.checked;
         }
 
@@ -387,7 +387,7 @@ export class ZCombobox implements ComponentInterface {
           aria-label={this.label}
           aria-multiselectable="true"
           id={`${this.inputid}_list`}
-          aria-owns={`${this.hascheckall ? `${this.getCheckAllOptionId()} ` : ``}${this.itemsList.map((item) => this.getOptionId(item.id)).join(" ")}`}
+          aria-owns={`${this.hascheckall ? `${this.getCheckAllOptionId()} ` : ``}${this.itemsList.map((item) => this.getOptionId(item)).join(" ")}`}
         >
           {this.renderItems()}
         </div>
@@ -408,7 +408,7 @@ export class ZCombobox implements ComponentInterface {
   }
 
   private renderItem(item: ComboItem, index: number, length: number): HTMLZListElement {
-    const optionId = this.getOptionId(item.id);
+    const optionId = this.getOptionId(item);
     const isDisabled = !item.checked && this.hasReachedMaxSelections();
 
     return (
