@@ -199,7 +199,7 @@ export class ZSelect implements ComponentInterface {
   }
 
   private getOptionId(item: SelectItem): string {
-    return `${this.htmlid}_key_${encodeString(item.id || randomId())}`;
+    return `${this.htmlid}_key_${encodeString(`${item.id}` || randomId())}`;
   }
 
   private getResetOptionId(): string {

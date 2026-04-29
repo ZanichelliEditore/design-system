@@ -144,7 +144,7 @@ export class ZCombobox implements ComponentInterface {
   }
 
   private getOptionId(itemId: string): string {
-    return `${this.inputid}-option-${encodeString(itemId || randomId())}`;
+    return `${this.inputid}-option-${encodeString(`${itemId}` || randomId())}`;
   }
 
   private getCheckAllOptionId(): string {
