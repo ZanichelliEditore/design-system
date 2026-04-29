@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.9](https://github.com/ZanichelliEditore/design-system/compare/v19.2.8...v19.2.9) (2026-04-29)
+
 ## [19.2.8](https://github.com/ZanichelliEditore/design-system/compare/v19.2.7...v19.2.8) (2026-04-29)
 
 
