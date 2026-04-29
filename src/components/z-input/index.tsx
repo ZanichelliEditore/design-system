@@ -59,6 +59,14 @@ export class ZInput implements ComponentInterface {
   @Prop()
   htmlAriaActivedescendant?: string;
 
+  /** the input aria-describedby (optional) */
+  @Prop()
+  htmlAriaDescribedBy?: string;
+
+  /** the input aria-labelledby (optional) */
+  @Prop()
+  htmlAriaLabelledby?: string;
+
   /** the input value */
   @Prop({mutable: true})
   value?: string;
@@ -94,10 +102,6 @@ export class ZInput implements ComponentInterface {
   /** input helper message (optional): available for text, password, number, email, textarea - if set to `false` message won't be displayed */
   @Prop()
   message?: string | boolean = true;
-
-  /** input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value */
-  @Prop()
-  htmlAriaDescribedBy?: string;
 
   /** the input label position: available for checkbox, radio */
   @Prop()
@@ -318,10 +322,6 @@ export class ZInput implements ComponentInterface {
     };
   }
 
-  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-    return this.role ? {role: this.role} : {};
-  }
-
   private inputHasMessage(): boolean {
     if (boolean(this.message) === false || boolean(this.message) === true) {
       return false;
@@ -330,7 +330,15 @@ export class ZInput implements ComponentInterface {
     return true;
   }
 
-  private getAriaAttrubutes(): Record<string, unknown> {
+  private getAriaAttributes(): Record<string, unknown> {
+    return {
+      ...(this.role ? {role: this.role} : {}),
+      ...(this.htmlAriaDescribedBy ? {"aria-describedby": this.htmlAriaDescribedBy} : {}),
+      ...(this.htmlAriaLabelledby ? {"aria-labelledby": this.htmlAriaLabelledby} : {}),
+    };
+  }
+
+  private getTextAriaAttributes(): Record<string, unknown> {
     const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
     const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
     const autocomplete = this.htmlAriaAutocomplete ? {"aria-autocomplete": this.htmlAriaAutocomplete} : {};
@@ -345,6 +353,7 @@ export class ZInput implements ComponentInterface {
     const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
+      ...this.getAriaAttributes(),
       ...expanded,
       ...controls,
       ...autocomplete,
@@ -368,8 +377,7 @@ export class ZInput implements ComponentInterface {
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
       ...ariaLabel,
-      ...this.getRoleAttribute(),
-      ...this.getAriaAttrubutes(),
+      ...this.getTextAriaAttributes(),
       ...this.getFocusBlurAttributes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
@@ -500,7 +508,7 @@ export class ZInput implements ComponentInterface {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
-    const ariaAttributes = this.getAriaAttrubutes();
+    const ariaAttributes = this.getTextAriaAttributes();
 
     return (
       <Fragment>
@@ -520,7 +528,6 @@ export class ZInput implements ComponentInterface {
               "z-scrollbar": true,
             }}
             aria-label={this.ariaLabel || undefined}
-            {...this.getRoleAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -549,7 +556,7 @@ export class ZInput implements ComponentInterface {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          {...this.getRoleAttribute()}
+          {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
         />
 
@@ -586,7 +593,7 @@ export class ZInput implements ComponentInterface {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          {...this.getRoleAttribute()}
+          {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
         />
 

@@ -11,7 +11,7 @@ import {
   h,
 } from "@stencil/core";
 import {ControlSize, InputStatus, KeyboardCode, ListDividerType, ListSize, SelectItem} from "../../beans";
-import {boolean, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
+import {boolean, encodeString, getClickedElement, getElementTree, getPlainText, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-select",
@@ -199,15 +199,11 @@ export class ZSelect implements ComponentInterface {
   }
 
   private getOptionId(item: SelectItem): string {
-    return `${this.htmlid}_key_${item.id}`;
+    return `${this.htmlid}_key_${encodeString(item.id || randomId())}`;
   }
 
   private getResetOptionId(): string {
     return `${this.htmlid}_key_reset`;
-  }
-
-  private getItemIdFromOptionId(optionId: string): string {
-    return optionId.replace(`${this.htmlid}_key_`, ``);
   }
 
   private getGroupedItems(): [string, SelectItem[]][] {
@@ -376,8 +372,7 @@ export class ZSelect implements ComponentInterface {
           if (this.focusedItemId === this.getResetOptionId()) {
             this.handleResetClick();
           } else {
-            const itemId = this.getItemIdFromOptionId(this.focusedItemId);
-            const item = this.itemsList.find((e) => e.id === itemId) || null;
+            const item = this.itemsList.find((e) => this.getOptionId(e) === this.focusedItemId) || null;
             if (item) {
               this.selectedItem = item;
               this.emitOptionSelect();

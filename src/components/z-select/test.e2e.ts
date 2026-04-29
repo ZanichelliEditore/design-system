@@ -1,4 +1,5 @@
 import {newE2EPage} from "@stencil/core/testing";
+import {encodeString} from "../../utils/utils";
 
 describe("z-select test end2end", () => {
   it("Should open the select list", async () => {
@@ -160,43 +161,57 @@ describe("z-select test end2end", () => {
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_1")}`
+    );
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_2")}`
+    );
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_3");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_3")}`
+    );
 
     await select.press("ArrowDown");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_3");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_3")}`
+    );
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_2")}`
+    );
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_1")}`
+    );
 
     await select.press("ArrowUp");
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_1");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_1")}`
+    );
 
     await select.press("ArrowDown");
     await page.waitForChanges();
@@ -211,7 +226,9 @@ describe("z-select test end2end", () => {
     await page.waitForChanges();
 
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
-    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe("test_key_item_2");
+    expect((await page.find("z-select z-input")).getAttribute("html-aria-activedescendant")).toBe(
+      `test_key_${encodeString("item_2")}`
+    );
   });
 
   it("Should open the select list with tree items", async () => {

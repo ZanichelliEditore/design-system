@@ -325,3 +325,10 @@ export const getPlainText = (html: string): string => {
 
   return doc.body.textContent || "";
 };
+
+/** Convert string to hex */
+export const encodeString = (string: string): string =>
+  string
+    .split("")
+    .map((c) => c.charCodeAt(0).toString(16))
+    .join("");

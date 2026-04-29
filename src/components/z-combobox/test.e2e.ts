@@ -1,4 +1,5 @@
 import {newE2EPage} from "@stencil/core/testing";
+import {encodeString} from "../../utils/utils";
 
 const items = [
   {id: "ite_m_1", name: "First item", checked: false, category: "Gruppo 1"},
@@ -42,7 +43,7 @@ it("Tests z-combobox search", async () => {
 
   expect(filteredListElems.length).toBe(1);
   const option = await filteredListElems[0].find('>>> span[role="option"]');
-  expect(option.id).toEqual(`combo_1-option-${items[0].id}`);
+  expect(option.id).toEqual(`combo_1-option-${encodeString(items[0].id)}`);
 
   await option.click();
   await page.waitForChanges();
@@ -91,7 +92,7 @@ it("Tests z-combobox keyboard navigation", async () => {
   await page.waitForChanges();
 
   expect((await page.find("z-combobox >>> z-input")).getAttribute("html-aria-activedescendant")).toBe(
-    "combo_1-option-ite_m_1"
+    `combo_1-option-${encodeString("ite_m_1")}`
   );
 
   await input.press("Enter");
@@ -104,7 +105,7 @@ it("Tests z-combobox keyboard navigation", async () => {
   await page.waitForChanges();
 
   expect((await page.find("z-combobox >>> z-input")).getAttribute("html-aria-activedescendant")).toBe(
-    "combo_1-option-ite_m_2"
+    `combo_1-option-${encodeString("ite_m_2")}`
   );
 
   await input.press("Space");
