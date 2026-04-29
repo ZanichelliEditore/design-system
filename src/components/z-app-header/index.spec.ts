@@ -700,4 +700,42 @@ describe("Suite test ZAppHeader", () => {
       </z-app-header>
     `);
   });
+
+  it("Test render ZAppHeader with custom searchPlaceholder and custom searchButtonLabel", async () => {
+    const page = await newSpecPage({
+      components: [ZAppHeader],
+      html: `<z-app-header enable-search="true" search-placeholder="Scrivi qui" search-button-label="Cliccami"></z-app-header>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-app-header enable-z-logo="" menu-length="0" enable-search="true" search-placeholder="Scrivi qui" search-button-label="Cliccami">
+        <mock:shadow-root>
+          <div class="heading-panel">
+            <div class="heading-container">
+              <div class="top-subtitle">
+                <slot name="top-subtitle"></slot>
+              </div>
+              <div class="heading-title">
+                <slot name="menu-button"></slot>
+                <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                <slot name="title"></slot>
+                <z-searchbar placeholder="Scrivi qui" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary" searchbuttonlabel="Cliccami"></z-searchbar>
+              </div>
+            </div>
+            <nav class="menu-container"></nav>
+          </div>
+          <z-offcanvas transitiondirection="right" variant="overlay" id="offcanvas-menu">
+            <div slot="canvasContent">
+              <button aria-hidden="true" aria-label="Chiudi menu" class="drawer-close" disabled="">
+                <z-icon name="close"></z-icon>
+              </button>
+              <div aria-hidden="true" class="drawer-content">
+                <slot name="menu"></slot>
+              </div>
+            </div>
+          </z-offcanvas>
+        </mock:shadow-root>
+      </z-app-header>
+    `);
+  });
 });

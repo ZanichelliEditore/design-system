@@ -140,6 +140,10 @@ export namespace Components {
          */
         "enableZLogo": boolean;
         /**
+          * Label of the search button.
+         */
+        "searchButtonLabel"?: string;
+        /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
         "searchPageUrl": string;
@@ -1110,7 +1114,7 @@ export namespace Components {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+          * the input aria-describedby (optional)
          */
         "htmlAriaDescribedBy"?: string;
         /**
@@ -1118,6 +1122,10 @@ export namespace Components {
           * @default ""
          */
         "htmlAriaExpanded": string;
+        /**
+          * the input aria-labelledby (optional)
+         */
+        "htmlAriaLabelledby"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -2134,6 +2142,11 @@ export namespace Components {
           * @default false
          */
         "searchButtonIconOnly"?: boolean;
+        /**
+          * The label of the submit button
+          * @default "CERCA"
+         */
+        "searchButtonLabel"?: string;
         /**
           * Search helper text
           * @default "Cerca {searchString}"
@@ -4390,6 +4403,10 @@ declare namespace LocalJSX {
          */
         "onSticking"?: (event: ZAppHeaderCustomEvent<any>) => void;
         /**
+          * Label of the search button.
+         */
+        "searchButtonLabel"?: string;
+        /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
         "searchPageUrl"?: string;
@@ -5420,7 +5437,7 @@ declare namespace LocalJSX {
          */
         "htmlAriaControls"?: string;
         /**
-          * input helper message id (optional): available for text, password, number, email, textarea - if set, it will be used to populate the aria-describedby attribute, otherwise the attribute (if present) will be populated with an auto-generated value
+          * the input aria-describedby (optional)
          */
         "htmlAriaDescribedBy"?: string;
         /**
@@ -5428,6 +5445,10 @@ declare namespace LocalJSX {
           * @default ""
          */
         "htmlAriaExpanded"?: string;
+        /**
+          * the input aria-labelledby (optional)
+         */
+        "htmlAriaLabelledby"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -6565,6 +6586,11 @@ declare namespace LocalJSX {
          */
         "searchButtonIconOnly"?: boolean;
         /**
+          * The label of the submit button
+          * @default "CERCA"
+         */
+        "searchButtonLabel"?: string;
+        /**
           * Search helper text
           * @default "Cerca {searchString}"
          */
@@ -7147,6 +7173,7 @@ declare namespace LocalJSX {
         "enableOffcanvas": boolean;
         "enableSearch": boolean;
         "searchPlaceholder": string;
+        "searchButtonLabel": string;
         "searchString": string;
         "searchPageUrl": string;
         "enableZLogo": boolean;
@@ -7371,6 +7398,8 @@ declare namespace LocalJSX {
         "htmlAriaControls": string;
         "htmlAriaAutocomplete": string;
         "htmlAriaActivedescendant": string;
+        "htmlAriaDescribedBy": string;
+        "htmlAriaLabelledby": string;
         "value": string;
         "disabled": boolean;
         "readonly": boolean;
@@ -7380,7 +7409,6 @@ declare namespace LocalJSX {
         "htmltitle": string;
         "status": InputStatus;
         "message": string;
-        "htmlAriaDescribedBy": string;
         "labelPosition": LabelPosition;
         "autocomplete": string;
         "role": string;
@@ -7630,6 +7658,7 @@ declare namespace LocalJSX {
         "sortResultsItems": boolean;
         "showSearchButton": boolean;
         "searchButtonIconOnly": boolean;
+        "searchButtonLabel": string;
         "size": ControlSize;
         "variant": ButtonVariant;
     }

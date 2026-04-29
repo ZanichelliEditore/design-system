@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.10](https://github.com/ZanichelliEditore/design-system/compare/v19.2.9...v19.2.10) (2026-04-29)
+
+## [19.2.9](https://github.com/ZanichelliEditore/design-system/compare/v19.2.8...v19.2.9) (2026-04-29)
+
+## [19.2.8](https://github.com/ZanichelliEditore/design-system/compare/v19.2.7...v19.2.8) (2026-04-29)
+
+
+### Features
+
+* **DS-985:** add searchButtonLabel prop to z-app-header and z-searchbar ([2d4406a](https://github.com/ZanichelliEditore/design-system/commit/2d4406ae8f280d322e5877b722e65e8350f9c8f3))
+
+
+### Bug Fixes
+
+* upgrade Storybook to v9 ([ecd0023](https://github.com/ZanichelliEditore/design-system/commit/ecd00237dffb18ef9ae9430b9404e1e2acfe6ed5))
+* upgrade Vite to v6 ([7c163cb](https://github.com/ZanichelliEditore/design-system/commit/7c163cbcbda9e0d593094c133abd53beef15b173))
+* upgrade Vite to v7 ([931e240](https://github.com/ZanichelliEditore/design-system/commit/931e240abb28256d2eaf6f092c819e8daea96f4f))
+* upgrade Vite to v8 ([25dc359](https://github.com/ZanichelliEditore/design-system/commit/25dc359601b00eb7ed1c00c307f9384c29efcd28))
+
 ## [19.2.7](https://github.com/ZanichelliEditore/design-system/compare/v19.2.6...v19.2.7) (2026-04-15)
 
 

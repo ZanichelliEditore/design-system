@@ -1,6 +1,9 @@
 import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 import {COLOR_INDICATOR_ICONS, ICONS} from "../../constants/iconset";
 
+// https://regex101.com/r/ZnoZQ5/3
+const ICON_NAME_SUFFIX_REGEX = /^(.+?)(-transparent)?(-filled|-button)?$/;
+
 /**
  * Component to render an SVG icon from the internal icon set, selected by `name`.
  * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
@@ -51,6 +54,46 @@ export class ZIcon implements ComponentInterface {
     return <polygon points={iconValue}></polygon>;
   }
 
+  private get hasColorIndicator(): boolean {
+    return COLOR_INDICATOR_ICONS.includes(this.name);
+  }
+
+  private get needsTransparentIndicator(): boolean {
+    return ["transparent", "#ffffff00"].includes(this.indicatorColor?.toLowerCase());
+  }
+
+  /**
+   * For icons with a color indicator, if `indicatorColor` is set to transparent, use a specific icon version without the color indicator.
+   * Using the icon without the color indicator prevents visual ambiguity between a transparent indicator and one filled with the background color.
+   * @returns The name of the corresponding icon without the indicator, or the original icon name if no transparent version is needed or available.
+   */
+  private getTransparentIndicatorIconIfNeeded(): string {
+    const transparentIconName = this.name?.replace(ICON_NAME_SUFFIX_REGEX, "$1-transparent$3");
+    if (!this.hasColorIndicator || !this.needsTransparentIndicator || !ICONS[transparentIconName]) {
+      return this.name;
+    }
+
+    return transparentIconName;
+  }
+
+  /**
+   * Render the icon with the color indicator.
+   * The indicator is rendered as a separate SVG element behind the main icon, filled with the `indicatorColor`.
+   */
+  private renderColorIndicator(): SVGElement {
+    return (
+      <svg
+        class="color-indicator"
+        fill={this.indicatorColor || "#FFFFFF00"}
+        viewBox="0 0 1000 1000"
+        width={this.width}
+        height={this.height}
+      >
+        {this.selectPathOrPolygon(ICONS["picker-color"])}
+      </svg>
+    );
+  }
+
   private renderBaseIcon(): SVGElement {
     return (
       <svg
@@ -60,7 +103,7 @@ export class ZIcon implements ComponentInterface {
         width={this.width}
         height={this.height}
       >
-        {this.selectPathOrPolygon(ICONS[this.name])}
+        {this.selectPathOrPolygon(ICONS[this.getTransparentIndicatorIconIfNeeded()])}
       </svg>
     );
   }
@@ -68,18 +111,9 @@ export class ZIcon implements ComponentInterface {
   render(): HTMLZIconElement {
     return (
       <Host aria-hidden="true">
-        {COLOR_INDICATOR_ICONS.includes(this.name) ? (
+        {this.hasColorIndicator && !this.needsTransparentIndicator ? (
           <div class="icon-wrapper">
-            <svg
-              class="color-indicator"
-              fill={this.indicatorColor || "#FFFFFF00"}
-              viewBox="0 0 1000 1000"
-              width={this.width}
-              height={this.height}
-            >
-              {this.selectPathOrPolygon(ICONS["picker-color"])}
-            </svg>
-
+            {this.renderColorIndicator()}
             {this.renderBaseIcon()}
           </div>
         ) : (

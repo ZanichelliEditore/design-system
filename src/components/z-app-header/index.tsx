@@ -65,6 +65,12 @@ export class ZAppHeader implements ComponentInterface {
   searchPlaceholder = "Cerca";
 
   /**
+   * Label of the search button.
+   */
+  @Prop()
+  searchButtonLabel?: string;
+
+  /**
    * Search string for the search bar.
    */
   @Prop({mutable: true})
@@ -364,6 +370,7 @@ export class ZAppHeader implements ComponentInterface {
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
+        searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}

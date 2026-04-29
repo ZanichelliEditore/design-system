@@ -29,6 +29,7 @@ const StoryMeta = {
     "preventSubmit": false,
     "showSearchButton": false,
     "searchButtonIconOnly": false,
+    "searchButtonLabel": "",
     "autocomplete": false,
     "autocompleteMinChars": 3,
     "resultsCount": undefined,
@@ -57,6 +58,7 @@ export const Default = {
     <z-searchbar
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
+      search-button-label=${args.searchButtonLabel}
       search-button-icon-only=${args.searchButtonIconOnly}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
@@ -90,6 +92,7 @@ export const SimpleSearch = {
       prevent-submit="false"
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autcomplete="false"
       value=${args.value}
       placeholder=${args.placeholder}
@@ -107,12 +110,14 @@ export const Autocomplete = {
     htmlid: "myIdAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
   },
   render: (args) => html`
     <z-searchbar
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
@@ -137,6 +142,7 @@ export const AutocompleteWithComplexItems = {
     htmlid: "myIdGroupedAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
     resultsItems: [
       {
         label: "first item",
@@ -185,6 +191,7 @@ export const AutocompleteWithComplexItems = {
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
@@ -213,6 +220,7 @@ export const AutocompleteWithComplexTreeItems = {
     htmlid: "myIdGroupedAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
     resultsItems: [
       {
         label: "first item",
@@ -324,6 +332,7 @@ export const AutocompleteWithComplexTreeItems = {
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}

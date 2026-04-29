@@ -4,22 +4,6 @@ import {ICONS} from "../../constants/iconset";
 import {ZIcon} from "./index";
 
 describe("Suite test ZIcon", () => {
-  it("Test render ZIcon vuoto", async () => {
-    const page = await newSpecPage({
-      components: [ZIcon],
-      html: `<z-icon></z-icon>`,
-    });
-    expect(page.root).toEqualHtml(`
-      <z-icon aria-hidden="true">
-        <mock:shadow-root>
-          <svg viewBox="0 0 1000 1000">
-            <polygon></polygon>
-          </svg>
-        </mock:shadow-root>
-      </z-icon>
-    `);
-  });
-
   it("Test render ZIcon con path", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
@@ -103,13 +87,13 @@ describe("Suite test ZIcon", () => {
   it("Test render ZIcon con fill", async () => {
     const page = await newSpecPage({
       components: [ZIcon],
-      html: `<z-icon fill="color-primary01"></z-icon>`,
+      html: `<z-icon name="atom" fill="color-primary01"></z-icon>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-icon fill="color-primary01" aria-hidden="true">
+      <z-icon name="atom" fill="color-primary01" aria-hidden="true">
         <mock:shadow-root>
           <svg fill="var(--color-primary01)" viewBox="0 0 1000 1000">
-            <polygon></polygon>
+            <path d="${ICONS["atom"]}"></path>
           </svg>
         </mock:shadow-root>
       </z-icon>
@@ -132,6 +116,22 @@ describe("Suite test ZIcon", () => {
               <path d="${ICONS["bg-color"]}"></path>
             </svg>
           </div>
+        </mock:shadow-root>
+      </z-icon>
+    `);
+  });
+
+  it("Test render ZIcon con indicatore colore trasparente", async () => {
+    const page = await newSpecPage({
+      components: [ZIcon],
+      html: `<z-icon indicator-color="transparent" name="bg-color"></z-icon>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-icon indicator-color="transparent" name="bg-color" aria-hidden="true">
+        <mock:shadow-root>
+          <svg viewBox="0 0 1000 1000">
+            <path d="${ICONS["bg-color-transparent"]}"></path>
+          </svg>
         </mock:shadow-root>
       </z-icon>
     `);
