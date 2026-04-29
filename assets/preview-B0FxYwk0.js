@@ -1,0 +1,1 @@
+var e={theme:``};export{e as initialGlobals};

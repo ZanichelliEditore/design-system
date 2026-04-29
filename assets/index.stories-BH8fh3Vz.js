@@ -1,0 +1,3 @@
+import{r as e}from"./lit-CgIPLKVa.js";var t={title:`ZLabel`,argTypes:{},args:{}},n={render:()=>e` <label class="z-label"> Etichetta </label> `};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  render: () => html\` <label class="z-label"> Etichetta </label> \`
+}`,...n.parameters?.docs?.source}}};var r=[`Default`];export{n as Default,r as __namedExportsOrder,t as default};
