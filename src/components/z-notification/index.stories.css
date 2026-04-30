@@ -3,8 +3,8 @@
   align-items: center;
 }
 
-.banner-notification-demo z-notification {
-  --z-notification--top-offset: calc(var(--space-unit) * 6);
+.z-notification-demo-page {
+  margin: 0 auto;
 }
 
 .inline-notification-demo {
@@ -14,16 +14,21 @@
   border: 1px solid var(--gray300);
 }
 
-.inline-notification-demo z-notification {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .inline-notification-demo .content {
-  padding: var(--grid-margin);
+  padding: calc(var(--space-unit) * 2);
 }
 
-.inline-notification-demo .content h2 {
-  margin-top: 0;
+.z-notification-border-position-demo {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 1px solid black;
+  background-color: var(--color-background);
+}
+
+.z-notification-border-position-demo z-notification {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  max-width: 100%;
 }

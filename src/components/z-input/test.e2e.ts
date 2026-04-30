@@ -1,7 +1,5 @@
 import {newE2EPage} from "@stencil/core/testing";
 
-import {ICONS} from "../../constants/iconset";
-
 type CustomWindow = Window &
   typeof globalThis & {
     onInputChange: (a) => unknown;
@@ -70,35 +68,16 @@ it("Test disabled ZInput should not change / emit inputChange event", async () =
 
 it("Test ZInput - input password - change hide/show icon on click", async () => {
   const page = await newE2EPage();
-  // Define a window.onCustomEvent function on the page.
   await page.setContent(`<z-input htmlid="checkid" type="password"></z-input>`);
   const iconButton = await page.find("z-input button.toggle-password-icon");
   const icon = await page.find("z-input button.toggle-password-icon z-icon");
-  //icon will be an open eye on first click
   await iconButton.click();
   await page.waitForChanges();
-  expect(icon).toEqualHtml(
-    `<z-icon class="hydrated sc-z-input big" aria-hidden="true">
-      <mock:shadow-root>
-      <svg  fill="" viewBox="0 0 1000 1000">
-      <path d="${ICONS["view-off-filled"]}"></path>
-      </svg>
-      </mock:shadow-root>
-    </z-icon>`
-  );
+  expect(await icon.getProperty("name")).toEqual("view-off-filled");
 
-  //icon will be a closed eye on second click
   await iconButton.click();
   await page.waitForChanges();
-  expect(icon).toEqualHtml(
-    `<z-icon class="hydrated sc-z-input big" aria-hidden="true">
-      <mock:shadow-root>
-        <svg  fill="" viewBox="0 0 1000 1000">
-          <path d="${ICONS["view-filled"]}"></path>
-        </svg>
-      </mock:shadow-root>
-    </z-icon>`
-  );
+  expect(await icon.getProperty("name")).toEqual("view-filled");
 });
 
 it("Test ZInput - input password - change input type on icon click to show/hide password", async () => {

@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
 import "../cells/z-td/index";
 import "../cells/z-th/index";
@@ -14,7 +26,7 @@ import "../cells/z-th/index";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTr {
+export class ZTr implements ComponentInterface {
   @Element() host: HTMLZTrElement;
 
   /**

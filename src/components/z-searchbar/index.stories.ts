@@ -29,29 +29,19 @@ const StoryMeta = {
     "preventSubmit": false,
     "showSearchButton": false,
     "searchButtonIconOnly": false,
+    "searchButtonLabel": "",
     "autocomplete": false,
     "autocompleteMinChars": 3,
-    "resultsCount": null,
+    "resultsCount": undefined,
     "searchHelperLabel": "Cerca {searchString}",
-    "resultsItems": [
-      {
-        label: "first item",
-      },
-      {
-        label: "second item",
-      },
-      {
-        label: "third item",
-      },
-      {
-        label: "fourth item",
-      },
-    ],
+    "resultsItems": [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
     "sortResultsItems": false,
     "htmlid": "myId",
     "placeholder": "my placeholder",
     "value": "",
-    "--z-searchbar-results-height": "",
+    "label": "",
+    "htmlAriaLabel": "",
+    "--z-searchbar-results-height": "540px",
     "--z-searchbar-tag-text-color": "var(--color-primary03)",
     "--z-searchbar-tag-bg": "var(--color-hover-primary)",
     "size": ControlSize.BIG,
@@ -68,6 +58,7 @@ export const Default = {
     <z-searchbar
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
+      search-button-label=${args.searchButtonLabel}
       search-button-icon-only=${args.searchButtonIconOnly}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
@@ -81,6 +72,8 @@ export const Default = {
       style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -88,7 +81,7 @@ export const Default = {
 export const SimpleSearch = {
   parameters: {
     controls: {
-      include: ["value", "placeholder", "htmlid", "size"],
+      include: ["value", "placeholder", "htmlid", "size", "label", "htmlAriaLabel"],
     },
   },
   args: {
@@ -99,11 +92,14 @@ export const SimpleSearch = {
       prevent-submit="false"
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autcomplete="false"
       value=${args.value}
       placeholder=${args.placeholder}
       htmlid=${args.htmlid}
       size=${args.size}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -114,12 +110,14 @@ export const Autocomplete = {
     htmlid: "myIdAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
   },
   render: (args) => html`
     <z-searchbar
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
@@ -132,6 +130,8 @@ export const Autocomplete = {
       style="--z-searchbar-results-height: ${args["--z-searchbar-results-height"]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -142,6 +142,7 @@ export const AutocompleteWithComplexItems = {
     htmlid: "myIdGroupedAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
     resultsItems: [
       {
         label: "first item",
@@ -190,6 +191,7 @@ export const AutocompleteWithComplexItems = {
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
@@ -206,6 +208,8 @@ export const AutocompleteWithComplexItems = {
       ]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;
@@ -216,6 +220,7 @@ export const AutocompleteWithComplexTreeItems = {
     htmlid: "myIdGroupedAutocomplete",
     showSearchButton: false,
     searchButtonIconOnly: false,
+    searchButtonLabel: "Cliccami",
     resultsItems: [
       {
         label: "first item",
@@ -327,6 +332,7 @@ export const AutocompleteWithComplexTreeItems = {
       prevent-submit=${args.preventSubmit}
       show-search-button=${args.showSearchButton}
       search-button-icon-only=${args.searchButtonIconOnly}
+      search-button-label=${args.searchButtonLabel}
       autocomplete=${args.autocomplete}
       autocomplete-min-chars=${args.autocompleteMinChars}
       results-count=${args.resultsCount}
@@ -343,6 +349,8 @@ export const AutocompleteWithComplexTreeItems = {
       ]}"
       size=${args.size}
       variant=${args.variant}
+      label=${args.label}
+      html-aria-label=${args.htmlAriaLabel}
     ></z-searchbar>
   `,
 } satisfies Story;

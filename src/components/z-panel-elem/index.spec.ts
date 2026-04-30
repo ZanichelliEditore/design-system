@@ -30,7 +30,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-blue z-link-icon" href="http://www.google.it" id="link_id" target="_blank">
               <z-icon height="14" width="14"></z-icon>
@@ -50,7 +50,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div class="panel-elem-link">
             <a class="z-link z-link-blue z-link-icon" id="examplelink_id" href="http://www.google.it" id="link_id" target="_blank">
               <z-icon height="14" width="14"></z-icon>
@@ -70,14 +70,14 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
-            <div class="panel-elem-link">
-              <a class="z-link z-link-blue z-link-disabled z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
-                <z-icon height="14" width="14"></z-icon>
-                label
-              </a>
-            </div>
+        <div class="panel-elem-container">
+          <div class="panel-elem-link">
+            <a class="z-link z-link-blue z-link-disabled z-link-icon" href="http://www.google.it" id="examplelink_id" target="_blank">
+              <z-icon height="14" width="14"></z-icon>
+              label
+            </a>
           </div>
+        </div>
       </z-panel-elem>
     `);
   });
@@ -130,7 +130,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img src="exampleImgUrl" />
           </div>
@@ -153,7 +153,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgurl="exampleImgUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img src="exampleImgUrl" />
           </div>
@@ -176,7 +176,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgalt="exampleDesc" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img alt="exampleDesc" />
           </div>
@@ -199,7 +199,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem imgalt="exampleDesc" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img alt="exampleDesc" />
           </div>
@@ -222,7 +222,7 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img src="exampleUrl" />
           </div>
@@ -242,14 +242,13 @@ describe("Suite test ZPanelElem", () => {
   it("Test render ZPanelElem with icon and complete slot data", async () => {
     const page = await newSpecPage({
       components: [ZPanelElem],
-      html: `<z-panel-elem descrSlotName="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" ><div class="panel-elem-desc"> <span slot="slotname">Full application description</span> </div></z-panel-elem>`,
+      html: `<z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
+        <span slot="slotname">Full application description</span>
+      </z-panel-elem>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-panel-elem descrslotname="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-        <div class="panel-elem-desc">
-          <span slot="slotname">Full application description</span>
-        </div>
+      <z-panel-elem descr-slot-name="slotname" imgurl="exampleUrl" target="_self" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
         <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
             <img src="exampleUrl" />
@@ -260,6 +259,12 @@ describe("Suite test ZPanelElem", () => {
               label
             </a>
           </div>
+          <div class="panel-elem-desc">
+            <span slot="slotname">
+              Full application description
+            </span>
+          </div>
+        </div>
       </z-panel-elem>
     `);
   });
@@ -272,9 +277,9 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled imgurl="exampleImgUrl" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-              <img src="exampleImgUrl" />
+            <img src="exampleImgUrl" />
           </div>
           <div class="panel-elem-link">
             <a class="z-link z-link-blue z-link-icon z-link-disabled" href="http://www.google.it" id="examplelink_id" target="_blank">
@@ -295,15 +300,15 @@ describe("Suite test ZPanelElem", () => {
 
     expect(page.root).toEqualHtml(`
       <z-panel-elem isdisabled imgalt="exampleAlt" linkicon="example" elemid="example" linklabel="label" url="http://www.google.it" target="_self">
-          <div class="panel-elem-container">
+        <div class="panel-elem-container">
           <div aria-hidden="true" class="panel-elem-icon">
-              <img alt="exampleAlt" />
+            <img alt="exampleAlt" />
           </div>
           <div class="panel-elem-link">
-          <a class="z-link z-link-blue z-link-icon z-link-disabled" href="http://www.google.it" id="examplelink_id" target="_self">
-            <z-icon height="14" name="example" width="14"></z-icon>
-            label
-          </a>
+            <a class="z-link z-link-blue z-link-icon z-link-disabled" href="http://www.google.it" id="examplelink_id" target="_self">
+              <z-icon height="14" name="example" width="14"></z-icon>
+              label
+            </a>
           </div>
         </div>
       </z-panel-elem>

@@ -81,7 +81,7 @@ const StoryMeta = {
     "--z-accordion-content-bg": null,
     "--z-accordion-content-fg": null,
     "--z-accordion-hover-color": null,
-    "--z-accordion-highlight-color": null,
+    "--z-accordion-highlight-color": "var(--color-primary01)",
     "--z-accordion-right-padding": "var(--space-unit)",
     "--z-accordion-left-padding": "calc(var(--space-unit) * 2)",
     "--z-accordion-label-font-weight": "var(--font-sb)",
@@ -141,9 +141,9 @@ export const Stack = {
     "--z-accordion-highlight-color4": cssPropsArgs["--z-accordion-highlight-color"],
   },
   args: {
-    "--z-accordion-highlight-color2": null,
-    "--z-accordion-highlight-color3": null,
-    "--z-accordion-highlight-color4": null,
+    "--z-accordion-highlight-color2": "var(--color-primary01)",
+    "--z-accordion-highlight-color3": "var(--color-primary01)",
+    "--z-accordion-highlight-color4": "var(--color-primary01)",
   },
   parameters: {
     controls: {

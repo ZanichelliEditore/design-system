@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 
 /**
@@ -11,7 +24,7 @@ import {KeyboardCode} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenuSection {
+export class ZMenuSection implements ComponentInterface {
   @Element() host: HTMLZMenuSectionElement;
 
   /** Active state */

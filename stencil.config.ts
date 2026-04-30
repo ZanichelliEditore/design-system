@@ -35,12 +35,18 @@ export const config: Config = {
   ],
   extras: {
     enableImportInjection: true,
-    experimentalSlotFixes: true,
+    experimentalScopedSlotChanges: true,
+    appendChildSlotFix: true,
+    cloneNodeFix: true,
+    scopedSlotTextContentFix:
+      false /* setting this to true will break the retrieval of `textContent` in the `componentWillLoad` lifecycle method */,
+    slotChildNodesFix: true,
   },
   testing: {
     moduleNameMapper: {
       "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/src/__mocks__/fileMock.ts",
     },
-    testPathIgnorePatterns: ["./storybook/*", "./dist/*"],
+    modulePathIgnorePatterns: ["<rootDir>/dist/"],
+    testPathIgnorePatterns: ["/storybook/", "/dist/"],
   },
 } satisfies Config;

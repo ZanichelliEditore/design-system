@@ -491,3 +491,61 @@ export enum IconPosition {
   LEFT = "left",
   RIGHT = "right",
 }
+
+/** Map of color hex codes to their Italian and English names for the Color Picker Palette. */
+export const ColorPickerPalette = {
+  "#FFFFFF00": {it: "Trasparente", en: "Transparent"},
+  "#FFFFFF": {it: "Bianco", en: "White"},
+  "#CCCCCC": {it: "Grigio", en: "Gray"},
+  "#7E7E7E": {it: "Grigio scuro 1", en: "Dark gray 1"},
+  "#333333": {it: "Grigio scuro 2", en: "Dark gray 2"},
+
+  "#FFCCCC": {it: "Rosso chiaro 1", en: "Light red 1"},
+  "#FF9999": {it: "Rosso chiaro 2", en: "Light red 2"},
+  "#FF3333": {it: "Rosso", en: "Red"},
+  "#CC0000": {it: "Rosso scuro 1", en: "Dark red 1"},
+  "#660000": {it: "Rosso scuro 2", en: "Dark red 2"},
+
+  "#FFE1CC": {it: "Arancione chiaro 1", en: "Light orange 1"},
+  "#FFC399": {it: "Arancione chiaro 2", en: "Light orange 2"},
+  "#FF8933": {it: "Arancione", en: "Orange"},
+  "#CC5500": {it: "Arancione scuro 1", en: "Dark orange 1"},
+  "#662B00": {it: "Arancione scuro 2", en: "Dark orange 2"},
+
+  "#FFF7CC": {it: "Giallo chiaro 1", en: "Light yellow 1"},
+  "#FFEE99": {it: "Giallo chiaro 2", en: "Light yellow 2"},
+  "#FFDD33": {it: "Giallo", en: "Yellow"},
+  "#CCAA00": {it: "Giallo scuro 1", en: "Dark yellow 1"},
+  "#665600": {it: "Giallo scuro 2", en: "Dark yellow 2"},
+
+  "#DDFFCC": {it: "Verde chiaro 1", en: "Light green 1"},
+  "#BBFF99": {it: "Verde chiaro 2", en: "Light green 2"},
+  "#77FF33": {it: "Verde", en: "Green"},
+  "#44CC00": {it: "Verde scuro 1", en: "Dark green 1"},
+  "#226600": {it: "Verde scuro 2", en: "Dark green 2"},
+
+  "#CCFFE5": {it: "Verde acqua chiaro 1", en: "Light aquamarine 1"},
+  "#99FFCC": {it: "Verde acqua chiaro 2", en: "Light aquamarine 2"},
+  "#33FF99": {it: "Verde acqua", en: "Aquamarine"},
+  "#00CC66": {it: "Verde acqua scuro 1", en: "Dark aquamarine 1"},
+  "#006633": {it: "Verde acqua scuro 2", en: "Dark aquamarine 2"},
+
+  "#CCEEFF": {it: "Azzurro chiaro 1", en: "Light blue 1"},
+  "#99DDFF": {it: "Azzurro chiaro 2", en: "Light blue 2"},
+  "#33BBFF": {it: "Azzurro", en: "Blue"},
+  "#0088CC": {it: "Azzurro scuro 1", en: "Dark blue 1"},
+  "#004466": {it: "Azzurro scuro 2", en: "Dark blue 2"},
+
+  "#D4CCFF": {it: "Viola chiaro 1", en: "Light purple 1"},
+  "#AA99FF": {it: "Viola chiaro 2", en: "Light purple 2"},
+  "#5533FF": {it: "Viola", en: "Purple"},
+  "#2200CC": {it: "Viola scuro 1", en: "Dark purple 1"},
+  "#110066": {it: "Viola scuro 2", en: "Dark purple 2"},
+
+  "#FFCCFF": {it: "Rosa chiaro 1", en: "Light pink 1"},
+  "#FF99FF": {it: "Rosa chiaro 2", en: "Light pink 2"},
+  "#FF33FF": {it: "Rosa", en: "Pink"},
+  "#CC00CC": {it: "Rosa scuro 1", en: "Dark pink 1"},
+  "#660066": {it: "Rosa scuro 2", en: "Dark pink 2"},
+} as const satisfies Record<`#${string}`, {it: string; en: string}>;
+export type ColorPickerPalette = keyof typeof ColorPickerPalette;

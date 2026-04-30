@@ -1,11 +1,11 @@
-import {Component, Event, EventEmitter, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {Breakpoints} from "../../constants/breakpoints";
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZButtonSort {
+export class ZButtonSort implements ComponentInterface {
   /** id, should be unique */
   @Prop()
   buttonid: string;

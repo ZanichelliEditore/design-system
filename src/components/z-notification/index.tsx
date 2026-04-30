@@ -1,17 +1,19 @@
-import {Component, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {NotificationType} from "../../beans";
 
 /**
  * Notification bar component.
  * @slot - The text of the notification.
  * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
+ * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
+ * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
  */
 @Component({
   tag: "z-notification",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZNotification {
+export class ZNotification implements ComponentInterface {
   /** Name of the icon on the left of the content */
   @Prop()
   contenticonname?: string;
@@ -39,6 +41,10 @@ export class ZNotification {
   @Prop({reflect: true})
   sticky?: boolean = false;
 
+  /** Border position */
+  @Prop({reflect: true})
+  borderposition?: "top" | "bottom" = "bottom";
+
   /** Call to action clicked */
   @Event()
   notificationAction: EventEmitter;
@@ -65,41 +71,43 @@ export class ZNotification {
   render(): HTMLZNotificationElement {
     return (
       <Host>
-        {this.contenticonname && (
-          <z-icon
-            class="status-icon"
-            name={this.contenticonname}
-            width={16}
-            height={16}
-          />
-        )}
-        <div class="content-container">
-          <div class="content-text">
-            <slot></slot>
-          </div>
-          {!!this.actiontext?.trim() && (
-            <button
-              class="action-button"
-              type="button"
-              onClick={this.handleActionButtonClick}
-            >
-              {this.actiontext}
-            </button>
-          )}
-        </div>
-        {this.showclose && (
-          <button
-            class="close-button"
-            type="button"
-            onClick={this.handleCloseButtonClick}
-          >
+        <div class="main-container">
+          {this.contenticonname && (
             <z-icon
-              name="multiply-circle"
+              class="status-icon"
+              name={this.contenticonname}
               width={16}
               height={16}
             />
-          </button>
-        )}
+          )}
+          <div class="content-container">
+            <div class="content-text">
+              <slot></slot>
+            </div>
+            {!!this.actiontext?.trim() && (
+              <button
+                class="action-button"
+                type="button"
+                onClick={this.handleActionButtonClick}
+              >
+                {this.actiontext}
+              </button>
+            )}
+          </div>
+          {this.showclose && (
+            <button
+              class="close-button"
+              type="button"
+              onClick={this.handleCloseButtonClick}
+            >
+              <z-icon
+                name="multiply-circle"
+                width={16}
+                height={16}
+              />
+            </button>
+          )}
+        </div>
       </Host>
     );
   }

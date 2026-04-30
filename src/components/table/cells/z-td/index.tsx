@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ButtonVariant, ControlSize, PopoverPosition, VisibilityCondition} from "../../../../beans";
 
 /**
@@ -7,10 +7,10 @@ import {ButtonVariant, ControlSize, PopoverPosition, VisibilityCondition} from "
  */
 @Component({
   tag: "z-td",
-  styleUrl: "styles.css",
+  styleUrl: "../z-table-cells.css",
   shadow: true,
 })
-export class ZTd {
+export class ZTd implements ComponentInterface {
   @Element() host: HTMLZTdElement;
 
   /**

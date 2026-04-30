@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  h,
+} from "@stencil/core";
 import {ButtonVariant, ZFileUploadType} from "../../../beans";
 
 export type ZFileUploadError = {cause: "format" | "size"; message: string};
@@ -9,7 +21,7 @@ export type ZFileUploadError = {cause: "format" | "size"; message: string};
   shadow: false,
   scoped: true,
 })
-export class ZFileUpload {
+export class ZFileUpload implements ComponentInterface {
   /** Prop indicating the file upload type - can be default or dragdrop */
   @Prop({reflect: true})
   type: ZFileUploadType = ZFileUploadType.DEFAULT;

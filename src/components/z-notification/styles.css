@@ -1,22 +1,28 @@
 :host {
   --z-notification--top-offset: 0;
+  --z-notification--content-max-width: 100%;
+  --z-notification--inline-padding: ;
 
-  display: flex;
+  display: block;
   width: 100%;
-  box-sizing: border-box;
-  align-items: flex-start;
-  padding: calc(var(--space-unit) * 2);
-  border-bottom: var(--border-size-medium) solid var(--color-surface03);
-  font-family: var(--font-family-sans);
-  outline: none;
 }
 
-:host[sticky] {
+.main-container {
+  display: flex;
+  max-width: var(--z-notification--content-max-width);
+  align-items: flex-start;
+  padding: calc(var(--space-unit) * 2) var(--z-notification--inline-padding, calc(var(--space-unit) * 2));
+  margin: 0 auto;
+  background-color: transparent;
+  font-family: var(--font-family-sans);
+}
+
+:host([sticky]) {
   position: sticky;
   top: var(--z-notification--top-offset);
 }
 
-:host[sticky],
+:host([sticky]),
 :host([showshadow]) {
   box-shadow: var(--shadow-3);
 }
@@ -54,8 +60,15 @@
   fill: var(--color-default-error);
 }
 
-:host > button,
-.content-container > button {
+:host([borderposition="bottom"]) {
+  border-bottom: var(--border-size-medium) solid var(--color-surface03);
+}
+
+:host([borderposition="top"]) {
+  border-top: var(--border-size-medium) solid var(--color-surface03);
+}
+
+button {
   padding: 0;
   border: none;
   margin: 0;
@@ -78,12 +91,12 @@
 }
 
 .content-text {
-  max-width: 800px;
+  width: 100%;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;
-  line-height: 20px;
+  line-height: 1.4;
 }
 
 .action-button {
@@ -91,12 +104,12 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   letter-spacing: 0.32px;
-  line-height: 16px;
+  line-height: 1.333;
+  outline: none;
 }
 
-.action-button:focus {
+.action-button:focus-visible {
   box-shadow: var(--shadow-focus-primary);
-  outline: none !important;
 }
 
 .content-container + .close-button {
@@ -108,7 +121,7 @@
 }
 
 /* Tablet breakpoint */
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .content-container {
     flex-wrap: nowrap;
   }

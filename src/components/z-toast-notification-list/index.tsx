@@ -1,4 +1,4 @@
-import {Component, Element, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Prop, Watch, h} from "@stencil/core";
 import {ToastNotificationPosition} from "../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {ToastNotificationPosition} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZToastNotificationList {
+export class ZToastNotificationList implements ComponentInterface {
   @Element() hostElement: HTMLZToastNotificationListElement;
 
   /**Set the position of toast notification list - top-left, top-centre, top-right, bottom-left, bottom-centre, bottom-right */
@@ -17,7 +17,7 @@ export class ZToastNotificationList {
   @Prop()
   newestontop?: boolean = true;
 
-  private notificationArray: Element[];
+  private notificationArray: Element[] = [];
 
   @Watch("newestontop")
   watchPropNewestontop(newValue: boolean): void {

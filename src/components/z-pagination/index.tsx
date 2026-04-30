@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {InputType} from "../../beans";
 
 /**
@@ -10,7 +22,7 @@ import {InputType} from "../../beans";
   tag: "z-pagination",
   styleUrl: "styles.css",
 })
-export class ZPagination {
+export class ZPagination implements ComponentInterface {
   @Element() host: HTMLZPaginationElement;
 
   /** Pagination label placed before the bar. */
@@ -277,6 +289,7 @@ export class ZPagination {
       <button
         class="navigation-button"
         type="button"
+        aria-label="Vai alla pagina precedente"
         title="Vai alla pagina precedente"
         disabled={this.currentPage === 1}
         onClick={() => this.selectPage(this.currentPage - 1)}
@@ -291,6 +304,7 @@ export class ZPagination {
       <button
         class="navigation-button"
         type="button"
+        aria-label="Vai alla prossima pagina"
         title="Vai alla prossima pagina"
         disabled={this.currentPage === this.totalPages}
         onClick={() => this.selectPage(this.currentPage + 1)}

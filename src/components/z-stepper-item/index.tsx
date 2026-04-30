@@ -1,11 +1,11 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-stepper-item",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZStepperItem {
+export class ZStepperItem implements ComponentInterface {
   /**
    * The number of the step item.
    */
@@ -40,8 +40,8 @@ export class ZStepperItem {
     const href =
       this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
     const role = href ? {role: "link"} : undefined;
-    const current = this.pressed && !this.disabled ? {ariaCurrent: "step"} : undefined;
-    const tabindex = this.pressed || this.href === "" ? {tabindex: -1} : undefined;
+    const current = this.pressed && !this.disabled ? {"aria-current": "step"} : undefined;
+    const tabindex = this.pressed || this.href === "" ? {tabIndex: -1} : undefined;
 
     return {
       ...href,

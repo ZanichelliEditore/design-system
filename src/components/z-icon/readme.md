@@ -19,15 +19,21 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Component to render an SVG icon from the internal icon set, selected by `name`.
+This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
+
 ## Properties
 
-| Property | Attribute | Description            | Type               | Default     |
-| -------- | --------- | ---------------------- | ------------------ | ----------- |
-| `fill`   | `fill`    | icon fill (optional)   | `string`           | `undefined` |
-| `height` | `height`  | icon height (optional) | `number \| string` | `undefined` |
-| `iconid` | `iconid`  | icon id (optional)     | `string`           | `undefined` |
-| `name`   | `name`    | icon name              | `string`           | `undefined` |
-| `width`  | `width`   | icon width (optional)  | `number \| string` | `undefined` |
+| Property         | Attribute         | Description                                                                                                                                                                                                              | Type               | Default     |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ----------- |
+| `fill`           | `fill`            | Name of the CSS color token to use for the icon fill color (e.g. `blue500`).                                                                                                                                             | `string`           | `undefined` |
+| `height`         | `height`          | Icon height (optional)                                                                                                                                                                                                   | `number \| string` | `undefined` |
+| `iconid`         | `iconid`          | HTML `id` attribute (optional)                                                                                                                                                                                           | `string`           | `undefined` |
+| `indicatorColor` | `indicator-color` | Color to use to fill the icon's color indicator, if it has one. Can be any valid value for the `fill` svg attribute. If the icon passed through the `name` prop doesn't have a color indicator, this prop has no effect. | `string`           | `undefined` |
+| `name`           | `name`            | Icon name                                                                                                                                                                                                                | `string`           | `undefined` |
+| `width`          | `width`           | Icon width (optional)                                                                                                                                                                                                    | `number \| string` | `undefined` |
 
 
 ## Dependencies
@@ -73,6 +79,7 @@
  - [z-toast-notification](../z-toast-notification)
  - [z-toggle-button](../z-toggle-button)
  - [z-toggle-switch](../z-toggle-switch)
+ - [z-tool](../z-tool)
  - [z-tr](../table/z-tr)
  - [z-tree-list](../list/z-tree-list)
 
@@ -118,6 +125,7 @@ graph TD;
   z-toast-notification --> z-icon
   z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
+  z-tool --> z-icon
   z-tr --> z-icon
   z-tree-list --> z-icon
   style z-icon fill:#f9f,stroke:#333,stroke-width:4px

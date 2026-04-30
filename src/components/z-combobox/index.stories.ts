@@ -43,6 +43,7 @@ const StoryMeta = {
     searchtitle: "Search Title",
     uncheckalltext: "Uncheck All",
     size: ControlSize.BIG,
+    htmlAriaLabel: "",
   },
   render: (args) =>
     html`<z-combobox
@@ -63,6 +64,7 @@ const StoryMeta = {
       searchtitle=${args.searchtitle}
       uncheckalltext=${args.uncheckalltext}
       size=${args.size}
+      html-aria-label=${args.htmlAriaLabel}
     />`,
 } satisfies Meta<ZCombobox>;
 

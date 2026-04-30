@@ -23,6 +23,8 @@ const StoryMeta = {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
+    "searchPlaceholder": "Digita qui quello che vuoi",
+    "searchButtonLabel": "Cliccami",
     "enableZLogo": false,
     "enableOffcanvas": false,
   },
@@ -110,7 +112,7 @@ type Story = Meta<ZAppHeaderStoriesArgs>;
 export const Title = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -127,7 +129,7 @@ export const Title = {
 export const ProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -148,7 +150,7 @@ export const ProductLogo = {
 export const TopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo"],
+      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -162,10 +164,32 @@ export const TopTitle = {
     </z-app-header>`,
 } satisfies Story;
 
+export const TopTitleWithProductLogo = {
+  parameters: {
+    controls: {
+      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${false}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+      <h1 slot="title">Applicazione</h1>
+      <div
+        class="story-product-logo"
+        slot="product-logo"
+      ></div>
+    </z-app-header>`,
+} satisfies Story;
+
 export const CustomMenuButton = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -183,7 +207,7 @@ export const CustomMenuButton = {
 export const MenuWithTopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableZLogo"],
+      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -199,10 +223,41 @@ export const MenuWithTopTitle = {
     </z-app-header>`,
 } satisfies Story;
 
+export const MenuWithTopTitleAndProductLogo = {
+  parameters: {
+    controls: {
+      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+    },
+  },
+  render: (args) =>
+    html`<z-app-header
+      .enableOffcanvas=${args.enableOffcanvas}
+      .enableSearch=${args.enableSearch}
+      .searchPageUrl=${args.searchPageUrl}
+      .enableZLogo=${false}
+      style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
+    >
+      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
+      <h1 slot="title">Applicazione</h1>
+      <div
+        class="story-product-logo"
+        slot="product-logo"
+      ></div>
+      ${menuTemplate()}
+    </z-app-header>`,
+} satisfies Story;
+
 export const LongTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo", "enableSearch", "searchPageUrl"],
+      exclude: [
+        "enableOffcanvas",
+        "enableZLogo",
+        "enableSearch",
+        "searchPageUrl",
+        "searchPlaceholder",
+        "searchButtonLabel",
+      ],
     },
   },
   render: (args) =>
@@ -216,6 +271,11 @@ export const LongTitle = {
 export const OffcanvasMenu = {
   args: {
     enableOffcanvas: true,
+  },
+  parameters: {
+    controls: {
+      exclude: ["searchPlaceholder", "searchButtonLabel"],
+    },
   },
   render: (args) =>
     html`<z-app-header
@@ -245,7 +305,7 @@ export const Stuck = {
       },
     },
     controls: {
-      exclude: ["enableOffcanvas"],
+      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
     },
   },
   render: (args) =>
@@ -279,6 +339,8 @@ export const SearchPageButton = {
     html`<z-app-header
       enable-search
       .enableZLogo=${args.enableZLogo}
+      .searchPlaceholder=${args.searchPlaceholder}
+      .searchButtonLabel=${args.searchButtonLabel}
       search-page-url="https://www.zanichelli.it"
       style="--app-header-content-max-width: ${args["--app-header-content-max-width"]}"
     >

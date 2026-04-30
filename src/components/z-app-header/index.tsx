@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 import {containsElement} from "../../utils/utils";
@@ -23,7 +36,7 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAppHeader {
+export class ZAppHeader implements ComponentInterface {
   @Element() hostElement: HTMLZAppHeaderElement;
 
   /**
@@ -50,6 +63,12 @@ export class ZAppHeader {
    */
   @Prop()
   searchPlaceholder = "Cerca";
+
+  /**
+   * Label of the search button.
+   */
+  @Prop()
+  searchButtonLabel?: string;
 
   /**
    * Search string for the search bar.
@@ -351,6 +370,7 @@ export class ZAppHeader {
         placeholder={this.searchPlaceholder}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
+        searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
@@ -487,15 +507,15 @@ export class ZAppHeader {
           class={{"heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
-          <div class="heading-container">
+          <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-              <div class="top-subtitle">
+              <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
                 <slot name="top-subtitle" />
               </div>
             )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
+              {!this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>

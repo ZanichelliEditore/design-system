@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 
 /**
  * @slot content - set the info box content
@@ -8,7 +8,7 @@ import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZInfoBox {
+export class ZInfoBox implements ComponentInterface {
   /** info box unique id */
   @Prop()
   boxid: string;

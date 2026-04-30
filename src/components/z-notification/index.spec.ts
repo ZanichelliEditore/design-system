@@ -15,25 +15,27 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" showclose="true" type="success">
+      <z-notification actiontext="Annulla" borderposition="bottom" contenticonname="gear" showclose="true" type="success">
         <mock:shadow-root>
-          <z-icon
-            class="status-icon"
-            name="gear"
-            width="16"
-            height="16"
-          ></z-icon>
-          <div class="content-container">
-            <div class="content-text"><slot></slot></div>
-            <button class="action-button" type="button">Annulla</button>
-          </div>
-          <button class="close-button" type="button">
+          <div class="main-container">
             <z-icon
-              name="multiply-circle"
+              class="status-icon"
+              name="gear"
               width="16"
               height="16"
-            />
-          </button>
+            ></z-icon>
+            <div class="content-container">
+              <div class="content-text"><slot></slot></div>
+              <button class="action-button" type="button">Annulla</button>
+            </div>
+            <button class="close-button" type="button">
+              <z-icon
+                name="multiply-circle"
+                width="16"
+                height="16"
+              />
+            </button>
+          </div>
         </mock:shadow-root>
         Testo della notifica
       </z-notification>
@@ -47,10 +49,12 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification type="success">
+      <z-notification borderposition="bottom" type="success">
         <mock:shadow-root>
-          <div class="content-container">
-            <div class="content-text"><slot></slot></div>
+          <div class="main-container">
+            <div class="content-container">
+              <div class="content-text"><slot></slot></div>
+            </div>
           </div>
         </mock:shadow-root>
         Testo della notifica
@@ -70,17 +74,19 @@ describe("Suite test ZNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-notification actiontext="Annulla" contenticonname="gear" showclose="false" type="success">
+      <z-notification actiontext="Annulla" borderposition="bottom" contenticonname="gear" showclose="false" type="success">
         <mock:shadow-root>
-          <z-icon
-            class="status-icon"
-            name="gear"
-            width="16"
-            height="16"
-          ></z-icon>
-          <div class="content-container">
-            <div class="content-text"><slot></slot></div>
-            <button class="action-button" type="button">Annulla</button>
+          <div class="main-container">
+            <z-icon
+              class="status-icon"
+              name="gear"
+              width="16"
+              height="16"
+            ></z-icon>
+            <div class="content-container">
+              <div class="content-text"><slot></slot></div>
+              <button class="action-button" type="button">Annulla</button>
+            </div>
           </div>
         </mock:shadow-root>
         Testo della notifica

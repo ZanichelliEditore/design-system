@@ -1,11 +1,11 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 import {ZAriaAlertMode} from "../../beans";
 
 @Component({
   tag: "z-aria-alert",
   shadow: false,
 })
-export class ZAriaAlert {
+export class ZAriaAlert implements ComponentInterface {
   /** Aria live mode */
   @Prop()
   mode: ZAriaAlertMode = ZAriaAlertMode.POLITE;

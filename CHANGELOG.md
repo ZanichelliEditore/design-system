@@ -2,6 +2,191 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.10](https://github.com/ZanichelliEditore/design-system/compare/v19.2.9...v19.2.10) (2026-04-29)
+
+## [19.2.9](https://github.com/ZanichelliEditore/design-system/compare/v19.2.8...v19.2.9) (2026-04-29)
+
+## [19.2.8](https://github.com/ZanichelliEditore/design-system/compare/v19.2.7...v19.2.8) (2026-04-29)
+
+
+### Features
+
+* **DS-985:** add searchButtonLabel prop to z-app-header and z-searchbar ([2d4406a](https://github.com/ZanichelliEditore/design-system/commit/2d4406ae8f280d322e5877b722e65e8350f9c8f3))
+
+
+### Bug Fixes
+
+* upgrade Storybook to v9 ([ecd0023](https://github.com/ZanichelliEditore/design-system/commit/ecd00237dffb18ef9ae9430b9404e1e2acfe6ed5))
+* upgrade Vite to v6 ([7c163cb](https://github.com/ZanichelliEditore/design-system/commit/7c163cbcbda9e0d593094c133abd53beef15b173))
+* upgrade Vite to v7 ([931e240](https://github.com/ZanichelliEditore/design-system/commit/931e240abb28256d2eaf6f092c819e8daea96f4f))
+* upgrade Vite to v8 ([25dc359](https://github.com/ZanichelliEditore/design-system/commit/25dc359601b00eb7ed1c00c307f9384c29efcd28))
+
+## [19.2.7](https://github.com/ZanichelliEditore/design-system/compare/v19.2.6...v19.2.7) (2026-04-15)
+
+
+### Bug Fixes
+
+* missing styles when importing multiple css files in one file ([f35809b](https://github.com/ZanichelliEditore/design-system/commit/f35809be8ae92743d2df505860bbfacfd5d28861))
+* remove unnecessary auth settings ([a5df1a3](https://github.com/ZanichelliEditore/design-system/commit/a5df1a3711526d0eaac58878ec77866efb4f526a))
+* update action to node version 24 ([ee573b8](https://github.com/ZanichelliEditore/design-system/commit/ee573b8402125fc9782b826e3c71bbb4f51801a3))
+* **z-searchbar:** hover style of result items; tree indicators alignment ([83d90c8](https://github.com/ZanichelliEditore/design-system/commit/83d90c8cdd773c827eb01c6abc7a65c8dab6cf15))
+
+## [19.2.6](https://github.com/ZanichelliEditore/design-system/compare/v19.2.5...v19.2.6) (2026-04-10)
+
+
+### Bug Fixes
+
+* prettier ([51c83bf](https://github.com/ZanichelliEditore/design-system/commit/51c83bf0299ce13d273548af48b48c9d37952fd3))
+* prevent storybook-addon-stencil to override stencil version for storybook ([f637c44](https://github.com/ZanichelliEditore/design-system/commit/f637c44775e0c723a2e50317a12664637fb84703))
+* textContent on scoped components ([1932dad](https://github.com/ZanichelliEditore/design-system/commit/1932dadf4c7a9867be68e77180c42da673fa309c))
+* **z-navigation-tabs, z-pagination:** consistent aria-labels on navigation buttons ([0f08361](https://github.com/ZanichelliEditore/design-system/commit/0f083611d450d48324544e0726f82bc34109025d))
+* **z-navigation-tabs, z-pagination:** revert z-navigation-tabs commit ([42664db](https://github.com/ZanichelliEditore/design-system/commit/42664db3d90dcb7a9f127692cfb0b2023f00c0c1))
+
+## [19.2.5](https://github.com/ZanichelliEditore/design-system/compare/v19.2.4...v19.2.5) (2026-04-08)
+
+
+### Bug Fixes
+
+* apply prettier formatting ([b5daa52](https://github.com/ZanichelliEditore/design-system/commit/b5daa525f8e81d52184a8641de7e8aa194bfbab2))
+* prevent empty aria-label and role attributes on z-button ([67a3d00](https://github.com/ZanichelliEditore/design-system/commit/67a3d00142af2b57a495ae19f438a1fa30fc73c4))
+* **tokens:** improve placeholder text contrast for WCAG 1.4.3 ([e6096db](https://github.com/ZanichelliEditore/design-system/commit/e6096db869d135c322b42aa0bba505467b3328bd)), closes [#9b9b9](https://github.com/ZanichelliEditore/design-system/issues/9b9b9) [#666](https://github.com/ZanichelliEditore/design-system/issues/666)
+* **z-breadcrumb:** add aria-hidden to separator icons ([89d1429](https://github.com/ZanichelliEditore/design-system/commit/89d142957f268db3975232d8b41796a99352047e))
+* **z-notification:** content width ([d79a561](https://github.com/ZanichelliEditore/design-system/commit/d79a5612e9c13a8dad9a854b8af798db42ce867f))
+
+## [19.2.4](https://github.com/ZanichelliEditore/design-system/compare/v19.2.3...v19.2.4) (2026-04-07)
+
+
+### Bug Fixes
+
+* **IDP-283:** add aria-invalid to input text ([592e67c](https://github.com/ZanichelliEditore/design-system/commit/592e67c9c1fce9c8dca9c42521a6389ec813da66))
+* **IDP-283:** added the aria-describedby attribute in compliance with WCAG 1.3.1 ([388c577](https://github.com/ZanichelliEditore/design-system/commit/388c577f2a96602b874e22c8157fb345af93255e))
+* **IDP-283:** fix for the visibility condition of aria-describedby ([ecf6a67](https://github.com/ZanichelliEditore/design-system/commit/ecf6a677383a9fc6f2e89a3ed09e788b49f02c09))
+* **IDP-283:** fix github failures ([92e77b6](https://github.com/ZanichelliEditore/design-system/commit/92e77b6a8d2ad1929b1d639eadc50b6c69f99ea2))
+* **IDP-283:** fix prop name and behavior ([3985574](https://github.com/ZanichelliEditore/design-system/commit/398557492d109cca4b2634d1930b8e658c7f3cf8))
+* **IDP-283:** fix prop name,  removed method getAriaValidityAndMessageAttributes ([d0ccf1d](https://github.com/ZanichelliEditore/design-system/commit/d0ccf1d65b4f39a29a433a1f5284b40b4de4369c))
+* **IDP-283:** fix test and message visibility span ([75d2233](https://github.com/ZanichelliEditore/design-system/commit/75d2233ec32630eeb0fa86938f3b416dae18aa22))
+* **IDP-283:** push components.d.ts update ([81571cb](https://github.com/ZanichelliEditore/design-system/commit/81571cbd03644917accb9e687902901d1d812e7d))
+* **IDP-283:** removed prop type and added watch on withrole ([f82c75b](https://github.com/ZanichelliEditore/design-system/commit/f82c75b4c775ade30918de1d91a4c8b85f3955b1))
+* **IDP-283:** removed role status and alert from z-input-message ([b94d987](https://github.com/ZanichelliEditore/design-system/commit/b94d987128cdf77a12574b37746b60822e0636c7))
+* **IDP-283:** rename new props to comply with the naming convention ([f3d19a4](https://github.com/ZanichelliEditore/design-system/commit/f3d19a448e68ba7d9cedfdf40b0a820b2dc4d734))
+* **IDP-283:** restored the ability to disable rendering of the <z-input-message in the <z-input ([4d7a91f](https://github.com/ZanichelliEditore/design-system/commit/4d7a91ff5e89028aab0d00cd0e5cf77df79a9d38))
+* **IDP-283:** status-based message handling(wip) ([4d62e94](https://github.com/ZanichelliEditore/design-system/commit/4d62e94c83732278c17ff276baf5dfa61d9421ad))
+* **IDP-283:** the element with the role must be present in the page's markup first  (wip) ([b2bacb0](https://github.com/ZanichelliEditore/design-system/commit/b2bacb03c2a0824a13c4d9f046f2a6d8318fcb90))
+
+## [19.2.3](https://github.com/ZanichelliEditore/design-system/compare/v19.2.2...v19.2.3) (2026-04-02)
+
+
+### Features
+
+* adding borderposition propt to z-notification for top border ([5116e71](https://github.com/ZanichelliEditore/design-system/commit/5116e717717681ec2ed22bdf865e13b90f6b4e37))
+* adding prop to center component in layout ([48aac9a](https://github.com/ZanichelliEditore/design-system/commit/48aac9ac87279b3a16c532abb19514910c42084c))
+
+
+### Bug Fixes
+
+* removing prop and adding cssprop ([b4424ab](https://github.com/ZanichelliEditore/design-system/commit/b4424ab467604e2b49d9ea310e800a7a698584a3))
+* reverted last workbackAI commits ([46ce4f8](https://github.com/ZanichelliEditore/design-system/commit/46ce4f8d5b3b5d835c9426ad9734502fa815670e))
+* separate ::-ms prefix to prevent the browser from skipping the entire block ([e5aaaa5](https://github.com/ZanichelliEditore/design-system/commit/e5aaaa570edd26363893f96d2cd546f78f6e8306))
+* **tokens:** enhance focus indicator visibility ([ca6dc46](https://github.com/ZanichelliEditore/design-system/commit/ca6dc4616f848faa6de88f1633d30b7db6f092d3))
+* **z-button:** add opacity to disabled state for WCAG 1.4.1 ([d25b0cc](https://github.com/ZanichelliEditore/design-system/commit/d25b0cccf762e1ecfad7ef29eef4580fd750a422))
+* **z-input:** avoid double clear icon in search input ([7730cd1](https://github.com/ZanichelliEditore/design-system/commit/7730cd1260dc40722c93546ea8eb1f8e615a8308))
+* **z-input:** increase radio button target size for WCAG 2.5.8 ([deee92b](https://github.com/ZanichelliEditore/design-system/commit/deee92bc11e8446bbf9cbd70992043d0c8daacc3))
+* z-notification tests ([022ea65](https://github.com/ZanichelliEditore/design-system/commit/022ea65bbf4d50341f34aa86628cfe83e3c58171))
+
+## [19.2.2](https://github.com/ZanichelliEditore/design-system/compare/v19.2.1...v19.2.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* a11y ([3e087b7](https://github.com/ZanichelliEditore/design-system/commit/3e087b7d049e09e3fa69c5a0f923a3612d880d54))
+* lint ([77fb9a7](https://github.com/ZanichelliEditore/design-system/commit/77fb9a704ee248ecd3364fbdca594973e1330c3b))
+* z-book-card center cover in portrait mode ([5f718c1](https://github.com/ZanichelliEditore/design-system/commit/5f718c1b71dc0ce3131c27d85e35ca34187835e4))
+* z-book-card landscape width ([325fda7](https://github.com/ZanichelliEditore/design-system/commit/325fda764323c645720947b5478318a188d28ed2))
+* z-combobox accessibility ([9deba55](https://github.com/ZanichelliEditore/design-system/commit/9deba550fcf291057415df278651c7bc1c367efd))
+* z-combobox aria-label ([bd6642e](https://github.com/ZanichelliEditore/design-system/commit/bd6642e3b90dcaef63dad496afd2fc0384368a07))
+* z-combobox aria-owns ([35e9e8c](https://github.com/ZanichelliEditore/design-system/commit/35e9e8c3e00ef7b580ef00c5eb5cd294c8136a9e))
+* z-combobox improve accessibility ([c1be3cd](https://github.com/ZanichelliEditore/design-system/commit/c1be3cdd562de3aa32032039e09ddc83959ff6b7))
+* z-combobox moved checkall wip ([ab3decc](https://github.com/ZanichelliEditore/design-system/commit/ab3deccc89fd62f94077dac0c16856ae9637bd98))
+* z-combobox remove tests ([751be4c](https://github.com/ZanichelliEditore/design-system/commit/751be4cd5a23ae03da27c23450cef4665952e647))
+* z-combobox removed inputs wip ([a35a06b](https://github.com/ZanichelliEditore/design-system/commit/a35a06b5614624e8ababc5c4035a4b8e08e6e49d))
+* z-combobox roles and navigazion ([7a49221](https://github.com/ZanichelliEditore/design-system/commit/7a49221f16472c749c8bdac3362d58c7415ace43))
+* z-combobox strong label ([eca358c](https://github.com/ZanichelliEditore/design-system/commit/eca358c4c75e8e0adce28de7b0c761dfd3f18460))
+* z-combobox style ([1925ca9](https://github.com/ZanichelliEditore/design-system/commit/1925ca9a200e55909a9162432191320381794b05))
+* z-combobox style ([fde7272](https://github.com/ZanichelliEditore/design-system/commit/fde727230740e7ff82f9800afa3ef0c4d1ea6aff))
+* z-combobox z-select keyboard nav scroll ([fade832](https://github.com/ZanichelliEditore/design-system/commit/fade83244347802ef8325c20c2d4c7cd6fa49b33))
+* z-searchbar result height in rem ([705b15e](https://github.com/ZanichelliEditore/design-system/commit/705b15eb699a9969ebb0de0fbe210e6f34680c8c))
+* z-select a11y attributes ([9973406](https://github.com/ZanichelliEditore/design-system/commit/9973406b1d41d7469827888793de650a345e39a8))
+* z-select a11y attributes ([6c18bfe](https://github.com/ZanichelliEditore/design-system/commit/6c18bfeb5707eab93007faeb2134777510a36302))
+* z-select a11y attributes ([0a3cc6c](https://github.com/ZanichelliEditore/design-system/commit/0a3cc6c9898cb59ebf5e21c91c0002c333feb415))
+* z-select autocomplete focus ([14bd8ad](https://github.com/ZanichelliEditore/design-system/commit/14bd8ad1323cd25b140dd9239539ea6b5f369498))
+* z-select groups ([cd72908](https://github.com/ZanichelliEditore/design-system/commit/cd729088f52664dc1187e93c87467c3b5a5dd07a))
+* z-select handle reset option ([4a10e0a](https://github.com/ZanichelliEditore/design-system/commit/4a10e0ad3950ecff62e892a488f3d192c67a535f))
+* z-select list roles ([9182706](https://github.com/ZanichelliEditore/design-system/commit/9182706449def99d4528fc8ab95fbf9bb3afac5e))
+* z-select navigation refactoring ([a5ab33a](https://github.com/ZanichelliEditore/design-system/commit/a5ab33ae4c65e8687ad986d74de3bc09a7519e3b))
+* z-select restored aria attributes ([329f20e](https://github.com/ZanichelliEditore/design-system/commit/329f20e944854efdcf6f20cd64ac0528a99931e4))
+* z-select z-combobox a11y hide html label ([c77f32a](https://github.com/ZanichelliEditore/design-system/commit/c77f32a5e7a8e5592e87ab83aaf121b83794de95))
+* z-select z-combobox focus scroll ([4e35eee](https://github.com/ZanichelliEditore/design-system/commit/4e35eee16063c7288ba45b0437796e166086cb45))
+* z-select z-combobox tests ([7946ac3](https://github.com/ZanichelliEditore/design-system/commit/7946ac3119407f7166c0e74fabd66bf91c64108e))
+* z-toast-notification-list default notifications array ([0dc098f](https://github.com/ZanichelliEditore/design-system/commit/0dc098f02851f738acc8f65e0d753085439c84e1))
+
+## [19.2.1](https://github.com/ZanichelliEditore/design-system/compare/v19.2.0...v19.2.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **z-accordion:** fix overflowing non rounded corners; don't render the tags container when empty ([58ac4e3](https://github.com/ZanichelliEditore/design-system/commit/58ac4e379d61d79baa9242fc705260d620421818))
+* **z-toast-notification:** fix close icon; don't force min-height; baseline alignment as per design ([926253b](https://github.com/ZanichelliEditore/design-system/commit/926253b2d406ed3c5b359def312f8e0d432823a1))
+
+## [19.2.0](https://github.com/ZanichelliEditore/design-system/compare/v19.1.3...v19.2.0) (2026-03-12)
+
+
+### Features
+
+* color picker component ([39f6fc3](https://github.com/ZanichelliEditore/design-system/commit/39f6fc3418a58c3254bd90058ce006ffee564141))
+* color-picker/tool integration; improve parent/descendant retrieval functions ([cac6cb4](https://github.com/ZanichelliEditore/design-system/commit/cac6cb415de7690f197258a6be666e8ba4d46be8))
+* **DS-960:** z-tool component ([055db4b](https://github.com/ZanichelliEditore/design-system/commit/055db4b515a6a659e643959c8933f3ff0bfcbdbd))
+* **DS-961:** raw toolbar implementation ([268bf92](https://github.com/ZanichelliEditore/design-system/commit/268bf925c337b02c671b66c8013d6c0e11c72cbf))
+* **DS-965:** add app header variant without logo with aligned top-subtitle to the title ([1e4d387](https://github.com/ZanichelliEditore/design-system/commit/1e4d3879aee30655879d4fa7d20452da17e5f29f))
+* **DS-965:** explicitly pass zlogo prop ([d5bc6f8](https://github.com/ZanichelliEditore/design-system/commit/d5bc6f85237264a02825d36d3c898c11434a925c))
+* **DS-965:** use css to hide logo based on top-title ([25d6d10](https://github.com/ZanichelliEditore/design-system/commit/25d6d108c376a4bb8a0e5736dbfe95cf6c4647fe))
+* **z-color-picker:** new prop to disable the transparent option ([c0d1d06](https://github.com/ZanichelliEditore/design-system/commit/c0d1d068f46b9c029200fa506fae53329cb18892))
+* z-icon now handles icons with color indicator via the new `indicatorColor` prop ([f7e2d1a](https://github.com/ZanichelliEditore/design-system/commit/f7e2d1a26f77245fd7c1121757d8c01306c9b0be))
+* **ZANIT-961:** accessibility for toolbar navigation ([707afea](https://github.com/ZanichelliEditore/design-system/commit/707afead5891a40932a97d2cf53846c8bfefd247))
+* **ZANIT-961:** tests and storybook ([7fca7fe](https://github.com/ZanichelliEditore/design-system/commit/7fca7fe232168d1d6281db1d85412ecaa73fdc49))
+
+
+### Bug Fixes
+
+* active state from outside and multiline toolbar ([89cf91b](https://github.com/ZanichelliEditore/design-system/commit/89cf91b15badc3f03076f1cd3ae814ab5c54d594))
+* background ([b2f87d0](https://github.com/ZanichelliEditore/design-system/commit/b2f87d0348e09f92152e91f202fc2043d78dfde5))
+* css selectors for background and gap ([d02bec8](https://github.com/ZanichelliEditore/design-system/commit/d02bec847414b7726fbb53a1772d20ec5c6c9dcb))
+* **DS-873:** removed unuseful OR condition ([aaf85a8](https://github.com/ZanichelliEditore/design-system/commit/aaf85a81e888e69c77bfe8fd635ebde065ca2d02))
+* **DS-973:** fix accessibility for zoffcanvas ([32c2d94](https://github.com/ZanichelliEditore/design-system/commit/32c2d94dbd2335573a5a2aa6a87350d090dfe6b1))
+* **DS-973:** refactor ([5407f7c](https://github.com/ZanichelliEditore/design-system/commit/5407f7c4dcb3544078fdd7e162d6f27ab7cec095))
+* dynamic column behaviour with gap fix ([17f01a6](https://github.com/ZanichelliEditore/design-system/commit/17f01a6f29c5d659e0eab6473619d779c26cdda8))
+* eslint ([3fbfe02](https://github.com/ZanichelliEditore/design-system/commit/3fbfe0244635567a935bbd6bd6d7e782d0206923))
+* gap between colums and event listener ([c08d589](https://github.com/ZanichelliEditore/design-system/commit/c08d589ab267435cd61db2357a0c067e1064fd24))
+* getFocusableElements return condition zoffcanvas ([faefb5d](https://github.com/ZanichelliEditore/design-system/commit/faefb5d3f0d19d4a5a2e18dbf70ccd97699e6cf0))
+* **github-workflow:** try fixing workflows ([8985909](https://github.com/ZanichelliEditore/design-system/commit/89859095053a285ae764606a06a97ed4e330f867))
+* linear gradient dimensions ([cdafda8](https://github.com/ZanichelliEditore/design-system/commit/cdafda8d74195a690b8d636a910ad24049c91fc0))
+* remove useless style override ([b94f5a3](https://github.com/ZanichelliEditore/design-system/commit/b94f5a3a7d01950df2b9ed4ffc2b05e68bb736a9))
+* **storybook deploy workflow:** enable Corepack before using yarn ([96a5940](https://github.com/ZanichelliEditore/design-system/commit/96a594043d3e2b68cd67c04dba1d78eb887c140c))
+* test with default toolbar columns style ([4da2e7a](https://github.com/ZanichelliEditore/design-system/commit/4da2e7ad0dafd9a20f2b398b0334251e3bb03055))
+* unit test --> e2e tests due to jquery selector ([f944c41](https://github.com/ZanichelliEditore/design-system/commit/f944c4156641dcac8422e84d6a02abfd3400f96a))
+* z-searchbar improve a11y ([d807f5c](https://github.com/ZanichelliEditore/design-system/commit/d807f5cf923629b11b688046c2d61585ecb6b729))
+* z-searchbar readme ([07b9b01](https://github.com/ZanichelliEditore/design-system/commit/07b9b0104d51419fa7577f7aac68c824f79ecddd))
+* **z-tool,z-color-picker:** submenu open behavior; focus first active item instead of first enabled ([110ddb4](https://github.com/ZanichelliEditore/design-system/commit/110ddb4069e6036984223e7a492c74ec11168403))
+* **z-tool:** close submenu when it loses focus; clean some code ([1bf2a73](https://github.com/ZanichelliEditore/design-system/commit/1bf2a736538cde08a0c8afe38ba9eeb5b2c4023f))
+
+## [19.1.3](https://github.com/ZanichelliEditore/design-system/compare/v19.1.2...v19.1.3) (2026-02-19)
+
+
+### Bug Fixes
+
+* avoids z-input-message screenreader alert duplication ([d734c76](https://github.com/ZanichelliEditore/design-system/commit/d734c76381a09cebfb42cbe7d3f4bcb332fff47d))
+* **DS-963:** accessibility for zstepper ([e77344f](https://github.com/ZanichelliEditore/design-system/commit/e77344ff7974c920c873a21838d164409514ab06))
+* handle popover positioning when its containing block isn't the document element ([e10cb00](https://github.com/ZanichelliEditore/design-system/commit/e10cb00d58c488cc94e27c9b93af2178e2517439))
+
 ## [19.1.2](https://github.com/ZanichelliEditore/design-system/compare/v19.1.1...v19.1.2) (2026-02-11)
 
 

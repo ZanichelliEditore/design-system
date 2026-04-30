@@ -1,6 +1,7 @@
 import {Meta, StoryObj} from "@storybook/web-components";
 import {html} from "lit";
 import {type ZIcon} from ".";
+import {COLOR_INDICATOR_ICONS} from "../../constants/iconset";
 import {getColorTokens} from "../../utils/storybook-utils";
 import "./index";
 
@@ -8,16 +9,6 @@ const StoryMeta = {
   title: "ZIcon",
   component: "z-icon",
   argTypes: {
-    width: {
-      control: {
-        type: "text",
-      },
-    },
-    height: {
-      control: {
-        type: "text",
-      },
-    },
     fill: {
       options: getColorTokens().map((token) => token.replace("--", "")),
       control: {
@@ -40,10 +31,10 @@ type Story = StoryObj<ZIcon>;
 export const Default = {
   render: (args) =>
     html`<z-icon
-      name="${args.name}"
-      height="${args.height}"
-      width="${args.width}"
-      fill="${args.fill}"
+      name=${args.name}
+      height=${args.height}
+      width=${args.width}
+      fill=${args.fill}
     ></z-icon>`,
 } satisfies Story;
 
@@ -56,9 +47,36 @@ export const ZIconRem = {
   },
   render: (args) =>
     html`<z-icon
-      name="${args.name}"
-      height="${args.height}"
-      width="${args.width}"
-      fill="${args.fill}"
+      name=${args.name}
+      height=${args.height}
+      width=${args.width}
+      fill=${args.fill}
+    ></z-icon>`,
+} satisfies Story;
+
+export const ColorIndicator = {
+  argTypes: {
+    name: {
+      options: COLOR_INDICATOR_ICONS,
+      control: {type: "select"},
+    },
+    indicatorColor: {
+      control: {type: "color"},
+    },
+  },
+  args: {
+    name: COLOR_INDICATOR_ICONS[0],
+    fill: "color-black",
+    indicatorColor: "#ff0000",
+    width: 64,
+    height: 64,
+  },
+  render: (args) =>
+    html`<z-icon
+      name=${args.name}
+      height=${args.height}
+      width=${args.width}
+      fill=${args.fill}
+      .indicatorColor=${args.indicatorColor}
     ></z-icon>`,
 } satisfies Story;

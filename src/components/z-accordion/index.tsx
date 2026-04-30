@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {AccordionVariant, ControlSize} from "../../beans";
 
 /**
@@ -22,7 +22,9 @@ import {AccordionVariant, ControlSize} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAccordion {
+export class ZAccordion implements ComponentInterface {
+  @Element() host: HTMLZAccordionElement;
+
   /**
    * Text label.
    */
@@ -71,6 +73,9 @@ export class ZAccordion {
   @Prop({reflect: true})
   shadow = true;
 
+  @State()
+  private hasSlottedTags = false;
+
   /**
    * Event fired when the accordion is toggled.
    */
@@ -85,6 +90,11 @@ export class ZAccordion {
   }
 
   private detailsElm: HTMLDetailsElement;
+
+  /** Check if there is any content in the "tag" slot. */
+  private checkSlottedTags(): void {
+    this.hasSlottedTags = !!this.host.querySelector('[slot="tag"]');
+  }
 
   /**
    * Handle `details` element toggle.
@@ -101,6 +111,10 @@ export class ZAccordion {
 
     this.open = this.detailsElm.open;
     this.toggled.emit(this.open);
+  }
+
+  componentWillLoad(): void {
+    this.checkSlottedTags();
   }
 
   render(): HTMLDetailsElement {
@@ -121,9 +135,14 @@ export class ZAccordion {
             />
           )}
           <span class="z-accordion-label">{this.label}</span>
-          <span class="z-accordion-tags">
-            <slot name="tag" />
-          </span>
+          {this.hasSlottedTags && (
+            <span class="z-accordion-tags">
+              <slot
+                name="tag"
+                onSlotchange={() => this.checkSlottedTags()}
+              />
+            </span>
+          )}
           <z-icon
             class="z-accordion-chevron"
             name={this.open ? "chevron-up" : "chevron-down"}

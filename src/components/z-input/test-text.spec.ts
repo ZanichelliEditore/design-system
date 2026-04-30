@@ -77,7 +77,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label">
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
               <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -120,7 +120,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" disabled>
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
               <input disabled class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -142,7 +142,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input message="false" type="text" htmlid="test" placeholder="placeholder" value="value" label="label" readonly size="big">
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
               <input readonly class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
               <span class="icons-wrapper">
@@ -164,16 +164,16 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" message="helper message">
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
-              <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
+              <input class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message"/>
               <span class="icons-wrapper">
                 <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="helper message"></z-input-message>
+            <z-input-message class="big" message="helper message" html-id="test-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -187,16 +187,39 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="success" message="success message">
           <div class="text-wrapper">
-            <label class="body-5-sb z-label" htmlfor="test" id="test_label">label</label>
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
             <div>
-              <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
+              <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message"/>
               <span class="icons-wrapper">
                 <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
                   <z-icon class="big" name="multiply"></z-icon>
                 </button>
               </span>
             </div>
-            <z-input-message class="big" message="success message" status="success"></z-input-message>
+            <z-input-message class="big" message="success message" status="success" html-id="test-message"></z-input-message>
+          </div>
+      </z-input>
+    `);
+  });
+
+  it("Test render ZInput con status=error e message", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input type="text" htmlid="test" placeholder="placeholder" value="value" label="label" status="error" message="error message"></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="error" message="error message">
+          <div class="text-wrapper">
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
+            <div>
+              <input class="input-error has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"/>
+              <span class="icons-wrapper">
+                <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
+            </div>
+            <z-input-message class="big" message="error message" status="error" html-id="test-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -282,7 +305,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" html-id="id-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -306,7 +329,7 @@ describe("Suite test ZInput - text", () => {
                 </button>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" html-id="id-message"></z-input-message>
           </div>
       </z-input>
     `);
@@ -331,7 +354,7 @@ describe("Suite test ZInput - text", () => {
                 <z-icon class="big input-icon" name="pdf"></z-icon>
               </span>
             </div>
-            <z-input-message class="big"></z-input-message>
+            <z-input-message class="big" html-id="id-message"></z-input-message>
           </div>
       </z-input>
     `);

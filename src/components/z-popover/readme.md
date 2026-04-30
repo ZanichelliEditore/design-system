@@ -42,18 +42,18 @@ Notes:
 | ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | `bindTo`    | `bind-to`    | The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.                                                                                                                                                                    | `HTMLElement \| string`                                                                                                                                                                                                                                                                                                                                                  | `undefined`           |
 | `center`    | `center`     | Whether to center the popup on the main side (according to "position").                                                                                                                                                                                                                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `false`               |
-| `closable`  | `closable`   | If true, the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`).                                                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `true`                |
-| `open`      | `open`       | The open state of the popover.                                                                                                                                                                                                                                                               | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `false`               |
+| `closable`  | `closable`   | Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.                                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `true`                |
+| `open`      | `open`       | The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.                                              | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `false`               |
 | `position`  | `position`   | The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise. | `PopoverPosition.AUTO \| PopoverPosition.BOTTOM \| PopoverPosition.BOTTOM_LEFT \| PopoverPosition.BOTTOM_RIGHT \| PopoverPosition.LEFT \| PopoverPosition.LEFT_BOTTOM \| PopoverPosition.LEFT_TOP \| PopoverPosition.RIGHT \| PopoverPosition.RIGHT_BOTTOM \| PopoverPosition.RIGHT_TOP \| PopoverPosition.TOP \| PopoverPosition.TOP_LEFT \| PopoverPosition.TOP_RIGHT` | `PopoverPosition.TOP` |
 | `showArrow` | `show-arrow` | Whether to show popover's arrow.                                                                                                                                                                                                                                                             | `boolean`                                                                                                                                                                                                                                                                                                                                                                | `false`               |
 
 
 ## Events
 
-| Event            | Description                      | Type               |
-| ---------------- | -------------------------------- | ------------------ |
-| `openChange`     | Open change event.               | `CustomEvent<any>` |
-| `positionChange` | Fired when the position changes. | `CustomEvent<any>` |
+| Event            | Description                                                                                                                                  | Type                                          |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `openChange`     | Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true). | `CustomEvent<{ open: boolean; }>`             |
+| `positionChange` | Fired when the position changes.                                                                                                             | `CustomEvent<{ position: PopoverPosition; }>` |
 
 
 ## Dependencies
@@ -65,6 +65,7 @@ Notes:
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-td](../table/cells/z-td)
  - [z-th](../table/cells/z-th)
+ - [z-tool](../z-tool)
  - [z-tooltip](../z-tooltip)
 
 ### Graph
@@ -75,6 +76,7 @@ graph TD;
   z-myz-card-info --> z-popover
   z-td --> z-popover
   z-th --> z-popover
+  z-tool --> z-popover
   z-tooltip --> z-popover
   style z-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

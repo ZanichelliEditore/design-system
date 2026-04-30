@@ -5,16 +5,17 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                                                                                                                                                                                     | Type      | Default     |
-| ------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `drawerOpen`        | `drawer-open`        | The opening state of the drawer.                                                                                                                                                                | `boolean` | `false`     |
-| `enableOffcanvas`   | `enable-offcanvas`   | When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.               | `boolean` | `false`     |
-| `enableSearch`      | `enable-search`      | Enable the search bar.                                                                                                                                                                          | `boolean` | `false`     |
-| `enableZLogo`       | `enable-z-logo`      | Enable laZ logo.                                                                                                                                                                                | `boolean` | `true`      |
-| `searchPageUrl`     | `search-page-url`    | Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header. | `string`  | `undefined` |
-| `searchPlaceholder` | `search-placeholder` | Placeholder text for the search bar.                                                                                                                                                            | `string`  | `"Cerca"`   |
-| `searchString`      | `search-string`      | Search string for the search bar.                                                                                                                                                               | `string`  | `""`        |
-| `stuck`             | `stuck`              | Stuck mode for the header. You can programmatically set it using an IntersectionObserver.                                                                                                       | `boolean` | `false`     |
+| Property            | Attribute             | Description                                                                                                                                                                                     | Type      | Default     |
+| ------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `drawerOpen`        | `drawer-open`         | The opening state of the drawer.                                                                                                                                                                | `boolean` | `false`     |
+| `enableOffcanvas`   | `enable-offcanvas`    | When enabled, the menu bar is not displayed and a burger icon appears to open the offcanvas menu. Automatically enabled on mobile and when the menu items overflow the container.               | `boolean` | `false`     |
+| `enableSearch`      | `enable-search`       | Enable the search bar.                                                                                                                                                                          | `boolean` | `false`     |
+| `enableZLogo`       | `enable-z-logo`       | Enable laZ logo.                                                                                                                                                                                | `boolean` | `true`      |
+| `searchButtonLabel` | `search-button-label` | Label of the search button.                                                                                                                                                                     | `string`  | `undefined` |
+| `searchPageUrl`     | `search-page-url`     | Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header. | `string`  | `undefined` |
+| `searchPlaceholder` | `search-placeholder`  | Placeholder text for the search bar.                                                                                                                                                            | `string`  | `"Cerca"`   |
+| `searchString`      | `search-string`       | Search string for the search bar.                                                                                                                                                               | `string`  | `""`        |
+| `stuck`             | `stuck`               | Stuck mode for the header. You can programmatically set it using an IntersectionObserver.                                                                                                       | `boolean` | `false`     |
 
 
 ## Events
@@ -52,20 +53,20 @@ graph TD;
   z-app-header --> z-icon
   z-app-header --> z-offcanvas
   z-button --> z-icon
-  z-searchbar --> z-input
-  z-searchbar --> z-button
-  z-searchbar --> z-list
-  z-searchbar --> z-list-group
   z-searchbar --> z-list-element
   z-searchbar --> z-icon
   z-searchbar --> z-tag
-  z-input --> z-icon
-  z-input --> z-input-message
-  z-input-message --> z-icon
-  z-list-group --> z-divider
+  z-searchbar --> z-list
+  z-searchbar --> z-list-group
+  z-searchbar --> z-input
+  z-searchbar --> z-button
   z-list-element --> z-icon
   z-list-element --> z-divider
   z-tag --> z-icon
+  z-list-group --> z-divider
+  z-input --> z-icon
+  z-input --> z-input-message
+  z-input-message --> z-icon
   style z-app-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

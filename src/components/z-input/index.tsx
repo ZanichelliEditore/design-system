@@ -1,15 +1,26 @@
-import {Component, Element, Event, EventEmitter, Listen, Method, Prop, State, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Method,
+  Prop,
+  State,
+  h,
+} from "@stencil/core";
 import {Fragment, Host, JSXBase} from "@stencil/core/internal";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
 import {boolean, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-input",
-  styleUrl: "styles.css",
+  styleUrls: ["styles-general.css", "styles-text.css", "styles-textarea.css", "styles-checkbox-radio.css"],
   shadow: false,
   scoped: true,
 })
-export class ZInput {
+export class ZInput implements ComponentInterface {
   @Element() hostElement: HTMLZInputElement;
 
   /** the id of the input element */
@@ -47,6 +58,14 @@ export class ZInput {
   /** the input aria-activedescendant (optional): available for text, password, number, email */
   @Prop()
   htmlAriaActivedescendant?: string;
+
+  /** the input aria-describedby (optional) */
+  @Prop()
+  htmlAriaDescribedBy?: string;
+
+  /** the input aria-labelledby (optional) */
+  @Prop()
+  htmlAriaLabelledby?: string;
 
   /** the input value */
   @Prop({mutable: true})
@@ -303,23 +322,44 @@ export class ZInput {
     };
   }
 
-  private getRoleAttribute(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-    return this.role ? {role: this.role} : {};
+  private inputHasMessage(): boolean {
+    if (boolean(this.message) === false || boolean(this.message) === true) {
+      return false;
+    }
+
+    return true;
   }
 
-  private getAriaAttrubutes(): Record<string, unknown> {
+  private getAriaAttributes(): Record<string, unknown> {
+    return {
+      ...(this.role ? {role: this.role} : {}),
+      ...(this.htmlAriaDescribedBy ? {"aria-describedby": this.htmlAriaDescribedBy} : {}),
+      ...(this.htmlAriaLabelledby ? {"aria-labelledby": this.htmlAriaLabelledby} : {}),
+    };
+  }
+
+  private getTextAriaAttributes(): Record<string, unknown> {
     const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
     const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
     const autocomplete = this.htmlAriaAutocomplete ? {"aria-autocomplete": this.htmlAriaAutocomplete} : {};
     const activedescendant = this.htmlAriaActivedescendant
       ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
+    const ariaDescribedby =
+      this.htmlAriaDescribedBy || this.inputHasMessage()
+        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
+        : {};
+
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
 
     return {
+      ...this.getAriaAttributes(),
       ...expanded,
       ...controls,
       ...autocomplete,
       ...activedescendant,
+      ...ariaDescribedby,
+      ...ariaInvalid,
     };
   }
 
@@ -337,8 +377,7 @@ export class ZInput {
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
       ...ariaLabel,
-      ...this.getRoleAttribute(),
-      ...this.getAriaAttrubutes(),
+      ...this.getTextAriaAttributes(),
       ...this.getFocusBlurAttributes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
@@ -454,6 +493,7 @@ export class ZInput {
 
     return (
       <z-input-message
+        html-id={`${this.htmlid}-message`}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}
@@ -468,6 +508,7 @@ export class ZInput {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
+    const ariaAttributes = this.getTextAriaAttributes();
 
     return (
       <Fragment>
@@ -481,12 +522,12 @@ export class ZInput {
         >
           <textarea
             {...attributes}
+            {...ariaAttributes}
             class={{
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
             }}
             aria-label={this.ariaLabel || undefined}
-            {...this.getRoleAttribute()}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -515,7 +556,7 @@ export class ZInput {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          {...this.getRoleAttribute()}
+          {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
         />
 
@@ -552,7 +593,7 @@ export class ZInput {
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
-          {...this.getRoleAttribute()}
+          {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
         />
 

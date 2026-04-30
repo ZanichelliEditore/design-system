@@ -42,7 +42,7 @@ export const Themes = {
         <div class="tokens-container">
           <div class="title section-title-4">Color tokens</div>
           <ul>
-            ${Object.keys(themeColorTokens).map(
+            ${(Object.keys(themeColorTokens) as `--${string}`[]).map(
               (token) => html`
                 <li>
                   <span class="token-name">${token}</span>
@@ -61,7 +61,7 @@ export const Themes = {
                 </li>
               `
             )}
-            ${Object.keys(defaultTheme).map((token) =>
+            ${(Object.keys(defaultTheme) as `--${string}`[]).map((token) =>
               !themeColorTokens[token]
                 ? html`
                     <li>
@@ -94,7 +94,7 @@ const palettes = getPalettes();
 export const Palettes = {
   render: () => html`
     <div class="colors-story palettes">
-      ${Object.keys(palettes).map(
+      ${(Object.keys(palettes) as (keyof typeof palettes)[]).map(
         (paletteName) =>
           html`<div class="tokens-container">
             <div class="title section-title-4">${paletteName}</div>

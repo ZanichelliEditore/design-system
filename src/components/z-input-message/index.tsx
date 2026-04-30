@@ -1,15 +1,24 @@
-import {Component, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, State, Watch, h} from "@stencil/core";
 import {InputStatus} from "../../beans";
+import {randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-input-message",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZInputMessage {
+export class ZInputMessage implements ComponentInterface {
   /** input helper message */
   @Prop()
   message: string;
+
+  /** the id of the message element (optional)*/
+  @Prop()
+  htmlId? = `id-${randomId()}`;
+
+  /** the role to set when both the message and the status are populated (optional)*/
+  @Prop()
+  htmlRole: null | string = "alert";
 
   /** input status (optional) */
   @Prop({reflect: true})
@@ -30,8 +39,9 @@ export class ZInputMessage {
 
   @Watch("message")
   @Watch("status")
+  @Watch("htmlRole")
   onMessageChange(): void {
-    this.statusRole = this.message && this.status ? {role: "alert"} : {};
+    this.statusRole = this.htmlRole && this.message && this.status ? {role: this.htmlRole} : {};
   }
 
   componentWillLoad(): void {
@@ -42,7 +52,10 @@ export class ZInputMessage {
     return (
       <Host {...this.statusRole}>
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
-        <span innerHTML={this.message} />
+        <span
+          id={this.htmlId}
+          innerHTML={this.message}
+        />
       </Host>
     );
   }
