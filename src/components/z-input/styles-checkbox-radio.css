@@ -28,7 +28,7 @@
   display: inline-flex;
   min-height: 24px;
   align-items: center;
-  padding: calc(var(--space-unit) * 0.375) 0;
+  padding: 3px 0;
   margin: 0;
   color: inherit;
   font-family: inherit;
