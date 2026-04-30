@@ -316,9 +316,18 @@ export class ZCombobox implements ComponentInterface {
     this.isopen = !this.isopen;
   }
 
+  private getHeaderAriaLabel(): string | undefined {
+    if (!this.label || this.selectedCounter <= 0) {
+      return undefined;
+    }
+
+    const suffix = this.selectedCounter === 1 ? "elemento selezionato" : "elementi selezionati";
+
+    return `${this.label}: ${this.selectedCounter} ${suffix}`;
+  }
+
   private getComboboxA11yAttributes(isZInput: boolean): Record<string, string> {
     const role = "combobox";
-    const ariaLabel = this.htmlAriaLabel;
     const ariaExpanded = this.isopen ? "true" : "false";
     const ariaActivedescendant = this.isopen ? this.focusedItemId : "";
     const ariaControls = `${this.inputid}_list`;
@@ -326,7 +335,7 @@ export class ZCombobox implements ComponentInterface {
     if (isZInput) {
       return {
         "role": role,
-        "aria-label": ariaLabel,
+        "aria-label": this.htmlAriaLabel,
         "html-aria-expanded": ariaExpanded,
         "html-aria-activedescendant": ariaActivedescendant,
         "html-aria-controls": ariaControls,
@@ -335,7 +344,6 @@ export class ZCombobox implements ComponentInterface {
 
     return {
       "role": role,
-      "aria-label": ariaLabel,
       "aria-expanded": ariaExpanded,
       "aria-activedescendant": ariaActivedescendant,
       "aria-controls": ariaControls,
@@ -354,16 +362,10 @@ export class ZCombobox implements ComponentInterface {
         tabindex={0}
         aria-controls="open-combo-data"
         aria-expanded={this.isopen ? "true" : "false"}
+        aria-label={this.getHeaderAriaLabel()}
         {...comboboxA11yAttributes}
       >
-        <span
-          class="body-3"
-          aria-label={
-            this.label
-              ? `${this.label}${this.selectedCounter > 0 ? ` - ${this.selectedCounter} selezionati` : ``}`
-              : undefined
-          }
-        >
+        <span class="body-3">
           {this.label}
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </span>

@@ -26,7 +26,9 @@
 .radio-wrapper .radio-label,
 .checkbox-wrapper .checkbox-label {
   display: inline-flex;
+  min-height: 24px;
   align-items: center;
+  padding: 3px 0;
   margin: 0;
   color: inherit;
   font-family: inherit;
