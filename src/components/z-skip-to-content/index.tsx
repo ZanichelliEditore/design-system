@@ -66,8 +66,34 @@ export class ZSkipToContent implements ComponentInterface {
     }
   }
 
-  private handleLinkClick(): void {
+  private handleLinkClick(href: string): void {
     this.visible = false;
+
+    const targetId = href?.startsWith("#") ? href.substring(1) : null;
+    if (!targetId) {
+      return;
+    }
+
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) {
+      return;
+    }
+
+    const originalTabIndex = targetElement.getAttribute("tabindex");
+    targetElement.setAttribute("tabindex", "-1");
+    targetElement.focus();
+
+    targetElement.addEventListener(
+      "blur",
+      () => {
+        if (originalTabIndex === null) {
+          targetElement.removeAttribute("tabindex");
+        } else {
+          targetElement.setAttribute("tabindex", originalTabIndex);
+        }
+      },
+      {once: true}
+    );
   }
 
   render(): HTMLZSkipToContentElement {
@@ -96,8 +122,8 @@ export class ZSkipToContent implements ComponentInterface {
                 aria-label={link.ariaLabel || link.label}
                 href={link.href}
                 onFocus={() => (this.visibleLink = id)}
-                onClick={() => this.handleLinkClick()}
-                onKeyUp={(e) => handleKeyboardSubmit(e, this.handleLinkClick.bind(this))}
+                onClick={() => this.handleLinkClick(link.href)}
+                onKeyUp={(e) => handleKeyboardSubmit(e, () => this.handleLinkClick(link.href))}
               >
                 {link.label}
               </a>
