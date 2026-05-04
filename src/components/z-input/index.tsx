@@ -459,6 +459,7 @@ export class ZInput implements ComponentInterface {
         onClick={() => {
           this.inputRef.value = "";
           this.emitInputChange("");
+          this.inputRef.focus();
         }}
       >
         <z-icon
