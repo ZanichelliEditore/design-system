@@ -274,6 +274,7 @@ export class ZFileUpload implements ComponentInterface {
         multiple
         onChange={(e) => this.onFilesChange(e)}
         accept={this.acceptedFormat}
+        aria-labelledby={this.description ? "description" : undefined}
         ref={(val) => (this.input = val)}
       />
     );
