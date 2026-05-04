@@ -275,21 +275,22 @@ export class ZInput implements ComponentInterface {
 
   private getTextAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return {
-      id: this.htmlid,
-      name: this.name,
-      placeholder: this.placeholder,
-      value: this.value,
-      disabled: this.disabled,
-      readonly: this.readonly,
-      required: this.required,
-      title: this.htmltitle,
-      minlength: this.minlength,
-      maxlength: this.maxlength,
-      class: {
+      "id": this.htmlid,
+      "name": this.name,
+      "placeholder": this.placeholder,
+      "value": this.value,
+      "disabled": this.disabled,
+      "readonly": this.readonly,
+      "required": this.required,
+      "aria-required": this.required ? "true" : undefined,
+      "title": this.htmltitle,
+      "minlength": this.minlength,
+      "maxlength": this.maxlength,
+      "class": {
         [`input-${this.status}`]: !!this.status,
       },
-      autocomplete: this.autocomplete,
-      onInput: (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
+      "autocomplete": this.autocomplete,
+      "onInput": (e: InputEvent) => this.emitInputChange((e.target as HTMLInputElement).value),
     };
   }
 
@@ -555,6 +556,7 @@ export class ZInput implements ComponentInterface {
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
+          aria-required={this.required ? "true" : undefined}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getAriaAttributes()}
