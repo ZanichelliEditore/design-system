@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.2.11](https://github.com/ZanichelliEditore/design-system/compare/v19.2.10...v19.2.11) (2026-05-04)
+
+
+### Bug Fixes
+
+* correct CSS property order for stylelint ([502d9b8](https://github.com/ZanichelliEditore/design-system/commit/502d9b88b143f980e7dfa818cba5a3b7d53c3bc9))
+* correct CSS property ordering in input clear button styles ([34c3570](https://github.com/ZanichelliEditore/design-system/commit/34c3570a1810fa25cedf9b37fea9e1171378f5b9))
+* **DS-989:** fix focus in z-input when clear icon was pressed ([0406f3d](https://github.com/ZanichelliEditore/design-system/commit/0406f3d52c5c48ab6544957ffc36137dc0e06d3e))
+* increase clear button target size to meet WCAG 2.5.8 ([1571a5f](https://github.com/ZanichelliEditore/design-system/commit/1571a5fd072ed0d37405a089731fd0fd395aedcc))
+* reorder CSS properties to pass stylelint ([ca996ef](https://github.com/ZanichelliEditore/design-system/commit/ca996ef8121c1abe2cb878ba09c7fc12cfcc6480))
+* **z-combobox:** move aria-label to header for selected filter count (WCAG 2.4.6) ([7fdcd7c](https://github.com/ZanichelliEditore/design-system/commit/7fdcd7c392a2b9466cf3c411a26134e8eab87758))
+* **z-input:** correct CSS property order for stylelint ([f9f179a](https://github.com/ZanichelliEditore/design-system/commit/f9f179a16f7f5ac40bdd1a85fd877d288f7f1155))
+* **z-input:** correct CSS property order for stylelint ([f076c04](https://github.com/ZanichelliEditore/design-system/commit/f076c04f87edec8f42ad5d19437c34c40ac22f9c))
+* **z-input:** ensure checkbox label meets WCAG 2.5.8 target size ([456e701](https://github.com/ZanichelliEditore/design-system/commit/456e701073635cfd78217c36f4eed3ca152a70c6))
+* **z-input:** increase radio/checkbox label target size for WCAG 2.5.8 ([003049d](https://github.com/ZanichelliEditore/design-system/commit/003049ddc1b511cd4248cdb53af787f803408e7b))
+* **z-result-card:** adjust clamp values per review feedback ([923e9cf](https://github.com/ZanichelliEditore/design-system/commit/923e9cfcd289b852bd02deef6ca4231d3e6c08a9))
+* **z-result-card:** allow text wrapping at high zoom levels ([02db148](https://github.com/ZanichelliEditore/design-system/commit/02db148e2a7f10fb1fe2ad1477eece4354dd4604))
+
 ## [19.2.10](https://github.com/ZanichelliEditore/design-system/compare/v19.2.9...v19.2.10) (2026-04-29)
 
 ## [19.2.9](https://github.com/ZanichelliEditore/design-system/compare/v19.2.8...v19.2.9) (2026-04-29)
