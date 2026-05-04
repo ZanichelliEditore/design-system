@@ -65,6 +65,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  /* WCAG 2.5.2: Prevent double-tap-to-zoom gesture from being confused with button activation */
+  touch-action: manipulation;
 }
 
 .text-wrapper .icons-wrapper > .input-icon {
