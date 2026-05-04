@@ -88,6 +88,7 @@
   border-color: var(--color-disabled01);
   background-color: var(--color-disabled01);
   color: var(--color-disabled03);
+  opacity: 0.6;
 }
 
 :host([variant="secondary"]) .z-button--container {
@@ -115,6 +116,7 @@
   border-color: var(--color-disabled01);
   background-color: var(--color-button-secondary);
   color: var(--color-disabled03);
+  opacity: 0.6;
 }
 
 :host([variant="tertiary"]) .z-button--container {
@@ -148,4 +150,5 @@
   border-color: var(--color-disabled01);
   background-color: var(--color-disabled01);
   color: var(--color-disabled03);
+  opacity: 0.6;
 }
