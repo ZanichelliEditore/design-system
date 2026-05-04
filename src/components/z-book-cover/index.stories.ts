@@ -18,6 +18,7 @@ const StoryMeta = {
   component: "z-book-cover",
   args: {
     "cover": "https://staticmy.zanichelli.it/copertine/dashboard/m40002.9788808999825.jpg",
+    "coverAlt": "",
     "bordered": false,
     "multiple": false,
     "--z-book-cover-height": "378px",
@@ -35,6 +36,7 @@ export const Default = {
   render: (args) =>
     html`<z-book-cover
       cover=${args.cover}
+      cover-alt=${args.coverAlt || ""}
       .bordered=${args.bordered}
       .multiple=${args.multiple}
       style=${styleMap({

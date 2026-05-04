@@ -10,6 +10,7 @@ const StoryMeta: Meta = {
     cardSubtitle: {control: "text"},
     authors: {control: "text"},
     cover: {control: "text"},
+    coverAlt: {control: "text"},
     fallbackCover: {control: "text"},
     hasMultipleCovers: {control: "boolean"},
     isInfoCard: {control: "boolean"},
@@ -25,6 +26,7 @@ const args = {
   cardSubtitle: "Subtitle",
   authors: "John Doe",
   cover: "https://place.abh.ai/s3fs-public/placeholder/DSC_0199_400x400.JPG",
+  coverAlt: "Title - Subtitle book cover",
   fallbackCover: "https://staticmy.zanichelli.it/copertine/dashboard/Dashboard_Book_Placeholder.jpg",
   hasMultipleCovers: false,
   isInfoCard: false,
@@ -42,6 +44,7 @@ export const SingleCover: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      .coverAlt=${args.coverAlt}
       fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -86,6 +89,7 @@ export const MultipleCovers: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      .coverAlt=${args.coverAlt}
       fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -136,6 +140,7 @@ export const LongTitleAndSubtitle: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      .coverAlt=${args.coverAlt}
       fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -158,6 +163,7 @@ export const OnlyTitleAndSubtitle: Story = {
       .cardTitle=${args.cardTitle}
       .cardSubtitle=${args.cardSubtitle}
       .cover=${args.cover}
+      .coverAlt=${args.coverAlt}
       fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
@@ -180,6 +186,7 @@ export const InfoCard: Story = {
       .cardSubtitle=${args.cardSubtitle}
       .authors=${args.authors}
       .cover=${args.cover}
+      .coverAlt=${args.coverAlt}
       fallback-cover=${args.fallbackCover}
       .hasMultipleCovers=${args.hasMultipleCovers}
       .isInfoCard=${args.isInfoCard}
