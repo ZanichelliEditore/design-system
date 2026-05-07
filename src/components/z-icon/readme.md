@@ -61,8 +61,6 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-menu-section](../z-menu-section)
  - [z-menu-section-deprecated](../deprecated/z-menu-section-deprecated)
  - [z-modal](../z-modal)
- - [z-myz-card-alert](../../snowflakes/myz/card/z-myz-card-alert)
- - [z-myz-card-icon](../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../snowflakes/myz/list/z-myz-list-item)
  - [z-navigation-tabs](../z-navigation-tabs)
@@ -77,7 +75,6 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-tag](../z-tag)
  - [z-th](../table/cells/z-th)
  - [z-toast-notification](../z-toast-notification)
- - [z-toggle-button](../deprecated/z-toggle-button)
  - [z-toggle-switch](../z-toggle-switch)
  - [z-tool](../z-tool)
  - [z-tr](../table/z-tr)
@@ -107,8 +104,6 @@ graph TD;
   z-menu-section --> z-icon
   z-menu-section-deprecated --> z-icon
   z-modal --> z-icon
-  z-myz-card-alert --> z-icon
-  z-myz-card-icon --> z-icon
   z-myz-card-info --> z-icon
   z-myz-list-item --> z-icon
   z-navigation-tabs --> z-icon
@@ -123,7 +118,6 @@ graph TD;
   z-tag --> z-icon
   z-th --> z-icon
   z-toast-notification --> z-icon
-  z-toggle-button --> z-icon
   z-toggle-switch --> z-icon
   z-tool --> z-icon
   z-tr --> z-icon
