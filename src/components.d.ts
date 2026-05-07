@@ -550,7 +550,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * **Deprecated:** Use `htmlrole` instead.
+          * Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
           * @default ""
          */
@@ -4842,7 +4842,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * **Deprecated:** Use `htmlrole` instead.
+          * Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
           * @default ""
          */

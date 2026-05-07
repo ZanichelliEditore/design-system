@@ -5,7 +5,7 @@ storybook
 www
 loader
 internals
-components.d.ts
+*.d.ts
 CHANGELOG.md
 src/**/readme.md
 src-react

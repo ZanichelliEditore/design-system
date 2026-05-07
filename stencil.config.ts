@@ -6,6 +6,7 @@ export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
   plugins: [image()],
+  tsconfig: "tsconfig.stencil.json",
   outputTargets: [
     {
       type: "dist",
@@ -22,6 +23,10 @@ export const config: Config = {
       type: "docs-vscode",
       file: "docs-vscode.json",
       sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
+    },
+    {
+      type: "docs-json",
+      file: "./custom-elements.json",
     },
     {
       type: "www",

@@ -1,5 +1,5 @@
-import {OptionsConfig} from "@storybook/blocks";
-import {Args} from "@storybook/web-components";
+import type {OptionsConfig} from "@storybook/addon-docs/blocks";
+import type {Args} from "storybook/internal/csf";
 
 type CSSCustomProp = `--${string}`;
 type EnsurePrefix<T extends string, P extends string> = T extends `${P}${string}` ? T : `${P}${T}`;

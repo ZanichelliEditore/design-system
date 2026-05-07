@@ -1,19 +1,14 @@
-import type {StorybookConfig} from "@storybook/web-components-vite";
+import {StorybookConfig} from "@stencil/storybook-plugin";
 
-const config = {
-  framework: "@storybook/web-components-vite",
+const config: StorybookConfig = {
+  framework: "@stencil/storybook-plugin",
   core: {
     disableWhatsNewNotifications: true,
     disableTelemetry: true,
   },
   staticDirs: ["../src/assets"],
-  stories: [
-    "../docs/**/*.mdx",
-    "../docs/**/*.stories.@(js|jsx|ts|tsx)",
-    "../src/**/index.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-  addons: ["@storybook/addon-docs", "@storybook/addon-viewport", "@storybook/addon-themes", "storybook-addon-stencil"],
-} satisfies StorybookConfig;
+  stories: ["../docs/**/*.mdx", "../docs/**/*.stories.@(js|jsx|ts|tsx)", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-themes"],
+};
 
 export default config;
