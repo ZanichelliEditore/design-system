@@ -1,39 +1,39 @@
-import {html} from "lit";
-import "../../../../components/z-toggle-button/index";
-import "../z-myz-card-alert/index";
-import "../z-myz-card-body/index";
-import "../z-myz-card-cover/index";
-import "../z-myz-card-footer/index";
-import "../z-myz-card-header/index";
-import "../z-myz-card-icon/index";
-import "../z-myz-card-list/index";
-import "./index";
+import {h} from "@stencil/core";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {LicenseType} from "../../../../beans";
+import {ZMyzCardComponent} from "./index";
 
-export default {
+type ZMyzCardStoriesArgs = ZMyzCardComponent & {titolo: string};
+
+const StoryMeta = {
   title: "Snowflakes/MyzCard/ZMyzCard",
-  component: "z-myz-card",
+  component: ZMyzCardComponent,
 
   args: {
-    cardtype: "virtuale",
+    cardtype: LicenseType.VIRTUAL,
     faded: false,
     ishighlighted: false,
     ispressed: true,
     titolo: "Card Header",
   },
-};
+} satisfies Meta<ZMyzCardStoriesArgs>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZMyzCardStoriesArgs>;
 
 export const ZMyzCard = {
-  render: (args) =>
-    html`<z-myz-card
-      cardtype="${args.cardtype}"
-      faded="${args.faded}"
-      ishighlighted="${args.ishighlighted}"
-      ispressed="${args.ispressed}"
+  render: (args) => (
+    <z-myz-card
+      cardtype={args.cardtype}
+      faded={args.faded}
+      ishighlighted={args.ishighlighted}
+      ispressed={args.ispressed}
     >
       <z-myz-card-header
-        cardtype="${args.cardtype}"
-        faded="${args.faded}"
-        titolo="${args.titolo}"
+        cardtype={args.cardtype}
+        faded={args.faded}
+        titolo={args.titolo}
       >
         <z-myz-card-icon
           icon="book-minus"
@@ -43,7 +43,7 @@ export const ZMyzCard = {
       <z-myz-card-body>
         <z-myz-card-alert
           slot="alert"
-          iconName="checkmark-circle"
+          iconname="checkmark-circle"
           contenttext="Aggiunto"
           actiontext="Annulla"
           type="add"
@@ -68,5 +68,6 @@ export const ZMyzCard = {
           slot="list"
         />
       </z-myz-card-footer>
-    </z-myz-card>`,
-};
+    </z-myz-card>
+  ),
+} satisfies Story;
