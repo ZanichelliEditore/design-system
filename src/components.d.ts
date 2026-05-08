@@ -1648,12 +1648,6 @@ export namespace Components {
          */
         "htmltabindex"?: number;
     }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata": string;
-    }
     interface ZMyzList {
         /**
           * json stringified list data (mutable, optional)
@@ -3525,12 +3519,6 @@ declare global {
         prototype: HTMLZMyzCardInfoElement;
         new (): HTMLZMyzCardInfoElement;
     };
-    interface HTMLZMyzCardListElement extends Components.ZMyzCardList, HTMLStencilElement {
-    }
-    var HTMLZMyzCardListElement: {
-        prototype: HTMLZMyzCardListElement;
-        new (): HTMLZMyzCardListElement;
-    };
     interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
     }
     var HTMLZMyzListElement: {
@@ -4083,7 +4071,6 @@ declare global {
         "z-myz-card-footer-sections": HTMLZMyzCardFooterSectionsElement;
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
         "z-myz-card-info": HTMLZMyzCardInfoElement;
-        "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
@@ -5883,12 +5870,6 @@ declare namespace LocalJSX {
          */
         "onFlipCard"?: (event: ZMyzCardInfoCustomEvent<any>) => void;
     }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata"?: string;
-    }
     interface ZMyzList {
         /**
           * json stringified list data (mutable, optional)
@@ -7283,9 +7264,6 @@ declare namespace LocalJSX {
         "data": string | DictionaryData;
         "htmltabindex": number;
     }
-    interface ZMyzCardListAttributes {
-        "listdata": string;
-    }
     interface ZMyzListAttributes {
         "inputrawdata": string;
     }
@@ -7563,7 +7541,6 @@ declare namespace LocalJSX {
         "z-myz-card-footer-sections": ZMyzCardFooterSections;
         "z-myz-card-header": Omit<ZMyzCardHeader, keyof ZMyzCardHeaderAttributes> & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes]?: ZMyzCardHeader[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `attr:${K}`]?: ZMyzCardHeaderAttributes[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `prop:${K}`]?: ZMyzCardHeader[K] };
         "z-myz-card-info": Omit<ZMyzCardInfo, keyof ZMyzCardInfoAttributes> & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes]?: ZMyzCardInfo[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `attr:${K}`]?: ZMyzCardInfoAttributes[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `prop:${K}`]?: ZMyzCardInfo[K] };
-        "z-myz-card-list": Omit<ZMyzCardList, keyof ZMyzCardListAttributes> & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes]?: ZMyzCardList[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `attr:${K}`]?: ZMyzCardListAttributes[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `prop:${K}`]?: ZMyzCardList[K] };
         "z-myz-list": Omit<ZMyzList, keyof ZMyzListAttributes> & { [K in keyof ZMyzList & keyof ZMyzListAttributes]?: ZMyzList[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `attr:${K}`]?: ZMyzListAttributes[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `prop:${K}`]?: ZMyzList[K] };
         "z-myz-list-item": Omit<ZMyzListItem, keyof ZMyzListItemAttributes> & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes]?: ZMyzListItem[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `attr:${K}`]?: ZMyzListItemAttributes[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `prop:${K}`]?: ZMyzListItem[K] };
         "z-navigation-tabs": Omit<ZNavigationTabs, keyof ZNavigationTabsAttributes> & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes]?: ZNavigationTabs[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `attr:${K}`]?: ZNavigationTabsAttributes[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `prop:${K}`]?: ZNavigationTabs[K] };
@@ -7823,7 +7800,6 @@ declare module "@stencil/core" {
             "z-myz-card-footer-sections": LocalJSX.IntrinsicElements["z-myz-card-footer-sections"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
             "z-myz-card-header": LocalJSX.IntrinsicElements["z-myz-card-header"] & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
             "z-myz-card-info": LocalJSX.IntrinsicElements["z-myz-card-info"] & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
-            "z-myz-card-list": LocalJSX.IntrinsicElements["z-myz-card-list"] & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.IntrinsicElements["z-myz-list"] & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.IntrinsicElements["z-myz-list-item"] & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             /**
