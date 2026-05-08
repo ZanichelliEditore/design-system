@@ -30,7 +30,7 @@
     "prepare": "husky install",
     "release": "commit-and-tag-version",
     "start": "stencil build --dev --watch --serve --no-open",
-    "start-storybook": "stencil build && storybook dev --port 3003 --no-open",
+    "start-storybook": "stencil build && STORYBOOK_DEV=1 storybook dev --port 3003 --no-open",
     "test": "stencil test --spec",
     "test.e2e": "stencil test --e2e",
     "test.e2e.single": "stencil test --e2e -- ",
