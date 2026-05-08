@@ -1,3 +1,9 @@
 {
-  "extends": "./tsconfig.storybook.json"
+  "extends": "./tsconfig.stencil.json",
+  "compilerOptions": {
+    "module": "Preserve",
+    "jsxFragmentFactory": "h.Fragment"
+  },
+  "include": ["src", "docs", ".storybook"],
+  "exclude": ["node_modules"]
 }

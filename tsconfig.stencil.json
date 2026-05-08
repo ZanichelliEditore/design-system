@@ -17,5 +17,5 @@
     "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/*.stories.tsx", "**/*.mdx"]
+  "exclude": ["node_modules", "**/*.stories.tsx", "**/*.mdx", "src/__mocks__"]
 }
