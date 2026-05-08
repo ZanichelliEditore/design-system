@@ -8,7 +8,6 @@ const FOCUSABLE_ELEMENTS_SELECTOR =
 /**
  * @slot modalCloseButton - slot for custom close button
  * @slot modalContent - slot for the content of the modal
- * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
  */
 @Component({
   tag: "z-modal",

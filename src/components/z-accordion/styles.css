@@ -5,6 +5,18 @@
 }
 
 :host {
+  /**
+   * @prop --z-accordion-highlight-color: Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
+   * @prop --z-accordion-bg: Background color of the summary. Default: `--color-surface02`.
+   * @prop --z-accordion-label-color: Label color. Default: `--color-default-text`.
+   * @prop --z-accordion-disabled-label-color: Label color when disabled. Default: `--color-text03`.
+   * @prop --z-accordion-content-bg: Background color of the accordion. Default: `--color-surface02`.
+   * @prop --z-accordion-content-fg: Content text color. Default: `--color-default-text`.
+   * @prop --z-accordion-hover-color: Hover color of the summary. Default: `--color-surface03`.
+   * @prop --z-accordion-left-padding: Left padding of the summary. Default: `--space-unit` * 2.
+   * @prop --z-accordion-right-padding: Right padding of the summary. Default: `--space-unit`.
+   * @prop --z-accordion-label-font-weight: Font weight of the summary label. Default: `--font-sb`.
+   */
   --z-accordion-highlight-color: transparent;
   --z-accordion-bg: var(--color-surface01);
   --z-accordion-label-color: var(--color-default-text);

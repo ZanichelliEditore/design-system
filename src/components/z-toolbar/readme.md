@@ -18,6 +18,13 @@ Tools can be visually grouped using `z-divider` elements as separators.
 | `htmlAriaLabel` | `html-aria-label` | Accessible label for the toolbar. | `string` | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--z-toolbar-columns` | Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`. |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

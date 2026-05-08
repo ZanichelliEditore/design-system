@@ -1,4 +1,7 @@
 :host {
+  /**
+   * @prop --z-table--cells-padding: Padding of the cells.
+   */
   --z-table--cells-padding: calc(var(--space-unit) * 2);
 
   position: relative;

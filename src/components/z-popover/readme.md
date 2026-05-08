@@ -56,6 +56,16 @@ Notes:
 | `positionChange` | Fired when the position changes.                                                                                                             | `CustomEvent<{ position: PopoverPosition; }>` |
 
 
+## CSS Custom Properties
+
+| Name                         | Description                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| `--z-popover-padding`        | padding of the popover.                                                                           |
+| `--z-popover-shadow-filter`  | drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`. |
+| `--z-popover-theme--surface` | background color of the popover.                                                                  |
+| `--z-popover-theme--text`    | foreground color of the popover.                                                                  |
+
+
 ## Dependencies
 
 ### Used by

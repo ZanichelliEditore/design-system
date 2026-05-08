@@ -35,6 +35,15 @@
 | `"canvasContent"` | Slot for the offcanvas content. |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                                                                                                                    |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `--z-offcanvas--container-height` | Height of the offcanvas for `up` direction. Default: `90%`.                                                                    |
+| `--z-offcanvas--container-width`  | Width of the offcanvas for `left` and `right` direction. Default: `375px`.                                                     |
+| `--z-offcanvas--top-space`        | Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`. |
+
+
 ## Dependencies
 
 ### Used by

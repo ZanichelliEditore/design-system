@@ -22,6 +22,13 @@ ZTable component.
 |      | Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`). |
 
 
+## CSS Custom Properties
+
+| Name                       | Description           |
+| -------------------------- | --------------------- |
+| `--z-table--cells-padding` | Padding of the cells. |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

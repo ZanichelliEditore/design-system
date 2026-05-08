@@ -40,10 +40,26 @@ Accordion component.
 
 ## Shadow Parts
 
-| Part        | Description |
-| ----------- | ----------- |
-| `"content"` |             |
-| `"summary"` |             |
+| Part        | Description                                                                    |
+| ----------- | ------------------------------------------------------------------------------ |
+| `"content"` | The content element that is shown or hidden when the accordion is toggled.     |
+| `"summary"` | The summary element that is always visible and acts as the accordion's toggle. |
+
+
+## CSS Custom Properties
+
+| Name                                 | Description                                                                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `--z-accordion-bg`                   | Background color of the summary. Default: `--color-surface02`.                                                         |
+| `--z-accordion-content-bg`           | Background color of the accordion. Default: `--color-surface02`.                                                       |
+| `--z-accordion-content-fg`           | Content text color. Default: `--color-default-text`.                                                                   |
+| `--z-accordion-disabled-label-color` | Label color when disabled. Default: `--color-text03`.                                                                  |
+| `--z-accordion-highlight-color`      | Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`. |
+| `--z-accordion-hover-color`          | Hover color of the summary. Default: `--color-surface03`.                                                              |
+| `--z-accordion-label-color`          | Label color. Default: `--color-default-text`.                                                                          |
+| `--z-accordion-label-font-weight`    | Font weight of the summary label. Default: `--font-sb`.                                                                |
+| `--z-accordion-left-padding`         | Left padding of the summary. Default: `--space-unit` * 2.                                                              |
+| `--z-accordion-right-padding`        | Right padding of the summary. Default: `--space-unit`.                                                                 |
 
 
 ## Dependencies

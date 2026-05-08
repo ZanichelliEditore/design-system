@@ -37,6 +37,15 @@
 | `searchTyping`    | Emitted on search typing, return search string | `CustomEvent<string>`                                                                                                                                                                                         |
 
 
+## CSS Custom Properties
+
+| Name                           | Description                                                |
+| ------------------------------ | ---------------------------------------------------------- |
+| `--z-searchbar-results-height` | Max height of the results container (default: 540px)       |
+| `--z-searchbar-tag-bg`         | Color of tag's background (default --color-hover-primary); |
+| `--z-searchbar-tag-text-color` | Color of tag's text (default --color-primary03);           |
+
+
 ## Dependencies
 
 ### Used by

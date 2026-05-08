@@ -1,4 +1,8 @@
 :host {
+  /**
+   * @prop --z-book-card-app-padding-x: set left and right padding
+   * @prop --z-book-card-app-padding-y: set top and bottom padding
+   */
   display: block;
   width: inherit;
   min-width: 300px;

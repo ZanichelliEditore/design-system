@@ -80,6 +80,19 @@ The width of the card must be set by its container, following the grid indicatio
 | `"title"`    | Using an `<a>` tag here will make the whole card clickable as if the link was wrapping it.                                                                                                                                 |
 
 
+## CSS Custom Properties
+
+| Name                               | Description                                                                |
+| ---------------------------------- | -------------------------------------------------------------------------- |
+| `--aspect-ratio`                   | Cover aspect ratio. Default: `1.62`                                        |
+| `--z-card--border-color`           | Default: `var(--gray200)`                                                  |
+| `--z-card--color-cover-background` | Cover color. Default: `var(--color-surface01)`                             |
+| `--z-card--text-background`        | Background color for the `text` variant. Default: `var(--color-surface01)` |
+| `--z-card--text-border`            | Configure CSS `border`. Default: `none`                                    |
+| `--z-card--text-border-radius`     | Default: `none`                                                            |
+| `--z-card--text-padding`           | Configure CSS `padding`. Default: `none`                                   |
+
+
 ## Dependencies
 
 ### Depends on

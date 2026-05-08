@@ -41,6 +41,16 @@
 | `"tags"`       | card tags (extended and search variant only)                       |
 
 
+## CSS Custom Properties
+
+| Name                                    | Description                |
+| --------------------------------------- | -------------------------- |
+| `--z-book-card-compact-height`          | compact card custom height |
+| `--z-book-card-compact-width`           | compact card custom width  |
+| `--z-book-card-ribbon-background-color` | ribbon backgrund color     |
+| `--z-book-card-ribbon-shadow-color`     | ribbon shadow color        |
+
+
 ## Dependencies
 
 ### Depends on
