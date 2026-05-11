@@ -2164,7 +2164,6 @@ export namespace Components {
         "isfixed"?: boolean;
         /**
           * the input select options
-          * @default []
          */
         "items": SelectItem[] | string;
         /**
@@ -6434,9 +6433,8 @@ declare namespace LocalJSX {
         "isfixed"?: boolean;
         /**
           * the input select options
-          * @default []
          */
-        "items"?: SelectItem[] | string;
+        "items": SelectItem[] | string;
         /**
           * the input label
          */
@@ -7554,7 +7552,7 @@ declare namespace LocalJSX {
         "z-result-card": Omit<ZResultCard, keyof ZResultCardAttributes> & { [K in keyof ZResultCard & keyof ZResultCardAttributes]?: ZResultCard[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `attr:${K}`]?: ZResultCardAttributes[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `prop:${K}`]?: ZResultCard[K] };
         "z-searchbar": Omit<ZSearchbar, keyof ZSearchbarAttributes> & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes]?: ZSearchbar[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `attr:${K}`]?: ZSearchbarAttributes[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `prop:${K}`]?: ZSearchbar[K] };
         "z-section-title": Omit<ZSectionTitle, keyof ZSectionTitleAttributes> & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes]?: ZSectionTitle[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `attr:${K}`]?: ZSectionTitleAttributes[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `prop:${K}`]?: ZSectionTitle[K] };
-        "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] };
+        "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] } & OneOf<"items", ZSelect["items"], ZSelectAttributes["items"]>;
         "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
         "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
         "z-stepper": ZStepper;

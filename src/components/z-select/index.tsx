@@ -28,7 +28,7 @@ export class ZSelect implements ComponentInterface {
 
   /** the input select options */
   @Prop()
-  items: SelectItem[] | string = [];
+  items!: SelectItem[] | string;
 
   /** the input name */
   @Prop()
