@@ -11,8 +11,18 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v20.0.0](#v2000)
 
-  - [ZSelect](#v20_zselect)
+  - [ZSelect](#zselect)
     - [La prop items ora è _required_](#la-prop-items-ora-è-required)
+  - [ZToggleButton](#ztogglebutton)
+    - [Rimozione del componente ZToggleButton dalla libreria](#rimozione-del-componente-ztogglebutton-dalla-libreria)
+  - [ZMyzCardAlert](#zmyzcardalert)
+    - [Rimozione del componente ZMyzCardAlert dalla libreria](#rimozione-del-componente-zmyzcardalert-dalla-libreria)
+  - [ZMyzCardFooter](#zmyzcardfooter)
+    - [Rimozione del componente ZMyzCardFooter dalla libreria](#rimozione-del-componente-zmyzcardfooter-dalla-libreria)
+  - [ZMyzCardIcon](#zmyzcardicon)
+    - [Rimozione del componente ZMyzCardIcon dalla libreria](#rimozione-del-componente-zmyzcardicon-dalla-libreria)
+  - [ZMyzCardList](#zmyzcardlist)
+    - [Rimozione del componente ZMyzCardList dalla libreria](#rimozione-del-componente-zmyzcardlist-dalla-libreria)
 
 - [v19.0.0](#v1900)
 
@@ -138,6 +148,36 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 #### La prop items ora è required
 
 Il componente `ZSelect` non può più essere istanziato senza `items`. Un array vuoto di `items` invece è ancora ammesso.
+
+### ZToggleButton
+
+#### Rimozione del componente ZToggleButton dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### ZMyzCardAlert
+
+#### Rimozione del componente ZMyzCardAlert dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### ZMyzCardFooter
+
+#### Rimozione del componente ZMyzCardFooter dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### ZMyzCardIcon
+
+#### Rimozione del componente ZMyzCardIcon dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### ZMyzCardList
+
+#### Rimozione del componente ZMyzCardList dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
 
 ## v19.0.0
 
