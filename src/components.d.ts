@@ -1571,24 +1571,6 @@ export namespace Components {
          */
         "ispressed": boolean;
     }
-    interface ZMyzCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext": string;
-        /**
-          * icon name
-         */
-        "iconname": string;
-        /**
-          * alert variant type
-         */
-        "type": string;
-    }
     interface ZMyzCardBody {
     }
     interface ZMyzCardCover {
@@ -1639,38 +1621,6 @@ export namespace Components {
          */
         "name": string;
     }
-    interface ZMyzCardFooter {
-        /**
-          * authors name text
-         */
-        "autori": string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * display footer custom slotted content
-          * @default false
-         */
-        "customContent": boolean;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume isbn
-         */
-        "isbn": string;
-        /**
-          * footer opened by default (optional)
-          * @default false
-         */
-        "opened"?: boolean;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
     interface ZMyzCardFooterSections {
     }
     interface ZMyzCardHeader {
@@ -1687,22 +1637,6 @@ export namespace Components {
          */
         "titolo": string;
     }
-    interface ZMyzCardIcon {
-        /**
-          * description of the icon
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
-          * icon name
-         */
-        "icon": string;
-        /**
-          * disabled status flag
-          * @default false
-         */
-        "isdisabled": boolean;
-    }
     interface ZMyzCardInfo {
         /**
           * dictionary info
@@ -1713,12 +1647,6 @@ export namespace Components {
           * @default 0
          */
         "htmltabindex"?: number;
-    }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata": string;
     }
     interface ZMyzList {
         /**
@@ -2506,31 +2434,6 @@ export namespace Components {
          */
         "position": ToastNotificationPosition;
     }
-    interface ZToggleButton {
-        /**
-          * aria-label for the button
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
-          * avoidclick status flag
-         */
-        "avoidclick": boolean;
-        /**
-          * disabled status flag (optional)
-          * @default false
-         */
-        "isdisabled"?: boolean;
-        /**
-          * label text
-         */
-        "label": string;
-        /**
-          * open by default (optional)
-          * @default false
-         */
-        "opened"?: boolean;
-    }
     interface ZToggleSwitch {
         /**
           * Checked state
@@ -2778,10 +2681,6 @@ export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZModalElement;
 }
-export interface ZMyzCardAlertCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMyzCardAlertElement;
-}
 export interface ZMyzCardDictionaryCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMyzCardDictionaryElement;
@@ -2841,10 +2740,6 @@ export interface ZThCustomEvent<T> extends CustomEvent<T> {
 export interface ZToastNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZToastNotificationElement;
-}
-export interface ZToggleButtonCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZToggleButtonElement;
 }
 export interface ZToggleSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3565,23 +3460,6 @@ declare global {
         prototype: HTMLZMyzCardElement;
         new (): HTMLZMyzCardElement;
     };
-    interface HTMLZMyzCardAlertElementEventMap {
-        "undoAction": any;
-    }
-    interface HTMLZMyzCardAlertElement extends Components.ZMyzCardAlert, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMyzCardAlertElementEventMap>(type: K, listener: (this: HTMLZMyzCardAlertElement, ev: ZMyzCardAlertCustomEvent<HTMLZMyzCardAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMyzCardAlertElement: {
-        prototype: HTMLZMyzCardAlertElement;
-        new (): HTMLZMyzCardAlertElement;
-    };
     interface HTMLZMyzCardBodyElement extends Components.ZMyzCardBody, HTMLStencilElement {
     }
     var HTMLZMyzCardBodyElement: {
@@ -3611,12 +3489,6 @@ declare global {
         prototype: HTMLZMyzCardDictionaryElement;
         new (): HTMLZMyzCardDictionaryElement;
     };
-    interface HTMLZMyzCardFooterElement extends Components.ZMyzCardFooter, HTMLStencilElement {
-    }
-    var HTMLZMyzCardFooterElement: {
-        prototype: HTMLZMyzCardFooterElement;
-        new (): HTMLZMyzCardFooterElement;
-    };
     interface HTMLZMyzCardFooterSectionsElement extends Components.ZMyzCardFooterSections, HTMLStencilElement {
     }
     var HTMLZMyzCardFooterSectionsElement: {
@@ -3628,12 +3500,6 @@ declare global {
     var HTMLZMyzCardHeaderElement: {
         prototype: HTMLZMyzCardHeaderElement;
         new (): HTMLZMyzCardHeaderElement;
-    };
-    interface HTMLZMyzCardIconElement extends Components.ZMyzCardIcon, HTMLStencilElement {
-    }
-    var HTMLZMyzCardIconElement: {
-        prototype: HTMLZMyzCardIconElement;
-        new (): HTMLZMyzCardIconElement;
     };
     interface HTMLZMyzCardInfoElementEventMap {
         "flipCard": any;
@@ -3651,12 +3517,6 @@ declare global {
     var HTMLZMyzCardInfoElement: {
         prototype: HTMLZMyzCardInfoElement;
         new (): HTMLZMyzCardInfoElement;
-    };
-    interface HTMLZMyzCardListElement extends Components.ZMyzCardList, HTMLStencilElement {
-    }
-    var HTMLZMyzCardListElement: {
-        prototype: HTMLZMyzCardListElement;
-        new (): HTMLZMyzCardListElement;
     };
     interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
     }
@@ -4042,23 +3902,6 @@ declare global {
         prototype: HTMLZToastNotificationListElement;
         new (): HTMLZToastNotificationListElement;
     };
-    interface HTMLZToggleButtonElementEventMap {
-        "toggleClick": any;
-    }
-    interface HTMLZToggleButtonElement extends Components.ZToggleButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZToggleButtonElementEventMap>(type: K, listener: (this: HTMLZToggleButtonElement, ev: ZToggleButtonCustomEvent<HTMLZToggleButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZToggleButtonElement: {
-        prototype: HTMLZToggleButtonElement;
-        new (): HTMLZToggleButtonElement;
-    };
     interface HTMLZToggleSwitchElementEventMap {
         "toggleClick": any;
     }
@@ -4221,16 +4064,12 @@ declare global {
         "z-menu-section-deprecated": HTMLZMenuSectionDeprecatedElement;
         "z-modal": HTMLZModalElement;
         "z-myz-card": HTMLZMyzCardElement;
-        "z-myz-card-alert": HTMLZMyzCardAlertElement;
         "z-myz-card-body": HTMLZMyzCardBodyElement;
         "z-myz-card-cover": HTMLZMyzCardCoverElement;
         "z-myz-card-dictionary": HTMLZMyzCardDictionaryElement;
-        "z-myz-card-footer": HTMLZMyzCardFooterElement;
         "z-myz-card-footer-sections": HTMLZMyzCardFooterSectionsElement;
         "z-myz-card-header": HTMLZMyzCardHeaderElement;
-        "z-myz-card-icon": HTMLZMyzCardIconElement;
         "z-myz-card-info": HTMLZMyzCardInfoElement;
-        "z-myz-card-list": HTMLZMyzCardListElement;
         "z-myz-list": HTMLZMyzListElement;
         "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
@@ -4258,7 +4097,6 @@ declare global {
         "z-thead": HTMLZTheadElement;
         "z-toast-notification": HTMLZToastNotificationElement;
         "z-toast-notification-list": HTMLZToastNotificationListElement;
-        "z-toggle-button": HTMLZToggleButtonElement;
         "z-toggle-switch": HTMLZToggleSwitchElement;
         "z-tool": HTMLZToolElement;
         "z-toolbar": HTMLZToolbarElement;
@@ -5946,28 +5784,6 @@ declare namespace LocalJSX {
          */
         "ispressed"?: boolean;
     }
-    interface ZMyzCardAlert {
-        /**
-          * action button text
-         */
-        "actiontext"?: string;
-        /**
-          * content text
-         */
-        "contenttext"?: string;
-        /**
-          * icon name
-         */
-        "iconname"?: string;
-        /**
-          * undo action click/keyboard event, returns actionType
-         */
-        "onUndoAction"?: (event: ZMyzCardAlertCustomEvent<any>) => void;
-        /**
-          * alert variant type
-         */
-        "type"?: string;
-    }
     interface ZMyzCardBody {
     }
     interface ZMyzCardCover {
@@ -6022,38 +5838,6 @@ declare namespace LocalJSX {
          */
         "onCardFlipped"?: (event: ZMyzCardDictionaryCustomEvent<any>) => void;
     }
-    interface ZMyzCardFooter {
-        /**
-          * authors name text
-         */
-        "autori"?: string;
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * display footer custom slotted content
-          * @default false
-         */
-        "customContent"?: boolean;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume isbn
-         */
-        "isbn"?: string;
-        /**
-          * footer opened by default (optional)
-          * @default false
-         */
-        "opened"?: boolean;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
     interface ZMyzCardFooterSections {
     }
     interface ZMyzCardHeader {
@@ -6070,22 +5854,6 @@ declare namespace LocalJSX {
          */
         "titolo"?: string;
     }
-    interface ZMyzCardIcon {
-        /**
-          * description of the icon
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
-          * icon name
-         */
-        "icon"?: string;
-        /**
-          * disabled status flag
-          * @default false
-         */
-        "isdisabled"?: boolean;
-    }
     interface ZMyzCardInfo {
         /**
           * dictionary info
@@ -6100,12 +5868,6 @@ declare namespace LocalJSX {
           * flip card to front
          */
         "onFlipCard"?: (event: ZMyzCardInfoCustomEvent<any>) => void;
-    }
-    interface ZMyzCardList {
-        /**
-          * list data stringified array
-         */
-        "listdata"?: string;
     }
     interface ZMyzList {
         /**
@@ -6957,35 +6719,6 @@ declare namespace LocalJSX {
          */
         "position"?: ToastNotificationPosition;
     }
-    interface ZToggleButton {
-        /**
-          * aria-label for the button
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
-          * avoidclick status flag
-         */
-        "avoidclick"?: boolean;
-        /**
-          * disabled status flag (optional)
-          * @default false
-         */
-        "isdisabled"?: boolean;
-        /**
-          * label text
-         */
-        "label"?: string;
-        /**
-          * emitted on toggle button click, returns isOpen
-         */
-        "onToggleClick"?: (event: ZToggleButtonCustomEvent<any>) => void;
-        /**
-          * open by default (optional)
-          * @default false
-         */
-        "opened"?: boolean;
-    }
     interface ZToggleSwitch {
         /**
           * Checked state
@@ -7506,12 +7239,6 @@ declare namespace LocalJSX {
         "ispressed": boolean;
         "ishighlighted": boolean;
     }
-    interface ZMyzCardAlertAttributes {
-        "iconname": string;
-        "contenttext": string;
-        "actiontext": string;
-        "type": string;
-    }
     interface ZMyzCardCoverAttributes {
         "img": string;
         "titolo": string;
@@ -7526,31 +7253,14 @@ declare namespace LocalJSX {
         "flipbuttonlabel": string;
         "hideinfobtn": boolean;
     }
-    interface ZMyzCardFooterAttributes {
-        "titolo": string;
-        "autori": string;
-        "isbn": string;
-        "faded": boolean;
-        "cardtype": LicenseType;
-        "opened": boolean;
-        "customContent": boolean;
-    }
     interface ZMyzCardHeaderAttributes {
         "titolo": string;
         "faded": boolean;
         "cardtype": LicenseType;
     }
-    interface ZMyzCardIconAttributes {
-        "icon": string;
-        "isdisabled": boolean;
-        "ariaLabel": string;
-    }
     interface ZMyzCardInfoAttributes {
         "data": string | DictionaryData;
         "htmltabindex": number;
-    }
-    interface ZMyzCardListAttributes {
-        "listdata": string;
     }
     interface ZMyzListAttributes {
         "inputrawdata": string;
@@ -7746,13 +7456,6 @@ declare namespace LocalJSX {
         "position": ToastNotificationPosition;
         "newestontop": boolean;
     }
-    interface ZToggleButtonAttributes {
-        "label": string;
-        "isdisabled": boolean;
-        "avoidclick": boolean;
-        "opened": boolean;
-        "ariaLabel": string;
-    }
     interface ZToggleSwitchAttributes {
         "disabled": boolean;
         "labelPosition": LabelPosition;
@@ -7830,16 +7533,12 @@ declare namespace LocalJSX {
         "z-menu-section-deprecated": Omit<ZMenuSectionDeprecated, keyof ZMenuSectionDeprecatedAttributes> & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes]?: ZMenuSectionDeprecated[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `attr:${K}`]?: ZMenuSectionDeprecatedAttributes[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `prop:${K}`]?: ZMenuSectionDeprecated[K] };
         "z-modal": Omit<ZModal, keyof ZModalAttributes> & { [K in keyof ZModal & keyof ZModalAttributes]?: ZModal[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `attr:${K}`]?: ZModalAttributes[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `prop:${K}`]?: ZModal[K] };
         "z-myz-card": Omit<ZMyzCard, keyof ZMyzCardAttributes> & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes]?: ZMyzCard[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `attr:${K}`]?: ZMyzCardAttributes[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `prop:${K}`]?: ZMyzCard[K] };
-        "z-myz-card-alert": Omit<ZMyzCardAlert, keyof ZMyzCardAlertAttributes> & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes]?: ZMyzCardAlert[K] } & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes as `attr:${K}`]?: ZMyzCardAlertAttributes[K] } & { [K in keyof ZMyzCardAlert & keyof ZMyzCardAlertAttributes as `prop:${K}`]?: ZMyzCardAlert[K] };
         "z-myz-card-body": ZMyzCardBody;
         "z-myz-card-cover": Omit<ZMyzCardCover, keyof ZMyzCardCoverAttributes> & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes]?: ZMyzCardCover[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `attr:${K}`]?: ZMyzCardCoverAttributes[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `prop:${K}`]?: ZMyzCardCover[K] };
         "z-myz-card-dictionary": Omit<ZMyzCardDictionary, keyof ZMyzCardDictionaryAttributes> & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes]?: ZMyzCardDictionary[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `attr:${K}`]?: ZMyzCardDictionaryAttributes[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `prop:${K}`]?: ZMyzCardDictionary[K] };
-        "z-myz-card-footer": Omit<ZMyzCardFooter, keyof ZMyzCardFooterAttributes> & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes]?: ZMyzCardFooter[K] } & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes as `attr:${K}`]?: ZMyzCardFooterAttributes[K] } & { [K in keyof ZMyzCardFooter & keyof ZMyzCardFooterAttributes as `prop:${K}`]?: ZMyzCardFooter[K] };
         "z-myz-card-footer-sections": ZMyzCardFooterSections;
         "z-myz-card-header": Omit<ZMyzCardHeader, keyof ZMyzCardHeaderAttributes> & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes]?: ZMyzCardHeader[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `attr:${K}`]?: ZMyzCardHeaderAttributes[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `prop:${K}`]?: ZMyzCardHeader[K] };
-        "z-myz-card-icon": Omit<ZMyzCardIcon, keyof ZMyzCardIconAttributes> & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes]?: ZMyzCardIcon[K] } & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes as `attr:${K}`]?: ZMyzCardIconAttributes[K] } & { [K in keyof ZMyzCardIcon & keyof ZMyzCardIconAttributes as `prop:${K}`]?: ZMyzCardIcon[K] };
         "z-myz-card-info": Omit<ZMyzCardInfo, keyof ZMyzCardInfoAttributes> & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes]?: ZMyzCardInfo[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `attr:${K}`]?: ZMyzCardInfoAttributes[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `prop:${K}`]?: ZMyzCardInfo[K] };
-        "z-myz-card-list": Omit<ZMyzCardList, keyof ZMyzCardListAttributes> & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes]?: ZMyzCardList[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `attr:${K}`]?: ZMyzCardListAttributes[K] } & { [K in keyof ZMyzCardList & keyof ZMyzCardListAttributes as `prop:${K}`]?: ZMyzCardList[K] };
         "z-myz-list": Omit<ZMyzList, keyof ZMyzListAttributes> & { [K in keyof ZMyzList & keyof ZMyzListAttributes]?: ZMyzList[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `attr:${K}`]?: ZMyzListAttributes[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `prop:${K}`]?: ZMyzList[K] };
         "z-myz-list-item": Omit<ZMyzListItem, keyof ZMyzListItemAttributes> & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes]?: ZMyzListItem[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `attr:${K}`]?: ZMyzListItemAttributes[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `prop:${K}`]?: ZMyzListItem[K] };
         "z-navigation-tabs": Omit<ZNavigationTabs, keyof ZNavigationTabsAttributes> & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes]?: ZNavigationTabs[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `attr:${K}`]?: ZNavigationTabsAttributes[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `prop:${K}`]?: ZNavigationTabs[K] };
@@ -7867,7 +7566,6 @@ declare namespace LocalJSX {
         "z-thead": Omit<ZThead, keyof ZTheadAttributes> & { [K in keyof ZThead & keyof ZTheadAttributes]?: ZThead[K] } & { [K in keyof ZThead & keyof ZTheadAttributes as `attr:${K}`]?: ZTheadAttributes[K] } & { [K in keyof ZThead & keyof ZTheadAttributes as `prop:${K}`]?: ZThead[K] };
         "z-toast-notification": Omit<ZToastNotification, keyof ZToastNotificationAttributes> & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes]?: ZToastNotification[K] } & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes as `attr:${K}`]?: ZToastNotificationAttributes[K] } & { [K in keyof ZToastNotification & keyof ZToastNotificationAttributes as `prop:${K}`]?: ZToastNotification[K] };
         "z-toast-notification-list": Omit<ZToastNotificationList, keyof ZToastNotificationListAttributes> & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes]?: ZToastNotificationList[K] } & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes as `attr:${K}`]?: ZToastNotificationListAttributes[K] } & { [K in keyof ZToastNotificationList & keyof ZToastNotificationListAttributes as `prop:${K}`]?: ZToastNotificationList[K] };
-        "z-toggle-button": Omit<ZToggleButton, keyof ZToggleButtonAttributes> & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes]?: ZToggleButton[K] } & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes as `attr:${K}`]?: ZToggleButtonAttributes[K] } & { [K in keyof ZToggleButton & keyof ZToggleButtonAttributes as `prop:${K}`]?: ZToggleButton[K] };
         "z-toggle-switch": Omit<ZToggleSwitch, keyof ZToggleSwitchAttributes> & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes]?: ZToggleSwitch[K] } & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes as `attr:${K}`]?: ZToggleSwitchAttributes[K] } & { [K in keyof ZToggleSwitch & keyof ZToggleSwitchAttributes as `prop:${K}`]?: ZToggleSwitch[K] };
         "z-tool": Omit<ZTool, keyof ZToolAttributes> & { [K in keyof ZTool & keyof ZToolAttributes]?: ZTool[K] } & { [K in keyof ZTool & keyof ZToolAttributes as `attr:${K}`]?: ZToolAttributes[K] } & { [K in keyof ZTool & keyof ZToolAttributes as `prop:${K}`]?: ZTool[K] };
         "z-toolbar": Omit<ZToolbar, keyof ZToolbarAttributes> & { [K in keyof ZToolbar & keyof ZToolbarAttributes]?: ZToolbar[K] } & { [K in keyof ZToolbar & keyof ZToolbarAttributes as `attr:${K}`]?: ZToolbarAttributes[K] } & { [K in keyof ZToolbar & keyof ZToolbarAttributes as `prop:${K}`]?: ZToolbar[K] };
@@ -8094,16 +7792,12 @@ declare module "@stencil/core" {
              */
             "z-modal": LocalJSX.IntrinsicElements["z-modal"] & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.IntrinsicElements["z-myz-card"] & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
-            "z-myz-card-alert": LocalJSX.IntrinsicElements["z-myz-card-alert"] & JSXBase.HTMLAttributes<HTMLZMyzCardAlertElement>;
             "z-myz-card-body": LocalJSX.IntrinsicElements["z-myz-card-body"] & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
             "z-myz-card-cover": LocalJSX.IntrinsicElements["z-myz-card-cover"] & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
             "z-myz-card-dictionary": LocalJSX.IntrinsicElements["z-myz-card-dictionary"] & JSXBase.HTMLAttributes<HTMLZMyzCardDictionaryElement>;
-            "z-myz-card-footer": LocalJSX.IntrinsicElements["z-myz-card-footer"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterElement>;
             "z-myz-card-footer-sections": LocalJSX.IntrinsicElements["z-myz-card-footer-sections"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
             "z-myz-card-header": LocalJSX.IntrinsicElements["z-myz-card-header"] & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
-            "z-myz-card-icon": LocalJSX.IntrinsicElements["z-myz-card-icon"] & JSXBase.HTMLAttributes<HTMLZMyzCardIconElement>;
             "z-myz-card-info": LocalJSX.IntrinsicElements["z-myz-card-info"] & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
-            "z-myz-card-list": LocalJSX.IntrinsicElements["z-myz-card-list"] & JSXBase.HTMLAttributes<HTMLZMyzCardListElement>;
             "z-myz-list": LocalJSX.IntrinsicElements["z-myz-list"] & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
             "z-myz-list-item": LocalJSX.IntrinsicElements["z-myz-list-item"] & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             /**
@@ -8204,7 +7898,6 @@ declare module "@stencil/core" {
              */
             "z-toast-notification": LocalJSX.IntrinsicElements["z-toast-notification"] & JSXBase.HTMLAttributes<HTMLZToastNotificationElement>;
             "z-toast-notification-list": LocalJSX.IntrinsicElements["z-toast-notification-list"] & JSXBase.HTMLAttributes<HTMLZToastNotificationListElement>;
-            "z-toggle-button": LocalJSX.IntrinsicElements["z-toggle-button"] & JSXBase.HTMLAttributes<HTMLZToggleButtonElement>;
             "z-toggle-switch": LocalJSX.IntrinsicElements["z-toggle-switch"] & JSXBase.HTMLAttributes<HTMLZToggleSwitchElement>;
             /**
              * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
