@@ -363,8 +363,8 @@ export const CompactVariant = {
       exclude: [
         "variant",
         "ribbon",
-        "ribbonIcon",
-        "ribbonInteractive",
+        "ribbon-icon",
+        "ribbon-interactive",
         "--z-book-card-ribbon-background-color",
         "--z-book-card-ribbon-shadow-color",
       ],

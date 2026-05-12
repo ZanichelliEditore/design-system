@@ -128,7 +128,7 @@ export const ExpandableElements = {
 export const UnorderedIndex = {
   parameters: {
     controls: {
-      exclude: ["size", "listType"],
+      exclude: ["size", "list-type"],
     },
   },
   args: {
@@ -139,7 +139,7 @@ export const UnorderedIndex = {
 export const OrderedIndex = {
   parameters: {
     controls: {
-      exclude: ["size", "listType"],
+      exclude: ["size", "list-type"],
     },
   },
   args: {

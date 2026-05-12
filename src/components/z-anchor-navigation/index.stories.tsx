@@ -145,7 +145,7 @@ export const AutoCurrentDisabling = {
   },
   parameters: {
     controls: {
-      exclude: ["autoCurrent"],
+      exclude: ["auto-current"],
     },
   },
   render: (args) => (

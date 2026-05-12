@@ -163,7 +163,7 @@ const onCardButtonClick = () => {
 export const WithImageAndClickListener = {
   parameters: {
     controls: {
-      exclude: ["clickable", "showShadow"],
+      exclude: ["clickable", "show-shadow"],
     },
   },
   render: (args) => (

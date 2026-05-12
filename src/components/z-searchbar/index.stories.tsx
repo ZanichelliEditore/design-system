@@ -11,6 +11,11 @@ const StoryMeta = {
   title: "ZSearchbar",
   component: ZSearchbar,
   argTypes: {
+    resultsItems: {
+      control: {
+        type: "object",
+      },
+    },
     size: {
       control: {
         type: "inline-radio",
@@ -31,7 +36,6 @@ const StoryMeta = {
     "searchButtonLabel": "",
     "autocomplete": false,
     "autocompleteMinChars": 3,
-    "resultsCount": undefined,
     "searchHelperLabel": "Cerca {searchString}",
     "resultsItems": [{label: "first item"}, {label: "second item"}, {label: "third item"}, {label: "fourth item"}],
     "sortResultsItems": false,
@@ -49,7 +53,6 @@ const StoryMeta = {
   render: (args) => (
     <z-searchbar
       {...args}
-      resultsItems={JSON.stringify(args.resultsItems)}
       style={extractCSSVars(args)}
     ></z-searchbar>
   ),
@@ -64,7 +67,7 @@ export const Default = {} satisfies Story;
 export const SimpleSearch = {
   parameters: {
     controls: {
-      include: ["value", "placeholder", "htmlid", "size", "label", "htmlAriaLabel"],
+      include: ["value", "placeholder", "htmlid", "size", "label", "html-aria-label"],
     },
   },
   args: {

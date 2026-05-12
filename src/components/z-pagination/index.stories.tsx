@@ -60,7 +60,6 @@ const StoryMeta = {
     "visiblePages": 5,
     "currentPage": 1,
     "goToPage": false,
-    "split": undefined,
     "skip": 0,
     "edges": false,
     "--z-pagination-background-color": "var(--color-background)",
@@ -95,7 +94,7 @@ export const Split = {
   },
   parameters: {
     controls: {
-      exclude: ["edges", "visiblePages"],
+      exclude: ["edges", "visible-pages"],
     },
   },
 } satisfies Story;

@@ -4,7 +4,7 @@ import {withThemeByClassName} from "@storybook/addon-themes";
 import customElements from "../custom-elements.json";
 import {defineCustomElements} from "../loader";
 import "../src/global.css";
-import {lightTheme} from "./theme.js";
+import {lightTheme} from "./theme";
 
 /**
  * Load and define all custom elements in Storybook.
@@ -74,7 +74,7 @@ export const parameters: Preview["parameters"] = {
   },
   controls: {sort: "alpha", disableSaveFromUI: true},
   docs: {
-    codePanel: true,
+    codePanel: false,
     controls: {sort: "alpha"},
     source: {
       format: true,

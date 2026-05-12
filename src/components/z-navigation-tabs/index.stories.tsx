@@ -24,8 +24,8 @@ const StoryMeta = {
     "--z-navigation-tabs-nav-buttons-fg": getColorTokenArgConfig(),
   },
   args: {
-    "--z-navigation-tabs-nav-buttons-bg": undefined,
-    "--z-navigation-tabs-nav-buttons-fg": undefined,
+    "--z-navigation-tabs-nav-buttons-bg": "",
+    "--z-navigation-tabs-nav-buttons-fg": "",
   },
 } satisfies Meta<ZNavigationTabsStoriesArgs>;
 

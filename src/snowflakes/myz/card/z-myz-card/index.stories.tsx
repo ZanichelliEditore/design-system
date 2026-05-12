@@ -7,8 +7,7 @@ type ZMyzCardStoriesArgs = ZMyzCardComponent & {titolo: string};
 
 const StoryMeta = {
   title: "Snowflakes/MyzCard/ZMyzCard",
-  component: ZMyzCardComponent,
-
+  component: "z-myz-card",
   args: {
     cardtype: LicenseType.VIRTUAL,
     faded: false,

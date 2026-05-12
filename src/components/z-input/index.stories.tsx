@@ -77,7 +77,7 @@ export const ZInputText = {
       include: [
         "type",
         "label",
-        "ariaLabel",
+        "aria-label",
         "placeholder",
         "value",
         "name",
@@ -110,7 +110,7 @@ export const ZInputTextarea = {
       include: [
         "type",
         "label",
-        "ariaLabel",
+        "aria-label",
         "placeholder",
         "value",
         "name",
@@ -135,8 +135,8 @@ export const ZInputCheckbox = {
     controls: {
       include: [
         "label",
-        "ariaLabel",
-        "labelPosition",
+        "aria-label",
+        "label-position",
         "name",
         "disabled",
         "readonly",
@@ -158,8 +158,8 @@ export const ZInputRadio = {
     controls: {
       include: [
         "label",
-        "ariaLabel",
-        "labelPosition",
+        "aria-label",
+        "label-position",
         "name",
         "value",
         "disabled",

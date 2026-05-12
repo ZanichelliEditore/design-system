@@ -99,7 +99,7 @@ const StoryMeta = {
   args: {
     items: sampleItems,
   },
-  render: (args) => <z-tree-list items={JSON.stringify(args.items)}></z-tree-list>,
+  render: (args) => <z-tree-list items={args.items}></z-tree-list>,
 } satisfies Meta;
 
 export default StoryMeta;

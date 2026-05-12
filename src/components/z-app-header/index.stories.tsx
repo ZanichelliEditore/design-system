@@ -117,7 +117,7 @@ type Story = StoryObj<ZAppHeaderStoriesArgs>;
 export const Title = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -138,7 +138,7 @@ export const Title = {
 export const ProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -158,7 +158,7 @@ export const ProductLogo = {
 export const TopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "enable-z-logo", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -175,7 +175,7 @@ export const TopTitle = {
 export const TopTitleWithProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "enable-z-logo", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -197,7 +197,7 @@ export const TopTitleWithProductLogo = {
 export const CustomMenuButton = {
   parameters: {
     controls: {
-      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -221,7 +221,7 @@ export const CustomMenuButton = {
 export const MenuWithTopTitle = {
   parameters: {
     controls: {
-      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-z-logo", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -239,7 +239,7 @@ export const MenuWithTopTitle = {
 export const MenuWithTopTitleAndProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enableZLogo", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-z-logo", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -263,12 +263,12 @@ export const LongTitle = {
   parameters: {
     controls: {
       exclude: [
-        "enableOffcanvas",
-        "enableZLogo",
-        "enableSearch",
-        "searchPageUrl",
-        "searchPlaceholder",
-        "searchButtonLabel",
+        "enable-offcanvas",
+        "enable-z-logo",
+        "enable-search",
+        "search-page-url",
+        "search-placeholder",
+        "search-button-label",
       ],
     },
   },
@@ -287,7 +287,7 @@ export const OffcanvasMenu = {
   },
   parameters: {
     controls: {
-      exclude: ["searchPlaceholder", "searchButtonLabel"],
+      exclude: ["search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -320,7 +320,7 @@ export const Stuck = {
       },
     },
     controls: {
-      exclude: ["enableOffcanvas", "searchPlaceholder", "searchButtonLabel"],
+      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -338,7 +338,7 @@ export const Stuck = {
 export const SearchPageButton = {
   parameters: {
     controls: {
-      exclude: ["searchPageUrl", "enableSearch", "enableOffcanvas"],
+      exclude: ["search-page-url", "enable-search", "enable-offcanvas"],
     },
   },
   decorators: [

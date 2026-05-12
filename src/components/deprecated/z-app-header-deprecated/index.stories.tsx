@@ -485,8 +485,7 @@ export const Title = {
   },
   render: (args) => (
     <z-app-header-deprecated
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -502,8 +501,7 @@ export const Subtitle = {
   },
   render: (args) => (
     <z-app-header-deprecated
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -520,8 +518,7 @@ export const TopSubtitle = {
   },
   render: (args) => (
     <z-app-header-deprecated
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
@@ -533,9 +530,7 @@ export const TopSubtitle = {
 export const Menu = {
   render: (args) => (
     <z-app-header-deprecated
-      flow={args.flow}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -548,9 +543,7 @@ export const Menu = {
 export const LongTitle = {
   render: (args) => (
     <z-app-header-deprecated
-      flow={args.flow}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione con nome veramente lungo che fa andare il menu a capo</h1>
@@ -563,9 +556,7 @@ export const LongTitle = {
 export const VeryLongMenu = {
   render: (args) => (
     <z-app-header-deprecated
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      flow={args.flow}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -583,9 +574,7 @@ export const OffcanvasMenu = {
   },
   render: (args) => (
     <z-app-header-deprecated
-      flow="offcanvas"
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -616,10 +605,8 @@ export const Stuck = {
   },
   render: (args) => (
     <z-app-header-deprecated
+      {...args}
       stuck
-      flow={args.flow}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"], "--app-header-top-offset": "0"}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -649,10 +636,8 @@ export const MaxWidth = {
   },
   render: (args) => (
     <z-app-header-deprecated
+      {...args}
       stuck
-      flow={args.flow}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"], "--app-header-top-offset": "0"}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -670,12 +655,8 @@ export const CoverHeroWithSlottedImage = {
   render: (args) => (
     <z-app-header-deprecated
       id="hero"
-      overlay={args.overlay}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      hero={args.hero}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
-      flow={args.flow}
     >
       <h1 slot="title">Applicazione</h1>
       <h2 slot="subtitle">Payoff dell'applicazione</h2>
@@ -696,13 +677,12 @@ export const CoverHeroWithSlottedImage = {
 export const Searchbar = {
   parameters: {
     controls: {
-      exclude: ["searchPageUrl", "enableSearch"],
+      exclude: ["search-page-url", "enable-search"],
     },
   },
   render: (args) => (
     <z-app-header-deprecated
-      flow={args.flow}
-      enableSearch={args.enableSearch}
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>
@@ -715,8 +695,11 @@ export const Searchbar = {
 export const SearchPageButton = {
   parameters: {
     controls: {
-      exclude: ["searchPageUrl", "enableSearch"],
+      exclude: ["search-page-url", "enable-search"],
     },
+  },
+  args: {
+    searchPageUrl: "https://www.zanichelli.it",
   },
   decorators: [
     (Story) => (
@@ -730,9 +713,7 @@ export const SearchPageButton = {
   ],
   render: (args) => (
     <z-app-header-deprecated
-      flow={args.flow}
-      enableSearch={args.enableSearch}
-      searchPageUrl="https://www.zanichelli.it"
+      {...args}
       style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
     >
       <h1 slot="title">Applicazione</h1>

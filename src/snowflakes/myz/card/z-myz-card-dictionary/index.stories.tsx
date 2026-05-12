@@ -18,14 +18,14 @@ const StoryMeta = {
 
 export default StoryMeta;
 
-const DATA = JSON.stringify({
+const DATA = {
   author: "Nicola Zingarelli",
   year: "2021",
   title: "Vocabolario della lingua italiana",
   description: "A cura di Mario Cannella, Beata Lazzarini",
-  onlineLicense: {expiration: "31/12/2021", installations: "1"},
-  offlineLicense: {expiration: "30/06/2021", installations: "2"},
-});
+  onlineLicense: {expiration: "31/12/2021", installations: "1", expired: true, expiring: false},
+  offlineLicense: {expiration: "30/06/2021", installations: "2", expired: true, expiring: false},
+};
 
 export const CardDefault = {
   render: (args) => (

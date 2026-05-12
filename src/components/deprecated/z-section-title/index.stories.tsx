@@ -50,7 +50,7 @@ export const PrimaryTitleOnly = {
 export const SecondaryTitle = {
   parameters: {
     controls: {
-      exclude: ["dividerPosition"],
+      exclude: ["divider-position"],
     },
   },
   render: (args) => (

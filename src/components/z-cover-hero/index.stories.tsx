@@ -48,98 +48,64 @@ const StoryMeta = {
     "variant": CoverHeroVariant.OVERLAY,
     "contentPosition": CoverHeroContentPosition.TOP,
     "preserveAspectRatio": true,
-    "--cover-hero-aspect-ratio": undefined,
     "--cover-hero-overlay": "linear-gradient(270deg, #0000 0%, #000000e6 100%)",
     "--cover-hero-text-color": "var(--color-text-inverse)",
   },
+  render: (args) => (
+    <div class="z-cover-hero-story-container">
+      <z-cover-hero
+        {...args}
+        style={extractCSSVars(args)}
+      >
+        <img
+          slot="cover"
+          src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt=""
+        />
+        <div slot="content">
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea
+            commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </div>
+          <div class="buttons">
+            <z-button>Primary</z-button>
+            <z-button variant={ButtonVariant.SECONDARY}>Secondary</z-button>
+          </div>
+        </div>
+        <z-info-reveal
+          slot="info-reveal"
+          position={InfoRevealPosition.BOTTOM_RIGHT}
+        >
+          <span>Lorem ipsum dolor sit amet.</span>
+        </z-info-reveal>
+      </z-cover-hero>
+    </div>
+  ),
 } satisfies Meta<ZCoverHeroStoriesArgs>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZCoverHeroStoriesArgs>;
 
-export const Default = {
-  render: (args) => (
-    <div class="z-cover-hero-story-container">
-      <z-cover-hero
-        {...args}
-        style={extractCSSVars(args)}
-      >
-        <img
-          slot="cover"
-          src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt=""
-        />
-        <div slot="content">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea
-            commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </div>
-          <div class="buttons">
-            <z-button>Primary</z-button>
-            <z-button variant={ButtonVariant.SECONDARY}>Secondary</z-button>
-          </div>
-        </div>
-        <z-info-reveal
-          slot="info-reveal"
-          position={InfoRevealPosition.BOTTOM_RIGHT}
-        >
-          <span>Lorem ipsum dolor sit amet.</span>
-        </z-info-reveal>
-      </z-cover-hero>
-    </div>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const CustomAspectRatio = {
   parameters: {
     controls: {
-      exclude: ["variant", "preserveAspectRatio"],
+      exclude: ["variant", "preserve-aspect-ratio", "--cover-hero-overlay"],
     },
   },
   args: {
     "--cover-hero-aspect-ratio": "16/8",
   },
-  render: (args) => (
-    <div class="z-cover-hero-story-container">
-      <z-cover-hero
-        {...args}
-        style={extractCSSVars(args)}
-      >
-        <img
-          slot="cover"
-          src="https://images.pexels.com/photos/10323759/pexels-photo-10323759.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt=""
-        />
-        <div slot="content">
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea
-            commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </div>
-          <div class="buttons">
-            <z-button>Primary</z-button>
-            <z-button variant={ButtonVariant.SECONDARY}>Secondary</z-button>
-          </div>
-        </div>
-        <z-info-reveal
-          slot="info-reveal"
-          position={InfoRevealPosition.BOTTOM_RIGHT}
-        >
-          <span>Lorem ipsum dolor sit amet.</span>
-        </z-info-reveal>
-      </z-cover-hero>
-    </div>
-  ),
 };
 
 export const AutoAspectRatio = {
   parameters: {
     controls: {
-      exclude: ["variant", "preserveAspectRatio"],
+      exclude: ["variant", "preserve-aspect-ratio"],
     },
   },
   args: {
@@ -174,10 +140,10 @@ export const AutoAspectRatio = {
 };
 
 export const WithoutPreservingAspectRatio = {
-  argTypes: {
-    "variant": {table: {disable: true}},
-    "preserveAspectRatio": {table: {disable: true}},
-    "--cover-hero-aspect-ratio": {table: {disable: true}},
+  parameters: {
+    controls: {
+      exclude: ["variant", "preserve-aspect-ratio", "--cover-hero-aspect-ratio"],
+    },
   },
   args: {
     textContent:
@@ -210,7 +176,7 @@ export const WithoutPreservingAspectRatio = {
 export const StackedVariant = {
   parameters: {
     controls: {
-      exclude: ["variant", "preserveAspectRatio", "--cover-hero-aspect-ratio", "--cover-hero-text-color"],
+      exclude: ["variant", "preserve-aspect-ratio", "--cover-hero-aspect-ratio", "--cover-hero-text-color"],
     },
   },
   args: {
