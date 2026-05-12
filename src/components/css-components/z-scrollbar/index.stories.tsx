@@ -3,6 +3,14 @@ import "./index.stories.css";
 
 const StoryMeta = {
   title: "CSS Components/ZScrollbar",
+  parameters: {
+    a11y: {
+      disable: true,
+    },
+    controls: {
+      disable: true,
+    },
+  },
 };
 
 export default StoryMeta;

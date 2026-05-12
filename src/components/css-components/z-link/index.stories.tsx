@@ -4,6 +4,11 @@ import "./index.stories.css";
 
 export default {
   title: "CSS Components/ZLink",
+  parameters: {
+    a11y: {
+      disable: true,
+    },
+  },
   argTypes: {
     "colorVariant": {
       options: ["z-link", "z-link-blue", "z-link-red", "z-link-inverse"],

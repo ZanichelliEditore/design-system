@@ -44,6 +44,9 @@ export default {
   },
   parameters: {
     layout: "fullscreen",
+    a11y: {
+      disable: true,
+    },
   },
   tags: ["!autodocs"],
 };

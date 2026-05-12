@@ -52,6 +52,7 @@
     "@stencil/eslint-plugin": "^1.1.0",
     "@stencil/react-output-target": "^0.5.3",
     "@stencil/storybook-plugin": "^0.6.1",
+    "@storybook/addon-a11y": "^10.3.6",
     "@storybook/addon-docs": "^10.3.6",
     "@storybook/addon-themes": "^10.3.6",
     "@types/dompurify": "^3.2.0",
