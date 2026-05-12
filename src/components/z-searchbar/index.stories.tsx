@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, ControlSize} from "../../beans";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZSearchbar} from "./index";
 
 type ZSearchbarStoriesArgs = ZSearchbar &
@@ -46,36 +46,20 @@ const StoryMeta = {
     "size": ControlSize.BIG,
     "variant": ButtonVariant.PRIMARY,
   },
+  render: (args) => (
+    <z-searchbar
+      {...args}
+      resultsItems={JSON.stringify(args.resultsItems)}
+      style={extractCSSVars(args)}
+    ></z-searchbar>
+  ),
 } satisfies Meta<ZSearchbarStoriesArgs>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZSearchbarStoriesArgs>;
 
-export const Default = {
-  render: (args) => (
-    <z-searchbar
-      preventSubmit={args.preventSubmit}
-      showSearchButton={args.showSearchButton}
-      searchButtonLabel={args.searchButtonLabel}
-      searchButtonIconOnly={args.searchButtonIconOnly}
-      autocomplete={args.autocomplete}
-      autocompleteMinChars={args.autocompleteMinChars}
-      resultsCount={args.resultsCount}
-      searchHelperLabel={args.searchHelperLabel}
-      resultsItems={JSON.stringify(args.resultsItems)}
-      sortResultsItems={args.sortResultsItems}
-      value={args.value}
-      placeholder={args.placeholder}
-      htmlid={args.htmlid}
-      style={{"--z-searchbar-results-height": args["--z-searchbar-results-height"]}}
-      size={args.size}
-      variant={args.variant}
-      label={args.label}
-      htmlAriaLabel={args.htmlAriaLabel}
-    ></z-searchbar>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const SimpleSearch = {
   parameters: {
@@ -85,22 +69,9 @@ export const SimpleSearch = {
   },
   args: {
     htmlid: "myIdSimple",
+    preventSubmit: false,
+    autocomplete: false,
   },
-  render: (args) => (
-    <z-searchbar
-      preventSubmit={false}
-      showSearchButton={args.showSearchButton}
-      searchButtonIconOnly={args.searchButtonIconOnly}
-      searchButtonLabel={args.searchButtonLabel}
-      autocomplete={false}
-      value={args.value}
-      placeholder={args.placeholder}
-      htmlid={args.htmlid}
-      size={args.size}
-      label={args.label}
-      htmlAriaLabel={args.htmlAriaLabel}
-    ></z-searchbar>
-  ),
 } satisfies Story;
 
 export const Autocomplete = {
@@ -111,28 +82,6 @@ export const Autocomplete = {
     searchButtonIconOnly: false,
     searchButtonLabel: "Cliccami",
   },
-  render: (args) => (
-    <z-searchbar
-      preventSubmit={args.preventSubmit}
-      showSearchButton={args.showSearchButton}
-      searchButtonIconOnly={args.searchButtonIconOnly}
-      searchButtonLabel={args.searchButtonLabel}
-      autocomplete={args.autocomplete}
-      autocompleteMinChars={args.autocompleteMinChars}
-      resultsCount={args.resultsCount}
-      searchHelperLabel={args.searchHelperLabel}
-      resultsItems={JSON.stringify(args.resultsItems)}
-      sortResultsItems={args.sortResultsItems}
-      value={args.value}
-      placeholder={args.placeholder}
-      htmlid={args.htmlid}
-      style={{"--z-searchbar-results-height": args["--z-searchbar-results-height"]}}
-      size={args.size}
-      variant={args.variant}
-      label={args.label}
-      htmlAriaLabel={args.htmlAriaLabel}
-    ></z-searchbar>
-  ),
 } satisfies Story;
 
 export const AutocompleteWithComplexItems = {
@@ -185,32 +134,6 @@ export const AutocompleteWithComplexItems = {
       },
     ],
   },
-  render: (args) => (
-    <z-searchbar
-      preventSubmit={args.preventSubmit}
-      showSearchButton={args.showSearchButton}
-      searchButtonIconOnly={args.searchButtonIconOnly}
-      searchButtonLabel={args.searchButtonLabel}
-      autocomplete={args.autocomplete}
-      autocompleteMinChars={args.autocompleteMinChars}
-      resultsCount={args.resultsCount}
-      searchHelperLabel={args.searchHelperLabel}
-      resultsItems={args.resultsItems}
-      sortResultsItems={args.sortResultsItems}
-      value={args.value}
-      placeholder={args.placeholder}
-      htmlid={args.htmlid}
-      style={{
-        "--z-searchbar-results-height": args["--z-searchbar-results-height"],
-        "--z-searchbar-tag-text-color": args["--z-searchbar-tag-text-color"],
-        "--z-searchbar-tag-bg": args["--z-searchbar-tag-bg"],
-      }}
-      size={args.size}
-      variant={args.variant}
-      label={args.label}
-      htmlAriaLabel={args.htmlAriaLabel}
-    ></z-searchbar>
-  ),
 } satisfies Story;
 
 export const AutocompleteWithComplexTreeItems = {
@@ -326,30 +249,4 @@ export const AutocompleteWithComplexTreeItems = {
       },
     ],
   },
-  render: (args) => (
-    <z-searchbar
-      preventSubmit={args.preventSubmit}
-      showSearchButton={args.showSearchButton}
-      searchButtonIconOnly={args.searchButtonIconOnly}
-      searchButtonLabel={args.searchButtonLabel}
-      autocomplete={args.autocomplete}
-      autocompleteMinChars={args.autocompleteMinChars}
-      resultsCount={args.resultsCount}
-      searchHelperLabel={args.searchHelperLabel}
-      resultsItems={args.resultsItems}
-      sortResultsItems={args.sortResultsItems}
-      value={args.value}
-      placeholder={args.placeholder}
-      htmlid={args.htmlid}
-      style={{
-        "--z-searchbar-results-height": args["--z-searchbar-results-height"],
-        "--z-searchbar-tag-text-color": args["--z-searchbar-tag-text-color"],
-        "--z-searchbar-tag-bg": args["--z-searchbar-tag-bg"],
-      }}
-      size={args.size}
-      variant={args.variant}
-      label={args.label}
-      htmlAriaLabel={args.htmlAriaLabel}
-    ></z-searchbar>
-  ),
 } satisfies Story;

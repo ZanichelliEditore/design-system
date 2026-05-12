@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {PopoverPosition} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZTooltip} from "./index";
 import "./index.stories.css";
 
@@ -58,11 +58,10 @@ export const Default = {
         onClick={toggleTooltip}
       ></z-button>
       <z-tooltip
-        position={args.position}
-        dark={args.dark}
-        bindTo="#trigger"
+        {...args}
         ref={(el) => (tooltipRef = el)}
-        style={{"--z-tooltip-theme--surface": args["--z-tooltip-theme--surface"]}}
+        style={extractCSSVars(args)}
+        bindTo="#trigger"
       >
         <div class="content-container">
           <z-button>Open</z-button>
@@ -108,12 +107,11 @@ export const AutocloseOff = {
         onClick={rotateIcon}
       ></z-button>
       <z-tooltip
-        position={args.position}
-        dark={args.dark}
+        {...args}
         closable={false}
         bindTo="#info-button"
         ref={(el) => (tooltipRef = el)}
-        style={{"--z-tooltip-theme--surface": args["--z-tooltip-theme--surface"]}}
+        style={extractCSSVars(args)}
       >
         <span class="tooltip-info-text">Clicca per fare girare la freccia</span>
       </z-tooltip>

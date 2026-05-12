@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
-import type {Meta} from "@stencil/storybook-plugin";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZAppHeader} from "./index";
 import "./index.stories.css";
 
@@ -111,7 +111,8 @@ const menuTemplate = () => (
     </z-menu>
   </Fragment>
 );
-type Story = Meta<ZAppHeaderStoriesArgs>;
+
+type Story = StoryObj<ZAppHeaderStoriesArgs>;
 
 export const Title = {
   parameters: {
@@ -121,16 +122,14 @@ export const Title = {
   },
   render: (args) => (
     <z-app-header
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      enableZLogo={args.enableZLogo}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
       <a
-        href="zanichelli.it"
         slot="title"
+        href="zanichelli.it"
       >
-        <h1>Applicazione</h1>
+        Applicazione
       </a>
     </z-app-header>
   ),
@@ -144,12 +143,10 @@ export const ProductLogo = {
   },
   render: (args) => (
     <z-app-header
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      enableZLogo={args.enableZLogo}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
-      <h1 slot="title">Applicazione</h1>
+      <div slot="title">Applicazione</div>
       <div
         class="story-product-logo"
         slot="product-logo"
@@ -166,12 +163,11 @@ export const TopTitle = {
   },
   render: (args) => (
     <z-app-header
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
-      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
-      <h1 slot="title">Applicazione</h1>
+      <div slot="top-subtitle">Payoff dell'applicazione</div>
+      <div slot="title">Applicazione</div>
     </z-app-header>
   ),
 } satisfies Story;
@@ -184,13 +180,12 @@ export const TopTitleWithProductLogo = {
   },
   render: (args) => (
     <z-app-header
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       enableZLogo={false}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      style={extractCSSVars(args)}
     >
-      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
-      <h1 slot="title">Applicazione</h1>
+      <div slot="top-subtitle">Payoff dell'applicazione</div>
+      <div slot="title">Applicazione</div>
       <div
         class="story-product-logo"
         slot="product-logo"
@@ -207,10 +202,8 @@ export const CustomMenuButton = {
   },
   render: (args) => (
     <z-app-header
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      enableZLogo={args.enableZLogo}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
       <button slot="menu-button">
         <z-icon name="gear" />
@@ -219,7 +212,7 @@ export const CustomMenuButton = {
         href="zanichelli.it"
         slot="title"
       >
-        <h1>Applicazione</h1>
+        Applicazione
       </a>
     </z-app-header>
   ),
@@ -233,13 +226,11 @@ export const MenuWithTopTitle = {
   },
   render: (args) => (
     <z-app-header
-      enableOffcanvas={args.enableOffcanvas}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
-      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
-      <h1 slot="title">Applicazione</h1>
+      <div slot="top-subtitle">Payoff dell'applicazione</div>
+      <div slot="title">Applicazione</div>
       {menuTemplate()}
     </z-app-header>
   ),
@@ -253,14 +244,12 @@ export const MenuWithTopTitleAndProductLogo = {
   },
   render: (args) => (
     <z-app-header
-      enableOffcanvas={args.enableOffcanvas}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
+      {...args}
       enableZLogo={false}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      style={extractCSSVars(args)}
     >
-      <h2 slot="top-subtitle">Payoff dell'applicazione</h2>
-      <h1 slot="title">Applicazione</h1>
+      <div slot="top-subtitle">Payoff dell'applicazione</div>
+      <div slot="title">Applicazione</div>
       <div
         class="story-product-logo"
         slot="product-logo"
@@ -284,9 +273,9 @@ export const LongTitle = {
     },
   },
   render: (args) => (
-    <z-app-header style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}>
-      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
-      <h2 slot="top-subtitle">Jearl Walker, David Halliday, Robert Resnick</h2>
+    <z-app-header style={extractCSSVars(args)}>
+      <div slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</div>
+      <div slot="top-subtitle">Jearl Walker, David Halliday, Robert Resnick</div>
       {menuTemplate()}
     </z-app-header>
   ),
@@ -303,13 +292,10 @@ export const OffcanvasMenu = {
   },
   render: (args) => (
     <z-app-header
-      enableOffcanvas={args.enableOffcanvas}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      enableZLogo={args.enableZLogo}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
-      <h1 slot="title">Applicazione</h1>
+      <div slot="title">Applicazione</div>
       {menuTemplate()}
     </z-app-header>
   ),
@@ -339,13 +325,11 @@ export const Stuck = {
   },
   render: (args) => (
     <z-app-header
+      {...args}
       stuck
-      enableZLogo={args.enableZLogo}
-      enableSearch={args.enableSearch}
-      searchPageUrl={args.searchPageUrl}
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"], "--app-header-top-offset": "0"}}
+      style={extractCSSVars({...args, "--app-header-top-offset": "0"})}
     >
-      <h1 slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</h1>
+      <div slot="title">Fondamenti di fisica 8e - Meccanica, Onde, Termodinamica, Elettromagnetismo, Ottica</div>
       {menuTemplate()}
     </z-app-header>
   ),
@@ -369,15 +353,13 @@ export const SearchPageButton = {
   ],
   render: (args) => (
     <z-app-header
+      {...args}
       enableSearch
-      enableZLogo={args.enableZLogo}
-      searchPlaceholder={args.searchPlaceholder}
-      searchButtonLabel={args.searchButtonLabel}
       searchPageUrl="https://www.zanichelli.it"
-      style={{"--app-header-content-max-width": args["--app-header-content-max-width"]}}
+      style={extractCSSVars(args)}
     >
-      <h1 slot="title">Applicazione</h1>
-      <h2 slot="subtitle">Payoff dell'applicazione</h2>
+      <div slot="title">Applicazione</div>
+      <div slot="subtitle">Payoff dell'applicazione</div>
       {menuTemplate()}
     </z-app-header>
   ),

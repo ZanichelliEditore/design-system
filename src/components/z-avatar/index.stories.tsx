@@ -38,20 +38,13 @@ const StoryMeta = {
     text: "Avatar",
     textColor: "color-white",
     backgroundColor: "gray700",
-    image: "https://www.cinematographe.it/wp-content/uploads/2019/04/Avatar.jpg",
+    image:
+      "https://m.media-amazon.com/images/S/pv-target-images/16627900db04b76fae3b64266ca161511422059cd24062fb5d900971003a0b70._SX1080_FMjpg_.jpg",
   },
 } satisfies Meta<ZAvatar>;
 
 export default StoryMeta;
 
 export const Default = {
-  render: (args) => (
-    <z-avatar
-      size={args.size}
-      text={args.text}
-      textColor={args.textColor}
-      backgroundColor={args.backgroundColor}
-      image={args.image}
-    ></z-avatar>
-  ),
+  render: (args) => <z-avatar {...args}></z-avatar>,
 } satisfies StoryObj<ZAvatar>;

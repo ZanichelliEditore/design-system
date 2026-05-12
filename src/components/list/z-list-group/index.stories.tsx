@@ -43,84 +43,23 @@ const StoryMeta = {
     role: "group",
   },
 } satisfies Meta<ZListGroup>;
+
 export default StoryMeta;
 
 export const Default = {
   render: (args) => (
     <z-list>
-      <z-list-group
-        size={args.size}
-        dividerType={args.dividerType}
-        dividerSize={args.dividerSize}
-        dividerColor={args.dividerColor}
-        listType={args.listType}
-        role={args.role}
-      >
+      <z-list-group {...args}>
         <div slot="header-title">Gruppo 1</div>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 3
-        </z-list-element>
+        <z-list-element {...{...args, role: undefined}}>Elemento 1</z-list-element>
+        <z-list-element {...{...args, role: undefined}}>Elemento 2</z-list-element>
+        <z-list-element {...{...args, role: undefined}}>Elemento 3</z-list-element>
       </z-list-group>
-      <z-list-group
-        size={args.size}
-        dividerType={args.dividerType}
-        dividerSize={args.dividerSize}
-        dividerColor={args.dividerColor}
-        listType={args.listType}
-        role={args.role}
-      >
-        <div slot="header-title">Gruppo 1</div>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          size={args.size}
-          listType={args.listType}
-          dividerType={args.dividerType}
-          dividerSize={args.dividerSize}
-          dividerColor={args.dividerColor}
-        >
-          Elemento 3
-        </z-list-element>
+      <z-list-group {...args}>
+        <div slot="header-title">Gruppo 2</div>
+        <z-list-element {...{...args, role: undefined}}>Elemento 1</z-list-element>
+        <z-list-element {...{...args, role: undefined}}>Elemento 2</z-list-element>
+        <z-list-element {...{...args, role: undefined}}>Elemento 3</z-list-element>
       </z-list-group>
     </z-list>
   ),

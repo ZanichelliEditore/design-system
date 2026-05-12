@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, CoverHeroContentPosition, CoverHeroVariant, InfoRevealPosition} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZCoverHero} from "./index";
 import "./index.stories.css";
 
@@ -62,14 +62,8 @@ export const Default = {
   render: (args) => (
     <div class="z-cover-hero-story-container">
       <z-cover-hero
-        contentPosition={args.contentPosition}
-        variant={args.variant}
-        preserveAspectRatio={args.preserveAspectRatio}
-        style={{
-          "--cover-hero-overlay": args["--cover-hero-overlay"],
-          "--cover-hero-text-color": args["--cover-hero-text-color"],
-          "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
-        }}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <img
           slot="cover"
@@ -111,11 +105,8 @@ export const CustomAspectRatio = {
   render: (args) => (
     <div class="z-cover-hero-story-container">
       <z-cover-hero
-        style={{
-          "--cover-hero-overlay": args["--cover-hero-overlay"],
-          "--cover-hero-text-color": args["--cover-hero-text-color"],
-          "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
-        }}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <img
           slot="cover"
@@ -157,11 +148,8 @@ export const AutoAspectRatio = {
   render: (args) => (
     <div class="z-cover-hero-story-container z-cover-hero-auto-ratio">
       <z-cover-hero
-        style={{
-          "--cover-hero-overlay": args["--cover-hero-overlay"],
-          "--cover-hero-text-color": args["--cover-hero-text-color"],
-          "--cover-hero-aspect-ratio": args["--cover-hero-aspect-ratio"],
-        }}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <img
           slot="cover"
@@ -198,11 +186,9 @@ export const WithoutPreservingAspectRatio = {
   render: (args) => (
     <div class="z-cover-hero-story-container">
       <z-cover-hero
+        {...args}
         preserveAspectRatio={false}
-        style={{
-          "--cover-hero-overlay": args["--cover-hero-overlay"],
-          "--cover-hero-text-color": args["--cover-hero-text-color"],
-        }}
+        style={extractCSSVars(args)}
       >
         <img
           slot="cover"
@@ -233,9 +219,8 @@ export const StackedVariant = {
   render: (args) => (
     <div class="z-cover-hero-story-container">
       <z-cover-hero
-        contentPosition={args.contentPosition}
-        preserveAspectRatio={args.preserveAspectRatio}
-        variant={args.variant}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <img
           slot="cover"

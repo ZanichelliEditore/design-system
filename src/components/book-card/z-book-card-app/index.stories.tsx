@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {CSSVarsArguments} from "../../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../../utils/storybook-utils";
 import {ZBookCardApp} from "./index";
 
 type ZBookCardAppStoriesArgs = ZBookCardApp &
@@ -9,16 +9,14 @@ type ZBookCardAppStoriesArgs = ZBookCardApp &
 const StoryMeta = {
   title: "ZBookCard/ZBookCardApp",
   component: ZBookCardApp,
-  argTypes: {
-    "--z-book-card-app-padding-x": {control: {type: "text"}},
-    "--z-book-card-app-padding-y": {control: {type: "text"}},
-  },
   args: {
-    logo: "https://placehold.co/24",
-    name: "Esercizi",
-    laz: true,
-    info: "Cosa fa l'applicazione?",
-    link: "link-applicazione",
+    "logo": "https://placehold.co/24",
+    "name": "Esercizi",
+    "laz": true,
+    "info": "Cosa fa l'applicazione?",
+    "link": "link-applicazione",
+    "--z-book-card-app-padding-x": "",
+    "--z-book-card-app-padding-y": "",
   },
 } satisfies Meta<ZBookCardAppStoriesArgs>;
 
@@ -26,22 +24,11 @@ export default StoryMeta;
 
 type Story = StoryObj<ZBookCardAppStoriesArgs>;
 
-export const CardApp = {
-  args: {
-    "--z-book-card-app-padding-x": null,
-    "--z-book-card-app-padding-y": null,
-  },
+export const Default = {
   render: (args) => (
     <z-book-card-app
-      logo={args.logo}
-      name={args.name}
-      laz={args.laz}
-      info={args.info}
-      link={args.link}
-      style={{
-        "--z-book-card-app-padding-x": args["--z-book-card-app-padding-x"],
-        "--z-book-card-app-padding-y": args["--z-book-card-app-padding-y"],
-      }}
+      {...args}
+      style={extractCSSVars(args)}
     ></z-book-card-app>
   ),
 } satisfies Story;

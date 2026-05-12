@@ -35,17 +35,7 @@ const StoryMeta = {
   },
   render: (args) => (
     <div class="toast-container">
-      <z-toast-notification
-        heading={args.heading}
-        message={args.message}
-        closebutton={args.closebutton}
-        autoclose={args.autoclose}
-        pauseonfocusloss={args.pauseonfocusloss}
-        type={args.type}
-        isdraggable={args.isdraggable}
-        draggablepercentage={args.draggablepercentage}
-        transition={args.transition}
-      ></z-toast-notification>
+      <z-toast-notification {...args}></z-toast-notification>
     </div>
   ),
 } satisfies Meta<ZToastNotification>;
@@ -89,9 +79,9 @@ export const SlottedButton = {
   args: {
     transition: ToastNotificationTransition.SLIDE_IN_DOWN,
   },
-  parameters: {
-    slots: {
-      button: (
+  render: (args) => (
+    <div class="toast-container">
+      <z-toast-notification {...args}>
         <z-button
           class="slotted-button"
           slot="button"
@@ -100,9 +90,9 @@ export const SlottedButton = {
         >
           button
         </z-button>
-      ),
-    },
-  },
+      </z-toast-notification>
+    </div>
+  ),
 } satisfies Story;
 
 export const SlottedButtonLongText = {
@@ -111,9 +101,9 @@ export const SlottedButtonLongText = {
     heading: "Titolo abbastanza lungo",
     message: longText,
   },
-  parameters: {
-    slots: {
-      button: (
+  render: (args) => (
+    <div class="toast-container">
+      <z-toast-notification {...args}>
         <z-button
           class="slotted-button"
           slot="button"
@@ -122,17 +112,16 @@ export const SlottedButtonLongText = {
         >
           button
         </z-button>
-      ),
-    },
-  },
+      </z-toast-notification>
+    </div>
+  ),
 } satisfies Story;
 
 export const SlottedMessage = {
   args: {transition: ToastNotificationTransition.SLIDE_IN_DOWN},
-  parameters: {
-    controls: {exclude: ["message"]},
-    slots: {
-      message: (
+  render: (args) => (
+    <div class="toast-container">
+      <z-toast-notification {...args}>
         <span slot="message">
           Messaggio con
           <a
@@ -143,9 +132,9 @@ export const SlottedMessage = {
           </a>
           e <b>grassetto</b>
         </span>
-      ),
-    },
-  },
+      </z-toast-notification>
+    </div>
+  ),
 } satisfies Story;
 
 export const SlottedMessageLongText = {
@@ -153,10 +142,9 @@ export const SlottedMessageLongText = {
     transition: ToastNotificationTransition.SLIDE_IN_DOWN,
     heading: "Titolo abbastanza lungo",
   },
-  parameters: {
-    controls: {exclude: ["message"]},
-    slots: {
-      message: (
+  render: (args) => (
+    <div class="toast-container">
+      <z-toast-notification {...args}>
         <span slot="message">
           {longText}
           <a
@@ -166,7 +154,7 @@ export const SlottedMessageLongText = {
             link
           </a>
         </span>
-      ),
-    },
-  },
+      </z-toast-notification>
+    </div>
+  ),
 } satisfies Story;

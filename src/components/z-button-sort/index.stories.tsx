@@ -14,17 +14,7 @@ const StoryMeta = {
     isselected: true,
     sortasc: true,
   },
-  render: (args) => (
-    <z-button-sort
-      label={args.label}
-      counter={args.counter}
-      desclabel={args.desclabel}
-      sortlabelasc={args.sortlabelasc}
-      sortlabeldesc={args.sortlabeldesc}
-      isselected={args.isselected}
-      sortasc={args.sortasc}
-    ></z-button-sort>
-  ),
+  render: (args) => <z-button-sort {...args}></z-button-sort>,
 } satisfies Meta<ZButtonSort>;
 
 export default StoryMeta;

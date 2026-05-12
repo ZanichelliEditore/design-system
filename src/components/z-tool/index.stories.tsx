@@ -32,15 +32,7 @@ const StoryMeta = {
   },
   render: (args) => (
     <div class="tool-container">
-      <z-tool
-        icon={args.icon}
-        tooltip={args.tooltip}
-        tooltipPosition={args.tooltipPosition}
-        indicatorColor={args.indicatorColor}
-        htmlAriaLabel={args.htmlAriaLabel}
-        active={args.active}
-        disabled={args.disabled}
-      ></z-tool>
+      <z-tool {...args}></z-tool>
     </div>
   ),
 } satisfies Meta<ZTool>;
@@ -64,9 +56,9 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithToolbar = {
-  parameters: {
-    slots: {
-      default: (
+  render: (args) => (
+    <div class="tool-container">
+      <z-tool {...args}>
         <z-toolbar>
           <z-tool
             icon="gear"
@@ -94,9 +86,9 @@ export const WithToolbar = {
             tooltip="Copia"
           ></z-tool>
         </z-toolbar>
-      ),
-    },
-  },
+      </z-tool>
+    </div>
+  ),
 } satisfies Story;
 
 export const ColorPicker = {
@@ -112,8 +104,12 @@ export const ColorPicker = {
         height: "300px",
       },
     },
-    slots: {
-      default: <z-color-picker></z-color-picker>,
-    },
   },
+  render: (args) => (
+    <div class="tool-container">
+      <z-tool {...args}>
+        <z-color-picker></z-color-picker>
+      </z-tool>
+    </div>
+  ),
 } satisfies Story;

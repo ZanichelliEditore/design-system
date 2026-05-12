@@ -70,33 +70,13 @@ const StoryMeta = {
     resetItem: "",
     isfixed: false,
   },
+  render: (args) => <z-select {...args} />,
 } satisfies Meta<ZSelect>;
 export default StoryMeta;
 
 type Story = StoryObj<ZSelect>;
 
-export const Default = {
-  render: (args) => (
-    <z-select
-      items={args.items}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      autocomplete={args.autocomplete}
-      noresultslabel={args.noresultslabel}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      resetItem={args.resetItem}
-      isfixed={args.isfixed}
-      size={args.size}
-    ></z-select>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const Groups = {
   args: {
@@ -142,27 +122,6 @@ export const Groups = {
       },
     ] as SelectItem[],
   },
-  render: (args) => (
-    <z-select
-      items={args.items}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      autocomplete={args.autocomplete}
-      noresultslabel={args.noresultslabel}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      hasGroupItems={args.hasGroupItems}
-      resetItem={args.resetItem}
-      isfixed={args.isfixed}
-      size={args.size}
-    ></z-select>
-  ),
 } satisfies Story;
 
 export const ZSelectWithIcons = {
@@ -190,26 +149,6 @@ export const ZSelectWithIcons = {
       },
     ] as SelectItem[],
   },
-  render: (args) => (
-    <z-select
-      items={args.items}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      autocomplete={args.autocomplete}
-      noresultslabel={args.noresultslabel}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      resetItem={args.resetItem}
-      isfixed={args.isfixed}
-      size={args.size}
-    ></z-select>
-  ),
 } satisfies Story;
 
 export const ZSelectWithTreeItems = {
@@ -258,27 +197,6 @@ export const ZSelectWithTreeItems = {
       },
     ] as SelectItem[],
   },
-  render: (args) => (
-    <z-select
-      items={args.items}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      autocomplete={args.autocomplete}
-      noresultslabel={args.noresultslabel}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      resetItem={args.resetItem}
-      isfixed={args.isfixed}
-      size={args.size}
-      hasTreeItems={args.hasTreeItems}
-    ></z-select>
-  ),
 } satisfies Story;
 
 export const ZSelectWithGroupsAndTreeItems = {
@@ -342,27 +260,4 @@ export const ZSelectWithGroupsAndTreeItems = {
       },
     ] as SelectItem[],
   },
-  render: (args) => (
-    <z-select
-      items={args.items}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      autocomplete={args.autocomplete}
-      noresultslabel={args.noresultslabel}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      resetItem={args.resetItem}
-      isfixed={args.isfixed}
-      size={args.size}
-      hasGroupItems={args.hasGroupItems}
-      hasTreeItems={args.hasTreeItems}
-      showChildrenOfMatchingParent={args.showChildrenOfMatchingParent}
-    ></z-select>
-  ),
 } satisfies Story;

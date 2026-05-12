@@ -19,10 +19,7 @@ type Story = StoryObj<ZMenu>;
 
 export const FloatingContentLayout = {
   render: (args) => (
-    <z-menu
-      active={args.active}
-      floating={args.floating}
-    >
+    <z-menu {...args}>
       <h3>Menu label</h3>
       <a
         href=""
@@ -78,10 +75,7 @@ export const FloatingContentLayout = {
 
 export const WithHeader = {
   render: (args) => (
-    <z-menu
-      active={args.active}
-      floating={args.floating}
-    >
+    <z-menu {...args}>
       <img
         slot="header"
         src="https://i.pinimg.com/originals/b9/fc/7e/b9fc7e6b2dd2ca128bcc3412e68994f0.jpg"
@@ -131,8 +125,11 @@ export const ActiveWithoutItems = {
       exclude: ["floating"],
     },
   },
-  render: () => (
-    <z-menu active={true}>
+  args: {
+    active: true,
+  },
+  render: (args) => (
+    <z-menu {...args}>
       <a
         href="https://cataas.com/cat/gif"
         target="_blank"

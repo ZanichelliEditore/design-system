@@ -23,7 +23,7 @@ export class ZCard implements ComponentInterface {
    * Leave it undefined for the default card.
    */
   @Prop({reflect: true})
-  variant: CardVariant;
+  variant?: CardVariant;
 
   /** Name of the icon to place over the image cover */
   @Prop()

@@ -38,11 +38,7 @@ export default StoryMeta;
 export const Default = {
   render: (args) => (
     <div style={{height: "300px", padding: "24px"}}>
-      <z-divider
-        size={args.size}
-        color={args.color}
-        orientation={args.orientation}
-      ></z-divider>
+      <z-divider {...args}></z-divider>
     </div>
   ),
 } satisfies StoryObj<ZDivider>;

@@ -16,7 +16,7 @@ type Story = StoryObj<ZMenuSection>;
 
 export const WithItems = {
   render: (args) => (
-    <z-menu-section active={args.active}>
+    <z-menu-section {...args}>
       <h3>Label</h3>
       <a
         href=""
@@ -44,7 +44,7 @@ export const WithItems = {
 
 export const WithoutItems = {
   render: (args) => (
-    <z-menu-section active={args.active}>
+    <z-menu-section {...args}>
       <h3>Label</h3>
     </z-menu-section>
   ),

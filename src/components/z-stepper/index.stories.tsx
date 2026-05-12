@@ -13,42 +13,41 @@ export default {
 
 type Story = StoryObj<ZStepper>;
 
-export const Default = {
-  parameters: {
-    onClick: (elem) => {
-      if (!elem.disabled) {
-        elem.setAttribute("pressed", "");
-        Array.from(document.querySelectorAll("z-stepper-item")).forEach((s) => {
-          if (s === elem) {
-            return;
-          }
-          s.pressed = false;
-          s.removeAttribute("pressed");
-        });
+const onItemClick = (ev: MouseEvent) => {
+  const elem = ev.currentTarget as HTMLZStepperItemElement;
+  if (!elem.disabled) {
+    elem.pressed = true;
+    Array.from(document.querySelectorAll("z-stepper-item")).forEach((s) => {
+      if (s === elem) {
+        return;
       }
-    },
-  },
-  render: (_args, parameters) => (
+      s.pressed = false;
+    });
+  }
+};
+
+export const Default = {
+  render: () => (
     <z-stepper>
       <z-stepper-item
         index={1}
         pressed
         href="#"
-        onClick={parameters.onClick}
+        onClick={onItemClick}
       >
         I tuoi dati
       </z-stepper-item>
       <z-stepper-item
         index={2}
         href="#"
-        onClick={parameters.onClick}
+        onClick={onItemClick}
       >
         Le tue credenziali
       </z-stepper-item>
       <z-stepper-item
         index={3}
         href="#"
-        onClick={parameters.onClick}
+        onClick={onItemClick}
       >
         Conferma
       </z-stepper-item>

@@ -23,17 +23,18 @@ export default StoryMeta;
 const requestDelayedMsg = () => {
   const myTimeout = setTimeout(() => {
     const myalert = document.querySelector("z-aria-alert");
-    myalert.innerHTML = "Ecco un numero a caso: " + Math.random();
+    myalert.innerHTML = "Ecco un numero a caso: " + Math.round(Math.random() * 100);
     clearTimeout(myTimeout);
-  }, 3000);
+  }, 1000);
 };
 
 export const Default = {
   render: (args) => (
     <div>
-      <h2 class="heading-2">ZAriaAlert deafult</h2>
-      <span>Open your ScreenReader, Click on the button and wait 3 seconds, the screenreader will read a message</span>
-      <z-button onClick={requestDelayedMsg}>Click to say something</z-button>
+      <p>Open your ScreenReader, Click on the button and wait 3 seconds, the screenreader will read a message</p>
+      <p>
+        <z-button onClick={requestDelayedMsg}>Click to say something</z-button>
+      </p>
       <z-aria-alert mode={args.mode}>Testo NON nascosto</z-aria-alert>
     </div>
   ),
@@ -42,13 +43,14 @@ export const Default = {
 export const VisuallyHidden = {
   render: (args) => (
     <div>
-      <h2 class="heading-2">ZAriaAlert with VisuallyHidden</h2>
-      <span>
+      <p>
         You can also wrap your <code>z-aria-alert</code> with a <code>z-visually-hidden</code> tag in order to visually
         hide the text.
-      </span>
-      <span>Open your ScreenReader, Click on the button and wait 3 seconds, the screenreader will read a message</span>
-      <z-button onClick={requestDelayedMsg}>Click to say something but visually hidden</z-button>
+      </p>
+      <p>Open your ScreenReader, Click on the button and wait 3 seconds, the screenreader will read a message</p>
+      <p>
+        <z-button onClick={requestDelayedMsg}>Click to say something but visually hidden</z-button>
+      </p>
       <z-visually-hidden>
         <z-aria-alert mode={args.mode}>Testo qua</z-aria-alert>
       </z-visually-hidden>

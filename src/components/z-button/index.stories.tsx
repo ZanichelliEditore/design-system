@@ -29,19 +29,7 @@ const StoryMeta = {
       control: {type: "inline-radio"},
     },
   },
-  render: (args) => (
-    <z-button
-      variant={args.variant}
-      size={args.size}
-      disabled={args.disabled}
-      icon={args.icon}
-      iconPosition={args.iconPosition}
-      ariaLabel={args.ariaLabel}
-      htmlrole={args.htmlrole}
-    >
-      Click me
-    </z-button>
-  ),
+  render: (args) => <z-button {...args}>Click me</z-button>,
 } satisfies Meta<ZButton>;
 
 export default StoryMeta;
@@ -75,17 +63,7 @@ export const TertiarySmall = {
 } satisfies Story;
 
 export const IconOnly = {
-  render: (args) => (
-    <z-button
-      variant={args.variant}
-      size={args.size}
-      disabled={args.disabled}
-      icon={args.icon}
-      iconPosition={args.iconPosition}
-      ariaLabel={args.ariaLabel}
-      htmlrole={args.htmlrole}
-    ></z-button>
-  ),
+  render: (args) => <z-button {...args}></z-button>,
 } satisfies Story;
 
 export const LinkButton = {
@@ -95,21 +73,7 @@ export const LinkButton = {
     target: "_blank",
     role: "link",
   },
-  render: (args) => (
-    <z-button
-      variant={args.variant}
-      size={args.size}
-      disabled={args.disabled}
-      icon={args.icon}
-      iconPosition={args.iconPosition}
-      ariaLabel={args.ariaLabel}
-      htmlrole={args.htmlrole}
-      href={args.href}
-      target={args.target}
-    >
-      Go to wikipedia
-    </z-button>
-  ),
+  render: (args) => <z-button {...args}>Go to wikipedia</z-button>,
 } satisfies Story;
 
 export const IconRight = {

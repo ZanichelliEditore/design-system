@@ -54,14 +54,7 @@ export default StoryMeta;
 export const Breadcrumb = {
   render: (args) => (
     <div class="z-breadcrumb-story-container">
-      <z-breadcrumb
-        pathStyle={args.pathStyle}
-        homepageVariant={args.homepageVariant}
-        maxNodesToShow={args.maxNodesToShow}
-        preventFollowUrl={args.preventFollowUrl}
-        overflowMenuItemRows={args.overflowMenuItemRows}
-        truncateChar={args.truncateChar}
-      >
+      <z-breadcrumb {...args}>
         <a href="https://www.zanichelli.it"></a>
         <a href="./link1">Lingua inglese - Scuola secondaria di primo grado</a>
         <a href="./link2">Lingua Inglese - Lessico e funzioni linguistiche e comunicative</a>

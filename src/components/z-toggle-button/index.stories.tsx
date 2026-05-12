@@ -18,13 +18,5 @@ export default StoryMeta;
 type Story = StoryObj<ZToggleButton>;
 
 export const Default = {
-  render: (args) => (
-    <z-toggle-button
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      avoidclick={args.avoidclick}
-      isdisabled={args.isdisabled}
-      opened={args.opened}
-    ></z-toggle-button>
-  ),
+  render: (args) => <z-toggle-button {...args}></z-toggle-button>,
 } satisfies Story;

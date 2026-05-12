@@ -18,14 +18,5 @@ const StoryMeta = {
 export default StoryMeta;
 
 export const Default = {
-  render: (args) => (
-    <z-logo
-      imageAlt={args.imageAlt}
-      height={args.height}
-      width={args.width}
-      link={args.link}
-      targetBlank={args.targetBlank}
-      mobileLogo={args.mobileLogo}
-    ></z-logo>
-  ),
+  render: (args) => <z-logo {...args}></z-logo>,
 } satisfies StoryObj<ZLogo>;

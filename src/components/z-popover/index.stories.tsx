@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {PopoverPosition, TransitionDirection} from "../../beans";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZPopover} from "./index";
 import "./index.stories.css";
 
@@ -131,14 +131,8 @@ export const Demo = {
     <Fragment>
       <div class="popover-container">
         <z-popover
-          style={{
-            "--z-popover-theme--surface": args["--z-popover-theme--surface"],
-            "--z-popover-theme--text": args["--z-popover-theme--text"],
-            "--z-popover-padding": args["--z-popover-padding"],
-          }}
-          position={args.position}
-          center={args.center}
-          showArrow={args.showArrow}
+          {...args}
+          style={extractCSSVars(args)}
           bindTo="#demo-trigger"
         >
           <div class="popover-content">
@@ -165,12 +159,8 @@ export const ContextualMenuLike = {
   render: (args) => (
     <div class="popover-container">
       <z-popover
-        style={{
-          "--z-popover-theme--surface": args["--z-popover-theme--surface"],
-          "--z-popover-theme--text": args["--z-popover-theme--text"],
-          "--z-popover-padding": args["--z-popover-padding"],
-        }}
-        position={args.position}
+        {...args}
+        style={extractCSSVars(args)}
         bindTo="#trigger"
       >
         <z-list>
@@ -196,12 +186,8 @@ export const Tooltip = {
   render: (args) => (
     <div class="popover-container popover-container-tooltip">
       <z-popover
-        style={{
-          "--z-popover-theme--surface": args["--z-popover-theme--surface"],
-          "--z-popover-theme--text": args["--z-popover-theme--text"],
-          "--z-popover-padding": args["--z-popover-padding"],
-        }}
-        position={args.position}
+        {...args}
+        style={extractCSSVars(args)}
         center={true}
         showArrow={true}
         bindTo="#trigger"
@@ -230,12 +216,8 @@ export const TooltipWithNestedContainer = {
       <div class="popover-internal-container">
         <div class="popover-internal-container-2">
           <z-popover
-            style={{
-              "--z-popover-theme--surface": args["--z-popover-theme--surface"],
-              "--z-popover-theme--text": args["--z-popover-theme--text"],
-              "--z-popover-padding": args["--z-popover-padding"],
-            }}
-            position={args.position}
+            {...args}
+            style={extractCSSVars(args)}
             center={true}
             showArrow={true}
             bindTo="#trigger"
@@ -285,12 +267,8 @@ export const PopoverInsideTransformedElement = {
       >
         <div slot="canvasContent">
           <z-popover
-            style={{
-              "--z-popover-theme--surface": args["--z-popover-theme--surface"],
-              "--z-popover-theme--text": args["--z-popover-theme--text"],
-              "--z-popover-padding": args["--z-popover-padding"],
-            }}
-            position={args.position}
+            {...args}
+            style={extractCSSVars(args)}
             bind-to="#popover-trigger"
           >
             <div class="popover-content">

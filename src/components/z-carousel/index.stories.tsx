@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZCarousel} from "./index";
 import "./index.stories.css";
 
@@ -11,6 +11,19 @@ const StoryMeta = {
   title: "ZCarousel",
   component: ZCarousel,
   decorators: [(Story) => <div class="z-carousel-story-container">{Story()}</div>],
+  render: (args) => (
+    <z-carousel
+      {...args}
+      arrowsPosition={CarouselArrowsPosition.OVER}
+      style={extractCSSVars(args)}
+    >
+      {[...new Array(args.itemsCount)].map((_, index) => (
+        <li>
+          <div class="carousel-box">{index + 1}</div>
+        </li>
+      ))}
+    </z-carousel>
+  ),
 } satisfies Meta<ZCarouselStoriesArgs>;
 
 export default StoryMeta;
@@ -25,27 +38,9 @@ export const SlideshowWithArrowsOver = {
     "fixedArrows": true,
     "itemsCount": 8,
   },
-  render: (args) => (
-    <z-carousel
-      arrowsPosition={CarouselArrowsPosition.OVER}
-      fixedArrows={args.fixedArrows}
-      infinite={args.infinite}
-      label={args.label}
-      style={{"--z-carousel-gutter": args["--z-carousel-gutter"]}}
-    >
-      {[...new Array(args.itemsCount)].map((_, index) => (
-        <li>
-          <div class="carousel-box">{index + 1}</div>
-        </li>
-      ))}
-    </z-carousel>
-  ),
 } satisfies Story;
 
 export const SingleMode = {
-  parameters: {
-    layout: "centered",
-  },
   argTypes: {
     arrowsPosition: {
       control: {
@@ -67,47 +62,33 @@ export const SingleMode = {
     infinite: false,
     fixedArrows: true,
     itemsCount: 8,
+    single: true,
   },
-  render: (args) => (
-    <z-carousel
-      arrowsPosition={args.arrowsPosition}
-      fixedArrows={args.fixedArrows}
-      infinite={args.infinite}
-      progressMode={args.progressMode}
-      single={true}
-      label={args.label}
-    >
-      {[...new Array(args.itemsCount)].map((_, index) => (
-        <li>
-          <div class="carousel-box">{index + 1}</div>
-        </li>
-      ))}
-    </z-carousel>
-  ),
+  parameters: {
+    layout: "centered",
+    controls: {
+      exclude: ["single"],
+    },
+  },
 } satisfies Story;
 
 export const GhostLoading = {
   args: {
     label: "Carousel title",
     ghostLoadingHeight: 265,
+    isLoading: true,
   },
   parameters: {
     controls: {
-      exclude: ["infinite"],
+      exclude: ["isLoading"],
     },
   },
-  render: (args) => (
-    <z-carousel
-      label={args.label}
-      isLoading={true}
-      ghostLoadingHeight={args.ghostLoadingHeight}
-    ></z-carousel>
-  ),
 } satisfies Story;
 
 export const LoadingItems = {
   args: {
     "label": "Carousel title",
+    "infinite": false,
     "--z-carousel-gutter": "8px",
   },
   parameters: {
@@ -117,9 +98,8 @@ export const LoadingItems = {
   },
   render: (args) => (
     <z-carousel
-      label={args.label}
-      infinite={args.infinite}
-      style={{"--z-carousel-gutter": args["--z-carousel-gutter"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
       {[...new Array(8)].map(() => (
         <li>

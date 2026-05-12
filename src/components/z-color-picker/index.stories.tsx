@@ -32,10 +32,5 @@ export default StoryMeta;
 type Story = StoryObj<ZColorPicker>;
 
 export const Default = {
-  render: (args) => (
-    <z-color-picker
-      selectedColor={args.selectedColor}
-      disableTransparent={args.disableTransparent}
-    ></z-color-picker>
-  ),
+  render: (args) => <z-color-picker {...args}></z-color-picker>,
 } satisfies Story;

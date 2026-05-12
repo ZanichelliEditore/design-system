@@ -4,6 +4,13 @@ import {ZDatePickerMode} from "../../../beans";
 import "../index.stories.css";
 import {ZDatePicker} from "./index";
 
+const onDateSelect = (e: CustomEvent<string>, datePickerId: string) => {
+  const input = document.getElementById(`output-${datePickerId}`);
+  if (input) {
+    input.innerHTML = `["${e.detail}"]`;
+  }
+};
+
 /**
  * In order to avoid conflits between date pickers, pass a unique id as `datePickerId` prop.
  * This component emits an event called `dateSelect` with the value of the selected date.
@@ -21,26 +28,15 @@ const StoryMeta = {
   },
   args: {
     ariaLabel: "date-picker",
+    datePickerId: "date-picker-story",
     mode: ZDatePickerMode.DATE,
-  },
-  beforeEach: (args) => {
-    document.getElementById(`${args.datePickerId}`)?.addEventListener("dateSelect", (e: CustomEvent<string>) => {
-      const input = document.getElementById(`output-${args.datePickerId}`);
-      if (input) {
-        input.innerHTML = `["${e.detail}"]`;
-      }
-    });
   },
   render: (args) => (
     <div class="story-container">
       <div class="story-picker-container">
         <z-date-picker
-          mode={args.mode}
-          datePickerId={args.datePickerId}
-          id={args.datePickerId}
-          ariaLabel={args.ariaLabel}
-          label={args.label}
-          value={args.value}
+          {...args}
+          onDateSelect={(e) => onDateSelect(e, args.datePickerId)}
         ></z-date-picker>
       </div>
       <div class="story-output-container">
@@ -58,7 +54,6 @@ type Story = StoryObj<ZDatePicker>;
 
 export const Date: Story = {
   args: {
-    datePickerId: "picker-01",
     label: "ZDatePicker with date",
     value: "25-12-2024",
   },
@@ -66,7 +61,6 @@ export const Date: Story = {
 
 export const DateAndTime: Story = {
   args: {
-    datePickerId: "picker-02",
     label: "ZDatePicker with date and time",
     mode: ZDatePickerMode.DATE_TIME,
     value: "05-12-2024 - 12:01",
@@ -76,7 +70,6 @@ export const DateAndTime: Story = {
 
 export const MonthsOnly: Story = {
   args: {
-    datePickerId: "picker-03",
     label: "ZDatePicker with only months",
     mode: ZDatePickerMode.MONTHS,
     value: "12-2024",
@@ -86,7 +79,6 @@ export const MonthsOnly: Story = {
 
 export const CustomToggle: Story = {
   args: {
-    datePickerId: "picker-04",
     label: "date picker",
     value: "25-01-2024",
     name: "date-toogle-picker",
@@ -95,12 +87,8 @@ export const CustomToggle: Story = {
     <div class="story-container">
       <div class="story-picker-container">
         <z-date-picker
-          mode={args.mode}
-          datePickerId={args.datePickerId}
-          id={args.datePickerId}
-          ariaLabel={args.ariaLabel}
-          label={args.label}
-          value={args.value}
+          {...args}
+          onDateSelect={(e) => onDateSelect(e, args.datePickerId)}
         >
           <z-button slot="toggle">Open ZDatePicker</z-button>
         </z-date-picker>

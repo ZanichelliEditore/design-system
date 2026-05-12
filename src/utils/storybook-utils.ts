@@ -187,3 +187,11 @@ export function getColorTokenArgConfig(nullable = false): Args {
     },
   } satisfies Args;
 }
+
+/**
+ * Extract CSS variables from an object.
+ * Returns only the entries with keys starting with `--`.
+ */
+export function extractCSSVars(args: Args): CSSVarsArguments {
+  return Object.fromEntries(Object.entries(args).filter(([key]) => key.startsWith("--")));
+}

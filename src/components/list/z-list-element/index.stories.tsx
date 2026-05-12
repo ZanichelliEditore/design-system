@@ -8,8 +8,13 @@ import {
   ListSize,
   ListType,
 } from "../../../beans";
+import type {Components} from "../../../components";
 import {getColorTokens} from "../../../utils/storybook-utils";
 import {ZListElement} from "./index";
+
+// Spread on <z-list-element {...args}> must match `LocalJSX.IntrinsicElements["z-list-element"] & HTMLAttributes`: when using `Meta<ZListElement>` (like for other stories),
+// `args` includes class fields like `ariaDescendantFocus: EventEmitter<number>`, but HTML/aria attributes must be `string|boolean` values, so TS would reject the object.
+type ZListElementMeta = Meta<Components.ZListElement>;
 
 const StoryMeta = {
   title: "ZList/ZListElement",
@@ -75,69 +80,22 @@ const StoryMeta = {
     listElementId: 0,
     size: ListSize.MEDIUM,
     color: "color-default-text",
-    disabled: true,
+    disabled: false,
     listElementPosition: "0",
     listType: ListType.NONE,
   },
-} satisfies Meta<ZListElement>;
-
+} satisfies ZListElementMeta;
 export default StoryMeta;
 
 export const Default = {
   render: (args) => (
     <z-list>
-      <z-list-element
-        alignButton={args.alignButton}
-        clickable={args.clickable}
-        dividerColor={args.dividerColor}
-        dividerType={args.dividerType}
-        dividerSize={args.dividerSize}
-        expandable={args.expandable}
-        expandableStyle={args.expandableStyle}
-        listElementId={args.listElementId}
-        size={args.size}
-        color={args.color}
-        disabled={args.disabled}
-        listElementPosition={args.listElementPosition}
-        listType={args.listType}
-      >
+      <z-list-element {...args}>
         <span>Elemento 1</span>
         <span slot="inner-content">Inner content</span>
       </z-list-element>
-      <z-list-element
-        alignButton={args.alignButton}
-        clickable={args.clickable}
-        dividerColor={args.dividerColor}
-        dividerType={args.dividerType}
-        dividerSize={args.dividerSize}
-        expandable={args.expandable}
-        expandableStyle={args.expandableStyle}
-        listElementId={args.listElementId}
-        size={args.size}
-        color={args.color}
-        disabled={args.disabled}
-        listElementPosition={args.listElementPosition}
-        listType={args.listType}
-      >
-        Elemento 2
-      </z-list-element>
-      <z-list-element
-        alignButton={args.alignButton}
-        clickable={args.clickable}
-        dividerColor={args.dividerColor}
-        dividerType={args.dividerType}
-        dividerSize={args.dividerSize}
-        expandable={args.expandable}
-        expandableStyle={args.expandableStyle}
-        listElementId={args.listElementId}
-        size={args.size}
-        color={args.color}
-        disabled={args.disabled}
-        listElementPosition={args.listElementPosition}
-        listType={args.listType}
-      >
-        Elemento 3
-      </z-list-element>
+      <z-list-element {...args}>Elemento 2</z-list-element>
+      <z-list-element {...args}>Elemento 3</z-list-element>
     </z-list>
   ),
-} satisfies StoryObj<ZListElement>;
+} satisfies StoryObj<Components.ZListElement>;

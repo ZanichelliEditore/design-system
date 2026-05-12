@@ -1,11 +1,32 @@
-import {h} from "@stencil/core";
+import {Fragment, h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ListSize, ListType} from "../../../beans";
+import {ZListElement} from "../z-list-element/index";
+import {ZListGroup} from "../z-list-group/index";
 import {ZList} from "./index";
+
+const renderListElements = (args, clickable = false) => {
+  return (
+    <Fragment>
+      {[1, 2, 3].map((i) => (
+        <z-list-element
+          {...args}
+          clickable={clickable}
+        >
+          Elemento {i}
+        </z-list-element>
+      ))}
+    </Fragment>
+  );
+};
 
 const StoryMeta = {
   title: "ZList/ZList",
   component: ZList,
+  subcomponents: {
+    ZListElement,
+    ZListGroup,
+  },
   argTypes: {
     size: {
       control: {
@@ -24,31 +45,7 @@ const StoryMeta = {
     size: ListSize.MEDIUM,
     listType: ListType.NONE,
   },
-  render: (args) => (
-    <z-list
-      listType={args.listType}
-      size={args.size}
-    >
-      <z-list-element
-        listType={args.listType}
-        size={args.size}
-      >
-        Elemento 1
-      </z-list-element>
-      <z-list-element
-        listType={args.listType}
-        size={args.size}
-      >
-        Elemento 2
-      </z-list-element>
-      <z-list-element
-        listType={args.listType}
-        size={args.size}
-      >
-        Elemento 3
-      </z-list-element>
-    </z-list>
-  ),
+  render: (args) => <z-list {...args}>{renderListElements(args)}</z-list>,
 } satisfies Meta<ZList>;
 
 export default StoryMeta;
@@ -62,45 +59,11 @@ export const HeaderDivider = {
     <z-list>
       <z-list-group divider-type="header">
         <div slot="header-title">Gruppo 1</div>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 3
-        </z-list-element>
+        {renderListElements(args)}
       </z-list-group>
       <z-list-group divider-type="header">
         <div slot="header-title">Gruppo 2</div>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 3
-        </z-list-element>
+        {renderListElements(args)}
       </z-list-group>
     </z-list>
   ),
@@ -111,45 +74,11 @@ export const ElementDivider = {
     <z-list>
       <z-list-group divider-type="element">
         <div slot="header-title">Gruppo 1</div>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 3
-        </z-list-element>
+        {renderListElements(args)}
       </z-list-group>
       <z-list-group divider-type="element">
         <div slot="header-title">Gruppo 2</div>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 1
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 2
-        </z-list-element>
-        <z-list-element
-          listType={args.listType}
-          size={args.size}
-        >
-          Elemento 3
-        </z-list-element>
+        {renderListElements(args)}
       </z-list-group>
     </z-list>
   ),
@@ -158,11 +87,7 @@ export const ElementDivider = {
 export const ClickableElements = {
   render: () => (
     <z-list>
-      <z-list-group>
-        <z-list-element clickable>Elemento 1</z-list-element>
-        <z-list-element clickable>Elemento 2</z-list-element>
-        <z-list-element clickable>Elemento 3</z-list-element>
-      </z-list-group>
+      <z-list-group>{renderListElements({}, true)}</z-list-group>
     </z-list>
   ),
 } satisfies Story;

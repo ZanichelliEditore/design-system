@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZPagination} from "./index";
 
 type ZPaginationStoriesArgs = ZPagination &
@@ -68,18 +68,8 @@ const StoryMeta = {
   },
   render: (args) => (
     <z-pagination
-      label={args.label}
-      navArrows={args.navArrows}
-      totalPages={args.totalPages}
-      visiblePages={args.visiblePages}
-      skip={args.skip}
-      currentPage={args.currentPage}
-      goToPage={args.goToPage}
-      edges={args.edges}
-      style={{
-        "--z-pagination-background-color": args["--z-pagination-background-color"],
-        "--z-pagination-background-color-hover": args["--z-pagination-background-color-hover"],
-      }}
+      {...args}
+      style={extractCSSVars(args)}
     ></z-pagination>
   ),
 } satisfies Meta<ZPaginationStoriesArgs>;

@@ -14,6 +14,8 @@ const StoryMeta = {
         type: "select",
       },
     },
+    width: {control: {type: "number"}},
+    height: {control: {type: "number"}},
   },
   args: {
     name: "download",
@@ -21,38 +23,26 @@ const StoryMeta = {
     width: 24,
     fill: "color-primary01",
   },
+  render: (args) => <z-icon {...args}></z-icon>,
 } satisfies Meta<ZIcon>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZIcon>;
 
-export const Default = {
-  render: (args) => (
-    <z-icon
-      name={args.name}
-      height={args.height}
-      width={args.width}
-      fill={args.fill}
-    ></z-icon>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const ZIconRem = {
+  argTypes: {
+    width: {control: {type: "text"}},
+    height: {control: {type: "text"}},
+  },
   args: {
     name: "download",
     height: "1.125rem",
     width: "1.125rem",
     fill: "color-primary01",
   },
-  render: (args) => (
-    <z-icon
-      name={args.name}
-      height={args.height}
-      width={args.width}
-      fill={args.fill}
-    ></z-icon>
-  ),
 } satisfies Story;
 
 export const ColorIndicator = {
@@ -77,13 +67,4 @@ export const ColorIndicator = {
       presetColors: [{color: "#ffffff00", title: "transparent"}],
     },
   },
-  render: (args) => (
-    <z-icon
-      name={args.name}
-      height={args.height}
-      width={args.width}
-      fill={args.fill}
-      indicatorColor={args.indicatorColor}
-    ></z-icon>
-  ),
 } satisfies Story;

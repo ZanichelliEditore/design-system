@@ -17,14 +17,5 @@ const StoryMeta = {
 export default StoryMeta;
 
 export const Default = {
-  render: (args) => (
-    <z-panel-elem
-      imgurl={args.imgurl}
-      linkicon={args.linkicon}
-      linklabel={args.linklabel}
-      url={args.url}
-      elemid={args.elemid}
-      isdisabled={args.isdisabled}
-    ></z-panel-elem>
-  ),
+  render: (args) => <z-panel-elem {...args}></z-panel-elem>,
 } satisfies StoryObj<ZPanelElem>;

@@ -14,65 +14,25 @@ export default {
     index: 1,
     text: "First Item",
   },
+  render: (args) => <z-stepper-item {...args}>{args.text}</z-stepper-item>,
 } satisfies Meta<ZStepperItemStoriesArgs>;
 
-export const Default = {
-  render: (args) => (
-    <z-stepper-item
-      index={args.index}
-      pressed={args.pressed}
-      disabled={args.disabled}
-      checked={args.checked}
-    >
-      {args.text}
-    </z-stepper-item>
-  ),
-};
+export const Default = {};
 
 export const Pressed = {
   args: {
     pressed: true,
   },
-  render: (args) => (
-    <z-stepper-item
-      index={args.index}
-      pressed={args.pressed}
-      disabled={args.disabled}
-      checked={args.checked}
-    >
-      {args.text}
-    </z-stepper-item>
-  ),
 };
 
 export const Disabled = {
   args: {
     disabled: true,
   },
-  render: (args) => (
-    <z-stepper-item
-      index={args.index}
-      pressed={args.pressed}
-      disabled={args.disabled}
-      checked={args.checked}
-    >
-      {args.text}
-    </z-stepper-item>
-  ),
 };
 
 export const Checked = {
   args: {
     checked: true,
   },
-  render: (args) => (
-    <z-stepper-item
-      index={args.index}
-      pressed={args.pressed}
-      disabled={args.disabled}
-      checked={args.checked}
-    >
-      {args.text}
-    </z-stepper-item>
-  ),
 };

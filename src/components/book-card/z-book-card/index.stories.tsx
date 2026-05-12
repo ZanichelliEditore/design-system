@@ -1,21 +1,21 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {BookCardVariant, ControlSize} from "../../../beans";
-import {CSSVarsArguments} from "../../../utils/storybook-utils";
-import {ZBookCardApp} from "../z-book-card-app/index.js";
+import {CSSVarsArguments, extractCSSVars} from "../../../utils/storybook-utils";
+import {ZBookCardApp} from "../z-book-card-app/index";
 import {ZBookCard} from "./index";
 import "./index.stories.css";
 
-type ZBookCardStoriesArgs = ZBookCard &
-  CSSVarsArguments<
-    | "--z-book-card-portrait-cover-height"
-    | "--z-book-card-title-lines"
-    | "--z-book-card-title-word-break"
-    | "--z-book-card-subtitle-lines"
-    | "--z-book-card-subtitle-word-break"
-    | "--z-book-card-authors-lines"
-    | "--z-book-card-authors-word-break"
-  >;
+type ZBookCardCSSVarsArgs = CSSVarsArguments<
+  | "--z-book-card-portrait-cover-height"
+  | "--z-book-card-title-lines"
+  | "--z-book-card-title-word-break"
+  | "--z-book-card-subtitle-lines"
+  | "--z-book-card-subtitle-word-break"
+  | "--z-book-card-authors-lines"
+  | "--z-book-card-authors-word-break"
+>;
+type ZBookCardStoriesArgs = ZBookCard & ZBookCardCSSVarsArgs;
 
 const StoryMeta = {
   title: "ZBookCard/ZBookCard",
@@ -53,67 +53,26 @@ const StoryMeta = {
     "--z-book-card-authors-lines": "1",
     "--z-book-card-authors-word-break": "break-all",
   },
+  render: (args) => (
+    <z-book-card
+      {...args}
+      style={extractCSSVars(args)}
+    ></z-book-card>
+  ),
 } satisfies Meta<ZBookCardStoriesArgs>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZBookCardStoriesArgs>;
 
-export const Card = {
-  render: (args) => (
-    <z-book-card
-      variant={args.variant}
-      cover={args.cover}
-      authors={args.authors}
-      operaTitle={args.operaTitle}
-      volumeTitle={args.volumeTitle}
-      isbn={args.isbn}
-      isbnLabel={args.isbnLabel}
-      year={args.year}
-      ebookUrl={args.ebookUrl}
-      fallbackCover={args.fallbackCover}
-      titleHtmlTag={args.titleHtmlTag}
-      hasMultipleCovers={args.hasMultipleCovers}
-      linkTarget={args.linkTarget}
-      style={{
-        "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
-        "--z-book-card-title-lines": args["--z-book-card-title-lines"],
-        "--z-book-card-title-word-break": args["--z-book-card-title-word-break"],
-        "--z-book-card-subtitle-lines": args["--z-book-card-subtitle-lines"],
-        "--z-book-card-subtitle-word-break": args["--z-book-card-subtitle-word-break"],
-        "--z-book-card-authors-lines": args["--z-book-card-authors-lines"],
-        "--z-book-card-authors-word-break": args["--z-book-card-authors-word-break"],
-      }}
-    ></z-book-card>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const WithSlottedContent = {
   render: (args) => (
     <z-book-card
+      {...args}
+      style={extractCSSVars(args)}
       class="z-book-card--with-slotted-content"
-      variant={args.variant}
-      cover={args.cover}
-      authors={args.authors}
-      operaTitle={args.operaTitle}
-      volumeTitle={args.volumeTitle}
-      isbn={args.isbn}
-      isbnLabel={args.isbnLabel}
-      year={args.year}
-      ebookUrl={args.ebookUrl}
-      fallbackCover={args.fallbackCover}
-      titleHtmlTag={args.titleHtmlTag}
-      hasMultipleCovers={args.hasMultipleCovers}
-      linkTarget={args.linkTarget}
-      style={{
-        "--z-book-card-portrait-cover-height": args["--z-book-card-portrait-cover-height"],
-        "--z-book-card-title-lines": args["--z-book-card-title-lines"],
-        "--z-book-card-title-word-break": args["--z-book-card-title-word-break"],
-        "--z-book-card-subtitle-lines": args["--z-book-card-subtitle-lines"],
-        "--z-book-card-subtitle-word-break": args["--z-book-card-subtitle-word-break"],
-        "--z-book-card-authors-lines": args["--z-book-card-authors-lines"],
-        "--z-book-card-authors-word-break": args["--z-book-card-authors-word-break"],
-      }}
     >
       <div slot="cta">
         <z-icon
@@ -123,16 +82,13 @@ export const WithSlottedContent = {
           height="20"
         ></z-icon>
       </div>
-
       <div slot="ebook">
         <z-button size={ControlSize.X_SMALL}>custom ebook button</z-button>
       </div>
-
       <div slot="tags">
         <z-tag style={{"--z-tag-bg": "var(--gray500)"}}>EDIZIONE DIGITALE INSEGNANTE</z-tag>
         <z-tag style={{"--z-tag-bg": "var(--blue50)", "--z-tag-text-color": "var(--gray950)"}}>BES</z-tag>
       </div>
-
       <div slot="data">
         <a
           href="https://www.zanichelli.it"
@@ -156,7 +112,6 @@ export const WithSlottedContent = {
           ADOTTATO
         </div>
       </div>
-
       <div
         slot="apps"
         style={{display: "flex", flexWrap: "wrap"}}
@@ -172,10 +127,9 @@ export const WithSlottedContent = {
           link="http://localhost"
         ></z-book-card-app>
       </div>
-
       <div
-        slot="coverOverlay"
         class="body-4-sb"
+        slot="coverOverlay"
       >
         ANTEPRIMA DEL LIBRO SENZA RISORSE MULTIMEDIALI
       </div>

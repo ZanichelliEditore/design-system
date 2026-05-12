@@ -3,45 +3,44 @@ import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {AccordionVariant, ControlSize} from "../../beans";
 import {ICONS} from "../../constants/iconset";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZAccordion} from "./index";
 
+const colorTokenArgConfig = getColorTokenArgConfig(true);
 const cssPropsArgs = {
-  "--z-accordion-bg": getColorTokenArgConfig(true),
-  "--z-accordion-label-color": getColorTokenArgConfig(true),
+  "--z-accordion-bg": colorTokenArgConfig,
+  "--z-accordion-label-color": colorTokenArgConfig,
   "--z-accordion-disabled-label-color": {
-    ...getColorTokenArgConfig(true),
+    ...colorTokenArgConfig,
     if: {
       arg: "isDisabled",
       truthy: true,
     },
   },
-  "--z-accordion-content-bg": getColorTokenArgConfig(true),
-  "--z-accordion-content-fg": getColorTokenArgConfig(true),
-  "--z-accordion-hover-color": getColorTokenArgConfig(true),
+  "--z-accordion-content-bg": colorTokenArgConfig,
+  "--z-accordion-content-fg": colorTokenArgConfig,
+  "--z-accordion-hover-color": colorTokenArgConfig,
   "--z-accordion-highlight-color": {
-    ...getColorTokenArgConfig(true),
+    ...colorTokenArgConfig,
     if: {
       arg: "highlight",
       truthy: true,
     },
   },
+  "--z-accordion-left-padding": {control: "text"},
+  "--z-accordion-right-padding": {control: "text"},
+  "--z-accordion-label-font-weight": {control: "text"},
 } as const;
 
 type ZAccordionStoriesArgs = ZAccordion &
-  CSSVarsArguments<
-    | keyof typeof cssPropsArgs
-    | `z-accordion-${"left" | "right"}-padding`
-    | "z-accordion-label-font-weight"
-    | `z-accordion-highlight-color${number | undefined}`
-  >;
+  CSSVarsArguments<keyof typeof cssPropsArgs | `z-accordion-highlight-color${number | undefined}`>;
 
 /**
  * To add the highlight band on the left, set the `highlight` property to `true` then set the `--z-accordion-highlight-color` CSS variable to the desired color.
  */
 const StoryMeta = {
   title: "ZAccordion",
-  component: "z-accordion",
+  component: ZAccordion,
   argTypes: {
     ...cssPropsArgs,
     icon: {
@@ -94,26 +93,8 @@ const StoryMeta = {
   },
   render: (args) => (
     <z-accordion
-      highlight={args.highlight}
-      icon={args.icon}
-      isDisabled={args.isDisabled}
-      open={args.open}
-      shadow={args.shadow}
-      label={args.label}
-      size={args.size}
-      variant={args.variant}
-      style={{
-        "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
-        "--z-accordion-bg": args["--z-accordion-bg"],
-        "--z-accordion-label-color": args["--z-accordion-label-color"],
-        "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
-        "--z-accordion-content-bg": args["--z-accordion-content-bg"],
-        "--z-accordion-content-fg": args["--z-accordion-content-fg"],
-        "--z-accordion-hover-color": args["--z-accordion-hover-color"],
-        "--z-accordion-right-padding": args["--z-accordion-right-padding"],
-        "--z-accordion-left-padding": args["--z-accordion-left-padding"],
-        "--z-accordion-label-font-weight": args["--z-accordion-label-font-weight"],
-      }}
+      {...args}
+      style={extractCSSVars(args)}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede,
       qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne ergo in vita
@@ -171,26 +152,8 @@ export const Stack = {
 export const WithTags = {
   render: (args) => (
     <z-accordion
-      highlight={args.highlight}
-      icon={args.icon}
-      isDisabled={args.isDisabled}
-      open={args.open}
-      shadow={args.shadow}
-      label={args.label}
-      size={args.size}
-      variant={args.variant}
-      style={{
-        "--z-accordion-highlight-color": args["--z-accordion-highlight-color"],
-        "--z-accordion-bg": args["--z-accordion-bg"],
-        "--z-accordion-label-color": args["--z-accordion-label-color"],
-        "--z-accordion-disabled-label-color": args["--z-accordion-disabled-label-color"],
-        "--z-accordion-content-bg": args["--z-accordion-content-bg"],
-        "--z-accordion-content-fg": args["--z-accordion-content-fg"],
-        "--z-accordion-hover-color": args["--z-accordion-hover-color"],
-        "--z-accordion-right-padding": args["--z-accordion-right-padding"],
-        "--z-accordion-left-padding": args["--z-accordion-left-padding"],
-        "--z-accordion-label-font-weight": args["--z-accordion-label-font-weight"],
-      }}
+      {...args}
+      style={extractCSSVars(args)}
     >
       <z-tag slot="tag">Tag 1</z-tag>
       <z-tag slot="tag">Tag 2</z-tag>

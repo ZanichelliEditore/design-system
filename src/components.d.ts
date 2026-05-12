@@ -95,7 +95,7 @@ export namespace Components {
          */
         "hideUnselected": boolean;
         /**
-          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+          * Explicitly collapse anchor navigation. If false, it will collapse automatically only on mobile.
           * @default false
          */
         "isCollapsed": boolean;
@@ -541,7 +541,7 @@ export namespace Components {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant": CardVariant;
+        "variant"?: CardVariant;
     }
     /**
      * ZCarousel component.
@@ -4059,7 +4059,7 @@ declare namespace LocalJSX {
          */
         "hideUnselected"?: boolean;
         /**
-          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+          * Explicitly collapse anchor navigation. If false, it will collapse automatically only on mobile.
           * @default false
          */
         "isCollapsed"?: boolean;

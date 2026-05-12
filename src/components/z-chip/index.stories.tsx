@@ -19,29 +19,18 @@ const StoryMeta = {
     type: ZChipType.DEFAULT,
     icon: "pdf",
   },
+  render: (args) => <z-chip {...args}>my custom element</z-chip>,
 } satisfies Meta<ZChip>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZChip>;
 
-export const Default = {
-  render: (args) => (
-    <z-chip
-      type={args.type}
-      icon={args.icon}
-    >
-      my custom element
-    </z-chip>
-  ),
-} satisfies Story;
+export const Default = {} satisfies Story;
 
 export const DifferentFontWeight = {
   render: (args) => (
-    <z-chip
-      type={args.type}
-      icon={args.icon}
-    >
+    <z-chip {...args}>
       <strong>my</strong>
       <span style={{marginLeft: "4px"}}>custom element</span>
     </z-chip>
@@ -67,14 +56,4 @@ export const InteractiveIcon = {
     interactiveIcon: "multiply-circled",
     disabled: false,
   },
-  render: (args) => (
-    <z-chip
-      type={args.type}
-      icon={args.icon}
-      disabled={args.disabled}
-      interactiveIcon={args.interactiveIcon}
-    >
-      my custom element
-    </z-chip>
-  ),
 } satisfies Story;

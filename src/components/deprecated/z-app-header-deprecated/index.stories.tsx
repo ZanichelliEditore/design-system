@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
-import type {Meta} from "@stencil/storybook-plugin";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments} from "../../../utils/storybook-utils";
 import {ZAppHeaderDeprecated} from "./index";
 import "./index.stories.css";
@@ -475,7 +475,7 @@ const longMenuTemplate = () => [
   </z-menu-deprecated>,
 ];
 
-type Story = Meta<ZAppHeaderDeprecatedStoriesArgs>;
+type Story = StoryObj<ZAppHeaderDeprecatedStoriesArgs>;
 
 export const Title = {
   parameters: {

@@ -30,17 +30,5 @@ export default StoryMeta;
 type Story = StoryObj<ZBookCoverStoriesArgs>;
 
 export const Default = {
-  render: (args) => (
-    <z-book-cover
-      cover={args.cover}
-      bordered={args.bordered}
-      multiple={args.multiple}
-      style={{
-        "--z-book-cover-height": args["--z-book-cover-height"],
-        "--z-book-cover-border-radius": args["--z-book-cover-border-radius"],
-        "--z-book-cover-stack-shift-x": args["--z-book-cover-stack-shift-x"],
-        "--z-book-cover-stack-shift-y": args["--z-book-cover-stack-shift-y"],
-      }}
-    ></z-book-cover>
-  ),
+  render: (args) => <z-book-cover {...args}></z-book-cover>,
 } satisfies Story;

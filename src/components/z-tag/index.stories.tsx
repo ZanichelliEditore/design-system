@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
 import {ICONS} from "../../constants/iconset";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZTag} from "./index";
 
 type ZTagStoriesArgs = ZTag & CSSVarsArguments<"z-tag-text-color" | "z-tag-bg"> & {text: string};
@@ -24,35 +24,25 @@ const StoryMeta = {
     expandable: false,
     icon: "gear",
   },
+  render: (args) => (
+    <z-tag
+      {...args}
+      style={extractCSSVars(args)}
+    >
+      {args.text}
+    </z-tag>
+  ),
 } satisfies Meta<ZTagStoriesArgs>;
 
 export default StoryMeta;
 
-export const Default = {
-  render: (args) => (
-    <z-tag
-      icon={args.icon}
-      expandable={args.expandable}
-    >
-      {args.text}
-    </z-tag>
-  ),
-};
+export const Default = {};
 
 export const ColorTokens = {
   args: {
-    "--z-tag-text-color": null,
-    "--z-tag-bg": null,
+    "--z-tag-text-color": "var(--color-text-inverse)",
+    "--z-tag-bg": "var(--avatar-C17)",
   },
-  render: (args) => (
-    <z-tag
-      style={{"--z-tag-text-color": args["--z-tag-text-color"], "--z-tag-bg": args["--z-tag-bg"]}}
-      icon={args.icon}
-      expandable={args.expandable}
-    >
-      {args.text}
-    </z-tag>
-  ),
 };
 
 export const LongText = {
@@ -61,13 +51,4 @@ export const LongText = {
     "--z-tag-text-color": null,
     "--z-tag-bg": null,
   },
-  render: (args) => (
-    <z-tag
-      style={{"--z-tag-text-color": args["--z-tag-text-color"], "--z-tag-bg": args["--z-tag-bg"]}}
-      icon={args.icon}
-      expandable={args.expandable}
-    >
-      {args.text}
-    </z-tag>
-  ),
 };

@@ -38,12 +38,8 @@ function handleManualCurrentClick(ev: MouseEvent): void {
 
 export const Default = {
   render: (args) => (
-    <div class={`z-anchor-navigation-story-wrapper${args.isCollapsed ? " collapsed" : ""}`}>
-      <z-anchor-navigation
-        collapsedLabel={args.collapsedLabel}
-        hideUnselected={args.hideUnselected}
-        isCollapsed={args.isCollapsed}
-      >
+    <div class={{"z-anchor-navigation-story-wrapper": true, "collapsed": args.isCollapsed}}>
+      <z-anchor-navigation {...args}>
         <div>
           <a
             href="#first-section"

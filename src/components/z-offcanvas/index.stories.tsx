@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZOffcanvas} from "./index";
 import "./index.stories.css";
 
@@ -60,14 +60,10 @@ export const OverlayTransitionDirectionRight = {
   render: (args) => (
     <div id="offcanvas-story-container">
       <z-offcanvas
+        {...args}
+        style={extractCSSVars(args)}
         variant={OffCanvasVariant.OVERLAY}
-        open={args.open}
         transitiondirection={TransitionDirection.RIGHT}
-        showBackdrop={args.showBackdrop}
-        style={{
-          "--z-offcanvas--top-space": args["--z-offcanvas--top-space"],
-          "--z-offcanvas--container-width": args["--z-offcanvas--container-width"],
-        }}
       >
         <div slot="canvasContent">
           <p>{DEMO_TEXT}</p>
@@ -89,14 +85,10 @@ export const OverlayTransitionDirectionLeft = {
         {DEMO_TEXT}
       </div>
       <z-offcanvas
+        {...args}
+        style={extractCSSVars(args)}
         variant={OffCanvasVariant.OVERLAY}
-        open={args.open}
         transitiondirection={TransitionDirection.LEFT}
-        showBackdrop={args.showBackdrop}
-        style={{
-          "--z-offcanvas--top-space": args["--z-offcanvas--top-space"],
-          "--z-offcanvas--container-width": args["--z-offcanvas--container-width"],
-        }}
       >
         <div slot="canvasContent">
           <p>{DEMO_TEXT}</p>
@@ -123,11 +115,10 @@ export const TransitionDirectionUp = {
         {DEMO_TEXT}
       </div>
       <z-offcanvas
-        open={args.open}
+        {...args}
+        style={extractCSSVars(args)}
         variant={OffCanvasVariant.OVERLAY}
         transitiondirection={TransitionDirection.UP}
-        showBackdrop={args.showBackdrop}
-        style={{"--z-offcanvas--container-height": args["--z-offcanvas--container-height"]}}
       >
         <div slot="canvasContent">
           <p>{DEMO_TEXT}</p>
@@ -148,14 +139,13 @@ export const PushContent = {
   },
   render: (args) => (
     <div
-      class="pushcontent-story ${args.transitiondirection}"
+      class={{"pushcontent-story": true, [args.transitiondirection]: true}}
       id="offcanvas-story-container"
     >
       <z-offcanvas
-        open={args.open}
+        {...args}
+        style={extractCSSVars(args)}
         variant={OffCanvasVariant.PUSHCONTENT}
-        transitiondirection={args.transitiondirection}
-        style={{"--z-offcanvas--container-width": args["--z-offcanvas--container-width"]}}
       >
         <div slot="canvasContent">
           <p>Offcanvas content</p>

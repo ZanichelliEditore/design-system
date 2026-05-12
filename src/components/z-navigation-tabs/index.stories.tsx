@@ -3,7 +3,7 @@ import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {NavigationTabsOrientation, NavigationTabsSize} from "../../beans/index";
 import type {ZNavigationTabsCustomEvent} from "../../components";
-import {CSSVarsArguments, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZNavigationTabs} from "./index";
 import "./index.stories.css";
 
@@ -100,14 +100,9 @@ export const Horizontal = {
   },
   render: (args) => (
     <z-navigation-tabs
-      orientation={args.orientation}
-      size={args.size}
-      ariaLabel={args.ariaLabel}
+      {...args}
+      style={extractCSSVars(args)}
       onSelected={onTabSelected}
-      style={{
-        "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
-        "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
-      }}
     >
       {tabsTemplate()}
     </z-navigation-tabs>
@@ -130,13 +125,9 @@ export const Vertical = {
   },
   render: (args) => (
     <z-navigation-tabs
-      orientation={args.orientation}
-      ariaLabel={args.ariaLabel}
+      {...args}
       onSelected={onTabSelected}
-      style={{
-        "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
-        "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
-      }}
+      style={extractCSSVars(args)}
     >
       {tabsTemplate()}
     </z-navigation-tabs>
@@ -158,15 +149,11 @@ export const Tabpanels = {
   render: (args) => (
     <div class={{"panels-story-wrapper": true, [args.orientation]: true}}>
       <z-navigation-tabs
-        orientation={args.orientation}
+        {...args}
+        style={extractCSSVars(args)}
         size={NavigationTabsSize.BIG}
-        ariaLabel={args.ariaLabel}
         selectedTab={0}
         onSelected={onTabSelected}
-        style={{
-          "--z-navigation-tabs-nav-buttons-bg": args["--z-navigation-tabs-nav-buttons-bg"],
-          "--z-navigation-tabs-nav-buttons-fg": args["--z-navigation-tabs-nav-buttons-fg"],
-        }}
       >
         <button
           aria-controls="panel-1"

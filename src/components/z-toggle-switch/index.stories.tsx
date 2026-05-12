@@ -20,12 +20,5 @@ export const Default = {
     labelPosition: LabelPosition.LEFT,
     disabled: false,
   },
-  render: (args) => (
-    <z-toggle-switch
-      labelPosition={args.labelPosition}
-      disabled={args.disabled}
-    >
-      Toggle
-    </z-toggle-switch>
-  ),
+  render: (args) => <z-toggle-switch {...args}>Toggle</z-toggle-switch>,
 } satisfies StoryObj<ZToggleSwitch>;

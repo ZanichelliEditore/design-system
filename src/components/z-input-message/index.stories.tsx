@@ -31,11 +31,5 @@ const StoryMeta = {
 export default StoryMeta;
 
 export const Default = {
-  render: (args) => (
-    <z-input-message
-      message={args.message}
-      status={args.status}
-      class={args.class}
-    ></z-input-message>
-  ),
+  render: (args) => <z-input-message {...args}></z-input-message>,
 } satisfies StoryObj<ZInputMessageStoriesArgs>;

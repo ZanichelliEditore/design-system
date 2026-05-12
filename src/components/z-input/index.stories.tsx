@@ -62,68 +62,16 @@ const StoryMeta = {
     step: 1,
     pattern: "",
   },
+  render: (args) => <z-input {...args}></z-input>,
 } satisfies Meta<ZInput>;
 
 export default StoryMeta;
 
 type Story = StoryObj<ZInput>;
 
-export const AllProps = {
-  render: (args) => (
-    <z-input
-      type={args.type}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      labelPosition={args.labelPosition}
-      placeholder={args.placeholder}
-      value={args.value}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      icon={args.icon}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      required={args.required}
-      checked={args.checked}
-      hasclearicon={args.hasclearicon}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      autocomplete={args.autocomplete}
-      min={args.min}
-      minlength={args.minlength}
-      max={args.max}
-      maxlength={args.maxlength}
-      step={args.step}
-      pattern={args.pattern}
-      size={args.size}
-    ></z-input>
-  ),
-} satisfies Story;
+export const AllProps = {} satisfies Story;
 
 export const ZInputText = {
-  render: (args) => (
-    <z-input
-      type={args.type}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      value={args.value}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      icon={args.icon}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      required={args.required}
-      hasclearicon={args.hasclearicon}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      autocomplete={args.autocomplete}
-      size={args.size}
-      minlength={args.minlength}
-      maxlength={args.maxlength}
-    ></z-input>
-  ),
   parameters: {
     controls: {
       include: [
@@ -157,24 +105,6 @@ export const ZInputText = {
 } satisfies Story;
 
 export const ZInputTextarea = {
-  render: (args) => (
-    <z-input
-      type={args.type}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      placeholder={args.placeholder}
-      value={args.value}
-      name={args.name}
-      status={args.status}
-      message={args.message}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      required={args.required}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      size={args.size}
-    ></z-input>
-  ),
   parameters: {
     controls: {
       include: [
@@ -221,22 +151,6 @@ export const ZInputCheckbox = {
   args: {
     type: InputType.CHECKBOX,
   },
-  render: (args) => (
-    <z-input
-      type={args.type}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      labelPosition={args.labelPosition}
-      name={args.name}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      required={args.required}
-      checked={args.checked}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      size={args.size}
-    ></z-input>
-  ),
 } satisfies Story;
 
 export const ZInputRadio = {
@@ -261,23 +175,6 @@ export const ZInputRadio = {
   args: {
     type: InputType.RADIO,
   },
-  render: (args) => (
-    <z-input
-      type={args.type}
-      label={args.label}
-      ariaLabel={args.ariaLabel}
-      labelPosition={args.labelPosition}
-      name={args.name}
-      value={args.value}
-      disabled={args.disabled}
-      readonly={args.readonly}
-      required={args.required}
-      checked={args.checked}
-      htmlid={args.htmlid}
-      htmltitle={args.htmltitle}
-      size={args.size}
-    ></z-input>
-  ),
 } satisfies Story;
 
 export const ZInputNumber = {
@@ -291,14 +188,4 @@ export const ZInputNumber = {
     value: "1",
     hasclearicon: false,
   },
-  render: (args) => (
-    <z-input
-      type={args.type}
-      value={args.value}
-      min={args.min}
-      max={args.max}
-      step={args.step}
-      hasclearicon={args.hasclearicon}
-    ></z-input>
-  ),
 } satisfies Story;

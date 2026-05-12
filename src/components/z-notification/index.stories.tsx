@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {NotificationType} from "../../beans";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZNotification} from "./index";
 import "./index.stories.css";
 
@@ -46,12 +46,8 @@ type Story = StoryObj<ZNotificationStoriesArgs>;
 export const Default = {
   render: (args) => (
     <z-notification
-      contenticonname={args.contenticonname}
-      actiontext={args.actiontext}
-      type={args.type}
-      showclose={args.showclose}
-      sticky={args.sticky}
-      style={{"--z-notification--content-max-width": args["--z-notification--content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
       <div class="notification-container">
         <strong>NOVITÀ</strong>: Testo che descrive le novità.
@@ -63,12 +59,8 @@ export const Default = {
 export const LongText = {
   render: (args) => (
     <z-notification
-      contenticonname={args.contenticonname}
-      actiontext={args.actiontext}
-      type={args.type}
-      showclose={args.showclose}
-      sticky={args.sticky}
-      style={{"--z-notification--content-max-width": args["--z-notification--content-max-width"]}}
+      {...args}
+      style={extractCSSVars(args)}
     >
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum.
@@ -92,15 +84,9 @@ export const StickyBanner = {
   render: (args) => (
     <div class="banner-notification-demo">
       <z-notification
-        contenticonname={args.contenticonname}
-        actiontext={args.actiontext}
-        type={args.type}
-        showclose={args.showclose}
+        {...args}
+        style={extractCSSVars(args)}
         sticky={true}
-        style={{
-          "--z-notification--top-offset": args["--z-notification--top-offset"],
-          "--z-notification--content-max-width": args["--z-notification--content-max-width"],
-        }}
       >
         Questo è il testo della notifica
       </z-notification>
@@ -117,13 +103,8 @@ export const CenteredContent = {
   render: (args) => (
     <div>
       <z-notification
-        contenticonname={args.contenticonname}
-        actiontext={args.actiontext}
-        type={args.type}
-        showclose={args.showclose}
-        sticky={args.sticky}
-        borderposition={args.borderposition}
-        style={{"--z-notification--content-max-width": args["--z-notification--content-max-width"]}}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus magna imperdiet malesuada interdum.
@@ -153,12 +134,9 @@ export const Inline = {
   render: (args) => (
     <div class="inline-notification-demo">
       <z-notification
-        contenticonname={args.contenticonname}
-        actiontext={args.actiontext}
-        type={args.type}
-        showclose={args.showclose}
+        {...args}
+        style={extractCSSVars(args)}
         sticky={false}
-        style={{"--z-notification--content-max-width": args["--z-notification--content-max-width"]}}
       >
         Questo è il testo della notifica
       </z-notification>
@@ -183,13 +161,8 @@ export const BorderPosition = {
   render: (args) => (
     <div class="z-notification-border-position-demo">
       <z-notification
-        contenticonname={args.contenticonname}
-        actiontext={args.actiontext}
-        type={args.type}
-        showclose={args.showclose}
-        sticky={args.sticky}
-        borderposition={args.borderposition}
-        style={{"--z-notification--content-max-width": args["--z-notification--content-max-width"]}}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <div class="notification-container">
           <strong>NOVITÀ</strong>: Testo che descrive le novità.

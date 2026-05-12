@@ -37,10 +37,5 @@ export const Default = {
       },
     ],
   },
-  render: (args) => (
-    <z-skip-to-content
-      variant={args.variant}
-      links={args.links}
-    ></z-skip-to-content>
-  ),
+  render: (args) => <z-skip-to-content {...args}></z-skip-to-content>,
 } satisfies StoryObj<ZSkipToContent>;

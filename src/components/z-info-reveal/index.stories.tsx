@@ -45,12 +45,7 @@ export const Default = {
   render: (args) => (
     <div class="z-info-reveal-story-wrapper">
       <z-button size={args.size}>Button</z-button>
-      <z-info-reveal
-        label={args.label}
-        icon={args.icon}
-        size={args.size}
-        position={args.position}
-      >
+      <z-info-reveal {...args}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
           Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?

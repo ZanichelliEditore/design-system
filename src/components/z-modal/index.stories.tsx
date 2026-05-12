@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
 import {ZModal} from "./index";
 import "./index.stories.css";
 
@@ -41,15 +41,8 @@ export const ShortText = {
   render: (args) => (
     <Fragment>
       <z-modal
-        modalid={args.modalid}
-        modaltitle={args.modaltitle}
-        modalsubtitle={args.modalsubtitle}
-        closeButtonLabel={args.closeButtonLabel}
-        alertdialog={args.alertdialog}
-        closable={args.closable}
-        scrollInside={args.scrollInside}
-        lockPageScroll={args.lockPageScroll}
-        style={{"--z-modal-content-padding": args["--z-modal-content-padding"]}}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <div slot="modalContent">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -69,15 +62,8 @@ export const LongText = {
   render: (args) => (
     <Fragment>
       <z-modal
-        modalid={args.modalid}
-        modaltitle={args.modaltitle}
-        modalsubtitle={args.modalsubtitle}
-        closeButtonLabel={args.closeButtonLabel}
-        alertdialog={args.alertdialog}
-        closable={args.closable}
-        scrollInside={args.scrollInside}
-        lockPageScroll={args.lockPageScroll}
-        style={{"--z-modal-content-padding": args["--z-modal-content-padding"]}}
+        {...args}
+        style={extractCSSVars(args)}
       >
         <div slot="modalContent">
           <z-date-picker

@@ -12,10 +12,5 @@ export const Default = {
     fileNumber: 1,
     fileName: "abcdefghilmnopqrst.jpg",
   },
-  render: (args) => (
-    <z-file
-      fileNumber={args.fileNumber}
-      fileName={args.fileName}
-    ></z-file>
-  ),
+  render: (args) => <z-file {...args}></z-file>,
 } satisfies StoryObj<ZFile>;

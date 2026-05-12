@@ -44,28 +44,7 @@ const StoryMeta = {
     size: ControlSize.BIG,
     htmlAriaLabel: "",
   },
-  render: (args) => (
-    <z-combobox
-      checkalltext={args.checkalltext}
-      disabled={args.disabled}
-      hascheckall={args.hascheckall}
-      hassearch={args.hassearch}
-      inputid={args.inputid}
-      isfixed={args.isfixed}
-      isopen={args.isopen}
-      items={args.items}
-      label={args.label}
-      maxcheckableitems={args.maxcheckableitems}
-      hasgroupitems={args.hasgroupitems}
-      noresultslabel={args.noresultslabel}
-      searchlabel={args.searchlabel}
-      searchplaceholder={args.searchplaceholder}
-      searchtitle={args.searchtitle}
-      uncheckalltext={args.uncheckalltext}
-      size={args.size}
-      htmlAriaLabel={args.htmlAriaLabel}
-    />
-  ),
+  render: (args) => <z-combobox {...args} />,
 } satisfies Meta<ZCombobox>;
 
 export default StoryMeta;
