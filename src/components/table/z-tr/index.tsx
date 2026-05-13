@@ -119,8 +119,6 @@ export class ZTr implements ComponentInterface {
   }
 
   render(): HTMLZTrElement {
-    console.log("ZTR on click", this.host.onclick);
-
     return (
       <Host
         role="row"
