@@ -1,1 +1,0 @@
-var e=function(e){return e[e.MOBILE=767]=`MOBILE`,e[e.TABLET=1151]=`TABLET`,e[e.DESKTOP=1365]=`DESKTOP`,e}({});export{e as t};

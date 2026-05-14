@@ -1,0 +1,22 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{$ as t,Q as n,X as r,nt as i,rt as a,tt as o}from"./iframe-DCi19jo_.js";import{K as s,q as c}from"./beans-G7NAvoly.js";import{n as l,o as u}from"./storybook-utils-B8oonaCr.js";import{N as d,j as f,m as p}from"./index2-FE8JoBwn.js";import{t as m}from"./index6-DgIJtwdv.js";var h,g,_=e((()=>{i(),d(),m(),h=a(class extends n{constructor(e){super(),!1!==e&&this.__registerHost(),this.__attachShadow(),this.dividerPosition=p.BEFORE,this.uppercase=!0}componentWillRender(){this.hasSecondaryTitle=!!this.host.querySelector(`[slot=secondary-title]`)}render(){return o(t,{key:`020c1a41ff7fa0881464463322b54754e7664957`},o(`slot`,{key:`c6d7baf944465d1092749cf288636fcd502e659c`,name:`secondary-title`}),!this.hasSecondaryTitle&&this.dividerPosition===p.BEFORE&&o(`z-divider`,{key:`ea70a8579ed61ba8b1d6488566473b90c47540d1`,size:f.LARGE,color:`z-section-title--divider-color`}),o(`slot`,{key:`4cf602491394aaf97cead51bbc7f9b2da299bef3`,name:`primary-title`}),!this.hasSecondaryTitle&&this.dividerPosition===p.AFTER&&o(`z-divider`,{key:`47275d6411b00769db2e244bad13032d43cc9144`,size:f.LARGE,color:`z-section-title--divider-color`}))}get host(){return this}static get style(){return`:host{--z-section-title--divider-color:var(--red500);display:flex;width:fit-content;flex-direction:column;align-items:flex-start;font-family:var(--font-family-sans)}:host,:host ::slotted(*){box-sizing:border-box}::slotted(*){margin:0}::slotted([slot="secondary-title"]){padding-bottom:calc(var(--space-unit) / 2);border-bottom:var(--border-size-large) solid var(--z-section-title--divider-color);font-size:var(--font-size-3);font-weight:var(--font-sb);line-height:1.5rem;text-transform:uppercase}::slotted([slot="primary-title"]){font-size:var(--font-size-6);font-weight:var(--font-sb);line-height:2rem}:host([uppercase]:not([uppercase="false"])) ::slotted([slot="primary-title"]){text-transform:uppercase}@media (min-width: 1152px){::slotted([slot="primary-title"]){font-size:var(--font-size-7);line-height:2.25rem}}`}},[257,`z-section-title`,{dividerPosition:[1,`divider-position`],uppercase:[516]}]),g=h})),v,y,b,x;e((()=>{r(),c(),u(),_(),v={title:`Deprecated/ZSectionTitle`,component:g,argTypes:{dividerPosition:{options:Object.values(s),control:{type:`inline-radio`}},"--z-section-title--divider-color":l()},args:{uppercase:!0,"--z-section-title--divider-color":`var(--red500)`},parameters:{docs:{description:{component:"⚠️ This component is **deprecated** and will be removed soon.\nUse the typography tokens or classes instead (see `Typography/Typography classes` section)."}}}},y={args:{dividerPosition:s.BEFORE},render:e=>o(`z-section-title`,{dividerPosition:e.dividerPosition,uppercase:e.uppercase,style:{"--z-section-title--divider-color":e[`--z-section-title--divider-color`]}},o(`h4`,{slot:`primary-title`},`Primary title`))},b={parameters:{controls:{exclude:[`divider-position`]}},render:e=>o(`z-section-title`,{uppercase:e.uppercase,style:{"--z-section-title--divider-color":e[`--z-section-title--divider-color`]}},o(`h5`,{slot:`secondary-title`},`Secondary title`),o(`h4`,{slot:`primary-title`},`Primary title`))},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  args: {
+    dividerPosition: ZSectionTitleDividerPosition.BEFORE
+  },
+  render: args => <z-section-title dividerPosition={args.dividerPosition} uppercase={args.uppercase} style={{
+    "--z-section-title--divider-color": args["--z-section-title--divider-color"]
+  }}>
+      <h4 slot="primary-title">Primary title</h4>
+    </z-section-title>
+} satisfies Story`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    controls: {
+      exclude: ["divider-position"]
+    }
+  },
+  render: args => <z-section-title uppercase={args.uppercase} style={{
+    "--z-section-title--divider-color": args["--z-section-title--divider-color"]
+  }}>
+      <h5 slot="secondary-title">Secondary title</h5>
+      <h4 slot="primary-title">Primary title</h4>
+    </z-section-title>
+} satisfies Story`,...b.parameters?.docs?.source}}},x=[`PrimaryTitleOnly`,`SecondaryTitle`]}))();export{y as PrimaryTitleOnly,b as SecondaryTitle,x as __namedExportsOrder,v as default};
