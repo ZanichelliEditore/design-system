@@ -1,5 +1,5 @@
 import {h} from "@stencil/core";
-import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {PopoverPosition} from "../../beans";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZTooltip} from "./index";
@@ -37,6 +37,11 @@ const StoryMeta = {
     "dark": false,
     "--z-tooltip-theme--surface": "var(--color-surface01)",
     "position": PopoverPosition.LEFT,
+  },
+  parameters: {
+    controls: {
+      exclude: ["bind-to"],
+    },
   },
 } satisfies Meta<ZTooltipStoriesArgs>;
 

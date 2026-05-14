@@ -104,6 +104,9 @@ const StoryMeta = {
         iframeHeight: 500,
       },
     },
+    controls: {
+      exclude: ["bind-to"],
+    },
   },
 } satisfies Meta<ZPopoverStoriesArgs>;
 
