@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "yarn build.wc && yarn build.react",
-    "build-storybook": "yarn build && storybook build --config-dir .storybook --output-dir storybook",
+    "build-storybook": "yarn build && STORYBOOK_DEV=1 storybook build --config-dir .storybook --output-dir storybook",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
     "build.wc": "mkdirp react && rimraf src-react/react-component-lib && stencil build",
     "generate": "plop --plopfile internals/generators/index.js",

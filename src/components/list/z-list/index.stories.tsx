@@ -1,4 +1,5 @@
-import {Fragment, h} from "@stencil/core";
+import {h} from "@stencil/core";
+import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ListSize, ListType} from "../../../beans";
 import {ZListElement} from "../z-list-element/index";
