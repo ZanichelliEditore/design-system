@@ -1,0 +1,332 @@
+import {h} from "@stencil/core";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {DividerOrientation} from "../../beans/index";
+import {CSSVarsArguments} from "../../utils/storybook-utils";
+import {ZToolbar} from "./index";
+import "./index.stories.css";
+
+type ZToolbarStoriesArgs = ZToolbar & CSSVarsArguments<"--z-toolbar-columns">;
+
+/**
+ * This component mainly serves as a container for `z-tool` elements, but can also be nested inside a `z-tool` to create submenus.
+ * ### Active state
+ * The `active` state of each `z-tool` must be managed manually by the consumer. The component does not toggle `active` on click by itself. In these stories, a click listener (decorator) is applied to toggle `active` on tools without a submenu, for demonstration purposes.
+ * ### Visual grouping with `z-divider`
+ * Use `<z-divider orientation="vertical">` between tools to visually separate them into groups. On tablet viewports and below, dividers are automatically hidden.
+ * ### Mobile multiline layout with `--z-toolbar-columns`
+ * Set the CSS custom property `--z-toolbar-columns` on a parent element to control the number of columns in the toolbar grid. When set, the toolbar switches to a grid layout on tablet viewports and below (max-width: 1151px), wrapping tools across multiple rows with a separator line between rows.
+ */
+const StoryMeta = {
+  title: "ZToolbar",
+  component: "z-toolbar",
+  args: {
+    htmlAriaLabel: "Toolbar principale",
+  },
+  decorators: [
+    (story) => (
+      <div
+        class="toolbar-container"
+        onClick={(e: Event) => {
+          const tool = (e.target as HTMLElement).closest("z-tool") as HTMLZToolElement | null;
+          if (tool && !tool.disabled && !tool.children.length) {
+            tool.active = !tool.active;
+          }
+        }}
+      >
+        {story()}
+      </div>
+    ),
+  ],
+} satisfies Meta<ZToolbarStoriesArgs>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZToolbarStoriesArgs>;
+
+export const Default = {
+  render: (args) => (
+    <z-toolbar htmlAriaLabel={args.htmlAriaLabel}>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      ></z-tool>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+      ></z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+    </z-toolbar>
+  ),
+} satisfies Story;
+
+export const WithDividers = {
+  render: (args) => (
+    <z-toolbar htmlAriaLabel={args.htmlAriaLabel}>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      ></z-tool>
+      <z-tool
+        icon="chevron-up"
+        tooltip="Su"
+      ></z-tool>
+      <z-tool
+        icon="chevron-down"
+        tooltip="Giù"
+      ></z-tool>
+      <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+      ></z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+      <z-tool
+        icon="copy"
+        tooltip="Copia"
+      ></z-tool>
+    </z-toolbar>
+  ),
+} satisfies Story;
+
+export const WithNestedToolbar = {
+  render: (args) => (
+    <z-toolbar htmlAriaLabel={args.htmlAriaLabel}>
+      <z-tool
+        icon="bg-color"
+        tooltip="Scegli un colore"
+      >
+        <z-color-picker></z-color-picker>
+      </z-tool>
+      <z-tool
+        icon="plus"
+        tooltip="Apri sotto-toolbar"
+      >
+        <z-toolbar htmlAriaLabel="Sotto-toolbar">
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="bg-color"
+            tooltip="Scegli un colore"
+          >
+            <z-color-picker></z-color-picker>
+          </z-tool>
+        </z-toolbar>
+      </z-tool>
+      <z-tool
+        icon="chevron-up"
+        tooltip="Su"
+      ></z-tool>
+      <z-tool
+        icon="chevron-up"
+        tooltip="Su"
+      ></z-tool>
+      <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+      ></z-tool>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      >
+        <z-toolbar htmlAriaLabel="Sotto-toolbar">
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+        </z-toolbar>
+      </z-tool>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      >
+        <z-toolbar htmlAriaLabel="Sotto-toolbar">
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+        </z-toolbar>
+      </z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+    </z-toolbar>
+  ),
+} satisfies Story;
+
+export const WithDisabledTool = {
+  render: (args) => (
+    <z-toolbar htmlAriaLabel={args.htmlAriaLabel}>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      ></z-tool>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+        disabled
+      ></z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+    </z-toolbar>
+  ),
+} satisfies Story;
+
+export const WithActiveTool = {
+  render: (args) => (
+    <z-toolbar htmlAriaLabel={args.htmlAriaLabel}>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+        active
+      ></z-tool>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+      ></z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+    </z-toolbar>
+  ),
+} satisfies Story;
+
+export const MultilineMobile = {
+  args: {
+    "--z-toolbar-columns": "4",
+  },
+  render: (args) => (
+    <z-toolbar
+      class="multiline-container"
+      htmlAriaLabel={args.htmlAriaLabel}
+      style={{"--z-toolbar-columns": args["--z-toolbar-columns"]}}
+    >
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni"
+      ></z-tool>
+      <z-tool
+        icon="download"
+        tooltip="Scarica"
+      ></z-tool>
+      <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+      <z-tool
+        icon="upload"
+        tooltip="Carica"
+      ></z-tool>
+      <z-tool
+        icon="plus"
+        tooltip="Aggiungi"
+      >
+        <z-toolbar htmlAriaLabel="Sotto-toolbar aggiungi">
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-up"
+            tooltip="Su"
+          ></z-tool>
+          <z-tool
+            icon="chevron-down"
+            tooltip="Giù"
+          ></z-tool>
+        </z-toolbar>
+      </z-tool>
+      <z-divider orientation={DividerOrientation.VERTICAL}></z-divider>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni 2"
+      ></z-tool>
+      <z-tool
+        icon="download"
+        tooltip="Scarica 2"
+      ></z-tool>
+      <z-tool
+        icon="plus"
+        tooltip="Aggiungi"
+      >
+        <z-toolbar htmlAriaLabel="Sotto-toolbar aggiungi">
+          <z-tool
+            icon="copy"
+            tooltip="Copia"
+          ></z-tool>
+          <z-tool
+            icon="edit"
+            tooltip="Modifica"
+          ></z-tool>
+        </z-toolbar>
+      </z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica 2"
+      ></z-tool>
+      <z-tool
+        icon="copy"
+        tooltip="Copia 2"
+      ></z-tool>
+      <z-tool
+        icon="gear"
+        tooltip="Impostazioni 3"
+        disabled
+      ></z-tool>
+      <z-tool
+        icon="upload"
+        tooltip="Carica 3"
+      ></z-tool>
+    </z-toolbar>
+  ),
+  globals: {
+    viewport: {
+      value: "mobile",
+      isRotated: false,
+    },
+  },
+} satisfies Story;

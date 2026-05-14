@@ -1,9 +1,13 @@
 :host {
-  font-family: var(--font-family-sans);
-  font-weight: var(--font-rg);
-
+  /**
+   * @prop --z-carousel-gutter: The gutter between items.
+   * @prop --z-carousel-items-shadow: The shadow around the items.
+   */
   --z-carousel-gutter: 0;
   --z-carousel-items-shadow: ;
+
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-rg);
 }
 
 :host([single]) {

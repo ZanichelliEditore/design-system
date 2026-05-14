@@ -36,6 +36,18 @@
 | `"top-subtitle"`  | Slot for the top subtitle. It will not appear in stuck header.                 |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                                                                                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--app-header-bg`                 | Header background color. Defaults to `--color-surface01`.                                                                                         |
+| `--app-header-content-max-width`  | Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.                                   |
+| `--app-header-stucked-bg`         | Stuck header background color. Defaults to `--color-surface01`.                                                                                   |
+| `--app-header-stucked-text-color` | Stuck header text color. Defaults to `--color-default-text`.                                                                                      |
+| `--app-header-text-color`         | Header text color. Defaults to `--color-default-text`.                                                                                            |
+| `--app-header-top-offset`         | Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar). |
+
+
 ## Dependencies
 
 ### Depends on

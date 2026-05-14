@@ -42,6 +42,14 @@ ZCarousel component.
 |      | Carousel items. Use `<li>` elements inside this slot. |
 
 
+## CSS Custom Properties
+
+| Name                        | Description                  |
+| --------------------------- | ---------------------------- |
+| `--z-carousel-gutter`       | The gutter between items.    |
+| `--z-carousel-items-shadow` | The shadow around the items. |
+
+
 ## Dependencies
 
 ### Depends on

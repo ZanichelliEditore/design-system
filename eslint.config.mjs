@@ -8,7 +8,7 @@ import {defineConfig} from "eslint/config";
 import tseslint from "typescript-eslint";
 
 const TS_FILES = ["**/*.{ts,tsx}"];
-const STORY_FILES = ["**/*.stories.ts"];
+const STORY_FILES = ["**/*.stories.{ts,tsx}"];
 const stencilRecommended = stencilPlugin.configs.flat.recommended;
 
 export default defineConfig([
@@ -107,6 +107,15 @@ export default defineConfig([
         "error",
         {
           allowExpressions: true,
+          allowedNames: [
+            "componentDidLoad",
+            "componentDidUpdate",
+            "componentWillLoad",
+            "componentWillUpdate",
+            "connectedCallback",
+            "disconnectedCallback",
+            "render",
+          ],
         },
       ],
       "@typescript-eslint/no-unused-vars": [
@@ -185,7 +194,7 @@ export default defineConfig([
     },
   },
   {
-    files: ["**/*.spec.ts"],
+    files: ["**/*.spec.ts", "**/*.stories.tsx"],
     rules: {
       "@typescript-eslint/explicit-function-return-type": "off",
     },

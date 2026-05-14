@@ -24,6 +24,13 @@ An optional secondary title can be put over the primary one.
 | `"secondary-title"` | Slot for the secondary title. When present, the divider is always displayed under it, following its width and removing the one for the primary title. |
 
 
+## CSS Custom Properties
+
+| Name                               | Description                                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------- |
+| `--z-section-title--divider-color` | Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`. |
+
+
 ## Dependencies
 
 ### Depends on

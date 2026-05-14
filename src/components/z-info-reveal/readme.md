@@ -29,6 +29,16 @@ Info reveal component.
 |      | content of the info panel. |
 
 
+## CSS Custom Properties
+
+| Name                          | Description                                |
+| ----------------------------- | ------------------------------------------ |
+| `--trigger-icon-size`         | Size of the trigger icon for big size.     |
+| `--trigger-icon-size-small`   | Size of the trigger icon for small size.   |
+| `--trigger-icon-size-x-small` | Size of the trigger icon for x-small size. |
+| `--z-info-reveal-panel-width` | Width of the info panel.                   |
+
+
 ## Dependencies
 
 ### Used by

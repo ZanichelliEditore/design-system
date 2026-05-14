@@ -1,4 +1,8 @@
 z-navigation-tabs {
+  /**
+   * @prop --z-navigation-tabs-nav-buttons-bg: Background color of the navigation buttons. The default is `--color-surface01`.
+   * @prop --z-navigation-tabs-nav-buttons-fg: Foreground color of the navigation buttons. The default is `--color-primary01`.
+   */
   --z-navigation-tabs-nav-buttons-bg: ;
   --z-navigation-tabs-nav-buttons-fg: ;
 

@@ -2,7 +2,7 @@ import {Component, ComponentInterface, h, Prop} from "@stencil/core";
 import {LicenseType} from "../../../../beans/index";
 
 /**
- * @slot  - generic card slot
+ * @slot - generic card slot
  */
 @Component({
   tag: "z-myz-card",

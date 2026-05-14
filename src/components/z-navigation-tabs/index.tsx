@@ -17,8 +17,6 @@ import {NavigationTabsKeyboardEvents, NavigationTabsOrientation, NavigationTabsS
  * Navigation tabs component.
  * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
  * @slot - Main slot. Use `<button>` or `<a>` tags as children.
- * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
- * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
  */
 @Component({
   tag: "z-navigation-tabs",

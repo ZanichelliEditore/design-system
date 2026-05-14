@@ -1,4 +1,9 @@
 :host {
+  /**
+   * @prop --z-searchbar-results-height: Max height of the results container (default: 540px)
+   * @prop --z-searchbar-tag-text-color: Color of tag's text (default --color-primary03);
+   * @prop --z-searchbar-tag-bg: Color of tag's background (default --color-hover-primary);
+   */
   --z-searchbar-tag-text-color: var(--color-primary03);
   --z-searchbar-tag-bg: var(--color-hover-primary);
   --z-searchbar-item-height: 2.75rem;

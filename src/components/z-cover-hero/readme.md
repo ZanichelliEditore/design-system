@@ -26,6 +26,15 @@ Component to display a hero image with content.
 | `"info-reveal"` | slot for the info reveal. |
 
 
+## CSS Custom Properties
+
+| Name                        | Description                                                                                                                                                            |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--cover-hero-aspect-ratio` | aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`. |
+| `--cover-hero-overlay`      | overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.                                         |
+| `--cover-hero-text-color`   | color of the text.                                                                                                                                                     |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

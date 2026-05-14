@@ -1,4 +1,13 @@
 :host {
+  /**
+   * @prop --aspect-ratio: Cover aspect ratio. Default: `1.62`
+   * @prop --z-card--border-color: Default: `var(--gray200)`
+   * @prop --z-card--color-cover-background: Cover color. Default: `var(--color-surface01)`
+   * @prop --z-card--text-background: Background color for the `text` variant. Default: `var(--color-surface01)`
+   * @prop --z-card--text-border-radius: Default: `none`
+   * @prop --z-card--text-border: Configure CSS `border`. Default: `none`
+   * @prop --z-card--text-padding: Configure CSS `padding`. Default: `none`
+   */
   --aspect-ratio: 1.62;
   --z-card--border-color: var(--gray200);
   --z-card--color-cover-background: var(--color-surface01);

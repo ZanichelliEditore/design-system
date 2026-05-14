@@ -19,7 +19,7 @@ export class ZButton implements ComponentInterface {
   ariaLabel: string | undefined = undefined;
 
   /**
-   * **Deprecated:** Use `htmlrole` instead.
+   * Use `htmlrole` instead.
    * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
    */
   @Prop()

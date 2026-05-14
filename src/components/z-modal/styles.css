@@ -1,8 +1,11 @@
 :host {
+  /**
+   * @prop --z-modal-content-padding: padding of the modal's content. The default is `16px` (`--space-unit * 2`).
+   */
+  --z-modal-content-padding: ;
+
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
-
-  --z-modal-content-padding: ;
 }
 
 :host > dialog {

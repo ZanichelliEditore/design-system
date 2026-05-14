@@ -49,6 +49,16 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 | `openChange` | Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically. | `CustomEvent<{ open: boolean; }>` |
 
 
+## CSS Custom Properties
+
+| Name                         | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| `--z-tooltip-padding`        | Padding of the popover. The default is `8px` (`--space-unit`). |
+| `--z-tooltip-shadow-filter`  | Drop-shadow filter of the popover.                             |
+| `--z-tooltip-theme--surface` | Background color of the popover.                               |
+| `--z-tooltip-theme--text`    | Foreground color of the popover.                               |
+
+
 ## Dependencies
 
 ### Used by

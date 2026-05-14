@@ -130,13 +130,6 @@ In this repository we follow the [Conventional Commits Specification](https://ww
 
 ---
 
-#### Plugins
-
-- [storybook-addon-stencil](https://github.com/ZanichelliEditore/storybook-addon-stencil) - custom Storybook plugin for Stencil
-- [@storybook/addon-controls](https://www.npmjs.com/package/@storybook/addon-controls)
-- [@storybook/addon-docs](https://www.npmjs.com/package/@storybook/addon-docs)
-- [@storybook/addon-viewport](https://www.npmjs.com/package/@storybook/addon-viewport)
-
 ### Start Storybook:
 
 ```sh
@@ -144,13 +137,9 @@ In this repository we follow the [Conventional Commits Specification](https://ww
 yarn start-storybook
 ```
 
-local development with Storybook comes with live reloading.
-
 ### Build Storybook:
 
 ```sh
-# Build the library
-yarn build
 # Build Storybook
 yarn build-storybook
 ```
@@ -250,11 +239,11 @@ ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 
 Each component is structured as follows:
 
-| File name          | Description                  |
-| ------------------ | ---------------------------- |
-| `index.tsx`        | Markup and UI logics         |
-| `styles.css`       | Styles                       |
-| `index.spec.ts`    | Tests                        |
-| `index.mdx`        | Storybook's markdown         |
-| `index.stories.ts` | Storybook's CSF stories      |
-| `readme.md`        | Auto-generated documentation |
+| File name           | Description                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| `index.tsx`         | Markup and UI logics                                                                   |
+| `styles.css`        | Styles                                                                                 |
+| `index.spec.ts`     | Tests                                                                                  |
+| `index.mdx`         | Storybook's markdown                                                                   |
+| `index.stories.tsx` | Storybook's CSF stories with Stencil integration provided by @stencil/storybook-plugin |
+| `readme.md`         | Auto-generated documentation                                                           |

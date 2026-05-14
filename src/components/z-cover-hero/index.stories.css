@@ -17,3 +17,7 @@
 .z-cover-hero-story-container z-cover-hero .buttons {
   margin-top: calc(var(--space-unit) * 2);
 }
+
+.z-cover-hero-story-container z-cover-hero .buttons z-button:not(:first-child) {
+  margin-left: var(--space-unit);
+}

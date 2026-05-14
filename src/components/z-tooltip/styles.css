@@ -1,4 +1,10 @@
 :host {
+  /**
+   * @prop --z-tooltip-theme--surface: Background color of the popover.
+   * @prop --z-tooltip-theme--text: Foreground color of the popover.
+   * @prop --z-tooltip-shadow-filter: Drop-shadow filter of the popover.
+   * @prop --z-tooltip-padding: Padding of the popover. The default is `8px` (`--space-unit`).
+   */
   --z-tooltip-theme--surface: var(--color-surface01);
   --z-tooltip-theme--text: var(--color-default-text);
   --z-tooltip-shadow-filter: drop-shadow(0 1px 2px var(--shadow-color-base));
