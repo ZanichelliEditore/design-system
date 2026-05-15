@@ -18,10 +18,10 @@ const outputTargets: Config["outputTargets"] = [
 // The same risk applies to other doc/artifact targets.
 // To prevent any incomplete output, we restrict the programmatic Storybook build to only
 // the `dist-custom-elements` target, which is the one actually needed to serve components in
-// Storybook. All other targets are disabled via the `STORYBOOK_DEV` env var.
+// Storybook. All other targets are disabled via the `STENCIL_DEV` env var.
 // The initial `stencil build` run by `start-storybook` (where this env var is not set)
 // still runs all targets and generates every artifact correctly.
-if (process.env.STORYBOOK_DEV !== "1") {
+if (process.env.STENCIL_DEV !== "1") {
   outputTargets.push(
     {
       type: "dist",
@@ -51,11 +51,19 @@ if (process.env.STORYBOOK_DEV !== "1") {
   );
 }
 
+/**
+ * Generate source maps only when `unplugin-stencil` (used by `@stencil/storybook-plugin`) compiles during `storybook dev`.
+ * `STENCIL_DEV=1` is set by both `start-storybook` and `build-storybook` scripts in `package.json`,
+ * so we also check `NODE_ENV` (Vite sets it to "production" during `storybook build`) to skip the generation of source maps in production.
+ */
+const stencilDevBuildForStorybook = process.env.STENCIL_DEV === "1" && process.env.NODE_ENV !== "production";
+
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
   plugins: [image()],
   tsconfig: "tsconfig.stencil.json",
+  sourceMap: stencilDevBuildForStorybook,
   outputTargets,
   extras: {
     enableImportInjection: true,
