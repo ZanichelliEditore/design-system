@@ -85,7 +85,7 @@ export class ZButton implements ComponentInterface {
     };
   }
 
-  private renderIcon(): JSX.Element | undefined {
+  private renderIcon(): HTMLZIconElement | undefined {
     return this.icon && <z-icon name={this.icon} />;
   }
 
