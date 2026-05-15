@@ -593,6 +593,10 @@ export class ZInput implements ComponentInterface {
           disabled={this.disabled}
           readonly={this.readonly}
           onChange={this.handleCheck.bind(this)}
+          onTouchStart={(e) => {
+            // WCAG 2.5.2: Prevent selection on touchstart to allow pointer cancellation
+            e.preventDefault();
+          }}
           value={this.value}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
