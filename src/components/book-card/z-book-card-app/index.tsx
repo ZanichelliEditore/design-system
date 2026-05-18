@@ -3,8 +3,6 @@ import {ControlSize, InfoRevealPosition} from "../../../beans";
 
 /**
  * ZBookCardApp component
- * @cssprop --z-book-card-app-padding-x - set left and right padding
- * @cssprop --z-book-card-app-padding-y - set top and bottom padding
  */
 @Component({
   tag: "z-book-card-app",

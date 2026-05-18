@@ -45,6 +45,19 @@
 | `"tags"`         | Tags section, default empty                                  |
 
 
+## CSS Custom Properties
+
+| Name                                  | Description                                                     |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `--z-book-card-authors-lines`         | Set authors available lines - Default: `1`                      |
+| `--z-book-card-authors-word-break`    | Set authors word-break rule - Default: `break-all`              |
+| `--z-book-card-portrait-cover-height` | Set custom cover height for portrait variant - Default: `378px` |
+| `--z-book-card-subtitle-lines`        | Set subtitle available lines - Default: `1`                     |
+| `--z-book-card-subtitle-word-break`   | Set subtitle word-break rule - Default: `break-all`             |
+| `--z-book-card-title-lines`           | Set title avilable lines - Default: `2`                         |
+| `--z-book-card-title-word-break`      | Set title word-break rule - Default: `initial`                  |
+
+
 ## Dependencies
 
 ### Depends on

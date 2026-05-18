@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.toast-container.slotted-button {
+.toast-container .slotted-button {
   --color-primary01: var(--gray600);
   --color-hover-primary: var(--gray700);
 }

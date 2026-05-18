@@ -1,5 +1,11 @@
 :host {
-  --z-info-reveal-panel-width: 384px; /* defaults half the size of the mobile breakpoint */
+  /**
+   * @prop --z-info-reveal-panel-width: Width of the info panel.
+   * @prop --trigger-icon-size: Size of the trigger icon for big size.
+   * @prop --trigger-icon-size-small: Size of the trigger icon for small size.
+   * @prop --trigger-icon-size-x-small: Size of the trigger icon for x-small size.
+   */
+  --z-info-reveal-panel-width: 384px; /* defaults to half the maximum size of the mobile breakpoint */
   --trigger-size: 44px;
 
   position: relative;

@@ -18,16 +18,6 @@ export { IconName } from "./constants/iconset";
 export namespace Components {
     /**
      * Accordion component.
-     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
-     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
-     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
-     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
-     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
-     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
      */
     interface ZAccordion {
         /**
@@ -105,19 +95,11 @@ export namespace Components {
          */
         "hideUnselected": boolean;
         /**
-          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+          * Explicitly collapse anchor navigation. If false, it will collapse automatically only on mobile.
           * @default false
          */
         "isCollapsed": boolean;
     }
-    /**
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -163,61 +145,6 @@ export namespace Components {
          */
         "stuck": boolean;
     }
-    /**
-     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
-     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
-     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
-     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
-     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
-     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
-     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
-     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
-     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
-     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
-     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
-     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
-     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
-     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
-     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
-     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
-     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
-     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
-     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
-     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
-     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
-     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
-     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
-     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
-     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
-     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
-     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
-     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
@@ -295,15 +222,6 @@ export namespace Components {
          */
         "textColor"?: string;
     }
-    /**
-     * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
-     * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
-     * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
-     * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
-     * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
-     * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
-     * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
-     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -364,8 +282,6 @@ export namespace Components {
     }
     /**
      * ZBookCardApp component
-     * @cssprop --z-book-card-app-padding-x - set left and right padding
-     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
      */
     interface ZBookCardApp {
         /**
@@ -390,12 +306,6 @@ export namespace Components {
          */
         "name": string;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface ZBookCardDeprecated {
         /**
           * [optional] Authors
@@ -456,10 +366,6 @@ export namespace Components {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
-     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
-     * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
-     * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
      */
     interface ZBookCover {
         /**
@@ -550,7 +456,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * **Deprecated:** Use `htmlrole` instead.
+          * Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
           * @default ""
          */
@@ -616,13 +522,6 @@ export namespace Components {
     /**
      * ZCard component.
      * The width of the card must be set by its container, following the grid indications of the design.
-     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
-     * @cssprop --z-card--border-color - Default: `var(--gray200)`
-     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-border-radius - Default: `none`
-     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
-     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
      */
     interface ZCard {
         /**
@@ -642,12 +541,10 @@ export namespace Components {
         /**
           * Card variant. Can be one of "text", "border", "shadow", "overlay". Leave it undefined for the default card.
          */
-        "variant": CardVariant;
+        "variant"?: CardVariant;
     }
     /**
      * ZCarousel component.
-     * @cssprop --z-carousel-gutter - The gutter between items.
-     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -828,9 +725,6 @@ export namespace Components {
     /**
      * Cover hero component.
      * Component to display a hero image with content.
-     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
-     * @cssprop --cover-hero-text-color - color of the text.
-     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
      */
     interface ZCoverHero {
         /**
@@ -1045,10 +939,6 @@ export namespace Components {
     }
     /**
      * Info reveal component.
-     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
-     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
-     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
-     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface ZInfoReveal {
         /**
@@ -1405,9 +1295,6 @@ export namespace Components {
          */
         "width"?: number;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface ZMenu {
         /**
           * Flag to set the active status of the menu.
@@ -1442,9 +1329,6 @@ export namespace Components {
          */
         "verticalContext": boolean;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface ZMenuDeprecated {
         /**
           * Flag to set the active status of the menu.
@@ -1501,9 +1385,6 @@ export namespace Components {
          */
         "active"?: boolean;
     }
-    /**
-     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
-     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -1693,8 +1574,6 @@ export namespace Components {
     /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
-     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
-     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
      */
     interface ZNavigationTabs {
         /**
@@ -1720,9 +1599,6 @@ export namespace Components {
     }
     /**
      * Notification bar component.
-     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
@@ -1759,11 +1635,6 @@ export namespace Components {
          */
         "type": NotificationType;
     }
-    /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
-     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
-     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
-     */
     interface ZOffcanvas {
         /**
           * Whether the offcanvas is open. Default: false
@@ -1809,8 +1680,6 @@ export namespace Components {
     }
     /**
      * Pagination bar component.
-     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
-     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface ZPagination {
         /**
@@ -1900,10 +1769,6 @@ export namespace Components {
      * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
      * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
-     * @cssprop --z-popover-theme--surface - background color of the popover.
-     * @cssprop --z-popover-theme--text - foreground color of the popover.
-     * @cssprop --z-popover-padding - padding of the popover.
-     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
      */
     interface ZPopover {
         /**
@@ -2019,11 +1884,6 @@ export namespace Components {
          */
         "titleHtmlTag"?: string;
     }
-    /**
-     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
-     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
-     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
-     */
     interface ZSearchbar {
         /**
           * Show autocomplete results
@@ -2108,7 +1968,6 @@ export namespace Components {
     /**
      * Section title component.
      * An optional secondary title can be put over the primary one.
-     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
      */
     interface ZSectionTitle {
         /**
@@ -2262,7 +2121,6 @@ export namespace Components {
     }
     /**
      * ZTable component.
-     * @cssprop --z-table--cells-padding - Padding of the cells.
      */
     interface ZTable {
         /**
@@ -2273,8 +2131,6 @@ export namespace Components {
     }
     /**
      * Ztag component.
-     * @cssprop --z-tag-text-color - text and icon color using tokens.
-     * @cssprop --z-tag-bg - background color of the z-tag.
      */
     interface ZTag {
         /**
@@ -2514,7 +2370,6 @@ export namespace Components {
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface ZToolbar {
         /**
@@ -2525,9 +2380,6 @@ export namespace Components {
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
-     * @cssprop --z-tooltip-theme--surface - background color of the popover.
-     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
-     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface ZTooltip {
         /**
@@ -2767,16 +2619,6 @@ declare global {
     }
     /**
      * Accordion component.
-     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
-     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
-     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
-     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
-     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
-     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
      */
     interface HTMLZAccordionElement extends Components.ZAccordion, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAccordionElementEventMap>(type: K, listener: (this: HTMLZAccordionElement, ev: ZAccordionCustomEvent<HTMLZAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2820,14 +2662,6 @@ declare global {
     interface HTMLZAppHeaderElementEventMap {
         "sticking": any;
     }
-    /**
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2845,61 +2679,6 @@ declare global {
     interface HTMLZAppHeaderDeprecatedElementEventMap {
         "sticking": any;
     }
-    /**
-     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
-     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
-     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
-     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
-     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
-     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
-     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
-     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
-     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
-     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
-     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
-     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
-     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
-     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
-     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
-     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
-     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
-     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
-     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
-     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
-     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
-     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
-     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
-     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
-     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
-     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
-     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
-     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface HTMLZAppHeaderDeprecatedElement extends Components.ZAppHeaderDeprecated, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2931,15 +2710,6 @@ declare global {
         "coverClick": any;
         "titleClick": any;
     }
-    /**
-     * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
-     * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
-     * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
-     * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
-     * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
-     * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
-     * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
-     */
     interface HTMLZBookCardElement extends Components.ZBookCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardElementEventMap>(type: K, listener: (this: HTMLZBookCardElement, ev: ZBookCardCustomEvent<HTMLZBookCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2959,8 +2729,6 @@ declare global {
     }
     /**
      * ZBookCardApp component
-     * @cssprop --z-book-card-app-padding-x - set left and right padding
-     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
      */
     interface HTMLZBookCardAppElement extends Components.ZBookCardApp, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardAppElementEventMap>(type: K, listener: (this: HTMLZBookCardAppElement, ev: ZBookCardAppCustomEvent<HTMLZBookCardAppElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2979,12 +2747,6 @@ declare global {
     interface HTMLZBookCardDeprecatedElementEventMap {
         "ribbonClick": any;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface HTMLZBookCardDeprecatedElement extends Components.ZBookCardDeprecated, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3004,10 +2766,6 @@ declare global {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
-     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
-     * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
-     * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
      */
     interface HTMLZBookCoverElement extends Components.ZBookCover, HTMLStencilElement {
     }
@@ -3058,13 +2816,6 @@ declare global {
     /**
      * ZCard component.
      * The width of the card must be set by its container, following the grid indications of the design.
-     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
-     * @cssprop --z-card--border-color - Default: `var(--gray200)`
-     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-border-radius - Default: `none`
-     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
-     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
      */
     interface HTMLZCardElement extends Components.ZCard, HTMLStencilElement {
     }
@@ -3077,8 +2828,6 @@ declare global {
     }
     /**
      * ZCarousel component.
-     * @cssprop --z-carousel-gutter - The gutter between items.
-     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface HTMLZCarouselElement extends Components.ZCarousel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZCarouselElementEventMap>(type: K, listener: (this: HTMLZCarouselElement, ev: ZCarouselCustomEvent<HTMLZCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3152,9 +2901,6 @@ declare global {
     /**
      * Cover hero component.
      * Component to display a hero image with content.
-     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
-     * @cssprop --cover-hero-text-color - color of the text.
-     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
      */
     interface HTMLZCoverHeroElement extends Components.ZCoverHero, HTMLStencilElement {
     }
@@ -3272,10 +3018,6 @@ declare global {
     };
     /**
      * Info reveal component.
-     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
-     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
-     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
-     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface HTMLZInfoRevealElement extends Components.ZInfoReveal, HTMLStencilElement {
     }
@@ -3352,9 +3094,6 @@ declare global {
         "opened": any;
         "closed": any;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface HTMLZMenuElement extends Components.ZMenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZMenuElementEventMap>(type: K, listener: (this: HTMLZMenuElement, ev: ZMenuCustomEvent<HTMLZMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3373,9 +3112,6 @@ declare global {
         "opened": any;
         "closed": any;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface HTMLZMenuDeprecatedElement extends Components.ZMenuDeprecated, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3437,9 +3173,6 @@ declare global {
         "modalHeaderActive": any;
         "modalBackgroundClick": any;
     }
-    /**
-     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
-     */
     interface HTMLZModalElement extends Components.ZModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZModalElementEventMap>(type: K, listener: (this: HTMLZModalElement, ev: ZModalCustomEvent<HTMLZModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3548,8 +3281,6 @@ declare global {
     /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
-     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
-     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
      */
     interface HTMLZNavigationTabsElement extends Components.ZNavigationTabs, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNavigationTabsElementEventMap>(type: K, listener: (this: HTMLZNavigationTabsElement, ev: ZNavigationTabsCustomEvent<HTMLZNavigationTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3571,9 +3302,6 @@ declare global {
     }
     /**
      * Notification bar component.
-     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface HTMLZNotificationElement extends Components.ZNotification, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZNotificationElementEventMap>(type: K, listener: (this: HTMLZNotificationElement, ev: ZNotificationCustomEvent<HTMLZNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3592,11 +3320,6 @@ declare global {
     interface HTMLZOffcanvasElementEventMap {
         "canvasOpenStatusChanged": any;
     }
-    /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
-     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
-     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
-     */
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3633,8 +3356,6 @@ declare global {
     }
     /**
      * Pagination bar component.
-     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
-     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface HTMLZPaginationElement extends Components.ZPagination, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZPaginationElementEventMap>(type: K, listener: (this: HTMLZPaginationElement, ev: ZPaginationCustomEvent<HTMLZPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3666,10 +3387,6 @@ declare global {
      * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
      * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
-     * @cssprop --z-popover-theme--surface - background color of the popover.
-     * @cssprop --z-popover-theme--text - foreground color of the popover.
-     * @cssprop --z-popover-padding - padding of the popover.
-     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
      */
     interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3713,11 +3430,6 @@ declare global {
         "searchTyping": string;
         "searchItemClick": SearchbarItem;
     }
-    /**
-     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
-     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
-     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
-     */
     interface HTMLZSearchbarElement extends Components.ZSearchbar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZSearchbarElementEventMap>(type: K, listener: (this: HTMLZSearchbarElement, ev: ZSearchbarCustomEvent<HTMLZSearchbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3735,7 +3447,6 @@ declare global {
     /**
      * Section title component.
      * An optional secondary title can be put over the primary one.
-     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
      */
     interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
     }
@@ -3790,7 +3501,6 @@ declare global {
     };
     /**
      * ZTable component.
-     * @cssprop --z-table--cells-padding - Padding of the cells.
      */
     interface HTMLZTableElement extends Components.ZTable, HTMLStencilElement {
     }
@@ -3800,8 +3510,6 @@ declare global {
     };
     /**
      * Ztag component.
-     * @cssprop --z-tag-text-color - text and icon color using tokens.
-     * @cssprop --z-tag-bg - background color of the z-tag.
      */
     interface HTMLZTagElement extends Components.ZTag, HTMLStencilElement {
     }
@@ -3945,7 +3653,6 @@ declare global {
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface HTMLZToolbarElement extends Components.ZToolbar, HTMLStencilElement {
     }
@@ -3959,9 +3666,6 @@ declare global {
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
-     * @cssprop --z-tooltip-theme--surface - background color of the popover.
-     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
-     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface HTMLZTooltipElement extends Components.ZTooltip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZTooltipElementEventMap>(type: K, listener: (this: HTMLZTooltipElement, ev: ZTooltipCustomEvent<HTMLZTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4111,16 +3815,6 @@ declare namespace LocalJSX {
 
     /**
      * Accordion component.
-     * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
-     * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-     * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
-     * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-     * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
-     * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
-     * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
-     * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
-     * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
      */
     interface ZAccordion {
         /**
@@ -4202,19 +3896,11 @@ declare namespace LocalJSX {
          */
         "hideUnselected"?: boolean;
         /**
-          * Explicitly collapse anchor navigation. If false will collapse automatically only on mobile.
+          * Explicitly collapse anchor navigation. If false, it will collapse automatically only on mobile.
           * @default false
          */
         "isCollapsed"?: boolean;
     }
-    /**
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface ZAppHeader {
         /**
           * The opening state of the drawer.
@@ -4264,61 +3950,6 @@ declare namespace LocalJSX {
          */
         "stuck"?: boolean;
     }
-    /**
-     * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
-     * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
-     * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
-     * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
-     * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
-     * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
-     * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
-     * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
-     * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
-     * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
-     * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
-     * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
-     * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
-     * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
-     * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-     * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-     * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-     * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-     * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
-     * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
-     * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
-     * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
-     * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
-     * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
-     * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
-     * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
-     * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
-     * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
-     * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
-     * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
-     * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-     * @cssprop --app-header-height - Defaults to `auto`.
-     * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-     * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
-     * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-     * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
-     * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
-     * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
-     * Defaults to `--app-header-typography-3-size`.
-     * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-     * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-lineheight`.
-     * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-     * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-     * Defaults to `--app-header-typography-3-tracking`.
-     * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-     */
     interface ZAppHeaderDeprecated {
         /**
           * The opening state of the drawer.
@@ -4400,15 +4031,6 @@ declare namespace LocalJSX {
          */
         "textColor"?: string;
     }
-    /**
-     * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
-     * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
-     * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
-     * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
-     * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
-     * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
-     * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
-     */
     interface ZBookCard {
         /**
           * [optional] Authors
@@ -4481,8 +4103,6 @@ declare namespace LocalJSX {
     }
     /**
      * ZBookCardApp component
-     * @cssprop --z-book-card-app-padding-x - set left and right padding
-     * @cssprop --z-book-card-app-padding-y - set top and bottom padding
      */
     interface ZBookCardApp {
         /**
@@ -4511,12 +4131,6 @@ declare namespace LocalJSX {
          */
         "onAppClick"?: (event: ZBookCardAppCustomEvent<any>) => void;
     }
-    /**
-     * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-     * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-     * @cssprop --z-book-card-compact-width - compact card custom width
-     * @cssprop --z-book-card-compact-height - compact card custom height
-     */
     interface ZBookCardDeprecated {
         /**
           * [optional] Authors
@@ -4581,10 +4195,6 @@ declare namespace LocalJSX {
      * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
      * The aspect ratio of the cover image is preserved.
      * Alignment of the image inside the container can be customized via CSS properties.
-     * @cssprop --z-book-cover-height - height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
-     * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
-     * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
-     * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
      */
     interface ZBookCover {
         /**
@@ -4679,7 +4289,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * **Deprecated:** Use `htmlrole` instead.
+          * Use `htmlrole` instead.
           * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
           * @default ""
          */
@@ -4749,13 +4359,6 @@ declare namespace LocalJSX {
     /**
      * ZCard component.
      * The width of the card must be set by its container, following the grid indications of the design.
-     * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
-     * @cssprop --z-card--border-color - Default: `var(--gray200)`
-     * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
-     * @cssprop --z-card--text-border-radius - Default: `none`
-     * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
-     * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
      */
     interface ZCard {
         /**
@@ -4779,8 +4382,6 @@ declare namespace LocalJSX {
     }
     /**
      * ZCarousel component.
-     * @cssprop --z-carousel-gutter - The gutter between items.
-     * @cssprop --z-carousel-items-shadow - The shadow around the items.
      */
     interface ZCarousel {
         /**
@@ -4973,9 +4574,6 @@ declare namespace LocalJSX {
     /**
      * Cover hero component.
      * Component to display a hero image with content.
-     * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
-     * @cssprop --cover-hero-text-color - color of the text.
-     * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
      */
     interface ZCoverHero {
         /**
@@ -5206,10 +4804,6 @@ declare namespace LocalJSX {
     }
     /**
      * Info reveal component.
-     * @cssprop --z-info-reveal-panel-width - Width of the info panel.
-     * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
-     * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
-     * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
      */
     interface ZInfoReveal {
         /**
@@ -5598,9 +5192,6 @@ declare namespace LocalJSX {
          */
         "width"?: number;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface ZMenu {
         /**
           * Flag to set the active status of the menu.
@@ -5635,9 +5226,6 @@ declare namespace LocalJSX {
          */
         "verticalContext"?: boolean;
     }
-    /**
-     * @cssprop --z-menu-label-color - Color of the label's text.
-     */
     interface ZMenuDeprecated {
         /**
           * Flag to set the active status of the menu.
@@ -5710,9 +5298,6 @@ declare namespace LocalJSX {
          */
         "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
-    /**
-     * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
-     */
     interface ZModal {
         /**
           * add role "alertdialog" to dialog (optional, default is false)
@@ -5922,8 +5507,6 @@ declare namespace LocalJSX {
     /**
      * Navigation tabs component.
      * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
-     * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
-     * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
      */
     interface ZNavigationTabs {
         /**
@@ -5953,9 +5536,6 @@ declare namespace LocalJSX {
     }
     /**
      * Notification bar component.
-     * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-     * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-     * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
      */
     interface ZNotification {
         /**
@@ -6000,11 +5580,6 @@ declare namespace LocalJSX {
          */
         "type"?: NotificationType;
     }
-    /**
-     * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
-     * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
-     * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
-     */
     interface ZOffcanvas {
         /**
           * emitted when `open` prop changes
@@ -6058,8 +5633,6 @@ declare namespace LocalJSX {
     }
     /**
      * Pagination bar component.
-     * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
-     * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
      */
     interface ZPagination {
         /**
@@ -6153,10 +5726,6 @@ declare namespace LocalJSX {
      * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
      * Notes:
      * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
-     * @cssprop --z-popover-theme--surface - background color of the popover.
-     * @cssprop --z-popover-theme--text - foreground color of the popover.
-     * @cssprop --z-popover-padding - padding of the popover.
-     * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
      */
     interface ZPopover {
         /**
@@ -6284,11 +5853,6 @@ declare namespace LocalJSX {
          */
         "titleHtmlTag"?: string;
     }
-    /**
-     * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
-     * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
-     * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
-     */
     interface ZSearchbar {
         /**
           * Show autocomplete results
@@ -6385,7 +5949,6 @@ declare namespace LocalJSX {
     /**
      * Section title component.
      * An optional secondary title can be put over the primary one.
-     * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
      */
     interface ZSectionTitle {
         /**
@@ -6535,7 +6098,6 @@ declare namespace LocalJSX {
     }
     /**
      * ZTable component.
-     * @cssprop --z-table--cells-padding - Padding of the cells.
      */
     interface ZTable {
         /**
@@ -6546,8 +6108,6 @@ declare namespace LocalJSX {
     }
     /**
      * Ztag component.
-     * @cssprop --z-tag-text-color - text and icon color using tokens.
-     * @cssprop --z-tag-bg - background color of the z-tag.
      */
     interface ZTag {
         /**
@@ -6799,7 +6359,6 @@ declare namespace LocalJSX {
      * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
      * Tools can be visually grouped using `z-divider` elements as separators.
      * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-     * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
      */
     interface ZToolbar {
         /**
@@ -6810,9 +6369,6 @@ declare namespace LocalJSX {
     /**
      * Tooltip component.
      * It is basically a wrapper for the `<z-popover>` component with custom configuration.
-     * @cssprop --z-tooltip-theme--surface - background color of the popover.
-     * @cssprop --z-tooltip-theme--text - foreground color of the popover.
-     * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
      */
     interface ZTooltip {
         /**
@@ -7581,16 +7137,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             /**
              * Accordion component.
-             * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
-             * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
-             * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
-             * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
-             * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
-             * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
-             * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
-             * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
-             * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
-             * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
              */
             "z-accordion": LocalJSX.IntrinsicElements["z-accordion"] & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
             "z-alert": LocalJSX.IntrinsicElements["z-alert"] & JSXBase.HTMLAttributes<HTMLZAlertElement>;
@@ -7608,105 +7154,21 @@ declare module "@stencil/core" {
              * ```
              */
             "z-anchor-navigation": LocalJSX.IntrinsicElements["z-anchor-navigation"] & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
-            /**
-             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
-             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-             */
             "z-app-header": LocalJSX.IntrinsicElements["z-app-header"] & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
-            /**
-             * @cssprop --app-header-typography-1-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `24px`.
-             * @cssprop --app-header-typography-2-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `28px`.
-             * @cssprop --app-header-typography-3-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `32px`.
-             * @cssprop --app-header-typography-4-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `36px`.
-             * @cssprop --app-header-typography-5-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `42px`.
-             * @cssprop --app-header-typography-6-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `48px`.
-             * @cssprop --app-header-typography-7-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `54px`.
-             * @cssprop --app-header-typography-8-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `60px`.
-             * @cssprop --app-header-typography-9-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `68px`.
-             * @cssprop --app-header-typography-10-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `76px`.
-             * @cssprop --app-header-typography-11-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `84px`.
-             * @cssprop --app-header-typography-12-size - Part of the heading typography's scale. Use it if you have to override the default value. Value: `92px`.
-             * @cssprop --app-header-typography-1-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.33`.
-             * @cssprop --app-header-typography-2-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.29`.
-             * @cssprop --app-header-typography-3-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-             * @cssprop --app-header-typography-4-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-             * @cssprop --app-header-typography-5-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-             * @cssprop --app-header-typography-6-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.25`.
-             * @cssprop --app-header-typography-7-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-             * @cssprop --app-header-typography-8-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-             * @cssprop --app-header-typography-9-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.24`.
-             * @cssprop --app-header-typography-10-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.26`.
-             * @cssprop --app-header-typography-11-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-             * @cssprop --app-header-typography-12-lineheight - Part of the heading typography's scale. Use it if you have to override the default value. Value: `1.2`.
-             * @cssprop --app-header-typography-1-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.2 / 1em)`.
-             * @cssprop --app-header-typography-2-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.4 / 1em)`.
-             * @cssprop --app-header-typography-3-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.6 / 1em)`.
-             * @cssprop --app-header-typography-4-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-0.8 / 1em)`.
-             * @cssprop --app-header-typography-5-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1 / 1em)`.
-             * @cssprop --app-header-typography-6-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.2 / 1em)`.
-             * @cssprop --app-header-typography-7-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.4 / 1em)`.
-             * @cssprop --app-header-typography-8-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.6 / 1em)`.
-             * @cssprop --app-header-typography-9-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-1.8 / 1em)`.
-             * @cssprop --app-header-typography-10-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2 / 1em)`.
-             * @cssprop --app-header-typography-11-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.2 / 1em)`.
-             * @cssprop --app-header-typography-12-tracking - Part of the heading typography's scale. Use it if you have to override the default value. Value: `calc(-2.4 / 1em)`.
-             * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
-             * @cssprop --app-header-height - Defaults to `auto`.
-             * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
-             * @cssprop --app-header-drawer-trigger-size - The size of the drawer icon. Defaults to `--space-unit * 4`.
-             * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
-             * @cssprop --app-header-text-color - Text color. Useful on `hero` variant to set text color based on the colors of the background image. Defaults to `--color-default-text`.
-             * @cssprop --app-header-title-font-size - Variable to customize the title's font size.
-             * NOTE: Only use one of the exported `--app-header-typography-*-size` as a value.
-             * Defaults to `--app-header-typography-3-size`.
-             * @cssprop --app-header-title-lineheight - Variable to customize the title's line-height.
-             * NOTE: Only use one of the exported `--app-header-typography-*-lineheight` as a value and use the same level as the one of the font size.
-             * Defaults to `--app-header-typography-3-lineheight`.
-             * @cssprop --app-header-title-letter-spacing - Variable to customize the title's letter-spacing.
-             * NOTE: Only use one of the exported `--app-header-typography-*-tracking` as a value and use the same level as the one of the font size.
-             * Defaults to `--app-header-typography-3-tracking`.
-             * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
-             */
             "z-app-header-deprecated": LocalJSX.IntrinsicElements["z-app-header-deprecated"] & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.IntrinsicElements["z-aria-alert"] & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.IntrinsicElements["z-avatar"] & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
-            /**
-             * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
-             * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
-             * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
-             * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
-             * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
-             * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
-             * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
-             */
             "z-book-card": LocalJSX.IntrinsicElements["z-book-card"] & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
             /**
              * ZBookCardApp component
-             * @cssprop --z-book-card-app-padding-x - set left and right padding
-             * @cssprop --z-book-card-app-padding-y - set top and bottom padding
              */
             "z-book-card-app": LocalJSX.IntrinsicElements["z-book-card-app"] & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
-            /**
-             * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
-             * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
-             * @cssprop --z-book-card-compact-width - compact card custom width
-             * @cssprop --z-book-card-compact-height - compact card custom height
-             */
             "z-book-card-deprecated": LocalJSX.IntrinsicElements["z-book-card-deprecated"] & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
             /**
              * This component displays a book cover image,
              * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
              * The aspect ratio of the cover image is preserved.
              * Alignment of the image inside the container can be customized via CSS properties.
-             * @cssprop --z-book-cover-height - height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
-             * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
-             * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
-             * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
              */
             "z-book-cover": LocalJSX.IntrinsicElements["z-book-cover"] & JSXBase.HTMLAttributes<HTMLZBookCoverElement>;
             "z-breadcrumb": LocalJSX.IntrinsicElements["z-breadcrumb"] & JSXBase.HTMLAttributes<HTMLZBreadcrumbElement>;
@@ -7715,19 +7177,10 @@ declare module "@stencil/core" {
             /**
              * ZCard component.
              * The width of the card must be set by its container, following the grid indications of the design.
-             * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
-             * @cssprop --z-card--border-color - Default: `var(--gray200)`
-             * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
-             * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
-             * @cssprop --z-card--text-border-radius - Default: `none`
-             * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
-             * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
              */
             "z-card": LocalJSX.IntrinsicElements["z-card"] & JSXBase.HTMLAttributes<HTMLZCardElement>;
             /**
              * ZCarousel component.
-             * @cssprop --z-carousel-gutter - The gutter between items.
-             * @cssprop --z-carousel-items-shadow - The shadow around the items.
              */
             "z-carousel": LocalJSX.IntrinsicElements["z-carousel"] & JSXBase.HTMLAttributes<HTMLZCarouselElement>;
             "z-chip": LocalJSX.IntrinsicElements["z-chip"] & JSXBase.HTMLAttributes<HTMLZChipElement>;
@@ -7740,9 +7193,6 @@ declare module "@stencil/core" {
             /**
              * Cover hero component.
              * Component to display a hero image with content.
-             * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
-             * @cssprop --cover-hero-text-color - color of the text.
-             * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
              */
             "z-cover-hero": LocalJSX.IntrinsicElements["z-cover-hero"] & JSXBase.HTMLAttributes<HTMLZCoverHeroElement>;
             "z-date-picker": LocalJSX.IntrinsicElements["z-date-picker"] & JSXBase.HTMLAttributes<HTMLZDatePickerElement>;
@@ -7759,10 +7209,6 @@ declare module "@stencil/core" {
             "z-info-box": LocalJSX.IntrinsicElements["z-info-box"] & JSXBase.HTMLAttributes<HTMLZInfoBoxElement>;
             /**
              * Info reveal component.
-             * @cssprop --z-info-reveal-panel-width - Width of the info panel.
-             * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
-             * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
-             * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
              */
             "z-info-reveal": LocalJSX.IntrinsicElements["z-info-reveal"] & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.IntrinsicElements["z-input"] & JSXBase.HTMLAttributes<HTMLZInputElement>;
@@ -7771,13 +7217,7 @@ declare module "@stencil/core" {
             "z-list-element": LocalJSX.IntrinsicElements["z-list-element"] & JSXBase.HTMLAttributes<HTMLZListElementElement>;
             "z-list-group": LocalJSX.IntrinsicElements["z-list-group"] & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.IntrinsicElements["z-logo"] & JSXBase.HTMLAttributes<HTMLZLogoElement>;
-            /**
-             * @cssprop --z-menu-label-color - Color of the label's text.
-             */
             "z-menu": LocalJSX.IntrinsicElements["z-menu"] & JSXBase.HTMLAttributes<HTMLZMenuElement>;
-            /**
-             * @cssprop --z-menu-label-color - Color of the label's text.
-             */
             "z-menu-deprecated": LocalJSX.IntrinsicElements["z-menu-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
             /**
              * A component to create submenus inside the ZMenu.
@@ -7787,9 +7227,6 @@ declare module "@stencil/core" {
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section-deprecated": LocalJSX.IntrinsicElements["z-menu-section-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
-            /**
-             * @cssprop --z-modal-content-padding - padding of the modal's content. The default is 16px (--space-unit * 2)
-             */
             "z-modal": LocalJSX.IntrinsicElements["z-modal"] & JSXBase.HTMLAttributes<HTMLZModalElement>;
             "z-myz-card": LocalJSX.IntrinsicElements["z-myz-card"] & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
             "z-myz-card-body": LocalJSX.IntrinsicElements["z-myz-card-body"] & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
@@ -7803,28 +7240,16 @@ declare module "@stencil/core" {
             /**
              * Navigation tabs component.
              * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
-             * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
-             * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
              */
             "z-navigation-tabs": LocalJSX.IntrinsicElements["z-navigation-tabs"] & JSXBase.HTMLAttributes<HTMLZNavigationTabsElement>;
             /**
              * Notification bar component.
-             * @cssprop --z-notification--top-offset - The top offset of the notification. Use it when `sticky` prop is set to `true` and you need the notification to stay under other sticky elements. Default: 0px.
-             * @cssprop --z-notification--content-max-width - The max width of the notification content. Useful to align the content with other elements on the page, keeping the colored background full width. Default: 100%. Note: the content is automatically centered, so if you want to limit the width only for the slotted content, you can wrap it in a container with the desired width and leave the `z-notification` width to 100%.
-             * @cssprop --z-notification--inline-padding - The inline padding of the notification content. It can be useful to align the content when the `--z-notification--content-max-width` is set. Default: calc(var(--space-unit) * 2).
              */
             "z-notification": LocalJSX.IntrinsicElements["z-notification"] & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
-            /**
-             * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
-             * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
-             * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
-             */
             "z-offcanvas": LocalJSX.IntrinsicElements["z-offcanvas"] & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
             "z-otp": LocalJSX.IntrinsicElements["z-otp"] & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**
              * Pagination bar component.
-             * @cssprop --z-pagination-background-color - background of the pagination's tabs. The default is --color-background
-             * @cssprop --z-pagination-background-color-hover - background of the pagination's tabs on hover. The default is --color-surface01
              */
             "z-pagination": LocalJSX.IntrinsicElements["z-pagination"] & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
             "z-panel-elem": LocalJSX.IntrinsicElements["z-panel-elem"] & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
@@ -7834,24 +7259,14 @@ declare module "@stencil/core" {
              * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
              * Notes:
              * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
-             * @cssprop --z-popover-theme--surface - background color of the popover.
-             * @cssprop --z-popover-theme--text - foreground color of the popover.
-             * @cssprop --z-popover-padding - padding of the popover.
-             * @cssprop --z-popover-shadow-filter - drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
              */
             "z-popover": LocalJSX.IntrinsicElements["z-popover"] & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-range-picker": LocalJSX.IntrinsicElements["z-range-picker"] & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-result-card": LocalJSX.IntrinsicElements["z-result-card"] & JSXBase.HTMLAttributes<HTMLZResultCardElement>;
-            /**
-             * @cssprop --z-searchbar-results-height - Max height of the results container (default: 540px)
-             * @cssprop --z-searchbar-tag-text-color - Color of tag's text (default --color-primary03);
-             * @cssprop --z-searchbar-tag-bg - Color of tag's background (default --color-hover-primary);
-             */
             "z-searchbar": LocalJSX.IntrinsicElements["z-searchbar"] & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
             /**
              * Section title component.
              * An optional secondary title can be put over the primary one.
-             * @cssprop --z-section-title--divider-color - Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
              */
             "z-section-title": LocalJSX.IntrinsicElements["z-section-title"] & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.IntrinsicElements["z-select"] & JSXBase.HTMLAttributes<HTMLZSelectElement>;
@@ -7864,13 +7279,10 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.IntrinsicElements["z-stepper-item"] & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             /**
              * ZTable component.
-             * @cssprop --z-table--cells-padding - Padding of the cells.
              */
             "z-table": LocalJSX.IntrinsicElements["z-table"] & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**
              * Ztag component.
-             * @cssprop --z-tag-text-color - text and icon color using tokens.
-             * @cssprop --z-tag-bg - background color of the z-tag.
              */
             "z-tag": LocalJSX.IntrinsicElements["z-tag"] & JSXBase.HTMLAttributes<HTMLZTagElement>;
             /**
@@ -7908,15 +7320,11 @@ declare module "@stencil/core" {
              * Implements WCAG toolbar pattern with roving tabindex keyboard navigation.
              * Tools can be visually grouped using `z-divider` elements as separators.
              * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
-             * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
              */
             "z-toolbar": LocalJSX.IntrinsicElements["z-toolbar"] & JSXBase.HTMLAttributes<HTMLZToolbarElement>;
             /**
              * Tooltip component.
              * It is basically a wrapper for the `<z-popover>` component with custom configuration.
-             * @cssprop --z-tooltip-theme--surface - background color of the popover.
-             * @cssprop --z-tooltip-theme--text - foreground color of the popover.
-             * @cssprop --z-tooltip-shadow-filter - drop-shadow filter of the popover.
              */
             "z-tooltip": LocalJSX.IntrinsicElements["z-tooltip"] & JSXBase.HTMLAttributes<HTMLZTooltipElement>;
             /**

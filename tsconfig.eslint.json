@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["src", "docs/**/*.ts"],
+  "extends": "./tsconfig.stencil.json",
+  "include": ["src", "docs/**/*.ts", "docs/**/*.tsx"],
   "exclude": ["node_modules"]
 }

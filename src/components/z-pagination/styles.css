@@ -1,4 +1,10 @@
 z-pagination {
+  /**
+   * @prop --z-pagination--page-button-width: Width of the pagination's page buttons. The default is 64px on mobile and 88px on desktop.
+   * @prop --z-pagination--pages-container-max-width: Max width of the container of the page buttons. The default is 100% (full width).
+   * @prop --z-pagination-background-color: Background of the pagination's tabs. The default is --color-background
+   * @prop --z-pagination-background-color-hover: Background of the pagination's tabs on hover. The default is --color-surface01
+   */
   --z-pagination--page-button-width: 64px;
   --z-pagination--pages-container-max-width: 100%;
   --z-pagination-background-color: var(--color-background);

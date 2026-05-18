@@ -32,6 +32,14 @@ To select a specific tab programmatically, set the `aria-selected` attribute to 
 |      | Main slot. Use `<button>` or `<a>` tags as children. |
 
 
+## CSS Custom Properties
+
+| Name                                 | Description                                                                     |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| `--z-navigation-tabs-nav-buttons-bg` | Background color of the navigation buttons. The default is `--color-surface01`. |
+| `--z-navigation-tabs-nav-buttons-fg` | Foreground color of the navigation buttons. The default is `--color-primary01`. |
+
+
 ## Dependencies
 
 ### Depends on

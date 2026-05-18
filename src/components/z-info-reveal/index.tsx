@@ -5,10 +5,6 @@ import {ControlSize, InfoRevealPosition} from "../../beans";
  * Info reveal component.
  *
  * @slot - content of the info panel.
- * @cssprop --z-info-reveal-panel-width - Width of the info panel.
- * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
- * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
- * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
  */
 @Component({
   tag: "z-info-reveal",

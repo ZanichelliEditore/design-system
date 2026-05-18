@@ -3,7 +3,7 @@ import {DictionaryData, PopoverPosition} from "../../../../beans";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
- * @slot  - content
+ * @slot - content
  */
 @Component({
   tag: "z-myz-card-info",

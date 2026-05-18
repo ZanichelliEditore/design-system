@@ -24,12 +24,6 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
  * @slot product-logo - To insert the product logo, it should be used with an img tag.
- * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
- * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
- * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 @Component({
   tag: "z-app-header",

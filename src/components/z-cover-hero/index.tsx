@@ -8,9 +8,6 @@ import {CoverHeroContentPosition, CoverHeroVariant} from "../../beans";
  * @slot cover - slot for the cover image.
  * @slot content - slot for the content.
  * @slot info-reveal - slot for the info reveal.
- * @cssprop --cover-hero-overlay - overlay color of the cover hero (CSS `background` property). **Default**: `linear-gradient(270deg, #0000 0%, #000000e6 100%)`.
- * @cssprop --cover-hero-text-color - color of the text.
- * @cssprop --cover-hero-aspect-ratio - aspect ratio to use for the image. You can pass a fraction or a number representing the ratio. **Default**: the intrinsic aspect ratio of the slotted image or `16/9`.
  */
 @Component({
   tag: "z-cover-hero",

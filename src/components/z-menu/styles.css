@@ -6,6 +6,9 @@
 }
 
 :host {
+  /**
+   * @prop --z-menu-label-color: Color of the label's text.
+   */
   --z-menu-label-color: ;
 
   position: relative;

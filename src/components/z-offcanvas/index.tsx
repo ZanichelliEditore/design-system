@@ -3,9 +3,6 @@ import {KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 
 /**
  * @slot canvasContent - Slot for the offcanvas content.
- * @cssprop --z-offcanvas--top-space - Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
- * @cssprop --z-offcanvas--container-width - Width of the offcanvas for `left` and `right` direction. Default: `375px`.
- * @cssprop --z-offcanvas--container-height - Height of the offcanvas for `up` direction. Default: `90%`.
  */
 @Component({
   tag: "z-offcanvas",

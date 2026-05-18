@@ -1,21 +1,9 @@
 {
+  "extends": "./tsconfig.stencil.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "module": "esnext",
-    "target": "es2017",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h",
-    "skipLibCheck": true
+    "module": "Preserve",
+    "jsxFragmentFactory": "h.Fragment"
   },
-  "include": ["src"],
+  "include": ["src", "docs", ".storybook"],
   "exclude": ["node_modules"]
 }
