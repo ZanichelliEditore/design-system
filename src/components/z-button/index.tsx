@@ -84,9 +84,7 @@ export class ZButton implements ComponentInterface {
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
-    const shouldRenderAsLink = this.htmlRole === "link";
-
-    if (this.href || shouldRenderAsLink) {
+    if (this.href || this.htmlRole === "link") {
       return (
         <a
           {...this.attributes}

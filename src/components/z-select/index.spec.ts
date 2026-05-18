@@ -21,7 +21,6 @@ describe("Suite test ZSelect", () => {
                 htmlid="checkid_select_input"
                 placeholder="select here"
                 icon="caret-down"
-                aria-label=""
                 autocomplete="off"
                 html-aria-expanded="false"
                 html-aria-activedescendant=""

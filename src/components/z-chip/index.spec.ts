@@ -156,7 +156,7 @@ describe("Suite test ZChip", () => {
         <div aria-disabled="true" class="default filled z-chip-container z-chip-interactive">
             <z-icon name="pdf"></z-icon>
             text
-            <button aria-label="" disabled="" type="button">
+            <button disabled="" type="button">
               <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
             </button>
         </div>
@@ -175,7 +175,7 @@ describe("Suite test ZChip", () => {
         <div aria-disabled="true" class="default soft z-chip-container z-chip-interactive">
           <z-icon name="pdf"></z-icon>
           text
-          <button aria-label="" disabled="" type="button">
+          <button disabled="" type="button">
             <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
           </button>
         </div>
