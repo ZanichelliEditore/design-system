@@ -1,4 +1,16 @@
-import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop, State} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import {
   DividerSize,
   ExpandableListButtonAlign,
@@ -136,18 +148,15 @@ export class ZListElement implements ComponentInterface {
   @Prop()
   hasTreeItems?: boolean;
 
-  /**
-   * Sets element role.
-   */
-  @Prop({reflect: true})
-  role = "listitem";
-
   /** set tabindex to Host tag (optional). Defaults to 0. */
   @Prop()
   htmlTabindex?: number | null = 0;
 
   @State()
   showInnerContent = false;
+
+  @State()
+  htmlRole = "listitem";
 
   private openElementConfig = {
     accordion: {
@@ -170,7 +179,6 @@ export class ZListElement implements ComponentInterface {
 
   /**
    * Handler for click on element. If element is expandable, change state.
-   * @returns void
    */
   private handleClick(): void {
     if (this.disabled) {
@@ -209,9 +217,13 @@ export class ZListElement implements ComponentInterface {
     this.showInnerContent = !this.showInnerContent;
   }
 
+  @Watch("role", {immediate: true})
+  onRoleChange(newValue: string): void {
+    this.htmlRole = newValue;
+  }
+
   /**
    * Renders button to expand element.
-   * @returns expadable button
    */
   private renderExpandableButton(): HTMLZIconElement {
     if (!this.expandable) {
@@ -231,7 +243,6 @@ export class ZListElement implements ComponentInterface {
 
   /**
    * Renders expanded content if element is expandable.
-   * @returns expanded content
    */
   private renderExpandedContent(): HTMLDivElement {
     if (!this.expandable) {
@@ -252,7 +263,6 @@ export class ZListElement implements ComponentInterface {
 
   /**
    * Renders content of the z-list-element
-   * @returns list content
    */
   private renderContent(): HTMLDivElement {
     if (this.listType === ListType.NONE) {
@@ -287,7 +297,7 @@ export class ZListElement implements ComponentInterface {
         onKeyDown={this.handleKeyDown}
         clickable={this.clickable && !this.disabled}
         tabIndex={this.hasTreeItems ? undefined : this.htmlTabindex}
-        role={this.hasTreeItems ? "none" : this.role}
+        role={this.hasTreeItems ? "none" : this.htmlRole}
       >
         <div
           class={this.hasTreeItems ? "tree-element-container" : "container"}

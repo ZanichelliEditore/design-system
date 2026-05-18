@@ -38,9 +38,9 @@ export class ZSelect implements ComponentInterface {
   @Prop()
   label?: string;
 
-  /** the input aria-label */
+  /** the input `aria-label` */
   @Prop()
-  ariaLabel = "";
+  htmlAriaLabel?: string;
 
   /** the input is disabled */
   @Prop()
@@ -540,7 +540,7 @@ export class ZSelect implements ComponentInterface {
         value={value}
         label={this.label}
         autocomplete="off"
-        aria-label={this.ariaLabel}
+        htmlAriaLabel={this.htmlAriaLabel || undefined}
         icon={this.isOpen ? "caret-up" : "caret-down"}
         hasclearicon={false}
         message={false}
@@ -579,7 +579,7 @@ export class ZSelect implements ComponentInterface {
         >
           <z-list
             role="listbox"
-            aria-label={this.ariaLabel || this.label}
+            aria-label={this.htmlAriaLabel || this.label}
             tabindex={this.disabled || this.readonly || !this.isOpen ? -1 : 0}
             id={`${this.htmlid}_list`}
             aria-multiselectable={false}

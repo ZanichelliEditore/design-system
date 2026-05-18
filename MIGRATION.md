@@ -11,6 +11,10 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v20.0.0](#v2000)
 
+  - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilità-arialabel-role-etc)
+
+- [v20.0.0](#v2000)
+
   - [ZSelect](#zselect)
     - [La prop items ora è _required_](#la-prop-items-ora-è-required)
   - [ZToggleButton](#ztogglebutton)
@@ -140,6 +144,37 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
 ## v20.0.0
+
+### Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)
+
+Le prop di accessibilità sono state rinominate per evitare conflitti con le proprietà native di `HTMLElement` e migliorare il comportamento con gli screen reader.
+
+In particolare, `ariaLabel` diventa `htmlAriaLabel`: la vecchia prop, oltre a generare il warning Stencil `The @Prop name conflicts with a key in the HTMLElement prototype. Please choose a different name.`, con `reflect: true` rimaneva anche come attributo sul tag del componente.
+
+Questo poteva duplicare l'informazione accessibile. Esempio: se su `my-button` impostavi `ariaLabel`, il valore veniva applicato al `<button>` interno ma, per effetto di `reflect: true`, restava anche sul wrapper `my-button` come `aria-label`. Di conseguenza, alcuni screen reader trovavano due etichette uguali, con possibile ambiguità nella lettura.
+
+Nei componenti in cui l'attributo viene usato direttamente sul `Host`, la prop è stata rimossa: in quei casi l'attributo ARIA può essere passato direttamente come attributo HTML nativo.
+
+Elenco delle prop rinominate:
+
+- `z-date-picker`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-button`:
+  - `ariaLabel` --> `htmlAriaLabel`
+  - `htmlrole` --> `htmlRole`
+- `z-chip`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-info-reveal`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-input`:
+  - `ariaLabel` --> `htmlAriaLabel`
+  - `role` --> `htmlRole`
+- `z-navigation-tabs`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-select`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-myz-card-icon`:
+  - `ariaLabel` --> `htmlAriaLabel`
 
 <a id="v20_zselect"></a>
 

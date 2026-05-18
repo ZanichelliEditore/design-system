@@ -54,7 +54,7 @@ describe("Suite test ZChip", () => {
       <z-chip icon="" interactive-icon="multiply-circled" type="default" variant="outline">
         <div class="default outline z-chip-container z-chip-interactive">
           text
-          <button aria-label="" type="button">
+          <button type="button">
             <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
           </button>
         </div>
@@ -73,7 +73,7 @@ describe("Suite test ZChip", () => {
         <div class="default outline z-chip-container z-chip-interactive">
           <z-icon name="pdf"></z-icon>
           text
-          <button aria-label="" type="button">
+          <button type="button">
             <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
           </button>
         </div>
@@ -92,7 +92,7 @@ describe("Suite test ZChip", () => {
         <div aria-disabled="true" class="default outline z-chip-container z-chip-interactive">
             <z-icon name="pdf"></z-icon>
             text
-            <button aria-label="" disabled="" type="button">
+            <button disabled="" type="button">
               <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
             </button>
         </div>
@@ -111,8 +111,8 @@ describe("Suite test ZChip", () => {
         <div class="outline small z-chip-container z-chip-interactive">
           <z-icon name="pdf"></z-icon>
           text
-          <button aria-label="" type="button">
-            <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
+          <button type="button">
+              <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
           </button>
         </div>
       </z-chip>
@@ -173,11 +173,11 @@ describe("Suite test ZChip", () => {
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" variant="soft" type="default">
         <div aria-disabled="true" class="default soft z-chip-container z-chip-interactive">
-            <z-icon name="pdf"></z-icon>
-            text
-            <button aria-label="" disabled="" type="button">
-              <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
-            </button>
+          <z-icon name="pdf"></z-icon>
+          text
+          <button aria-label="" disabled="" type="button">
+            <z-icon class="interactive-icon" name="multiply-circled"></z-icon>
+          </button>
         </div>
       </z-chip>
     `);
