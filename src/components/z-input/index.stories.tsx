@@ -55,16 +55,6 @@ const StoryMeta = {
     checked: false,
     hasclearicon: true,
     htmlid: "input-id",
-    // min: 1,
-    // minlength: 1,
-    // max: 10,
-    // maxlength: 10,
-    // step: 1,
-    min: undefined,
-    minlength: undefined,
-    max: undefined,
-    maxlength: undefined,
-    step: undefined,
   },
   render: (args) => <z-input {...args}></z-input>,
 } satisfies Meta<ZInput>;
@@ -186,12 +176,11 @@ export const ZInputRadio = {
 export const ZInputNumber = {
   parameters: {
     controls: {
-      include: ["min", "max", "step", "value", "hasclearicon"],
+      include: ["min", "max", "step", "value"],
     },
   },
   args: {
     type: InputType.NUMBER,
     value: "1",
-    hasclearicon: false,
   },
 } satisfies Story;

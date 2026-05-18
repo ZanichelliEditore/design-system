@@ -61,7 +61,7 @@ export class ZInput implements ComponentInterface {
 
   /** the input `aria-describedby` (optional) */
   @Prop()
-  htmlAriaDescribedBy?: string;
+  htmlAriaDescribedby?: string;
 
   /** the input `aria-labelledby` (optional) */
   @Prop()
@@ -333,7 +333,7 @@ export class ZInput implements ComponentInterface {
   private getAriaAttributes(): Record<string, string | undefined> {
     return {
       "role": this.htmlRole || undefined,
-      "aria-describedby": this.htmlAriaDescribedBy || undefined,
+      "aria-describedby": this.htmlAriaDescribedby || undefined,
       "aria-labelledby": this.htmlAriaLabelledby || undefined,
     };
   }
@@ -346,8 +346,8 @@ export class ZInput implements ComponentInterface {
       "aria-autocomplete": this.htmlAriaAutocomplete || undefined,
       "aria-activedescendant": this.htmlAriaActivedescendant || undefined,
       "aria-describedby":
-        this.htmlAriaDescribedBy || this.inputHasMessage()
-          ? this.htmlAriaDescribedBy || `${this.htmlid}-message`
+        this.htmlAriaDescribedby || this.inputHasMessage()
+          ? this.htmlAriaDescribedby || `${this.htmlid}-message`
           : undefined,
       "aria-invalid": this.status === InputStatus.ERROR ? "true" : undefined,
     };

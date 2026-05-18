@@ -990,7 +990,7 @@ export namespace Components {
         /**
           * the input `aria-describedby` (optional)
          */
-        "htmlAriaDescribedBy"?: string;
+        "htmlAriaDescribedby"?: string;
         /**
           * the input `aria-expanded`: available for text, password, number, email
          */
@@ -4827,7 +4827,7 @@ declare namespace LocalJSX {
         /**
           * the input `aria-describedby` (optional)
          */
-        "htmlAriaDescribedBy"?: string;
+        "htmlAriaDescribedby"?: string;
         /**
           * the input `aria-expanded`: available for text, password, number, email
          */
@@ -6628,7 +6628,7 @@ declare namespace LocalJSX {
         "htmlAriaControls": string;
         "htmlAriaAutocomplete": string;
         "htmlAriaActivedescendant": string;
-        "htmlAriaDescribedBy": string;
+        "htmlAriaDescribedby": string;
         "htmlAriaLabelledby": string;
         "value": string;
         "disabled": boolean;

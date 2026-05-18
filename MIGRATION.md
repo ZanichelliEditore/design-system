@@ -12,9 +12,6 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v20.0.0](#v2000)
 
   - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilità-arialabel-role-etc)
-
-- [v20.0.0](#v2000)
-
   - [ZSelect](#zselect)
     - [La prop items ora è _required_](#la-prop-items-ora-è-required)
   - [ZToggleButton](#ztogglebutton)
@@ -168,12 +165,11 @@ Elenco delle prop rinominate:
   - `ariaLabel` --> `htmlAriaLabel`
 - `z-input`:
   - `ariaLabel` --> `htmlAriaLabel`
+  - `htmlAriaDescribedBy` --> `htmlAriaDescribedby` (la "b" di "by" è stata resa minuscola per uniformità con la nomenclatura degli attributi ARIA)
   - `role` --> `htmlRole`
 - `z-navigation-tabs`:
   - `ariaLabel` --> `htmlAriaLabel`
 - `z-select`:
-  - `ariaLabel` --> `htmlAriaLabel`
-- `z-myz-card-icon`:
   - `ariaLabel` --> `htmlAriaLabel`
 
 <a id="v20_zselect"></a>
