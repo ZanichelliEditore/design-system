@@ -1,6 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
+import {ICONS} from "../../constants/iconset.js";
 import {ZInput} from "./index";
 
 const StoryMeta = {
@@ -12,6 +13,15 @@ const StoryMeta = {
         type: "inline-radio",
       },
       options: Object.values(InputType),
+    },
+    icon: {
+      control: {
+        type: "select",
+      },
+      options: Object.keys(ICONS),
+    },
+    message: {
+      control: "text",
     },
     labelPosition: {
       control: {
@@ -27,40 +37,34 @@ const StoryMeta = {
     },
     status: {
       control: {
-        type: "inline-radio",
-        labels: {
-          null: "-",
-        },
+        type: "select",
       },
-      options: [null, ...Object.values(InputStatus)],
+      options: Object.values(InputStatus),
     },
   },
   args: {
     type: InputType.TEXT,
     label: "this is the input label",
-    ariaLabel: "",
     labelPosition: LabelPosition.RIGHT,
     placeholder: "input placeholder text",
-    value: "",
     size: ControlSize.BIG,
-    name: "",
-    status: null,
     message: "helper text",
-    icon: "",
     disabled: false,
     readonly: false,
     required: false,
     checked: false,
     hasclearicon: true,
     htmlid: "input-id",
-    htmltitle: "",
-    autocomplete: "",
-    min: 1,
-    minlength: 1,
-    max: 10,
-    maxlength: 10,
-    step: 1,
-    pattern: "",
+    // min: 1,
+    // minlength: 1,
+    // max: 10,
+    // maxlength: 10,
+    // step: 1,
+    min: undefined,
+    minlength: undefined,
+    max: undefined,
+    maxlength: undefined,
+    step: undefined,
   },
   render: (args) => <z-input {...args}></z-input>,
 } satisfies Meta<ZInput>;
@@ -99,7 +103,7 @@ export const ZInputText = {
   },
   argTypes: {
     type: {
-      options: Object.values(InputType).filter((type) => ["text", "password", "number", "email"].includes(type)),
+      options: ["text", "password", "number", "email"],
     },
   },
 } satisfies Story;
@@ -122,6 +126,8 @@ export const ZInputTextarea = {
         "htmlid",
         "htmltitle",
         "size",
+        "minlength",
+        "maxlength",
       ],
     },
   },

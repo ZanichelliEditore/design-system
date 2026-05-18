@@ -18,10 +18,10 @@ describe("Suite test ZButton", () => {
   it("Test render ZButton con testo e aria-label", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button aria-label="Open">text</z-button>`,
+      html: `<z-button html-aria-label="Open">text</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button aria-label="Open" icon-position="left" size="big" variant="primary">
+      <z-button html-aria-label="Open" icon-position="left" size="big" variant="primary">
         <button aria-label="Open" type="button" class="z-button--container z-button--has-text">
           text
         </button>
@@ -29,13 +29,13 @@ describe("Suite test ZButton", () => {
     `);
   });
 
-  it("Test render ZButton con htmlrole=link", async () => {
+  it("Test render ZButton con htmlRole=link", async () => {
     const page = await newSpecPage({
       components: [ZButton],
-      html: `<z-button htmlrole="link">link</z-button>`,
+      html: `<z-button html-role="link">link</z-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <z-button htmlrole="link" icon-position="left" size="big" variant="primary">
+      <z-button html-role="link" icon-position="left" size="big" variant="primary">
         <button role="link" type="button" class="z-button--container z-button--has-text">
           link
         </button>

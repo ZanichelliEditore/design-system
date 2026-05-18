@@ -10,7 +10,7 @@ import {
   State,
   h,
 } from "@stencil/core";
-import {Fragment, Host, JSXBase} from "@stencil/core/internal";
+import {Fragment, JSXBase} from "@stencil/core/internal";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
 import {boolean, randomId} from "../../utils/utils";
 
@@ -27,11 +27,11 @@ export class ZInput implements ComponentInterface {
   @Prop()
   htmlid = `id-${randomId()}`;
 
-  /** input types */
+  /** Input type */
   @Prop()
-  type: InputType;
+  type: InputType = InputType.TEXT;
 
-  /** the input name */
+  /** the input `name` attribute */
   @Prop()
   name?: string;
 
@@ -39,31 +39,31 @@ export class ZInput implements ComponentInterface {
   @Prop()
   label?: string;
 
-  /** the input aria-label */
+  /** the input `aria-label` */
   @Prop()
-  ariaLabel = "";
+  htmlAriaLabel?: string;
 
-  /** the input aria-expaded: available for text, password, number, email */
+  /** the input `aria-expanded`: available for text, password, number, email */
   @Prop()
-  htmlAriaExpanded = "";
+  htmlAriaExpanded?: string;
 
-  /** the input aria-controls (optional): available for text, password, number, email */
+  /** the input `aria-controls` (optional): available for text, password, number, email */
   @Prop()
   htmlAriaControls?: string;
 
-  /** the input aria-autocomplete (optional): available for text, password, number, email */
+  /** the input `aria-autocomplete` (optional): available for text, password, number, email */
   @Prop()
   htmlAriaAutocomplete?: string;
 
-  /** the input aria-activedescendant (optional): available for text, password, number, email */
+  /** the input `aria-activedescendant` (optional): available for text, password, number, email */
   @Prop()
   htmlAriaActivedescendant?: string;
 
-  /** the input aria-describedby (optional) */
+  /** the input `aria-describedby` (optional) */
   @Prop()
   htmlAriaDescribedBy?: string;
 
-  /** the input aria-labelledby (optional) */
+  /** the input `aria-labelledby` (optional) */
   @Prop()
   htmlAriaLabelledby?: string;
 
@@ -111,9 +111,9 @@ export class ZInput implements ComponentInterface {
   @Prop()
   autocomplete?: string;
 
-  /** the input role */
+  /** the input `role` */
   @Prop()
-  role = "";
+  htmlRole?: string;
 
   /** render clear icon when typing (optional): available for text */
   @Prop()
@@ -323,43 +323,33 @@ export class ZInput implements ComponentInterface {
   }
 
   private inputHasMessage(): boolean {
-    if (boolean(this.message) === false || boolean(this.message) === true) {
+    if (typeof boolean(this.message) === "boolean") {
       return false;
     }
 
     return true;
   }
 
-  private getAriaAttributes(): Record<string, unknown> {
+  private getAriaAttributes(): Record<string, string | undefined> {
     return {
-      ...(this.role ? {role: this.role} : {}),
-      ...(this.htmlAriaDescribedBy ? {"aria-describedby": this.htmlAriaDescribedBy} : {}),
-      ...(this.htmlAriaLabelledby ? {"aria-labelledby": this.htmlAriaLabelledby} : {}),
+      "role": this.htmlRole || undefined,
+      "aria-describedby": this.htmlAriaDescribedBy || undefined,
+      "aria-labelledby": this.htmlAriaLabelledby || undefined,
     };
   }
 
-  private getTextAriaAttributes(): Record<string, unknown> {
-    const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
-    const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
-    const autocomplete = this.htmlAriaAutocomplete ? {"aria-autocomplete": this.htmlAriaAutocomplete} : {};
-    const activedescendant = this.htmlAriaActivedescendant
-      ? {"aria-activedescendant": this.htmlAriaActivedescendant}
-      : {};
-    const ariaDescribedby =
-      this.htmlAriaDescribedBy || this.inputHasMessage()
-        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
-        : {};
-
-    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
-
+  private getTextAriaAttributes(): Record<string, string | undefined> {
     return {
       ...this.getAriaAttributes(),
-      ...expanded,
-      ...controls,
-      ...autocomplete,
-      ...activedescendant,
-      ...ariaDescribedby,
-      ...ariaInvalid,
+      "aria-expanded": this.htmlAriaExpanded || undefined,
+      "aria-controls": this.htmlAriaControls || undefined,
+      "aria-autocomplete": this.htmlAriaAutocomplete || undefined,
+      "aria-activedescendant": this.htmlAriaActivedescendant || undefined,
+      "aria-describedby":
+        this.htmlAriaDescribedBy || this.inputHasMessage()
+          ? this.htmlAriaDescribedBy || `${this.htmlid}-message`
+          : undefined,
+      "aria-invalid": this.status === InputStatus.ERROR ? "true" : undefined,
     };
   }
 
@@ -371,29 +361,28 @@ export class ZInput implements ComponentInterface {
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
-    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
       ...this.getPatternAttribute(type),
-      ...ariaLabel,
       ...this.getTextAriaAttributes(),
       ...this.getFocusBlurAttributes(),
+      "aria-label": this.htmlAriaLabel || undefined,
     };
-    if (this.icon || type === InputType.PASSWORD) {
-      Object.assign(attr.class, {"has-icon": true});
-    }
-    if (this.hasclearicon && type != InputType.NUMBER) {
-      Object.assign(attr.class, {"has-clear-icon": true});
-    }
+
+    attr.class = {
+      ...(attr.class as {[className: string]: boolean}),
+      "has-icon": !!this.icon || type === InputType.PASSWORD,
+      "has-clear-icon": this.hasclearicon && type != InputType.NUMBER,
+    };
 
     return (
       <div class="text-wrapper">
         {this.renderLabel()}
         <div>
           <input
-            type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             {...attr}
+            type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             ref={(el) => (this.inputRef = el)}
           />
           {this.renderIcons()}
@@ -528,7 +517,7 @@ export class ZInput implements ComponentInterface {
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
             }}
-            aria-label={this.ariaLabel || undefined}
+            aria-label={this.htmlAriaLabel || undefined}
           ></textarea>
         </div>
         {this.renderMessage()}
@@ -618,21 +607,16 @@ export class ZInput implements ComponentInterface {
   /* END radio */
 
   render(): HTMLInputElement | HTMLDivElement {
-    let input;
     switch (this.type) {
       case InputType.TEXTAREA:
-        input = this.renderTextarea();
-        break;
+        return this.renderTextarea();
       case InputType.CHECKBOX:
-        input = this.renderCheckbox();
-        break;
+        return this.renderCheckbox();
       case InputType.RADIO:
-        input = this.renderRadio();
-        break;
+        return this.renderRadio();
+      case InputType.TEXT:
       default:
-        input = this.renderInputText(this.type);
+        return this.renderInputText(this.type);
     }
-
-    return <Host>{input}</Host>;
   }
 }

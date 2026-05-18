@@ -224,7 +224,7 @@ export class ZBookCard implements ComponentInterface {
           href={this.ebookUrl}
           target={this.linkTarget}
           onClick={() => this.emitEbookClick()}
-          htmlrole="link"
+          htmlRole="link"
           aria-description={`leggi l'ebook ${this.operaTitle} su laZ Ebook`}
         >
           leggi ebook

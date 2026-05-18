@@ -27,7 +27,7 @@ export class ZNavigationTabs implements ComponentInterface {
    * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
    */
   @Prop()
-  ariaLabel = "";
+  htmlAriaLabel?: string;
 
   /**
    * Navigation tabs orientation.
@@ -352,7 +352,7 @@ export class ZNavigationTabs implements ComponentInterface {
 
         <nav
           role="tablist"
-          aria-label={this.ariaLabel}
+          aria-label={this.htmlAriaLabel || undefined}
           ref={(el) => (this.nav = el ?? this.nav)}
           onScroll={this.checkScrollEnabled.bind(this)}
           aria-orientation={this.orientation}
