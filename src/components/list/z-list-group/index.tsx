@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, h, Host, Prop} from "@stencil/core";
+import {Component, ComponentInterface, Element, h, Host, Prop, State, Watch} from "@stencil/core";
 import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
 
 @Component({
@@ -45,26 +45,34 @@ export class ZListGroup implements ComponentInterface {
   @Prop()
   hasTreeItems?: boolean;
 
-  /**
-   * Sets element role.
-   */
-  @Prop({reflect: true})
-  role = "group";
+  @State()
+  htmlRole = "group";
 
   private hasHeader: boolean;
 
-  componentDidLoad(): void {
-    const children = this.host.children;
-    for (let i = 0; i < children.length; i++) {
-      if (children.length - 1 > i) {
-        children[i].setAttribute("divider-type", this.dividerType);
-        children[i].setAttribute("divider-size", this.dividerSize);
-        children[i].setAttribute("divider-color", this.dividerColor);
-      }
-      children[i].setAttribute("size", this.size);
-      children[i].setAttribute("list-type", this.listType);
-      children[i].setAttribute("list-element-position", i.toString());
-    }
+  @Watch("role", {immediate: true})
+  onRoleChange(newValue: string): void {
+    this.htmlRole = newValue;
+  }
+
+  @Watch("size", {immediate: true})
+  @Watch("listType", {immediate: true})
+  @Watch("dividerType", {immediate: true})
+  @Watch("dividerSize", {immediate: true})
+  @Watch("dividerColor", {immediate: true})
+  setChildrenProps(): void {
+    Array.from(this.host.children)
+      .filter((child): child is HTMLZListElementElement => child.tagName.toLowerCase() === "z-list-element")
+      .forEach((child, i, children) => {
+        child.size = this.size;
+        child.listType = this.listType;
+        child.listElementPosition = i.toString();
+        if (i < children.length - 1) {
+          child.dividerType = this.dividerType;
+          child.dividerSize = this.dividerSize;
+          child.dividerColor = this.dividerColor;
+        }
+      });
   }
 
   componentWillLoad(): void {
@@ -73,7 +81,7 @@ export class ZListGroup implements ComponentInterface {
 
   render(): HTMLZListGroupElement {
     return (
-      <Host>
+      <Host role={this.htmlRole}>
         <div
           class={{
             "z-list-group-header-container": true,

@@ -6,14 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
-import { AlertType, LicenseType } from "./beans/index";
+import { AlertType, LicenseType, ListItem } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
-import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
-export { AlertType, LicenseType } from "./beans/index";
+export { AlertType, LicenseType, ListItem } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
-export { ListItem } from "./beans/index.js";
 export { IconName } from "./constants/iconset";
 export namespace Components {
     /**
@@ -421,11 +419,6 @@ export namespace Components {
     }
     interface ZButton {
         /**
-          * defines a string value that labels the internal interactive element. Used for accessibility.
-          * @default undefined
-         */
-        "ariaLabel": string | undefined;
-        /**
           * HTML button disabled attribute.
           * @default false
          */
@@ -435,13 +428,17 @@ export namespace Components {
          */
         "href"?: string;
         /**
+          * `aria-label` for the internal button element. Mostly needed when no text is present, like for an icon-only button.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * `role` attribute for the internal button element. Used for accessibility.
+         */
+        "htmlRole"?: string;
+        /**
           * Identifier, should be unique.
          */
         "htmlid"?: string;
-        /**
-          * defines role attribute, used for accessibility.
-         */
-        "htmlrole"?: string;
         /**
           * `z-icon` name to use (optional).
          */
@@ -455,12 +452,6 @@ export namespace Components {
           * HTML button name attribute.
          */
         "name"?: string;
-        /**
-          * Use `htmlrole` instead.
-          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
-          * @default ""
-         */
-        "role": string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
           * @default ControlSize.BIG
@@ -586,15 +577,14 @@ export namespace Components {
     }
     interface ZChip {
         /**
-          * z-chip aria-label string
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
           * set z-chip as disabled
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * `aria-label` for the icon button
+         */
+        "htmlAriaLabel"?: string;
         /**
           * Non interactive icon
          */
@@ -745,14 +735,13 @@ export namespace Components {
     }
     interface ZDatePicker {
         /**
-          * z-input aria label
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
           * unique id
          */
         "datePickerId": string;
+        /**
+          * z-input aria label
+         */
+        "htmlAriaLabel"?: string;
         /**
           * z-input label
          */
@@ -942,10 +931,10 @@ export namespace Components {
      */
     interface ZInfoReveal {
         /**
-          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+          * `aria-label` of the trigger button. It will be used only when the `label` prop is empty.
           * @default "Apri pannello informazioni"
          */
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         /**
           * Name of the icon for the trigger button
           * @default "informationsource"
@@ -968,11 +957,6 @@ export namespace Components {
     }
     interface ZInput {
         /**
-          * the input aria-label
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
           * the input has autocomplete option (optional): available for text, password, number, email
          */
         "autocomplete"?: string;
@@ -992,30 +976,37 @@ export namespace Components {
          */
         "hasclearicon"?: boolean;
         /**
-          * the input aria-activedescendant (optional): available for text, password, number, email
+          * the input `aria-activedescendant` (optional): available for text, password, number, email
          */
         "htmlAriaActivedescendant"?: string;
         /**
-          * the input aria-autocomplete (optional): available for text, password, number, email
+          * the input `aria-autocomplete` (optional): available for text, password, number, email
          */
         "htmlAriaAutocomplete"?: string;
         /**
-          * the input aria-controls (optional): available for text, password, number, email
+          * the input `aria-controls` (optional): available for text, password, number, email
          */
         "htmlAriaControls"?: string;
         /**
-          * the input aria-describedby (optional)
+          * the input `aria-describedby` (optional)
          */
-        "htmlAriaDescribedBy"?: string;
+        "htmlAriaDescribedby"?: string;
         /**
-          * the input aria-expaded: available for text, password, number, email
-          * @default ""
+          * the input `aria-expanded`: available for text, password, number, email
          */
-        "htmlAriaExpanded": string;
+        "htmlAriaExpanded"?: string;
         /**
-          * the input aria-labelledby (optional)
+          * the input `aria-label`
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * the input `aria-labelledby` (optional)
          */
         "htmlAriaLabelledby"?: string;
+        /**
+          * the input `role`
+         */
+        "htmlRole"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -1064,7 +1055,7 @@ export namespace Components {
          */
         "minlength"?: number;
         /**
-          * the input name
+          * the input `name` attribute
          */
         "name"?: string;
         /**
@@ -1086,11 +1077,6 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * the input role
-          * @default ""
-         */
-        "role": string;
-        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
           * @default ControlSize.BIG
          */
@@ -1104,7 +1090,8 @@ export namespace Components {
          */
         "step"?: number;
         /**
-          * input types
+          * Input type
+          * @default InputType.TEXT
          */
         "type": InputType;
         /**
@@ -1138,17 +1125,12 @@ export namespace Components {
     }
     interface ZList {
         /**
-          * [optional] type of the list marker for each element
+          * [optional] Type of the list marker for each element.
           * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
-          * Sets role of the element.
-          * @default "list"
-         */
-        "role": string;
-        /**
-          * [optional] Sets size of inside elements.
+          * [optional] Size of the list elements.
           * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
@@ -1223,11 +1205,6 @@ export namespace Components {
          */
         "listType"?: ListType;
         /**
-          * Sets element role.
-          * @default "listitem"
-         */
-        "role": string;
-        /**
           * [optional] Sets size of inside elements.
           * @default ListSize.MEDIUM
          */
@@ -1258,11 +1235,6 @@ export namespace Components {
           * @default ListType.NONE
          */
         "listType"?: ListType;
-        /**
-          * Sets element role.
-          * @default "group"
-         */
-        "role": string;
         /**
           * [optional] Sets size of inside elements.
           * @default ListSize.MEDIUM
@@ -1578,9 +1550,8 @@ export namespace Components {
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
-          * @default ""
          */
-        "ariaLabel": string;
+        "htmlAriaLabel"?: string;
         /**
           * Navigation tabs orientation.
           * @default NavigationTabsOrientation.HORIZONTAL
@@ -1983,11 +1954,6 @@ export namespace Components {
     }
     interface ZSelect {
         /**
-          * the input aria-label
-          * @default ""
-         */
-        "ariaLabel": string;
-        /**
           * the input has autocomplete option
           * @default false
          */
@@ -2007,6 +1973,10 @@ export namespace Components {
         "getValue": () => Promise<string>;
         "hasGroupItems"?: boolean;
         "hasTreeItems"?: boolean;
+        /**
+          * the input `aria-label`
+         */
+        "htmlAriaLabel"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -4254,11 +4224,6 @@ declare namespace LocalJSX {
     }
     interface ZButton {
         /**
-          * defines a string value that labels the internal interactive element. Used for accessibility.
-          * @default undefined
-         */
-        "ariaLabel"?: string | undefined;
-        /**
           * HTML button disabled attribute.
           * @default false
          */
@@ -4268,13 +4233,17 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
+          * `aria-label` for the internal button element. Mostly needed when no text is present, like for an icon-only button.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * `role` attribute for the internal button element. Used for accessibility.
+         */
+        "htmlRole"?: string;
+        /**
           * Identifier, should be unique.
          */
         "htmlid"?: string;
-        /**
-          * defines role attribute, used for accessibility.
-         */
-        "htmlrole"?: string;
         /**
           * `z-icon` name to use (optional).
          */
@@ -4288,12 +4257,6 @@ declare namespace LocalJSX {
           * HTML button name attribute.
          */
         "name"?: string;
-        /**
-          * Use `htmlrole` instead.
-          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
-          * @default ""
-         */
-        "role"?: string;
         /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
           * @default ControlSize.BIG
@@ -4427,15 +4390,14 @@ declare namespace LocalJSX {
     }
     interface ZChip {
         /**
-          * z-chip aria-label string
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
           * set z-chip as disabled
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * `aria-label` for the icon button
+         */
+        "htmlAriaLabel"?: string;
         /**
           * Non interactive icon
          */
@@ -4594,14 +4556,13 @@ declare namespace LocalJSX {
     }
     interface ZDatePicker {
         /**
-          * z-input aria label
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
           * unique id
          */
         "datePickerId"?: string;
+        /**
+          * z-input aria label
+         */
+        "htmlAriaLabel"?: string;
         /**
           * z-input label
          */
@@ -4807,10 +4768,10 @@ declare namespace LocalJSX {
      */
     interface ZInfoReveal {
         /**
-          * Aria label of the trigger button. It will be only used when `label` prop is empty.
+          * `aria-label` of the trigger button. It will be used only when the `label` prop is empty.
           * @default "Apri pannello informazioni"
          */
-        "ariaLabel"?: string;
+        "htmlAriaLabel"?: string;
         /**
           * Name of the icon for the trigger button
           * @default "informationsource"
@@ -4833,11 +4794,6 @@ declare namespace LocalJSX {
     }
     interface ZInput {
         /**
-          * the input aria-label
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
           * the input has autocomplete option (optional): available for text, password, number, email
          */
         "autocomplete"?: string;
@@ -4857,30 +4813,37 @@ declare namespace LocalJSX {
          */
         "hasclearicon"?: boolean;
         /**
-          * the input aria-activedescendant (optional): available for text, password, number, email
+          * the input `aria-activedescendant` (optional): available for text, password, number, email
          */
         "htmlAriaActivedescendant"?: string;
         /**
-          * the input aria-autocomplete (optional): available for text, password, number, email
+          * the input `aria-autocomplete` (optional): available for text, password, number, email
          */
         "htmlAriaAutocomplete"?: string;
         /**
-          * the input aria-controls (optional): available for text, password, number, email
+          * the input `aria-controls` (optional): available for text, password, number, email
          */
         "htmlAriaControls"?: string;
         /**
-          * the input aria-describedby (optional)
+          * the input `aria-describedby` (optional)
          */
-        "htmlAriaDescribedBy"?: string;
+        "htmlAriaDescribedby"?: string;
         /**
-          * the input aria-expaded: available for text, password, number, email
-          * @default ""
+          * the input `aria-expanded`: available for text, password, number, email
          */
         "htmlAriaExpanded"?: string;
         /**
-          * the input aria-labelledby (optional)
+          * the input `aria-label`
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * the input `aria-labelledby` (optional)
          */
         "htmlAriaLabelledby"?: string;
+        /**
+          * the input `role`
+         */
+        "htmlRole"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -4925,7 +4888,7 @@ declare namespace LocalJSX {
          */
         "minlength"?: number;
         /**
-          * the input name
+          * the input `name` attribute
          */
         "name"?: string;
         /**
@@ -4971,11 +4934,6 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * the input role
-          * @default ""
-         */
-        "role"?: string;
-        /**
           * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
           * @default ControlSize.BIG
          */
@@ -4989,7 +4947,8 @@ declare namespace LocalJSX {
          */
         "step"?: number;
         /**
-          * input types
+          * Input type
+          * @default InputType.TEXT
          */
         "type"?: InputType;
         /**
@@ -5023,17 +4982,12 @@ declare namespace LocalJSX {
     }
     interface ZList {
         /**
-          * [optional] type of the list marker for each element
+          * [optional] Type of the list marker for each element.
           * @default ListType.NONE
          */
         "listType"?: ListType;
         /**
-          * Sets role of the element.
-          * @default "list"
-         */
-        "role"?: string;
-        /**
-          * [optional] Sets size of inside elements.
+          * [optional] Size of the list elements.
           * @default ListSize.MEDIUM
          */
         "size"?: ListSize;
@@ -5120,11 +5074,6 @@ declare namespace LocalJSX {
          */
         "onClickItem"?: (event: ZListElementCustomEvent<any>) => void;
         /**
-          * Sets element role.
-          * @default "listitem"
-         */
-        "role"?: string;
-        /**
           * [optional] Sets size of inside elements.
           * @default ListSize.MEDIUM
          */
@@ -5155,11 +5104,6 @@ declare namespace LocalJSX {
           * @default ListType.NONE
          */
         "listType"?: ListType;
-        /**
-          * Sets element role.
-          * @default "group"
-         */
-        "role"?: string;
         /**
           * [optional] Sets size of inside elements.
           * @default ListSize.MEDIUM
@@ -5511,9 +5455,8 @@ declare namespace LocalJSX {
     interface ZNavigationTabs {
         /**
           * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
-          * @default ""
          */
-        "ariaLabel"?: string;
+        "htmlAriaLabel"?: string;
         /**
           * Emitted when the selected tab changes. Contains the index of the new selected tab in the `detail` of the event.
          */
@@ -5964,11 +5907,6 @@ declare namespace LocalJSX {
     }
     interface ZSelect {
         /**
-          * the input aria-label
-          * @default ""
-         */
-        "ariaLabel"?: string;
-        /**
           * the input has autocomplete option
           * @default false
          */
@@ -5980,6 +5918,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "hasGroupItems"?: boolean;
         "hasTreeItems"?: boolean;
+        /**
+          * the input `aria-label`
+         */
+        "htmlAriaLabel"?: string;
         /**
           * the id of the input element
           * @default `id-${randomId()}`
@@ -6541,9 +6483,8 @@ declare namespace LocalJSX {
         "truncateChar": number;
     }
     interface ZButtonAttributes {
-        "ariaLabel": string | undefined;
-        "role": string;
-        "htmlrole": string;
+        "htmlAriaLabel": string;
+        "htmlRole": string;
         "href": string;
         "target": string;
         "htmlid": string;
@@ -6586,7 +6527,7 @@ declare namespace LocalJSX {
         "type": ZChipType;
         "interactiveIcon": string;
         "disabled": boolean;
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
     }
     interface ZColorPickerAttributes {
         "selectedColor": ColorPickerPalette;
@@ -6621,7 +6562,7 @@ declare namespace LocalJSX {
     }
     interface ZDatePickerAttributes {
         "datePickerId": string;
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         "label": string;
         "mode": ZDatePickerMode;
         "name": string;
@@ -6674,7 +6615,7 @@ declare namespace LocalJSX {
         "icon": string;
         "position": InfoRevealPosition;
         "label": string;
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         "size": ControlSize;
     }
     interface ZInputAttributes {
@@ -6682,12 +6623,12 @@ declare namespace LocalJSX {
         "type": InputType;
         "name": string;
         "label": string;
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         "htmlAriaExpanded": string;
         "htmlAriaControls": string;
         "htmlAriaAutocomplete": string;
         "htmlAriaActivedescendant": string;
-        "htmlAriaDescribedBy": string;
+        "htmlAriaDescribedby": string;
         "htmlAriaLabelledby": string;
         "value": string;
         "disabled": boolean;
@@ -6700,7 +6641,7 @@ declare namespace LocalJSX {
         "message": string;
         "labelPosition": LabelPosition;
         "autocomplete": string;
-        "role": string;
+        "htmlRole": string;
         "hasclearicon": boolean;
         "icon": string;
         "min": number;
@@ -6721,7 +6662,6 @@ declare namespace LocalJSX {
     interface ZListAttributes {
         "size": ListSize;
         "listType": ListType;
-        "role": string;
     }
     interface ZListElementAttributes {
         "alignButton": ExpandableListButtonAlign;
@@ -6738,7 +6678,6 @@ declare namespace LocalJSX {
         "listElementPosition": string;
         "listType": ListType;
         "hasTreeItems": boolean;
-        "role": string;
         "htmlTabindex": number | null;
     }
     interface ZListGroupAttributes {
@@ -6748,7 +6687,6 @@ declare namespace LocalJSX {
         "dividerColor": string;
         "listType": ListType;
         "hasTreeItems": boolean;
-        "role": string;
     }
     interface ZLogoAttributes {
         "width": number;
@@ -6831,7 +6769,7 @@ declare namespace LocalJSX {
         "underlined": boolean;
     }
     interface ZNavigationTabsAttributes {
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         "orientation": NavigationTabsOrientation;
         "size": NavigationTabsSize;
         "selectedTab": number;
@@ -6937,7 +6875,7 @@ declare namespace LocalJSX {
         "items": SelectItem[] | string;
         "name": string;
         "label": string;
-        "ariaLabel": string;
+        "htmlAriaLabel": string;
         "disabled": boolean;
         "readonly": boolean;
         "placeholder": string;

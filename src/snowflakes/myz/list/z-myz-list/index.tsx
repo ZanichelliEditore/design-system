@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Prop, Watch, h} from "@stencil/core";
-import {ListItem} from "../../../../beans/index.js";
+import {ListItem} from "../../../../beans/index";
 
 @Component({
   tag: "z-myz-list",

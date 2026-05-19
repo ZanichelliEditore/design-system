@@ -7,8 +7,8 @@
 
 | Property          | Attribute          | Description                                       | Type                                                       | Default             |
 | ----------------- | ------------------ | ------------------------------------------------- | ---------------------------------------------------------- | ------------------- |
-| `ariaLabel`       | `aria-label`       | z-chip aria-label string                          | `string`                                                   | `""`                |
 | `disabled`        | `disabled`         | set z-chip as disabled                            | `boolean`                                                  | `false`             |
+| `htmlAriaLabel`   | `html-aria-label`  | `aria-label` for the icon button                  | `string`                                                   | `undefined`         |
 | `icon`            | `icon`             | Non interactive icon                              | `string`                                                   | `undefined`         |
 | `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |
 | `type`            | `type`             | z-chip size type, can be default, medium or small | `ZChipType.DEFAULT \| ZChipType.MEDIUM \| ZChipType.SMALL` | `ZChipType.DEFAULT` |

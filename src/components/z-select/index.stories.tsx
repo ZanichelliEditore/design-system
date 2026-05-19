@@ -53,7 +53,7 @@ const StoryMeta = {
       },
     ] as SelectItem[],
     label: "this is the label",
-    ariaLabel: "",
+    htmlAriaLabel: "",
     placeholder: "select placeholder",
     status: null,
     message: "helper text",
