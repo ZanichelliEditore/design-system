@@ -2664,11 +2664,6 @@ export namespace Components {
           * @default false
          */
         "expandable": boolean;
-        /**
-          * Whether the row is interactable (clickable) even if not expandable. When `true` the row will be focusable.
-          * @default false
-         */
-        "interactable": boolean;
     }
     interface ZTreeList {
         /**
@@ -7130,11 +7125,6 @@ declare namespace LocalJSX {
          */
         "expandable"?: boolean;
         /**
-          * Whether the row is interactable (clickable) even if not expandable. When `true` the row will be focusable.
-          * @default false
-         */
-        "interactable"?: boolean;
-        /**
           * Row has been expanded
          */
         "onExpand"?: (event: ZTrCustomEvent<any>) => void;
@@ -7793,7 +7783,6 @@ declare namespace LocalJSX {
     }
     interface ZTrAttributes {
         "expandable": boolean;
-        "interactable": boolean;
     }
     interface ZTreeListAttributes {
         "items": TreeListItem[] | string;

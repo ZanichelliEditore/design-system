@@ -42,13 +42,6 @@ export class ZTr implements ComponentInterface {
   expandable = false;
 
   /**
-   * Whether the row is interactable (clickable) even if not expandable.
-   * When `true` the row will be focusable.
-   */
-  @Prop()
-  interactable = false;
-
-  /**
    * Whether the row is currently expanded.
    */
   @State()
@@ -122,7 +115,7 @@ export class ZTr implements ComponentInterface {
     return (
       <Host
         role="row"
-        tabIndex={this.expandable || this.interactable ? 0 : undefined}
+        tabIndex={this.expandable ? 0 : undefined}
         expanded={this.expanded}
         onClick={this.onRowClick.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}
