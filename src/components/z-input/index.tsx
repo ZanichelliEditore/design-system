@@ -80,7 +80,7 @@ export class ZInput implements ComponentInterface {
   readonly?: boolean = false;
 
   /** the input is required (optional): available for text, password, number, email, textarea, checkbox */
-  @Prop()
+  @Prop({reflect: true})
   required?: boolean = false;
 
   /** checked: available for checkbox, radio */
