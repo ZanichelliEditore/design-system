@@ -9,7 +9,7 @@ describe("Suite test ZToastNotification", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification isdraggable="false" style="--percentuale: 0%;">
+      <z-toast-notification aria-atomic="true" aria-live="polite" isdraggable="false" role="status" style="--percentuale: 0%;">
         <mock:shadow-root>
           <div class="toast-notification-container">
             <div class="toast-notification-content">
@@ -44,14 +44,17 @@ describe("Suite test ZToastNotification", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toast-notification
+        aria-atomic="true"
+        aria-live="polite"
         class="slide-in-down dark"
         closebutton="true"
         draggablepercentage="10"
         heading="Titolo"
+        isdraggable="false"
         message="descrizione della notifica"
+        role="status"
         transition="slide-in-down"
         type="dark"
-        isdraggable="false"
         style="--percentuale: 0%;"
       >
         <mock:shadow-root>
@@ -100,14 +103,17 @@ describe("Suite test ZToastNotification", () => {
 
     expect(page.root).toEqualHtml(`
       <z-toast-notification
+        aria-atomic="true"
+        aria-live="polite"
         class="slide-in-down dark"
         closebutton="true"
         draggablepercentage="10"
         heading="Titolo"
+        isdraggable="false"
         message="descrizione della notifica"
+        role="status"
         transition="slide-in-down"
         type="dark"
-        isdraggable="false"
         style="--percentuale: 0%;"
       >
         <mock:shadow-root>
@@ -137,6 +143,49 @@ describe("Suite test ZToastNotification", () => {
         <z-button slot="button">
           button
         </z-button>
+      </z-toast-notification>
+    `);
+  });
+
+  it("Test render ZToastNotification error type uses role alert", async () => {
+    const page = await newSpecPage({
+      components: [ZToastNotification],
+      html: `<z-toast-notification
+        type="error"
+        message="Errore"
+        isdraggable="false"
+      ></z-toast-notification>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <z-toast-notification
+        aria-atomic="true"
+        aria-live="assertive"
+        class="error"
+        isdraggable="false"
+        message="Errore"
+        role="alert"
+        type="error"
+        style="--percentuale: 0%;"
+      >
+        <mock:shadow-root>
+          <div class="toast-notification-container">
+            <div class="toast-notification-content">
+              <div class="toast-notification-text">
+                <span class="message">
+                  <slot name="message">
+                    <span>
+                      Errore
+                    </span>
+                  </slot>
+                </span>
+              </div>
+              <div class="button-container" hidden>
+                <slot name="button"></slot>
+              </div>
+            </div>
+          </div>
+        </mock:shadow-root>
       </z-toast-notification>
     `);
   });
