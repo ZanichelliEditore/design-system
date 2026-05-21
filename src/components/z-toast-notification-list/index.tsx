@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, Watch, h} from "@stencil/core";
 import {ToastNotificationPosition} from "../../beans";
 
 @Component({
@@ -53,7 +53,15 @@ export class ZToastNotificationList implements ComponentInterface {
     }
   }
 
-  render(): HTMLSlotElement {
-    return <slot name="toasts"></slot>;
+  render(): HTMLZToastNotificationListElement {
+    return (
+      <Host
+        role="status"
+        aria-live="polite"
+        aria-atomic="false"
+      >
+        <slot name="toasts"></slot>
+      </Host>
+    );
   }
 }

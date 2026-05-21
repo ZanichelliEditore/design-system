@@ -10,7 +10,7 @@ describe("Suite test ZToastNotificationList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification-list position="top-right">
+      <z-toast-notification-list aria-atomic="false" aria-live="polite" position="top-right" role="status">
         <mock:shadow-root>
             <slot name="toasts"></slot>
         </mock:shadow-root>
@@ -25,7 +25,7 @@ describe("Suite test ZToastNotificationList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification-list newestontop="false" position="top-centre">
+      <z-toast-notification-list aria-atomic="false" aria-live="polite" newestontop="false" position="top-centre" role="status">
         <mock:shadow-root>
             <slot name="toasts"></slot>
         </mock:shadow-root>
@@ -47,7 +47,7 @@ describe("Suite test ZToastNotificationList", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification-list position="top-centre">
+      <z-toast-notification-list aria-atomic="false" aria-live="polite" position="top-centre" role="status">
         <mock:shadow-root>
             <slot name="toasts"></slot>
         </mock:shadow-root>
