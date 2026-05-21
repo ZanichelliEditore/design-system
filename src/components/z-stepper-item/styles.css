@@ -83,6 +83,7 @@
 :host([pressed]:not([disabled])) .indicator {
   border-color: var(--color-hover-primary);
   background: var(--color-hover-primary);
+  box-shadow: 0 0 0 3px var(--color-surface01), 0 0 0 5px var(--color-hover-primary);
   color: var(--color-text-inverse);
 }
 
@@ -96,6 +97,7 @@
 }
 
 :host([disabled]) .indicator {
+  border-style: dashed;
   border-color: var(--color-disabled02);
   background: var(--color-disabled01);
   color: var(--color-disabled03);
