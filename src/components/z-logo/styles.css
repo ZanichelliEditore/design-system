@@ -19,6 +19,11 @@ a {
   height: 100%;
 }
 
+a:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+  outline: none;
+}
+
 :host(.mobile) {
   width: 31px;
   height: 40px;
