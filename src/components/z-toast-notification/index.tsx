@@ -232,8 +232,8 @@ export class ZToastNotification implements ComponentInterface {
   render(): HTMLZToastNotificationElement {
     return (
       <Host
-        role="status"
-        aria-live="polite"
+        role={this.type === ToastNotification.ERROR ? "alert" : "status"}
+        aria-live={this.type === ToastNotification.ERROR ? "assertive" : "polite"}
         aria-atomic="true"
         style={{"--percentuale": `${this.percentage}%`}}
         class={{[this.transition]: !!this.transition, [this.type]: !!this.type}}
