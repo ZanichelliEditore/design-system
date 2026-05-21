@@ -1112,6 +1112,17 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ZInputGroup {
+        /**
+          * [optional] Whether to visually hide the legend while keeping it accessible to screen readers.
+          * @default false
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility.
+         */
+        "legend": string;
+    }
     interface ZInputMessage {
         /**
           * input disabled status (optional)
@@ -3153,6 +3164,12 @@ declare global {
         prototype: HTMLZInputElement;
         new (): HTMLZInputElement;
     };
+    interface HTMLZInputGroupElement extends Components.ZInputGroup, HTMLStencilElement {
+    }
+    var HTMLZInputGroupElement: {
+        prototype: HTMLZInputGroupElement;
+        new (): HTMLZInputGroupElement;
+    };
     interface HTMLZInputMessageElement extends Components.ZInputMessage, HTMLStencilElement {
     }
     var HTMLZInputMessageElement: {
@@ -3915,6 +3932,7 @@ declare global {
         "z-info-box": HTMLZInfoBoxElement;
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
+        "z-input-group": HTMLZInputGroupElement;
         "z-input-message": HTMLZInputMessageElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
@@ -5159,6 +5177,17 @@ declare namespace LocalJSX {
           * the input value
          */
         "value"?: string;
+    }
+    interface ZInputGroup {
+        /**
+          * [optional] Whether to visually hide the legend while keeping it accessible to screen readers.
+          * @default false
+         */
+        "hideLegend"?: boolean;
+        /**
+          * The legend text that describes the group of inputs. Required for accessibility.
+         */
+        "legend": string;
     }
     interface ZInputMessage {
         /**
@@ -6980,6 +7009,10 @@ declare namespace LocalJSX {
         "pattern": string;
         "size": ControlSize;
     }
+    interface ZInputGroupAttributes {
+        "legend": string;
+        "hideLegend": boolean;
+    }
     interface ZInputMessageAttributes {
         "message": string;
         "htmlId": string;
@@ -7377,6 +7410,7 @@ declare namespace LocalJSX {
         "z-info-box": Omit<ZInfoBox, keyof ZInfoBoxAttributes> & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes]?: ZInfoBox[K] } & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes as `attr:${K}`]?: ZInfoBoxAttributes[K] } & { [K in keyof ZInfoBox & keyof ZInfoBoxAttributes as `prop:${K}`]?: ZInfoBox[K] };
         "z-info-reveal": Omit<ZInfoReveal, keyof ZInfoRevealAttributes> & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes]?: ZInfoReveal[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `attr:${K}`]?: ZInfoRevealAttributes[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `prop:${K}`]?: ZInfoReveal[K] };
         "z-input": Omit<ZInput, keyof ZInputAttributes> & { [K in keyof ZInput & keyof ZInputAttributes]?: ZInput[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `attr:${K}`]?: ZInputAttributes[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `prop:${K}`]?: ZInput[K] };
+        "z-input-group": Omit<ZInputGroup, keyof ZInputGroupAttributes> & { [K in keyof ZInputGroup & keyof ZInputGroupAttributes]?: ZInputGroup[K] } & { [K in keyof ZInputGroup & keyof ZInputGroupAttributes as `attr:${K}`]?: ZInputGroupAttributes[K] } & { [K in keyof ZInputGroup & keyof ZInputGroupAttributes as `prop:${K}`]?: ZInputGroup[K] } & OneOf<"legend", ZInputGroup["legend"], ZInputGroupAttributes["legend"]>;
         "z-input-message": Omit<ZInputMessage, keyof ZInputMessageAttributes> & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes]?: ZInputMessage[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `attr:${K}`]?: ZInputMessageAttributes[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `prop:${K}`]?: ZInputMessage[K] };
         "z-list": Omit<ZList, keyof ZListAttributes> & { [K in keyof ZList & keyof ZListAttributes]?: ZList[K] } & { [K in keyof ZList & keyof ZListAttributes as `attr:${K}`]?: ZListAttributes[K] } & { [K in keyof ZList & keyof ZListAttributes as `prop:${K}`]?: ZList[K] };
         "z-list-element": Omit<ZListElement, keyof ZListElementAttributes> & { [K in keyof ZListElement & keyof ZListElementAttributes]?: ZListElement[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `attr:${K}`]?: ZListElementAttributes[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `prop:${K}`]?: ZListElement[K] };
@@ -7516,6 +7550,7 @@ declare module "@stencil/core" {
              */
             "z-info-reveal": LocalJSX.IntrinsicElements["z-info-reveal"] & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.IntrinsicElements["z-input"] & JSXBase.HTMLAttributes<HTMLZInputElement>;
+            "z-input-group": LocalJSX.IntrinsicElements["z-input-group"] & JSXBase.HTMLAttributes<HTMLZInputGroupElement>;
             "z-input-message": LocalJSX.IntrinsicElements["z-input-message"] & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
             "z-list": LocalJSX.IntrinsicElements["z-list"] & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.IntrinsicElements["z-list-element"] & JSXBase.HTMLAttributes<HTMLZListElementElement>;
