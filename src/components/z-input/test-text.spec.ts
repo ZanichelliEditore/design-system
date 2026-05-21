@@ -134,6 +134,28 @@ describe("Suite test ZInput - text", () => {
     `);
   });
 
+  it("Test render ZInput con attributo required", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input message="false" type="text" htmlid="test" placeholder="placeholder" value="value" label="label" required></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <z-input message="false" type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" required>
+          <div class="text-wrapper">
+            <label class="body-5-sb z-label" for="test" id="test_label">label</label>
+            <div>
+              <input required class="has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" />
+              <span class="icons-wrapper">
+                <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
+            </div>
+          </div>
+      </z-input>
+    `);
+  });
+
   it("Test render ZInput con attributi readonly", async () => {
     const page = await newSpecPage({
       components: [ZInput],
