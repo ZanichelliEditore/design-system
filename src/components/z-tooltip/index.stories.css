@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+.tooltip-container z-tooltip .content-container {
+  display: flex;
+  gap: var(--space-unit);
+}
+
 .tooltip-container z-tooltip .tooltip-info-text {
   text-align: left;
 }

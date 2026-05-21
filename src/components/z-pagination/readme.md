@@ -29,6 +29,16 @@ Pagination bar component.
 | `pageChanged` | Event emitted when the current page has changed. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                        | Description                                                                                |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `--z-pagination--page-button-width`         | Width of the pagination's page buttons. The default is 64px on mobile and 88px on desktop. |
+| `--z-pagination--pages-container-max-width` | Max width of the container of the page buttons. The default is 100% (full width).          |
+| `--z-pagination-background-color`           | Background of the pagination's tabs. The default is --color-background                     |
+| `--z-pagination-background-color-hover`     | Background of the pagination's tabs on hover. The default is --color-surface01             |
+
+
 ## Dependencies
 
 ### Depends on

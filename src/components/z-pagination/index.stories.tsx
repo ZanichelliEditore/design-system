@@ -1,0 +1,117 @@
+import {h} from "@stencil/core";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
+import {ZPagination} from "./index";
+
+type ZPaginationStoriesArgs = ZPagination &
+  CSSVarsArguments<"--z-pagination-background-color" | "--z-pagination-background-color-hover">;
+
+const StoryMeta = {
+  title: "ZPagination",
+  component: "z-pagination",
+  argTypes: {
+    "totalPages": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+    },
+    "visiblePages": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+      if: {
+        arg: "split",
+        truthy: false,
+      },
+    },
+    "currentPage": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+    },
+    "skip": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+    },
+    "edges": {
+      if: {
+        arg: "split",
+        truthy: false,
+      },
+    },
+    "split": {
+      control: {
+        type: "number",
+        min: 1,
+      },
+    },
+    "--z-pagination-background-color": getColorTokenArgConfig(),
+    "--z-pagination-background-color-hover": getColorTokenArgConfig(),
+  },
+  args: {
+    "label": "",
+    "navArrows": true,
+    "totalPages": 201,
+    "visiblePages": 5,
+    "currentPage": 1,
+    "goToPage": false,
+    "skip": 0,
+    "edges": false,
+    "--z-pagination-background-color": "var(--color-background)",
+    "--z-pagination-background-color-hover": "var(--color-surface01)",
+  },
+  render: (args) => (
+    <z-pagination
+      {...args}
+      style={extractCSSVars(args)}
+    ></z-pagination>
+  ),
+} satisfies Meta<ZPaginationStoriesArgs>;
+
+export default StoryMeta;
+
+type Story = StoryObj<ZPagination>;
+
+export const VisiblePages = {
+  parameters: {
+    controls: {
+      exclude: ["split"],
+    },
+  },
+} satisfies Story;
+
+/**
+ * > Note that enabling `split` will shut off `visiblePages` and `edges`.
+ */
+export const Split = {
+  args: {
+    split: 1,
+  },
+  parameters: {
+    controls: {
+      exclude: ["edges", "visible-pages"],
+    },
+  },
+} satisfies Story;
+
+export const Edges = {
+  args: {
+    edges: true,
+  },
+  parameters: {
+    controls: {
+      exclude: ["split"],
+    },
+  },
+} satisfies Story;
+
+export const Skip = {
+  args: {
+    skip: 10,
+  },
+} satisfies Story;

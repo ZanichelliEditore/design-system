@@ -1,4 +1,9 @@
 :host {
+  /**
+   * @prop --z-offcanvas--top-space: Top offset of the offcanvas, for `overlay` variant. Useful when there is some fixed element above the offcanvas. Default: `0`.
+   * @prop --z-offcanvas--container-width: Width of the offcanvas for `left` and `right` direction. Default: `375px`.
+   * @prop --z-offcanvas--container-height: Height of the offcanvas for `up` direction. Default: `90%`.
+   */
   --z-offcanvas--container-width: ;
   --z-offcanvas--container-height: ;
   --z-offcanvas--top-space: ;

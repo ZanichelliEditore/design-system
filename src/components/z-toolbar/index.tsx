@@ -8,7 +8,6 @@ import {ZToolCustomEvent} from "../../components";
  * Tools can be visually grouped using `z-divider` elements as separators.
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/
  *
- * @cssprop --z-toolbar-columns - Number of items per row in the toolbar. Only applies on mobile viewport, when the toolbar can be displayed in a multi-row layout. Default: `6`.
  */
 @Component({
   tag: "z-toolbar",

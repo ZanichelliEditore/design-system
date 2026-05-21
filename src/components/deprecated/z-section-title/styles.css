@@ -1,4 +1,7 @@
 :host {
+  /**
+   * @prop --z-section-title--divider-color: Color of the divider. Use a CSS prop string like `"--red500"`. Default is `"--red500"`.
+   */
   --z-section-title--divider-color: var(--red500);
 
   display: flex;

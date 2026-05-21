@@ -5,6 +5,12 @@
 }
 
 :host {
+  /**
+   * @prop --z-book-cover-height: height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
+   * @prop --z-book-cover-border-radius: border radius of the book cover (default: `var(--border-radius)`)
+   * @prop --z-book-cover-stack-shift-x: the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
+   * @prop --z-book-cover-stack-shift-y: the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
+   */
   --z-book-cover-height: 378px;
   --z-book-cover-border-radius: var(--border-radius);
   --z-book-cover-stack-shift-x: 8px;

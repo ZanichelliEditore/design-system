@@ -1,5 +1,6 @@
 import {Component, ComponentInterface, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {Breakpoints} from "../../constants/breakpoints";
+
 @Component({
   tag: "z-button-sort",
   styleUrl: "styles.css",

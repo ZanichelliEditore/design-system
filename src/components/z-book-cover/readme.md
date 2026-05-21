@@ -29,6 +29,16 @@ Alignment of the image inside the container can be customized via CSS properties
 | `"coverOverlay"` | Content to be displayed over the cover image (e.g. a label). The overlay is positioned at the bottom of the cover. Has some default styling (such as the colored background) that can be customized via CSS. |
 
 
+## CSS Custom Properties
+
+| Name                           | Description                                                                                                             |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `--z-book-cover-border-radius` | border radius of the book cover (default: `var(--border-radius)`)                                                       |
+| `--z-book-cover-height`        | height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33. |
+| `--z-book-cover-stack-shift-x` | the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)                                   |
+| `--z-book-cover-stack-shift-y` | the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)                                    |
+
+
 ## Dependencies
 
 ### Used by

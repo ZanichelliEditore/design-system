@@ -6,16 +6,8 @@ import {AccordionVariant, ControlSize} from "../../beans";
  *
  * @slot - Slot for the main content.
  * @slot tag - Slot for tags.
- * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
- * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
- * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
- * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
- * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
- * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
- * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
- * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
- * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
- * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+ * @part summary - The summary element that is always visible and acts as the accordion's toggle.
+ * @part content - The content element that is shown or hidden when the accordion is toggled.
  */
 @Component({
   tag: "z-accordion",

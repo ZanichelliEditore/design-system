@@ -1,6 +1,12 @@
 /* COMMON STYLES */
 
 :host {
+  /**
+   * @prop --z-book-card-ribbon-background-color: ribbon backgrund color
+   * @prop --z-book-card-ribbon-shadow-color: ribbon shadow color
+   * @prop --z-book-card-compact-width: compact card custom width
+   * @prop --z-book-card-compact-height: compact card custom height
+   */
   --z-book-card-ribbon-background-color: var(--avatar-C08);
   --z-book-card-ribbon-shadow-color: var(--green950);
   --z-book-card-compact-width: 262px;

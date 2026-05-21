@@ -5,11 +5,14 @@
 }
 
 :host {
+  /**
+   * @prop --z-menu-label-color: Color of the label's text.
+   */
+  --z-menu-label-color: var(--color-default-text);
+
   position: relative;
   display: inline-flex;
   flex-direction: column;
-
-  --z-menu-label-color: var(--color-default-text);
 }
 
 ::slotted(a) {
