@@ -115,7 +115,7 @@ export class ZTr implements ComponentInterface {
     return (
       <Host
         role="row"
-        tabIndex={0}
+        tabIndex={this.expandable ? 0 : undefined}
         expanded={this.expanded}
         onClick={this.onRowClick.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}

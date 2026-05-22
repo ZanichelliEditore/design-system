@@ -56,8 +56,8 @@
   background-color: var(--color-background);
 }
 
-:host(:hover) ::slotted(z-td),
-:host(:hover) ::slotted(z-th) {
+:host(:hover):has([tabIndex]) ::slotted(z-td),
+:host(:hover):has([tabIndex]) ::slotted(z-th) {
   border-top: var(--border-size-small) solid var(--color-surface04);
   border-bottom: var(--border-size-small) solid var(--color-surface04);
   background-color: var(--color-surface02);
