@@ -366,6 +366,7 @@ export class ZAppHeader implements ComponentInterface {
 
     return (
       <z-searchbar
+        class={{"has-label": !!this.searchLabel}}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
         label={this.searchLabel}

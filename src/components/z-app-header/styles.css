@@ -199,6 +199,10 @@ z-searchbar {
   z-index: 0;
   display: flex;
   width: 100%;
+  align-items: center;
+}
+
+z-searchbar.has-label {
   align-items: flex-end;
 }
 
