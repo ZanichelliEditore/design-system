@@ -46,8 +46,6 @@
 
 .radio-wrapper .radio-label z-icon,
 .checkbox-wrapper .checkbox-label z-icon {
-  min-width: 24px;
-  min-height: 24px;
   cursor: pointer;
   fill: inherit;
 }
