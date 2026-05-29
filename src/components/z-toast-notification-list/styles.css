@@ -1,3 +1,12 @@
+.sr-announcer {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 :host {
   position: fixed;
   z-index: 10000;

@@ -12,6 +12,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list position="top-right">
         <mock:shadow-root>
+            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
             <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
@@ -27,6 +28,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list newestontop="false" position="top-centre">
         <mock:shadow-root>
+            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
             <slot name="toasts"></slot>
         </mock:shadow-root>
       </z-toast-notification-list>
@@ -49,6 +51,7 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list position="top-centre">
         <mock:shadow-root>
+            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
             <slot name="toasts"></slot>
         </mock:shadow-root>
         <z-toast-notification type="error" heading="Notification" message="Senza pulsante."

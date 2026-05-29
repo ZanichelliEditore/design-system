@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ToastNotificationPosition} from "../../beans";
 
 @Component({
@@ -17,7 +17,14 @@ export class ZToastNotificationList implements ComponentInterface {
   @Prop()
   newestontop?: boolean = true;
 
+  @State()
+  announcerText = "";
+
   private notificationArray: Element[] = [];
+
+  private mutationObserver: MutationObserver;
+
+  private announcedToasts = new WeakSet<Element>();
 
   @Watch("newestontop")
   watchPropNewestontop(newValue: boolean): void {
@@ -33,6 +40,52 @@ export class ZToastNotificationList implements ComponentInterface {
     if (this.newestontop) {
       this.handleNewestOnTop();
     }
+  }
+
+  componentDidLoad(): void {
+    if (typeof MutationObserver === "undefined") {
+      return;
+    }
+    this.mutationObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of Array.from(mutation.addedNodes)) {
+          if (node instanceof HTMLElement && node.tagName.toLowerCase() === "z-toast-notification") {
+            this.announceToast(node);
+          }
+        }
+      }
+    });
+    this.mutationObserver.observe(this.hostElement, {childList: true});
+  }
+
+  disconnectedCallback(): void {
+    this.mutationObserver?.disconnect();
+  }
+
+  private announceToast(toast: HTMLElement): void {
+    if (this.announcedToasts.has(toast)) {
+      return;
+    }
+    this.announcedToasts.add(toast);
+
+    const heading = toast.getAttribute("heading") || "";
+    const message = toast.getAttribute("message") || "";
+    const text = [heading, this.stripHtml(message)].filter(Boolean).join(": ");
+    if (!text) {
+      return;
+    }
+
+    this.announcerText = "";
+    setTimeout(() => {
+      this.announcerText = text;
+    }, 100);
+  }
+
+  private stripHtml(html: string): string {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+
+    return div.textContent || "";
   }
 
   private handleNewestOnTop(): void {
@@ -53,7 +106,18 @@ export class ZToastNotificationList implements ComponentInterface {
     }
   }
 
-  render(): HTMLSlotElement {
-    return <slot name="toasts"></slot>;
+  render(): HTMLZToastNotificationListElement {
+    return (
+      <Host>
+        <div
+          class="sr-announcer"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          {this.announcerText}
+        </div>
+        <slot name="toasts"></slot>
+      </Host>
+    );
   }
 }
