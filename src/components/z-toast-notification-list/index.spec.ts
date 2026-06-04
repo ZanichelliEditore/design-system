@@ -12,9 +12,10 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list position="top-right">
         <mock:shadow-root>
-            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
+            <slot name="sr-announcer"></slot>
             <slot name="toasts"></slot>
         </mock:shadow-root>
+        <div aria-atomic="true" aria-live="assertive" class="sr-announcer" slot="sr-announcer"></div>
       </z-toast-notification-list>
     `);
   });
@@ -28,9 +29,10 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list newestontop="false" position="top-centre">
         <mock:shadow-root>
-            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
+            <slot name="sr-announcer"></slot>
             <slot name="toasts"></slot>
         </mock:shadow-root>
+        <div aria-atomic="true" aria-live="assertive" class="sr-announcer" slot="sr-announcer"></div>
       </z-toast-notification-list>
     `);
   });
@@ -51,9 +53,10 @@ describe("Suite test ZToastNotificationList", () => {
     expect(page.root).toEqualHtml(`
       <z-toast-notification-list position="top-centre">
         <mock:shadow-root>
-            <div aria-atomic="true" aria-live="assertive" class="sr-announcer"></div>
+            <slot name="sr-announcer"></slot>
             <slot name="toasts"></slot>
         </mock:shadow-root>
+        <div aria-atomic="true" aria-live="assertive" class="sr-announcer" slot="sr-announcer"></div>
         <z-toast-notification type="error" heading="Notification" message="Senza pulsante."
           transition="slide-in-up" draggablepercentage="50" closebutton>
         </z-toast-notification>

@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, Host, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, Watch, h} from "@stencil/core";
 import {ToastNotificationPosition} from "../../beans";
 
 @Component({
@@ -17,14 +17,13 @@ export class ZToastNotificationList implements ComponentInterface {
   @Prop()
   newestontop?: boolean = true;
 
-  @State()
-  announcerText = "";
-
   private notificationArray: Element[] = [];
 
   private mutationObserver: MutationObserver;
 
   private announcedToasts = new WeakSet<Element>();
+
+  private announcerEl: HTMLDivElement;
 
   @Watch("newestontop")
   watchPropNewestontop(newValue: boolean): void {
@@ -34,6 +33,17 @@ export class ZToastNotificationList implements ComponentInterface {
     } else {
       this.hostElement.shadowRoot.removeEventListener("slotchange", this.slotChangeHandler);
     }
+  }
+
+  connectedCallback(): void {
+    if (!this.announcerEl) {
+      this.announcerEl = document.createElement("div");
+      this.announcerEl.setAttribute("aria-live", "assertive");
+      this.announcerEl.setAttribute("aria-atomic", "true");
+      this.announcerEl.setAttribute("slot", "sr-announcer");
+      this.announcerEl.classList.add("sr-announcer");
+    }
+    this.hostElement.appendChild(this.announcerEl);
   }
 
   componentWillLoad(): void {
@@ -60,6 +70,7 @@ export class ZToastNotificationList implements ComponentInterface {
 
   disconnectedCallback(): void {
     this.mutationObserver?.disconnect();
+    this.announcerEl?.remove();
   }
 
   private announceToast(toast: HTMLElement): void {
@@ -75,9 +86,9 @@ export class ZToastNotificationList implements ComponentInterface {
       return;
     }
 
-    this.announcerText = "";
+    this.announcerEl.textContent = "";
     setTimeout(() => {
-      this.announcerText = text;
+      this.announcerEl.textContent = text;
     }, 100);
   }
 
@@ -89,13 +100,15 @@ export class ZToastNotificationList implements ComponentInterface {
   }
 
   private handleNewestOnTop(): void {
-    this.notificationArray = Array.from(this.hostElement.children);
+    this.notificationArray = Array.from(this.hostElement.children).filter((el) => el !== this.announcerEl);
     this.hostElement.append(...this.notificationArray.reverse());
     this.hostElement.shadowRoot.addEventListener("slotchange", this.slotChangeHandler.bind(this));
   }
 
   private slotChangeHandler(): void {
-    const difference = Array.from(this.hostElement.children).filter((elem) => !this.notificationArray.includes(elem));
+    const difference = Array.from(this.hostElement.children).filter(
+      (elem) => elem !== this.announcerEl && !this.notificationArray.includes(elem)
+    );
     if (difference) {
       difference.forEach((elem) => {
         this.notificationArray.push(elem);
@@ -109,13 +122,7 @@ export class ZToastNotificationList implements ComponentInterface {
   render(): HTMLZToastNotificationListElement {
     return (
       <Host>
-        <div
-          class="sr-announcer"
-          aria-live="assertive"
-          aria-atomic="true"
-        >
-          {this.announcerText}
-        </div>
+        <slot name="sr-announcer"></slot>
         <slot name="toasts"></slot>
       </Host>
     );

@@ -1,4 +1,4 @@
-.sr-announcer {
+::slotted(.sr-announcer) {
   position: absolute;
   overflow: hidden;
   width: 1px;
