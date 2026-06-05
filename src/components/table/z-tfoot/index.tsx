@@ -6,7 +6,7 @@ import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
  */
 @Component({
   tag: "z-tfoot",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTfoot implements ComponentInterface {

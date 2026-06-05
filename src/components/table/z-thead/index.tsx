@@ -6,7 +6,7 @@ import {Component, ComponentInterface, Element, Host, Prop, h} from "@stencil/co
  */
 @Component({
   tag: "z-thead",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZThead implements ComponentInterface {
