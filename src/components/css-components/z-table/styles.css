@@ -24,7 +24,7 @@ table.z-table tfoot {
 
 z-tfoot z-tr,
 table.z-table tfoot tr {
-  border-bottom: none !important;
+  border-bottom: calc(var(--z-table--cells-bottom-border-size)) solid var(--color-surface03) !important;
 }
 
 z-tr,
