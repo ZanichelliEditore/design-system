@@ -1718,7 +1718,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop": boolean;
@@ -5838,7 +5838,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop"?: boolean;

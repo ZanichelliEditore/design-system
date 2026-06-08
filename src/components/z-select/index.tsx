@@ -637,7 +637,7 @@ export class ZSelect implements ComponentInterface {
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role={item.disabled ? "presentation" : "option"}
-        html-tabindex={-1}
+        htmlTabindex={-1}
         aria-selected={item.selected ? "true" : "false"}
         aria-label={item.disabled ? undefined : getPlainText(item.name)}
         id={this.getOptionId(item)}

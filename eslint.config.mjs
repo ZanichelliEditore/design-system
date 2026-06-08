@@ -108,6 +108,7 @@ export default defineConfig([
         {
           allowExpressions: true,
           allowedNames: [
+            "addController",
             "componentDidLoad",
             "componentDidRender",
             "componentDidUpdate",
@@ -125,6 +126,7 @@ export default defineConfig([
             "hostWillLoad",
             "hostWillRender",
             "hostWillUpdate",
+            "removeController",
             "render",
           ],
         },
