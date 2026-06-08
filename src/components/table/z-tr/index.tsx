@@ -23,7 +23,7 @@ import "../cells/z-th/index";
  */
 @Component({
   tag: "z-tr",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTr implements ComponentInterface {

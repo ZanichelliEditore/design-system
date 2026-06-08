@@ -13,15 +13,6 @@
   box-sizing: border-box;
 }
 
-.z-tr--expand-button-container,
-::slotted(*) {
-  border-bottom: var(--z-table--cells-bottom-border-size, var(--border-size-small)) solid var(--color-surface03);
-}
-
-::slotted(*:not(:last-child)) {
-  border-right: var(--z-table--cell-left-border, none);
-}
-
 :host([expandable]) {
   --show-expandable-button: visible;
 
@@ -37,6 +28,7 @@
 }
 
 :host([expandable]) ::slotted(*:last-child) {
+  border-top: var(--border-size-small) solid var(--color-surface03);
   border-left: 0;
   grid-column: 1 / span calc(var(--columns) + 1);
   grid-row: 2;
@@ -53,6 +45,7 @@
 
 :host([expanded]) .z-tr--expand-button-container,
 :host([expanded]) ::slotted(*) {
+  border-left: 0 !important;
   background-color: var(--color-background);
 }
 
@@ -66,6 +59,7 @@
 :host(:focus) {
   position: relative;
   z-index: 20;
+  border: none !important;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }

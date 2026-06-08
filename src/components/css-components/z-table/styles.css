@@ -1,4 +1,3 @@
-/* ZTable */
 z-table,
 table.z-table {
   background-color: var(--color-surface01);
@@ -8,58 +7,53 @@ table.z-table {
 
 table.z-table {
   border-collapse: collapse;
-
-  --z-table--cells-bottom-border-size: var(--border-size-small);
 }
 
-/* ZThead */
 z-thead,
 table.z-table thead {
+  background-color: var(--color-background);
+
   --z-table--cells-bottom-border-size: var(--border-size-medium);
 }
 
-table.z-table thead {
-  border-bottom: var(--z-table--cells-bottom-border-size, var(--border-size-small)) solid var(--color-surface03);
-  background-color: var(--color-background);
-}
-
-/* ZTfoot */
+z-tfoot,
 table.z-table tfoot {
   border-top: var(--border-size-medium) solid var(--color-surface03);
   border-bottom: var(--border-size-medium) solid var(--color-surface03);
 }
 
+z-tfoot z-tr,
+table.z-table tfoot tr {
+  border-bottom: none !important;
+}
+
+z-tr,
 table.z-table tr {
   border-bottom: var(--z-table--cells-bottom-border-size, var(--border-size-small)) solid var(--color-surface03);
 }
 
-/* Cells td and th */
 z-td,
+z-th,
 table.z-table td,
 table.z-table th {
   padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
-}
-
-table.z-table td,
-table.z-table th {
   text-align: left;
 }
 
-/* ZTable Bordered  */
+z-th:not(:first-child),
+z-td:not(:first-child),
+table.z-table th:not(:first-child),
+table.z-table td:not(:first-child) {
+  border-left: var(--z-table--cell-left-border, none);
+}
+
 z-table[bordered],
 table.z-table.z-table-bordered {
   --z-table--cell-left-border: 1px solid var(--color-surface03);
 }
 
-table.z-table.z-table-bordered th:not(:first-child),
-table.z-table.z-table-bordered td:not(:first-child) {
-  border-left: var(--z-table--cell-left-border, none);
-}
-
-/* ZTable Hover .z-table-hover */
-table.z-table-hover > tbody > tr:hover > td,
-table.z-table-hover > thead > tr:hover > th,
-table.z-table-hover > tfoot > tr:hover > td {
+table.z-table-hover tr:hover > td,
+table.z-table-hover tr:hover > th {
   background-color: var(--color-surface02);
   box-shadow:
     inset 0 var(--border-size-small) 0 var(--color-surface04),
