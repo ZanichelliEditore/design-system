@@ -51,10 +51,7 @@ table.z-table.z-table-bordered {
   --z-table--cell-left-border: 1px solid var(--color-surface03);
 }
 
-table.z-table.z-table-bordered th:not(:first-child) {
-  border-left: var(--z-table--cell-left-border, none);
-}
-
+table.z-table.z-table-bordered th:not(:first-child),
 table.z-table.z-table-bordered td:not(:first-child) {
   border-left: var(--z-table--cell-left-border, none);
 }
