@@ -1,5 +1,20 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Host, Listen, Prop, State, Watch} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
+import {createFocusTrap} from "focus-trap";
+import {tabbable} from "tabbable";
 import {KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
+import {containsElement} from "../../utils/utils.js";
 
 /**
  * @slot canvasContent - Slot for the offcanvas content.
@@ -11,6 +26,8 @@ import {KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
   scoped: true,
 })
 export class ZOffcanvas implements ComponentInterface {
+  @Element() host: HTMLZOffcanvasElement;
+
   /**
    * Offcanvas variant.
    * - `overlay`: The offcanvas covers the page content putting an overlay.
@@ -35,7 +52,7 @@ export class ZOffcanvas implements ComponentInterface {
   /**
    * Skip the opening transition when the offcanvas is already open at the first render.
    * @deprecated This prop is not needed anymore, the component will automatically skip the transition
-   *  when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
+   * when it starts with `open` set to `true`. Only exists for Typescript backward compatibility.
    */
   @Prop()
   skipLoadAnimation = false;
@@ -46,77 +63,129 @@ export class ZOffcanvas implements ComponentInterface {
 
   /** emitted when `open` prop changes */
   @Event()
-  canvasOpenStatusChanged: EventEmitter;
+  canvasOpenStatusChanged: EventEmitter<boolean>;
 
   /** Used to skip the opening transition when the offcanvas is already open at the first render. */
   @State()
   private skipAnimation = false;
 
-  private canvasContainer: HTMLElement;
-
   private canvasContent: HTMLElement;
 
-  private allFocusableElements: HTMLElement[] = [];
-
-  private previouslyFocusedElement: HTMLElement | null = null;
+  private focusTrap: ReturnType<typeof createFocusTrap>;
 
   /**
-   * Returns all focusable elements inside the offcanvas content.
-   * Elements are considered focusable if:
-   * - They are not disabled
-   * - They are visible in the layout
-   * - They have a non-negative tabIndex or an explicit tabindex="0"
+   * Get tabbable elements in the offcanvas, including those in shadow roots.
    */
-  private getFocusableElements(): HTMLElement[] {
-    if (!this.canvasContent) {
-      return [];
+  private getTabbableElements(): HTMLElement[] {
+    const hostElements = Array.from(this.host.querySelectorAll<HTMLElement>("*"));
+    const seen = new Set<HTMLElement>();
+    const mergedEntries: {element: HTMLElement; lightIndex: number; shadowIndex: number}[] = [];
+
+    const addElement = (element: HTMLElement, lightIndex: number, shadowIndex: number): void => {
+      if (seen.has(element)) {
+        return;
+      }
+
+      seen.add(element);
+      mergedEntries.push({element, lightIndex, shadowIndex});
+    };
+
+    // Get tabbable elements in the Light DOM
+    tabbable(this.host, {getShadowRoot: false}).forEach((element) => {
+      if (!(element instanceof HTMLElement)) {
+        return;
+      }
+
+      addElement(element, hostElements.indexOf(element), -1);
+    });
+
+    // Get tabbable elements in the Shadow DOM of each tabbable element with a shadow root
+    hostElements.forEach((hostElement, index) => {
+      if (!hostElement.shadowRoot) {
+        return;
+      }
+
+      tabbable(hostElement, {getShadowRoot: true}).forEach((element, shadowIndex) => {
+        if (element instanceof HTMLElement) {
+          addElement(element, index, shadowIndex);
+        }
+      });
+    });
+
+    // Sort by light DOM order first, then by shadow DOM order for elements within the same host
+    mergedEntries.sort((a, b) => {
+      if (a.lightIndex !== b.lightIndex) {
+        return a.lightIndex - b.lightIndex;
+      }
+
+      return a.shadowIndex - b.shadowIndex;
+    });
+
+    return mergedEntries.map((entry) => entry.element);
+  }
+
+  private focusFirstTrapElement(): void {
+    this.getTabbableElements()[0]?.focus();
+  }
+
+  private focusLastTrapElement(): void {
+    const trapTabbableElements = this.getTabbableElements();
+
+    trapTabbableElements[trapTabbableElements.length - 1]?.focus();
+  }
+
+  /** Get the currently active element, including those in shadow DOM. */
+  private getDeepActiveElement(): Element | null {
+    let activeElement: Element | null = this.host.ownerDocument.activeElement;
+
+    while (activeElement instanceof HTMLElement && activeElement.shadowRoot?.activeElement) {
+      activeElement = activeElement.shadowRoot.activeElement;
     }
 
-    const all = Array.from(this.canvasContent.querySelectorAll<HTMLElement>("*"));
-
-    return all.filter((el) => {
-      const tabindex = el.getAttribute("tabindex");
-      const isDisabled = el.hasAttribute("disabled");
-      const isHidden = el.offsetParent === null;
-
-      return !isDisabled && !isHidden && (el.tabIndex >= 0 || tabindex === "0");
-    });
+    return activeElement;
   }
 
   /**
-   * Keeps keyboard navigation trapped inside the offcanvas when it is open.
-   * Implements circular tab navigation:
-   * - If Shift + Tab is pressed on the first focusable element, move focus to the last.
-   * - If Tab is pressed on the last focusable element, move focus to the first.
+   * Activate or deactivate the focus trap based on the `open` state and the `overlay` variant.
    */
-  private trapFocus(event: KeyboardEvent): void {
-    if (!this.allFocusableElements.length) {
+  private updateFocusTrap(): void {
+    if (this.variant !== OffCanvasVariant.OVERLAY) {
       return;
     }
 
-    const first = this.allFocusableElements[0];
-    const last = this.allFocusableElements[this.allFocusableElements.length - 1];
-    const active = document.activeElement as HTMLElement;
-
-    if (event.shiftKey && active === first) {
-      event.preventDefault();
-      last.focus();
+    if (!this.focusTrap) {
+      // Initialize once and keep in sync with component state via activate/deactivate.
+      this.focusTrap = createFocusTrap(this.host, {
+        allowOutsideClick: true,
+        clickOutsideDeactivates: false, // already handled by backdrop click listener
+        escapeDeactivates: false, // already handled by keydown listener
+        returnFocusOnDeactivate: true,
+        initialFocus: () => this.getTabbableElements()[0] ?? this.canvasContent,
+        fallbackFocus: () => this.canvasContent,
+        onPostActivate: () => this.focusFirstTrapElement(),
+        // Disable `focus-trap` tab navigation; wrap-around at the boundaries
+        // is handled explicitly in `handleKeyDown` to avoid conflicts with hidden boundaries.
+        isKeyForward: () => false,
+        isKeyBackward: () => false,
+        tabbableOptions: {displayCheck: "non-zero-area"},
+      });
     }
 
-    if (!event.shiftKey && active === last) {
-      event.preventDefault();
-      first.focus();
+    if (this.open) {
+      this.focusTrap.activate();
+
+      return;
     }
+
+    this.focusTrap.deactivate();
   }
 
   /**
-   * Handles keyboard interactions when the offcanvas is open.
-   * - Closes the offcanvas when the Escape key is pressed.
-   * - Traps focus inside the component when the Tab key is used.
+   * Handles Escape and wrap-around Tab navigation at the focus boundaries.
    */
   @Listen("keydown", {target: "document"})
   handleKeyDown(event: KeyboardEvent): void {
-    if (!this.open) {
+    if (!this.open || this.variant !== OffCanvasVariant.OVERLAY) {
       return;
     }
 
@@ -127,89 +196,74 @@ export class ZOffcanvas implements ComponentInterface {
       return;
     }
 
-    if (event.key === KeyboardCode.TAB) {
-      this.trapFocus(event);
-    }
-  }
-
-  /**
-   * Stop the event default behavior and propagation when the offcanvas is closed.
-   */
-  @Listen("click", {capture: true})
-  @Listen("focusin", {capture: true})
-  stopEvent(event: Event): void {
-    if (this.open) {
+    if (event.key !== KeyboardCode.TAB || event.altKey || event.ctrlKey || event.metaKey || event.defaultPrevented) {
       return;
     }
 
-    event.preventDefault();
-    event.stopPropagation();
+    const trapTabbableElements = this.getTabbableElements();
+
+    if (!trapTabbableElements.length) {
+      return;
+    }
+
+    const activeElement = this.getDeepActiveElement();
+    const isOnFirstElement = containsElement(trapTabbableElements[0], activeElement);
+    const isOnLastElement = containsElement(trapTabbableElements[trapTabbableElements.length - 1], activeElement);
+
+    if (event.shiftKey && isOnFirstElement) {
+      event.preventDefault();
+      this.focusLastTrapElement();
+
+      return;
+    }
+
+    if (!event.shiftKey && isOnLastElement) {
+      event.preventDefault();
+      this.focusFirstTrapElement();
+    }
   }
 
   /**
-   * Hide the body overflow when the offcanvas is open.
+   * Lock the page scroll when the offcanvas is open and unlock it when the offcanvas is closed.
    */
-  @Watch("variant")
-  private handlePageOverflow(): void {
+  @Watch("variant", {immediate: true})
+  private handlePageScroll(): void {
     const overflow =
       this.variant === OffCanvasVariant.OVERLAY || this.transitiondirection === TransitionDirection.UP
         ? "overflow-y"
         : "overflow-x";
 
-    document.body.style[overflow] = this.open ? "hidden" : "";
+    this.host.ownerDocument.body.style[overflow] = this.open ? "hidden" : "";
   }
 
   @Watch("open")
   onOpenChanged(): void {
     this.canvasOpenStatusChanged.emit(this.open);
 
+    this.handlePageScroll();
+    this.updateFocusTrap();
+  }
+
+  componentWillLoad() {
     if (this.open) {
-      // Store the element that was focused before the offcanvas opens, this allows restoring the focus when the offcanvas closes.
-      this.previouslyFocusedElement = document.activeElement as HTMLElement;
-
-      // Move focus inside the offcanvas once it is rendered.
-      if (this.allFocusableElements.length > 0) {
-        this.allFocusableElements[0].focus();
-      } else {
-        this.canvasContent?.focus();
-      }
-
-      this.handlePageOverflow();
-    } else {
-      // Restore focus to the element that was focused before the offcanvas was opened.
-      this.previouslyFocusedElement?.focus();
-
-      // When the offcanvas is closing, wait for the transitionend event before restoring the page overflow.
-      const listenerCallback = (): void => {
-        this.handlePageOverflow();
-        this.canvasContainer.removeEventListener("transitionend", listenerCallback);
-      };
-
-      this.canvasContainer?.addEventListener("transitionend", listenerCallback);
+      this.skipAnimation = true; // TODO: remove this line when `skipLoadAnimation` prop is removed.
     }
   }
 
-  componentWillLoad(): void {
+  componentDidRender() {
+    this.skipAnimation = false; // TODO: remove this line when `skipLoadAnimation` prop is removed.
+    this.updateFocusTrap();
+  }
+
+  componentDidLoad() {
     if (this.open) {
-      this.skipAnimation = true;
+      this.onOpenChanged();
     }
   }
 
-  componentDidLoad(): void {
-    this.handlePageOverflow();
-  }
-
-  componentDidRender(): void {
-    this.skipAnimation = false;
-    this.allFocusableElements = this.getFocusableElements();
-  }
-
-  connectedCallback(): void {
-    this.handlePageOverflow();
-  }
-
-  disconnectedCallback(): void {
-    this.open = false;
+  disconnectedCallback() {
+    this.focusTrap?.deactivate();
+    this.handlePageScroll();
   }
 
   render(): HTMLZOffcanvasElement {
@@ -217,16 +271,14 @@ export class ZOffcanvas implements ComponentInterface {
       <Host
         skip-animation={this.skipAnimation}
         aria-hidden={!this.open ? "true" : null}
+        aria-modal={this.open && this.variant === OffCanvasVariant.OVERLAY ? "true" : null}
+        role={this.open && this.variant === OffCanvasVariant.OVERLAY ? "dialog" : null}
       >
-        <div
-          class="canvas-container"
-          role="presentation"
-          ref={(el) => (this.canvasContainer = el)}
-        >
+        <div class="canvas-container">
           <div
             class="canvas-content z-scrollbar"
-            role="presentation"
             ref={(el) => (this.canvasContent = el)}
+            tabIndex={this.getTabbableElements().length ? undefined : -1} // allows the div to programmatically receive focus when there are no focusable elements inside, necessary for the focus trap to work properly
           >
             <slot name="canvasContent"></slot>
           </div>
@@ -235,7 +287,11 @@ export class ZOffcanvas implements ComponentInterface {
           this.showBackdrop && (
             <div
               class="backdrop"
-              onClick={() => (this.open = false)}
+              onClick={(ev) => {
+                ev.preventDefault();
+                ev.stopPropagation();
+                this.open = false;
+              }}
             ></div>
           )}
       </Host>

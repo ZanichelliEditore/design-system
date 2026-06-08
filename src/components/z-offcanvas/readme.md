@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event                     | Description                      | Type               |
-| ------------------------- | -------------------------------- | ------------------ |
-| `canvasOpenStatusChanged` | emitted when `open` prop changes | `CustomEvent<any>` |
+| Event                     | Description                      | Type                   |
+| ------------------------- | -------------------------------- | ---------------------- |
+| `canvasOpenStatusChanged` | emitted when `open` prop changes | `CustomEvent<boolean>` |
 
 
 ## Slots
