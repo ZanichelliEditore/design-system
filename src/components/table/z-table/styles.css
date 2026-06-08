@@ -1,4 +1,8 @@
 :host {
+  /**
+   * @prop --z-table--cells-padding: Padding of the cells.
+   */
+
   position: relative;
   display: block;
   overflow: auto;
