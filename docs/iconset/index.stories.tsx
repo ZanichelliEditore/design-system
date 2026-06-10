@@ -1,5 +1,5 @@
 import {h} from "@stencil/core";
-import {AccordionVariant} from "../../src/beans/index";
+import {AccordionVariant} from "../../src/beans";
 import {BUTTON_ICONS, FILLED_ICONS, LEGACY_ICONS, STROKE_ICONS} from "../../src/constants/iconset";
 import "./index.stories.css";
 
