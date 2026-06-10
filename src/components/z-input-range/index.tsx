@@ -87,7 +87,28 @@ export class ZInputRange implements ComponentInterface {
   @State()
   tooltipGuideRef: HTMLSpanElement;
 
+  /** Whether the native input value needs to be synced with the component state. */
+  private needsNativeValueSync = false;
+
   private inputContainer: HTMLDivElement;
+
+  private inputRef: HTMLInputElement;
+
+  private get tooltipPosition(): PopoverPosition {
+    if (this.valuePosition) {
+      return this.valuePosition;
+    }
+
+    return this.orientation === Orientation.VERTICAL ? PopoverPosition.LEFT : PopoverPosition.TOP;
+  }
+
+  private updateCurrentValue(nextValue: number): void {
+    if (Number.isNaN(nextValue) || nextValue === this.currentValue) {
+      return;
+    }
+
+    this.currentValue = nextValue;
+  }
 
   /** Calculates the current ratio of the input range value. */
   private getCurrentRatio(): number {
@@ -102,17 +123,20 @@ export class ZInputRange implements ComponentInterface {
     return Math.min(1, Math.max(0, ratio));
   }
 
-  private get tooltipPosition(): PopoverPosition {
-    if (this.valuePosition) {
-      return this.valuePosition;
+  /**
+   * Syncs current value from native input after render-time browser coercions:
+   * when `step` changes, the browser may round the value.
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range#step
+   */
+  private syncCurrentValueFromNativeInput(): void {
+    if (!this.inputRef) {
+      return;
     }
 
-    return this.orientation === Orientation.VERTICAL ? PopoverPosition.LEFT : PopoverPosition.TOP;
+    this.updateCurrentValue(this.inputRef.valueAsNumber);
+    this.updateProgress();
   }
 
-  @Watch("min")
-  @Watch("max")
-  @Watch("value")
   /** Updates the CSS variables for the input range progress and tooltip guide position. */
   private updateProgress(): void {
     const ratio = this.getCurrentRatio();
@@ -123,21 +147,46 @@ export class ZInputRange implements ComponentInterface {
     this.inputContainer?.style.setProperty("--progress", `${progress}%`);
   }
 
+  @Watch("value")
+  onValueChange(newValue: number): void {
+    this.updateCurrentValue(newValue);
+    this.updateProgress();
+    this.needsNativeValueSync = true;
+  }
+
+  @Watch("min")
+  @Watch("max")
+  @Watch("step")
+  onConstraintsChange(): void {
+    this.needsNativeValueSync = true;
+  }
+
   private onInput(event: InputEvent): void {
     event.stopPropagation();
-    this.currentValue = Number((event.target as HTMLInputElement).value);
+    this.updateCurrentValue((event.target as HTMLInputElement).valueAsNumber);
     this.updateProgress();
     this.rangeInput.emit(this.currentValue);
   }
 
   private onChange(event: Event): void {
     event.stopPropagation();
-    this.currentValue = Number((event.target as HTMLInputElement).value);
+    this.updateCurrentValue((event.target as HTMLInputElement).valueAsNumber);
+    this.updateProgress();
     this.rangeChange.emit(this.currentValue);
   }
 
   componentDidLoad() {
-    this.updateProgress();
+    this.needsNativeValueSync = true;
+    this.syncCurrentValueFromNativeInput();
+  }
+
+  componentDidRender() {
+    if (!this.needsNativeValueSync) {
+      return;
+    }
+
+    this.syncCurrentValueFromNativeInput();
+    this.needsNativeValueSync = false;
   }
 
   render() {
@@ -148,12 +197,13 @@ export class ZInputRange implements ComponentInterface {
           ref={(el) => (this.inputContainer = el)}
         >
           <input
+            ref={(el) => (this.inputRef = el)}
             type="range"
             disabled={this.disabled}
             min={this.min}
             max={this.max}
             step={this.step}
-            value={this.value}
+            value={this.currentValue}
             onInput={(event) => this.onInput(event)}
             onChange={(event) => this.onChange(event)}
             onFocus={() => (this.isActive = true)}

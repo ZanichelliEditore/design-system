@@ -86,7 +86,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: none;
   appearance: none;
   background:
-    linear-gradient(var(--main-color), var(--main-color)) 0 / var(--progress, 0%) 100% no-repeat,
+    linear-gradient(var(--main-color), var(--main-color)) 0 / var(--progress) 100% no-repeat,
     var(--color-surface03);
   border-radius: var(--border-radius);
 }
@@ -102,7 +102,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: var(--z-input-range-track-size);
   height: 100%;
   background:
-    linear-gradient(var(--main-color), var(--main-color)) 0 100% / 100% var(--progress, 0%) no-repeat,
+    linear-gradient(var(--main-color), var(--main-color)) 0 100% / 100% var(--progress) no-repeat,
     var(--color-surface03);
 }
 
