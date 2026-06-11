@@ -1718,7 +1718,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop": boolean;
@@ -3463,7 +3463,7 @@ declare global {
         new (): HTMLZNotificationElement;
     };
     interface HTMLZOffcanvasElementEventMap {
-        "canvasOpenStatusChanged": any;
+        "canvasOpenStatusChanged": boolean;
     }
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5831,14 +5831,14 @@ declare namespace LocalJSX {
         /**
           * emitted when `open` prop changes
          */
-        "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
+        "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<boolean>) => void;
         /**
           * Whether the offcanvas is open. Default: false
           * @default false
          */
         "open"?: boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop"?: boolean;
