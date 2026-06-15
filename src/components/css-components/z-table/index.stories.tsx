@@ -1,4 +1,5 @@
 import {h} from "@stencil/core";
+import {extractCSSVars} from "../../../utils/storybook-utils";
 import "./index.stories.css";
 
 export default {
@@ -44,20 +45,11 @@ const getClasses = (args): {[key: string]: boolean} => ({
   "z-table-hover": args["z-table-hover"],
 });
 
-const getStyles = (args) => {
-  const styles: {[key: string]: string} = {};
-  if (args["--z-table--cells-padding"]) {
-    styles["--z-table--cells-padding"] = args["--z-table--cells-padding"];
-  }
-
-  return styles;
-};
-
 const TableTemplate = (args) => (
   <div class="z-table-story">
     <table
       class={getClasses(args)}
-      style={getStyles(args)}
+      style={extractCSSVars(args)}
     >
       <thead>
         <tr>
