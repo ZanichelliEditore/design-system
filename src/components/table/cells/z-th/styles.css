@@ -5,10 +5,6 @@
   font-weight: var(--font-sb);
 }
 
-/* .cell--content {
-  padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
-} */
-
 :host([show-sorting]) .cell--content {
   column-gap: var(--space-unit);
 }

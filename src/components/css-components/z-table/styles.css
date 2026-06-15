@@ -52,10 +52,30 @@ table.z-table.z-table-bordered {
   --z-table--cell-left-border: 1px solid var(--color-surface03);
 }
 
-table.z-table-hover tr:hover > td,
-table.z-table-hover tr:hover > th {
+table.z-table-hover > tbody > tr:hover > td,
+table.z-table-hover > thead > tr:hover > th,
+table.z-table-hover > tfoot > tr:hover > td {
+  position: relative;
   background-color: var(--color-surface02);
+}
+
+table.z-table-hover > tbody > tr:hover > td::after,
+table.z-table-hover > thead > tr:hover > th::after,
+table.z-table-hover > tfoot > tr:hover > td::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -1px;
   box-shadow:
     inset 0 var(--border-size-small) 0 var(--color-surface04),
     inset 0 calc(var(--border-size-small) * -1) 0 var(--color-surface04);
+  content: "";
+}
+
+table.z-table-hover > tbody > tr:hover > td:first-child::after,
+table.z-table-hover > thead > tr:hover > th:first-child::after,
+table.z-table-hover > tfoot > tr:hover > td:first-child::after {
+  left: 0;
 }
