@@ -74,16 +74,6 @@ export class ZTr implements ComponentInterface {
       expandableContent.id = expandableContent.id || `z-tr-expandable-content-${randomId()}`;
       this.expandableContentId = expandableContent.id;
     }
-protected updateColumns(): void {
-    const cells = Array.from(this.host.querySelectorAll<HTMLZTdElement | HTMLZThElement>("z-td, z-th"));
-    if (this.expandable) {
-      const expandableContent = cells.pop();
-      expandableContent.id = expandableContent.id || `z-tr-expandable-content-${randomId()}`;
-      this.expandableContentId = expandableContent.id;
-    }
-
-    const columns = cells.map((cell) => cell.colspan || 1).reduce((a, b) => a + b, 0);
-    this.host.style.setProperty("--columns", `${columns}`);
   }
 
   /**
