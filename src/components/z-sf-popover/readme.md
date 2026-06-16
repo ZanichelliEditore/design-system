@@ -1,0 +1,71 @@
+# z-popover
+
+Use the `bindTo` property (`bind-to` in HTML) to bind the tooltip to an element, so the tooltip knows where to place itself. Its value can be a CSS selector or an HTMLElement.
+If string css selector is provided make sure to use a valid selector according to the [standard](https://www.w3.org/TR/CSS21/syndata.html#characters).
+
+You can use the `open` prop to show/hide the tooltip.
+
+Maybe you want to know where the tooltip goes when the `position` is set to `auto`, so the `positionChange` event is fired when it changes its position.
+
+To be sure the algorithm finds the right container, when calculating the position, set its position to `position: relative;`
+
+<!-- readme-group="popover" -->
+
+### Usage
+
+```html
+<z-popover
+  type="top"
+  bind-to="#popover-btn"
+  open
+>
+  <span>Tooltip text</span>
+</z-popover>
+<button id="popover-btn">Button</button>
+```
+
+<!-- Auto Generated Below -->
+
+
+## Overview
+
+Popover component.
+This component displays a popover bound to an element.
+It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
+
+Notes:
+- If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
+
+## Properties
+
+| Property    | Attribute    | Description                                                                                                                                                                                                                                                                                  | Type                                                                                                                                                                                                                                                                                                                                                                                               | Default                 |
+| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `bindTo`    | `bind-to`    | The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.                                                                                                                                                                    | `HTMLElement \| string`                                                                                                                                                                                                                                                                                                                                                                            | `undefined`             |
+| `center`    | `center`     | Whether to center the popup on the main side (according to "position").                                                                                                                                                                                                                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                                          | `false`                 |
+| `closable`  | `closable`   | Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.                                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                                                                                          | `true`                  |
+| `open`      | `open`       | The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.                                              | `boolean`                                                                                                                                                                                                                                                                                                                                                                                          | `false`                 |
+| `position`  | `position`   | The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise. | `SfPopoverPosition.AUTO \| SfPopoverPosition.BOTTOM \| SfPopoverPosition.BOTTOM_LEFT \| SfPopoverPosition.BOTTOM_RIGHT \| SfPopoverPosition.LEFT \| SfPopoverPosition.LEFT_BOTTOM \| SfPopoverPosition.LEFT_TOP \| SfPopoverPosition.RIGHT \| SfPopoverPosition.RIGHT_BOTTOM \| SfPopoverPosition.RIGHT_TOP \| SfPopoverPosition.TOP \| SfPopoverPosition.TOP_LEFT \| SfPopoverPosition.TOP_RIGHT` | `SfPopoverPosition.TOP` |
+| `showArrow` | `show-arrow` | Whether to show popover's arrow.                                                                                                                                                                                                                                                             | `boolean`                                                                                                                                                                                                                                                                                                                                                                                          | `false`                 |
+
+
+## Events
+
+| Event            | Description                                                                                                                                  | Type                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `openChange`     | Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true). | `CustomEvent<{ open: boolean; }>`               |
+| `positionChange` | Fired when the position changes.                                                                                                             | `CustomEvent<{ position: SfPopoverPosition; }>` |
+
+
+## CSS Custom Properties
+
+| Name                         | Description                                                                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------- |
+| `--z-popover-padding`        | padding of the popover.                                                                           |
+| `--z-popover-shadow-filter`  | drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`. |
+| `--z-popover-theme--surface` | background color of the popover.                                                                  |
+| `--z-popover-theme--text`    | foreground color of the popover.                                                                  |
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

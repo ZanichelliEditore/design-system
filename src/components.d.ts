@@ -5,12 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SfPopoverPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SfPopoverPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -2265,6 +2265,44 @@ export namespace Components {
         "status"?: SfInputStatus;
     }
     /**
+     * Popover component.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
+     * Notes:
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
+     */
+    interface ZSfPopover {
+        /**
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether to center the popup on the main side (according to "position").
+          * @default false
+         */
+        "center": boolean;
+        /**
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
+          * @default true
+         */
+        "closable": boolean;
+        /**
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
+          * @default false
+         */
+        "open": boolean;
+        /**
+          * The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise.
+          * @default SfPopoverPosition.TOP
+         */
+        "position"?: SfPopoverPosition;
+        /**
+          * Whether to show popover's arrow.
+          * @default false
+         */
+        "showArrow": boolean;
+    }
+    /**
      * Component short description.
      */
     interface ZSkipToContent {
@@ -2802,6 +2840,10 @@ export interface ZSearchbarCustomEvent<T> extends CustomEvent<T> {
 export interface ZSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZSelectElement;
+}
+export interface ZSfPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZSfPopoverElement;
 }
 export interface ZTdCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3755,6 +3797,31 @@ declare global {
         prototype: HTMLZSfInputMessageElement;
         new (): HTMLZSfInputMessageElement;
     };
+    interface HTMLZSfPopoverElementEventMap {
+        "positionChange": {position: SfPopoverPosition};
+        "openChange": {open: boolean};
+    }
+    /**
+     * Popover component.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
+     * Notes:
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
+     */
+    interface HTMLZSfPopoverElement extends Components.ZSfPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZSfPopoverElementEventMap>(type: K, listener: (this: HTMLZSfPopoverElement, ev: ZSfPopoverCustomEvent<HTMLZSfPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZSfPopoverElementEventMap>(type: K, listener: (this: HTMLZSfPopoverElement, ev: ZSfPopoverCustomEvent<HTMLZSfPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZSfPopoverElement: {
+        prototype: HTMLZSfPopoverElement;
+        new (): HTMLZSfPopoverElement;
+    };
     /**
      * Component short description.
      */
@@ -4095,6 +4162,7 @@ declare global {
         "z-sf-button": HTMLZSfButtonElement;
         "z-sf-icon": HTMLZSfIconElement;
         "z-sf-input-message": HTMLZSfInputMessageElement;
+        "z-sf-popover": HTMLZSfPopoverElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-stepper": HTMLZStepperElement;
@@ -6554,6 +6622,52 @@ declare namespace LocalJSX {
         "status"?: SfInputStatus;
     }
     /**
+     * Popover component.
+     * This component displays a popover bound to an element.
+     * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
+     * Notes:
+     * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
+     */
+    interface ZSfPopover {
+        /**
+          * The selector or the element bound with the popover. If string css selector is provided make sure to use a valid selector.
+         */
+        "bindTo"?: string | HTMLElement;
+        /**
+          * Whether to center the popup on the main side (according to "position").
+          * @default false
+         */
+        "center"?: boolean;
+        /**
+          * Whether the popover can be closed by clicking outside of it or pressing the escape key. Otherwise, it will be closed only programmatically (by setting `open` to `false`). Default: `true`.
+          * @default true
+         */
+        "closable"?: boolean;
+        /**
+          * Event emitted when the open state of the popover changes (e.g. when the user clicks outside the popover to close it, if `closable` is true).
+         */
+        "onOpenChange"?: (event: ZSfPopoverCustomEvent<{open: boolean}>) => void;
+        /**
+          * Fired when the position changes.
+         */
+        "onPositionChange"?: (event: ZSfPopoverCustomEvent<{position: SfPopoverPosition}>) => void;
+        /**
+          * The initial open state of the popover. Internal changes of this prop are emitted through the `openChange` event. Make sure to listen to that event if you need the updated state of the popover from the outside, to avoid inconsistent values.
+          * @default false
+         */
+        "open"?: boolean;
+        /**
+          * The preferred position to render the popover. The popover will automatically search another position if not enough space is available for the preferred position. If the preferred position is not available, it will try to find the best position starting from `TOP` and going clockwise.
+          * @default SfPopoverPosition.TOP
+         */
+        "position"?: SfPopoverPosition;
+        /**
+          * Whether to show popover's arrow.
+          * @default false
+         */
+        "showArrow"?: boolean;
+    }
+    /**
      * Component short description.
      */
     interface ZSkipToContent {
@@ -7541,6 +7655,14 @@ declare namespace LocalJSX {
         "status": SfInputStatus;
         "disabled": boolean;
     }
+    interface ZSfPopoverAttributes {
+        "position": SfPopoverPosition;
+        "open": boolean;
+        "bindTo": string | HTMLElement;
+        "showArrow": boolean;
+        "center": boolean;
+        "closable": boolean;
+    }
     interface ZSkipToContentAttributes {
         "variant": ThemeVariant;
         "links": string | SkipToContentLink[];
@@ -7711,6 +7833,7 @@ declare namespace LocalJSX {
         "z-sf-button": Omit<ZSfButton, keyof ZSfButtonAttributes> & { [K in keyof ZSfButton & keyof ZSfButtonAttributes]?: ZSfButton[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `attr:${K}`]?: ZSfButtonAttributes[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `prop:${K}`]?: ZSfButton[K] };
         "z-sf-icon": Omit<ZSfIcon, keyof ZSfIconAttributes> & { [K in keyof ZSfIcon & keyof ZSfIconAttributes]?: ZSfIcon[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `attr:${K}`]?: ZSfIconAttributes[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `prop:${K}`]?: ZSfIcon[K] };
         "z-sf-input-message": Omit<ZSfInputMessage, keyof ZSfInputMessageAttributes> & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes]?: ZSfInputMessage[K] } & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes as `attr:${K}`]?: ZSfInputMessageAttributes[K] } & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes as `prop:${K}`]?: ZSfInputMessage[K] };
+        "z-sf-popover": Omit<ZSfPopover, keyof ZSfPopoverAttributes> & { [K in keyof ZSfPopover & keyof ZSfPopoverAttributes]?: ZSfPopover[K] } & { [K in keyof ZSfPopover & keyof ZSfPopoverAttributes as `attr:${K}`]?: ZSfPopoverAttributes[K] } & { [K in keyof ZSfPopover & keyof ZSfPopoverAttributes as `prop:${K}`]?: ZSfPopover[K] };
         "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
         "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
         "z-stepper": ZStepper;
@@ -7884,6 +8007,14 @@ declare module "@stencil/core" {
              */
             "z-sf-icon": LocalJSX.IntrinsicElements["z-sf-icon"] & JSXBase.HTMLAttributes<HTMLZSfIconElement>;
             "z-sf-input-message": LocalJSX.IntrinsicElements["z-sf-input-message"] & JSXBase.HTMLAttributes<HTMLZSfInputMessageElement>;
+            /**
+             * Popover component.
+             * This component displays a popover bound to an element.
+             * It supports various positions and can automatically adjust it based on available space, accounting for scrollable containers.
+             * Notes:
+             * - If positioning has an odd behavior, consider manually adjusting the size of the slotted elements (using `width`, `height`, `max-width`, `max-height`, etc...) when its content is "fluid" (like text), because it can interfere with the position calculation (for example a long text on one single line can be bigger than the available space, letting the algorithm think the popover doesn't fits).
+             */
+            "z-sf-popover": LocalJSX.IntrinsicElements["z-sf-popover"] & JSXBase.HTMLAttributes<HTMLZSfPopoverElement>;
             /**
              * Component short description.
              */

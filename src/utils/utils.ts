@@ -1,6 +1,6 @@
 import {ChildNode} from "@stencil/core";
 import {tabbable} from "tabbable";
-import {Device, KeyboardCode} from "../beans/index";
+import {Device, KeyboardCode, SfDevice} from "../beans/index";
 import {Breakpoints} from "../constants/breakpoints";
 
 /**
@@ -111,6 +111,23 @@ export function getDevice(): Device {
       return Device.DESKTOP;
     default:
       return Device.DESKTOP_WIDE;
+  }
+}
+
+/**
+ * Get the current device type based on the window width.
+ * @returns {SfDevice} - The current device type
+ */
+export function getSfDevice(): SfDevice {
+  switch (true) {
+    case window.innerWidth <= Breakpoints.MOBILE:
+      return SfDevice.MOBILE;
+    case window.innerWidth <= Breakpoints.TABLET:
+      return SfDevice.TABLET;
+    case window.innerWidth <= Breakpoints.DESKTOP:
+      return SfDevice.DESKTOP;
+    default:
+      return SfDevice.DESKTOP_WIDE;
   }
 }
 

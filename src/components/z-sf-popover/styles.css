@@ -1,0 +1,144 @@
+:host {
+  /**
+   * @prop --z-popover-theme--surface: background color of the popover.
+   * @prop --z-popover-theme--text: foreground color of the popover.
+   * @prop --z-popover-padding: padding of the popover.
+   * @prop --z-popover-shadow-filter: drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+   */
+  --z-popover-theme--surface: ;
+  --z-popover-theme--text: ;
+  --z-popover-padding: ;
+  --z-popover-shadow-filter: ;
+
+  position: fixed;
+  display: none;
+  max-width: calc(100dvw - var(--grid-margin) * 2);
+  max-height: calc(100dvh - var(--grid-margin) * 2);
+  padding: var(--z-popover-padding, 0);
+  background: var(--z-popover-theme--surface, var(--color-surface01));
+  border-radius: var(--border-radius-small);
+  color: var(--z-popover-theme--text, var(--color-default-text));
+  fill: currentcolor;
+  filter: var(--z-popover-shadow-filter, drop-shadow(0 1px 2px var(--shadow-color-base)));
+  text-align: center;
+  visibility: hidden; /* hidden by default. the positioning algorithm will set it to 'visible' when needed */
+}
+
+:host([open]:not([open="false"])[current-position]) {
+  display: block;
+}
+
+:host([center][current-position="top"]),
+:host([center][current-position="bottom"]) {
+  transform: translateX(-50%);
+}
+
+:host([center][current-position="right"]),
+:host([center][current-position="left"]) {
+  transform: translateY(-50%);
+}
+
+:host([current-position^="top"]) {
+  margin: 0 0 var(--space-unit);
+}
+
+:host([current-position^="bottom"]) {
+  margin: var(--space-unit) 0 0;
+}
+
+:host([current-position^="left"]) {
+  margin: 0 var(--space-unit) 0 0;
+}
+
+:host([current-position^="right"]) {
+  margin: 0 0 0 var(--space-unit);
+}
+
+/* Arrow style */
+:host([current-position])::before {
+  --arrow-size: 6px;
+  --arrow-edge-offset: calc(100% - var(--space-unit) - (var(--arrow-size) / 2));
+  --arrow-center-x-offset: calc(50% - (var(--arrow-size) / 2));
+  --arrow-center-y-offset: calc(100% - (var(--arrow-size) / 2));
+
+  position: absolute;
+  display: block;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: var(--z-popover-theme--surface, var(--color-surface01));
+  content: "";
+  transform: rotate(45deg);
+}
+
+:host([show-arrow="false"])::before,
+:host(:not([show-arrow]))::before {
+  display: none;
+}
+
+:host([current-position^="top"])::before {
+  top: var(--arrow-center-y-offset);
+}
+
+:host([current-position^="bottom"])::before {
+  bottom: var(--arrow-center-y-offset);
+}
+
+:host([current-position="top"])::before,
+:host([current-position="bottom"])::before {
+  right: var(--arrow-edge-offset);
+}
+
+:host([current-position="right"])::before,
+:host([current-position="left"])::before {
+  bottom: var(--arrow-edge-offset);
+}
+
+:host([current-position="right"])::before {
+  right: var(--arrow-center-y-offset);
+}
+
+:host([current-position="left"])::before {
+  left: var(--arrow-center-y-offset);
+}
+
+:host([current-position="top_right"])::before,
+:host([current-position="bottom_right"])::before {
+  right: var(--arrow-edge-offset);
+}
+
+:host([current-position="top_left"])::before,
+:host([current-position="bottom_left"])::before {
+  left: var(--arrow-edge-offset);
+}
+
+:host([current-position="right_top"])::before,
+:host([current-position="left_top"])::before {
+  top: var(--arrow-edge-offset);
+}
+
+:host([current-position="right_top"])::before,
+:host([current-position="right_bottom"])::before {
+  right: var(--arrow-center-y-offset);
+}
+
+:host([current-position="left_top"])::before,
+:host([current-position="left_bottom"])::before {
+  left: var(--arrow-center-y-offset);
+}
+
+:host([current-position="right_bottom"])::before,
+:host([current-position="left_bottom"])::before {
+  bottom: var(--arrow-edge-offset);
+}
+
+:host([center][current-position="top"])::before,
+:host([center][current-position="bottom"])::before {
+  right: auto;
+  left: var(--arrow-center-x-offset);
+}
+
+:host([center][current-position="right"])::before,
+:host([center][current-position="left"])::before {
+  top: var(--arrow-center-x-offset);
+  bottom: auto;
+}

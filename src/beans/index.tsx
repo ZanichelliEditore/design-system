@@ -198,6 +198,27 @@ export enum PopoverPosition {
   LEFT_BOTTOM = "left_bottom",
 }
 
+export enum SfPopoverPosition {
+  /** @deprecated This value is not needed anymore as the popover will always try to position itself automatically based on available space.
+   *
+   * Passing `AUTO` is the same as not passing any position value.
+   * Use any of the other values to explicitly set the preferred position of the popover.
+   */
+  AUTO = "auto",
+  TOP = "top",
+  RIGHT = "right",
+  BOTTOM = "bottom",
+  LEFT = "left",
+  TOP_RIGHT = "top_right",
+  TOP_LEFT = "top_left",
+  BOTTOM_RIGHT = "bottom_right",
+  BOTTOM_LEFT = "bottom_left",
+  RIGHT_TOP = "right_top",
+  RIGHT_BOTTOM = "right_bottom",
+  LEFT_TOP = "left_top",
+  LEFT_BOTTOM = "left_bottom",
+}
+
 export enum KeyboardKeyCode {
   TAB = 9,
   SPACE = 32,
@@ -210,6 +231,19 @@ export enum KeyboardKeyCode {
 }
 
 export enum KeyboardCode {
+  TAB = "Tab",
+  SPACE = "Space",
+  ESC = "Escape",
+  ENTER = "Enter",
+  ARROW_UP = "ArrowUp",
+  ARROW_DOWN = "ArrowDown",
+  BACKSPACE = "Backspace",
+  DELETE = "Delete",
+  ARROW_RIGHT = "ArrowRight",
+  ARROW_LEFT = "ArrowLeft",
+}
+
+export enum SfKeyboardCode {
   TAB = "Tab",
   SPACE = "Space",
   ESC = "Escape",
@@ -307,6 +341,13 @@ export enum AlertType {
 }
 
 export enum Device {
+  MOBILE = "mobile",
+  TABLET = "tablet",
+  DESKTOP = "desktop",
+  DESKTOP_WIDE = "desktop-wide",
+}
+
+export enum SfDevice {
   MOBILE = "mobile",
   TABLET = "tablet",
   DESKTOP = "desktop",
