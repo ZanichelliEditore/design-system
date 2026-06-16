@@ -1,0 +1,3 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{X as t,nt as n}from"./iframe-L9IszzLp.js";import{T as r,q as i}from"./beans-GvJywrye.js";import{n as a,t as o}from"./index25-CZ5oqXdj.js";var s,c=e((()=>{o(),s=a})),l,u,d;e((()=>{t(),i(),c(),l={title:`Snowflakes/MyzCard/ZMyzCardHeader`,component:s,args:{cardtype:r.REAL,faded:!1,titolo:`Card Header`}},u={render:e=>n(`z-myz-card-header`,{cardtype:e.cardtype,faded:e.faded,titolo:e.titolo})},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{
+  render: args => <z-myz-card-header cardtype={args.cardtype} faded={args.faded} titolo={args.titolo} />
+} satisfies StoryObj<ZMyzCardHeader>`,...u.parameters?.docs?.source}}},d=[`Default`]}))();export{u as Default,d as __namedExportsOrder,l as default};

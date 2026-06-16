@@ -1,5 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{X as t,tt as n}from"./iframe-DCi19jo_.js";import{n as r,r as i}from"./index26-hJ-A_m14.js";var a,o=e((()=>{r(),a=i})),s,c,l;e((()=>{t(),o(),s={title:`Snowflakes/List/ZMyzListItem`,component:a,args:{action:`10`,icon:`cart`,linktarget:`_blank`,link:`www.zanichelli.it`,underlined:!0}},c={render:e=>n(`z-myz-list-item`,{action:e.action,icon:e.icon,linktarget:e.linktarget,link:e.link,underlined:e.underlined},`ITEM 1`)},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`{
-  render: args => <z-myz-list-item action={args.action} icon={args.icon} linktarget={args.linktarget} link={args.link} underlined={args.underlined}>
-      ITEM 1
-    </z-myz-list-item>
-} satisfies StoryObj<ZMyzListItem>`,...c.parameters?.docs?.source}}},l=[`Default`]}))();export{c as Default,l as __namedExportsOrder,s as default};
