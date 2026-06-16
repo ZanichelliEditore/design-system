@@ -157,7 +157,7 @@ export class ZMyzCardInfo implements ComponentInterface {
     );
   }
 
-  private renderTooltip(): HTMLZPopoverElement {
+  private renderTooltip(): HTMLZSfPopoverElement {
     if (!this.tooltip) {
       return;
     }

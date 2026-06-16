@@ -12,7 +12,7 @@ import {SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPositi
   scoped: true,
 })
 export class ZSfButton implements ComponentInterface {
-  @Element() hostElement: HTMLZButtonElement;
+  @Element() hostElement: HTMLZSfButtonElement;
 
   /** defines a string value that labels the internal interactive element. Used for accessibility. */
   @Prop()
@@ -85,7 +85,7 @@ export class ZSfButton implements ComponentInterface {
     };
   }
 
-  private renderIcon(): HTMLZIconElement | undefined {
+  private renderIcon(): HTMLZSfIconElement | undefined {
     return this.icon && <z-sf-icon name={this.icon} />;
   }
 
