@@ -171,6 +171,12 @@ export enum InputStatus {
   WARNING = "warning",
 }
 
+export enum SfInputStatus {
+  SUCCESS = "success",
+  ERROR = "error",
+  WARNING = "warning",
+}
+
 export enum PopoverPosition {
   /** @deprecated This value is not needed anymore as the popover will always try to position itself automatically based on available space.
    *

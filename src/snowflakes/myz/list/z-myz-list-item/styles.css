@@ -30,9 +30,9 @@
 
 :host(.small) li > span > z-sf-icon,
 :host(.x-small) li > span > z-sf-icon {
-  --z-sf-icon-width: 16px;
-  --z-sf-icon-height: 16px;
-  --z-sf-icon-right-margin: calc(var(--space-unit) * 0.5);
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
 
   padding: 0;
 }

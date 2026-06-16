@@ -21,7 +21,7 @@ describe("Suite test ZOtp", () => {
               <input type="text" autocomplete="off" minlength="1" maxlength="1">
               <input type="text" autocomplete="off" minlength="1" maxlength="1">
             </div>
-            <z-input-message></z-input-message>
+            <z-sf-input-message></z-sf-input-message>
           </div>
         </mock:shadow-root>
       </z-otp>
@@ -46,7 +46,7 @@ describe("Suite test ZOtp", () => {
               <input type="text" autocomplete="off" minlength="1" maxlength="1">
               <input type="text" autocomplete="off" minlength="1" maxlength="1">
             </div>
-            <z-input-message></z-input-message>
+            <z-sf-input-message></z-sf-input-message>
           </div>
         </mock:shadow-root>
       </z-otp>
@@ -71,7 +71,7 @@ describe("Suite test ZOtp", () => {
               <input class="error" type="text" autocomplete="off" minlength="1" maxlength="1">
               <input class="error" type="text" autocomplete="off" minlength="1" maxlength="1">
             </div>
-            <z-input-message status='error' message='Otp non valido'></z-input-message>
+            <z-sf-input-message status='error' message='Otp non valido'></z-sf-input-message>
           </div>
         </mock:shadow-root>
       </z-otp>

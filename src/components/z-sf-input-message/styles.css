@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  min-height: calc(var(--space-unit) * 2.5);
+  align-items: start;
+  margin-top: var(--space-unit);
+  color: var(--color-default-text);
+  fill: currentcolor;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2);
+  letter-spacing: 0.16px;
+}
+
+:host(.small),
+:host(.x-small) {
+  margin-top: calc(var(--space-unit) * 0.5);
+  font-size: var(--font-size-1);
+}
+
+:host([status="success"]) {
+  color: var(--color-hover-success);
+}
+
+:host([status="error"]) {
+  color: var(--color-hover-error);
+}
+
+:host([status="warning"]) {
+  color: var(--color-hover-warning);
+}
+
+:host(:focus) {
+  outline: none;
+}
+
+:host > z-sf-icon {
+  --z-icon-width: calc(var(--space-unit) * 2);
+  --z-icon-height: calc(var(--space-unit) * 2);
+  --z-icon-right-margin: var(--space-unit);
+
+  margin-top: calc(var(--space-unit) * 0.25);
+}
+
+:host(.small) > z-sf-icon,
+:host(.x-small) > z-sf-icon {
+  --z-icon-width: 14px;
+  --z-icon-height: 14px;
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
+}
+
+:host([disabled]) {
+  color: var(--color-disabled03);
+  fill: var(--color-disabled03);
+}

@@ -5,12 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -1752,7 +1752,7 @@ export namespace Components {
         /**
           * Input status
          */
-        "status"?: InputStatus;
+        "status"?: SfInputStatus;
     }
     /**
      * Pagination bar component.
@@ -2239,6 +2239,30 @@ export namespace Components {
           * Icon width (optional)
          */
         "width"?: number | string;
+    }
+    interface ZSfInputMessage {
+        /**
+          * input disabled status (optional)
+         */
+        "disabled"?: boolean;
+        /**
+          * the id of the message element (optional)
+          * @default `id-${randomId()}`
+         */
+        "htmlId"?: string;
+        /**
+          * the role to set when both the message and the status are populated (optional)
+          * @default "alert"
+         */
+        "htmlRole": null | string;
+        /**
+          * input helper message
+         */
+        "message": string;
+        /**
+          * input status (optional)
+         */
+        "status"?: SfInputStatus;
     }
     /**
      * Component short description.
@@ -3725,6 +3749,12 @@ declare global {
         prototype: HTMLZSfIconElement;
         new (): HTMLZSfIconElement;
     };
+    interface HTMLZSfInputMessageElement extends Components.ZSfInputMessage, HTMLStencilElement {
+    }
+    var HTMLZSfInputMessageElement: {
+        prototype: HTMLZSfInputMessageElement;
+        new (): HTMLZSfInputMessageElement;
+    };
     /**
      * Component short description.
      */
@@ -4064,6 +4094,7 @@ declare global {
         "z-select": HTMLZSelectElement;
         "z-sf-button": HTMLZSfButtonElement;
         "z-sf-icon": HTMLZSfIconElement;
+        "z-sf-input-message": HTMLZSfInputMessageElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
         "z-stepper": HTMLZStepperElement;
@@ -5986,7 +6017,7 @@ declare namespace LocalJSX {
         /**
           * Input status
          */
-        "status"?: InputStatus;
+        "status"?: SfInputStatus;
     }
     /**
      * Pagination bar component.
@@ -6497,6 +6528,30 @@ declare namespace LocalJSX {
           * Icon width (optional)
          */
         "width"?: number | string;
+    }
+    interface ZSfInputMessage {
+        /**
+          * input disabled status (optional)
+         */
+        "disabled"?: boolean;
+        /**
+          * the id of the message element (optional)
+          * @default `id-${randomId()}`
+         */
+        "htmlId"?: string;
+        /**
+          * the role to set when both the message and the status are populated (optional)
+          * @default "alert"
+         */
+        "htmlRole"?: null | string;
+        /**
+          * input helper message
+         */
+        "message"?: string;
+        /**
+          * input status (optional)
+         */
+        "status"?: SfInputStatus;
     }
     /**
      * Component short description.
@@ -7357,7 +7412,7 @@ declare namespace LocalJSX {
     }
     interface ZOtpAttributes {
         "inputNum": number;
-        "status": InputStatus;
+        "status": SfInputStatus;
         "message": string;
     }
     interface ZPaginationAttributes {
@@ -7478,6 +7533,13 @@ declare namespace LocalJSX {
         "iconid": string;
         "fill": string;
         "indicatorColor": string;
+    }
+    interface ZSfInputMessageAttributes {
+        "message": string;
+        "htmlId": string;
+        "htmlRole": null | string;
+        "status": SfInputStatus;
+        "disabled": boolean;
     }
     interface ZSkipToContentAttributes {
         "variant": ThemeVariant;
@@ -7648,6 +7710,7 @@ declare namespace LocalJSX {
         "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] };
         "z-sf-button": Omit<ZSfButton, keyof ZSfButtonAttributes> & { [K in keyof ZSfButton & keyof ZSfButtonAttributes]?: ZSfButton[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `attr:${K}`]?: ZSfButtonAttributes[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `prop:${K}`]?: ZSfButton[K] };
         "z-sf-icon": Omit<ZSfIcon, keyof ZSfIconAttributes> & { [K in keyof ZSfIcon & keyof ZSfIconAttributes]?: ZSfIcon[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `attr:${K}`]?: ZSfIconAttributes[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `prop:${K}`]?: ZSfIcon[K] };
+        "z-sf-input-message": Omit<ZSfInputMessage, keyof ZSfInputMessageAttributes> & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes]?: ZSfInputMessage[K] } & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes as `attr:${K}`]?: ZSfInputMessageAttributes[K] } & { [K in keyof ZSfInputMessage & keyof ZSfInputMessageAttributes as `prop:${K}`]?: ZSfInputMessage[K] };
         "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
         "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
         "z-stepper": ZStepper;
@@ -7820,6 +7883,7 @@ declare module "@stencil/core" {
              * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
              */
             "z-sf-icon": LocalJSX.IntrinsicElements["z-sf-icon"] & JSXBase.HTMLAttributes<HTMLZSfIconElement>;
+            "z-sf-input-message": LocalJSX.IntrinsicElements["z-sf-input-message"] & JSXBase.HTMLAttributes<HTMLZSfInputMessageElement>;
             /**
              * Component short description.
              */

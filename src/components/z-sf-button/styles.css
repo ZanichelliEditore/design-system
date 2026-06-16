@@ -1,10 +1,10 @@
 :host {
   display: inline-block;
 
-  --z-sf-icon-width: 16px;
-  --z-sf-icon-height: 16px;
-  --z-sf-icon-right-margin: 0;
-  --z-sf-icon-left-margin: 0;
+  --z-icon-width: 16px;
+  --z-icon-height: 16px;
+  --z-icon-right-margin: 0;
+  --z-icon-left-margin: 0;
 }
 
 :host([disabled]:not([disabled="false"])) {

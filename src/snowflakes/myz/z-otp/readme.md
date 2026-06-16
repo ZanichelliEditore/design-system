@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description   | Type                                                              | Default     |
-| ---------- | ----------- | ------------- | ----------------------------------------------------------------- | ----------- |
-| `inputNum` | `input-num` | Input number  | `number`                                                          | `6`         |
-| `message`  | `message`   | Input message | `string`                                                          | `undefined` |
-| `status`   | `status`    | Input status  | `InputStatus.ERROR \| InputStatus.SUCCESS \| InputStatus.WARNING` | `undefined` |
+| Property   | Attribute   | Description   | Type                                                                    | Default     |
+| ---------- | ----------- | ------------- | ----------------------------------------------------------------------- | ----------- |
+| `inputNum` | `input-num` | Input number  | `number`                                                                | `6`         |
+| `message`  | `message`   | Input message | `string`                                                                | `undefined` |
+| `status`   | `status`    | Input status  | `SfInputStatus.ERROR \| SfInputStatus.SUCCESS \| SfInputStatus.WARNING` | `undefined` |
 
 
 ## Events
@@ -23,13 +23,13 @@
 
 ### Depends on
 
-- [z-input-message](../../../components/z-input-message)
+- [z-sf-input-message](../../../components/z-sf-input-message)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-otp --> z-input-message
-  z-input-message --> z-icon
+  z-otp --> z-sf-input-message
+  z-sf-input-message --> z-sf-icon
   style z-otp fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

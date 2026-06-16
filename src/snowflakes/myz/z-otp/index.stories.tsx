@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {InputStatus} from "../../../beans";
+import {SfInputStatus} from "../../../beans";
 import {ZOtp} from "./index";
 
 const StoryMeta = {
@@ -12,7 +12,7 @@ const StoryMeta = {
       control: {
         type: "select",
       },
-      options: Object.keys(InputStatus),
+      options: Object.keys(SfInputStatus),
     },
   },
   args: {

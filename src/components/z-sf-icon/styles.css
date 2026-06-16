@@ -1,7 +1,7 @@
 :host {
   display: inline;
-  margin-right: var(--z-fs-icon-right-margin, 0);
-  margin-left: var(--z-fs-icon-left-margin, 0);
+  margin-right: var(--z-icon-right-margin, 0);
+  margin-left: var(--z-icon-left-margin, 0);
   line-height: 0;
   vertical-align: middle;
 }
@@ -13,11 +13,11 @@
 }
 
 svg:not([width]) {
-  width: var(--z-fs-icon-width, 1.125rem);
+  width: var(--z-icon-width, 1.125rem);
 }
 
 svg:not([height]) {
-  height: var(--z-fs-icon-height, 1.125rem);
+  height: var(--z-icon-height, 1.125rem);
 }
 
 .icon-sf-wrapper svg.color-indicator {

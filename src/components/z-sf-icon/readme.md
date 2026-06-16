@@ -1,19 +1,19 @@
-# z-fs-icon
+# z-sf-icon
 
 <!-- readme-group="icon" -->
 
 ```html
-<z-fs-icon name="book-plus"></z-fs-icon>
-<z-fs-icon
+<z-sf-icon name="book-plus"></z-sf-icon>
+<z-sf-icon
   name="chevron-down"
   iconid="zicon"
-></z-fs-icon>
-<z-fs-icon
+></z-sf-icon>
+<z-sf-icon
   name="download"
   iconid="zicon"
   width="10"
   height="10"
-></z-fs-icon>
+></z-sf-icon>
 ```
 
 <!-- Auto Generated Below -->
@@ -45,6 +45,7 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../snowflakes/myz/list/z-myz-list-item)
  - [z-sf-button](../z-sf-button)
+ - [z-sf-input-message](../z-sf-input-message)
  - [z-slideshow](../../snowflakes/myz/z-slideshow)
 
 ### Graph
@@ -55,6 +56,7 @@ graph TD;
   z-myz-card-info --> z-sf-icon
   z-myz-list-item --> z-sf-icon
   z-sf-button --> z-sf-icon
+  z-sf-input-message --> z-sf-icon
   z-slideshow --> z-sf-icon
   style z-sf-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
