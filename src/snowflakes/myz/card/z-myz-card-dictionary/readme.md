@@ -38,7 +38,7 @@
 - [z-myz-card-header](../z-myz-card-header)
 - [z-myz-card-body](../z-myz-card-body)
 - [z-myz-card-cover](../z-myz-card-cover)
-- [z-button](../../../../components/z-button)
+- [z-sf-button](../../../../components/z-sf-button)
 
 ### Graph
 ```mermaid
@@ -47,8 +47,8 @@ graph TD;
   z-myz-card-dictionary --> z-myz-card-header
   z-myz-card-dictionary --> z-myz-card-body
   z-myz-card-dictionary --> z-myz-card-cover
-  z-myz-card-dictionary --> z-button
-  z-button --> z-icon
+  z-myz-card-dictionary --> z-sf-button
+  z-sf-button --> z-sf-icon
   style z-myz-card-dictionary fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
-import {ButtonSize, ButtonVariant} from "../../../../beans";
+import {SfButtonSize, SfButtonVariant} from "../../../../beans";
 
 /**
  * @slot  - generic card slot
@@ -64,16 +64,16 @@ export class ZMyzCardDictionary implements ComponentInterface {
                   faded={this.disabled}
                 />
               </z-myz-card-body>
-              <z-button
+              <z-sf-button
                 class={{"hide-info": this.hideinfobtn}}
-                variant={ButtonVariant.SECONDARY}
+                variant={SfButtonVariant.SECONDARY}
                 icon="informationsource"
-                size={ButtonSize.X_SMALL}
+                size={SfButtonSize.X_SMALL}
                 onClick={() => this.flipCard(true)}
                 disabled={this.flipped}
               >
                 {this.flipbuttonlabel}
-              </z-button>
+              </z-sf-button>
             </div>
             <div class="back">
               <slot name="info" />

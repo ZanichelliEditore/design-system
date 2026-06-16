@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ButtonVariant} from "../../../../beans";
+import {SfButtonVariant} from "../../../../beans";
 import {ZMyzCardDictionary} from "./index";
 
 const StoryMeta = {
@@ -40,19 +40,19 @@ export const CardDefault = {
       <z-myz-card-footer-sections>
         <div slot="top">Vocabolario della lingua italiana</div>
         <div slot="bottom">
-          <z-button style={{width: "100%"}}>VAI AL PRODOTTO</z-button>
+          <z-sf-button style={{width: "100%"}}>VAI AL PRODOTTO</z-sf-button>
         </div>
       </z-myz-card-footer-sections>
       <z-myz-card-info
         slot="info"
         data={DATA}
       >
-        <z-button
-          variant={ButtonVariant.TERTIARY}
+        <z-sf-button
+          variant={SfButtonVariant.TERTIARY}
           icon="gear"
         >
           Gestisci Licenze
-        </z-button>
+        </z-sf-button>
       </z-myz-card-info>
     </z-myz-card-dictionary>
   ),
@@ -74,19 +74,19 @@ export const CardFlipped = {
       <z-myz-card-footer-sections>
         <div slot="top">Vocabolario della lingua italiana</div>
         <div slot="bottom">
-          <z-button style={{width: "100%"}}>VAI AL PRODOTTO</z-button>
+          <z-sf-button style={{width: "100%"}}>VAI AL PRODOTTO</z-sf-button>
         </div>
       </z-myz-card-footer-sections>
       <z-myz-card-info
         slot="info"
         data={DATA}
       >
-        <z-button
-          variant={ButtonVariant.TERTIARY}
+        <z-sf-button
+          variant={SfButtonVariant.TERTIARY}
           icon="gear"
         >
           Gestisci Licenze
-        </z-button>
+        </z-sf-button>
       </z-myz-card-info>
     </z-myz-card-dictionary>
   ),
@@ -108,19 +108,19 @@ export const CardNoInfoButton = {
       <z-myz-card-footer-sections>
         <div slot="top">Vocabolario della lingua italiana</div>
         <div slot="bottom">
-          <z-button style={{width: "100%"}}>VAI AL PRODOTTO</z-button>
+          <z-sf-button style={{width: "100%"}}>VAI AL PRODOTTO</z-sf-button>
         </div>
       </z-myz-card-footer-sections>
       <z-myz-card-info
         slot="info"
         data={DATA}
       >
-        <z-button
-          variant={ButtonVariant.TERTIARY}
+        <z-sf-button
+          variant={SfButtonVariant.TERTIARY}
           icon="gear"
         >
           Gestisci Licenze
-        </z-button>
+        </z-sf-button>
       </z-myz-card-info>
     </z-myz-card-dictionary>
   ),

@@ -107,12 +107,23 @@ export enum ButtonVariant {
   TERTIARY = "tertiary",
 }
 
+export enum SfButtonVariant {
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  TERTIARY = "tertiary",
+}
+
 export enum ButtonType {
   SUBMIT = "submit",
   RESET = "reset",
   BUTTON = "button",
 }
 
+export enum SfButtonType {
+  SUBMIT = "submit",
+  RESET = "reset",
+  BUTTON = "button",
+}
 /**
  * @deprecated Use ControlSize instead
  */
@@ -122,7 +133,20 @@ export enum ButtonSize {
   X_SMALL = "x-small",
 }
 
+/**
+ * @deprecated Use ControlSize instead
+ */
+export enum SfButtonSize {
+  BIG = "big",
+  SMALL = "small",
+  X_SMALL = "x-small",
+}
 export enum ControlSize {
+  BIG = "big",
+  SMALL = "small",
+  X_SMALL = "x-small",
+}
+export enum SfControlSize {
   BIG = "big",
   SMALL = "small",
   X_SMALL = "x-small",
@@ -488,6 +512,11 @@ export type TreeListItem = {
 };
 
 export enum IconPosition {
+  LEFT = "left",
+  RIGHT = "right",
+}
+
+export enum SfIconPosition {
   LEFT = "left",
   RIGHT = "right",
 }

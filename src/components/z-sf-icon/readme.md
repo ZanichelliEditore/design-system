@@ -44,6 +44,7 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-myz-card-icon](../../snowflakes/myz/card/z-myz-card-icon)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-myz-list-item](../../snowflakes/myz/list/z-myz-list-item)
+ - [z-sf-button](../z-sf-button)
  - [z-slideshow](../../snowflakes/myz/z-slideshow)
 
 ### Graph
@@ -53,6 +54,7 @@ graph TD;
   z-myz-card-icon --> z-sf-icon
   z-myz-card-info --> z-sf-icon
   z-myz-list-item --> z-sf-icon
+  z-sf-button --> z-sf-icon
   z-slideshow --> z-sf-icon
   style z-sf-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

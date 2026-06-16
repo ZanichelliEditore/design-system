@@ -42,7 +42,6 @@
  - [z-carousel](../z-carousel)
  - [z-dragdrop-area](../file-upload/z-dragdrop-area)
  - [z-file-upload](../file-upload/z-file-upload)
- - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../z-pagination)
  - [z-searchbar](../z-searchbar)
  - [z-td](../table/cells/z-td)
@@ -63,7 +62,6 @@ graph TD;
   z-carousel --> z-button
   z-dragdrop-area --> z-button
   z-file-upload --> z-button
-  z-myz-card-dictionary --> z-button
   z-pagination --> z-button
   z-searchbar --> z-button
   z-td --> z-button

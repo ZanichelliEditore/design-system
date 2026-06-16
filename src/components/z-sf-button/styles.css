@@ -1,0 +1,151 @@
+:host {
+  display: inline-block;
+
+  --z-sf-icon-width: 16px;
+  --z-sf-icon-height: 16px;
+  --z-sf-icon-right-margin: 0;
+  --z-sf-icon-left-margin: 0;
+}
+
+:host([disabled]:not([disabled="false"])) {
+  pointer-events: none;
+}
+
+:host .z-sf-button--container {
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-width: var(--border-size-medium);
+  border-style: solid;
+  border-radius: var(--border-radius);
+  column-gap: var(--space-unit);
+  cursor: pointer;
+  fill: currentcolor;
+  font-family: var(--font-family-sans);
+  font-size: 14px;
+  font-weight: var(--font-sb);
+  letter-spacing: 0.3px;
+  line-height: 1;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+:host .z-sf-button--container:focus:focus-visible {
+  box-shadow: var(--shadow-focus-primary);
+}
+
+:host .z-sf-button--container.z-sf-button--has-text {
+  min-width: calc(var(--space-unit) * 8);
+  padding: 0 calc(var(--space-unit) * 2);
+}
+
+:host([icon-position="right"]) .z-sf-button--container.z-sf-button--has-text {
+  flex-direction: row-reverse;
+}
+
+:host([size="big"]) .z-sf-button--container {
+  min-width: 44px;
+  height: 44px;
+}
+
+:host([size="small"]) .z-sf-button--container {
+  min-width: 36px;
+  height: 36px;
+}
+
+:host([size="x-small"]) .z-sf-button--container {
+  min-width: 32px;
+  height: 32px;
+}
+
+:host([variant="primary"]) .z-sf-button--container {
+  border-color: var(--color-primary01);
+  background-color: var(--color-primary01);
+  color: var(--color-text-inverse);
+}
+
+@media (hover: hover) {
+  :host([variant="primary"]) .z-sf-button--container:hover {
+    border-color: var(--color-hover-primary);
+    background-color: var(--color-hover-primary);
+    color: var(--color-text-inverse);
+  }
+}
+
+:host([variant="primary"]) .z-sf-button--container:active {
+  border-color: var(--color-pressed-primary);
+  background-color: var(--color-pressed-primary);
+  box-shadow: var(--shadow-2);
+  color: var(--color-text-inverse);
+}
+
+:host([variant="primary"][disabled]:not([disabled="false"])) .z-sf-button--container {
+  border-color: var(--color-disabled01);
+  background-color: var(--color-disabled01);
+  color: var(--color-disabled03);
+}
+
+:host([variant="secondary"]) .z-sf-button--container {
+  border-color: var(--color-primary01);
+  background-color: var(--color-button-secondary);
+  color: var(--color-primary01);
+}
+
+@media (hover: hover) {
+  :host([variant="secondary"]) .z-sf-button--container:hover {
+    border-color: var(--color-hover-primary);
+    background-color: var(--color-button-secondary);
+    color: var(--color-hover-primary);
+  }
+}
+
+:host([variant="secondary"]) .z-sf-button--container:active {
+  border-color: var(--color-pressed-primary);
+  background-color: var(--color-button-secondary);
+  box-shadow: var(--shadow-2);
+  color: var(--color-pressed-primary);
+}
+
+:host([variant="secondary"][disabled]:not([disabled="false"])) .z-sf-button--container {
+  border-color: var(--color-disabled01);
+  background-color: var(--color-button-secondary);
+  color: var(--color-disabled03);
+}
+
+:host([variant="tertiary"]) .z-sf-button--container {
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
+  color: var(--color-primary01);
+}
+
+@media (hover: hover) {
+  :host([variant="tertiary"]) .z-sf-button--container:hover {
+    border-color: var(--color-primary03);
+    background-color: var(--color-primary03);
+    color: var(--color-hover-primary);
+  }
+}
+
+:host([variant="tertiary"]) .z-sf-button--container:focus:focus-visible {
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
+  color: var(--color-primary01);
+}
+
+:host([variant="tertiary"]) .z-sf-button--container:active {
+  border-color: var(--color-primary02);
+  background-color: var(--color-primary02);
+  box-shadow: var(--shadow-2);
+  color: var(--color-primary01);
+}
+
+:host([variant="tertiary"][disabled]:not([disabled="false"])) .z-sf-button--container {
+  border-color: var(--color-disabled01);
+  background-color: var(--color-disabled01);
+  color: var(--color-disabled03);
+}

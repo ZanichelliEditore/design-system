@@ -5,12 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -2148,6 +2148,68 @@ export namespace Components {
          */
         "status"?: InputStatus;
     }
+    interface ZSfButton {
+        /**
+          * the button icon position. Defaults to `left`
+          * @default SfIconPosition.LEFT
+         */
+        "SfIconPosition"?: SfIconPosition;
+        /**
+          * defines a string value that labels the internal interactive element. Used for accessibility.
+          * @default undefined
+         */
+        "ariaLabel": string | undefined;
+        /**
+          * HTML button disabled attribute.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * defines role attribute, used for accessibility.
+         */
+        "htmlrole"?: string;
+        /**
+          * `z-sf-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Use `htmlrole` instead.
+          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
+          * @default ""
+         */
+        "role": string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+          * @default SfControlSize.BIG
+         */
+        "size"?: SfButtonSize | SfControlSize;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+          * @default SfButtonType.BUTTON
+         */
+        "type"?: SfButtonType;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+          * @default SfButtonVariant.PRIMARY
+         */
+        "variant"?: SfButtonVariant;
+    }
     /**
      * Component to render an SVG icon from the internal icon set, selected by `name`.
      * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
@@ -3647,6 +3709,12 @@ declare global {
         prototype: HTMLZSelectElement;
         new (): HTMLZSelectElement;
     };
+    interface HTMLZSfButtonElement extends Components.ZSfButton, HTMLStencilElement {
+    }
+    var HTMLZSfButtonElement: {
+        prototype: HTMLZSfButtonElement;
+        new (): HTMLZSfButtonElement;
+    };
     /**
      * Component to render an SVG icon from the internal icon set, selected by `name`.
      * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
@@ -3994,6 +4062,7 @@ declare global {
         "z-searchbar": HTMLZSearchbarElement;
         "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
+        "z-sf-button": HTMLZSfButtonElement;
         "z-sf-icon": HTMLZSfIconElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
         "z-slideshow": HTMLZSlideshowElement;
@@ -6337,6 +6406,68 @@ declare namespace LocalJSX {
          */
         "status"?: InputStatus;
     }
+    interface ZSfButton {
+        /**
+          * the button icon position. Defaults to `left`
+          * @default SfIconPosition.LEFT
+         */
+        "SfIconPosition"?: SfIconPosition;
+        /**
+          * defines a string value that labels the internal interactive element. Used for accessibility.
+          * @default undefined
+         */
+        "ariaLabel"?: string | undefined;
+        /**
+          * HTML button disabled attribute.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * HTML <a> href attribute. If it is set, it renders an HTML <a> tag.
+         */
+        "href"?: string;
+        /**
+          * Identifier, should be unique.
+         */
+        "htmlid"?: string;
+        /**
+          * defines role attribute, used for accessibility.
+         */
+        "htmlrole"?: string;
+        /**
+          * `z-sf-icon` name to use (optional).
+         */
+        "icon"?: string;
+        /**
+          * HTML button name attribute.
+         */
+        "name"?: string;
+        /**
+          * Use `htmlrole` instead.
+          * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
+          * @default ""
+         */
+        "role"?: string;
+        /**
+          * Available sizes: `big`, `small` and `x-small`. Defaults to `big`.
+          * @default SfControlSize.BIG
+         */
+        "size"?: SfButtonSize | SfControlSize;
+        /**
+          * HTML a target attribute.
+         */
+        "target"?: string;
+        /**
+          * HTML button type attribute.
+          * @default SfButtonType.BUTTON
+         */
+        "type"?: SfButtonType;
+        /**
+          * Graphical variant: `primary`, `secondary`, `tertiary`. Defaults to `primary`.
+          * @default SfButtonVariant.PRIMARY
+         */
+        "variant"?: SfButtonVariant;
+    }
     /**
      * Component to render an SVG icon from the internal icon set, selected by `name`.
      * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
@@ -7325,6 +7456,21 @@ declare namespace LocalJSX {
         "resetItem": string;
         "size": ControlSize;
     }
+    interface ZSfButtonAttributes {
+        "ariaLabel": string | undefined;
+        "role": string;
+        "htmlrole": string;
+        "href": string;
+        "target": string;
+        "htmlid": string;
+        "name": string;
+        "disabled": boolean;
+        "type": SfButtonType;
+        "variant": SfButtonVariant;
+        "icon": string;
+        "SfIconPosition": SfIconPosition;
+        "size": SfButtonSize | SfControlSize;
+    }
     interface ZSfIconAttributes {
         "name": string;
         "height": string;
@@ -7500,6 +7646,7 @@ declare namespace LocalJSX {
         "z-searchbar": Omit<ZSearchbar, keyof ZSearchbarAttributes> & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes]?: ZSearchbar[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `attr:${K}`]?: ZSearchbarAttributes[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `prop:${K}`]?: ZSearchbar[K] };
         "z-section-title": Omit<ZSectionTitle, keyof ZSectionTitleAttributes> & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes]?: ZSectionTitle[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `attr:${K}`]?: ZSectionTitleAttributes[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `prop:${K}`]?: ZSectionTitle[K] };
         "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] };
+        "z-sf-button": Omit<ZSfButton, keyof ZSfButtonAttributes> & { [K in keyof ZSfButton & keyof ZSfButtonAttributes]?: ZSfButton[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `attr:${K}`]?: ZSfButtonAttributes[K] } & { [K in keyof ZSfButton & keyof ZSfButtonAttributes as `prop:${K}`]?: ZSfButton[K] };
         "z-sf-icon": Omit<ZSfIcon, keyof ZSfIconAttributes> & { [K in keyof ZSfIcon & keyof ZSfIconAttributes]?: ZSfIcon[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `attr:${K}`]?: ZSfIconAttributes[K] } & { [K in keyof ZSfIcon & keyof ZSfIconAttributes as `prop:${K}`]?: ZSfIcon[K] };
         "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
         "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
@@ -7667,6 +7814,7 @@ declare module "@stencil/core" {
              */
             "z-section-title": LocalJSX.IntrinsicElements["z-section-title"] & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.IntrinsicElements["z-select"] & JSXBase.HTMLAttributes<HTMLZSelectElement>;
+            "z-sf-button": LocalJSX.IntrinsicElements["z-sf-button"] & JSXBase.HTMLAttributes<HTMLZSfButtonElement>;
             /**
              * Component to render an SVG icon from the internal icon set, selected by `name`.
              * This component automatically recognizes icons that have an indicator (e.g. `bg-color`, `font-color`, etc.), that can be filled with a custom color via the `indicatorColor` prop.
