@@ -14,7 +14,12 @@ const StoryMeta = {
     },
     valuePosition: {
       control: {type: "select"},
-      options: Object.values(PopoverPosition),
+      options: Object.values([
+        PopoverPosition.TOP,
+        PopoverPosition.RIGHT,
+        PopoverPosition.BOTTOM,
+        PopoverPosition.LEFT,
+      ]),
     },
     size: {
       control: {type: "inline-radio"},
@@ -23,16 +28,14 @@ const StoryMeta = {
   },
   args: {
     disabled: false,
-    invertEdgesPosition: false,
+    label: "Input range label",
     max: 100,
     min: 0,
     orientation: Orientation.HORIZONTAL,
     showEdges: true,
-    showValue: true,
     size: ControlSize.BIG,
     step: 1,
     value: 50,
-    valuePosition: PopoverPosition.TOP,
   },
 } satisfies Meta<ZInputRange>;
 

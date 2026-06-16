@@ -1,5 +1,18 @@
-import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State, Watch, h} from "@stencil/core";
+import {
+  AttachInternals,
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ControlSize, Orientation, PopoverPosition} from "../../beans";
+import {randomId} from "../../utils/utils";
 
 /**
  * Input range component.
@@ -8,67 +21,72 @@ import {ControlSize, Orientation, PopoverPosition} from "../../beans";
   tag: "z-input-range",
   styleUrls: ["styles.css", "../../tokens/typography.css"],
   shadow: true,
+  formAssociated: true,
 })
 export class ZInputRange implements ComponentInterface {
   @Element() host: HTMLZInputRangeElement;
 
-  /** The value of the input range. */
-  @Prop()
-  value = 0;
-
-  /** The orientation of the input range. */
-  @Prop({reflect: true})
-  orientation: Orientation;
+  @AttachInternals() internals: ElementInternals;
 
   /** Whether the input range is disabled. */
   @Prop()
   disabled = false;
 
-  /** The lowest value in the range of permitted values. */
+  /**
+   * The aria label of the input range. for accessibility.
+   * Not necessary if the `label` prop is set.
+   */
   @Prop()
-  min = 0;
+  htmlAriaLabel: string;
+
+  /** ID of the input range. */
+  @Prop()
+  htmlId = `z-input-range-${randomId()}`;
+
+  /**
+   * The label of the input range.
+   * When `orientation` is set to `vertical`, the label is not visible but used as `aria-label`, unless `htmlAriaLabel` is provided.
+   */
+  @Prop()
+  label: string;
 
   /** The greatest value in the range of permitted values. */
   @Prop()
   max = 100;
 
-  /** The step value for the input range. */
+  /** The lowest value in the range of permitted values. */
   @Prop()
-  step = 1;
+  min = 0;
 
-  /** The size of the input range. Default: `ControlSize.BIG` */
+  /** The orientation of the input range. */
   @Prop({reflect: true})
-  size: ControlSize.BIG;
-
-  /**
-   * Whether to always show the tooltip with the current value.
-   * When `false`, the tooltip is only shown on focus and when dragging the slider's thumb.
-   */
-  @Prop()
-  showValue = false;
+  orientation: Orientation;
 
   /** Whether to show `min` and `max` values of the input range. Only visible with the `horizontal` orientation. */
   @Prop()
   showEdges = false;
 
+  /** The size of the input range. Default: `ControlSize.BIG` */
+  @Prop({reflect: true})
+  size: ControlSize.BIG;
+
+  /** The step value for the input range. */
+  @Prop()
+  step = 1;
+
+  /** The value of the input range. */
+  @Prop()
+  value = 0;
+
   /**
    * The position of the tooltip displaying the current value.
    * Defaults to `top` for horizontal orientation and `left` for vertical orientation.
    * May be necessary to adjust this prop when the input range is close to the edges of the screen,
-   * to prevent the tooltip from showing in unwanted positions.
+   * to prevent the tooltip from showing out of the screen or in an unintended position due to auto adjustment.
    * For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
    */
   @Prop()
-  valuePosition = PopoverPosition.TOP;
-
-  /**
-   * Whether to invert the position of the edges.
-   * By default the edges are positioned beneath the input range for horizontal orientation and to the right for vertical orientation.
-   * When this prop is `true`, the edges are positioned above the input range for horizontal orientation and to the left for vertical orientation.
-   * Useful to prevent the tooltip from overlapping with the edges.
-   */
-  @Prop()
-  invertEdgesPosition = false;
+  valuePosition: PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
 
   /** Emitted when the value of the input range is being changed (`input` native event). */
   @Event()
@@ -78,28 +96,36 @@ export class ZInputRange implements ComponentInterface {
   @Event()
   rangeChange: EventEmitter<number>;
 
+  /** The current value of the input range synchronized with the native input element. */
   @State()
-  isActive = false;
+  currentValue: number;
 
+  /**
+   * Whether to show the tooltip displaying the current value.
+   * The tooltip is shown only when the input range is focused or while the user is changing the value.
+   */
   @State()
-  currentValue = this.value;
+  showValueTooltip = false;
 
-  @State()
-  tooltipGuideRef: HTMLSpanElement;
-
-  /** Whether the native input value needs to be synced with the component state. */
+  /**
+   * Whether the native input value needs to be synced with the component state.
+   * This is necessary when the `step` prop changes, as the browser may round the value,
+   * so we need to update the component state accordingly.
+   */
   private needsNativeValueSync = false;
-
-  private inputContainer: HTMLDivElement;
 
   private inputRef: HTMLInputElement;
 
-  private get tooltipPosition(): PopoverPosition {
-    if (this.valuePosition) {
-      return this.valuePosition;
-    }
+  private tooltipGuideRef: HTMLSpanElement;
 
-    return this.orientation === Orientation.VERTICAL ? PopoverPosition.LEFT : PopoverPosition.TOP;
+  private get ariaLabel(): string | undefined {
+    return this.htmlAriaLabel ?? (this.orientation === Orientation.VERTICAL ? this.label : undefined);
+  }
+
+  private get tooltipPosition(): typeof this.valuePosition {
+    return (
+      this.valuePosition ?? (this.orientation === Orientation.VERTICAL ? PopoverPosition.LEFT : PopoverPosition.TOP)
+    );
   }
 
   private updateCurrentValue(nextValue: number): void {
@@ -108,12 +134,12 @@ export class ZInputRange implements ComponentInterface {
     }
 
     this.currentValue = nextValue;
+    this.internals.setFormValue(this.currentValue.toString());
   }
 
   /** Calculates the current ratio of the input range value. */
   private getCurrentRatio(): number {
     const range = this.max - this.min;
-
     if (range <= 0) {
       return 0;
     }
@@ -123,9 +149,18 @@ export class ZInputRange implements ComponentInterface {
     return Math.min(1, Math.max(0, ratio));
   }
 
+  /** Updates the CSS variables used to color the track progress and tooltip guide position. */
+  private updateProgress(): void {
+    const ratio = this.getCurrentRatio();
+    const progress = ratio * 100;
+
+    this.host?.style.setProperty("--progress-ratio", `${ratio}`);
+    this.host?.style.setProperty("--progress", `${progress}%`);
+  }
+
   /**
    * Syncs current value from native input after render-time browser coercions:
-   * when `step` changes, the browser may round the value.
+   * when `step` changes, the browser may round the value, so we need to update the component state accordingly.
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range#step
    */
   private syncCurrentValueFromNativeInput(): void {
@@ -137,42 +172,24 @@ export class ZInputRange implements ComponentInterface {
     this.updateProgress();
   }
 
-  /** Updates the CSS variables for the input range progress and tooltip guide position. */
-  private updateProgress(): void {
-    const ratio = this.getCurrentRatio();
-    const progress = ratio * 100;
-
-    // Update CSS variables used to style track progress and tooltip guide position.
-    this.inputContainer?.style.setProperty("--progress-ratio", `${ratio}`);
-    this.inputContainer?.style.setProperty("--progress", `${progress}%`);
-  }
-
-  @Watch("value")
-  onValueChange(newValue: number): void {
-    this.updateCurrentValue(newValue);
-    this.updateProgress();
-    this.needsNativeValueSync = true;
-  }
-
-  @Watch("min")
-  @Watch("max")
-  @Watch("step")
-  onConstraintsChange(): void {
-    this.needsNativeValueSync = true;
-  }
-
   private onInput(event: InputEvent): void {
     event.stopPropagation();
-    this.updateCurrentValue((event.target as HTMLInputElement).valueAsNumber);
-    this.updateProgress();
+    this.syncCurrentValueFromNativeInput();
     this.rangeInput.emit(this.currentValue);
   }
 
   private onChange(event: Event): void {
     event.stopPropagation();
-    this.updateCurrentValue((event.target as HTMLInputElement).valueAsNumber);
-    this.updateProgress();
+    this.syncCurrentValueFromNativeInput();
     this.rangeChange.emit(this.currentValue);
+  }
+
+  @Watch("min")
+  @Watch("max")
+  @Watch("step")
+  @Watch("value")
+  onConstraintsChange(): void {
+    this.needsNativeValueSync = true;
   }
 
   componentDidLoad() {
@@ -191,14 +208,21 @@ export class ZInputRange implements ComponentInterface {
 
   render() {
     return (
-      <Host class={{"invert-edges": this.invertEdgesPosition}}>
-        <div
-          class="input-container body-3"
-          ref={(el) => (this.inputContainer = el)}
-        >
+      <Host>
+        {this.label && (
+          <label
+            class="z-label"
+            htmlFor={this.htmlId}
+          >
+            {this.label}
+          </label>
+        )}
+        <div class="input-container body-3">
           <input
             ref={(el) => (this.inputRef = el)}
             type="range"
+            aria-label={this.ariaLabel}
+            id={this.htmlId}
             disabled={this.disabled}
             min={this.min}
             max={this.max}
@@ -206,23 +230,21 @@ export class ZInputRange implements ComponentInterface {
             value={this.currentValue}
             onInput={(event) => this.onInput(event)}
             onChange={(event) => this.onChange(event)}
-            onFocus={() => (this.isActive = true)}
-            onBlur={() => (this.isActive = false)}
+            onFocus={() => (this.showValueTooltip = true)}
+            onBlur={() => (this.showValueTooltip = false)}
           />
           <div
             class="tooltip-guide"
             ref={(el) => (this.tooltipGuideRef = el)}
           ></div>
-          {(this.showValue || this.isActive) && this.tooltipGuideRef && (
-            <z-tooltip
-              position={this.tooltipPosition}
-              bindTo={this.tooltipGuideRef}
-              open
-              closable={false}
-            >
-              <div class="current-value">{this.currentValue}</div>
-            </z-tooltip>
-          )}
+          <z-tooltip
+            position={this.tooltipPosition}
+            bindTo={this.tooltipGuideRef}
+            open={this.showValueTooltip}
+            closable={false}
+          >
+            <div class="current-value">{this.currentValue}</div>
+          </z-tooltip>
         </div>
         {this.showEdges && (
           <div class="edges body-3">

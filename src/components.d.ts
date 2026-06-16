@@ -1150,10 +1150,18 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Whether to invert the position of the edges. By default the edges are positioned beneath the input range for horizontal orientation and to the right for vertical orientation. When this prop is `true`, the edges are positioned above the input range for horizontal orientation and to the left for vertical orientation. Useful to prevent the tooltip from overlapping with the edges.
-          * @default false
+          * The aria label of the input range. for accessibility. Not necessary if the `label` prop is set.
          */
-        "invertEdgesPosition": boolean;
+        "htmlAriaLabel": string;
+        /**
+          * ID of the input range.
+          * @default `z-input-range-${randomId()}`
+         */
+        "htmlId": string;
+        /**
+          * The label of the input range. When `orientation` is set to `vertical`, the label is not visible but used as `aria-label`, unless `htmlAriaLabel` is provided.
+         */
+        "label": string;
         /**
           * The greatest value in the range of permitted values.
           * @default 100
@@ -1174,11 +1182,6 @@ export namespace Components {
          */
         "showEdges": boolean;
         /**
-          * Whether to always show the tooltip with the current value. When `false`, the tooltip is only shown on focus and when dragging the slider's thumb.
-          * @default false
-         */
-        "showValue": boolean;
-        /**
           * The size of the input range. Default: `ControlSize.BIG`
          */
         "size": ControlSize.BIG;
@@ -1193,10 +1196,9 @@ export namespace Components {
          */
         "value": number;
         /**
-          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing in unwanted positions. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
-          * @default PopoverPosition.TOP
+          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing out of the screen or in an unintended position due to auto adjustment. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
          */
-        "valuePosition": PopoverPosition;
+        "valuePosition": PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZList {
         /**
@@ -5286,10 +5288,22 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Whether to invert the position of the edges. By default the edges are positioned beneath the input range for horizontal orientation and to the right for vertical orientation. When this prop is `true`, the edges are positioned above the input range for horizontal orientation and to the left for vertical orientation. Useful to prevent the tooltip from overlapping with the edges.
-          * @default false
+          * The `id` of a `<form>` element to associate this element with.
          */
-        "invertEdgesPosition"?: boolean;
+        "form"?: string;
+        /**
+          * The aria label of the input range. for accessibility. Not necessary if the `label` prop is set.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * ID of the input range.
+          * @default `z-input-range-${randomId()}`
+         */
+        "htmlId"?: string;
+        /**
+          * The label of the input range. When `orientation` is set to `vertical`, the label is not visible but used as `aria-label`, unless `htmlAriaLabel` is provided.
+         */
+        "label"?: string;
         /**
           * The greatest value in the range of permitted values.
           * @default 100
@@ -5300,6 +5314,10 @@ declare namespace LocalJSX {
           * @default 0
          */
         "min"?: number;
+        /**
+          * The name of the element, used when submitting an HTML form.
+         */
+        "name"?: string;
         /**
           * Emitted when the value of the input range has changed (`change` native event).
          */
@@ -5318,11 +5336,6 @@ declare namespace LocalJSX {
          */
         "showEdges"?: boolean;
         /**
-          * Whether to always show the tooltip with the current value. When `false`, the tooltip is only shown on focus and when dragging the slider's thumb.
-          * @default false
-         */
-        "showValue"?: boolean;
-        /**
           * The size of the input range. Default: `ControlSize.BIG`
          */
         "size"?: ControlSize.BIG;
@@ -5337,10 +5350,9 @@ declare namespace LocalJSX {
          */
         "value"?: number;
         /**
-          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing in unwanted positions. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
-          * @default PopoverPosition.TOP
+          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing out of the screen or in an unintended position due to auto adjustment. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
          */
-        "valuePosition"?: PopoverPosition;
+        "valuePosition"?: PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZList {
         /**
@@ -7147,17 +7159,18 @@ declare namespace LocalJSX {
         "disabled": boolean;
     }
     interface ZInputRangeAttributes {
-        "value": number;
-        "orientation": Orientation;
         "disabled": boolean;
-        "min": number;
+        "htmlAriaLabel": string;
+        "htmlId": string;
+        "label": string;
         "max": number;
-        "step": number;
-        "size": ControlSize.BIG;
-        "showValue": boolean;
+        "min": number;
+        "orientation": Orientation;
         "showEdges": boolean;
-        "valuePosition": PopoverPosition;
-        "invertEdgesPosition": boolean;
+        "size": ControlSize.BIG;
+        "step": number;
+        "value": number;
+        "valuePosition": PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZListAttributes {
         "size": ListSize;

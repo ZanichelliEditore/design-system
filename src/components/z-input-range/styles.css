@@ -4,6 +4,16 @@
 }
 
 :host {
+  /* Internal CSS variable used to store the progress of the input range as a percentage.
+  Needed to color the progress in the runnable track of the input (only Firefox natively provides a pseudo-element to do that: `::-moz-range-progress`).
+  The value is updated by the component. */
+  --progress: 0%;
+
+  /* Internal CSS variable used to store the ratio of the current value to the total range, used for positioning the tooltip guide.
+  The value is updated by the component. */
+  --progress-ratio: 0;
+  --z-input-range-thumb-size: calc(var(--space-unit) * 3);
+
   display: flex;
   width: fit-content;
   height: fit-content;
@@ -12,8 +22,12 @@
   font-weight: var(--font-rg);
 }
 
-:host(.invert-edges) {
-  flex-direction: column-reverse;
+:host([size="small"]) {
+  --z-input-range-thumb-size: calc(var(--space-unit) * 2);
+}
+
+:host([size="x-small"]) {
+  --z-input-range-thumb-size: calc(var(--space-unit) * 1.5);
 }
 
 :host([orientation="vertical"]) {
@@ -21,20 +35,7 @@
   flex-direction: row;
 }
 
-:host(.invert-edges[orientation="vertical"]) {
-  flex-direction: row-reverse;
-}
-
 .input-container {
-  /* Updated by the component.
-  Needed to style the progress of the range input since only Firefox has the native feature
-  (through the pseudo-element `::-moz-range-progress`) */
-  --progress: 0%;
-
-  /* Ratio of the current value to the total range, used for positioning the tooltip guide */
-  --progress-ratio: 0;
-  --z-input-range-thumb-size: calc(var(--space-unit) * 3);
-
   /* Thickness of the track. It is calculated as one-third of the thumb size. */
   --z-input-range-track-size: calc(var(--z-input-range-thumb-size) / 3);
 
@@ -44,12 +45,13 @@
   height: 100%;
 }
 
-:host([size="small"]) .input-container {
-  --z-input-range-thumb-size: calc(var(--space-unit) * 2);
+label.z-label {
+  padding: 0;
+  margin-bottom: calc(var(--space-unit) * 1.5);
 }
 
-:host([size="x-small"]) .input-container {
-  --z-input-range-thumb-size: calc(var(--space-unit) * 1.5);
+:host([orientation="vertical"]) label.z-label {
+  display: none;
 }
 
 input[type="range"] {
@@ -138,7 +140,11 @@ input[type="range"]:active:not(:disabled)::-webkit-slider-thumb {
   cursor: grabbing;
 }
 
-/* Firefox - styles has to be duplicate because using comma-separated selectors breaks webkit styles... */
+/* --- Firefox styles --- */
+
+/* All styles must be duplicated, because using comma-separated selectors
+(like `input[type="range"]::-webkit-slider-thumb, input[type="range"]::-moz-range-thumb`) would break webkit styles...
+*/
 input[type="range"]::-moz-range-track {
   width: 100%;
   height: var(--z-input-range-track-size);
@@ -198,7 +204,7 @@ input[type="range"]:focus:not(:active)::-moz-range-thumb {
   box-shadow: var(--shadow-focus-primary);
 }
 
-/* end of Firefox styles */
+/* --- End of Firefox styles --- */
 
 .tooltip-guide {
   --progress-position: calc(
@@ -246,12 +252,11 @@ z-tooltip .current-value {
   justify-content: space-between;
 }
 
-:host([orientation="vertical"]) .edges {
-  flex-direction: column;
-  line-height: 1;
-  text-align: left;
+.edges :is(.min, .max) {
+  min-width: var(--z-input-range-thumb-size); /* visually align single digit values to the center of the thumb */
+  text-align: center;
 }
 
-:host(.invert-edges[orientation="vertical"]) .edges {
-  text-align: right;
+:host([orientation="vertical"]) .edges {
+  display: none;
 }
