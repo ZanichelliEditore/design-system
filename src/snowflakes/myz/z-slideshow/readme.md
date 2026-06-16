@@ -23,12 +23,12 @@
 
 ### Depends on
 
-- [z-icon](../../../components/z-icon)
+- [z-sf-icon](../../../components/z-sf-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-slideshow --> z-icon
+  z-slideshow --> z-sf-icon
   style z-slideshow fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -29,13 +29,13 @@
 
 ### Depends on
 
-- [z-icon](../../../../components/z-icon)
+- [z-sf-icon](../../../../components/z-sf-icon)
 - [z-popover](../../../../components/z-popover)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-myz-card-info --> z-icon
+  z-myz-card-info --> z-sf-icon
   z-myz-card-info --> z-popover
   style z-myz-card-info fill:#f9f,stroke:#333,stroke-width:4px
 ```

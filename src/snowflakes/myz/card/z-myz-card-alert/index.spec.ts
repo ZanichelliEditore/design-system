@@ -15,7 +15,7 @@ describe("Suite test ZMyzCardAlert", () => {
         <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
               <div class="relative-container">
-                <z-icon class="add-alert" height="18" name="circle-check" width="18"></z-icon>
+                <z-sf-icon class="add-alert" height="18" name="circle-check" width="18"></z-sf-icon>
                   <span class="content-text">
                     Libro aggiunto ai miei libri
                   </span>
@@ -42,7 +42,7 @@ describe("Suite test ZMyzCardAlert", () => {
         <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
               <div class="relative-container">
-                <z-icon class="add-alert" name="circle-check" height="18" width="18"></z-icon>
+                <z-sf-icon class="add-alert" name="circle-check" height="18" width="18"></z-sf-icon>
                 <span class="content-text">
                   Libro aggiunto ai miei libri
                 </span>
@@ -70,7 +70,7 @@ describe("Suite test ZMyzCardAlert", () => {
         <div class="add-alert alert-external-wrapper">
             <z-alert type="success">
               <div class="relative-container">
-                <z-icon class="add-alert" name="circle-check" height="18" width="18"></z-icon>
+                <z-sf-icon class="add-alert" name="circle-check" height="18" width="18"></z-sf-icon>
                 <span class="content-text">
                   Libro aggiunto ai miei libri
                 </span>
@@ -95,7 +95,7 @@ describe("Suite test ZMyzCardAlert", () => {
         <div class="remove-alert alert-external-wrapper">
             <z-alert type="warning">
               <div class="relative-container">
-                <z-icon class="remove-alert" name="circle-check" height="18" width="18"></z-icon>
+                <z-sf-icon class="remove-alert" name="circle-check" height="18" width="18"></z-sf-icon>
                 <span class="content-text">
                   Libro rimosso dai miei libri
                 </span>
@@ -123,7 +123,7 @@ describe("Suite test ZMyzCardAlert", () => {
         <div class="remove-alert alert-external-wrapper">
             <z-alert type="warning">
               <div class="relative-container">
-                <z-icon class="remove-alert" name="circle-check" height="18" width="18"></z-icon>
+                <z-sf-icon class="remove-alert" name="circle-check" height="18" width="18"></z-sf-icon>
                 <span class="content-text">
                   Libro rimosso dai miei libri
                 </span>

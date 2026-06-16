@@ -68,7 +68,7 @@ export class ZMyzListItem implements ComponentInterface {
         onKeyPress={(ev: KeyboardEvent) => handleKeyboardSubmit(ev, this.emitZListItemClick, this.listitemid)}
       >
         <span class={this.underlined && "border"}>
-          {this.icon && <z-icon name={this.icon} />}
+          {this.icon && <z-sf-icon name={this.icon} />}
           {this.link ? (
             <a
               href={this.link ? this.link : null}

@@ -58,13 +58,13 @@
 ### Depends on
 
 - [z-alert](../../z-alert)
-- [z-icon](../../../../components/z-icon)
+- [z-sf-icon](../../../../components/z-sf-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   z-myz-card-alert --> z-alert
-  z-myz-card-alert --> z-icon
+  z-myz-card-alert --> z-sf-icon
   style z-myz-card-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

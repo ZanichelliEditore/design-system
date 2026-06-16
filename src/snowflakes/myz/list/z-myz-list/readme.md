@@ -29,7 +29,7 @@
 ```mermaid
 graph TD;
   z-myz-list --> z-myz-list-item
-  z-myz-list-item --> z-icon
+  z-myz-list-item --> z-sf-icon
   style z-myz-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

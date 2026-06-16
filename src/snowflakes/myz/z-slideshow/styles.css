@@ -17,7 +17,7 @@ main {
   width: 100%;
 }
 
-main z-icon.scroll {
+main z-sf-icon.scroll {
   position: absolute;
   z-index: 10;
   top: 50%;
@@ -93,7 +93,7 @@ footer .bullet-container .bullet.selected {
   background-color: var(--gray400);
 }
 
-main z-icon:focus,
+main z-sf-icon:focus,
 footer .bullet-container .bullet:focus {
   border-radius: 50%;
   box-shadow: var(--shadow-focus-primary);
@@ -120,7 +120,7 @@ footer .bullet-container .bullet:focus {
 /* Desktop breakpoint */
 
 @media only screen and (min-width: 1025px) {
-  main z-icon.scroll {
+  main z-sf-icon.scroll {
     margin: 0 10px;
   }
 

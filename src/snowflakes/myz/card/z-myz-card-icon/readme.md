@@ -30,12 +30,12 @@
 
 ### Depends on
 
-- [z-icon](../../../../components/z-icon)
+- [z-sf-icon](../../../../components/z-sf-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-myz-card-icon --> z-icon
+  z-myz-card-icon --> z-sf-icon
   style z-myz-card-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

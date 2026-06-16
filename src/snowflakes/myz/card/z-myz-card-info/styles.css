@@ -18,7 +18,7 @@
   box-shadow: 0 2px 4px 0 rgb(66 69 72 / 35%);
 }
 
-:host > div > z-icon {
+:host > div > z-sf-icon {
   position: absolute;
   top: var(--space-unit);
   right: var(--space-unit);

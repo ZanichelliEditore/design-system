@@ -27,7 +27,7 @@ describe("Suite test ZSlideshow", () => {
        <mock:shadow-root>
          <div>
            <main>
-             <z-icon class="disabled left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
+             <z-sf-icon class="disabled left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-sf-icon>
              <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                <div class="false slide" id="slide0">
                  <img src="https://link1.png" style="width: undefinedpx;">
@@ -39,7 +39,7 @@ describe("Suite test ZSlideshow", () => {
                  <img src="https://link3.png" style="width: undefinedpx;">
                </div>
              </div>
-             <z-icon class="false right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
+             <z-sf-icon class="false right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-sf-icon>
            </main>
            <footer>
              <div class="footer-left">
@@ -74,7 +74,7 @@ describe("Suite test ZSlideshow", () => {
        <mock:shadow-root>
          <div>
            <main>
-             <z-icon class="false left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
+             <z-sf-icon class="false left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-sf-icon>
              <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                <div class="hide slide" id="slide0">
                  <img src="https://link1.png" style="width: undefinedpx;">
@@ -86,7 +86,7 @@ describe("Suite test ZSlideshow", () => {
                  <img src="https://link3.png" style="width: undefinedpx;">
                </div>
              </div>
-             <z-icon class="disabled right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
+             <z-sf-icon class="disabled right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-sf-icon>
            </main>
            <footer>
              <div class="footer-left">
@@ -113,8 +113,8 @@ describe("Suite test ZSlideshow", () => {
       html: `<z-slideshow data='["https://link1.png", "https://link2.png" ,"https://link3.png"]'></z-slideshow>`,
     });
 
-    const scrollRight = page.root.shadowRoot.querySelector("z-icon.right") as HTMLElement;
-    const scrollLeft = page.root.shadowRoot.querySelector("z-icon.left") as HTMLElement;
+    const scrollRight = page.root.shadowRoot.querySelector("z-sf-icon.right") as HTMLElement;
+    const scrollLeft = page.root.shadowRoot.querySelector("z-sf-icon.left") as HTMLElement;
     let lengthSlide = 3;
 
     while (lengthSlide > 0) {
@@ -123,9 +123,9 @@ describe("Suite test ZSlideshow", () => {
          <mock:shadow-root>
            <div>
              <main>
-               <z-icon class="${
+               <z-sf-icon class="${
                  lengthSlide === 3 ? "disabled" : "false"
-               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
+               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-sf-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                  <div class="${lengthSlide === 3 ? "false" : "hide"} slide" id="slide0">
                    <img src="https://link1.png" style="width: undefinedpx;">
@@ -137,9 +137,9 @@ describe("Suite test ZSlideshow", () => {
                    <img src="https://link3.png" style="width: undefinedpx;">
                  </div>
                </div>
-               <z-icon class="${
+               <z-sf-icon class="${
                  lengthSlide === 1 ? "disabled" : "false"
-               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
+               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-sf-icon>
              </main>
              <footer>
                <div class="footer-left">
@@ -171,9 +171,9 @@ describe("Suite test ZSlideshow", () => {
          <mock:shadow-root>
            <div>
              <main>
-               <z-icon class="${
+               <z-sf-icon class="${
                  lengthSlide === 3 ? "disabled" : "false"
-               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-icon>
+               } left scroll" height="40" name="chevron-left-circle" role="button" tabindex="0" width="40"></z-sf-icon>
                <div id="slides" style="width: NaNpx; transform: translate(-NaNpx);">
                  <div class="${lengthSlide === 3 ? "false" : "hide"} slide" id="slide0">
                    <img src="https://link1.png" style="width: undefinedpx;">
@@ -185,9 +185,9 @@ describe("Suite test ZSlideshow", () => {
                    <img src="https://link3.png" style="width: undefinedpx;">
                  </div>
                </div>
-               <z-icon class="${
+               <z-sf-icon class="${
                  lengthSlide === 1 ? "disabled" : "false"
-               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-icon>
+               } right scroll" height="40" name="chevron-right-circle" role="button" tabindex="0" width="40"></z-sf-icon>
              </main>
              <footer>
                <div class="footer-left">

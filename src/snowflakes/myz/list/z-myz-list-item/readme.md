@@ -43,12 +43,12 @@
 
 ### Depends on
 
-- [z-icon](../../../../components/z-icon)
+- [z-sf-icon](../../../../components/z-sf-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  z-myz-list-item --> z-icon
+  z-myz-list-item --> z-sf-icon
   z-myz-list --> z-myz-list-item
   style z-myz-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

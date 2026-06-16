@@ -25,7 +25,7 @@ export class ZMyzCardIcon implements ComponentInterface {
         aria-label={this.ariaLabel}
       >
         <span>
-          <z-icon
+          <z-sf-icon
             name={this.icon}
             width={16}
             height={16}

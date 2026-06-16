@@ -91,9 +91,9 @@ export class ZMyzCardInfo implements ComponentInterface {
     }
   }
 
-  private renderCloseIcon(): HTMLZIconElement {
+  private renderCloseIcon(): HTMLZSfIconElement {
     return (
-      <z-icon
+      <z-sf-icon
         name="multiply-circled-filled"
         height={18}
         width={18}

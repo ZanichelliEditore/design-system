@@ -60,7 +60,7 @@ button:disabled > span {
   pointer-events: none;
 }
 
-button:disabled > span > z-icon {
+button:disabled > span > z-sf-icon {
   fill: var(--color-surface03);
 }
 

@@ -57,6 +57,6 @@
   line-height: 20px;
 }
 
-:host div > z-icon {
+:host div > z-sf-icon {
   justify-self: center;
 }

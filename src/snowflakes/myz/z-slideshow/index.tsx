@@ -129,7 +129,7 @@ export class ZSlideshow implements ComponentInterface {
     );
   }
 
-  private renderScroll(direction: "left" | "right"): HTMLZIconElement {
+  private renderScroll(direction: "left" | "right"): HTMLZSfIconElement {
     let disabled = false,
       nextSlide = this.currentSlide;
 
@@ -142,7 +142,7 @@ export class ZSlideshow implements ComponentInterface {
     }
 
     return (
-      <z-icon
+      <z-sf-icon
         class={`scroll ${direction} ${disabled && "disabled"}`}
         width={this.getBulletDimension()}
         height={this.getBulletDimension()}

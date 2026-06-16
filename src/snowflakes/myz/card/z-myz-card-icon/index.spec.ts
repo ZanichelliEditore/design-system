@@ -14,7 +14,7 @@ describe("Suite test ZMyzCardIcon", () => {
       <mock:shadow-root>
         <button aria-label="">
           <span>
-            <z-icon height="16" name="icon" width="16"></z-icon>
+            <z-sf-icon height="16" name="icon" width="16"></z-sf-icon>
           </span>
         </button>
       </mock:shadow-root>
@@ -32,7 +32,7 @@ describe("Suite test ZMyzCardIcon", () => {
       <mock:shadow-root>
         <button aria-label="test label">
           <span>
-            <z-icon height="16" name="icon" width="16"></z-icon>
+            <z-sf-icon height="16" name="icon" width="16"></z-sf-icon>
           </span>
         </button>
       </mock:shadow-root>
@@ -50,7 +50,7 @@ describe("Suite test ZMyzCardIcon", () => {
       <mock:shadow-root>
         <button aria-label="" disabled>
           <span>
-            <z-icon height="16" name="icon" width="16"></z-icon>
+            <z-sf-icon height="16" name="icon" width="16"></z-sf-icon>
           </span>
         </button>
       </mock:shadow-root>
