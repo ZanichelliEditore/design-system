@@ -44,28 +44,6 @@ yarn link @zanichelli/albe-web-components
 
 ---
 
-## Tests
-
-#### Run all tests
-
-```
-yarn test
-```
-
-#### Run single test
-
-```
-yarn test --spec {componentPath}
-```
-
-#### Run e2e tests
-
-```
-yarn test.e2e
-```
-
----
-
 ## Linting and autofixing of the code style
 
 There are some tools installed to help keeping uniformity of code style:
@@ -127,22 +105,6 @@ In this repository we follow the [Conventional Commits Specification](https://ww
 - Click on `Run workflow` (on the right in the blue box)
 - To release a **latest version:** choose master as the branch and select the version type (patch, minor, major) from the dropdown, then click on the `Run workflow` button.
 - To release a **release candidate version** specify the branch, the version tag and the version name, then click the button. In this case, the branch needs to be different from `master`, otherwise the action will publish a latest version anyway, ignoring version and tag names.
-
----
-
-### Start Storybook:
-
-```sh
-# Start Storybook
-yarn start-storybook
-```
-
-### Build Storybook:
-
-```sh
-# Build Storybook
-yarn build-storybook
-```
 
 ---
 
@@ -239,11 +201,8 @@ ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 
 Each component is structured as follows:
 
-| File name           | Description                                                                            |
-| ------------------- | -------------------------------------------------------------------------------------- |
-| `index.tsx`         | Markup and UI logics                                                                   |
-| `styles.css`        | Styles                                                                                 |
-| `index.spec.ts`     | Tests                                                                                  |
-| `index.mdx`         | Storybook's markdown                                                                   |
-| `index.stories.tsx` | Storybook's CSF stories with Stencil integration provided by @stencil/storybook-plugin |
-| `readme.md`         | Auto-generated documentation                                                           |
+| File name    | Description                  |
+| ------------ | ---------------------------- |
+| `index.tsx`  | Markup and UI logics         |
+| `styles.css` | Styles                       |
+| `readme.md`  | Auto-generated documentation |

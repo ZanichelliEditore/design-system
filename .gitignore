@@ -26,8 +26,6 @@ log.txt
 .sass-cache/
 .versions/
 node_modules/
-storybook-static/
-storybook/
 $RECYCLE.BIN/
 
 .DS_Store

@@ -3,7 +3,6 @@
 import eslint from "@eslint/js";
 import stencilPlugin from "@stencil/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
-import storybookPlugin from "eslint-plugin-storybook";
 import {defineConfig} from "eslint/config";
 import tseslint from "typescript-eslint";
 
@@ -18,7 +17,6 @@ export default defineConfig([
       "dist/**",
       "react/**",
       "src-react/**",
-      ".storybook/**",
       "www/**",
       "loader/**",
       "internals/**",
@@ -65,7 +63,6 @@ export default defineConfig([
       "stencil/prefer-vdom-listener": "off",
     },
   },
-  storybookPlugin.configs["flat/recommended"],
   prettierConfig,
   {
     files: TS_FILES,

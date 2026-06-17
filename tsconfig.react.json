@@ -25,7 +25,6 @@
     }
   },
   "include": ["src-react/**/*.ts", "src-react/**/*.tsx"],
-  "exclude": ["**/__tests__/**"],
   "compileOnSave": false,
   "buildOnSave": false
 }

@@ -74,11 +74,4 @@ export const config: Config = {
       false /* setting this to true will break the retrieval of `textContent` in the `componentWillLoad` lifecycle method */,
     slotChildNodesFix: true,
   },
-  testing: {
-    moduleNameMapper: {
-      "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/src/__mocks__/fileMock.ts",
-    },
-    modulePathIgnorePatterns: ["<rootDir>/dist/"],
-    testPathIgnorePatterns: ["/storybook/", "/dist/"],
-  },
 } satisfies Config;

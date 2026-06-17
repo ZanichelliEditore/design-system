@@ -4,6 +4,6 @@
     "module": "Preserve",
     "jsxFragmentFactory": "h.Fragment"
   },
-  "include": ["src", "docs", ".storybook"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
