@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {LicenseType} from "../../../../beans";
+import {SfLicenseType} from "../../../../beans";
 import {ZMyzCardComponent} from "./index";
 
 type ZMyzCardStoriesArgs = ZMyzCardComponent & {titolo: string};
@@ -9,7 +9,7 @@ const StoryMeta = {
   title: "Snowflakes/MyzCard/ZMyzCard",
   component: "z-myz-card",
   args: {
-    cardtype: LicenseType.VIRTUAL,
+    cardtype: SfLicenseType.VIRTUAL,
     faded: false,
     ishighlighted: false,
     ispressed: true,

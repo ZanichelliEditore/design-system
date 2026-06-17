@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Event, EventEmitter, Prop, State, h} from "@stencil/core";
-import {DictionaryData, PopoverPosition} from "../../../../beans";
+import {SfDictionaryData, SfPopoverPosition} from "../../../../beans";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
@@ -13,7 +13,7 @@ import {handleKeyboardSubmit} from "../../../../utils/utils";
 export class ZMyzCardInfo implements ComponentInterface {
   /** dictionary info */
   @Prop()
-  data: string | DictionaryData;
+  data: string | SfDictionaryData;
 
   /** tabindex link attribute (optional) */
   @Prop()
@@ -25,7 +25,7 @@ export class ZMyzCardInfo implements ComponentInterface {
   @State()
   tooltip = false;
 
-  private cardData: DictionaryData;
+  private cardData: SfDictionaryData;
 
   private contentWrapper: HTMLElement;
 
@@ -169,7 +169,7 @@ export class ZMyzCardInfo implements ComponentInterface {
 
     return (
       <z-popover
-        position={PopoverPosition.RIGHT}
+        position={SfPopoverPosition.RIGHT}
         onClick={() => (this.tooltip = false)}
       >
         {`${title} ${year} ${author} ${description}`}

@@ -1,6 +1,6 @@
 import {Component, ComponentInterface, Prop, State, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
-import {LicenseType} from "../../../../beans/index";
+import {SfLicenseType} from "../../../../beans/index";
 
 /**
  * @slot icon - card header icon slot
@@ -21,7 +21,7 @@ export class ZMyzCardHeader implements ComponentInterface {
 
   /** card graphic variant (optional) */
   @Prop()
-  cardtype?: LicenseType;
+  cardtype?: SfLicenseType;
 
   @State()
   allowTooltip = false;
@@ -44,9 +44,9 @@ export class ZMyzCardHeader implements ComponentInterface {
 
   private retrieveClass(): JSXBase.HTMLAttributes["class"] {
     return {
-      real: this.cardtype === LicenseType.REAL,
-      trial: this.cardtype === LicenseType.TRIAL,
-      temp: this.cardtype === LicenseType.TEMP,
+      real: this.cardtype === SfLicenseType.REAL,
+      trial: this.cardtype === SfLicenseType.TRIAL,
+      temp: this.cardtype === SfLicenseType.TEMP,
       faded: this.faded,
     };
   }

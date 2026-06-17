@@ -5,22 +5,22 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertType, LicenseType } from "./beans/index";
-import { DictionaryData, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SfPopoverPosition } from "./beans";
-export { AlertType, LicenseType } from "./beans/index";
-export { DictionaryData, SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfIconPosition, SfInputStatus, SfPopoverPosition } from "./beans";
+import { SfAlertType, SfLicenseType } from "./beans/index";
+import { SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfDictionaryData, SfIconPosition, SfInputStatus, SfPopoverPosition } from "./beans";
+export { SfAlertType, SfLicenseType } from "./beans/index";
+export { SfButtonSize, SfButtonType, SfButtonVariant, SfControlSize, SfDictionaryData, SfIconPosition, SfInputStatus, SfPopoverPosition } from "./beans";
 export namespace Components {
     interface ZAlert {
         /**
           * alert variant type
          */
-        "type": AlertType;
+        "type": SfAlertType;
     }
     interface ZMyzCard {
         /**
           * graphic variant (optional)
          */
-        "cardtype"?: LicenseType;
+        "cardtype"?: SfLicenseType;
         /**
           * faded status
          */
@@ -92,7 +92,7 @@ export namespace Components {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseType;
+        "cardtype"?: SfLicenseType;
         /**
           * faded status
          */
@@ -106,7 +106,7 @@ export namespace Components {
         /**
           * dictionary info
          */
-        "data": string | DictionaryData;
+        "data": string | SfDictionaryData;
         /**
           * tabindex link attribute (optional)
           * @default 0
@@ -455,13 +455,13 @@ declare namespace LocalJSX {
         /**
           * alert variant type
          */
-        "type"?: AlertType;
+        "type"?: SfAlertType;
     }
     interface ZMyzCard {
         /**
           * graphic variant (optional)
          */
-        "cardtype"?: LicenseType;
+        "cardtype"?: SfLicenseType;
         /**
           * faded status
          */
@@ -537,7 +537,7 @@ declare namespace LocalJSX {
         /**
           * card graphic variant (optional)
          */
-        "cardtype"?: LicenseType;
+        "cardtype"?: SfLicenseType;
         /**
           * faded status
          */
@@ -551,7 +551,7 @@ declare namespace LocalJSX {
         /**
           * dictionary info
          */
-        "data"?: string | DictionaryData;
+        "data"?: string | SfDictionaryData;
         /**
           * tabindex link attribute (optional)
           * @default 0
@@ -745,11 +745,11 @@ declare namespace LocalJSX {
     }
 
     interface ZAlertAttributes {
-        "type": AlertType;
+        "type": SfAlertType;
     }
     interface ZMyzCardAttributes {
         "faded": boolean;
-        "cardtype": LicenseType;
+        "cardtype": SfLicenseType;
         "ispressed": boolean;
         "ishighlighted": boolean;
     }
@@ -770,10 +770,10 @@ declare namespace LocalJSX {
     interface ZMyzCardHeaderAttributes {
         "titolo": string;
         "faded": boolean;
-        "cardtype": LicenseType;
+        "cardtype": SfLicenseType;
     }
     interface ZMyzCardInfoAttributes {
-        "data": string | DictionaryData;
+        "data": string | SfDictionaryData;
         "htmltabindex": number;
     }
     interface ZOtpAttributes {

@@ -1,6 +1,6 @@
 import {ChildNode} from "@stencil/core";
 import {tabbable} from "tabbable";
-import {Device, KeyboardCode, SfDevice} from "../beans/index";
+import {SfDevice, SfKeyboardCode} from "../beans/index";
 import {Breakpoints} from "../constants/breakpoints";
 
 /**
@@ -38,7 +38,7 @@ export function randomId(): string {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
-  if (ev.code === KeyboardCode.ENTER || ev.code === KeyboardCode.SPACE) {
+  if (ev.code === SfKeyboardCode.ENTER || ev.code === SfKeyboardCode.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
@@ -46,7 +46,7 @@ export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => v
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function handleEnterKeydSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
-  if (ev.code === KeyboardCode.ENTER) {
+  if (ev.code === SfKeyboardCode.ENTER) {
     ev.preventDefault();
     callback(...args);
   }
@@ -95,23 +95,6 @@ export function getSiblings(elem: HTMLElement): ChildNode[] {
   });
 
   return siblings;
-}
-
-/**
- * Get the current device type based on the window width.
- * @returns {Device} - The current device type
- */
-export function getDevice(): Device {
-  switch (true) {
-    case window.innerWidth <= Breakpoints.MOBILE:
-      return Device.MOBILE;
-    case window.innerWidth <= Breakpoints.TABLET:
-      return Device.TABLET;
-    case window.innerWidth <= Breakpoints.DESKTOP:
-      return Device.DESKTOP;
-    default:
-      return Device.DESKTOP_WIDE;
-  }
 }
 
 /**

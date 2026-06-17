@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, h, Prop} from "@stencil/core";
-import {LicenseType} from "../../../../beans/index";
+import {SfLicenseType} from "../../../../beans/index";
 
 /**
  * @slot - generic card slot
@@ -16,7 +16,7 @@ export class ZMyzCardComponent implements ComponentInterface {
 
   /** graphic variant (optional) */
   @Prop()
-  cardtype?: LicenseType;
+  cardtype?: SfLicenseType;
 
   /** pressed status */
   @Prop()
@@ -29,11 +29,11 @@ export class ZMyzCardComponent implements ComponentInterface {
   private retrieveClass(): string {
     let elemClasses = "";
 
-    if (this.cardtype === LicenseType.REAL) {
+    if (this.cardtype === SfLicenseType.REAL) {
       elemClasses += "real";
-    } else if (this.cardtype === LicenseType.TRIAL) {
+    } else if (this.cardtype === SfLicenseType.TRIAL) {
       elemClasses += "trial";
-    } else if (this.cardtype === LicenseType.TEMP) {
+    } else if (this.cardtype === SfLicenseType.TEMP) {
       elemClasses += "temp";
     }
 

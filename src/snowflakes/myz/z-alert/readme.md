@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property | Attribute | Description        | Type                                                        | Default     |
-| -------- | --------- | ------------------ | ----------------------------------------------------------- | ----------- |
-| `type`   | `type`    | alert variant type | `AlertType.ERROR \| AlertType.SUCCESS \| AlertType.WARNING` | `undefined` |
+| Property | Attribute | Description        | Type                                                              | Default     |
+| -------- | --------- | ------------------ | ----------------------------------------------------------------- | ----------- |
+| `type`   | `type`    | alert variant type | `SfAlertType.ERROR \| SfAlertType.SUCCESS \| SfAlertType.WARNING` | `undefined` |
 
 
 ## Slots

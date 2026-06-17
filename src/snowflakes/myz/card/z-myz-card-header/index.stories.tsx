@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {LicenseType} from "../../../../beans";
+import {SfLicenseType} from "../../../../beans";
 import {ZMyzCardHeader} from "./index";
 
 const StoryMeta = {
@@ -8,7 +8,7 @@ const StoryMeta = {
   component: ZMyzCardHeader,
 
   args: {
-    cardtype: LicenseType.REAL,
+    cardtype: SfLicenseType.REAL,
     faded: false,
     titolo: "Card Header",
   },

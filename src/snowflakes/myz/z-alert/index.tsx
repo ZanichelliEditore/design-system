@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Prop, h} from "@stencil/core";
-import {AlertType} from "../../../beans/index";
+import {SfAlertType} from "../../../beans/index";
 
 /**
  * @slot - alert content
@@ -13,7 +13,7 @@ import {AlertType} from "../../../beans/index";
 export class ZAlert implements ComponentInterface {
   /** alert variant type */
   @Prop()
-  type: AlertType;
+  type: SfAlertType;
 
   render(): HTMLDivElement {
     return (

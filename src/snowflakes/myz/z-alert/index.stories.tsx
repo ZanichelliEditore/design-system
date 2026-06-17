@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {AlertType} from "../../../beans";
+import {SfAlertType} from "../../../beans";
 import {ZAlert} from "./index";
 
 const StoryMeta = {
@@ -12,11 +12,11 @@ const StoryMeta = {
       control: {
         type: "select",
       },
-      options: Object.keys(AlertType),
+      options: Object.keys(SfAlertType),
     },
   },
   args: {
-    type: AlertType.SUCCESS,
+    type: SfAlertType.SUCCESS,
   },
 } satisfies Meta<ZAlert>;
 

@@ -5,10 +5,10 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                        | Type                                                                                                                                                           | Default     |
-| -------------- | -------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `data`         | `data`         | dictionary info                    | `string \| { author: string; year: string; title: string; description: string; onlineLicense: DictionaryLicenseData; offlineLicense: DictionaryLicenseData; }` | `undefined` |
-| `htmltabindex` | `htmltabindex` | tabindex link attribute (optional) | `number`                                                                                                                                                       | `0`         |
+| Property       | Attribute      | Description                        | Type                                                                                                                                                               | Default     |
+| -------------- | -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `data`         | `data`         | dictionary info                    | `string \| { author: string; year: string; title: string; description: string; onlineLicense: SfDictionaryLicenseData; offlineLicense: SfDictionaryLicenseData; }` | `undefined` |
+| `htmltabindex` | `htmltabindex` | tabindex link attribute (optional) | `number`                                                                                                                                                           | `0`         |
 
 
 ## Events

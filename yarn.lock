@@ -2838,9 +2838,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zanichelli/albe-web-components@workspace:.":
+"@zanichelli/snowflakes-components@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@zanichelli/albe-web-components@workspace:."
+  resolution: "@zanichelli/snowflakes-components@workspace:."
   dependencies:
     "@commitlint/cli": "npm:^12.0.0"
     "@commitlint/config-conventional": "npm:^12.0.0"

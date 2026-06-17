@@ -26,12 +26,12 @@
 
 ## Properties
 
-| Property        | Attribute       | Description                | Type                                                                               | Default     |
-| --------------- | --------------- | -------------------------- | ---------------------------------------------------------------------------------- | ----------- |
-| `cardtype`      | `cardtype`      | graphic variant (optional) | `LicenseType.REAL \| LicenseType.TEMP \| LicenseType.TRIAL \| LicenseType.VIRTUAL` | `undefined` |
-| `faded`         | `faded`         | faded status               | `boolean`                                                                          | `undefined` |
-| `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                          | `false`     |
-| `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                          | `false`     |
+| Property        | Attribute       | Description                | Type                                                                                       | Default     |
+| --------------- | --------------- | -------------------------- | ------------------------------------------------------------------------------------------ | ----------- |
+| `cardtype`      | `cardtype`      | graphic variant (optional) | `SfLicenseType.REAL \| SfLicenseType.TEMP \| SfLicenseType.TRIAL \| SfLicenseType.VIRTUAL` | `undefined` |
+| `faded`         | `faded`         | faded status               | `boolean`                                                                                  | `undefined` |
+| `ishighlighted` | `ishighlighted` | highlighted status         | `boolean`                                                                                  | `false`     |
+| `ispressed`     | `ispressed`     | pressed status             | `boolean`                                                                                  | `false`     |
 
 
 ## Slots
