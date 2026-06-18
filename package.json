@@ -1,6 +1,6 @@
 {
   "name": "@zanichelli/snowflakes-components",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "description": "The Zanichelli design system snowflakes components.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
