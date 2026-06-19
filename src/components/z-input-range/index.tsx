@@ -98,7 +98,7 @@ export class ZInputRange implements ComponentInterface {
 
   /** The current value of the input range synchronized with the native input element. */
   @State()
-  currentValue: number;
+  currentValue = this.value;
 
   /**
    * Whether to show the tooltip displaying the current value.
