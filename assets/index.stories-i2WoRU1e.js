@@ -1,3 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{X as t,nt as n}from"./iframe-L9IszzLp.js";var r,i,a;e((()=>{t(),r={title:`CSS Components/ZLabel`,parameters:{a11y:{disable:!0},controls:{disable:!0}}},i={render:()=>n(`label`,{class:`z-label`},`Etichetta`)},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
-  render: () => <label class="z-label">Etichetta</label>
-}`,...i.parameters?.docs?.source}}},a=[`Default`]}))();export{i as Default,a as __namedExportsOrder,r as default};

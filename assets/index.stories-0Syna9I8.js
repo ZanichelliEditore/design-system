@@ -1,0 +1,3 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{X as t,nt as n}from"./iframe-CJGav67o.js";var r,i,a;e((()=>{t(),r={title:`ZToggleButton`,args:{label:`Toggle`,ariaLabel:``,avoidclick:!1,isdisabled:!1,opened:!1}},i={render:e=>n(`z-toggle-button`,e)},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  render: args => <z-toggle-button {...args}></z-toggle-button>
+} satisfies Story`,...i.parameters?.docs?.source}}},a=[`Default`]}))();export{i as Default,a as __namedExportsOrder,r as default};
