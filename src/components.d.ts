@@ -227,7 +227,7 @@ export namespace Components {
         "disabled"?: boolean;
         /**
           * the id of the message element (optional)
-          * @default `id-${randomId()}`
+          * @default `id-${sfRandomId()}`
          */
         "htmlId"?: string;
         /**
@@ -680,7 +680,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         /**
           * the id of the message element (optional)
-          * @default `id-${randomId()}`
+          * @default `id-${sfRandomId()}`
          */
         "htmlId"?: string;
         /**

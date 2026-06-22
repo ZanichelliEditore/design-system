@@ -1,6 +1,6 @@
 {
-  "name": "@zanichelli/snowflakes-components",
-  "version": "0.0.1",
+  "name": "@zanichelli/albe-snowflakes",
+  "version": "0.0.1-PACK1",
   "description": "The Zanichelli design system snowflakes components.",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -17,27 +17,7 @@
     "build": "yarn build.wc && yarn build.react",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
     "build.wc": "mkdirp react && rimraf src-react/react-component-lib && stencil build",
-    "generate": "plop --plopfile internals/generators/index.js",
-    "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",
-    "lint-fix": "yarn lint-fix.eslint && yarn lint-fix.stylelint && yarn lint-fix.prettier",
-    "lint-fix.eslint": "yarn lint.eslint --fix",
-    "lint-fix.prettier": "prettier --write .",
-    "lint-fix.stylelint": "yarn lint.stylelint --fix",
-    "lint.eslint": "eslint ./src",
-    "lint.prettier": "prettier --check .",
-    "lint.stylelint": "stylelint \"src/**/*.css\"",
-    "prepare": "husky install",
-    "release": "commit-and-tag-version",
-    "start": "stencil build --dev --watch --serve --no-open",
-    "ts-check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "dialog-polyfill": "^0.5.6",
-    "dompurify": "3.4.0",
-    "flatpickr": "^4.6.13",
-    "focus-trap": "^8.2.1",
-    "hammerjs": "^2.0.8",
-    "tabbable": "^6.4.0"
+    "start": "stencil build --dev --watch --serve --no-open"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.0",
@@ -47,8 +27,6 @@
     "@stencil/core": "~4.43.3",
     "@stencil/eslint-plugin": "^1.1.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@types/dompurify": "^3.2.0",
-    "@types/hammerjs": "^2.0.39",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",

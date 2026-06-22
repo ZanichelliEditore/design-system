@@ -13,11 +13,11 @@ import {
 } from "@stencil/core";
 import {SfDevice, SfKeyboardCode, SfPopoverPosition} from "../../beans";
 import {
-  containsElement,
-  findContainingBlockAncestor,
-  getParentElement,
   getSfDevice,
-  isElementVisibleInContainer,
+  sfContainsElement,
+  sfFindContainingBlockAncestor,
+  sfGetParentElement,
+  sfIsElementVisibleInContainer,
 } from "../../utils/utils";
 
 /** Centering offset modifier. 0 for no offset, 0.5 for centering. */
@@ -140,11 +140,11 @@ export class ZSfPopover implements ComponentInterface {
   @Listen("click", {target: "body", capture: true})
   handleOutsideClick(e: MouseEvent): void {
     const target = e.target as Element;
-    if (!this.closable || !this.open || containsElement(this.host, target)) {
+    if (!this.closable || !this.open || sfContainsElement(this.host, target)) {
       return;
     }
 
-    if (containsElement(this.boundElement, target)) {
+    if (sfContainsElement(this.boundElement, target)) {
       // stop propagation if the click was on the trigger element to prevent close and reopen glitches
       e.stopPropagation();
     }
@@ -219,10 +219,10 @@ export class ZSfPopover implements ComponentInterface {
     } else if (this.bindTo) {
       this.boundElement = this.bindTo;
     } else {
-      this.boundElement = getParentElement(this.host) as HTMLElement;
+      this.boundElement = sfGetParentElement(this.host) as HTMLElement;
       if (this.boundElement.tagName.toLowerCase() === "z-tooltip") {
         // If the popover is used inside a tooltip without a specified `bindTo`, bind it to the parent of the tooltip.
-        this.boundElement = getParentElement(this.boundElement) as HTMLElement;
+        this.boundElement = sfGetParentElement(this.boundElement) as HTMLElement;
       }
     }
   }
@@ -439,7 +439,7 @@ export class ZSfPopover implements ComponentInterface {
    * The ancestor is considered scrollable if it doesn't have `overflow` property set to `hidden` and its scroll size is bigger than its client size.
    */
   private findScrollableAncestor(element: HTMLElement): HTMLElement {
-    let parent = getParentElement(element);
+    let parent = sfGetParentElement(element);
 
     while (parent) {
       if (parent === element.ownerDocument.documentElement) {
@@ -457,7 +457,7 @@ export class ZSfPopover implements ComponentInterface {
         return parent as HTMLElement;
       }
 
-      parent = getParentElement(parent);
+      parent = sfGetParentElement(parent);
     }
 
     return element.ownerDocument.documentElement;
@@ -528,7 +528,7 @@ export class ZSfPopover implements ComponentInterface {
   /** Compute positioning offsets in the appropriate coordinate space, accounting for transformed containing blocks and scroll. */
   private computePositionOffsets(): Offsets {
     const boundElementOffsets = this.getBoundElementOffsets();
-    const containingBlockAncestor = findContainingBlockAncestor(this.host);
+    const containingBlockAncestor = sfFindContainingBlockAncestor(this.host);
     const isDocumentElement = containingBlockAncestor === this.host.ownerDocument.documentElement;
 
     if (isDocumentElement) {
@@ -679,7 +679,7 @@ export class ZSfPopover implements ComponentInterface {
       return;
     }
 
-    if (!isElementVisibleInContainer(this.boundElement, this.findScrollableAncestor(this.boundElement))) {
+    if (!sfIsElementVisibleInContainer(this.boundElement, this.findScrollableAncestor(this.boundElement))) {
       // If the bound element is not visible, hide the popover too
       this.open = false;
 

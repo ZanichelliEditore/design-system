@@ -933,15 +933,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dompurify@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@types/dompurify@npm:3.2.0"
-  dependencies:
-    dompurify: "npm:*"
-  checksum: 10c0/e83fec586ffbb1b43f7c8479f2a99c223814d240db912d53fb126aaeea52a4091deceeb75632b5d76004d88ef0fbf444984887b121dece6fa69f4172ed4b2b07
-  languageName: node
-  linkType: hard
-
 "@types/estree@npm:^1.0.0, @types/estree@npm:^1.0.6":
   version: 1.0.8
   resolution: "@types/estree@npm:1.0.8"
@@ -953,13 +944,6 @@ __metadata:
   version: 1.1.5
   resolution: "@types/fined@npm:1.1.5"
   checksum: 10c0/dfd510331a50c75c0955578d68d81855022708a9c0d06cda6ae978130eb53993fa88821a81defe80ce9b153c883bf1c63b06ccd0c12f698b94e45b30d480945d
-  languageName: node
-  linkType: hard
-
-"@types/hammerjs@npm:^2.0.39":
-  version: 2.0.45
-  resolution: "@types/hammerjs@npm:2.0.45"
-  checksum: 10c0/1f01e3d0260e3cb824fd0ae32c9a8e1b3727e53ef31682612a0a282c4a84bb758dd30b04749b2ae91e621443c80bfe541b38e91e33308f9dea5d9ac92bd0e854
   languageName: node
   linkType: hard
 
@@ -1052,13 +1036,6 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/6a8edd7f40cd7e197318e86310a40e568cddd380609dde59b30d5cc6c5f8276ddc698905eac4b3b429eb39f2e8ee326bc20dc6e95a2cdc41c4d3fc9a1ebd4929
-  languageName: node
-  linkType: hard
-
-"@types/trusted-types@npm:^2.0.7":
-  version: 2.0.7
-  resolution: "@types/trusted-types@npm:2.0.7"
-  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
   languageName: node
   linkType: hard
 
@@ -1332,9 +1309,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zanichelli/snowflakes-components@workspace:.":
+"@zanichelli/albe-snowflakes@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@zanichelli/snowflakes-components@workspace:."
+  resolution: "@zanichelli/albe-snowflakes@workspace:."
   dependencies:
     "@commitlint/cli": "npm:^12.0.0"
     "@commitlint/config-conventional": "npm:^12.0.0"
@@ -1343,21 +1320,14 @@ __metadata:
     "@stencil/core": "npm:~4.43.3"
     "@stencil/eslint-plugin": "npm:^1.1.0"
     "@stencil/react-output-target": "npm:^0.5.3"
-    "@types/dompurify": "npm:^3.2.0"
-    "@types/hammerjs": "npm:^2.0.39"
     "@types/react-dom": "npm:^18.3.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.59.3"
     "@typescript-eslint/parser": "npm:^8.59.3"
     commit-and-tag-version: "npm:^12.4.1"
     cross-env: "npm:^10.1.0"
-    dialog-polyfill: "npm:^0.5.6"
-    dompurify: "npm:3.4.0"
     eslint: "npm:^9.0.0"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-react: "npm:^7.37.5"
-    flatpickr: "npm:^4.6.13"
-    focus-trap: "npm:^8.2.1"
-    hammerjs: "npm:^2.0.8"
     husky: "npm:^8.0.0"
     mkdirp: "npm:^3.0.1"
     plop: "npm:^4.0.1"
@@ -1369,7 +1339,6 @@ __metadata:
     stylelint-config-prettier: "npm:^9.0.3"
     stylelint-config-standard: "npm:^26.0.0"
     stylelint-value-no-unknown-custom-properties: "npm:^4.0.0"
-    tabbable: "npm:^6.4.0"
     typescript: "npm:~5.4.0"
     typescript-eslint: "npm:^8.57.1"
     vite: "npm:^8.0.9"
@@ -2682,13 +2651,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dialog-polyfill@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "dialog-polyfill@npm:0.5.6"
-  checksum: 10c0/11330f8dcdc00bf256564560e8acfbab21bc4ca8121c66feeebb9662bd98b3bc68d476821d3e849b30695cf18534c31360c684f75eecfcfba21928f8346fef32
-  languageName: node
-  linkType: hard
-
 "dir-glob@npm:^3.0.1":
   version: 3.0.1
   resolution: "dir-glob@npm:3.0.1"
@@ -2704,18 +2666,6 @@ __metadata:
   dependencies:
     esutils: "npm:^2.0.2"
   checksum: 10c0/b6416aaff1f380bf56c3b552f31fdf7a69b45689368deca72d28636f41c16bb28ec3ebc40ace97db4c1afc0ceeb8120e8492fe0046841c94c2933b2e30a7d5ac
-  languageName: node
-  linkType: hard
-
-"dompurify@npm:*, dompurify@npm:3.4.0":
-  version: 3.4.0
-  resolution: "dompurify@npm:3.4.0"
-  dependencies:
-    "@types/trusted-types": "npm:^2.0.7"
-  dependenciesMeta:
-    "@types/trusted-types":
-      optional: true
-  checksum: 10c0/5593ac44ee20b9aa521c2120884effc98927fb9128c548183c75e79e0a04357c62ee913a049a267c8f396cb8c9d520ecf72562826c5524c46d4fe03c12063638
   languageName: node
   linkType: hard
 
@@ -3413,26 +3363,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flatpickr@npm:^4.6.13":
-  version: 4.6.13
-  resolution: "flatpickr@npm:4.6.13"
-  checksum: 10c0/0e027e72a2ce1716840a8c0bf9094f48d2665dc3f3024bf9604810c5bd7dd94aa830b133c5b5cfc0c330fc88939f33b54c8714515957f9d194c3a3bb7f75a1e2
-  languageName: node
-  linkType: hard
-
 "flatted@npm:^3.2.9":
   version: 3.3.1
   resolution: "flatted@npm:3.3.1"
   checksum: 10c0/324166b125ee07d4ca9bcf3a5f98d915d5db4f39d711fba640a3178b959919aae1f7cfd8aabcfef5826ed8aa8a2aa14cc85b2d7d18ff638ddf4ae3df39573eaf
-  languageName: node
-  linkType: hard
-
-"focus-trap@npm:^8.2.1":
-  version: 8.2.1
-  resolution: "focus-trap@npm:8.2.1"
-  dependencies:
-    tabbable: "npm:^6.4.0"
-  checksum: 10c0/afcb1639d1c0958ff6a1350a4b7eaac4c956487b13ebaf91e7a2ccab39158dce74cb930d60715d13a723cb0ae55ff197671fd41a58a74ac54c8b8c49c5966225
   languageName: node
   linkType: hard
 
@@ -3884,13 +3818,6 @@ __metadata:
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 10c0/386d011a553e02bc594ac2ca0bd6d9e4c22d7fa8cfbfc448a6d148c59ea881b092db9dbe3547ae4b88e55f1b01f7c4a2ecc53b310c042793e63aa44cf6c257f2
-  languageName: node
-  linkType: hard
-
-"hammerjs@npm:^2.0.8":
-  version: 2.0.8
-  resolution: "hammerjs@npm:2.0.8"
-  checksum: 10c0/5c95e5774b5ea49492cb3fa8f1949aea67048a0b84af33acb555e7139abfcf3c83aca2b83e0c5008755bc230166df7b5e469d1e3eb6746c48f215f3672609fed
   languageName: node
   linkType: hard
 
@@ -7443,13 +7370,6 @@ __metadata:
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
   checksum: 10c0/dfbe201ae09ac6053d163578778c53aa860a784147ecf95705de0cd23f42c851e1be7889241495e95c37cabb058edb1052f141387bef68f705afc8f9dd358509
-  languageName: node
-  linkType: hard
-
-"tabbable@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "tabbable@npm:6.4.0"
-  checksum: 10c0/d931427f4a96b801fd8801ba296a702119e06f70ad262fed8abc5271225c9f1ca51b89fdec4fb2f22e1d35acb3d2881db0a17cedc758272e9ecb540d00299d76
   languageName: node
   linkType: hard
 

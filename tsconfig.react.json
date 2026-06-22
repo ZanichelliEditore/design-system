@@ -21,7 +21,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@zanichelli/snowflakes-components": ["./"]
+      "@zanichelli/albe-snowflakes": ["./"]
     }
   },
   "include": ["src-react/**/*.ts", "src-react/**/*.tsx"],

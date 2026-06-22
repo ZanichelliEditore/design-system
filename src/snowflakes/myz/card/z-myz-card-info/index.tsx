@@ -1,6 +1,6 @@
 import {Component, ComponentInterface, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {SfDictionaryData, SfPopoverPosition} from "../../../../beans";
-import {handleKeyboardSubmit} from "../../../../utils/utils";
+import {sfHandleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
  * @slot - content
@@ -100,7 +100,7 @@ export class ZMyzCardInfo implements ComponentInterface {
         onClick={() => this.emitFlipCard(false)}
         tabindex={this.htmltabindex}
         onKeyUp={(e: KeyboardEvent) => {
-          handleKeyboardSubmit(e, this.emitFlipCard, false);
+          sfHandleKeyboardSubmit(e, this.emitFlipCard, false);
         }}
       />
     );

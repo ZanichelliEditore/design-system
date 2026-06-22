@@ -1,6 +1,6 @@
 import {Component, ComponentInterface, Host, Prop, State, Watch, h} from "@stencil/core";
 import {SfInputStatus} from "../../beans";
-import {randomId} from "../../utils/utils";
+import {sfRandomId} from "../../utils/utils";
 
 @Component({
   tag: "z-sf-input-message",
@@ -14,7 +14,7 @@ export class ZSfInputMessage implements ComponentInterface {
 
   /** the id of the message element (optional)*/
   @Prop()
-  htmlId? = `id-${randomId()}`;
+  htmlId? = `id-${sfRandomId()}`;
 
   /** the role to set when both the message and the status are populated (optional)*/
   @Prop()

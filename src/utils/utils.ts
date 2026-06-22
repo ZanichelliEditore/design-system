@@ -1,100 +1,16 @@
-import {ChildNode} from "@stencil/core";
-import {tabbable} from "tabbable";
 import {SfDevice, SfKeyboardCode} from "../beans/index";
 import {Breakpoints} from "../constants/breakpoints";
 
-/**
- * Return boolean value for passed value if a boolean corresponding value is found
- * Return passed value otherwise
- */
-export function boolean(value: string | number | boolean): boolean | string | number {
-  switch (value) {
-    case true:
-    case "true":
-    case 1:
-    case "1":
-    case "on":
-    case "yes":
-      return true;
-    case false:
-    case "false":
-    case 0:
-    case "0":
-    case "off":
-    case "no":
-      return false;
-    default:
-      return value;
-  }
-}
-
-export function retrieveAsset(assetName: string): string {
-  return assetName && "assets/images/png/" + assetName;
-}
-
-export function randomId(): string {
+export function sfRandomId(): string {
   return Math.random().toString(36).replace("0.", "");
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function handleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
+export function sfHandleKeyboardSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
   if (ev.code === SfKeyboardCode.ENTER || ev.code === SfKeyboardCode.SPACE) {
     ev.preventDefault();
     callback(...args);
   }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function handleEnterKeydSubmit(ev: KeyboardEvent, callback: (...args) => void, ...args: any[]): void {
-  if (ev.code === SfKeyboardCode.ENTER) {
-    ev.preventDefault();
-    callback(...args);
-  }
-}
-
-export function getClickedElement(elem: null | Element = null): null | Element {
-  if (!elem) {
-    elem = document.activeElement;
-  }
-
-  if (elem && elem.shadowRoot && elem.shadowRoot.activeElement) {
-    elem = elem.shadowRoot.activeElement;
-
-    return getClickedElement(elem);
-  }
-
-  return elem;
-}
-
-export function getElementTree(elem: Element, tree: Element[] = []): null | Element[] {
-  tree.push(elem);
-
-  if (elem.parentElement) {
-    elem = elem.parentElement;
-
-    return getElementTree(elem, tree);
-  } else if (elem.parentNode && (elem.parentNode as ShadowRoot).host) {
-    elem = (elem.parentNode as ShadowRoot).host;
-
-    return getElementTree(elem, tree);
-  }
-
-  return tree;
-}
-
-export function getSiblings(elem: HTMLElement): ChildNode[] {
-  const siblings = [];
-  if (!elem || !elem.parentNode || !elem.parentNode.childNodes) {
-    return siblings;
-  }
-
-  elem.parentNode.childNodes.forEach((child) => {
-    if (child.nodeType === 1 && child !== elem) {
-      siblings.push(child);
-    }
-  });
-
-  return siblings;
 }
 
 /**
@@ -114,56 +30,13 @@ export function getSfDevice(): SfDevice {
   }
 }
 
-type JSONValue = string | number | boolean | JSONObject | JSONArray;
-interface JSONObject {
-  [x: string]: JSONValue;
-}
-type JSONArray = JSONValue[];
-
-export function convertJson(data: string): JSONValue {
-  try {
-    return JSON.parse(data);
-  } catch {
-    return false;
-  }
-}
-
-export function colorFromId(id: number): string {
-  const prefix = "avatar-C"; // prefix for color vars name
-  const colorsCount = 19; // available colors
-  const seed = Math.ceil(2 ** 31 - 1) * parseFloat(`0.${id}`);
-  let color = Math.ceil(colorsCount * (seed % 1));
-
-  // if result of mc is 0
-  // es.: 3895229
-  if (color === 0) {
-    color = 1;
-  }
-
-  return `${prefix}${color.toString().padStart(2, "0")}`;
-}
-
-/**
- * Check if the passed CSS selector is valid.
- * @param selector CSS selector to validate
- */
-export function isSelectorValid(selector: string): boolean {
-  try {
-    document.createDocumentFragment().querySelector(selector);
-
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 /**
  * Check if an element contains another element, checking both light and shadow DOM recursively.
  * This function also checks slot assignments, so it correctly handles nested slots across components.
  * @param ancestor Ancestor element
  * @param descendant Descendant element
  */
-export function containsElement(ancestor: HTMLElement, descendant: Node): boolean {
+export function sfContainsElement(ancestor: HTMLElement, descendant: Node): boolean {
   if (ancestor.contains(descendant) || ancestor.shadowRoot?.contains(descendant)) {
     return true;
   }
@@ -200,24 +73,10 @@ export function containsElement(ancestor: HTMLElement, descendant: Node): boolea
   return checkRecursive(ancestor);
 }
 
-/**
- * Get the currently active element, descending into open shadow roots.
- * @param root Document or ShadowRoot to start from.
- */
-export function getDeepActiveElement(root: Document | ShadowRoot = document): Element | null {
-  let activeElement: Element | null = root.activeElement;
-
-  while (activeElement instanceof HTMLElement && activeElement.shadowRoot?.activeElement) {
-    activeElement = activeElement.shadowRoot.activeElement;
-  }
-
-  return activeElement;
-}
-
 /** Get the parent of passed element, accounting for shadow DOM.
  * @param element The element whose parent is to be found.
  */
-export function getParentElement(element: Element): Element | null {
+export function sfGetParentElement(element: Element): Element | null {
   // If the element is slotted, the direct rendered parent is the target slot in shadow DOM.
   if (element.assignedSlot) {
     return element.assignedSlot;
@@ -237,7 +96,7 @@ export function getParentElement(element: Element): Element | null {
  * @param element The element to check.
  * @param container The container to check against, which must be the nearest scrollable ancestor.
  */
-export function isElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
+export function sfIsElementVisibleInContainer(element: HTMLElement, container: HTMLElement): boolean {
   const elemRect = element.getBoundingClientRect();
   const documentWidth = element.ownerDocument.documentElement.clientWidth;
   const documentHeight = element.ownerDocument.documentElement.clientHeight;
@@ -263,61 +122,6 @@ export function isElementVisibleInContainer(element: HTMLElement, container: HTM
 }
 
 /**
- * Get tabbable elements in the passed root element, including descendants inside shadow roots.
- * Returned list is sorted by light DOM order first and by shadow DOM order inside each host.
- */
-export function getTabbableElements(root: HTMLElement): HTMLElement[] {
-  const hostElements = [root, ...Array.from(root.querySelectorAll<HTMLElement>("*"))];
-  const seen = new Set<HTMLElement>();
-  const mergedEntries: {element: HTMLElement; lightIndex: number; shadowIndex: number}[] = [];
-
-  const addElement = (element: HTMLElement, lightIndex: number, shadowIndex: number): void => {
-    if (seen.has(element)) {
-      return;
-    }
-
-    seen.add(element);
-    mergedEntries.push({element, lightIndex, shadowIndex});
-  };
-
-  tabbable(root, {getShadowRoot: false}).forEach((element) => {
-    if (!(element instanceof HTMLElement)) {
-      return;
-    }
-
-    addElement(element, hostElements.indexOf(element), -1);
-  });
-
-  hostElements.forEach((hostElement, index) => {
-    if (!hostElement.shadowRoot) {
-      return;
-    }
-
-    tabbable(hostElement, {
-      getShadowRoot: (node) => {
-        if (node === hostElement) {
-          return hostElement.shadowRoot;
-        }
-      },
-    }).forEach((element, shadowIndex) => {
-      if (element instanceof HTMLElement) {
-        addElement(element, index, shadowIndex);
-      }
-    });
-  });
-
-  mergedEntries.sort((a, b) => {
-    if (a.lightIndex !== b.lightIndex) {
-      return a.lightIndex - b.lightIndex;
-    }
-
-    return a.shadowIndex - b.shadowIndex;
-  });
-
-  return mergedEntries.map((entry) => entry.element);
-}
-
-/**
  * Find the nearest containing block ancestor of an element.
  * The containing block is determined based on the element's `position` value:
  * - `static`, `sticky` or `relative`: nearest block container or root
@@ -329,8 +133,8 @@ export function getTabbableElements(root: HTMLElement): HTMLElement[] {
  * @param element The element for which to find the containing block
  * @returns The containing block element if any, or the `documentElement`
  */
-export function findContainingBlockAncestor(element: HTMLElement): HTMLElement {
-  let parent = getParentElement(element);
+export function sfFindContainingBlockAncestor(element: HTMLElement): HTMLElement {
+  let parent = sfGetParentElement(element);
   const elementPosition = window.getComputedStyle(element).position;
   while (parent && parent !== element.ownerDocument.documentElement) {
     const parentStyle = window.getComputedStyle(parent);
@@ -383,22 +187,8 @@ export function findContainingBlockAncestor(element: HTMLElement): HTMLElement {
       }
     }
 
-    parent = getParentElement(parent);
+    parent = sfGetParentElement(parent);
   }
 
   return element.ownerDocument.documentElement;
 }
-
-/** Convert HTML to plain text */
-export const getPlainText = (html: string): string => {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-
-  return doc.body.textContent || "";
-};
-
-/** Convert string to hex */
-export const encodeString = (string: string): string =>
-  string
-    .split("")
-    .map((c) => c.charCodeAt(0).toString(16))
-    .join("");
