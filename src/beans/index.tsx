@@ -361,6 +361,12 @@ export enum ZChipType {
   SMALL = "small",
 }
 
+export enum ZChipVariant {
+  OUTLINE = "outline",
+  FILLED = "filled",
+  SOFT = "soft",
+}
+
 export enum ZSectionTitleDividerPosition {
   BEFORE = "before",
   AFTER = "after",

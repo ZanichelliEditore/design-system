@@ -1,5 +1,5 @@
 import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
-import {ZChipType} from "../../beans";
+import {ZChipType, ZChipVariant} from "../../beans";
 
 @Component({
   tag: "z-chip",
@@ -17,6 +17,10 @@ export class ZChip implements ComponentInterface {
   /** z-chip size type, can be default, medium or small */
   @Prop({reflect: true})
   type?: ZChipType = ZChipType.DEFAULT;
+
+  /** z-chip variant type, can be outline, filled or soft */
+  @Prop({reflect: true})
+  variant?: ZChipVariant = ZChipVariant.OUTLINE;
 
   /** z-chip interactive icon */
   @Prop({reflect: true})
@@ -41,6 +45,7 @@ export class ZChip implements ComponentInterface {
           "z-chip-container": true,
           "z-chip-interactive": !!this.interactiveIcon,
           [this.type]: true,
+          [this.variant]: true,
         }}
         aria-disabled={this.disabled}
       >

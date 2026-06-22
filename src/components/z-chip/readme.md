@@ -5,13 +5,14 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                       | Type                                                       | Default             |
-| ----------------- | ------------------ | ------------------------------------------------- | ---------------------------------------------------------- | ------------------- |
-| `ariaLabel`       | `aria-label`       | z-chip aria-label string                          | `string`                                                   | `""`                |
-| `disabled`        | `disabled`         | set z-chip as disabled                            | `boolean`                                                  | `false`             |
-| `icon`            | `icon`             | Non interactive icon                              | `string`                                                   | `undefined`         |
-| `interactiveIcon` | `interactive-icon` | z-chip interactive icon                           | `string`                                                   | `undefined`         |
-| `type`            | `type`             | z-chip size type, can be default, medium or small | `ZChipType.DEFAULT \| ZChipType.MEDIUM \| ZChipType.SMALL` | `ZChipType.DEFAULT` |
+| Property          | Attribute          | Description                                         | Type                                                               | Default                |
+| ----------------- | ------------------ | --------------------------------------------------- | ------------------------------------------------------------------ | ---------------------- |
+| `ariaLabel`       | `aria-label`       | z-chip aria-label string                            | `string`                                                           | `""`                   |
+| `disabled`        | `disabled`         | set z-chip as disabled                              | `boolean`                                                          | `false`                |
+| `icon`            | `icon`             | Non interactive icon                                | `string`                                                           | `undefined`            |
+| `interactiveIcon` | `interactive-icon` | z-chip interactive icon                             | `string`                                                           | `undefined`            |
+| `type`            | `type`             | z-chip size type, can be default, medium or small   | `ZChipType.DEFAULT \| ZChipType.MEDIUM \| ZChipType.SMALL`         | `ZChipType.DEFAULT`    |
+| `variant`         | `variant`          | z-chip variant type, can be outline, filled or soft | `ZChipVariant.FILLED \| ZChipVariant.OUTLINE \| ZChipVariant.SOFT` | `ZChipVariant.OUTLINE` |
 
 
 ## Events
