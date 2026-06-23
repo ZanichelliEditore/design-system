@@ -49,11 +49,15 @@
   background-color: var(--color-background);
 }
 
-:host(:hover):has([tabIndex]) ::slotted(z-td),
-:host(:hover):has([tabIndex]) ::slotted(z-th) {
+:host([tabIndex]:hover) ::slotted(z-td),
+:host([tabIndex]:hover) ::slotted(z-th),
+:host([tabIndex]:hover) .z-tr--expand-button-container {
+  background-color: var(--color-surface02);
+}
+
+:host([tabIndex]:hover) .z-tr--focus-overlay {
   border-top: var(--border-size-small) solid var(--color-surface04);
   border-bottom: var(--border-size-small) solid var(--color-surface04);
-  background-color: var(--color-surface02);
 }
 
 :host(:focus) {
@@ -92,12 +96,12 @@
 .z-tr--focus-overlay {
   position: absolute;
   z-index: 30;
-  right: 0;
+  top: calc(var(--border-size-small) * -1);
+  bottom: 0;
   left: 0;
   width: 100%;
-  border-radius: 4px;
+  height: calc(100% + (var(--border-size-small) * 2));
   box-shadow: none;
-  inset: 0;
   outline: none;
   pointer-events: none;
   transition: box-shadow 0.2s;
