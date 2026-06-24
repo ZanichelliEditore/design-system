@@ -1,4 +1,5 @@
 import {ChildNode} from "@stencil/core";
+import {tabbable} from "tabbable";
 import {Device, KeyboardCode} from "../beans/index";
 import {Breakpoints} from "../constants/breakpoints";
 
@@ -199,6 +200,20 @@ export function containsElement(ancestor: HTMLElement, descendant: Node): boolea
   return checkRecursive(ancestor);
 }
 
+/**
+ * Get the currently active element, descending into open shadow roots.
+ * @param root Document or ShadowRoot to start from.
+ */
+export function getDeepActiveElement(root: Document | ShadowRoot = document): Element | null {
+  let activeElement: Element | null = root.activeElement;
+
+  while (activeElement instanceof HTMLElement && activeElement.shadowRoot?.activeElement) {
+    activeElement = activeElement.shadowRoot.activeElement;
+  }
+
+  return activeElement;
+}
+
 /** Get the parent of passed element, accounting for shadow DOM.
  * @param element The element whose parent is to be found.
  */
@@ -244,7 +259,62 @@ export function isElementVisibleInContainer(element: HTMLElement, container: HTM
     elemRect.right > containerRect.left &&
     elemRect.left < containerRect.right;
 
-  return isVisibleInContainer && isVisibleInViewport;
+  return isVisibleInViewport && isVisibleInContainer;
+}
+
+/**
+ * Get tabbable elements in the passed root element, including descendants inside shadow roots.
+ * Returned list is sorted by light DOM order first and by shadow DOM order inside each host.
+ */
+export function getTabbableElements(root: HTMLElement): HTMLElement[] {
+  const hostElements = [root, ...Array.from(root.querySelectorAll<HTMLElement>("*"))];
+  const seen = new Set<HTMLElement>();
+  const mergedEntries: {element: HTMLElement; lightIndex: number; shadowIndex: number}[] = [];
+
+  const addElement = (element: HTMLElement, lightIndex: number, shadowIndex: number): void => {
+    if (seen.has(element)) {
+      return;
+    }
+
+    seen.add(element);
+    mergedEntries.push({element, lightIndex, shadowIndex});
+  };
+
+  tabbable(root, {getShadowRoot: false}).forEach((element) => {
+    if (!(element instanceof HTMLElement)) {
+      return;
+    }
+
+    addElement(element, hostElements.indexOf(element), -1);
+  });
+
+  hostElements.forEach((hostElement, index) => {
+    if (!hostElement.shadowRoot) {
+      return;
+    }
+
+    tabbable(hostElement, {
+      getShadowRoot: (node) => {
+        if (node === hostElement) {
+          return hostElement.shadowRoot;
+        }
+      },
+    }).forEach((element, shadowIndex) => {
+      if (element instanceof HTMLElement) {
+        addElement(element, index, shadowIndex);
+      }
+    });
+  });
+
+  mergedEntries.sort((a, b) => {
+    if (a.lightIndex !== b.lightIndex) {
+      return a.lightIndex - b.lightIndex;
+    }
+
+    return a.shadowIndex - b.shadowIndex;
+  });
+
+  return mergedEntries.map((entry) => entry.element);
 }
 
 /**

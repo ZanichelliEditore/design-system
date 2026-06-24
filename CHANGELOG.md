@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.3.0](https://github.com/ZanichelliEditore/design-system/compare/v19.2.12...v19.3.0) (2026-06-22)
+
+
+### Features
+
+* z-input-range component ([690f6f3](https://github.com/ZanichelliEditore/design-system/commit/690f6f35395c6ab56cae006466908086930fa635))
+
+
+### Bug Fixes
+
+* correctly update the current value when the browser rounds the input value on `step` changes ([b990061](https://github.com/ZanichelliEditore/design-system/commit/b990061855af46a4e1e3ca549fbe167a2bada890))
+* restore full import path in iconset stories ([2774f6e](https://github.com/ZanichelliEditore/design-system/commit/2774f6ec8d24397e9a9931068b049baeaf3e83ad))
+* set initial value to the internal state ([95ccb8f](https://github.com/ZanichelliEditore/design-system/commit/95ccb8f39882336f4d5fe21b52068ffe9ed387f9))
+
+## [19.2.12](https://github.com/ZanichelliEditore/design-system/compare/v19.2.11...v19.2.12) (2026-06-16)
+
+
+### Bug Fixes
+
+* **DS-1002:** add interactable prop ([bacb3d2](https://github.com/ZanichelliEditore/design-system/commit/bacb3d24c77ce0459c84e5f373de7ad81a412277))
+* **DS-1002:** fix hover in non interactable ztr ([7de5f43](https://github.com/ZanichelliEditore/design-system/commit/7de5f43530925cd1f21ce02ea3c50a7e8d571163))
+* **DS-1002:** remove focus when ztr is not clickable ([f0d6df6](https://github.com/ZanichelliEditore/design-system/commit/f0d6df62e7a00a3f020fe9eff56b1f339c4a9f50))
+* focus trap in z-offcanvas using tabbable and focus-trap libraries ([f0c16c5](https://github.com/ZanichelliEditore/design-system/commit/f0c16c55981d1cefce4beb09757a9c4eba2379af))
+* stencil's Fragment import path; storybook build ([5441d36](https://github.com/ZanichelliEditore/design-system/commit/5441d3693e142fccceb6bacb9cfd9aee55ed221d))
+* upgrade storybook again to correctly stop dev process; enable sourcemaps for storybook dev ([894f5e2](https://github.com/ZanichelliEditore/design-system/commit/894f5e2b09c34e59fc1634e3fa30e7cef8d55326))
+* use kebab-case for excluded/included controls ([5a55625](https://github.com/ZanichelliEditore/design-system/commit/5a556259b50a0bc2e7082a3f9aeb1d3ed4589afe))
+* **z-app-header:** add searchLabel prop for visible search input label ([#659](https://github.com/ZanichelliEditore/design-system/issues/659)) ([5b5b4ae](https://github.com/ZanichelliEditore/design-system/commit/5b5b4ae903f9d7c1f9e6472b243677456cc5373a))
+* **z-file-upload:** add aria-labelledby to file input ([b839853](https://github.com/ZanichelliEditore/design-system/commit/b83985345fab48693889c2359d5198eb3b8aa5e7))
+* **z-icon:** add aria-hidden to SVG for improved accessibility ([#575](https://github.com/ZanichelliEditore/design-system/issues/575)) ([a8986fb](https://github.com/ZanichelliEditore/design-system/commit/a8986fb8026b1f36bedc74c50a3cbda7cd1e0b9c))
+* **z-logo:** add visible focus indicator to logo link ([263926c](https://github.com/ZanichelliEditore/design-system/commit/263926ca53074d5441889acd131fb646e3bd9258))
+
 ## [19.2.11](https://github.com/ZanichelliEditore/design-system/compare/v19.2.10...v19.2.11) (2026-05-04)
 
 

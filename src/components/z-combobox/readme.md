@@ -1,30 +1,5 @@
 # z-combobox
 
-<!-- readme-group="combobox" -->
-
-```html
-<z-combobox
-  inputid="combo_1"
-  items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true}]'
-  hassearch="true"
-  searchlabel="Autore"
-  searchplaceholder="Cerca Autore"
-  label="Combo Corta"
-  closesearchtext="CHIUDI"
-  isopen="true"
-></z-combobox>
-<z-combobox
-  inputid="combo_2"
-  items='[{"id":"item_1","name":"primo elemento","checked":false},{"id":"item_2","name":"secondo elemento","checked":true},{"id":"item_3","name":"terzo","checked":false},{"id":"item_4","name":"quarto elemento","checked":true},{"id":"item_5","name":"quinto elemento","checked":false},{"id":"item_6","name":"sesto elemento","checked":true}]'
-  hassearch="true"
-  searchlabel="Autore"
-  searchplaceholder="Cerca Autore"
-  label="Combo Corta"
-  label="Combo Lunga"
-  closesearchtext="CHIUDI"
-></z-combobox>
-```
-
 <!-- Auto Generated Below -->
 
 
