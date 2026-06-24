@@ -25,9 +25,16 @@
 }
 
 :host > .z-chip-container > button {
+  position: relative;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: none;
   background-color: transparent;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -35,7 +42,7 @@
   fill: var(--color-primary01);
 }
 
-:host > .z-chip-container:not([aria-disabled]) .interactive-icon:hover {
+:host > .z-chip-container:not([aria-disabled]) button:hover .interactive-icon {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
@@ -52,10 +59,27 @@
   fill: var(--color-inverse-icon);
 }
 
-:host > .z-chip-container.filled:not([aria-disabled]) .interactive-icon:hover {
-  color: var(--color-text-inverse);
+:host > .z-chip-container.filled:not([aria-disabled]) button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-inverse-icon);
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+:host > .z-chip-container.filled:not([aria-disabled]) button:hover::before {
+  opacity: 0.16;
+}
+
+:host > .z-chip-container.filled:not([aria-disabled]) button:hover .interactive-icon {
+  color: var(--color-inverse-icon);
   fill: var(--color-inverse-icon);
-  opacity: 0.7;
 }
 
 :host > .z-chip-container.soft {
@@ -143,5 +167,10 @@
   :host > .z-chip-container .interactive-icon {
     --z-icon-width: 14px;
     --z-icon-height: 14px;
+  }
+
+  :host > .z-chip-container > button {
+    width: 20px;
+    height: 20px;
   }
 }
