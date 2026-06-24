@@ -19,12 +19,9 @@
   fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: 14px;
+  font-weight: var(--font-sb);
   gap: var(--space-unit);
   line-height: 1;
-}
-
-:host > .z-chip-interactive {
-  font-weight: var(--font-sb);
 }
 
 :host > .z-chip-container > button {
@@ -73,7 +70,6 @@
 
 /* Disabled state */
 :host > .z-chip-container[aria-disabled],
-:host > .z-chip-container[aria-disabled] z-icon,
 :host > .z-chip-container[aria-disabled] .interactive-icon {
   color: var(--color-disabled03);
   cursor: auto;
