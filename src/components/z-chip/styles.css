@@ -1,3 +1,12 @@
+:host,
+:host * {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+}
+
 :host > .z-chip-container {
   display: inline-flex;
   min-height: 28px;
@@ -11,7 +20,7 @@
   font-family: var(--font-family-sans);
   font-size: 14px;
   gap: var(--space-unit);
-  line-height: 28px;
+  line-height: 1;
 }
 
 :host > .z-chip-interactive {
@@ -98,19 +107,16 @@
 :host > .z-chip-container.default {
   min-height: 44px;
   border-radius: 22px;
-  line-height: 44px;
 }
 
 :host > .z-chip-container.medium {
   min-height: 40px;
   border-radius: 22px;
-  line-height: 40px;
 }
 
 :host > .z-chip-container.small {
   min-height: 36px;
   border-radius: 22px;
-  line-height: 36px;
 }
 
 /* Desktop breakpoint */
@@ -125,19 +131,16 @@
   :host > .z-chip-container.default {
     min-height: 32px;
     border-radius: 16px;
-    line-height: 32px;
   }
 
   :host > .z-chip-container.medium {
     min-height: 28px;
     border-radius: 16px;
-    line-height: 28px;
   }
 
   :host > .z-chip-container.small {
     min-height: 24px;
     border-radius: 16px;
-    line-height: 24px;
   }
 
   :host > .z-chip-container > z-icon,
