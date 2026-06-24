@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.3.0](https://github.com/ZanichelliEditore/design-system/compare/v19.2.12...v19.3.0) (2026-06-22)
+
+
+### Features
+
+* z-input-range component ([690f6f3](https://github.com/ZanichelliEditore/design-system/commit/690f6f35395c6ab56cae006466908086930fa635))
+
+
+### Bug Fixes
+
+* correctly update the current value when the browser rounds the input value on `step` changes ([b990061](https://github.com/ZanichelliEditore/design-system/commit/b990061855af46a4e1e3ca549fbe167a2bada890))
+* restore full import path in iconset stories ([2774f6e](https://github.com/ZanichelliEditore/design-system/commit/2774f6ec8d24397e9a9931068b049baeaf3e83ad))
+* set initial value to the internal state ([95ccb8f](https://github.com/ZanichelliEditore/design-system/commit/95ccb8f39882336f4d5fe21b52068ffe9ed387f9))
+
 ## [19.2.12](https://github.com/ZanichelliEditore/design-system/compare/v19.2.11...v19.2.12) (2026-06-16)
 
 

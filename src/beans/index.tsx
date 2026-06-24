@@ -69,6 +69,11 @@ export type TabItem = {
   disabled?: boolean;
 };
 
+export enum Orientation {
+  HORIZONTAL = "horizontal",
+  VERTICAL = "vertical",
+}
+
 export enum NavigationTabsOrientation {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical",

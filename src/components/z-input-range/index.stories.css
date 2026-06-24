@@ -1,0 +1,15 @@
+.input-range-story-container {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-range-story-container z-input-range {
+  width: 100%;
+}
+
+.input-range-story-container z-input-range[orientation="vertical"] {
+  width: auto;
+}
