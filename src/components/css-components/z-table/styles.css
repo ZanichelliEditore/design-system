@@ -53,14 +53,12 @@ table.z-table.z-table-bordered {
 }
 
 table.z-table-hover > tbody > tr:hover > td,
-table.z-table-hover > thead > tr:hover > th,
 table.z-table-hover > tfoot > tr:hover > td {
   position: relative;
   background-color: var(--color-surface02);
 }
 
 table.z-table-hover > tbody > tr:hover > td::after,
-table.z-table-hover > thead > tr:hover > th::after,
 table.z-table-hover > tfoot > tr:hover > td::after {
   position: absolute;
   z-index: 1;
