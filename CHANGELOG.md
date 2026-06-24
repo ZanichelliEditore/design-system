@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.4.0](https://github.com/ZanichelliEditore/design-system/compare/v19.3.0...v19.4.0) (2026-06-24)
+
+
+### Features
+
+*  over and remove useless css ([9ff9812](https://github.com/ZanichelliEditore/design-system/commit/9ff9812a17ce27726cf9badbed36695afdd236f0))
+* add CSS styles for z-table component and update styles in z-td and z-th components ([3ba7163](https://github.com/ZanichelliEditore/design-system/commit/3ba7163a962a5e412270693df49847bb64b9d730))
+* create z-table component whit css ([567f898](https://github.com/ZanichelliEditore/design-system/commit/567f8988ded59202d739b517b67e7264a6f214d1))
+* fix expandableContentId ([0236523](https://github.com/ZanichelliEditore/design-system/commit/023652312b97f82325434234839594a17056f123))
+* fix focus overlay ztable ([10089d4](https://github.com/ZanichelliEditore/design-system/commit/10089d47ab8a68be91b78a24d6f66657ed6cd440))
+* fix stories ([0ccb7fe](https://github.com/ZanichelliEditore/design-system/commit/0ccb7fe022bc9a3138727a762a5e6d62d06346e3))
+* remove hover th ([06ea9af](https://github.com/ZanichelliEditore/design-system/commit/06ea9afec8cf98135886c330f051cb98334eba03))
+* z-table css borders ([00914a2](https://github.com/ZanichelliEditore/design-system/commit/00914a21279e263ab6e61aa6d216fb77725f4dd1))
+* z-table css refactoring ([59a0cca](https://github.com/ZanichelliEditore/design-system/commit/59a0ccaf137234c77c9faaf80050c832e61b3345))
+
+
+### Bug Fixes
+
+* consolidate border-left styles for non-first child cells ([a4aa34d](https://github.com/ZanichelliEditore/design-system/commit/a4aa34dd9673efb6b510b4e19377f42a0dbc2bf9))
+* fix test ([21dbf95](https://github.com/ZanichelliEditore/design-system/commit/21dbf95c36b4f5a4d86efcb43614a722b5f54c4b))
+
 ## [19.3.0](https://github.com/ZanichelliEditore/design-system/compare/v19.2.12...v19.3.0) (2026-06-22)
 
 
