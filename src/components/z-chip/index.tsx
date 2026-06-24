@@ -47,7 +47,7 @@ export class ZChip implements ComponentInterface {
           [this.type]: true,
           [this.variant]: true,
         }}
-        aria-disabled={this.disabled}
+        aria-disabled={this.disabled ? "true" : undefined}
       >
         {this.icon && <z-icon name={this.icon} />}
         <slot />

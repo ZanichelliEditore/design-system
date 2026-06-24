@@ -89,7 +89,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" type="default" variant="outline">
-        <div aria-disabled="" class="default outline z-chip-container z-chip-interactive">
+        <div aria-disabled="true" class="default outline z-chip-container z-chip-interactive">
             <z-icon name="pdf"></z-icon>
             text
             <button aria-label="" disabled="" type="button">
@@ -153,7 +153,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" variant="filled" type="default">
-        <div aria-disabled="" class="default filled z-chip-container z-chip-interactive">
+        <div aria-disabled="true" class="default filled z-chip-container z-chip-interactive">
             <z-icon name="pdf"></z-icon>
             text
             <button aria-label="" disabled="" type="button">
@@ -172,7 +172,7 @@ describe("Suite test ZChip", () => {
 
     expect(page.root).toEqualHtml(`
       <z-chip disabled="" icon="pdf" interactive-icon="multiply-circled" variant="soft" type="default">
-        <div aria-disabled="" class="default soft z-chip-container z-chip-interactive">
+        <div aria-disabled="true" class="default soft z-chip-container z-chip-interactive">
             <z-icon name="pdf"></z-icon>
             text
             <button aria-label="" disabled="" type="button">

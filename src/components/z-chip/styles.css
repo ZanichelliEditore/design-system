@@ -10,6 +10,7 @@
   fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: 14px;
+  gap: var(--space-unit);
   line-height: 28px;
 }
 
@@ -20,13 +21,8 @@
 :host > .z-chip-container > button {
   padding: 0;
   border: none;
-  margin-left: var(--space-unit);
   background-color: transparent;
   cursor: pointer;
-}
-
-:host > .z-chip-container > z-icon:first-child {
-  margin-right: var(--space-unit);
 }
 
 :host > .z-chip-container .interactive-icon {
@@ -122,14 +118,7 @@
   :host > .z-chip-container {
     padding: 0 calc(var(--space-unit) * 1.5);
     font-size: 12px;
-  }
-
-  :host > .z-chip-container > button {
-    margin-left: calc(var(--space-unit) / 2);
-  }
-
-  :host > .z-chip-container > z-icon:first-child {
-    margin-right: calc(var(--space-unit) / 2);
+    gap: calc(var(--space-unit) / 2);
   }
 
   /* :host type */
