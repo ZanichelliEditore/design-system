@@ -23,7 +23,7 @@ import "../cells/z-th/index";
  */
 @Component({
   tag: "z-tr",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTr implements ComponentInterface {
@@ -62,18 +62,15 @@ export class ZTr implements ComponentInterface {
   @Listen("colspanchange")
   protected updateColumns(): void {
     const cells = Array.from(this.host.querySelectorAll<HTMLZTdElement | HTMLZThElement>("z-td, z-th"));
-    if (this.expandable) {
-      cells.pop();
-    }
-
-    const columns = cells.map((cell) => cell.colspan || 1).reduce((a, b) => a + b, 0);
-    this.host.style.setProperty("--columns", `${columns}`);
 
     if (this.expandable) {
       const expandableContent = cells.pop();
       expandableContent.id = expandableContent.id || `z-tr-expandable-content-${randomId()}`;
       this.expandableContentId = expandableContent.id;
     }
+
+    const columns = cells.map((cell) => cell.colspan || 1).reduce((a, b) => a + b, 0);
+    this.host.style.setProperty("--columns", `${columns}`);
   }
 
   /**
