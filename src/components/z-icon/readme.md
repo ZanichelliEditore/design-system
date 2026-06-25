@@ -77,7 +77,7 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-tag](../z-tag)
  - [z-th](../table/cells/z-th)
  - [z-toast-notification](../z-toast-notification)
- - [z-toggle-button](../z-toggle-button)
+ - [z-toggle-button](../deprecated/z-toggle-button)
  - [z-toggle-switch](../z-toggle-switch)
  - [z-tool](../z-tool)
  - [z-tr](../table/z-tr)

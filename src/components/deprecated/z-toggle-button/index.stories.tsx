@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {type ZToggleButton} from "./index";
 
 const StoryMeta = {
-  title: "ZToggleButton",
+  title: "Deprecated/ZToggleButton",
   args: {
     label: "Toggle",
     ariaLabel: "",
