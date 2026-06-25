@@ -173,6 +173,7 @@
 
 .results .item-no-results {
   display: block;
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 0.5);
   font-style: italic;
 }
 
