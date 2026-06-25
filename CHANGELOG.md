@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [19.5.0](https://github.com/ZanichelliEditore/design-system/compare/v19.4.0...v19.5.0) (2026-06-25)
+
+
+### Features
+
+* filled button on hover show round background ([8da3ef8](https://github.com/ZanichelliEditore/design-system/commit/8da3ef808845c9fa03aaa444d14bbbf4609cd9dd))
+* **z-chip:** add variants and update theme  to z-chip ([2dd9403](https://github.com/ZanichelliEditore/design-system/commit/2dd94037ec74a36f70f60760149eed63a7667ca2))
+
 ## [19.4.0](https://github.com/ZanichelliEditore/design-system/compare/v19.3.0...v19.4.0) (2026-06-24)
 
 
