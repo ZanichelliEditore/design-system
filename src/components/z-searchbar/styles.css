@@ -10,6 +10,7 @@
 
   z-index: 15;
   display: flex;
+  align-items: flex-end;
   column-gap: calc(var(--space-unit) * 2);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
