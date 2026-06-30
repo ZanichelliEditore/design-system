@@ -178,6 +178,7 @@ export class ZBookCard implements ComponentInterface {
         ) : (
           operaTitle
         )}
+        {this.variant === BookCardVariant.PORTRAIT ? this.renderCtaSlot() : null}
       </div>
     );
   }
@@ -246,11 +247,11 @@ export class ZBookCard implements ComponentInterface {
                 {this.renderOperaTitle()}
                 {this.renderVolumeTitle()}
                 {this.renderIsbn()}
+                {this.variant === BookCardVariant.LANDSCAPE ? <div class="cta-slot">{this.renderCtaSlot()}</div> : null}
               </div>
               <slot name="tags"></slot>
               <slot name="data"></slot>
             </div>
-            <div class="cta-slot">{this.renderCtaSlot()}</div>
             <slot name="ebook">{!!this.ebookUrl && <div class="bottom">{this.renderEbook()}</div>}</slot>
           </div>
         </div>
