@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v20.0.0](#v2000)
+
+  - [Rimozione dei componenti deprecati e snowflakes](#rimozione-componenti-deprecati-e-snowflakes)
+
 - [v19.0.0](#v1900)
 
   - [Rimosso colore di background per il tema dark](#rimozione-background-dal-tema-dark)
@@ -123,6 +127,37 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v20.0.0
+
+### Rimozione componenti deprecati e snowflakes
+
+Rimosso i componenti deprecati e snowflakes.
+Nel dettaglio sono stati rimossi:
+
+- componenti deprecati:
+  - z-app-header-deprecated
+  - z-book-card-deprecated
+  - z-menu-deprecated
+  - z-menu-section-deprecated
+  - z-section-title
+  - z-toggle-button
+  - z-myz-card-alert
+  - z-myz-card-body
+  - z-myz-card-cover
+  - z-myz-card-dictionary
+  - z-myz-card-footer-sections
+  - z-myz-card-footer
+  - z-myz-card-header
+  - z-myz-card-icon
+  - z-myz-card-info
+  - z-myz-card-list
+  - z-myz-card
+  - z-myz-list-item
+  - z-myz-list
+  - z-alert
+  - z-otp
+  - z-slideshow
 
 ## v19.0.0
 
