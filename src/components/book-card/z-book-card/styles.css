@@ -1,4 +1,13 @@
 :host {
+  /**
+   * @prop --z-book-card-portrait-cover-height: Set custom cover height for portrait variant - Default: `378px`
+   * @prop --z-book-card-title-lines: Set title avilable lines - Default: `2`
+   * @prop --z-book-card-title-word-break: Set title word-break rule - Default: `initial`
+   * @prop --z-book-card-subtitle-lines: Set subtitle available lines - Default: `1`
+   * @prop --z-book-card-subtitle-word-break: Set subtitle word-break rule - Default: `break-all`
+   * @prop --z-book-card-authors-lines: Set authors available lines - Default: `1`
+   * @prop --z-book-card-authors-word-break: Set authors word-break rule - Default: `break-all`
+   */
   --z-book-card-portrait-cover-height: 378px;
   --z-book-card-title-lines: 2;
   --z-book-card-title-word-break: initial;
@@ -36,6 +45,7 @@
   display: flex;
   overflow: hidden;
   align-items: flex-end;
+  justify-content: center;
   border-radius: var(--border-radius);
 }
 
@@ -153,7 +163,7 @@
 }
 
 :host([variant="landscape"]) {
-  width: 637px;
+  width: 635px;
   min-height: max(332px, 20.75rem);
   padding: 0;
 }

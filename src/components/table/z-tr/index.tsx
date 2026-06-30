@@ -1,4 +1,16 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {randomId} from "../../../utils/utils";
 import "../cells/z-td/index";
 import "../cells/z-th/index";
@@ -11,10 +23,10 @@ import "../cells/z-th/index";
  */
 @Component({
   tag: "z-tr",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
-export class ZTr {
+export class ZTr implements ComponentInterface {
   @Element() host: HTMLZTrElement;
 
   /**
@@ -50,18 +62,15 @@ export class ZTr {
   @Listen("colspanchange")
   protected updateColumns(): void {
     const cells = Array.from(this.host.querySelectorAll<HTMLZTdElement | HTMLZThElement>("z-td, z-th"));
-    if (this.expandable) {
-      cells.pop();
-    }
-
-    const columns = cells.map((cell) => cell.colspan || 1).reduce((a, b) => a + b, 0);
-    this.host.style.setProperty("--columns", `${columns}`);
 
     if (this.expandable) {
       const expandableContent = cells.pop();
       expandableContent.id = expandableContent.id || `z-tr-expandable-content-${randomId()}`;
       this.expandableContentId = expandableContent.id;
     }
+
+    const columns = cells.map((cell) => cell.colspan || 1).reduce((a, b) => a + b, 0);
+    this.host.style.setProperty("--columns", `${columns}`);
   }
 
   /**
@@ -103,7 +112,7 @@ export class ZTr {
     return (
       <Host
         role="row"
-        tabIndex={0}
+        tabIndex={this.expandable ? 0 : undefined}
         expanded={this.expanded}
         onClick={this.onRowClick.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}

@@ -1,11 +1,11 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-myz-card-icon",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardIcon {
+export class ZMyzCardIcon implements ComponentInterface {
   /** icon name */
   @Prop()
   icon: string;

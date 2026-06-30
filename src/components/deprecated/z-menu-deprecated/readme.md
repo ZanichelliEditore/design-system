@@ -30,6 +30,13 @@
 | `"item"`   | Single entry of the section. Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus. |
 
 
+## CSS Custom Properties
+
+| Name                   | Description                |
+| ---------------------- | -------------------------- |
+| `--z-menu-label-color` | Color of the label's text. |
+
+
 ## Dependencies
 
 ### Depends on

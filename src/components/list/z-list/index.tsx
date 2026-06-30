@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, h} from "@stencil/core";
 import {ListSize, ListType} from "../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {ListSize, ListType} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZList {
+export class ZList implements ComponentInterface {
   @Element() host: HTMLZListElement;
 
   /**

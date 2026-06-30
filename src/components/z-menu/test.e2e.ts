@@ -34,7 +34,7 @@ describe("z-menu test end2end", () => {
     await page.setContent(`
 			<z-menu>
         <h3>Menu label</h3>
-        <a href="https://www.google.it/" slot="item">Item 1</a>
+        <a href="https://www.google.com/" slot="item">Item 1</a>
         <a href="" slot="item">Item 2</a>
       </z-menu>
 		`);
@@ -48,11 +48,11 @@ describe("z-menu test end2end", () => {
 
     expect(await page.$eval("z-menu >>> button", (e) => getComputedStyle(e).borderColor)).toBe("rgb(0, 86, 193)");
 
-    const menuItem = await page.find('z-menu a[href="https://www.google.it/"]');
+    const menuItem = await page.find('z-menu a[href="https://www.google.com/"]');
     expect(menuItem).not.toBeNull();
 
     await menuItem.click();
     await page.waitForChanges();
-    expect(page.url()).toBe("https://www.google.it/");
+    expect(page.url()).toBe("https://www.google.com/");
   });
 });

@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Listen, Prop, h} from "@stencil/core";
 import {ButtonSize, ButtonVariant} from "../../../../beans";
 
 /**
@@ -10,7 +10,7 @@ import {ButtonSize, ButtonVariant} from "../../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardDictionary {
+export class ZMyzCardDictionary implements ComponentInterface {
   /** card title */
   @Prop()
   name: string;

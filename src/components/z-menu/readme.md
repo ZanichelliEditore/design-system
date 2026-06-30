@@ -54,6 +54,13 @@ Type: `Promise<void>`
 | `"item"`   | Single entry of the section. Can be slotted multiple times to insert items onto the menu. Set the `data-active` HTML attribute on the element to highlight it (`active` also works but `data-active` is preferable). Use `z-menu-section` for submenus. |
 
 
+## CSS Custom Properties
+
+| Name                   | Description                |
+| ---------------------- | -------------------------- |
+| `--z-menu-label-color` | Color of the label's text. |
+
+
 ## Dependencies
 
 ### Depends on

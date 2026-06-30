@@ -42,7 +42,29 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 | `position` | `position` | Tooltip position.                                                                                                                                                                                                      | `PopoverPosition.AUTO \| PopoverPosition.BOTTOM \| PopoverPosition.BOTTOM_LEFT \| PopoverPosition.BOTTOM_RIGHT \| PopoverPosition.LEFT \| PopoverPosition.LEFT_BOTTOM \| PopoverPosition.LEFT_TOP \| PopoverPosition.RIGHT \| PopoverPosition.RIGHT_BOTTOM \| PopoverPosition.RIGHT_TOP \| PopoverPosition.TOP \| PopoverPosition.TOP_LEFT \| PopoverPosition.TOP_RIGHT` | `PopoverPosition.AUTO` |
 
 
+## Events
+
+| Event        | Description                                                                                                                                                                                                                                                               | Type                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `openChange` | Propagation of the `openChange` event from the internal `z-popover` to allow listening to it directly on `z-tooltip`. This is necessary to keep the internal state of the `open` prop in sync when the popover is closed by user interaction instead of programmatically. | `CustomEvent<{ open: boolean; }>` |
+
+
+## CSS Custom Properties
+
+| Name                         | Description                                                    |
+| ---------------------------- | -------------------------------------------------------------- |
+| `--z-tooltip-padding`        | Padding of the popover. The default is `8px` (`--space-unit`). |
+| `--z-tooltip-shadow-filter`  | Drop-shadow filter of the popover.                             |
+| `--z-tooltip-theme--surface` | Background color of the popover.                               |
+| `--z-tooltip-theme--text`    | Foreground color of the popover.                               |
+
+
 ## Dependencies
+
+### Used by
+
+ - [z-input-range](../z-input-range)
+ - [z-tool](../z-tool)
 
 ### Depends on
 
@@ -52,6 +74,8 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 ```mermaid
 graph TD;
   z-tooltip --> z-popover
+  z-input-range --> z-tooltip
+  z-tool --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

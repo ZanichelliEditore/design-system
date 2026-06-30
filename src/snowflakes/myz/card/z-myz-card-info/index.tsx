@@ -1,16 +1,16 @@
-import {Component, Event, EventEmitter, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {DictionaryData, PopoverPosition} from "../../../../beans";
 import {handleKeyboardSubmit} from "../../../../utils/utils";
 
 /**
- * @slot  - content
+ * @slot - content
  */
 @Component({
   tag: "z-myz-card-info",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardInfo {
+export class ZMyzCardInfo implements ComponentInterface {
   /** dictionary info */
   @Prop()
   data: string | DictionaryData;

@@ -12,6 +12,7 @@
 | `dividerType`  | `divider-type`   | [optional] Sets the position where to insert the divider. | `ListDividerType.ELEMENT \| ListDividerType.HEADER \| ListDividerType.NONE`                | `ListDividerType.NONE` |
 | `hasTreeItems` | `has-tree-items` | [optional] check for tree items in grouped lists          | `boolean`                                                                                  | `undefined`            |
 | `listType`     | `list-type`      | [optional] type of the list marker for each element       | `ListType.NONE \| ListType.ORDERED \| ListType.UNORDERED`                                  | `ListType.NONE`        |
+| `role`         | `role`           | Sets element role.                                        | `string`                                                                                   | `"group"`              |
 | `size`         | `size`           | [optional] Sets size of inside elements.                  | `ListSize.LARGE \| ListSize.MEDIUM \| ListSize.NONE \| ListSize.SMALL \| ListSize.X_LARGE` | `ListSize.MEDIUM`      |
 
 

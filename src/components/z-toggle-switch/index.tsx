@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {LabelPosition} from "../../beans";
 import {randomId} from "../../utils/utils";
 
@@ -8,7 +8,7 @@ import {randomId} from "../../utils/utils";
   shadow: false,
   scoped: true,
 })
-export class ZToggleSwitch {
+export class ZToggleSwitch implements ComponentInterface {
   /** Disabled flag */
   @Prop({reflect: true})
   disabled?: boolean = false;

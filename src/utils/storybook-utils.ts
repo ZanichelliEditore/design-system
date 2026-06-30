@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import {OptionsConfig} from "@storybook/blocks";
-import {Args} from "@storybook/web-components";
+import type {OptionsConfig} from "@storybook/addon-docs/blocks";
+import type {Args} from "storybook/internal/csf";
 
 type CSSCustomProp = `--${string}`;
 type EnsurePrefix<T extends string, P extends string> = T extends `${P}${string}` ? T : `${P}${T}`;
@@ -187,4 +186,12 @@ export function getColorTokenArgConfig(nullable = false): Args {
       labels: getColorVarsLabels(),
     },
   } satisfies Args;
+}
+
+/**
+ * Extract CSS variables from an object.
+ * Returns only the entries with keys starting with `--`.
+ */
+export function extractCSSVars(args: Args): CSSVarsArguments {
+  return Object.fromEntries(Object.entries(args).filter(([key]) => key.startsWith("--")));
 }

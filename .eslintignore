@@ -1,9 +1,0 @@
-dist
-react
-storybook
-www
-loader
-internals
-stencil.config.ts
-**/*.js
-**/*.e2e.ts

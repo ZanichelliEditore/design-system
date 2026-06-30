@@ -1,4 +1,4 @@
-import {Component, Element, h, Host, Prop} from "@stencil/core";
+import {Component, ComponentInterface, Element, h, Host, Prop} from "@stencil/core";
 import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZListGroup {
+export class ZListGroup implements ComponentInterface {
   @Element() host: HTMLZListGroupElement;
 
   /**
@@ -45,6 +45,12 @@ export class ZListGroup {
   @Prop()
   hasTreeItems?: boolean;
 
+  /**
+   * Sets element role.
+   */
+  @Prop({reflect: true})
+  role = "group";
+
   private hasHeader: boolean;
 
   componentDidLoad(): void {
@@ -67,7 +73,7 @@ export class ZListGroup {
 
   render(): HTMLZListGroupElement {
     return (
-      <Host role="group">
+      <Host>
         <div
           class={{
             "z-list-group-header-container": true,

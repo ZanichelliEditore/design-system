@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 import {PopoverPosition, ZChipType} from "../../../beans";
 import {Breakpoints} from "../../../constants/breakpoints";
 
@@ -8,7 +8,7 @@ import {Breakpoints} from "../../../constants/breakpoints";
   shadow: false,
   scoped: true,
 })
-export class ZFile {
+export class ZFile implements ComponentInterface {
   private icon: HTMLElement;
 
   private ellipsis?: HTMLSpanElement;

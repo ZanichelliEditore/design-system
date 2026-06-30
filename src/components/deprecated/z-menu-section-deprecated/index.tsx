@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Listen, Prop, State, h} from "@stencil/core";
 
 /**
  * A component to create submenus inside the ZMenu.
@@ -10,7 +10,7 @@ import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, h} f
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenuSectionDeprecated {
+export class ZMenuSectionDeprecated implements ComponentInterface {
   @Element() hostElement: HTMLZMenuSectionDeprecatedElement;
 
   /** Active state */
@@ -37,7 +37,11 @@ export class ZMenuSectionDeprecated {
     }
 
     this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
+    if (this.open) {
+      this.opened.emit();
+    } else {
+      this.closed.emit();
+    }
   }
 
   /** Close the list when a click is performed outside of this Element. */

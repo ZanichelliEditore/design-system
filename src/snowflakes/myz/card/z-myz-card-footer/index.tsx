@@ -1,4 +1,4 @@
-import {Component, Element, Listen, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Listen, Prop, State, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {LicenseType} from "../../../../beans/index";
 
@@ -11,7 +11,7 @@ import {LicenseType} from "../../../../beans/index";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardFooter {
+export class ZMyzCardFooter implements ComponentInterface {
   @Element() host: HTMLZMyzCardFooterElement;
 
   /** volume title */

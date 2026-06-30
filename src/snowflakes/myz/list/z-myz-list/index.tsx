@@ -1,4 +1,4 @@
-import {Component, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, Watch, h} from "@stencil/core";
 import {ListItem} from "../../../../beans/index.js";
 
 @Component({
@@ -6,7 +6,7 @@ import {ListItem} from "../../../../beans/index.js";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzList {
+export class ZMyzList implements ComponentInterface {
   /** json stringified list data (mutable, optional) */
   @Prop()
   inputrawdata?: string;

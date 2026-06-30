@@ -1,4 +1,10 @@
 :host {
+  /**
+   * @prop --z-popover-theme--surface: background color of the popover.
+   * @prop --z-popover-theme--text: foreground color of the popover.
+   * @prop --z-popover-padding: padding of the popover.
+   * @prop --z-popover-shadow-filter: drop-shadow filter of the popover. Defaults to `drop-shadow(0 1px 2px var(--shadow-color-base))`.
+   */
   --z-popover-theme--surface: ;
   --z-popover-theme--text: ;
   --z-popover-padding: ;
@@ -6,8 +12,8 @@
 
   position: fixed;
   display: none;
-  max-width: calc(100% - var(--grid-margin) * 2);
-  max-height: calc(100% - var(--grid-margin) * 2);
+  max-width: calc(100dvw - var(--grid-margin) * 2);
+  max-height: calc(100dvh - var(--grid-margin) * 2);
   padding: var(--z-popover-padding, 0);
   background: var(--z-popover-theme--surface, var(--color-surface01));
   border-radius: var(--border-radius-small);
@@ -49,7 +55,6 @@
 }
 
 /* Arrow style */
-
 :host([current-position])::before {
   --arrow-size: 6px;
   --arrow-edge-offset: calc(100% - var(--space-unit) - (var(--arrow-size) / 2));

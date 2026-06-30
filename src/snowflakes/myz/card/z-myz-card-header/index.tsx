@@ -1,4 +1,4 @@
-import {Component, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, State, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {LicenseType} from "../../../../beans/index";
 
@@ -10,7 +10,7 @@ import {LicenseType} from "../../../../beans/index";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardHeader {
+export class ZMyzCardHeader implements ComponentInterface {
   /** volume title */
   @Prop()
   titolo: string;

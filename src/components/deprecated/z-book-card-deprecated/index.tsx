@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, h} from "@stencil/core";
 import {BookCardDeprecatedVariant} from "../../../beans";
 import {Breakpoints} from "../../../constants/breakpoints";
 import {randomId} from "../../../utils/utils";
@@ -8,17 +8,13 @@ import {randomId} from "../../../utils/utils";
  * @slot header-cta - header CTA (e.g. bookmark icon - extended and search variant only)
  * @slot tags - card tags (extended and search variant only)
  * @slot footer-cta - footer cta button (search and compact variant only)
- * @cssprop --z-book-card-ribbon-background-color - ribbon backgrund color
- * @cssprop --z-book-card-ribbon-shadow-color - ribbon shadow color
- * @cssprop --z-book-card-compact-width - compact card custom width
- * @cssprop --z-book-card-compact-height - compact card custom height
  */
 @Component({
   tag: "z-book-card-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZBookCardDeprecated {
+export class ZBookCardDeprecated implements ComponentInterface {
   @Element() hostElement: HTMLZBookCardDeprecatedElement;
 
   /**

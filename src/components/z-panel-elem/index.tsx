@@ -1,4 +1,4 @@
-import {Component, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Prop, h} from "@stencil/core";
 
 /**
  * @slot `descrSlotName` - description content
@@ -9,7 +9,7 @@ import {Component, Prop, h} from "@stencil/core";
   shadow: false,
   scoped: true,
 })
-export class ZPanelElem {
+export class ZPanelElem implements ComponentInterface {
   /** html element id (optional) */
   @Prop()
   elemid?: string;

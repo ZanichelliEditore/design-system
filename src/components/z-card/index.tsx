@@ -1,17 +1,10 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, h} from "@stencil/core";
 import {CardVariant} from "../../beans";
 
 /**
  * ZCard component.
  * The width of the card must be set by its container, following the grid indications of the design.
  *
- * @cssprop --aspect-ratio - Cover aspect ratio. Default: `1.62`
- * @cssprop --z-card--border-color - Default: `var(--gray200)`
- * @cssprop --z-card--color-cover-background - Cover color. Default: `var(--color-surface01)`
- * @cssprop --z-card--text-background - Background color for the `text` variant. Default: `var(--color-surface01)`
- * @cssprop --z-card--text-border-radius - Default: `none`
- * @cssprop --z-card--text-border - Configure CSS `border`. Default: `none`
- * @cssprop --z-card--text-padding - Configure CSS `padding`. Default: `none`
  * @slot cover - Image cover
  * @slot metadata - Metadata
  * @slot title - Using an `<a>` tag here will make the whole card clickable as if the link was wrapping it.
@@ -23,14 +16,14 @@ import {CardVariant} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZCard {
+export class ZCard implements ComponentInterface {
   /**
    * Card variant.
    * Can be one of "text", "border", "shadow", "overlay".
    * Leave it undefined for the default card.
    */
   @Prop({reflect: true})
-  variant: CardVariant;
+  variant?: CardVariant;
 
   /** Name of the icon to place over the image cover */
   @Prop()

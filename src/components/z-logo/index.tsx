@@ -1,11 +1,11 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 
 @Component({
   tag: "z-logo",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZLogo {
+export class ZLogo implements ComponentInterface {
   /** image width */
   @Prop()
   width?: number;

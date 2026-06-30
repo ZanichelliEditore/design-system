@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 
 /**
  * ZTFoot component.
@@ -6,10 +6,10 @@ import {Component, Host, Prop, h} from "@stencil/core";
  */
 @Component({
   tag: "z-tfoot",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
-export class ZTfoot {
+export class ZTfoot implements ComponentInterface {
   /**
    * If true, the footer will be stuck to the bottom of the table.
    */

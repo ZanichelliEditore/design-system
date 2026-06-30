@@ -1,5 +1,7 @@
 :host {
-  --z-table--cells-padding: calc(var(--space-unit) * 2);
+  /**
+   * @prop --z-table--cells-padding: Padding of the cells.
+   */
 
   position: relative;
   display: block;
@@ -8,13 +10,8 @@
   max-width: 100%;
   box-sizing: border-box;
   padding: var(--space-unit);
-  background-color: var(--color-surface01);
 }
 
 :host([expandable]) {
   --z-table--expand-button-size: 40px;
-}
-
-:host([bordered]) {
-  --z-table--cell-left-border: 1px solid var(--color-surface03);
 }

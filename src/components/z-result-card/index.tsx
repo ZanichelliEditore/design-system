@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, h} from "@stencil/core";
 
 /**
  * @slot tags - slot containing the descriptors for the opera variant
@@ -9,7 +9,7 @@ import {Component, Element, Host, Prop, h} from "@stencil/core";
   styleUrls: ["styles.css"],
   shadow: true,
 })
-export class ZResultCard {
+export class ZResultCard implements ComponentInterface {
   @Element() hostElement: HTMLZResultCardElement;
 
   /** The title of the card. */

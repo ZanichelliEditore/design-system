@@ -1,39 +1,5 @@
 # z-button-sort
 
-<!-- readme-group="buttons" -->
-
-```html
-<z-button-sort
-  label="Chimica"
-  counter="3"
-></z-button-sort>
-<z-button-sort
-  label="Biologia"
-  counter="5"
-></z-button-sort>
-<z-button-sort label="Label"></z-button-sort>
-<z-button-sort
-  label="Selected"
-  isselected="true"
-></z-button-sort>
-<z-button-sort
-  label="Selected"
-  isselected="true"
-  sortasc="false"
-></z-button-sort>
-<z-button-sort
-  label="Sort number"
-  sortlabelasc="1-9"
-  sortlabeldesc="9-1"
-></z-button-sort>
-<z-button-sort
-  label="Ordina ASC"
-  desclabel="Ordina DESC"
-  sortlabelasc=""
-  sortlabeldesc=""
-></z-button-sort>
-```
-
 <!-- Auto Generated Below -->
 
 

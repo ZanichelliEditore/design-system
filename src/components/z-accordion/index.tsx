@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Watch, h} from "@stencil/core";
 import {AccordionVariant, ControlSize} from "../../beans";
 
 /**
@@ -6,23 +6,17 @@ import {AccordionVariant, ControlSize} from "../../beans";
  *
  * @slot - Slot for the main content.
  * @slot tag - Slot for tags.
- * @cssprop --z-accordion-highlight-color - Color of the highlight band on the summary's left edge. Only applies when `highlight` is true. Default: `transparent`.
- * @cssprop --z-accordion-bg - Background color of the summary. Default: `--color-surface02`.
- * @cssprop --z-accordion-label-color - Label color. Default: `--color-default-text`.
- * @cssprop --z-accordion-disabled-label-color - Label color when disabled. Default: `--color-text03`.
- * @cssprop --z-accordion-content-bg - Background color of the accordion. Default: `--color-surface02`.
- * @cssprop --z-accordion-content-fg - Content text color. Default: `--color-default-text`.
- * @cssprop --z-accordion-hover-color - Hover color of the summary. Default: `--color-surface03`.
- * @cssprop --z-accordion-left-padding - Left padding of the summary. Default: `--space-unit` * 2.
- * @cssprop --z-accordion-right-padding - Right padding of the summary. Default: `--space-unit`.
- * @cssprop --z-accordion-label-font-weight - Font weight of the summary label. Default: `--font-sb`.
+ * @part summary - The summary element that is always visible and acts as the accordion's toggle.
+ * @part content - The content element that is shown or hidden when the accordion is toggled.
  */
 @Component({
   tag: "z-accordion",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAccordion {
+export class ZAccordion implements ComponentInterface {
+  @Element() host: HTMLZAccordionElement;
+
   /**
    * Text label.
    */
@@ -71,6 +65,9 @@ export class ZAccordion {
   @Prop({reflect: true})
   shadow = true;
 
+  @State()
+  private hasSlottedTags = false;
+
   /**
    * Event fired when the accordion is toggled.
    */
@@ -85,6 +82,11 @@ export class ZAccordion {
   }
 
   private detailsElm: HTMLDetailsElement;
+
+  /** Check if there is any content in the "tag" slot. */
+  private checkSlottedTags(): void {
+    this.hasSlottedTags = !!this.host.querySelector('[slot="tag"]');
+  }
 
   /**
    * Handle `details` element toggle.
@@ -101,6 +103,10 @@ export class ZAccordion {
 
     this.open = this.detailsElm.open;
     this.toggled.emit(this.open);
+  }
+
+  componentWillLoad(): void {
+    this.checkSlottedTags();
   }
 
   render(): HTMLDetailsElement {
@@ -121,9 +127,14 @@ export class ZAccordion {
             />
           )}
           <span class="z-accordion-label">{this.label}</span>
-          <span class="z-accordion-tags">
-            <slot name="tag" />
-          </span>
+          {this.hasSlottedTags && (
+            <span class="z-accordion-tags">
+              <slot
+                name="tag"
+                onSlotchange={() => this.checkSlottedTags()}
+              />
+            </span>
+          )}
           <z-icon
             class="z-accordion-chevron"
             name={this.open ? "chevron-up" : "chevron-down"}

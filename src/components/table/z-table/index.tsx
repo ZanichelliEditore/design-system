@@ -1,4 +1,4 @@
-import {Component, Element, Host, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, h} from "@stencil/core";
 import "../z-tbody/index";
 import "../z-tfoot/index";
 import "../z-thead/index";
@@ -7,14 +7,13 @@ import "../z-tr/index";
 /**
  * ZTable component.
  * @slot - Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`).
- * @cssprop --z-table--cells-padding - Padding of the cells.
  */
 @Component({
   tag: "z-table",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
-export class ZTable {
+export class ZTable implements ComponentInterface {
   @Element() host: HTMLZTableElement;
 
   /**

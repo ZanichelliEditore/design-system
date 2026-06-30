@@ -1,4 +1,5 @@
 import {newE2EPage} from "@stencil/core/testing";
+import {encodeString} from "../../utils/utils";
 
 const items = [
   {id: "ite_m_1", name: "First item", checked: false, category: "Gruppo 1"},
@@ -32,20 +33,91 @@ it("Tests z-combobox search", async () => {
 
   const input = await page.find("z-combobox >>> z-input input");
   const listbox = await page.find("z-combobox >>> #combo_1_list");
-  const listElements = await listbox.findAll("z-list-element");
-  expect(listElements.map(({id}) => id)).toEqual(items.map(({id}) => `option-${id}`));
+
+  const comboboxChangeEvent = await page.spyOnEvent("comboboxChange");
+  const itemsPayload = [...items];
 
   await input.type(items[0].name);
   await page.waitForChanges();
   const filteredListElems = await listbox.findAll("z-list-element");
 
-  expect(filteredListElems.map(({id}) => id)).toEqual([`option-${items[0].id}`]);
+  expect(filteredListElems.length).toBe(1);
+  const option = await filteredListElems[0].find('>>> span[role="option"]');
+  expect(option.id).toEqual(`combo_1-option-${encodeString(items[0].id)}`);
 
-  const clickEvent = await page.spyOnEvent("comboboxChange");
-
-  const checkbox = await filteredListElems[0].find("z-input div input");
-  await checkbox.click();
+  await option.click();
   await page.waitForChanges();
 
-  expect(clickEvent).toHaveReceivedEvent();
+  itemsPayload[0]["checked"] = true;
+  expect(comboboxChangeEvent).toHaveReceivedEventDetail({id: "combo_1", items: itemsPayload});
+
+  await option.click();
+  await page.waitForChanges();
+
+  itemsPayload[0]["checked"] = false;
+  expect(comboboxChangeEvent).toHaveReceivedEventDetail({id: "combo_1", items: itemsPayload});
+});
+
+it("Tests z-combobox keyboard navigation", async () => {
+  const page = await newE2EPage();
+  await page.setContent(`
+    <z-combobox
+      checkalltext="Select all"
+      closesearchtext="Close"
+      hassearch="true"
+      inputid="combo_1"
+      isfixed="true"
+      isopen="true"
+      items='${JSON.stringify(items)}'
+      label="Combobox Label"
+      maxcheckableitems="4"
+      hasgroupitems="false"
+      noresultslabel="No items"
+      searchlabel="Search Label"
+      searchplaceholder="Search Placeholder"
+      searchtitle="Search Title"
+      uncheckalltext="Uncheck All"
+    />
+  `);
+
+  const input = await page.find("z-combobox >>> z-input input");
+
+  const comboboxChangeEvent = await page.spyOnEvent("comboboxChange");
+  const itemsPayload = [...items];
+
+  await input.focus();
+  await page.waitForChanges();
+
+  await input.press("ArrowDown");
+  await page.waitForChanges();
+
+  expect((await page.find("z-combobox >>> z-input")).getAttribute("html-aria-activedescendant")).toBe(
+    `combo_1-option-${encodeString("ite_m_1")}`
+  );
+
+  await input.press("Enter");
+  await page.waitForChanges();
+
+  itemsPayload[0]["checked"] = true;
+  expect(comboboxChangeEvent).toHaveReceivedEventDetail({id: "combo_1", items: itemsPayload});
+
+  await input.press("ArrowDown");
+  await page.waitForChanges();
+
+  expect((await page.find("z-combobox >>> z-input")).getAttribute("html-aria-activedescendant")).toBe(
+    `combo_1-option-${encodeString("ite_m_2")}`
+  );
+
+  await input.press("Space");
+  await page.waitForChanges();
+
+  itemsPayload[0]["checked"] = true;
+  itemsPayload[1]["checked"] = true;
+  expect(comboboxChangeEvent).toHaveReceivedEventDetail({id: "combo_1", items: itemsPayload});
+
+  await input.press("Space");
+  await page.waitForChanges();
+
+  itemsPayload[1]["checked"] = false;
+  expect(comboboxChangeEvent).toHaveReceivedEventDetail({id: "combo_1", items: itemsPayload});
 });

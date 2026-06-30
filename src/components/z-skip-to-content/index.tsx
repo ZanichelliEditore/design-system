@@ -1,4 +1,4 @@
-import {Component, Element, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Listen, Prop, State, h} from "@stencil/core";
 import {SkipToContentLink, ThemeVariant} from "../../beans";
 import {getElementTree, handleKeyboardSubmit} from "../../utils/utils";
 
@@ -11,7 +11,7 @@ import {getElementTree, handleKeyboardSubmit} from "../../utils/utils";
   shadow: false,
   scoped: true,
 })
-export class ZSkipToContent {
+export class ZSkipToContent implements ComponentInterface {
   /** Graphical variant: `dark`, `light`. */
   @Prop({reflect: true})
   variant?: ThemeVariant;

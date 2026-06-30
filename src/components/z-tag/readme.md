@@ -22,6 +22,14 @@ Ztag component.
 |      | The text of the z-tag. |
 
 
+## CSS Custom Properties
+
+| Name                 | Description                       |
+| -------------------- | --------------------------------- |
+| `--z-tag-bg`         | background color of the z-tag.    |
+| `--z-tag-text-color` | text and icon color using tokens. |
+
+
 ## Dependencies
 
 ### Used by

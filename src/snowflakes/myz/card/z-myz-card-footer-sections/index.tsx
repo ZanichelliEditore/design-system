@@ -1,4 +1,4 @@
-import {Component, h} from "@stencil/core";
+import {Component, ComponentInterface, h} from "@stencil/core";
 
 /**
  * @slot top - footer top content
@@ -9,7 +9,7 @@ import {Component, h} from "@stencil/core";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardFooterSections {
+export class ZMyzCardFooterSections implements ComponentInterface {
   render(): HTMLDivElement {
     return (
       <div>

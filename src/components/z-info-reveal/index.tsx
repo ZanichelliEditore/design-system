@@ -1,21 +1,17 @@
-import {Component, Element, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
 import {ControlSize, InfoRevealPosition} from "../../beans";
 
 /**
  * Info reveal component.
  *
  * @slot - content of the info panel.
- * @cssprop --z-info-reveal-panel-width - Width of the info panel.
- * @cssprop --trigger-icon-size - Size of the trigger icon for big size.
- * @cssprop --trigger-icon-size-small - Size of the trigger icon for small size.
- * @cssprop --trigger-icon-size-x-small - Size of the trigger icon for x-small size.
  */
 @Component({
   tag: "z-info-reveal",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZInfoReveal {
+export class ZInfoReveal implements ComponentInterface {
   /** Name of the icon for the trigger button */
   @Prop()
   icon? = "informationsource";

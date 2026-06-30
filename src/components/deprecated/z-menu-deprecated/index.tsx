@@ -1,17 +1,28 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 
 /**
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items onto the menu. Use `z-menu-section` for submenus.
- * @cssprop --z-menu-label-color - Color of the label's text.
  */
 @Component({
   tag: "z-menu-deprecated",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenuDeprecated {
+export class ZMenuDeprecated implements ComponentInterface {
   @Element() hostElement: HTMLZMenuDeprecatedElement;
 
   /** Flag to set the active status of the menu. */
@@ -62,7 +73,11 @@ export class ZMenuDeprecated {
     }
 
     this.open = !this.open;
-    this.open ? this.opened.emit() : this.closed.emit();
+    if (this.open) {
+      this.opened.emit();
+    } else {
+      this.closed.emit();
+    }
   }
 
   /** Close the floating list when a click is performed outside of this Element. */

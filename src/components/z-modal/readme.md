@@ -67,6 +67,13 @@ Type: `Promise<void>`
 | `"modalContent"`     | slot for the content of the modal |
 
 
+## CSS Custom Properties
+
+| Name                        | Description                                                                 |
+| --------------------------- | --------------------------------------------------------------------------- |
+| `--z-modal-content-padding` | padding of the modal's content. The default is `16px` (`--space-unit * 2`). |
+
+
 ## Dependencies
 
 ### Used by

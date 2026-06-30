@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h} from "@stencil/core";
 import {BookCardVariant, ControlSize} from "../../../beans";
 
 /**
@@ -8,20 +8,13 @@ import {BookCardVariant, ControlSize} from "../../../beans";
  * @slot data - External link and pill, default empty
  * @slot apps - List of card-related apps, default empty
  * @slot coverOverlay - Content to be displayed in the `z-book-cover` component slot
- * @cssprop --z-book-card-portrait-cover-height - Set custom cover height for portrait variant - Default: `378px`
- * @cssprop --z-book-card-title-lines - Set title avilable lines - Default: `2`
- * @cssprop --z-book-card-title-word-break - Set title word-break rule - Default: `initial`
- * @cssprop --z-book-card-subtitle-lines - Set subtitle available lines - Default: `1`
- * @cssprop --z-book-card-subtitle-word-break - Set subtitle word-break rule - Default: `break-all`
- * @cssprop --z-book-card-authors-lines - Set authors available lines - Default: `1`
- * @cssprop --z-book-card-authors-word-break - Set authors word-break rule - Default: `break-all`
  */
 @Component({
   tag: "z-book-card",
   styleUrls: ["styles.css", "../../../tokens/typography.css", "../../css-components/z-link/styles.css"],
   shadow: true,
 })
-export class ZBookCard {
+export class ZBookCard implements ComponentInterface {
   @Element() hostElement: HTMLZBookCardElement;
 
   /** Card variant: landscape, portrait */

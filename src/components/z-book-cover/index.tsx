@@ -1,4 +1,4 @@
-import {Component, Fragment, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Fragment, Host, Prop, h} from "@stencil/core";
 import defaultFallbackCover from "../../assets/images/png/placeholder-cover.png";
 
 /**
@@ -8,17 +8,13 @@ import defaultFallbackCover from "../../assets/images/png/placeholder-cover.png"
  * Alignment of the image inside the container can be customized via CSS properties.
  *
  * @slot coverOverlay - Content to be displayed over the cover image (e.g. a label). The overlay is positioned at the bottom of the cover. Has some default styling (such as the colored background) that can be customized via CSS.
- * @cssprop --z-book-cover-height - height of the book cover (default: `378px`). The width is calculated automatically to maintain an aspect ratio of 1.33.
- * @cssprop --z-book-cover-border-radius - border radius of the book cover (default: `var(--border-radius)`)
- * @cssprop --z-book-cover-stack-shift-x - the horizontal shift of each stacked cover when `multiple` is `true` (default: `8px`)
- * @cssprop --z-book-cover-stack-shift-y - the vertical shift of each stacked cover when `multiple` is `true` (default: `12px`)
  */
 @Component({
   tag: "z-book-cover",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZBookCover {
+export class ZBookCover implements ComponentInterface {
   /** URL of the cover image. */
   @Prop()
   cover: string;

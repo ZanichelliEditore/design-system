@@ -1,14 +1,8 @@
-@import "../z-table-cells.css";
-
 :host {
   z-index: 1;
   padding: 0;
   background-color: var(--color-background);
   font-weight: var(--font-sb);
-}
-
-.cell--content {
-  padding: var(--z-table--cells-padding, calc(var(--space-unit) * 2));
 }
 
 :host([show-sorting]) .cell--content {

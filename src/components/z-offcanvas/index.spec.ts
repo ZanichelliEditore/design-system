@@ -12,8 +12,8 @@ describe("Suite test ZOffcanvas", () => {
 
     expect(page.root).toEqualHtml(`
 			<z-offcanvas open transitiondirection="left" variant="pushcontent">
-				<div class="canvas-container" role="presentation">
-					<div class="canvas-content z-scrollbar" role="presentation">
+				<div class="canvas-container">
+					<div class="canvas-content z-scrollbar" tabindex="-1">
 						<div slot="canvasContent"></div>
 					</div>
         </div>
@@ -30,9 +30,9 @@ describe("Suite test ZOffcanvas", () => {
     });
 
     expect(page.root).toEqualHtml(`
-			<z-offcanvas open transitiondirection="left" variant="overlay">
-				<div class="canvas-container" role="presentation">
-					<div class="canvas-content z-scrollbar" role="presentation">
+			<z-offcanvas open transitiondirection="left" variant="overlay" aria-modal="true" role="dialog">
+				<div class="canvas-container">
+					<div class="canvas-content z-scrollbar" tabindex="-1">
 						<div slot="canvasContent"></div>
 					</div>
         </div>
@@ -51,13 +51,39 @@ describe("Suite test ZOffcanvas", () => {
 
     expect(page.root).toEqualHtml(`
 			<z-offcanvas open transitiondirection="up" variant="pushcontent">
-				<div class="canvas-container" role="presentation">
-					<div class="canvas-content z-scrollbar" role="presentation">
+				<div class="canvas-container">
+					<div class="canvas-content z-scrollbar" tabindex="-1">
 						<div slot="canvasContent"></div>
 					</div>
         </div>
         <div class="backdrop"></div>
       </z-offcanvas>
     `);
+  });
+
+  it("Should close the overlay variant offcanvas when Escape key is pressed", async () => {
+    const page = await newSpecPage({
+      components: [ZOffcanvas],
+      html: `<z-offcanvas open variant="overlay">
+        <div slot="canvasContent"></div>
+      </z-offcanvas>`,
+    });
+
+    const offcanvas = page.root as HTMLZOffcanvasElement;
+
+    // Ensure it starts open
+    expect(offcanvas.open).toBe(true);
+
+    const event = new KeyboardEvent("keydown", {
+      key: "Escape",
+      bubbles: true,
+    });
+
+    document.dispatchEvent(event);
+
+    await page.waitForChanges();
+
+    // After Escape, open should be false
+    expect(offcanvas.open).toBe(false);
   });
 });

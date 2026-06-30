@@ -1,4 +1,4 @@
-import {Component, Element, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Prop, h} from "@stencil/core";
 import {JSXBase} from "@stencil/core/internal";
 import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "../../beans";
 
@@ -11,7 +11,7 @@ import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "
   shadow: false,
   scoped: true,
 })
-export class ZButton {
+export class ZButton implements ComponentInterface {
   @Element() hostElement: HTMLZButtonElement;
 
   /** defines a string value that labels the internal interactive element. Used for accessibility. */
@@ -19,7 +19,7 @@ export class ZButton {
   ariaLabel: string | undefined = undefined;
 
   /**
-   * **Deprecated:** Use `htmlrole` instead.
+   * Use `htmlrole` instead.
    * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
    */
   @Prop()
@@ -69,27 +69,37 @@ export class ZButton {
   @Prop({reflect: true})
   size?: ButtonSize | ControlSize = ControlSize.BIG;
 
-  private getAttributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
+  private hasText = false;
+
+  componentWillLoad(): void {
+    this.hasText = !!this.hostElement.textContent?.trim();
+  }
+
+  private get attributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {
       id: this.htmlid,
       class: {
         "z-button--container": true,
-        "z-button--has-text": !!this.hostElement.textContent.trim(),
+        "z-button--has-text": this.hasText,
       },
     };
   }
 
-  private renderIcon(): JSX.Element | undefined {
+  private renderIcon(): HTMLZIconElement | undefined {
     return this.icon && <z-icon name={this.icon} />;
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
-    if (this.href) {
+    const normalizedAriaLabel = this.ariaLabel?.trim() || undefined;
+    const normalizedRole = this.htmlrole || this.role?.trim() || undefined;
+    const shouldRenderAsLink = normalizedRole === "link";
+
+    if (this.href || shouldRenderAsLink) {
       return (
         <a
-          {...this.getAttributes()}
-          aria-label={this.ariaLabel || undefined}
-          href={this.href}
+          {...this.attributes}
+          aria-label={normalizedAriaLabel}
+          href={this.href || "#"}
           target={this.target}
         >
           {this.renderIcon()}
@@ -100,12 +110,12 @@ export class ZButton {
 
     return (
       <button
-        {...this.getAttributes()}
-        aria-label={this.ariaLabel || undefined}
+        {...this.attributes}
+        aria-label={normalizedAriaLabel}
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        role={this.htmlrole || this.role || undefined}
+        role={normalizedRole}
       >
         {this.renderIcon()}
         <slot />

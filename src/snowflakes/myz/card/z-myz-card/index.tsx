@@ -1,15 +1,15 @@
-import {Component, h, Prop} from "@stencil/core";
+import {Component, ComponentInterface, h, Prop} from "@stencil/core";
 import {LicenseType} from "../../../../beans/index";
 
 /**
- * @slot  - generic card slot
+ * @slot - generic card slot
  */
 @Component({
   tag: "z-myz-card",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMyzCardComponent {
+export class ZMyzCardComponent implements ComponentInterface {
   /** faded status */
   @Prop()
   faded: boolean;

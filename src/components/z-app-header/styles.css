@@ -1,20 +1,17 @@
 :host {
+  /**
+   * @prop --app-header-content-max-width: Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
+   * @prop --app-header-top-offset: Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
+   * @prop --app-header-bg: Header background color. Defaults to `--color-surface01`.
+   * @prop --app-header-text-color: Header text color. Defaults to `--color-default-text`.
+   * @prop --app-header-stucked-bg: Stuck header background color. Defaults to `--color-surface01`.
+   * @prop --app-header-stucked-text-color: Stuck header text color. Defaults to `--color-default-text`.
+   */
   --app-header-content-max-width: ;
-
-  /* Variable to set stuck header and drawer's top offset.
-  Useful when something is absolutely positioned above the header. */
   --app-header-top-offset: ;
-
-  /* Variable to customize header background color. */
   --app-header-bg: ;
-
-  /* Variable to customize text and icon color. */
   --app-header-text-color: ;
-
-  /* Variable to customize stuck header background color. */
   --app-header-stucked-bg: ;
-
-  /* Variable to customize stuck header's text and icon color. */
   --app-header-stucked-text-color: ;
 
   position: relative;
@@ -28,7 +25,6 @@
 }
 
 .heading-panel {
-  /* Title's line height. */
   --title-line-height: 1.333;
   --title-font-size: var(--font-size-6);
 
@@ -206,6 +202,10 @@ z-searchbar {
   align-items: center;
 }
 
+z-searchbar.has-label {
+  align-items: flex-end;
+}
+
 .heading-stuck {
   position: fixed;
   z-index: 20;
@@ -342,6 +342,14 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     display: flex;
     height: calc(var(--title-font-size) * var(--title-line-height));
     align-items: center;
+  }
+
+  .has-top-subtitle .z-logo {
+    display: none;
+  }
+
+  .top-subtitle.has-product-logo {
+    padding-left: calc(32px + var(--space-unit));
   }
 
   z-searchbar {

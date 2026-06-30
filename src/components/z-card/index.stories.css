@@ -6,6 +6,10 @@ z-card.demo-card {
   width: 264px;
 }
 
+.text-variant-card.primary-bg z-icon {
+  fill: var(--color-inverse-icon);
+}
+
 z-card:is(.demo-card, .text-variant-card) button[slot="action"],
 z-card:is(.demo-card, .text-variant-card) button[slot="title"] {
   padding: 0;

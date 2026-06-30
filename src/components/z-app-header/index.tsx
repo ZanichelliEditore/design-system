@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Fragment, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {ButtonVariant, ControlSize, KeyboardCode, OffCanvasVariant, TransitionDirection} from "../../beans";
 import {Breakpoints} from "../../constants/breakpoints";
 import {containsElement} from "../../utils/utils";
@@ -11,19 +24,13 @@ const SUPPORT_INTERSECTION_OBSERVER = typeof IntersectionObserver !== "undefined
  * @slot top-subtitle - Slot for the top subtitle. It will not appear in stuck header.
  * @slot stucked-title - Title for the stuck header. By default it uses the text from the `title` slot.
  * @slot product-logo - To insert the product logo, it should be used with an img tag.
- * @cssprop --app-header-content-max-width - Use it to set header's content max width. Useful when the project use a fixed width layout. Defaults to `100%`.
- * @cssprop --app-header-top-offset - Top offset for the stuck header. Useful when there are other fixed elements above the header. Defaults to `48px` (the height of the main topbar).
- * @cssprop --app-header-bg - Header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-text-color - Header text color. Defaults to `--color-default-text`.
- * @cssprop --app-header-stucked-bg - Stuck header background color. Defaults to `--color-surface01`.
- * @cssprop --app-header-stucked-text-color - Stuck header text color. Defaults to `--color-default-text`.
  */
 @Component({
   tag: "z-app-header",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAppHeader {
+export class ZAppHeader implements ComponentInterface {
   @Element() hostElement: HTMLZAppHeaderElement;
 
   /**
@@ -46,10 +53,22 @@ export class ZAppHeader {
   enableSearch = false;
 
   /**
+   * Visible label for the search bar.
+   */
+  @Prop()
+  searchLabel?: string;
+
+  /**
    * Placeholder text for the search bar.
    */
   @Prop()
   searchPlaceholder = "Cerca";
+
+  /**
+   * Label of the search button.
+   */
+  @Prop()
+  searchButtonLabel?: string;
 
   /**
    * Search string for the search bar.
@@ -347,10 +366,13 @@ export class ZAppHeader {
 
     return (
       <z-searchbar
+        class={{"has-label": !!this.searchLabel}}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
+        label={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
+        searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
@@ -487,15 +509,15 @@ export class ZAppHeader {
           class={{"heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas}}
           ref={(el) => (this.container = el)}
         >
-          <div class="heading-container">
+          <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
             {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-              <div class="top-subtitle">
+              <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
                 <slot name="top-subtitle" />
               </div>
             )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!hasTopSubtitle && !this._stuck && this.renderProductLogos()}
+              {!this._stuck && this.renderProductLogos()}
               <slot name="title" />
               {this.enableSearch && !this.isMobile && this.renderSeachbar()}
             </div>

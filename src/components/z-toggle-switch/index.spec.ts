@@ -12,7 +12,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left">
         <input id="toggle-id" type="checkbox">
-        <label class="left" htmlfor="toggle-id">
+        <label class="left" for="toggle-id">
           <span></span>
           <span class="container">
             <span class="circle"></span>
@@ -31,7 +31,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right">
           <input id="toggle-id" type="checkbox">
-          <label class="right" htmlfor="toggle-id">
+          <label class="right" for="toggle-id">
             <span></span>
             <span class="container">
               <span class="circle"></span>
@@ -50,7 +50,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="">
           <input disabled id="toggle-id" type="checkbox">
-          <label class="disabled left" htmlfor="toggle-id">
+          <label class="disabled left" for="toggle-id">
             <span></span>
             <span class="container disabled">
               <span class="circle"></span>
@@ -69,7 +69,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right" disabled="">
         <input disabled id="toggle-id" type="checkbox">
-        <label class="disabled right" htmlfor="toggle-id">
+        <label class="disabled right" for="toggle-id">
           <span></span>
           <span class="container disabled">
             <span class="circle"></span>
@@ -88,7 +88,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" checked="">
           <input checked="" id="toggle-id" type="checkbox">
-          <label class="left" htmlfor="toggle-id">
+          <label class="left" for="toggle-id">
             <span></span>
             <span class="container checked">
               <span class="circle">
@@ -109,7 +109,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="right" checked="">
         <input checked="" id="toggle-id" type="checkbox">
-        <label class="right" htmlfor="toggle-id">
+        <label class="right" for="toggle-id">
           <span></span>
           <span class="container checked">
             <span class="circle">
@@ -130,7 +130,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" label-position="left" disabled="" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
-        <label class="disabled left" htmlfor="toggle-id">
+        <label class="disabled left" for="toggle-id">
           <span></span>
           <span class="container disabled checked">
             <span class="circle">
@@ -151,7 +151,7 @@ describe("Suite test ZToggleSwitch", () => {
     expect(page.root).toEqualHtml(`
       <z-toggle-switch htmlid="toggle-id" disabled="" label-position="right" checked="">
         <input disabled="" checked="" id="toggle-id" type="checkbox">
-        <label class="disabled right" htmlfor="toggle-id">
+        <label class="disabled right" for="toggle-id">
           <span></span>
           <span class="container checked disabled">
             <span class="circle">

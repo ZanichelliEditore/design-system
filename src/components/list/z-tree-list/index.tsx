@@ -1,4 +1,4 @@
-import {Component, Element, Event, EventEmitter, Host, Prop, Watch, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h} from "@stencil/core";
 import {KeyboardCode, TreeListItem} from "../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {KeyboardCode, TreeListItem} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZTreeList {
+export class ZTreeList implements ComponentInterface {
   @Element() host: HTMLZTreeListElement;
 
   /** Items to render, if they have the url property they will be rendered as clickable links */

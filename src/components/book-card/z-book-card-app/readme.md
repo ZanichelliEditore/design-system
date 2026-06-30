@@ -27,6 +27,14 @@ ZBookCardApp component
 | `appClick` | click on app link | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                          | Description                |
+| ----------------------------- | -------------------------- |
+| `--z-book-card-app-padding-x` | set left and right padding |
+| `--z-book-card-app-padding-y` | set top and bottom padding |
+
+
 ## Dependencies
 
 ### Depends on

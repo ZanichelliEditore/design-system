@@ -1,4 +1,4 @@
-import {Component, Host, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, h} from "@stencil/core";
 
 /**
  * ZTbody component.
@@ -6,10 +6,10 @@ import {Component, Host, h} from "@stencil/core";
  */
 @Component({
   tag: "z-tbody",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
-export class ZTbody {
+export class ZTbody implements ComponentInterface {
   render(): HTMLZTbodyElement {
     return (
       <Host role="rowgroup">

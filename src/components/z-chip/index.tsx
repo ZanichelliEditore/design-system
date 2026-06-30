@@ -1,5 +1,5 @@
-import {Component, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
-import {ZChipType} from "../../beans";
+import {Component, ComponentInterface, Element, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {ZChipType, ZChipVariant} from "../../beans";
 
 @Component({
   tag: "z-chip",
@@ -7,7 +7,7 @@ import {ZChipType} from "../../beans";
   shadow: false,
   scoped: true,
 })
-export class ZChip {
+export class ZChip implements ComponentInterface {
   @Element() el: HTMLZChipElement;
 
   /** Non interactive icon */
@@ -17,6 +17,10 @@ export class ZChip {
   /** z-chip size type, can be default, medium or small */
   @Prop({reflect: true})
   type?: ZChipType = ZChipType.DEFAULT;
+
+  /** z-chip variant type, can be outline, filled or soft */
+  @Prop({reflect: true})
+  variant?: ZChipVariant = ZChipVariant.OUTLINE;
 
   /** z-chip interactive icon */
   @Prop({reflect: true})
@@ -41,8 +45,9 @@ export class ZChip {
           "z-chip-container": true,
           "z-chip-interactive": !!this.interactiveIcon,
           [this.type]: true,
+          [this.variant]: true,
         }}
-        aria-disabled={this.disabled}
+        aria-disabled={this.disabled ? "true" : undefined}
       >
         {this.icon && <z-icon name={this.icon} />}
         <slot />

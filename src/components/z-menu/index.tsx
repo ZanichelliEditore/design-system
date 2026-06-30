@@ -1,4 +1,17 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {KeyboardCode} from "../../beans";
 import {containsElement} from "../../utils/utils";
 
@@ -9,14 +22,13 @@ const isZMenuSection = (el: HTMLElement | HTMLZMenuSectionElement): el is HTMLZM
  * @slot - Menu label
  * @slot header - Header to display as the first entry of the open menu.
  * @slot item - Single entry of the section. Can be slotted multiple times to insert items onto the menu. Set the `data-active` HTML attribute on the element to highlight it (`active` also works but `data-active` is preferable). Use `z-menu-section` for submenus.
- * @cssprop --z-menu-label-color - Color of the label's text.
  */
 @Component({
   tag: "z-menu",
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZMenu {
+export class ZMenu implements ComponentInterface {
   @Element() host: HTMLZMenuElement;
 
   /** Flag to set the active status of the menu. */
@@ -46,7 +58,7 @@ export class ZMenu {
    * Tabindex value to set on the menu label.
    * Useful to manage keyboard navigation focus with roving tabindex handled by this component's parent (usually ZAppHeader).
    */
-  @Prop()
+  @Prop({mutable: true})
   htmlTabindex = -1;
 
   @State()

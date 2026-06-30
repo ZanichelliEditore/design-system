@@ -1,4 +1,4 @@
-import {Component, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
 import {AvatarSize} from "../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {AvatarSize} from "../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZAvatar {
+export class ZAvatar implements ComponentInterface {
   /** [optional] Avatar size */
   @Prop()
   size?: AvatarSize = AvatarSize.MEDIUM;

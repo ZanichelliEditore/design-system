@@ -1,4 +1,4 @@
-import {Component, Event, EventEmitter, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Event, EventEmitter, Prop, h} from "@stencil/core";
 import {InputStatus} from "../../../beans";
 
 @Component({
@@ -6,7 +6,7 @@ import {InputStatus} from "../../../beans";
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZOtp {
+export class ZOtp implements ComponentInterface {
   /** Input number */
   @Prop()
   inputNum?: number = 6;
@@ -50,7 +50,9 @@ export class ZOtp {
               }}
               onKeyUp={(e: KeyboardEvent) => {
                 if (e.keyCode > 47) {
-                  i < this.inputNum - 1 && this.otpRef[i + 1].focus();
+                  if (i < this.inputNum - 1) {
+                    this.otpRef[i + 1].focus();
+                  }
                 }
               }}
               onInput={(e: InputEvent) => {

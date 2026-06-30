@@ -1,18 +1,28 @@
-import {Component, Element, Event, EventEmitter, Host, Listen, Prop, State, Watch, h} from "@stencil/core";
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+  h,
+} from "@stencil/core";
 import {NavigationTabsKeyboardEvents, NavigationTabsOrientation, NavigationTabsSize} from "../../beans";
 
 /**
  * Navigation tabs component.
  * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
  * @slot - Main slot. Use `<button>` or `<a>` tags as children.
- * @cssprop --z-navigation-tabs-nav-buttons-bg - Navigation buttons background color.
- * @cssprop --z-navigation-tabs-nav-buttons-fg - Navigation buttons foreground color.
  */
 @Component({
   tag: "z-navigation-tabs",
   styleUrl: "styles.css",
 })
-export class ZNavigationTabs {
+export class ZNavigationTabs implements ComponentInterface {
   /**
    * Set `aria-label` attribute to the internal `<nav>` element with `tablist` role.
    */
