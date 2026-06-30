@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
-import { ZIcon } from "../z-icon";
-import { ZInput } from "./index";
+import {newSpecPage} from "@stencil/core/testing";
+import {ZIcon} from "../z-icon";
+import {ZInput} from "./index";
 
 describe("Suite test ZInput - text", () => {
   jest.useFakeTimers({
