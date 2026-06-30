@@ -277,7 +277,7 @@ describe("Suite test ZInput - text", () => {
                 <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                   <z-icon class="big" name="multiply"></z-icon>
                 </button>
-                <button type="button" class="input-icon toggle-password-icon" aria-label="nascondi password" aria-pressed="true">
+                <button type="button" class="input-icon toggle-password-icon" aria-label="mostra password" aria-pressed="true">
                   <z-icon class="big" name="view-off-filled"></z-icon>
                 </button>
               </span>
