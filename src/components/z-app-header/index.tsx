@@ -53,6 +53,12 @@ export class ZAppHeader implements ComponentInterface {
   enableSearch = false;
 
   /**
+   * Visible label for the search bar.
+   */
+  @Prop()
+  searchLabel?: string;
+
+  /**
    * Placeholder text for the search bar.
    */
   @Prop()
@@ -360,8 +366,10 @@ export class ZAppHeader implements ComponentInterface {
 
     return (
       <z-searchbar
+        class={{"has-label": !!this.searchLabel}}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
+        label={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
         searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}

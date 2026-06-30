@@ -69,6 +69,11 @@ export type TabItem = {
   disabled?: boolean;
 };
 
+export enum Orientation {
+  HORIZONTAL = "horizontal",
+  VERTICAL = "vertical",
+}
+
 export enum NavigationTabsOrientation {
   HORIZONTAL = "horizontal",
   VERTICAL = "vertical",
@@ -359,6 +364,12 @@ export enum ZChipType {
   DEFAULT = "default",
   MEDIUM = "medium",
   SMALL = "small",
+}
+
+export enum ZChipVariant {
+  OUTLINE = "outline",
+  FILLED = "filled",
+  SOFT = "soft",
 }
 
 export enum ZSectionTitleDividerPosition {

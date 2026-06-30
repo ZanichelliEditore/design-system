@@ -1,9 +1,8 @@
-import {Component, ComponentInterface, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
+import {Component, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
 import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../beans";
-
-const FOCUSABLE_ELEMENTS_SELECTOR =
-  ':is(button, input, select, textarea, [contenteditable=""], [contenteditable="true"], a[href], [tabindex], summary):not([disabled], [disabled=""], [tabindex="-1"], [aria-hidden="true"], [hidden])';
+import {FocusTrapController} from "../../utils/focus-trap-controller";
+import {ReactiveControllerHost} from "../../utils/reactive-controller";
 
 /**
  * @slot modalCloseButton - slot for custom close button
@@ -14,7 +13,7 @@ const FOCUSABLE_ELEMENTS_SELECTOR =
   styleUrl: "styles.css",
   shadow: true,
 })
-export class ZModal implements ComponentInterface {
+export class ZModal extends ReactiveControllerHost {
   /** unique id */
   @Prop()
   modalid: string;
@@ -48,6 +47,10 @@ export class ZModal implements ComponentInterface {
   lockPageScroll?: boolean = true;
 
   private dialog: HTMLDialogElement;
+
+  private focusTrapController = new FocusTrapController(this, {
+    isActive: () => !!this.dialog?.open,
+  });
 
   @Element() host: HTMLZModalElement;
 
@@ -103,16 +106,20 @@ export class ZModal implements ComponentInterface {
     if (this.lockPageScroll) {
       requestAnimationFrame(() => (document.body.style.overflowY = "hidden"));
     }
+
+    super.componentDidLoad();
   }
 
   disconnectedCallback(): void {
     this.resetPageScroll();
+    super.disconnectedCallback();
   }
 
   /** open modal */
   @Method()
   async open(): Promise<void> {
     this.dialog?.showModal();
+    this.focusTrapController.sync();
     if (this.lockPageScroll) {
       document.body.style.overflowY = "hidden";
     }
@@ -123,48 +130,20 @@ export class ZModal implements ComponentInterface {
   async close(): Promise<void> {
     if (this.closable) {
       this.dialog?.close();
+      this.focusTrapController.sync();
       this.resetPageScroll();
     }
-  }
-
-  /**
-   * Get a list of focusable elements in the dialog.
-   * Remove elements with `display: none` from the list, because they're not focusable.
-   *
-   * N.B. The list is built on the assumption that elements inside shadow root are placed ALL before the `modalContent` slot.
-   * Adding focusable elements after the `modalContent` slot would break the order of elements in the list.
-   */
-  private get focusableElements(): HTMLElement[] {
-    return [
-      ...Array.from(this.host.shadowRoot.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
-      ...Array.from(this.host.querySelectorAll<HTMLElement>(FOCUSABLE_ELEMENTS_SELECTOR)),
-    ].filter((element) => getComputedStyle(element).display !== "none");
   }
 
   @Listen("keydown")
   handleKeyDown(e: KeyboardEvent): void {
     if (e.code === KeyboardCode.ESC && !this.closable) {
       e.preventDefault();
-    }
 
-    if (e.code !== KeyboardCode.TAB) {
       return;
     }
 
-    const focusableElements = this.focusableElements;
-    const shadowActiveElement = this.host.shadowRoot.activeElement;
-    const activeElement = this.host.ownerDocument.activeElement;
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if (e.shiftKey && (shadowActiveElement == firstFocusableElement || activeElement == firstFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
-      e.preventDefault();
-      lastFocusableElement.focus();
-    } else if (!e.shiftKey && (shadowActiveElement == lastFocusableElement || activeElement == lastFocusableElement)) {
-      // shift + tab was pressed and current active element is the first focusable element
-      e.preventDefault();
-      firstFocusableElement.focus();
-    }
+    this.focusTrapController.handleWrapTab(e);
   }
 
   private closeButtonSlot(): HTMLElement | void {
