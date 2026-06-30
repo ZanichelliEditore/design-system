@@ -79,21 +79,10 @@ export class ZSkipToContent implements ComponentInterface {
       return;
     }
 
-    const originalTabIndex = targetElement.getAttribute("tabindex");
-    targetElement.setAttribute("tabindex", "-1");
+    if (!targetElement.hasAttribute("tabindex")) {
+      targetElement.setAttribute("tabindex", "-1");
+    }
     targetElement.focus();
-
-    targetElement.addEventListener(
-      "blur",
-      () => {
-        if (originalTabIndex === null) {
-          targetElement.removeAttribute("tabindex");
-        } else {
-          targetElement.setAttribute("tabindex", originalTabIndex);
-        }
-      },
-      {once: true}
-    );
   }
 
   render(): HTMLZSkipToContentElement {
