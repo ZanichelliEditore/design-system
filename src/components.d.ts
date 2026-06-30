@@ -2194,6 +2194,11 @@ export namespace Components {
           * @default false
          */
         "readonly"?: boolean;
+        /**
+          * the input is required
+          * @default false
+         */
+        "required"?: boolean;
         "resetItem"?: string;
         /**
           * set the input value
@@ -6453,6 +6458,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "readonly"?: boolean;
+        /**
+          * the input is required
+          * @default false
+         */
+        "required"?: boolean;
         "resetItem"?: string;
         /**
           * If true and an item matches the search string, children of matching item are shown even if they don't match the search string
@@ -7428,6 +7438,7 @@ declare namespace LocalJSX {
         "ariaLabel": string;
         "disabled": boolean;
         "readonly": boolean;
+        "required": boolean;
         "placeholder": string;
         "htmltitle": string;
         "status": InputStatus;
