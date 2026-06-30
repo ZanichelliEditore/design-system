@@ -51,7 +51,6 @@
 ### Used by
 
  - [z-app-header](../z-app-header)
- - [z-app-header-deprecated](../deprecated/z-app-header-deprecated)
 
 ### Depends on
 
@@ -82,7 +81,6 @@ graph TD;
   z-input-message --> z-icon
   z-button --> z-icon
   z-app-header --> z-searchbar
-  z-app-header-deprecated --> z-searchbar
   style z-searchbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
