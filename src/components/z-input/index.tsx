@@ -10,9 +10,9 @@ import {
   State,
   h,
 } from "@stencil/core";
-import { Fragment, Host, JSXBase } from "@stencil/core/internal";
-import { ControlSize, InputStatus, InputType, LabelPosition } from "../../beans";
-import { boolean, randomId } from "../../utils/utils";
+import {Fragment, Host, JSXBase} from "@stencil/core/internal";
+import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
+import {boolean, randomId} from "../../utils/utils";
 
 @Component({
   tag: "z-input",
@@ -68,11 +68,11 @@ export class ZInput implements ComponentInterface {
   htmlAriaLabelledby?: string;
 
   /** the input value */
-  @Prop({ mutable: true })
+  @Prop({mutable: true})
   value?: string;
 
   /** the input is disabled */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   disabled?: boolean = false;
 
   /** the input is readonly */
@@ -84,7 +84,7 @@ export class ZInput implements ComponentInterface {
   required?: boolean = false;
 
   /** checked: available for checkbox, radio */
-  @Prop({ mutable: true })
+  @Prop({mutable: true})
   checked?: boolean = false;
 
   /** the input placeholder (optional) */
@@ -148,7 +148,7 @@ export class ZInput implements ComponentInterface {
   pattern?: string;
 
   /** Available sizes: `big`, `small` and `x-small`. Defaults to `big`. */
-  @Prop({ reflect: true })
+  @Prop({reflect: true})
   size?: ControlSize = ControlSize.BIG;
 
   @State()
@@ -163,7 +163,7 @@ export class ZInput implements ComponentInterface {
 
   private inputRef: HTMLInputElement;
 
-  @Listen("inputCheck", { target: "document" })
+  @Listen("inputCheck", {target: "document"})
   inputCheckListener(e: CustomEvent): void {
     const data = e.detail;
     switch (this.type) {
@@ -205,7 +205,7 @@ export class ZInput implements ComponentInterface {
       validity = this.getValidity("input");
     }
     this.value = value;
-    this.inputChange.emit({ value, validity });
+    this.inputChange.emit({value, validity});
 
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
@@ -254,7 +254,7 @@ export class ZInput implements ComponentInterface {
   inputFocus: EventEmitter;
 
   private emitInputFocus(): void {
-    this.inputFocus.emit({ id: this.htmlid });
+    this.inputFocus.emit({id: this.htmlid});
   }
 
   /** Emitted on input blur */
@@ -262,7 +262,7 @@ export class ZInput implements ComponentInterface {
   inputBlur: EventEmitter;
 
   private emitInputBlur(): void {
-    this.inputBlur.emit({ id: this.htmlid });
+    this.inputBlur.emit({id: this.htmlid});
   }
 
   private getValidity(type: string): ValidityState {
@@ -333,26 +333,26 @@ export class ZInput implements ComponentInterface {
 
   private getAriaAttributes(): Record<string, unknown> {
     return {
-      ...(this.role ? { role: this.role } : {}),
-      ...(this.htmlAriaDescribedBy ? { "aria-describedby": this.htmlAriaDescribedBy } : {}),
-      ...(this.htmlAriaLabelledby ? { "aria-labelledby": this.htmlAriaLabelledby } : {}),
+      ...(this.role ? {role: this.role} : {}),
+      ...(this.htmlAriaDescribedBy ? {"aria-describedby": this.htmlAriaDescribedBy} : {}),
+      ...(this.htmlAriaLabelledby ? {"aria-labelledby": this.htmlAriaLabelledby} : {}),
     };
   }
 
   private getTextAriaAttributes(): Record<string, unknown> {
-    const expanded = this.htmlAriaExpanded ? { "aria-expanded": this.htmlAriaExpanded } : {};
-    const controls = this.htmlAriaControls ? { "aria-controls": this.htmlAriaControls } : {};
-    const autocomplete = this.htmlAriaAutocomplete ? { "aria-autocomplete": this.htmlAriaAutocomplete } : {};
+    const expanded = this.htmlAriaExpanded ? {"aria-expanded": this.htmlAriaExpanded} : {};
+    const controls = this.htmlAriaControls ? {"aria-controls": this.htmlAriaControls} : {};
+    const autocomplete = this.htmlAriaAutocomplete ? {"aria-autocomplete": this.htmlAriaAutocomplete} : {};
     const activedescendant = this.htmlAriaActivedescendant
-      ? { "aria-activedescendant": this.htmlAriaActivedescendant }
+      ? {"aria-activedescendant": this.htmlAriaActivedescendant}
       : {};
     const ariaDescribedby =
       this.htmlAriaDescribedBy || this.inputHasMessage()
-        ? { "aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message` }
+        ? {"aria-describedby": this.htmlAriaDescribedBy || `${this.htmlid}-message`}
         : {};
 
-    const ariaInvalid = this.status === InputStatus.ERROR ? { "aria-invalid": "true" } : {};
-    const required = this.required ? { "aria-required": "true" } : {};
+    const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+    const required = this.required ? {"aria-required": "true"} : {};
 
     return {
       ...this.getAriaAttributes(),
@@ -374,7 +374,7 @@ export class ZInput implements ComponentInterface {
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
-    const ariaLabel = this.ariaLabel ? { "aria-label": this.ariaLabel } : {};
+    const ariaLabel = this.ariaLabel ? {"aria-label": this.ariaLabel} : {};
     const attr = {
       ...this.getTextAttributes(),
       ...this.getNumberAttributes(type),
@@ -384,10 +384,10 @@ export class ZInput implements ComponentInterface {
       ...this.getFocusBlurAttributes(),
     };
     if (this.icon || type === InputType.PASSWORD) {
-      Object.assign(attr.class, { "has-icon": true });
+      Object.assign(attr.class, {"has-icon": true});
     }
     if (this.hasclearicon && type != InputType.NUMBER) {
-      Object.assign(attr.class, { "has-clear-icon": true });
+      Object.assign(attr.class, {"has-clear-icon": true});
     }
 
     return (
@@ -443,7 +443,7 @@ export class ZInput implements ComponentInterface {
     return (
       <z-icon
         name={this.icon}
-        class={{ [this.size]: true, "input-icon": true }}
+        class={{[this.size]: true, "input-icon": true}}
       />
     );
   }
@@ -457,7 +457,7 @@ export class ZInput implements ComponentInterface {
     return (
       <button
         type="button"
-        class={{ "reset-icon": true, "input-icon": true, hidden }}
+        class={{"reset-icon": true, "input-icon": true, hidden}}
         aria-label="cancella il contenuto dell'input"
         onClick={() => {
           this.inputRef.value = "";
@@ -519,7 +519,7 @@ export class ZInput implements ComponentInterface {
         {this.renderLabel()}
         <div
           class={{
-            ...(attributes.class as { [className: string]: boolean }),
+            ...(attributes.class as {[className: string]: boolean}),
             "textarea-wrapper": true,
             "readonly": !!attributes.readonly,
           }}
@@ -528,7 +528,7 @@ export class ZInput implements ComponentInterface {
             {...attributes}
             {...ariaAttributes}
             class={{
-              ...(attributes.class as { [className: string]: boolean }),
+              ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
             }}
             aria-label={this.ariaLabel || undefined}
@@ -586,7 +586,7 @@ export class ZInput implements ComponentInterface {
 
   /* START radio */
   private renderRadio(): HTMLDivElement {
-    const ariaRequired = this.required ? { "aria-required": "true" } : {};
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
 
     return (
       <div class="radio-wrapper">
