@@ -36,9 +36,9 @@ describe("Suite test ZButton", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-button htmlrole="link" icon-position="left" size="big" variant="primary">
-        <button role="link" type="button" class="z-button--container z-button--has-text">
+        <a href="#" class="z-button--container z-button--has-text">
           link
-        </button>
+        </a>
       </z-button>
     `);
   });
