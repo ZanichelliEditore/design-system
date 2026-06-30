@@ -33,7 +33,7 @@ describe("Suite test ZFileUpload", () => {
         <z-button icon="upload" id="fileSelect">
           allega
         </z-button>
-        <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" multiple="" name="z-file-upload" type="file">
+        <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" aria-labelledby="description" multiple="" name="z-file-upload" type="file">
       </z-file-upload>
     `);
   });
@@ -61,7 +61,7 @@ describe("Suite test ZFileUpload", () => {
             <span class="body-1" id="description">
               Vuoi allegare un file per chiarire meglio la tua richiesta?
             </span>
-            <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" multiple="" name="z-file-upload" type="file">
+            <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" aria-labelledby="description" multiple="" name="z-file-upload" type="file">
             <span class="body-1 upload-link-text">
               <span class="body-1-sb upload-link" tabindex="0">Carica</span> o trascina dal tuo computer
             </span>
@@ -102,7 +102,7 @@ describe("Suite test ZFileUpload", () => {
         <z-button icon="upload" id="fileSelect">
           testo custom
         </z-button>
-        <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" multiple="" name="z-file-upload" type="file">
+        <input accept=".pdf, .doc, .tiff, .png, .jpg, .jpeg" aria-labelledby="description" multiple="" name="z-file-upload" type="file">
       </z-file-upload>
     `);
   });

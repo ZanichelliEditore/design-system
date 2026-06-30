@@ -4,6 +4,66 @@ import {ZSelect} from "./index";
 describe("Suite test ZSelect", () => {
   it("test", async () => {});
 
+  it("Test render ZSelect required", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select required htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'> </z-select>`,
+    });
+    page.rootInstance.isOpen = false;
+    await page.waitForChanges();
+    expect(page.root).toEqualHtml(`
+        <z-select required htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
+            <div class="select-wrapper">
+              <z-input
+                class="cursor-select"
+                label="default"
+                id="checkid_input"
+                htmlid="checkid_select_input"
+                placeholder="select here"
+                icon="caret-down"
+                aria-label=""
+                autocomplete="off"
+                html-aria-expanded="false"
+                html-aria-activedescendant=""
+                html-aria-controls="checkid_list"
+                role="combobox"
+                size="big"
+                required
+              ></z-input>
+              <div class="closed">
+                <div class="ul-scroll-wrapper">
+                  <z-list
+                    role="listbox"
+                    aria-label="default"
+                    tabindex="-1"
+                    id="checkid_list"
+                    size="medium"
+                    class="z-scrollbar"
+                  >
+                    <z-list-element
+                      clickable=""
+                      aria-selected="false"
+                      dividertype="header"
+                      role="option"
+                      htmltabindex="-1"
+                      class=""
+                      id="checkid_key_6974656d5f30"
+                      size="medium"
+                      aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
+                    >
+                    <div aria-hidden="true" class="list-element-container">
+                      <div class="list-element-content">SELECT HERE questa opzione con etichetta lunga lunghissima</div>
+                    </div>
+                    </z-list-element>
+                  </z-list>
+                </div>
+              </div>
+              <z-input-message class="big"></z-input-message>
+            </div>
+        </z-select>
+      `);
+  });
+
   it("Test render ZSelect chiusa con elementi", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
@@ -44,7 +104,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -103,7 +163,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="element"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -118,7 +178,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f31"
                       size="medium"
@@ -178,7 +238,7 @@ describe("Suite test ZSelect", () => {
                     aria-selected="false"
                     dividertype="element"
                     role="option"
-                    html-tabindex="-1"
+                    htmltabindex="-1"
                     class=""
                     id="checkid_key_6974656d5f30"
                     size="medium"
@@ -192,7 +252,7 @@ describe("Suite test ZSelect", () => {
                     clickable=""
                     dividertype="header"
                     role="option"
-                    html-tabindex="-1"
+                    htmltabindex="-1"
                     aria-selected="true"
                     class=""
                     id="checkid_key_6974656d5f31"
@@ -254,7 +314,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="element"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -269,7 +329,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f31"
                       size="medium"
@@ -329,7 +389,7 @@ describe("Suite test ZSelect", () => {
                         aria-selected="false"
                         dividertype="element"
                         role="option"
-                        html-tabindex="-1"
+                        htmltabindex="-1"
                         class=""
                         id="checkid_key_6974656d5f30"
                         size="medium"
@@ -344,7 +404,7 @@ describe("Suite test ZSelect", () => {
                         aria-selected="false"
                         dividertype="header"
                         role="option"
-                        html-tabindex="-1"
+                        htmltabindex="-1"
                         class=""
                         id="checkid_key_6974656d5f31"
                         size="medium"
@@ -403,7 +463,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="element"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -418,7 +478,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="presentation"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       id="checkid_key_6974656d5f31"
                       size="medium"
                     >
@@ -475,7 +535,7 @@ describe("Suite test ZSelect", () => {
                     aria-selected="false"
                     dividertype="element"
                     role="option"
-                    html-tabindex="-1"
+                    htmltabindex="-1"
                     class=""
                     id="checkid_key_6974656d5f30"
                     size="medium"
@@ -490,7 +550,7 @@ describe("Suite test ZSelect", () => {
                     aria-selected="false"
                     dividertype="header"
                     role="option"
-                    html-tabindex="-1"
+                    htmltabindex="-1"
                     class=""
                     id="checkid_key_6974656d5f31"
                     size="medium"
@@ -524,7 +584,7 @@ describe("Suite test ZSelect", () => {
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list class="z-scrollbar" id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
-                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" html-tabindex="-1"
+                  <z-list-element clickable="" aria-selected="false" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" htmltabindex="-1"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
                   <div aria-hidden="true" class="list-element-container">
@@ -562,7 +622,7 @@ describe("Suite test ZSelect", () => {
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list id="checkid_list" role="listbox" aria-label="default" size="medium" tabindex="0" class="z-scrollbar">
-                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_key_reset" role="option" html-tabindex="0" aria-label="Pulisci selezione">
+                  <z-list-element aria-selected="false" class="reset-item reset-item-margin" clickable="" dividertype="element" size="medium" id="checkid_key_reset" role="option" htmltabindex="0" aria-label="Pulisci selezione">
                     <div aria-hidden="true" class="reset-item-content">
                       <z-icon name="multiply-circled"></z-icon>
                       <span>
@@ -570,7 +630,7 @@ describe("Suite test ZSelect", () => {
                       </span>
                     </div>
                   </z-list-element>
-                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" html-tabindex="-1"
+                  <z-list-element aria-selected="true" clickable="" dividertype="header" id="checkid_key_6974656d5f30" role="option" size="medium" htmltabindex="-1"
                     aria-label="SELECT HERE questa opzione con etichetta lunga lunghissima"
                   >
                   <div aria-hidden="true" class="list-element-container">
@@ -628,7 +688,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="element"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -643,7 +703,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f31"
                       size="medium"
@@ -702,7 +762,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="element"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f30"
                       size="medium"
@@ -718,7 +778,7 @@ describe("Suite test ZSelect", () => {
                       aria-selected="false"
                       dividertype="header"
                       role="option"
-                      html-tabindex="-1"
+                      htmltabindex="-1"
                       class=""
                       id="checkid_key_6974656d5f31"
                       size="medium"
@@ -789,7 +849,7 @@ describe("Suite test ZSelect", () => {
                 aria-selected="false"
                 dividertype="element"
                 role="option"
-                html-tabindex="-1"
+                htmltabindex="-1"
                 class=""
                 id="checkid_key_6974656d5f30"
                 size="medium"
@@ -808,7 +868,7 @@ describe("Suite test ZSelect", () => {
                 id="checkid_key_6974656d5f31"
                 role="option"
                 size="medium"
-                html-tabindex="-1"
+                htmltabindex="-1"
                 aria-label="primo elemento"
                 >
                 <div aria-hidden="true" class="list-element-container">

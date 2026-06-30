@@ -351,6 +351,7 @@ export class ZInput implements ComponentInterface {
         : {};
 
     const ariaInvalid = this.status === InputStatus.ERROR ? {"aria-invalid": "true"} : {};
+    const required = this.required ? {"aria-required": "true"} : {};
 
     return {
       ...this.getAriaAttributes(),
@@ -360,6 +361,7 @@ export class ZInput implements ComponentInterface {
       ...activedescendant,
       ...ariaDescribedby,
       ...ariaInvalid,
+      ...required,
     };
   }
 
@@ -476,7 +478,8 @@ export class ZInput implements ComponentInterface {
         type="button"
         class="input-icon toggle-password-icon"
         disabled={this.disabled}
-        aria-label={this.passwordHidden ? "mostra password" : "nascondi password"}
+        aria-label="mostra password"
+        aria-pressed={!this.passwordHidden ? "true" : "false"}
         onClick={() => (this.passwordHidden = !this.passwordHidden)}
       >
         <z-icon
@@ -545,6 +548,8 @@ export class ZInput implements ComponentInterface {
 
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
+
     return (
       <div class="checkbox-wrapper">
         <input
@@ -557,6 +562,7 @@ export class ZInput implements ComponentInterface {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          {...ariaRequired}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
         />
@@ -583,6 +589,8 @@ export class ZInput implements ComponentInterface {
 
   /* START radio */
   private renderRadio(): HTMLDivElement {
+    const ariaRequired = this.required ? {"aria-required": "true"} : {};
+
     return (
       <div class="radio-wrapper">
         <input
@@ -592,10 +600,12 @@ export class ZInput implements ComponentInterface {
           checked={this.checked}
           disabled={this.disabled}
           readonly={this.readonly}
+          required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
+          {...ariaRequired}
         />
 
         <label

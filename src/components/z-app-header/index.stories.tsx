@@ -21,6 +21,7 @@ const StoryMeta = {
     "--app-header-content-max-width": "100%",
     "enableSearch": false,
     "searchPageUrl": "",
+    "searchLabel": "",
     "searchPlaceholder": "Digita qui quello che vuoi",
     "searchButtonLabel": "Cliccami",
     "enableZLogo": false,
@@ -117,7 +118,7 @@ type Story = StoryObj<ZAppHeaderStoriesArgs>;
 export const Title = {
   parameters: {
     controls: {
-      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -138,7 +139,7 @@ export const Title = {
 export const ProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -158,7 +159,7 @@ export const ProductLogo = {
 export const TopTitle = {
   parameters: {
     controls: {
-      exclude: ["enable-offcanvas", "enable-z-logo", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "enable-z-logo", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -175,7 +176,7 @@ export const TopTitle = {
 export const TopTitleWithProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enable-offcanvas", "enable-z-logo", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "enable-z-logo", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -197,7 +198,7 @@ export const TopTitleWithProductLogo = {
 export const CustomMenuButton = {
   parameters: {
     controls: {
-      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -221,7 +222,7 @@ export const CustomMenuButton = {
 export const MenuWithTopTitle = {
   parameters: {
     controls: {
-      exclude: ["enable-z-logo", "search-placeholder", "search-button-label"],
+      exclude: ["enable-z-logo", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -239,7 +240,7 @@ export const MenuWithTopTitle = {
 export const MenuWithTopTitleAndProductLogo = {
   parameters: {
     controls: {
-      exclude: ["enable-z-logo", "search-placeholder", "search-button-label"],
+      exclude: ["enable-z-logo", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -267,6 +268,7 @@ export const LongTitle = {
         "enable-z-logo",
         "enable-search",
         "search-page-url",
+        "search-label",
         "search-placeholder",
         "search-button-label",
       ],
@@ -287,7 +289,7 @@ export const OffcanvasMenu = {
   },
   parameters: {
     controls: {
-      exclude: ["search-placeholder", "search-button-label"],
+      exclude: ["search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -320,7 +322,7 @@ export const Stuck = {
       },
     },
     controls: {
-      exclude: ["enable-offcanvas", "search-placeholder", "search-button-label"],
+      exclude: ["enable-offcanvas", "search-label", "search-placeholder", "search-button-label"],
     },
   },
   render: (args) => (
@@ -336,6 +338,9 @@ export const Stuck = {
 } satisfies Story;
 
 export const SearchPageButton = {
+  args: {
+    searchLabel: "Cerca per titolo, autore o ISBN",
+  },
   parameters: {
     controls: {
       exclude: ["search-page-url", "enable-search", "enable-offcanvas"],

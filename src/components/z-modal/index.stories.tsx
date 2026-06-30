@@ -66,11 +66,7 @@ export const LongText = {
         style={extractCSSVars(args)}
       >
         <div slot="modalContent">
-          <z-date-picker
-            date-picker-id="date-picker-1"
-            ariaLabel="stringaQualsiasi"
-            label="label"
-          ></z-date-picker>
+          <z-input message={false}></z-input>
           Provaaaaa Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
           Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit? Possumusne
           ergo in vita summum bonum dicere, cum id ne in cena quidem posse videamur? Morbo gravissimo affectus, exul,

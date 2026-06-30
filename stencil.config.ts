@@ -52,18 +52,18 @@ if (process.env.STENCIL_DEV !== "1") {
 }
 
 /**
- * Generate source maps only when `unplugin-stencil` (used by `@stencil/storybook-plugin`) compiles during `storybook dev`.
- * `STENCIL_DEV=1` is set by both `start-storybook` and `build-storybook` scripts in `package.json`,
- * so we also check `NODE_ENV` (Vite sets it to "production" during `storybook build`) to skip the generation of source maps in production.
+ * Keep source maps enabled in local (non-production) builds so Storybook DevTools can map
+ * all compiled component modules back to their original source files.
+ * We explicitly disable them in production (`storybook build`).
  */
-const stencilDevBuildForStorybook = process.env.STENCIL_DEV === "1" && process.env.NODE_ENV !== "production";
+const stencilLocalBuildWithSourceMaps = process.env.NODE_ENV !== "production";
 
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
   plugins: [image()],
   tsconfig: "tsconfig.stencil.json",
-  sourceMap: stencilDevBuildForStorybook,
+  sourceMap: stencilLocalBuildWithSourceMaps,
   outputTargets,
   extras: {
     enableImportInjection: true,
