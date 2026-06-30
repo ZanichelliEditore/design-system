@@ -415,7 +415,7 @@ export class ZInput implements ComponentInterface {
 
     return (
       <label
-        class="input-label body-5-sb"
+        class="z-label body-5-sb"
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
       >
