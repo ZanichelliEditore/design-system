@@ -63,6 +63,7 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 
 ### Used by
 
+ - [z-input-range](../z-input-range)
  - [z-tool](../z-tool)
 
 ### Depends on
@@ -73,6 +74,7 @@ It is basically a wrapper for the `<z-popover>` component with custom configurat
 ```mermaid
 graph TD;
   z-tooltip --> z-popover
+  z-input-range --> z-tooltip
   z-tool --> z-tooltip
   style z-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```

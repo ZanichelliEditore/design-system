@@ -381,3 +381,27 @@ describe("Suite test ZInput - text", () => {
     `);
   });
 });
+
+it("Test render ZInput - required", async () => {
+  const page = await newSpecPage({
+    components: [ZInput],
+    html: `<z-input htmlid="id" value="value" required></z-input>`,
+  });
+  page.rootInstance.passwordHidden = false;
+  await page.waitForChanges();
+  expect(page.root).toEqualHtml(`
+      <z-input htmlid="id" value="value" required size="big">
+          <div class="text-wrapper">
+            <div>
+              <input id="id" type="text" class="has-clear-icon" required aria-required="true" value="value"/>
+              <span class="icons-wrapper">
+                <button type="button" class="input-icon reset-icon" aria-label="cancella il contenuto dell'input">
+                  <z-icon class="big" name="multiply"></z-icon>
+                </button>
+              </span>
+            </div>
+            <z-input-message class="big" html-id="id-message"></z-input-message>
+          </div>
+      </z-input>
+    `);
+});

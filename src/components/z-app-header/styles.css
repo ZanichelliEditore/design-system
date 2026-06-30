@@ -202,6 +202,10 @@ z-searchbar {
   align-items: center;
 }
 
+z-searchbar.has-label {
+  align-items: flex-end;
+}
+
 .heading-stuck {
   position: fixed;
   z-index: 20;

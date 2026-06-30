@@ -104,4 +104,21 @@ describe("Suite test ZInput - radio", () => {
         </z-input>
       `);
   });
+
+  it("Test render ZInput required", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="radioid" type="radio" required></z-input>`,
+    });
+    expect(page.root).toEqualHtml(`
+        <z-input htmlid="radioid" type="radio" required size="big">
+          <div class="radio-wrapper">
+            <input id="radioid" type="radio" required aria-required="true"/>
+            <label for="radioid" class="radio-label after">
+              <z-icon name="radio-button" class="big"></z-icon>
+            </label>
+          </div>
+        </z-input>
+      `);
+  });
 });

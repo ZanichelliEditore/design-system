@@ -13,15 +13,6 @@
   box-sizing: border-box;
 }
 
-.z-tr--expand-button-container,
-::slotted(*) {
-  border-bottom: var(--z-table--cells-bottom-border-size, var(--border-size-small)) solid var(--color-surface03);
-}
-
-::slotted(*:not(:last-child)) {
-  border-right: var(--z-table--cell-left-border, none);
-}
-
 :host([expandable]) {
   --show-expandable-button: visible;
 
@@ -37,6 +28,7 @@
 }
 
 :host([expandable]) ::slotted(*:last-child) {
+  border-top: var(--border-size-small) solid var(--color-surface03);
   border-left: 0;
   grid-column: 1 / span calc(var(--columns) + 1);
   grid-row: 2;
@@ -53,19 +45,25 @@
 
 :host([expanded]) .z-tr--expand-button-container,
 :host([expanded]) ::slotted(*) {
+  border-left: 0 !important;
   background-color: var(--color-background);
 }
 
-:host(:hover) ::slotted(z-td),
-:host(:hover) ::slotted(z-th) {
+:host([tabIndex]:hover) ::slotted(z-td),
+:host([tabIndex]:hover) ::slotted(z-th),
+:host([tabIndex]:hover) .z-tr--expand-button-container {
+  background-color: var(--color-surface02);
+}
+
+:host([tabIndex]:hover) .z-tr--focus-overlay {
   border-top: var(--border-size-small) solid var(--color-surface04);
   border-bottom: var(--border-size-small) solid var(--color-surface04);
-  background-color: var(--color-surface02);
 }
 
 :host(:focus) {
   position: relative;
   z-index: 20;
+  border: none !important;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
@@ -98,12 +96,12 @@
 .z-tr--focus-overlay {
   position: absolute;
   z-index: 30;
-  right: 0;
+  top: calc(var(--border-size-small) * -1);
+  bottom: 0;
   left: 0;
   width: 100%;
-  border-radius: 4px;
+  height: calc(100% + (var(--border-size-small) * 2));
   box-shadow: none;
-  inset: 0;
   outline: none;
   pointer-events: none;
   transition: box-shadow 0.2s;
