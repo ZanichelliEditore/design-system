@@ -547,8 +547,6 @@ export class ZInput implements ComponentInterface {
 
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
-    const ariaRequired = this.required ? {"aria-required": "true"} : {};
-
     return (
       <div class="checkbox-wrapper">
         <input
@@ -563,7 +561,6 @@ export class ZInput implements ComponentInterface {
           value={this.value}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
-          {...ariaRequired}
         />
 
         <label
