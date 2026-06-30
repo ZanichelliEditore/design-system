@@ -8,13 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
-import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
+import { ListItem } from "./beans/index.js";
 export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
-export { ListItem } from "./beans/index.js";
 export { IconName } from "./constants/iconset";
+export { ListItem } from "./beans/index.js";
 export namespace Components {
     /**
      * Accordion component.
@@ -945,10 +945,19 @@ export namespace Components {
          */
         "boxid": string;
         /**
-          * render close icon flag
+          * Aria label for the close button
+          * @default "Chiudi pannello informazioni"
+         */
+        "closeButtonAriaLabel": string;
+        /**
+          * render close icon
           * @default true
          */
         "isclosable": boolean;
+        /**
+          * Name of the icon to display on the top left of the info box
+         */
+        "leftIcon": IconName;
     }
     /**
      * Info reveal component.
@@ -3192,7 +3201,7 @@ declare global {
         new (): HTMLZIconElement;
     };
     interface HTMLZInfoBoxElementEventMap {
-        "infoBoxClose": any;
+        "infoBoxClose": {boxid: string};
     }
     interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5077,14 +5086,23 @@ declare namespace LocalJSX {
          */
         "boxid"?: string;
         /**
-          * render close icon flag
+          * Aria label for the close button
+          * @default "Chiudi pannello informazioni"
+         */
+        "closeButtonAriaLabel"?: string;
+        /**
+          * render close icon
           * @default true
          */
         "isclosable"?: boolean;
         /**
+          * Name of the icon to display on the top left of the info box
+         */
+        "leftIcon"?: IconName;
+        /**
           * emitted on close icon click
          */
-        "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
+        "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<{boxid: string}>) => void;
     }
     /**
      * Info reveal component.
@@ -7147,6 +7165,8 @@ declare namespace LocalJSX {
     interface ZInfoBoxAttributes {
         "boxid": string;
         "isclosable": boolean;
+        "closeButtonAriaLabel": string;
+        "leftIcon": IconName;
     }
     interface ZInfoRevealAttributes {
         "icon": string;
