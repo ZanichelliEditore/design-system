@@ -22,7 +22,12 @@ export class ZInfoBox implements ComponentInterface {
   @Prop()
   closeButtonAriaLabel = "Chiudi pannello informazioni";
 
-  /** Name of the icon to display on the top left of the info box */
+  /**
+   * Name of the icon to display on the top left of the info box.
+   * The icon's color will be inherited from the border color set through the `--z-info-box--border-color` CSS variable, if set.
+   * Otherwise it can be customized using the `--z-info-box--left-icon-color` CSS variable.
+   * If none of them is set, the icon will be colored using the `--color-primary01-icon` token.
+   */
   @Prop()
   leftIcon: IconName;
 
