@@ -1,0 +1,23 @@
+.z-info-box-additional-content [slot="content"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.z-info-box-additional-content [slot="additional-content"] {
+  display: flex;
+  width: 100%;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.z-info-box-additional-content [slot="additional-content"] .demo-box-card {
+  display: flex;
+  flex: 1 auto;
+  flex-direction: column;
+  padding: calc(var(--space-unit) * 2);
+  background-color: var(--color-surface01);
+  border-radius: var(--border-radius);
+}
+
+.z-info-box-additional-content [slot="additional-content"] .demo-box-card > z-button {
+  margin-top: calc(var(--space-unit) * 2);
+}

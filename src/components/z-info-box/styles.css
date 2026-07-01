@@ -1,23 +1,69 @@
+:host,
+*,
+::slotted(*) {
+  box-sizing: border-box;
+}
+
 :host {
+  /**
+   * @prop --z-info-box--border-color: The border color of the info box.
+   * @prop --z-info-box--background-color: The background color of the info box.
+   * @prop --z-info-box--left-icon-color: The fill color of the icon displayed on the top left of the info box. If `--z-info-box--border-color` is set, this property will default to that value. Otherwise, it will default to `--color-primary01-icon`.
+   */
+  --z-info-box--border-color: ;
+  --z-info-box--left-icon-color: ;
+  --z-info-box--background-color: ;
+
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--space-unit) * 2);
+  border: var(--border-size-medium) solid var(--z-info-box--border-color, transparent);
+  background: var(--z-info-box--background-color, var(--color-primary03));
+  border-radius: var(--border-radius);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
+  gap: calc(var(--space-unit) * 2);
 }
 
-:host > div {
+.main-content {
   display: flex;
-  width: inherit;
-  padding: calc(var(--space-unit) * 2);
-  background: var(--color-primary03);
-  border-radius: var(--border-radius);
+  align-items: flex-start;
 }
 
-:host > div > slot {
+/* visually vertically align the icons to the first line of the text content */
+.main-content .left-icon,
+.close-button {
+  display: flex;
+  height: 1.25rem;
+  align-items: center;
+}
+
+.main-content .left-icon + ::slotted([slot="content"]) {
+  margin-left: var(--space-unit);
+}
+
+.main-content .left-icon z-icon {
+  --z-icon-width: 1rem;
+  --z-icon-height: 1rem;
+
+  fill: var(--z-info-box--left-icon-color, var(--z-info-box--border-color, var(--color-primary01-icon)));
+}
+
+::slotted([slot="content"]) {
   color: var(--color-default-text);
-  font-size: 14px;
+  font-size: var(--font-size-2);
+  line-height: 1.25rem;
 }
 
-:host > div > z-icon {
+.close-button {
+  padding: 0;
+  border: none;
+  margin: 0;
   margin-left: calc(var(--space-unit) * 2);
+  background: none;
   cursor: pointer;
-  fill: var(--color-primary01);
+}
+
+.close-button z-icon {
+  fill: var(--color-primary01-icon);
 }

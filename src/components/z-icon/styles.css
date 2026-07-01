@@ -1,4 +1,10 @@
 :host {
+  /**
+   * @prop --z-icon-width: Width of the icon. Default is 1.125rem (18px).
+   * @prop --z-icon-height: Height of the icon. Default is 1.125rem (18px).
+   * @prop --z-icon-left-margin: Left margin of the icon. Default is 0.
+   * @prop --z-icon-right-margin: Right margin of the icon. Default is 0.
+   */
   display: inline;
   margin-right: var(--z-icon-right-margin, 0);
   margin-left: var(--z-icon-left-margin, 0);
