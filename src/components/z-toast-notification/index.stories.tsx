@@ -145,15 +145,15 @@ export const SlottedMessageLongText = {
   render: (args) => (
     <div class="toast-container">
       <z-toast-notification {...args}>
-        <span slot="message">
-          {longText}
+        <div slot="message">
+          <div>{longText}</div>
           <a
             href="#"
             class="z-link z-link-blue"
           >
             link
           </a>
-        </span>
+        </div>
       </z-toast-notification>
     </div>
   ),

@@ -215,7 +215,7 @@ export const CellsWithContextualMenu = {
           type: "select",
         },
       },
-      options: [null, ...Object.values(VisibilityCondition)],
+      options: Object.values(VisibilityCondition),
     },
   },
   args: {

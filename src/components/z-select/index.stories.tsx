@@ -15,11 +15,8 @@ const StoryMeta = {
     status: {
       control: {
         type: "select",
-        labels: {
-          null: "-",
-        },
       },
-      options: [null, ...Object.values(InputStatus)],
+      options: Object.values(InputStatus),
     },
     size: {
       control: {

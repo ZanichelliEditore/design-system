@@ -17,12 +17,9 @@ export default {
       },
     },
     "icon": {
-      options: [null, ...Object.keys(ICONS)],
+      options: Object.keys(ICONS),
       control: {
         type: "select",
-        labels: {
-          null: "No icon",
-        },
       },
     },
     "z-link-icon": {

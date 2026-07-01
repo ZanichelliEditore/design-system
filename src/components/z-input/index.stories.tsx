@@ -28,11 +28,8 @@ const StoryMeta = {
     status: {
       control: {
         type: "inline-radio",
-        labels: {
-          null: "-",
-        },
       },
-      options: [null, ...Object.values(InputStatus)],
+      options: Object.values(InputStatus),
     },
   },
   args: {

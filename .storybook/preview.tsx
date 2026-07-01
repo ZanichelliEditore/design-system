@@ -72,7 +72,7 @@ export const parameters: Preview["parameters"] = {
       order: ["Migration", "Colors", "Typography", "Grid", "Iconset", "*", "Snowflakes", "Deprecated"],
     },
   },
-  controls: {sort: "alpha", disableSaveFromUI: true},
+  controls: {sort: "alpha", disableSaveFromUI: true, expanded: true},
   docs: {
     codePanel: false,
     controls: {sort: "alpha"},
@@ -109,4 +109,30 @@ export const decorators: Preview["decorators"] = [
       defaultTheme: "Default",
       parentSelector: context.viewMode === "docs" ? ".docs-story" : "body",
     })(story, context),
+];
+
+export const argTypesEnhancers: Preview["argTypesEnhancers"] = [
+  // Set a `text` control for CSS variables when they are not already configured in the story's `argTypes`.
+  // This prevents Storybook to show the CSS variable in the "Controls" panel without the ability to edit it.
+  ({argTypes}) => ({
+    ...Object.fromEntries(
+      Object.entries(argTypes).map(([key, value]) => {
+        if (!key.startsWith("--")) {
+          return [key, value];
+        }
+
+        return [
+          key,
+          {
+            ...value,
+            control: value.control || {type: "text"},
+            table: {
+              ...value.table,
+              category: "CSS Variables",
+            },
+          },
+        ];
+      })
+    ),
+  }),
 ];

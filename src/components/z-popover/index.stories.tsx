@@ -80,13 +80,8 @@ const StoryMeta = {
   component: "z-popover",
   argTypes: {
     "position": {
-      options: [null, ...Object.values(PopoverPosition).filter((value) => value !== PopoverPosition.AUTO)],
-      control: {
-        type: "select",
-        labels: {
-          null: "-",
-        },
-      },
+      options: Object.values(PopoverPosition).filter((value) => value !== PopoverPosition.AUTO),
+      control: {type: "select"},
     },
     "--z-popover-theme--surface": getColorTokenArgConfig(),
     "--z-popover-theme--text": getColorTokenArgConfig(),

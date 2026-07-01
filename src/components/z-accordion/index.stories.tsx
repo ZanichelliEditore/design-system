@@ -6,7 +6,7 @@ import {ICONS} from "../../constants/iconset";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZAccordion} from "./index";
 
-const colorTokenArgConfig = getColorTokenArgConfig(true);
+const colorTokenArgConfig = getColorTokenArgConfig();
 const cssPropsArgs = {
   "--z-accordion-bg": colorTokenArgConfig,
   "--z-accordion-label-color": colorTokenArgConfig,
@@ -27,13 +27,16 @@ const cssPropsArgs = {
       truthy: true,
     },
   },
-  "--z-accordion-left-padding": {control: "text"},
-  "--z-accordion-right-padding": {control: "text"},
-  "--z-accordion-label-font-weight": {control: "text"},
 } as const;
 
 type ZAccordionStoriesArgs = ZAccordion &
-  CSSVarsArguments<keyof typeof cssPropsArgs | `z-accordion-highlight-color${number | undefined}`>;
+  CSSVarsArguments<
+    | keyof typeof cssPropsArgs
+    | "z-accordion-right-padding"
+    | "z-accordion-left-padding"
+    | "z-accordion-label-font-weight"
+    | `z-accordion-highlight-color${number | undefined}`
+  >;
 
 /**
  * To add the highlight band on the left, set the `highlight` property to `true` then set the `--z-accordion-highlight-color` CSS variable to the desired color.
@@ -44,12 +47,9 @@ const StoryMeta = {
   argTypes: {
     ...cssPropsArgs,
     icon: {
-      options: [null, ...Object.keys(ICONS).sort()],
+      options: Object.keys(ICONS).sort(),
       control: {
         type: "select",
-        labels: {
-          null: "—",
-        },
       },
     },
     shadow: {
@@ -72,12 +72,6 @@ const StoryMeta = {
     },
   },
   args: {
-    "--z-accordion-bg": null,
-    "--z-accordion-label-color": null,
-    "--z-accordion-disabled-label-color": null,
-    "--z-accordion-content-bg": null,
-    "--z-accordion-content-fg": null,
-    "--z-accordion-hover-color": null,
     "--z-accordion-highlight-color": "var(--color-primary01)",
     "--z-accordion-right-padding": "var(--space-unit)",
     "--z-accordion-left-padding": "calc(var(--space-unit) * 2)",
