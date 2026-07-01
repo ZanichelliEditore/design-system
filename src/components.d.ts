@@ -1763,46 +1763,6 @@ export namespace Components {
          */
         "visiblePages"?: number;
     }
-    interface ZPanelElem {
-        /**
-          * name of slot container (optional)
-         */
-        "descrSlotName"?: string;
-        /**
-          * html element id (optional)
-         */
-        "elemid"?: string;
-        /**
-          * alternative image text (optional)
-         */
-        "imgalt"?: string;
-        /**
-          * image url source (optional)
-         */
-        "imgurl"?: string;
-        /**
-          * disabled status flag (optional)
-          * @default false
-         */
-        "isdisabled"?: boolean;
-        /**
-          * icon link name (optional)
-         */
-        "linkicon"?: string;
-        /**
-          * link label text
-         */
-        "linklabel": string;
-        /**
-          * link target (optional)
-          * @default "_blank"
-         */
-        "target"?: string;
-        /**
-          * link url
-         */
-        "url": string;
-    }
     /**
      * Popover component.
      * This component displays a popover bound to an element.
@@ -3440,12 +3400,6 @@ declare global {
         prototype: HTMLZPaginationElement;
         new (): HTMLZPaginationElement;
     };
-    interface HTMLZPanelElemElement extends Components.ZPanelElem, HTMLStencilElement {
-    }
-    var HTMLZPanelElemElement: {
-        prototype: HTMLZPanelElemElement;
-        new (): HTMLZPanelElemElement;
-    };
     interface HTMLZPopoverElementEventMap {
         "positionChange": {position: PopoverPosition};
         "openChange": {open: boolean};
@@ -3851,7 +3805,6 @@ declare global {
         "z-offcanvas": HTMLZOffcanvasElement;
         "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
-        "z-panel-elem": HTMLZPanelElemElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-result-card": HTMLZResultCardElement;
@@ -5808,46 +5761,6 @@ declare namespace LocalJSX {
          */
         "visiblePages"?: number;
     }
-    interface ZPanelElem {
-        /**
-          * name of slot container (optional)
-         */
-        "descrSlotName"?: string;
-        /**
-          * html element id (optional)
-         */
-        "elemid"?: string;
-        /**
-          * alternative image text (optional)
-         */
-        "imgalt"?: string;
-        /**
-          * image url source (optional)
-         */
-        "imgurl"?: string;
-        /**
-          * disabled status flag (optional)
-          * @default false
-         */
-        "isdisabled"?: boolean;
-        /**
-          * icon link name (optional)
-         */
-        "linkicon"?: string;
-        /**
-          * link label text
-         */
-        "linklabel"?: string;
-        /**
-          * link target (optional)
-          * @default "_blank"
-         */
-        "target"?: string;
-        /**
-          * link url
-         */
-        "url"?: string;
-    }
     /**
      * Popover component.
      * This component displays a popover bound to an element.
@@ -7012,17 +6925,6 @@ declare namespace LocalJSX {
         "currentPage": number;
         "goToPage": boolean;
     }
-    interface ZPanelElemAttributes {
-        "elemid": string;
-        "imgurl": string;
-        "imgalt": string;
-        "linkicon": string;
-        "linklabel": string;
-        "url": string;
-        "target": string;
-        "isdisabled": boolean;
-        "descrSlotName": string;
-    }
     interface ZPopoverAttributes {
         "position": PopoverPosition;
         "open": boolean;
@@ -7248,7 +7150,6 @@ declare namespace LocalJSX {
         "z-offcanvas": Omit<ZOffcanvas, keyof ZOffcanvasAttributes> & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes]?: ZOffcanvas[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `attr:${K}`]?: ZOffcanvasAttributes[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `prop:${K}`]?: ZOffcanvas[K] };
         "z-otp": Omit<ZOtp, keyof ZOtpAttributes> & { [K in keyof ZOtp & keyof ZOtpAttributes]?: ZOtp[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `attr:${K}`]?: ZOtpAttributes[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `prop:${K}`]?: ZOtp[K] };
         "z-pagination": Omit<ZPagination, keyof ZPaginationAttributes> & { [K in keyof ZPagination & keyof ZPaginationAttributes]?: ZPagination[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `attr:${K}`]?: ZPaginationAttributes[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `prop:${K}`]?: ZPagination[K] } & OneOf<"totalPages", ZPagination["totalPages"], ZPaginationAttributes["totalPages"]>;
-        "z-panel-elem": Omit<ZPanelElem, keyof ZPanelElemAttributes> & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes]?: ZPanelElem[K] } & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes as `attr:${K}`]?: ZPanelElemAttributes[K] } & { [K in keyof ZPanelElem & keyof ZPanelElemAttributes as `prop:${K}`]?: ZPanelElem[K] };
         "z-popover": Omit<ZPopover, keyof ZPopoverAttributes> & { [K in keyof ZPopover & keyof ZPopoverAttributes]?: ZPopover[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `attr:${K}`]?: ZPopoverAttributes[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `prop:${K}`]?: ZPopover[K] };
         "z-range-picker": Omit<ZRangePicker, keyof ZRangePickerAttributes> & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes]?: ZRangePicker[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `attr:${K}`]?: ZRangePickerAttributes[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `prop:${K}`]?: ZRangePicker[K] };
         "z-result-card": Omit<ZResultCard, keyof ZResultCardAttributes> & { [K in keyof ZResultCard & keyof ZResultCardAttributes]?: ZResultCard[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `attr:${K}`]?: ZResultCardAttributes[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `prop:${K}`]?: ZResultCard[K] };
@@ -7402,7 +7303,6 @@ declare module "@stencil/core" {
              * Pagination bar component.
              */
             "z-pagination": LocalJSX.IntrinsicElements["z-pagination"] & JSXBase.HTMLAttributes<HTMLZPaginationElement>;
-            "z-panel-elem": LocalJSX.IntrinsicElements["z-panel-elem"] & JSXBase.HTMLAttributes<HTMLZPanelElemElement>;
             /**
              * Popover component.
              * This component displays a popover bound to an element.

@@ -24,6 +24,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
     - [Rimozione del componente ZMyzCardIcon dalla libreria](#rimozione-del-componente-zmyzcardicon-dalla-libreria)
   - [ZMyzCardList](#zmyzcardlist)
     - [Rimozione del componente ZMyzCardList dalla libreria](#rimozione-del-componente-zmyzcardlist-dalla-libreria)
+  - [ZPanelElem](#zpanelelem)
+    - [Rimozione del componente ZPanelElem dalla libreria](#rimozione-del-componente-zpanelelem-dalla-libreria)
 
 - [v19.0.0](#v1900)
 
@@ -207,6 +209,12 @@ Il componente è stato eliminato definitivamente dalla libreria.
 ### ZMyzCardList
 
 #### Rimozione del componente ZMyzCardList dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### ZPanelElem
+
+#### Rimozione del componente ZPanelElem dalla libreria
 
 Il componente è stato eliminato definitivamente dalla libreria.
 
