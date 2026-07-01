@@ -536,6 +536,7 @@ export class ZInput implements ComponentInterface {
       <div
         id={`${this.htmlid}-helper`}
         class="helper-text body-6"
+        aria-live="polite"
       >
         {text}
       </div>
