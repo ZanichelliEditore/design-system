@@ -184,6 +184,22 @@
   gap: calc(var(--space-unit) / 2);
 }
 
+:host([variant="landscape"]) .main-content .card-info .top > div {
+  display: grid;
+  column-gap: calc(var(--space-unit) / 2);
+  grid-template-columns: 1fr auto;
+}
+
+:host([variant="landscape"]) .main-content .card-info .top > div > * {
+  grid-column: 1;
+}
+
+:host([variant="landscape"]) .main-content .card-info .top > div > .cta-slot {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 1;
+}
+
 @media (max-width: 767px) {
   :host([variant="portrait"]) {
     width: 100%;
