@@ -50,6 +50,10 @@ export class ZSelect implements ComponentInterface {
   @Prop()
   readonly?: boolean = false;
 
+  /** the input is required */
+  @Prop()
+  required?: boolean = false;
+
   /** the input placeholder (optional) */
   @Prop()
   placeholder?: string;
@@ -543,6 +547,7 @@ export class ZSelect implements ComponentInterface {
         name={this.name}
         disabled={this.disabled}
         readonly={this.readonly || (!this.hasAutocomplete() && this.isOpen)}
+        required={this.required}
         status={this.isOpen ? undefined : this.status}
         size={this.size}
         role="combobox"
@@ -608,7 +613,7 @@ export class ZSelect implements ComponentInterface {
         disabled={false}
         dividerType={ListDividerType.ELEMENT}
         role={hidden ? "presentation" : "option"}
-        html-tabindex={0}
+        htmlTabindex={this.isOpen ? 0 : null}
         aria-selected="false"
         aria-label={hidden ? undefined : this.resetItem}
         id={this.getResetOptionId()}
@@ -637,7 +642,7 @@ export class ZSelect implements ComponentInterface {
         disabled={item.disabled}
         dividerType={lastItem ? ListDividerType.HEADER : ListDividerType.ELEMENT}
         role={item.disabled ? "presentation" : "option"}
-        html-tabindex={-1}
+        htmlTabindex={-1}
         aria-selected={item.selected ? "true" : "false"}
         aria-label={item.disabled ? undefined : getPlainText(item.name)}
         id={this.getOptionId(item)}
@@ -734,7 +739,7 @@ export class ZSelect implements ComponentInterface {
         size={this.listSizeType()}
         dividerType={hasDivider}
         hasTreeItems={this.hasTreeItems}
-        html-tabindex={null}
+        htmlTabindex={null}
         role="presentation"
       >
         <div
@@ -849,7 +854,7 @@ export class ZSelect implements ComponentInterface {
       <z-list-element
         class="no-results"
         size={this.hasTreeItems ? ListSize.MEDIUM : this.listSizeType()}
-        html-tabindex={null}
+        htmlTabindex={null}
         role="presentation"
       >
         {this.noresultslabel}

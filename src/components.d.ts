@@ -5,12 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 import { AlertType, LicenseType } from "./beans/index";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { ListItem } from "./beans/index.js";
 import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
+export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
 export { AlertType, LicenseType } from "./beans/index";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { ListItem } from "./beans/index.js";
@@ -125,6 +125,10 @@ export namespace Components {
           * Label of the search button.
          */
         "searchButtonLabel"?: string;
+        /**
+          * Visible label for the search bar.
+         */
+        "searchLabel"?: string;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -608,6 +612,11 @@ export namespace Components {
           * @default ZChipType.DEFAULT
          */
         "type"?: ZChipType;
+        /**
+          * z-chip variant type, can be outline, filled or soft
+          * @default ZChipVariant.OUTLINE
+         */
+        "variant"?: ZChipVariant;
     }
     /**
      * Color picker component.
@@ -1135,6 +1144,66 @@ export namespace Components {
           * input status (optional)
          */
         "status"?: InputStatus;
+    }
+    /**
+     * Input range component.
+     */
+    interface ZInputRange {
+        /**
+          * Whether the input range is disabled.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * The aria label of the input range. for accessibility. Not necessary if the `label` prop is set.
+         */
+        "htmlAriaLabel": string;
+        /**
+          * ID of the input range.
+          * @default `z-input-range-${randomId()}`
+         */
+        "htmlId": string;
+        /**
+          * The label of the input range. When `orientation` is set to `vertical`, the label is not visible but used as `aria-label`, unless `htmlAriaLabel` is provided.
+         */
+        "label": string;
+        /**
+          * The greatest value in the range of permitted values.
+          * @default 100
+         */
+        "max": number;
+        /**
+          * The lowest value in the range of permitted values.
+          * @default 0
+         */
+        "min": number;
+        /**
+          * The orientation of the input range.
+         */
+        "orientation": Orientation;
+        /**
+          * Whether to show `min` and `max` values of the input range. Only visible with the `horizontal` orientation.
+          * @default false
+         */
+        "showEdges": boolean;
+        /**
+          * The size of the input range. Default: `ControlSize.BIG`
+         */
+        "size": ControlSize.BIG;
+        /**
+          * The step value for the input range.
+          * @default 1
+         */
+        "step": number;
+        /**
+          * The value of the input range.
+          * @default 0
+         */
+        "value": number;
+        /**
+          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing out of the screen or in an unintended position due to auto adjustment. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
+         */
+        "valuePosition": PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZList {
         /**
@@ -1714,7 +1783,7 @@ export namespace Components {
          */
         "open": boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop": boolean;
@@ -2125,6 +2194,11 @@ export namespace Components {
           * @default false
          */
         "readonly"?: boolean;
+        /**
+          * the input is required
+          * @default false
+         */
+        "required"?: boolean;
         "resetItem"?: string;
         /**
           * set the input value
@@ -2606,6 +2680,10 @@ export interface ZInfoBoxCustomEvent<T> extends CustomEvent<T> {
 export interface ZInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZInputElement;
+}
+export interface ZInputRangeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZInputRangeElement;
 }
 export interface ZListElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3159,6 +3237,27 @@ declare global {
         prototype: HTMLZInputMessageElement;
         new (): HTMLZInputMessageElement;
     };
+    interface HTMLZInputRangeElementEventMap {
+        "rangeInput": number;
+        "rangeChange": number;
+    }
+    /**
+     * Input range component.
+     */
+    interface HTMLZInputRangeElement extends Components.ZInputRange, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZInputRangeElementEventMap>(type: K, listener: (this: HTMLZInputRangeElement, ev: ZInputRangeCustomEvent<HTMLZInputRangeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZInputRangeElementEventMap>(type: K, listener: (this: HTMLZInputRangeElement, ev: ZInputRangeCustomEvent<HTMLZInputRangeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZInputRangeElement: {
+        prototype: HTMLZInputRangeElement;
+        new (): HTMLZInputRangeElement;
+    };
     interface HTMLZListElement extends Components.ZList, HTMLStencilElement {
     }
     var HTMLZListElement: {
@@ -3459,7 +3558,7 @@ declare global {
         new (): HTMLZNotificationElement;
     };
     interface HTMLZOffcanvasElementEventMap {
-        "canvasOpenStatusChanged": any;
+        "canvasOpenStatusChanged": boolean;
     }
     interface HTMLZOffcanvasElement extends Components.ZOffcanvas, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZOffcanvasElementEventMap>(type: K, listener: (this: HTMLZOffcanvasElement, ev: ZOffcanvasCustomEvent<HTMLZOffcanvasElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3916,6 +4015,7 @@ declare global {
         "z-info-reveal": HTMLZInfoRevealElement;
         "z-input": HTMLZInputElement;
         "z-input-message": HTMLZInputMessageElement;
+        "z-input-range": HTMLZInputRangeElement;
         "z-list": HTMLZListElement;
         "z-list-element": HTMLZListElementElement;
         "z-list-group": HTMLZListGroupElement;
@@ -4093,6 +4193,10 @@ declare namespace LocalJSX {
           * Label of the search button.
          */
         "searchButtonLabel"?: string;
+        /**
+          * Visible label for the search bar.
+         */
+        "searchLabel"?: string;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -4616,6 +4720,11 @@ declare namespace LocalJSX {
           * @default ZChipType.DEFAULT
          */
         "type"?: ZChipType;
+        /**
+          * z-chip variant type, can be outline, filled or soft
+          * @default ZChipVariant.OUTLINE
+         */
+        "variant"?: ZChipVariant;
     }
     /**
      * Color picker component.
@@ -5183,6 +5292,82 @@ declare namespace LocalJSX {
           * input status (optional)
          */
         "status"?: InputStatus;
+    }
+    /**
+     * Input range component.
+     */
+    interface ZInputRange {
+        /**
+          * Whether the input range is disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The `id` of a `<form>` element to associate this element with.
+         */
+        "form"?: string;
+        /**
+          * The aria label of the input range. for accessibility. Not necessary if the `label` prop is set.
+         */
+        "htmlAriaLabel"?: string;
+        /**
+          * ID of the input range.
+          * @default `z-input-range-${randomId()}`
+         */
+        "htmlId"?: string;
+        /**
+          * The label of the input range. When `orientation` is set to `vertical`, the label is not visible but used as `aria-label`, unless `htmlAriaLabel` is provided.
+         */
+        "label"?: string;
+        /**
+          * The greatest value in the range of permitted values.
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * The lowest value in the range of permitted values.
+          * @default 0
+         */
+        "min"?: number;
+        /**
+          * The name of the element, used when submitting an HTML form.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value of the input range has changed (`change` native event).
+         */
+        "onRangeChange"?: (event: ZInputRangeCustomEvent<number>) => void;
+        /**
+          * Emitted when the value of the input range is being changed (`input` native event).
+         */
+        "onRangeInput"?: (event: ZInputRangeCustomEvent<number>) => void;
+        /**
+          * The orientation of the input range.
+         */
+        "orientation"?: Orientation;
+        /**
+          * Whether to show `min` and `max` values of the input range. Only visible with the `horizontal` orientation.
+          * @default false
+         */
+        "showEdges"?: boolean;
+        /**
+          * The size of the input range. Default: `ControlSize.BIG`
+         */
+        "size"?: ControlSize.BIG;
+        /**
+          * The step value for the input range.
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * The value of the input range.
+          * @default 0
+         */
+        "value"?: number;
+        /**
+          * The position of the tooltip displaying the current value. Defaults to `top` for horizontal orientation and `left` for vertical orientation. May be necessary to adjust this prop when the input range is close to the edges of the screen, to prevent the tooltip from showing out of the screen or in an unintended position due to auto adjustment. For example, for a horizontal input range close to the top of the screen, you may want to set this prop to `bottom`.
+         */
+        "valuePosition"?: PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZList {
         /**
@@ -5823,14 +6008,14 @@ declare namespace LocalJSX {
         /**
           * emitted when `open` prop changes
          */
-        "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<any>) => void;
+        "onCanvasOpenStatusChanged"?: (event: ZOffcanvasCustomEvent<boolean>) => void;
         /**
           * Whether the offcanvas is open. Default: false
           * @default false
          */
         "open"?: boolean;
         /**
-          * Whether to show the backdrop when the offcanvas is open. Default: true
+          * Whether to show the backdrop when the offcanvas is open and variant is not `pushcontent`. Default: `true`
           * @default true
          */
         "showBackdrop"?: boolean;
@@ -6273,6 +6458,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "readonly"?: boolean;
+        /**
+          * the input is required
+          * @default false
+         */
+        "required"?: boolean;
         "resetItem"?: string;
         /**
           * If true and an item matches the search string, children of matching item are shown even if they don't match the search string
@@ -6730,6 +6920,7 @@ declare namespace LocalJSX {
         "stuck": boolean;
         "enableOffcanvas": boolean;
         "enableSearch": boolean;
+        "searchLabel": string;
         "searchPlaceholder": string;
         "searchButtonLabel": string;
         "searchString": string;
@@ -6853,6 +7044,7 @@ declare namespace LocalJSX {
     interface ZChipAttributes {
         "icon": string;
         "type": ZChipType;
+        "variant": ZChipVariant;
         "interactiveIcon": string;
         "disabled": boolean;
         "ariaLabel": string;
@@ -6986,6 +7178,20 @@ declare namespace LocalJSX {
         "htmlRole": null | string;
         "status": InputStatus;
         "disabled": boolean;
+    }
+    interface ZInputRangeAttributes {
+        "disabled": boolean;
+        "htmlAriaLabel": string;
+        "htmlId": string;
+        "label": string;
+        "max": number;
+        "min": number;
+        "orientation": Orientation;
+        "showEdges": boolean;
+        "size": ControlSize.BIG;
+        "step": number;
+        "value": number;
+        "valuePosition": PopoverPosition.TOP | PopoverPosition.BOTTOM | PopoverPosition.LEFT | PopoverPosition.RIGHT;
     }
     interface ZListAttributes {
         "size": ListSize;
@@ -7232,6 +7438,7 @@ declare namespace LocalJSX {
         "ariaLabel": string;
         "disabled": boolean;
         "readonly": boolean;
+        "required": boolean;
         "placeholder": string;
         "htmltitle": string;
         "status": InputStatus;
@@ -7378,6 +7585,7 @@ declare namespace LocalJSX {
         "z-info-reveal": Omit<ZInfoReveal, keyof ZInfoRevealAttributes> & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes]?: ZInfoReveal[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `attr:${K}`]?: ZInfoRevealAttributes[K] } & { [K in keyof ZInfoReveal & keyof ZInfoRevealAttributes as `prop:${K}`]?: ZInfoReveal[K] };
         "z-input": Omit<ZInput, keyof ZInputAttributes> & { [K in keyof ZInput & keyof ZInputAttributes]?: ZInput[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `attr:${K}`]?: ZInputAttributes[K] } & { [K in keyof ZInput & keyof ZInputAttributes as `prop:${K}`]?: ZInput[K] };
         "z-input-message": Omit<ZInputMessage, keyof ZInputMessageAttributes> & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes]?: ZInputMessage[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `attr:${K}`]?: ZInputMessageAttributes[K] } & { [K in keyof ZInputMessage & keyof ZInputMessageAttributes as `prop:${K}`]?: ZInputMessage[K] };
+        "z-input-range": Omit<ZInputRange, keyof ZInputRangeAttributes> & { [K in keyof ZInputRange & keyof ZInputRangeAttributes]?: ZInputRange[K] } & { [K in keyof ZInputRange & keyof ZInputRangeAttributes as `attr:${K}`]?: ZInputRangeAttributes[K] } & { [K in keyof ZInputRange & keyof ZInputRangeAttributes as `prop:${K}`]?: ZInputRange[K] };
         "z-list": Omit<ZList, keyof ZListAttributes> & { [K in keyof ZList & keyof ZListAttributes]?: ZList[K] } & { [K in keyof ZList & keyof ZListAttributes as `attr:${K}`]?: ZListAttributes[K] } & { [K in keyof ZList & keyof ZListAttributes as `prop:${K}`]?: ZList[K] };
         "z-list-element": Omit<ZListElement, keyof ZListElementAttributes> & { [K in keyof ZListElement & keyof ZListElementAttributes]?: ZListElement[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `attr:${K}`]?: ZListElementAttributes[K] } & { [K in keyof ZListElement & keyof ZListElementAttributes as `prop:${K}`]?: ZListElement[K] };
         "z-list-group": Omit<ZListGroup, keyof ZListGroupAttributes> & { [K in keyof ZListGroup & keyof ZListGroupAttributes]?: ZListGroup[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `attr:${K}`]?: ZListGroupAttributes[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `prop:${K}`]?: ZListGroup[K] };
@@ -7517,6 +7725,10 @@ declare module "@stencil/core" {
             "z-info-reveal": LocalJSX.IntrinsicElements["z-info-reveal"] & JSXBase.HTMLAttributes<HTMLZInfoRevealElement>;
             "z-input": LocalJSX.IntrinsicElements["z-input"] & JSXBase.HTMLAttributes<HTMLZInputElement>;
             "z-input-message": LocalJSX.IntrinsicElements["z-input-message"] & JSXBase.HTMLAttributes<HTMLZInputMessageElement>;
+            /**
+             * Input range component.
+             */
+            "z-input-range": LocalJSX.IntrinsicElements["z-input-range"] & JSXBase.HTMLAttributes<HTMLZInputRangeElement>;
             "z-list": LocalJSX.IntrinsicElements["z-list"] & JSXBase.HTMLAttributes<HTMLZListElement>;
             "z-list-element": LocalJSX.IntrinsicElements["z-list-element"] & JSXBase.HTMLAttributes<HTMLZListElementElement>;
             "z-list-group": LocalJSX.IntrinsicElements["z-list-group"] & JSXBase.HTMLAttributes<HTMLZListGroupElement>;

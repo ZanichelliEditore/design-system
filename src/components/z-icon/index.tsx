@@ -88,6 +88,7 @@ export class ZIcon implements ComponentInterface {
         viewBox="0 0 1000 1000"
         width={this.width}
         height={this.height}
+        aria-hidden="true"
       >
         {this.selectPathOrPolygon(ICONS["picker-color"])}
       </svg>
@@ -102,6 +103,7 @@ export class ZIcon implements ComponentInterface {
         viewBox="0 0 1000 1000"
         width={this.width}
         height={this.height}
+        aria-hidden="true"
       >
         {this.selectPathOrPolygon(ICONS[this.getTransparentIndicatorIconIfNeeded()])}
       </svg>

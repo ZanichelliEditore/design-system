@@ -3,7 +3,6 @@
   display: flex;
   max-width: 100%;
   align-items: center;
-  padding: calc(var(--z-table--cells-padding, calc(var(--space-unit) * 2)));
   background-color: var(--color-surface01);
   gap: calc(var(--space-unit) * 2) var(--space-unit);
 }

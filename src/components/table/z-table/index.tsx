@@ -10,7 +10,7 @@ import "../z-tr/index";
  */
 @Component({
   tag: "z-table",
-  styleUrl: "styles.css",
+  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTable implements ComponentInterface {

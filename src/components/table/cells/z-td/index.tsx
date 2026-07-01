@@ -7,7 +7,7 @@ import {ButtonVariant, ControlSize, PopoverPosition, VisibilityCondition} from "
  */
 @Component({
   tag: "z-td",
-  styleUrl: "../z-table-cells.css",
+  styleUrls: ["../z-table-cells.css", "../../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTd implements ComponentInterface {

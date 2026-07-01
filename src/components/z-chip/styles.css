@@ -1,45 +1,100 @@
+:host,
+:host * {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+}
+
 :host > .z-chip-container {
   display: inline-flex;
   min-height: 28px;
   align-items: center;
-  padding: 0 calc(var(--space-unit) * 1.5);
+  padding: 0 calc(var(--space-unit) * 2);
   border: var(--border-size-small) solid var(--color-surface03);
   background-color: var(--color-surface01);
   border-radius: 14px;
-  color: var(--color-default-text);
+  color: var(--color-primary01);
   fill: var(--color-default-icon);
   font-family: var(--font-family-sans);
   font-size: 14px;
-  line-height: 28px;
-}
-
-:host > .z-chip-interactive {
   font-weight: var(--font-sb);
+  gap: var(--space-unit);
+  line-height: 1;
 }
 
 :host > .z-chip-container > button {
+  position: relative;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: none;
-  margin-left: var(--space-unit);
   background-color: transparent;
+  border-radius: 50%;
   cursor: pointer;
 }
 
-:host > .z-chip-container > z-icon:first-child {
-  margin-right: calc(var(--space-unit) / 2);
-}
-
 :host > .z-chip-container .interactive-icon {
-  fill: var(--color-primary01-icon);
+  fill: var(--color-primary01);
 }
 
-:host > .z-chip-container:not([aria-disabled]) .interactive-icon:hover {
+:host > .z-chip-container:not([aria-disabled]) button:hover .interactive-icon {
   color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
 
+/* Variants */
+:host > .z-chip-container.filled {
+  border-color: transparent;
+  background-color: var(--color-primary01);
+  color: var(--color-text-inverse);
+  fill: var(--color-inverse-icon);
+}
+
+:host > .z-chip-container.filled .interactive-icon {
+  fill: var(--color-inverse-icon);
+}
+
+:host > .z-chip-container.filled:not([aria-disabled]) button::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-inverse-icon);
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+:host > .z-chip-container.filled:not([aria-disabled]) button:hover::before {
+  opacity: 0.16;
+}
+
+:host > .z-chip-container.filled:not([aria-disabled]) button:hover .interactive-icon {
+  color: var(--color-inverse-icon);
+  fill: var(--color-inverse-icon);
+}
+
+:host > .z-chip-container.soft {
+  border-color: transparent;
+  background-color: var(--color-primary02);
+  color: var(--color-default-text);
+}
+
+:host > .z-chip-container.soft .interactive-icon {
+  fill: var(--color-primary01);
+}
+
+/* Disabled state */
 :host > .z-chip-container[aria-disabled],
-:host > .z-chip-container[aria-disabled] z-icon {
+:host > .z-chip-container[aria-disabled] .interactive-icon {
   color: var(--color-disabled03);
   cursor: auto;
   fill: var(--color-disabled03);
@@ -47,17 +102,19 @@
 
 :host > .z-chip-container[aria-disabled] {
   border: var(--border-size-small) solid var(--color-disabled01);
+  background-color: transparent;
+}
+
+:host > .z-chip-container.filled[aria-disabled],
+:host > .z-chip-container.soft[aria-disabled] {
+  border-color: transparent;
+  background-color: var(--color-disabled01);
 }
 
 :host > .z-chip-container > button:focus:focus-visible {
   border-radius: 100%;
   box-shadow: var(--shadow-focus-primary);
   outline: none;
-}
-
-:host > button:not([disabled]):active:hover .interactive-icon {
-  color: var(--color-primary01);
-  fill: var(--color-primary01-icon);
 }
 
 :host > .z-chip-container > z-icon,
@@ -70,49 +127,50 @@
 :host > .z-chip-container.default {
   min-height: 44px;
   border-radius: 22px;
-  line-height: 44px;
 }
 
 :host > .z-chip-container.medium {
   min-height: 40px;
   border-radius: 22px;
-  line-height: 40px;
 }
 
 :host > .z-chip-container.small {
   min-height: 36px;
   border-radius: 22px;
-  line-height: 36px;
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
   :host > .z-chip-container {
+    padding: 0 calc(var(--space-unit) * 1.5);
     font-size: 12px;
+    gap: calc(var(--space-unit) / 2);
   }
 
   /* :host type */
   :host > .z-chip-container.default {
     min-height: 32px;
     border-radius: 16px;
-    line-height: 32px;
   }
 
   :host > .z-chip-container.medium {
     min-height: 28px;
     border-radius: 16px;
-    line-height: 28px;
   }
 
   :host > .z-chip-container.small {
     min-height: 24px;
     border-radius: 16px;
-    line-height: 24px;
   }
 
   :host > .z-chip-container > z-icon,
   :host > .z-chip-container .interactive-icon {
     --z-icon-width: 14px;
     --z-icon-height: 14px;
+  }
+
+  :host > .z-chip-container > button {
+    width: 20px;
+    height: 20px;
   }
 }

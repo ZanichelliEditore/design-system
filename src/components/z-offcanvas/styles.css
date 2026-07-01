@@ -99,6 +99,7 @@
   flex: 1 auto;
   padding: 0 calc(var(--space-unit) * 2);
   margin: calc(var(--space-unit) * 2) calc(var(--space-unit) / 2) calc(var(--space-unit) * 2) 0;
+  outline: none;
 }
 
 /* Tablet / Desktop */
