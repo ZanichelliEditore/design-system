@@ -61,6 +61,7 @@ const StoryMeta = {
     name: "select-name",
     disabled: false,
     readonly: false,
+    required: false,
     htmlid: "",
     htmltitle: "",
     autocomplete: false,

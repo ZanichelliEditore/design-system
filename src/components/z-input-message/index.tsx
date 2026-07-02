@@ -50,12 +50,12 @@ export class ZInputMessage implements ComponentInterface {
 
   render(): HTMLZInputMessageElement {
     return (
-      <Host {...this.statusRole}>
+      <Host
+        {...this.statusRole}
+        id={this.htmlId}
+      >
         {this.statusIcons[this.status] && this.message && <z-icon name={this.statusIcons[this.status]}></z-icon>}
-        <span
-          id={this.htmlId}
-          innerHTML={this.message}
-        />
+        <span innerHTML={this.message} />
       </Host>
     );
   }
