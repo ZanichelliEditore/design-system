@@ -15,7 +15,7 @@ export class ZInfoBox implements ComponentInterface {
   boxid: string;
 
   /** render close icon */
-  @Prop()
+  @Prop({reflect: true})
   isclosable = true;
 
   /** Aria label for the close button */

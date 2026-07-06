@@ -9,7 +9,7 @@ describe("Suite test ZInfoBox", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-info-box boxid="box" isclosable="true" id="box">
+      <z-info-box boxid="box" isclosable id="box">
         <mock:shadow-root>
           <div class="main-content">
             <slot name="content"></slot>
@@ -54,7 +54,7 @@ describe("Suite test ZInfoBox", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-info-box>
+      <z-info-box isclosable>
         <mock:shadow-root>
           <div class="main-content">
             <slot name="content"></slot>
@@ -82,7 +82,7 @@ describe("Suite test ZInfoBox", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-info-box left-icon="info-filled">
+      <z-info-box left-icon="info-filled" isclosable>
         <mock:shadow-root>
           <div class="main-content">
             <div class="left-icon">
