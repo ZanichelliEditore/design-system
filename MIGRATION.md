@@ -26,6 +26,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
     - [Rimozione del componente ZMyzCardList dalla libreria](#rimozione-del-componente-zmyzcardlist-dalla-libreria)
   - [ZPanelElem](#zpanelelem)
     - [Rimozione del componente ZPanelElem dalla libreria](#rimozione-del-componente-zpanelelem-dalla-libreria)
+  - [Rimozione dei componenti deprecati e snowflakes](#rimozione-componenti-deprecati-e-snowflakes)
 
 - [v19.0.0](#v1900)
 
@@ -217,6 +218,34 @@ Il componente è stato eliminato definitivamente dalla libreria.
 #### Rimozione del componente ZPanelElem dalla libreria
 
 Il componente è stato eliminato definitivamente dalla libreria.
+
+### Rimozione componenti deprecati e snowflakes
+
+Rimosso i componenti deprecati e snowflakes.
+Nel dettaglio sono stati rimossi:
+
+- z-app-header-deprecated
+- z-book-card-deprecated
+- z-menu-deprecated
+- z-menu-section-deprecated
+- z-section-title
+- z-toggle-button
+- z-myz-card-alert
+- z-myz-card-body
+- z-myz-card-cover
+- z-myz-card-dictionary
+- z-myz-card-footer-sections
+- z-myz-card-footer
+- z-myz-card-header
+- z-myz-card-icon
+- z-myz-card-info
+- z-myz-card-list
+- z-myz-card
+- z-myz-list-item
+- z-myz-list
+- z-alert
+- z-otp
+- z-slideshow
 
 ## v19.0.0
 

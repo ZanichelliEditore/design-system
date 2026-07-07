@@ -5,12 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
-import { AlertType, LicenseType, ListItem } from "./beans/index";
+import { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode } from "./beans";
 import { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 import { IconName } from "./constants/iconset";
-export { AccordionVariant, AvatarSize, BookCardDeprecatedVariant, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DictionaryData, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode, ZSectionTitleDividerPosition } from "./beans";
-export { AlertType, LicenseType, ListItem } from "./beans/index";
+export { AccordionVariant, AvatarSize, BookCardVariant, BreadcrumbHomepageVariant, BreadcrumbPath, BreadcrumbPathStyle, ButtonSize, ButtonType, ButtonVariant, CardVariant, CarouselArrowsPosition, CarouselProgressMode, ColorPickerPalette, ComboItem, ControlSize, CoverHeroContentPosition, CoverHeroVariant, DividerOrientation, DividerSize, ExpandableListButtonAlign, ExpandableListStyle, IconPosition, InfoRevealPosition, InputStatus, InputType, LabelPosition, ListDividerType, ListSize, ListType, NavigationTabsOrientation, NavigationTabsSize, NotificationType, OffCanvasVariant, Orientation, PopoverPosition, SearchbarItem, SelectItem, SkipToContentLink, SortDirection, ThemeVariant, ToastNotification, ToastNotificationPosition, ToastNotificationTransition, TransitionDirection, TreeListItem, VisibilityCondition, ZAriaAlertMode, ZChipType, ZChipVariant, ZDatePickerMode, ZFileUploadType, ZRangePickerMode } from "./beans";
 export { ZFileUploadError } from "./components/file-upload/z-file-upload/index";
 export { IconName } from "./constants/iconset";
 export namespace Components {
@@ -56,12 +54,6 @@ export namespace Components {
           * @default AccordionVariant.DEFAULT
          */
         "variant": AccordionVariant;
-    }
-    interface ZAlert {
-        /**
-          * alert variant type
-         */
-        "type": AlertType;
     }
     /**
      * Anchor navigation component.
@@ -127,51 +119,6 @@ export namespace Components {
           * Visible label for the search bar.
          */
         "searchLabel"?: string;
-        /**
-          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
-         */
-        "searchPageUrl": string;
-        /**
-          * Placeholder text for the search bar.
-          * @default "Cerca"
-         */
-        "searchPlaceholder": string;
-        /**
-          * Search string for the search bar.
-          * @default ""
-         */
-        "searchString": string;
-        /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
-         */
-        "stuck": boolean;
-    }
-    interface ZAppHeaderDeprecated {
-        /**
-          * The opening state of the drawer.
-          * @default false
-         */
-        "drawerOpen": boolean;
-        /**
-          * Enable the search bar.
-          * @default false
-         */
-        "enableSearch": boolean;
-        /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-          * @default "auto"
-         */
-        "flow": "auto" | "stack" | "offcanvas";
-        /**
-          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
-         */
-        "hero": string;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose.
-          * @default false
-         */
-        "overlay": boolean;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -307,61 +254,6 @@ export namespace Components {
           * App name
          */
         "name": string;
-    }
-    interface ZBookCardDeprecated {
-        /**
-          * [optional] Authors
-         */
-        "authors"?: string;
-        /**
-          * [optional] Borderless card - compact variant only
-         */
-        "borderless"?: boolean;
-        /**
-          * Cover URL
-         */
-        "cover": string;
-        /**
-          * [optional] Fallback cover URL
-         */
-        "fallbackCover"?: string;
-        /**
-          * [optional] Main ISBN
-         */
-        "isbn"?: string;
-        /**
-          * [optional] ISBN label
-          * @default ""
-         */
-        "isbnLabel": string;
-        /**
-          * Card main title
-         */
-        "operaTitle": string;
-        /**
-          * [optional] [accessibility] Card title HTML tag
-         */
-        "operaTitleTag"?: string;
-        /**
-          * [optional] Ribbon label - expanded and search variant only
-         */
-        "ribbon"?: string;
-        /**
-          * [optional] Ribbon icon - expanded and search variant only
-         */
-        "ribbonIcon"?: string;
-        /**
-          * [optional] Ribbon interactive - expanded and search variant only
-         */
-        "ribbonInteractive"?: boolean;
-        /**
-          * Card variant: expanded, compact, search
-         */
-        "variant": BookCardDeprecatedVariant;
-        /**
-          * [optional] Card subtitle
-         */
-        "volumeTitle"?: string;
     }
     /**
      * This component displays a book cover image,
@@ -1374,27 +1266,6 @@ export namespace Components {
          */
         "verticalContext": boolean;
     }
-    interface ZMenuDeprecated {
-        /**
-          * Flag to set the active status of the menu.
-         */
-        "active"?: boolean;
-        /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
-         */
-        "floating"?: boolean;
-        /**
-          * The opening state of the menu.
-          * @default false
-         */
-        "open": boolean;
-        /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
-         */
-        "verticalContext": boolean;
-    }
     /**
      * A component to create submenus inside the ZMenu.
      */
@@ -1420,15 +1291,6 @@ export namespace Components {
           * Set tabindex of the label to 0, then focus it.
          */
         "setFocus": () => Promise<void>;
-    }
-    /**
-     * A component to create submenus inside the ZMenu.
-     */
-    interface ZMenuSectionDeprecated {
-        /**
-          * Active state
-         */
-        "active"?: boolean;
     }
     interface ZModal {
         /**
@@ -1476,145 +1338,6 @@ export namespace Components {
           * @default true
          */
         "scrollInside"?: boolean;
-    }
-    interface ZMyzCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * highlighted status
-          * @default false
-         */
-        "ishighlighted": boolean;
-        /**
-          * pressed status
-          * @default false
-         */
-        "ispressed": boolean;
-    }
-    interface ZMyzCardBody {
-    }
-    interface ZMyzCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg": string;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * image source
-         */
-        "img": string;
-        /**
-          * cover alt title
-         */
-        "titolo": string;
-    }
-    interface ZMyzCardDictionary {
-        /**
-          * card cover
-         */
-        "cover": string;
-        /**
-          * card is disabled
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * flip button label
-          * @default "INFO"
-         */
-        "flipbuttonlabel": string;
-        /**
-          * card is flipped
-          * @default false
-         */
-        "flipped": boolean;
-        /**
-          * hide info button
-          * @default false
-         */
-        "hideinfobtn": boolean;
-        /**
-          * card title
-         */
-        "name": string;
-    }
-    interface ZMyzCardFooterSections {
-    }
-    interface ZMyzCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * faded status
-         */
-        "faded": boolean;
-        /**
-          * volume title
-         */
-        "titolo": string;
-    }
-    interface ZMyzCardInfo {
-        /**
-          * dictionary info
-         */
-        "data": string | DictionaryData;
-        /**
-          * tabindex link attribute (optional)
-          * @default 0
-         */
-        "htmltabindex"?: number;
-    }
-    interface ZMyzList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItem[];
-    }
-    interface ZMyzListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-          * @default "_self"
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * content text
-         */
-        "text": string;
-        /**
-          * underlined style flag
-          * @default true
-         */
-        "underlined": boolean;
     }
     /**
      * Navigation tabs component.
@@ -1706,21 +1429,6 @@ export namespace Components {
           * @default OffCanvasVariant.PUSHCONTENT
          */
         "variant"?: OffCanvasVariant;
-    }
-    interface ZOtp {
-        /**
-          * Input number
-          * @default 6
-         */
-        "inputNum"?: number;
-        /**
-          * Input message
-         */
-        "message"?: string;
-        /**
-          * Input status
-         */
-        "status"?: InputStatus;
     }
     /**
      * Pagination bar component.
@@ -1973,22 +1681,6 @@ export namespace Components {
          */
         "variant"?: ButtonVariant;
     }
-    /**
-     * Section title component.
-     * An optional secondary title can be put over the primary one.
-     */
-    interface ZSectionTitle {
-        /**
-          * Divider position for the primary title. This prop only works if the secondary title is not set.
-          * @default ZSectionTitleDividerPosition.BEFORE
-         */
-        "dividerPosition": ZSectionTitleDividerPosition;
-        /**
-          * Whether the primary title text is uppercase.
-          * @default true
-         */
-        "uppercase": boolean;
-    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -2096,16 +1788,6 @@ export namespace Components {
           * Graphical variant: `dark`, `light`.
          */
         "variant"?: ThemeVariant;
-    }
-    interface ZSlideshow {
-        /**
-          * array or JSON stringified images urls
-         */
-        "data": string[] | string;
-        /**
-          * slideshow id
-         */
-        "slideshowid": string;
     }
     interface ZStepper {
     }
@@ -2457,10 +2139,6 @@ export interface ZAppHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZAppHeaderElement;
 }
-export interface ZAppHeaderDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZAppHeaderDeprecatedElement;
-}
 export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardElement;
@@ -2468,10 +2146,6 @@ export interface ZBookCardCustomEvent<T> extends CustomEvent<T> {
 export interface ZBookCardAppCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZBookCardAppElement;
-}
-export interface ZBookCardDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZBookCardDeprecatedElement;
 }
 export interface ZBreadcrumbCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2533,33 +2207,13 @@ export interface ZMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuElement;
 }
-export interface ZMenuDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMenuDeprecatedElement;
-}
 export interface ZMenuSectionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZMenuSectionElement;
 }
-export interface ZMenuSectionDeprecatedCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMenuSectionDeprecatedElement;
-}
 export interface ZModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZModalElement;
-}
-export interface ZMyzCardDictionaryCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMyzCardDictionaryElement;
-}
-export interface ZMyzCardInfoCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMyzCardInfoElement;
-}
-export interface ZMyzListItemCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZMyzListItemElement;
 }
 export interface ZNavigationTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2572,10 +2226,6 @@ export interface ZNotificationCustomEvent<T> extends CustomEvent<T> {
 export interface ZOffcanvasCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZOffcanvasElement;
-}
-export interface ZOtpCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLZOtpElement;
 }
 export interface ZPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2650,12 +2300,6 @@ declare global {
         prototype: HTMLZAccordionElement;
         new (): HTMLZAccordionElement;
     };
-    interface HTMLZAlertElement extends Components.ZAlert, HTMLStencilElement {
-    }
-    var HTMLZAlertElement: {
-        prototype: HTMLZAlertElement;
-        new (): HTMLZAlertElement;
-    };
     /**
      * Anchor navigation component.
      * @example ```
@@ -2691,23 +2335,6 @@ declare global {
     var HTMLZAppHeaderElement: {
         prototype: HTMLZAppHeaderElement;
         new (): HTMLZAppHeaderElement;
-    };
-    interface HTMLZAppHeaderDeprecatedElementEventMap {
-        "sticking": any;
-    }
-    interface HTMLZAppHeaderDeprecatedElement extends Components.ZAppHeaderDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZAppHeaderDeprecatedElementEventMap>(type: K, listener: (this: HTMLZAppHeaderDeprecatedElement, ev: ZAppHeaderDeprecatedCustomEvent<HTMLZAppHeaderDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZAppHeaderDeprecatedElement: {
-        prototype: HTMLZAppHeaderDeprecatedElement;
-        new (): HTMLZAppHeaderDeprecatedElement;
     };
     interface HTMLZAriaAlertElement extends Components.ZAriaAlert, HTMLStencilElement {
     }
@@ -2759,23 +2386,6 @@ declare global {
     var HTMLZBookCardAppElement: {
         prototype: HTMLZBookCardAppElement;
         new (): HTMLZBookCardAppElement;
-    };
-    interface HTMLZBookCardDeprecatedElementEventMap {
-        "ribbonClick": any;
-    }
-    interface HTMLZBookCardDeprecatedElement extends Components.ZBookCardDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZBookCardDeprecatedElementEventMap>(type: K, listener: (this: HTMLZBookCardDeprecatedElement, ev: ZBookCardDeprecatedCustomEvent<HTMLZBookCardDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZBookCardDeprecatedElement: {
-        prototype: HTMLZBookCardDeprecatedElement;
-        new (): HTMLZBookCardDeprecatedElement;
     };
     /**
      * This component displays a book cover image,
@@ -3145,24 +2755,6 @@ declare global {
         prototype: HTMLZMenuElement;
         new (): HTMLZMenuElement;
     };
-    interface HTMLZMenuDeprecatedElementEventMap {
-        "opened": any;
-        "closed": any;
-    }
-    interface HTMLZMenuDeprecatedElement extends Components.ZMenuDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMenuDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuDeprecatedElement, ev: ZMenuDeprecatedCustomEvent<HTMLZMenuDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMenuDeprecatedElement: {
-        prototype: HTMLZMenuDeprecatedElement;
-        new (): HTMLZMenuDeprecatedElement;
-    };
     interface HTMLZMenuSectionElementEventMap {
         "opened": any;
         "closed": any;
@@ -3184,27 +2776,6 @@ declare global {
         prototype: HTMLZMenuSectionElement;
         new (): HTMLZMenuSectionElement;
     };
-    interface HTMLZMenuSectionDeprecatedElementEventMap {
-        "opened": any;
-        "closed": any;
-    }
-    /**
-     * A component to create submenus inside the ZMenu.
-     */
-    interface HTMLZMenuSectionDeprecatedElement extends Components.ZMenuSectionDeprecated, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMenuSectionDeprecatedElementEventMap>(type: K, listener: (this: HTMLZMenuSectionDeprecatedElement, ev: ZMenuSectionDeprecatedCustomEvent<HTMLZMenuSectionDeprecatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMenuSectionDeprecatedElement: {
-        prototype: HTMLZMenuSectionDeprecatedElement;
-        new (): HTMLZMenuSectionDeprecatedElement;
-    };
     interface HTMLZModalElementEventMap {
         "modalClose": any;
         "modalHeaderActive": any;
@@ -3223,94 +2794,6 @@ declare global {
     var HTMLZModalElement: {
         prototype: HTMLZModalElement;
         new (): HTMLZModalElement;
-    };
-    interface HTMLZMyzCardElement extends Components.ZMyzCard, HTMLStencilElement {
-    }
-    var HTMLZMyzCardElement: {
-        prototype: HTMLZMyzCardElement;
-        new (): HTMLZMyzCardElement;
-    };
-    interface HTMLZMyzCardBodyElement extends Components.ZMyzCardBody, HTMLStencilElement {
-    }
-    var HTMLZMyzCardBodyElement: {
-        prototype: HTMLZMyzCardBodyElement;
-        new (): HTMLZMyzCardBodyElement;
-    };
-    interface HTMLZMyzCardCoverElement extends Components.ZMyzCardCover, HTMLStencilElement {
-    }
-    var HTMLZMyzCardCoverElement: {
-        prototype: HTMLZMyzCardCoverElement;
-        new (): HTMLZMyzCardCoverElement;
-    };
-    interface HTMLZMyzCardDictionaryElementEventMap {
-        "cardFlipped": any;
-    }
-    interface HTMLZMyzCardDictionaryElement extends Components.ZMyzCardDictionary, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMyzCardDictionaryElementEventMap>(type: K, listener: (this: HTMLZMyzCardDictionaryElement, ev: ZMyzCardDictionaryCustomEvent<HTMLZMyzCardDictionaryElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMyzCardDictionaryElement: {
-        prototype: HTMLZMyzCardDictionaryElement;
-        new (): HTMLZMyzCardDictionaryElement;
-    };
-    interface HTMLZMyzCardFooterSectionsElement extends Components.ZMyzCardFooterSections, HTMLStencilElement {
-    }
-    var HTMLZMyzCardFooterSectionsElement: {
-        prototype: HTMLZMyzCardFooterSectionsElement;
-        new (): HTMLZMyzCardFooterSectionsElement;
-    };
-    interface HTMLZMyzCardHeaderElement extends Components.ZMyzCardHeader, HTMLStencilElement {
-    }
-    var HTMLZMyzCardHeaderElement: {
-        prototype: HTMLZMyzCardHeaderElement;
-        new (): HTMLZMyzCardHeaderElement;
-    };
-    interface HTMLZMyzCardInfoElementEventMap {
-        "flipCard": any;
-    }
-    interface HTMLZMyzCardInfoElement extends Components.ZMyzCardInfo, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMyzCardInfoElementEventMap>(type: K, listener: (this: HTMLZMyzCardInfoElement, ev: ZMyzCardInfoCustomEvent<HTMLZMyzCardInfoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMyzCardInfoElement: {
-        prototype: HTMLZMyzCardInfoElement;
-        new (): HTMLZMyzCardInfoElement;
-    };
-    interface HTMLZMyzListElement extends Components.ZMyzList, HTMLStencilElement {
-    }
-    var HTMLZMyzListElement: {
-        prototype: HTMLZMyzListElement;
-        new (): HTMLZMyzListElement;
-    };
-    interface HTMLZMyzListItemElementEventMap {
-        "zListItemLinkClick": any;
-        "zListItemClick": any;
-    }
-    interface HTMLZMyzListItemElement extends Components.ZMyzListItem, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZMyzListItemElementEventMap>(type: K, listener: (this: HTMLZMyzListItemElement, ev: ZMyzListItemCustomEvent<HTMLZMyzListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZMyzListItemElement: {
-        prototype: HTMLZMyzListItemElement;
-        new (): HTMLZMyzListItemElement;
     };
     interface HTMLZNavigationTabsElementEventMap {
         "selected": number;
@@ -3370,23 +2853,6 @@ declare global {
     var HTMLZOffcanvasElement: {
         prototype: HTMLZOffcanvasElement;
         new (): HTMLZOffcanvasElement;
-    };
-    interface HTMLZOtpElementEventMap {
-        "otpChange": any;
-    }
-    interface HTMLZOtpElement extends Components.ZOtp, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLZOtpElementEventMap>(type: K, listener: (this: HTMLZOtpElement, ev: ZOtpCustomEvent<HTMLZOtpElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLZOtpElement: {
-        prototype: HTMLZOtpElement;
-        new (): HTMLZOtpElement;
     };
     interface HTMLZPaginationElementEventMap {
         "pageChanged": any;
@@ -3475,16 +2941,6 @@ declare global {
         prototype: HTMLZSearchbarElement;
         new (): HTMLZSearchbarElement;
     };
-    /**
-     * Section title component.
-     * An optional secondary title can be put over the primary one.
-     */
-    interface HTMLZSectionTitleElement extends Components.ZSectionTitle, HTMLStencilElement {
-    }
-    var HTMLZSectionTitleElement: {
-        prototype: HTMLZSectionTitleElement;
-        new (): HTMLZSectionTitleElement;
-    };
     interface HTMLZSelectElementEventMap {
         "optionSelect": any;
         "resetSelect": any;
@@ -3511,12 +2967,6 @@ declare global {
     var HTMLZSkipToContentElement: {
         prototype: HTMLZSkipToContentElement;
         new (): HTMLZSkipToContentElement;
-    };
-    interface HTMLZSlideshowElement extends Components.ZSlideshow, HTMLStencilElement {
-    }
-    var HTMLZSlideshowElement: {
-        prototype: HTMLZSlideshowElement;
-        new (): HTMLZSlideshowElement;
     };
     interface HTMLZStepperElement extends Components.ZStepper, HTMLStencilElement {
     }
@@ -3759,15 +3209,12 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "z-accordion": HTMLZAccordionElement;
-        "z-alert": HTMLZAlertElement;
         "z-anchor-navigation": HTMLZAnchorNavigationElement;
         "z-app-header": HTMLZAppHeaderElement;
-        "z-app-header-deprecated": HTMLZAppHeaderDeprecatedElement;
         "z-aria-alert": HTMLZAriaAlertElement;
         "z-avatar": HTMLZAvatarElement;
         "z-book-card": HTMLZBookCardElement;
         "z-book-card-app": HTMLZBookCardAppElement;
-        "z-book-card-deprecated": HTMLZBookCardDeprecatedElement;
         "z-book-cover": HTMLZBookCoverElement;
         "z-breadcrumb": HTMLZBreadcrumbElement;
         "z-button": HTMLZButtonElement;
@@ -3795,32 +3242,18 @@ declare global {
         "z-list-group": HTMLZListGroupElement;
         "z-logo": HTMLZLogoElement;
         "z-menu": HTMLZMenuElement;
-        "z-menu-deprecated": HTMLZMenuDeprecatedElement;
         "z-menu-section": HTMLZMenuSectionElement;
-        "z-menu-section-deprecated": HTMLZMenuSectionDeprecatedElement;
         "z-modal": HTMLZModalElement;
-        "z-myz-card": HTMLZMyzCardElement;
-        "z-myz-card-body": HTMLZMyzCardBodyElement;
-        "z-myz-card-cover": HTMLZMyzCardCoverElement;
-        "z-myz-card-dictionary": HTMLZMyzCardDictionaryElement;
-        "z-myz-card-footer-sections": HTMLZMyzCardFooterSectionsElement;
-        "z-myz-card-header": HTMLZMyzCardHeaderElement;
-        "z-myz-card-info": HTMLZMyzCardInfoElement;
-        "z-myz-list": HTMLZMyzListElement;
-        "z-myz-list-item": HTMLZMyzListItemElement;
         "z-navigation-tabs": HTMLZNavigationTabsElement;
         "z-notification": HTMLZNotificationElement;
         "z-offcanvas": HTMLZOffcanvasElement;
-        "z-otp": HTMLZOtpElement;
         "z-pagination": HTMLZPaginationElement;
         "z-popover": HTMLZPopoverElement;
         "z-range-picker": HTMLZRangePickerElement;
         "z-result-card": HTMLZResultCardElement;
         "z-searchbar": HTMLZSearchbarElement;
-        "z-section-title": HTMLZSectionTitleElement;
         "z-select": HTMLZSelectElement;
         "z-skip-to-content": HTMLZSkipToContentElement;
-        "z-slideshow": HTMLZSlideshowElement;
         "z-stepper": HTMLZStepperElement;
         "z-stepper-item": HTMLZStepperItemElement;
         "z-table": HTMLZTableElement;
@@ -3891,12 +3324,6 @@ declare namespace LocalJSX {
          */
         "variant"?: AccordionVariant;
     }
-    interface ZAlert {
-        /**
-          * alert variant type
-         */
-        "type"?: AlertType;
-    }
     /**
      * Anchor navigation component.
      * @example ```
@@ -3965,55 +3392,6 @@ declare namespace LocalJSX {
           * Visible label for the search bar.
          */
         "searchLabel"?: string;
-        /**
-          * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
-         */
-        "searchPageUrl"?: string;
-        /**
-          * Placeholder text for the search bar.
-          * @default "Cerca"
-         */
-        "searchPlaceholder"?: string;
-        /**
-          * Search string for the search bar.
-          * @default ""
-         */
-        "searchString"?: string;
-        /**
-          * Stuck mode for the header. You can programmatically set it using an IntersectionObserver.
-          * @default false
-         */
-        "stuck"?: boolean;
-    }
-    interface ZAppHeaderDeprecated {
-        /**
-          * The opening state of the drawer.
-          * @default false
-         */
-        "drawerOpen"?: boolean;
-        /**
-          * Enable the search bar.
-          * @default false
-         */
-        "enableSearch"?: boolean;
-        /**
-          * Control menu bar position in the header. - auto: the menu bar is positioned near the title - stack: the menu bar is positioned below the title - offcanvas: the menu bar is not displayed and a burger icon appears to open the offcanvas menu
-          * @default "auto"
-         */
-        "flow"?: "auto" | "stack" | "offcanvas";
-        /**
-          * Set the hero image source for the header. You can also use a [slot="hero"] node for advanced customization.
-         */
-        "hero"?: string;
-        /**
-          * Emitted when the `stuck` state of the header changes
-         */
-        "onSticking"?: (event: ZAppHeaderDeprecatedCustomEvent<any>) => void;
-        /**
-          * Should place an overlay over the hero image. Useful for legibility purpose.
-          * @default false
-         */
-        "overlay"?: boolean;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
@@ -4165,65 +3543,6 @@ declare namespace LocalJSX {
           * click on app link
          */
         "onAppClick"?: (event: ZBookCardAppCustomEvent<any>) => void;
-    }
-    interface ZBookCardDeprecated {
-        /**
-          * [optional] Authors
-         */
-        "authors"?: string;
-        /**
-          * [optional] Borderless card - compact variant only
-         */
-        "borderless"?: boolean;
-        /**
-          * Cover URL
-         */
-        "cover"?: string;
-        /**
-          * [optional] Fallback cover URL
-         */
-        "fallbackCover"?: string;
-        /**
-          * [optional] Main ISBN
-         */
-        "isbn"?: string;
-        /**
-          * [optional] ISBN label
-          * @default ""
-         */
-        "isbnLabel"?: string;
-        /**
-          * click on interactive ribbon
-         */
-        "onRibbonClick"?: (event: ZBookCardDeprecatedCustomEvent<any>) => void;
-        /**
-          * Card main title
-         */
-        "operaTitle"?: string;
-        /**
-          * [optional] [accessibility] Card title HTML tag
-         */
-        "operaTitleTag"?: string;
-        /**
-          * [optional] Ribbon label - expanded and search variant only
-         */
-        "ribbon"?: string;
-        /**
-          * [optional] Ribbon icon - expanded and search variant only
-         */
-        "ribbonIcon"?: string;
-        /**
-          * [optional] Ribbon interactive - expanded and search variant only
-         */
-        "ribbonInteractive"?: boolean;
-        /**
-          * Card variant: expanded, compact, search
-         */
-        "variant"?: BookCardDeprecatedVariant;
-        /**
-          * [optional] Card subtitle
-         */
-        "volumeTitle"?: string;
     }
     /**
      * This component displays a book cover image,
@@ -5320,35 +4639,6 @@ declare namespace LocalJSX {
          */
         "verticalContext"?: boolean;
     }
-    interface ZMenuDeprecated {
-        /**
-          * Flag to set the active status of the menu.
-         */
-        "active"?: boolean;
-        /**
-          * Flag to set the display mode of the list. If true, the list will be absolutely positioned under the menu label, stacked beneath it otherwise.
-          * @default false
-         */
-        "floating"?: boolean;
-        /**
-          * The menu has been closed.
-         */
-        "onClosed"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
-        /**
-          * The menu has been opened.
-         */
-        "onOpened"?: (event: ZMenuDeprecatedCustomEvent<any>) => void;
-        /**
-          * The opening state of the menu.
-          * @default false
-         */
-        "open"?: boolean;
-        /**
-          * Tells the component that it's placed in a vertical context with other `ZMenu`s (e.g. in the ZAppHeader's offcanvas). A small border is placed under it as a separator from other elements.
-          * @default false
-         */
-        "verticalContext"?: boolean;
-    }
     /**
      * A component to create submenus inside the ZMenu.
      */
@@ -5374,23 +4664,6 @@ declare namespace LocalJSX {
           * The opening state of the section.
          */
         "open"?: boolean;
-    }
-    /**
-     * A component to create submenus inside the ZMenu.
-     */
-    interface ZMenuSectionDeprecated {
-        /**
-          * Active state
-         */
-        "active"?: boolean;
-        /**
-          * The section has been closed.
-         */
-        "onClosed"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
-        /**
-          * The section has been opened.
-         */
-        "onOpened"?: (event: ZMenuSectionDeprecatedCustomEvent<any>) => void;
     }
     interface ZModal {
         /**
@@ -5442,161 +4715,6 @@ declare namespace LocalJSX {
           * @default true
          */
         "scrollInside"?: boolean;
-    }
-    interface ZMyzCard {
-        /**
-          * graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * highlighted status
-          * @default false
-         */
-        "ishighlighted"?: boolean;
-        /**
-          * pressed status
-          * @default false
-         */
-        "ispressed"?: boolean;
-    }
-    interface ZMyzCardBody {
-    }
-    interface ZMyzCardCover {
-        /**
-          * default error image source
-         */
-        "defaultimg"?: string;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * image source
-         */
-        "img"?: string;
-        /**
-          * cover alt title
-         */
-        "titolo"?: string;
-    }
-    interface ZMyzCardDictionary {
-        /**
-          * card cover
-         */
-        "cover"?: string;
-        /**
-          * card is disabled
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * flip button label
-          * @default "INFO"
-         */
-        "flipbuttonlabel"?: string;
-        /**
-          * card is flipped
-          * @default false
-         */
-        "flipped"?: boolean;
-        /**
-          * hide info button
-          * @default false
-         */
-        "hideinfobtn"?: boolean;
-        /**
-          * card title
-         */
-        "name"?: string;
-        /**
-          * when card is flipped
-         */
-        "onCardFlipped"?: (event: ZMyzCardDictionaryCustomEvent<any>) => void;
-    }
-    interface ZMyzCardFooterSections {
-    }
-    interface ZMyzCardHeader {
-        /**
-          * card graphic variant (optional)
-         */
-        "cardtype"?: LicenseType;
-        /**
-          * faded status
-         */
-        "faded"?: boolean;
-        /**
-          * volume title
-         */
-        "titolo"?: string;
-    }
-    interface ZMyzCardInfo {
-        /**
-          * dictionary info
-         */
-        "data"?: string | DictionaryData;
-        /**
-          * tabindex link attribute (optional)
-          * @default 0
-         */
-        "htmltabindex"?: number;
-        /**
-          * flip card to front
-         */
-        "onFlipCard"?: (event: ZMyzCardInfoCustomEvent<any>) => void;
-    }
-    interface ZMyzList {
-        /**
-          * json stringified list data (mutable, optional)
-         */
-        "inputrawdata"?: string;
-        /**
-          * list item data (mutable, optional)
-         */
-        "list"?: ListItem[];
-    }
-    interface ZMyzListItem {
-        /**
-          * data-action attribute (optional)
-         */
-        "action"?: string;
-        /**
-          * icon name (optional)
-         */
-        "icon"?: string;
-        /**
-          * link url (optional)
-         */
-        "link"?: string;
-        /**
-          * link target (optional)
-          * @default "_self"
-         */
-        "linktarget"?: string;
-        /**
-          * id (optional)
-         */
-        "listitemid"?: string;
-        /**
-          * emitted on list item click, returns listitemid
-         */
-        "onZListItemClick"?: (event: ZMyzListItemCustomEvent<any>) => void;
-        /**
-          * emitted on list item link click, returns linkId
-         */
-        "onZListItemLinkClick"?: (event: ZMyzListItemCustomEvent<any>) => void;
-        /**
-          * content text
-         */
-        "text"?: string;
-        /**
-          * underlined style flag
-          * @default true
-         */
-        "underlined"?: boolean;
     }
     /**
      * Navigation tabs component.
@@ -5704,25 +4822,6 @@ declare namespace LocalJSX {
           * @default OffCanvasVariant.PUSHCONTENT
          */
         "variant"?: OffCanvasVariant;
-    }
-    interface ZOtp {
-        /**
-          * Input number
-          * @default 6
-         */
-        "inputNum"?: number;
-        /**
-          * Input message
-         */
-        "message"?: string;
-        /**
-          * Otp change event
-         */
-        "onOtpChange"?: (event: ZOtpCustomEvent<any>) => void;
-        /**
-          * Input status
-         */
-        "status"?: InputStatus;
     }
     /**
      * Pagination bar component.
@@ -6003,22 +5102,6 @@ declare namespace LocalJSX {
          */
         "variant"?: ButtonVariant;
     }
-    /**
-     * Section title component.
-     * An optional secondary title can be put over the primary one.
-     */
-    interface ZSectionTitle {
-        /**
-          * Divider position for the primary title. This prop only works if the secondary title is not set.
-          * @default ZSectionTitleDividerPosition.BEFORE
-         */
-        "dividerPosition"?: ZSectionTitleDividerPosition;
-        /**
-          * Whether the primary title text is uppercase.
-          * @default true
-         */
-        "uppercase"?: boolean;
-    }
     interface ZSelect {
         /**
           * the input has autocomplete option
@@ -6122,16 +5205,6 @@ declare namespace LocalJSX {
           * Graphical variant: `dark`, `light`.
          */
         "variant"?: ThemeVariant;
-    }
-    interface ZSlideshow {
-        /**
-          * array or JSON stringified images urls
-         */
-        "data"?: string[] | string;
-        /**
-          * slideshow id
-         */
-        "slideshowid"?: string;
     }
     interface ZStepper {
     }
@@ -6509,9 +5582,6 @@ declare namespace LocalJSX {
         "variant": AccordionVariant;
         "shadow": boolean;
     }
-    interface ZAlertAttributes {
-        "type": AlertType;
-    }
     interface ZAnchorNavigationAttributes {
         "hideUnselected": boolean;
         "autoCurrent": boolean;
@@ -6529,17 +5599,6 @@ declare namespace LocalJSX {
         "searchPageUrl": string;
         "enableZLogo": boolean;
         "drawerOpen": boolean;
-    }
-    interface ZAppHeaderDeprecatedAttributes {
-        "stuck": boolean;
-        "hero": string;
-        "overlay": boolean;
-        "flow": "auto" | "stack" | "offcanvas";
-        "drawerOpen": boolean;
-        "enableSearch": boolean;
-        "searchPlaceholder": string;
-        "searchString": string;
-        "searchPageUrl": string;
     }
     interface ZAriaAlertAttributes {
         "mode": ZAriaAlertMode;
@@ -6572,21 +5631,6 @@ declare namespace LocalJSX {
         "link": string;
         "laz": boolean;
         "info": string;
-    }
-    interface ZBookCardDeprecatedAttributes {
-        "variant": BookCardDeprecatedVariant;
-        "cover": string;
-        "operaTitle": string;
-        "volumeTitle": string;
-        "authors": string;
-        "isbn": string;
-        "isbnLabel": string;
-        "ribbon": string;
-        "ribbonIcon": string;
-        "ribbonInteractive": boolean;
-        "borderless": boolean;
-        "fallbackCover": string;
-        "operaTitleTag": string;
     }
     interface ZBookCoverAttributes {
         "cover": string;
@@ -6839,19 +5883,10 @@ declare namespace LocalJSX {
         "verticalContext": boolean;
         "htmlTabindex": number;
     }
-    interface ZMenuDeprecatedAttributes {
-        "active": boolean;
-        "floating": boolean;
-        "open": boolean;
-        "verticalContext": boolean;
-    }
     interface ZMenuSectionAttributes {
         "active": boolean;
         "htmlTabindex": number;
         "open": boolean;
-    }
-    interface ZMenuSectionDeprecatedAttributes {
-        "active": boolean;
     }
     interface ZModalAttributes {
         "modalid": string;
@@ -6862,47 +5897,6 @@ declare namespace LocalJSX {
         "closable": boolean;
         "scrollInside": boolean;
         "lockPageScroll": boolean;
-    }
-    interface ZMyzCardAttributes {
-        "faded": boolean;
-        "cardtype": LicenseType;
-        "ispressed": boolean;
-        "ishighlighted": boolean;
-    }
-    interface ZMyzCardCoverAttributes {
-        "img": string;
-        "titolo": string;
-        "faded": boolean;
-        "defaultimg": string;
-    }
-    interface ZMyzCardDictionaryAttributes {
-        "name": string;
-        "cover": string;
-        "disabled": boolean;
-        "flipped": boolean;
-        "flipbuttonlabel": string;
-        "hideinfobtn": boolean;
-    }
-    interface ZMyzCardHeaderAttributes {
-        "titolo": string;
-        "faded": boolean;
-        "cardtype": LicenseType;
-    }
-    interface ZMyzCardInfoAttributes {
-        "data": string | DictionaryData;
-        "htmltabindex": number;
-    }
-    interface ZMyzListAttributes {
-        "inputrawdata": string;
-    }
-    interface ZMyzListItemAttributes {
-        "text": string;
-        "link": string;
-        "linktarget": string;
-        "icon": string;
-        "listitemid": string;
-        "action": string;
-        "underlined": boolean;
     }
     interface ZNavigationTabsAttributes {
         "htmlAriaLabel": string;
@@ -6925,11 +5919,6 @@ declare namespace LocalJSX {
         "transitiondirection": TransitionDirection;
         "skipLoadAnimation": boolean;
         "showBackdrop": boolean;
-    }
-    interface ZOtpAttributes {
-        "inputNum": number;
-        "status": InputStatus;
-        "message": string;
     }
     interface ZPaginationAttributes {
         "label": string;
@@ -6992,10 +5981,6 @@ declare namespace LocalJSX {
         "size": ControlSize;
         "variant": ButtonVariant;
     }
-    interface ZSectionTitleAttributes {
-        "dividerPosition": ZSectionTitleDividerPosition;
-        "uppercase": boolean;
-    }
     interface ZSelectAttributes {
         "htmlid": string;
         "items": SelectItem[] | string;
@@ -7021,10 +6006,6 @@ declare namespace LocalJSX {
     interface ZSkipToContentAttributes {
         "variant": ThemeVariant;
         "links": string | SkipToContentLink[];
-    }
-    interface ZSlideshowAttributes {
-        "slideshowid": string;
-        "data": string[] | string;
     }
     interface ZStepperItemAttributes {
         "index": number;
@@ -7114,15 +6095,12 @@ declare namespace LocalJSX {
 
     interface IntrinsicElements {
         "z-accordion": Omit<ZAccordion, keyof ZAccordionAttributes> & { [K in keyof ZAccordion & keyof ZAccordionAttributes]?: ZAccordion[K] } & { [K in keyof ZAccordion & keyof ZAccordionAttributes as `attr:${K}`]?: ZAccordionAttributes[K] } & { [K in keyof ZAccordion & keyof ZAccordionAttributes as `prop:${K}`]?: ZAccordion[K] };
-        "z-alert": Omit<ZAlert, keyof ZAlertAttributes> & { [K in keyof ZAlert & keyof ZAlertAttributes]?: ZAlert[K] } & { [K in keyof ZAlert & keyof ZAlertAttributes as `attr:${K}`]?: ZAlertAttributes[K] } & { [K in keyof ZAlert & keyof ZAlertAttributes as `prop:${K}`]?: ZAlert[K] };
         "z-anchor-navigation": Omit<ZAnchorNavigation, keyof ZAnchorNavigationAttributes> & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes]?: ZAnchorNavigation[K] } & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes as `attr:${K}`]?: ZAnchorNavigationAttributes[K] } & { [K in keyof ZAnchorNavigation & keyof ZAnchorNavigationAttributes as `prop:${K}`]?: ZAnchorNavigation[K] };
         "z-app-header": Omit<ZAppHeader, keyof ZAppHeaderAttributes> & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes]?: ZAppHeader[K] } & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes as `attr:${K}`]?: ZAppHeaderAttributes[K] } & { [K in keyof ZAppHeader & keyof ZAppHeaderAttributes as `prop:${K}`]?: ZAppHeader[K] };
-        "z-app-header-deprecated": Omit<ZAppHeaderDeprecated, keyof ZAppHeaderDeprecatedAttributes> & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes]?: ZAppHeaderDeprecated[K] } & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes as `attr:${K}`]?: ZAppHeaderDeprecatedAttributes[K] } & { [K in keyof ZAppHeaderDeprecated & keyof ZAppHeaderDeprecatedAttributes as `prop:${K}`]?: ZAppHeaderDeprecated[K] };
         "z-aria-alert": Omit<ZAriaAlert, keyof ZAriaAlertAttributes> & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes]?: ZAriaAlert[K] } & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes as `attr:${K}`]?: ZAriaAlertAttributes[K] } & { [K in keyof ZAriaAlert & keyof ZAriaAlertAttributes as `prop:${K}`]?: ZAriaAlert[K] };
         "z-avatar": Omit<ZAvatar, keyof ZAvatarAttributes> & { [K in keyof ZAvatar & keyof ZAvatarAttributes]?: ZAvatar[K] } & { [K in keyof ZAvatar & keyof ZAvatarAttributes as `attr:${K}`]?: ZAvatarAttributes[K] } & { [K in keyof ZAvatar & keyof ZAvatarAttributes as `prop:${K}`]?: ZAvatar[K] };
         "z-book-card": Omit<ZBookCard, keyof ZBookCardAttributes> & { [K in keyof ZBookCard & keyof ZBookCardAttributes]?: ZBookCard[K] } & { [K in keyof ZBookCard & keyof ZBookCardAttributes as `attr:${K}`]?: ZBookCardAttributes[K] } & { [K in keyof ZBookCard & keyof ZBookCardAttributes as `prop:${K}`]?: ZBookCard[K] };
         "z-book-card-app": Omit<ZBookCardApp, keyof ZBookCardAppAttributes> & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes]?: ZBookCardApp[K] } & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes as `attr:${K}`]?: ZBookCardAppAttributes[K] } & { [K in keyof ZBookCardApp & keyof ZBookCardAppAttributes as `prop:${K}`]?: ZBookCardApp[K] };
-        "z-book-card-deprecated": Omit<ZBookCardDeprecated, keyof ZBookCardDeprecatedAttributes> & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes]?: ZBookCardDeprecated[K] } & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes as `attr:${K}`]?: ZBookCardDeprecatedAttributes[K] } & { [K in keyof ZBookCardDeprecated & keyof ZBookCardDeprecatedAttributes as `prop:${K}`]?: ZBookCardDeprecated[K] };
         "z-book-cover": Omit<ZBookCover, keyof ZBookCoverAttributes> & { [K in keyof ZBookCover & keyof ZBookCoverAttributes]?: ZBookCover[K] } & { [K in keyof ZBookCover & keyof ZBookCoverAttributes as `attr:${K}`]?: ZBookCoverAttributes[K] } & { [K in keyof ZBookCover & keyof ZBookCoverAttributes as `prop:${K}`]?: ZBookCover[K] };
         "z-breadcrumb": Omit<ZBreadcrumb, keyof ZBreadcrumbAttributes> & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes]?: ZBreadcrumb[K] } & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes as `attr:${K}`]?: ZBreadcrumbAttributes[K] } & { [K in keyof ZBreadcrumb & keyof ZBreadcrumbAttributes as `prop:${K}`]?: ZBreadcrumb[K] };
         "z-button": Omit<ZButton, keyof ZButtonAttributes> & { [K in keyof ZButton & keyof ZButtonAttributes]?: ZButton[K] } & { [K in keyof ZButton & keyof ZButtonAttributes as `attr:${K}`]?: ZButtonAttributes[K] } & { [K in keyof ZButton & keyof ZButtonAttributes as `prop:${K}`]?: ZButton[K] };
@@ -7150,32 +6128,18 @@ declare namespace LocalJSX {
         "z-list-group": Omit<ZListGroup, keyof ZListGroupAttributes> & { [K in keyof ZListGroup & keyof ZListGroupAttributes]?: ZListGroup[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `attr:${K}`]?: ZListGroupAttributes[K] } & { [K in keyof ZListGroup & keyof ZListGroupAttributes as `prop:${K}`]?: ZListGroup[K] };
         "z-logo": Omit<ZLogo, keyof ZLogoAttributes> & { [K in keyof ZLogo & keyof ZLogoAttributes]?: ZLogo[K] } & { [K in keyof ZLogo & keyof ZLogoAttributes as `attr:${K}`]?: ZLogoAttributes[K] } & { [K in keyof ZLogo & keyof ZLogoAttributes as `prop:${K}`]?: ZLogo[K] };
         "z-menu": Omit<ZMenu, keyof ZMenuAttributes> & { [K in keyof ZMenu & keyof ZMenuAttributes]?: ZMenu[K] } & { [K in keyof ZMenu & keyof ZMenuAttributes as `attr:${K}`]?: ZMenuAttributes[K] } & { [K in keyof ZMenu & keyof ZMenuAttributes as `prop:${K}`]?: ZMenu[K] };
-        "z-menu-deprecated": Omit<ZMenuDeprecated, keyof ZMenuDeprecatedAttributes> & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes]?: ZMenuDeprecated[K] } & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes as `attr:${K}`]?: ZMenuDeprecatedAttributes[K] } & { [K in keyof ZMenuDeprecated & keyof ZMenuDeprecatedAttributes as `prop:${K}`]?: ZMenuDeprecated[K] };
         "z-menu-section": Omit<ZMenuSection, keyof ZMenuSectionAttributes> & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes]?: ZMenuSection[K] } & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes as `attr:${K}`]?: ZMenuSectionAttributes[K] } & { [K in keyof ZMenuSection & keyof ZMenuSectionAttributes as `prop:${K}`]?: ZMenuSection[K] };
-        "z-menu-section-deprecated": Omit<ZMenuSectionDeprecated, keyof ZMenuSectionDeprecatedAttributes> & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes]?: ZMenuSectionDeprecated[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `attr:${K}`]?: ZMenuSectionDeprecatedAttributes[K] } & { [K in keyof ZMenuSectionDeprecated & keyof ZMenuSectionDeprecatedAttributes as `prop:${K}`]?: ZMenuSectionDeprecated[K] };
         "z-modal": Omit<ZModal, keyof ZModalAttributes> & { [K in keyof ZModal & keyof ZModalAttributes]?: ZModal[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `attr:${K}`]?: ZModalAttributes[K] } & { [K in keyof ZModal & keyof ZModalAttributes as `prop:${K}`]?: ZModal[K] };
-        "z-myz-card": Omit<ZMyzCard, keyof ZMyzCardAttributes> & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes]?: ZMyzCard[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `attr:${K}`]?: ZMyzCardAttributes[K] } & { [K in keyof ZMyzCard & keyof ZMyzCardAttributes as `prop:${K}`]?: ZMyzCard[K] };
-        "z-myz-card-body": ZMyzCardBody;
-        "z-myz-card-cover": Omit<ZMyzCardCover, keyof ZMyzCardCoverAttributes> & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes]?: ZMyzCardCover[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `attr:${K}`]?: ZMyzCardCoverAttributes[K] } & { [K in keyof ZMyzCardCover & keyof ZMyzCardCoverAttributes as `prop:${K}`]?: ZMyzCardCover[K] };
-        "z-myz-card-dictionary": Omit<ZMyzCardDictionary, keyof ZMyzCardDictionaryAttributes> & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes]?: ZMyzCardDictionary[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `attr:${K}`]?: ZMyzCardDictionaryAttributes[K] } & { [K in keyof ZMyzCardDictionary & keyof ZMyzCardDictionaryAttributes as `prop:${K}`]?: ZMyzCardDictionary[K] };
-        "z-myz-card-footer-sections": ZMyzCardFooterSections;
-        "z-myz-card-header": Omit<ZMyzCardHeader, keyof ZMyzCardHeaderAttributes> & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes]?: ZMyzCardHeader[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `attr:${K}`]?: ZMyzCardHeaderAttributes[K] } & { [K in keyof ZMyzCardHeader & keyof ZMyzCardHeaderAttributes as `prop:${K}`]?: ZMyzCardHeader[K] };
-        "z-myz-card-info": Omit<ZMyzCardInfo, keyof ZMyzCardInfoAttributes> & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes]?: ZMyzCardInfo[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `attr:${K}`]?: ZMyzCardInfoAttributes[K] } & { [K in keyof ZMyzCardInfo & keyof ZMyzCardInfoAttributes as `prop:${K}`]?: ZMyzCardInfo[K] };
-        "z-myz-list": Omit<ZMyzList, keyof ZMyzListAttributes> & { [K in keyof ZMyzList & keyof ZMyzListAttributes]?: ZMyzList[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `attr:${K}`]?: ZMyzListAttributes[K] } & { [K in keyof ZMyzList & keyof ZMyzListAttributes as `prop:${K}`]?: ZMyzList[K] };
-        "z-myz-list-item": Omit<ZMyzListItem, keyof ZMyzListItemAttributes> & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes]?: ZMyzListItem[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `attr:${K}`]?: ZMyzListItemAttributes[K] } & { [K in keyof ZMyzListItem & keyof ZMyzListItemAttributes as `prop:${K}`]?: ZMyzListItem[K] };
         "z-navigation-tabs": Omit<ZNavigationTabs, keyof ZNavigationTabsAttributes> & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes]?: ZNavigationTabs[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `attr:${K}`]?: ZNavigationTabsAttributes[K] } & { [K in keyof ZNavigationTabs & keyof ZNavigationTabsAttributes as `prop:${K}`]?: ZNavigationTabs[K] };
         "z-notification": Omit<ZNotification, keyof ZNotificationAttributes> & { [K in keyof ZNotification & keyof ZNotificationAttributes]?: ZNotification[K] } & { [K in keyof ZNotification & keyof ZNotificationAttributes as `attr:${K}`]?: ZNotificationAttributes[K] } & { [K in keyof ZNotification & keyof ZNotificationAttributes as `prop:${K}`]?: ZNotification[K] };
         "z-offcanvas": Omit<ZOffcanvas, keyof ZOffcanvasAttributes> & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes]?: ZOffcanvas[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `attr:${K}`]?: ZOffcanvasAttributes[K] } & { [K in keyof ZOffcanvas & keyof ZOffcanvasAttributes as `prop:${K}`]?: ZOffcanvas[K] };
-        "z-otp": Omit<ZOtp, keyof ZOtpAttributes> & { [K in keyof ZOtp & keyof ZOtpAttributes]?: ZOtp[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `attr:${K}`]?: ZOtpAttributes[K] } & { [K in keyof ZOtp & keyof ZOtpAttributes as `prop:${K}`]?: ZOtp[K] };
         "z-pagination": Omit<ZPagination, keyof ZPaginationAttributes> & { [K in keyof ZPagination & keyof ZPaginationAttributes]?: ZPagination[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `attr:${K}`]?: ZPaginationAttributes[K] } & { [K in keyof ZPagination & keyof ZPaginationAttributes as `prop:${K}`]?: ZPagination[K] } & OneOf<"totalPages", ZPagination["totalPages"], ZPaginationAttributes["totalPages"]>;
         "z-popover": Omit<ZPopover, keyof ZPopoverAttributes> & { [K in keyof ZPopover & keyof ZPopoverAttributes]?: ZPopover[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `attr:${K}`]?: ZPopoverAttributes[K] } & { [K in keyof ZPopover & keyof ZPopoverAttributes as `prop:${K}`]?: ZPopover[K] };
         "z-range-picker": Omit<ZRangePicker, keyof ZRangePickerAttributes> & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes]?: ZRangePicker[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `attr:${K}`]?: ZRangePickerAttributes[K] } & { [K in keyof ZRangePicker & keyof ZRangePickerAttributes as `prop:${K}`]?: ZRangePicker[K] };
         "z-result-card": Omit<ZResultCard, keyof ZResultCardAttributes> & { [K in keyof ZResultCard & keyof ZResultCardAttributes]?: ZResultCard[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `attr:${K}`]?: ZResultCardAttributes[K] } & { [K in keyof ZResultCard & keyof ZResultCardAttributes as `prop:${K}`]?: ZResultCard[K] };
         "z-searchbar": Omit<ZSearchbar, keyof ZSearchbarAttributes> & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes]?: ZSearchbar[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `attr:${K}`]?: ZSearchbarAttributes[K] } & { [K in keyof ZSearchbar & keyof ZSearchbarAttributes as `prop:${K}`]?: ZSearchbar[K] };
-        "z-section-title": Omit<ZSectionTitle, keyof ZSectionTitleAttributes> & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes]?: ZSectionTitle[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `attr:${K}`]?: ZSectionTitleAttributes[K] } & { [K in keyof ZSectionTitle & keyof ZSectionTitleAttributes as `prop:${K}`]?: ZSectionTitle[K] };
         "z-select": Omit<ZSelect, keyof ZSelectAttributes> & { [K in keyof ZSelect & keyof ZSelectAttributes]?: ZSelect[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `attr:${K}`]?: ZSelectAttributes[K] } & { [K in keyof ZSelect & keyof ZSelectAttributes as `prop:${K}`]?: ZSelect[K] } & OneOf<"items", ZSelect["items"], ZSelectAttributes["items"]>;
         "z-skip-to-content": Omit<ZSkipToContent, keyof ZSkipToContentAttributes> & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes]?: ZSkipToContent[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `attr:${K}`]?: ZSkipToContentAttributes[K] } & { [K in keyof ZSkipToContent & keyof ZSkipToContentAttributes as `prop:${K}`]?: ZSkipToContent[K] };
-        "z-slideshow": Omit<ZSlideshow, keyof ZSlideshowAttributes> & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes]?: ZSlideshow[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `attr:${K}`]?: ZSlideshowAttributes[K] } & { [K in keyof ZSlideshow & keyof ZSlideshowAttributes as `prop:${K}`]?: ZSlideshow[K] };
         "z-stepper": ZStepper;
         "z-stepper-item": Omit<ZStepperItem, keyof ZStepperItemAttributes> & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes]?: ZStepperItem[K] } & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes as `attr:${K}`]?: ZStepperItemAttributes[K] } & { [K in keyof ZStepperItem & keyof ZStepperItemAttributes as `prop:${K}`]?: ZStepperItem[K] };
         "z-table": Omit<ZTable, keyof ZTableAttributes> & { [K in keyof ZTable & keyof ZTableAttributes]?: ZTable[K] } & { [K in keyof ZTable & keyof ZTableAttributes as `attr:${K}`]?: ZTableAttributes[K] } & { [K in keyof ZTable & keyof ZTableAttributes as `prop:${K}`]?: ZTable[K] };
@@ -7204,7 +6168,6 @@ declare module "@stencil/core" {
              * Accordion component.
              */
             "z-accordion": LocalJSX.IntrinsicElements["z-accordion"] & JSXBase.HTMLAttributes<HTMLZAccordionElement>;
-            "z-alert": LocalJSX.IntrinsicElements["z-alert"] & JSXBase.HTMLAttributes<HTMLZAlertElement>;
             /**
              * Anchor navigation component.
              * @example ```
@@ -7220,7 +6183,6 @@ declare module "@stencil/core" {
              */
             "z-anchor-navigation": LocalJSX.IntrinsicElements["z-anchor-navigation"] & JSXBase.HTMLAttributes<HTMLZAnchorNavigationElement>;
             "z-app-header": LocalJSX.IntrinsicElements["z-app-header"] & JSXBase.HTMLAttributes<HTMLZAppHeaderElement>;
-            "z-app-header-deprecated": LocalJSX.IntrinsicElements["z-app-header-deprecated"] & JSXBase.HTMLAttributes<HTMLZAppHeaderDeprecatedElement>;
             "z-aria-alert": LocalJSX.IntrinsicElements["z-aria-alert"] & JSXBase.HTMLAttributes<HTMLZAriaAlertElement>;
             "z-avatar": LocalJSX.IntrinsicElements["z-avatar"] & JSXBase.HTMLAttributes<HTMLZAvatarElement>;
             "z-book-card": LocalJSX.IntrinsicElements["z-book-card"] & JSXBase.HTMLAttributes<HTMLZBookCardElement>;
@@ -7228,7 +6190,6 @@ declare module "@stencil/core" {
              * ZBookCardApp component
              */
             "z-book-card-app": LocalJSX.IntrinsicElements["z-book-card-app"] & JSXBase.HTMLAttributes<HTMLZBookCardAppElement>;
-            "z-book-card-deprecated": LocalJSX.IntrinsicElements["z-book-card-deprecated"] & JSXBase.HTMLAttributes<HTMLZBookCardDeprecatedElement>;
             /**
              * This component displays a book cover image,
              * with options for borders and a representation of multiple books with a stack of fake covers behind the original one.
@@ -7287,25 +6248,11 @@ declare module "@stencil/core" {
             "z-list-group": LocalJSX.IntrinsicElements["z-list-group"] & JSXBase.HTMLAttributes<HTMLZListGroupElement>;
             "z-logo": LocalJSX.IntrinsicElements["z-logo"] & JSXBase.HTMLAttributes<HTMLZLogoElement>;
             "z-menu": LocalJSX.IntrinsicElements["z-menu"] & JSXBase.HTMLAttributes<HTMLZMenuElement>;
-            "z-menu-deprecated": LocalJSX.IntrinsicElements["z-menu-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuDeprecatedElement>;
             /**
              * A component to create submenus inside the ZMenu.
              */
             "z-menu-section": LocalJSX.IntrinsicElements["z-menu-section"] & JSXBase.HTMLAttributes<HTMLZMenuSectionElement>;
-            /**
-             * A component to create submenus inside the ZMenu.
-             */
-            "z-menu-section-deprecated": LocalJSX.IntrinsicElements["z-menu-section-deprecated"] & JSXBase.HTMLAttributes<HTMLZMenuSectionDeprecatedElement>;
             "z-modal": LocalJSX.IntrinsicElements["z-modal"] & JSXBase.HTMLAttributes<HTMLZModalElement>;
-            "z-myz-card": LocalJSX.IntrinsicElements["z-myz-card"] & JSXBase.HTMLAttributes<HTMLZMyzCardElement>;
-            "z-myz-card-body": LocalJSX.IntrinsicElements["z-myz-card-body"] & JSXBase.HTMLAttributes<HTMLZMyzCardBodyElement>;
-            "z-myz-card-cover": LocalJSX.IntrinsicElements["z-myz-card-cover"] & JSXBase.HTMLAttributes<HTMLZMyzCardCoverElement>;
-            "z-myz-card-dictionary": LocalJSX.IntrinsicElements["z-myz-card-dictionary"] & JSXBase.HTMLAttributes<HTMLZMyzCardDictionaryElement>;
-            "z-myz-card-footer-sections": LocalJSX.IntrinsicElements["z-myz-card-footer-sections"] & JSXBase.HTMLAttributes<HTMLZMyzCardFooterSectionsElement>;
-            "z-myz-card-header": LocalJSX.IntrinsicElements["z-myz-card-header"] & JSXBase.HTMLAttributes<HTMLZMyzCardHeaderElement>;
-            "z-myz-card-info": LocalJSX.IntrinsicElements["z-myz-card-info"] & JSXBase.HTMLAttributes<HTMLZMyzCardInfoElement>;
-            "z-myz-list": LocalJSX.IntrinsicElements["z-myz-list"] & JSXBase.HTMLAttributes<HTMLZMyzListElement>;
-            "z-myz-list-item": LocalJSX.IntrinsicElements["z-myz-list-item"] & JSXBase.HTMLAttributes<HTMLZMyzListItemElement>;
             /**
              * Navigation tabs component.
              * To select a specific tab programmatically, set the `aria-selected` attribute to `true` on the desired tab.
@@ -7316,7 +6263,6 @@ declare module "@stencil/core" {
              */
             "z-notification": LocalJSX.IntrinsicElements["z-notification"] & JSXBase.HTMLAttributes<HTMLZNotificationElement>;
             "z-offcanvas": LocalJSX.IntrinsicElements["z-offcanvas"] & JSXBase.HTMLAttributes<HTMLZOffcanvasElement>;
-            "z-otp": LocalJSX.IntrinsicElements["z-otp"] & JSXBase.HTMLAttributes<HTMLZOtpElement>;
             /**
              * Pagination bar component.
              */
@@ -7332,17 +6278,11 @@ declare module "@stencil/core" {
             "z-range-picker": LocalJSX.IntrinsicElements["z-range-picker"] & JSXBase.HTMLAttributes<HTMLZRangePickerElement>;
             "z-result-card": LocalJSX.IntrinsicElements["z-result-card"] & JSXBase.HTMLAttributes<HTMLZResultCardElement>;
             "z-searchbar": LocalJSX.IntrinsicElements["z-searchbar"] & JSXBase.HTMLAttributes<HTMLZSearchbarElement>;
-            /**
-             * Section title component.
-             * An optional secondary title can be put over the primary one.
-             */
-            "z-section-title": LocalJSX.IntrinsicElements["z-section-title"] & JSXBase.HTMLAttributes<HTMLZSectionTitleElement>;
             "z-select": LocalJSX.IntrinsicElements["z-select"] & JSXBase.HTMLAttributes<HTMLZSelectElement>;
             /**
              * Component short description.
              */
             "z-skip-to-content": LocalJSX.IntrinsicElements["z-skip-to-content"] & JSXBase.HTMLAttributes<HTMLZSkipToContentElement>;
-            "z-slideshow": LocalJSX.IntrinsicElements["z-slideshow"] & JSXBase.HTMLAttributes<HTMLZSlideshowElement>;
             "z-stepper": LocalJSX.IntrinsicElements["z-stepper"] & JSXBase.HTMLAttributes<HTMLZStepperElement>;
             "z-stepper-item": LocalJSX.IntrinsicElements["z-stepper-item"] & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             /**
