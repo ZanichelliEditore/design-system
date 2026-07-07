@@ -84,11 +84,11 @@ export class ZButton implements ComponentInterface {
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
-    if (this.href || this.htmlRole === "link") {
+    if (this.href) {
       return (
         <a
           {...this.attributes}
-          href={this.href || "#"}
+          href={this.href}
           target={this.target}
         >
           {this.renderIcon()}
