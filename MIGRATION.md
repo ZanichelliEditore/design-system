@@ -11,22 +11,13 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
 - [v20.0.0](#v2000)
 
-  - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilità-arialabel-role-etc)
+  - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilita-arialabel-role-etc)
   - [ZSelect](#zselect)
-    - [La prop items ora è _required_](#la-prop-items-ora-è-required)
-  - [ZToggleButton](#ztogglebutton)
-    - [Rimozione del componente ZToggleButton dalla libreria](#rimozione-del-componente-ztogglebutton-dalla-libreria)
-  - [ZMyzCardAlert](#zmyzcardalert)
-    - [Rimozione del componente ZMyzCardAlert dalla libreria](#rimozione-del-componente-zmyzcardalert-dalla-libreria)
-  - [ZMyzCardFooter](#zmyzcardfooter)
-    - [Rimozione del componente ZMyzCardFooter dalla libreria](#rimozione-del-componente-zmyzcardfooter-dalla-libreria)
-  - [ZMyzCardIcon](#zmyzcardicon)
-    - [Rimozione del componente ZMyzCardIcon dalla libreria](#rimozione-del-componente-zmyzcardicon-dalla-libreria)
-  - [ZMyzCardList](#zmyzcardlist)
-    - [Rimozione del componente ZMyzCardList dalla libreria](#rimozione-del-componente-zmyzcardlist-dalla-libreria)
+    - [La prop `items` ora è _required_](#la-prop-items-ora-e-required)
   - [ZPanelElem](#zpanelelem)
     - [Rimozione del componente ZPanelElem dalla libreria](#rimozione-del-componente-zpanelelem-dalla-libreria)
-  - [Rimozione dei componenti deprecati e snowflakes](#rimozione-componenti-deprecati-e-snowflakes)
+  - [Rimozione dei componenti deprecati](#rimozione-dei-componenti-deprecati)
+  - [Rimozione dei componenti snowflake](#rimozione-dei-componenti-snowflake)
 
 - [v19.0.0](#v1900)
 
@@ -179,39 +170,9 @@ Elenco delle prop rinominate:
 
 ### ZSelect
 
-#### La prop items ora è required
+#### La prop `items` ora è required
 
 Il componente `ZSelect` non può più essere istanziato senza `items`. Un array vuoto di `items` invece è ancora ammesso.
-
-### ZToggleButton
-
-#### Rimozione del componente ZToggleButton dalla libreria
-
-Il componente è stato eliminato definitivamente dalla libreria.
-
-### ZMyzCardAlert
-
-#### Rimozione del componente ZMyzCardAlert dalla libreria
-
-Il componente è stato eliminato definitivamente dalla libreria.
-
-### ZMyzCardFooter
-
-#### Rimozione del componente ZMyzCardFooter dalla libreria
-
-Il componente è stato eliminato definitivamente dalla libreria.
-
-### ZMyzCardIcon
-
-#### Rimozione del componente ZMyzCardIcon dalla libreria
-
-Il componente è stato eliminato definitivamente dalla libreria.
-
-### ZMyzCardList
-
-#### Rimozione del componente ZMyzCardList dalla libreria
-
-Il componente è stato eliminato definitivamente dalla libreria.
 
 ### ZPanelElem
 
@@ -219,10 +180,7 @@ Il componente è stato eliminato definitivamente dalla libreria.
 
 Il componente è stato eliminato definitivamente dalla libreria.
 
-### Rimozione componenti deprecati e snowflakes
-
-Rimosso i componenti deprecati e snowflakes.
-Nel dettaglio sono stati rimossi:
+### Rimozione dei componenti deprecati
 
 - z-app-header-deprecated
 - z-book-card-deprecated
@@ -230,6 +188,9 @@ Nel dettaglio sono stati rimossi:
 - z-menu-section-deprecated
 - z-section-title
 - z-toggle-button
+
+### Rimozione dei componenti snowflake
+
 - z-myz-card-alert
 - z-myz-card-body
 - z-myz-card-cover
