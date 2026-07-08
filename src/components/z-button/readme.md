@@ -45,8 +45,8 @@
  - [z-myz-card-dictionary](../../snowflakes/myz/card/z-myz-card-dictionary)
  - [z-pagination](../z-pagination)
  - [z-searchbar](../z-searchbar)
- - [z-td](../table/cells/z-td)
- - [z-th](../table/cells/z-th)
+ - [z-td](../deprecated/table/cells/z-td)
+ - [z-th](../deprecated/table/cells/z-th)
 
 ### Depends on
 

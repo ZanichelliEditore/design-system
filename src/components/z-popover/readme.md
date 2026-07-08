@@ -73,8 +73,8 @@ Notes:
  - [z-breadcrumb](../z-breadcrumb)
  - [z-file](../file-upload/z-file)
  - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
- - [z-td](../table/cells/z-td)
- - [z-th](../table/cells/z-th)
+ - [z-td](../deprecated/table/cells/z-td)
+ - [z-th](../deprecated/table/cells/z-th)
  - [z-tool](../z-tool)
  - [z-tooltip](../z-tooltip)
 
