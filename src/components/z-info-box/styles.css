@@ -16,7 +16,7 @@
 
   display: flex;
   flex-direction: column;
-  padding: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
   border: var(--border-size-medium) solid var(--z-info-box--border-color, transparent);
   background: var(--z-info-box--background-color);
   border-radius: var(--border-radius);
