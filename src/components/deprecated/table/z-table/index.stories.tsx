@@ -1,8 +1,8 @@
 import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
-import {ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
-import {CSSVarsArguments} from "../../../utils/storybook-utils";
-import {boolean} from "../../../utils/utils";
+import {ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../../beans";
+import {CSSVarsArguments} from "../../../../utils/storybook-utils";
+import {boolean} from "../../../../utils/utils";
 import {ZTable} from "./index";
 import "./index.stories.css";
 
