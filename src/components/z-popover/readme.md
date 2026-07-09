@@ -72,7 +72,6 @@ Notes:
 
  - [z-breadcrumb](../z-breadcrumb)
  - [z-file](../file-upload/z-file)
- - [z-myz-card-info](../../snowflakes/myz/card/z-myz-card-info)
  - [z-td](../table/cells/z-td)
  - [z-th](../table/cells/z-th)
  - [z-tool](../z-tool)
@@ -83,7 +82,6 @@ Notes:
 graph TD;
   z-breadcrumb --> z-popover
   z-file --> z-popover
-  z-myz-card-info --> z-popover
   z-td --> z-popover
   z-th --> z-popover
   z-tool --> z-popover

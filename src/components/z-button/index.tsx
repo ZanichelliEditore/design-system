@@ -14,20 +14,13 @@ import {ButtonSize, ButtonType, ButtonVariant, ControlSize, IconPosition} from "
 export class ZButton implements ComponentInterface {
   @Element() hostElement: HTMLZButtonElement;
 
-  /** defines a string value that labels the internal interactive element. Used for accessibility. */
+  /** `aria-label` for the internal button element. Mostly needed when no text is present, like for an icon-only button. */
   @Prop()
-  ariaLabel: string | undefined = undefined;
+  htmlAriaLabel?: string;
 
-  /**
-   * Use `htmlrole` instead.
-   * @deprecated This prop has been deprecated in favor of `htmlrole` for better accessibility.
-   */
+  /** `role` attribute for the internal button element. Used for accessibility. */
   @Prop()
-  role = "";
-
-  /** defines role attribute, used for accessibility. */
-  @Prop()
-  htmlrole?: string;
+  htmlRole?: string;
 
   /** HTML <a> href attribute. If it is set, it renders an HTML <a> tag. */
   @Prop()
@@ -71,17 +64,18 @@ export class ZButton implements ComponentInterface {
 
   private hasText = false;
 
-  componentWillLoad(): void {
+  componentWillLoad() {
     this.hasText = !!this.hostElement.textContent?.trim();
   }
 
   private get attributes(): JSXBase.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
     return {
-      id: this.htmlid,
-      class: {
+      "id": this.htmlid,
+      "class": {
         "z-button--container": true,
         "z-button--has-text": this.hasText,
       },
+      "aria-label": this.htmlAriaLabel?.trim() || undefined,
     };
   }
 
@@ -90,14 +84,10 @@ export class ZButton implements ComponentInterface {
   }
 
   render(): HTMLAnchorElement | HTMLButtonElement {
-    const normalizedAriaLabel = this.ariaLabel?.trim() || undefined;
-    const normalizedRole = this.htmlrole || this.role?.trim() || undefined;
-
     if (this.href) {
       return (
         <a
           {...this.attributes}
-          aria-label={normalizedAriaLabel}
           href={this.href}
           target={this.target}
         >
@@ -110,11 +100,10 @@ export class ZButton implements ComponentInterface {
     return (
       <button
         {...this.attributes}
-        aria-label={normalizedAriaLabel}
         name={this.name}
         type={this.type}
         disabled={this.disabled}
-        role={normalizedRole}
+        role={this.htmlRole || undefined}
       >
         {this.renderIcon()}
         <slot />

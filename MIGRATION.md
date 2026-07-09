@@ -9,6 +9,16 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v20.0.0](#v2000)
+
+  - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilita-arialabel-role-etc)
+  - [ZSelect](#zselect)
+    - [La prop `items` ora è _required_](#la-prop-items-ora-e-required)
+  - [ZPanelElem](#zpanelelem)
+    - [Rimozione del componente ZPanelElem dalla libreria](#rimozione-del-componente-zpanelelem-dalla-libreria)
+  - [Rimozione dei componenti deprecati](#rimozione-dei-componenti-deprecati)
+  - [Rimozione dei componenti snowflake](#rimozione-dei-componenti-snowflake)
+
 - [v19.0.0](#v1900)
 
   - [Rimosso colore di background per il tema dark](#rimozione-background-dal-tema-dark)
@@ -123,6 +133,80 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v20.0.0
+
+### Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)
+
+Le prop di accessibilità sono state rinominate per evitare conflitti con le proprietà native di `HTMLElement` e migliorare il comportamento con gli screen reader.
+
+In particolare, `ariaLabel` diventa `htmlAriaLabel`: la vecchia prop, oltre a generare il warning Stencil `The @Prop name conflicts with a key in the HTMLElement prototype. Please choose a different name.`, con `reflect: true` rimaneva anche come attributo sul tag del componente.
+
+Questo poteva duplicare l'informazione accessibile. Esempio: se su `my-button` impostavi `ariaLabel`, il valore veniva applicato al `<button>` interno ma, per effetto di `reflect: true`, restava anche sul wrapper `my-button` come `aria-label`. Di conseguenza, alcuni screen reader trovavano due etichette uguali, con possibile ambiguità nella lettura.
+
+Nei componenti in cui l'attributo viene usato direttamente sul `Host`, la prop è stata rimossa: in quei casi l'attributo ARIA può essere passato direttamente come attributo HTML nativo.
+
+Elenco delle prop rinominate:
+
+- `z-date-picker`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-button`:
+  - `ariaLabel` --> `htmlAriaLabel`
+  - `htmlrole` --> `htmlRole`
+- `z-chip`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-info-reveal`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-input`:
+  - `ariaLabel` --> `htmlAriaLabel`
+  - `htmlAriaDescribedBy` --> `htmlAriaDescribedby` (la "b" di "by" è stata resa minuscola per uniformità con la nomenclatura degli attributi ARIA)
+  - `role` --> `htmlRole`
+- `z-navigation-tabs`:
+  - `ariaLabel` --> `htmlAriaLabel`
+- `z-select`:
+  - `ariaLabel` --> `htmlAriaLabel`
+
+<a id="v20_zselect"></a>
+
+### ZSelect
+
+#### La prop `items` ora è required
+
+Il componente `ZSelect` non può più essere istanziato senza `items`. Un array vuoto di `items` invece è ancora ammesso.
+
+### ZPanelElem
+
+#### Rimozione del componente ZPanelElem dalla libreria
+
+Il componente è stato eliminato definitivamente dalla libreria.
+
+### Rimozione dei componenti deprecati
+
+- z-app-header-deprecated
+- z-book-card-deprecated
+- z-menu-deprecated
+- z-menu-section-deprecated
+- z-section-title
+- z-toggle-button
+
+### Rimozione dei componenti snowflake
+
+- z-myz-card-alert
+- z-myz-card-body
+- z-myz-card-cover
+- z-myz-card-dictionary
+- z-myz-card-footer-sections
+- z-myz-card-footer
+- z-myz-card-header
+- z-myz-card-icon
+- z-myz-card-info
+- z-myz-card-list
+- z-myz-card
+- z-myz-list-item
+- z-myz-list
+- z-alert
+- z-otp
+- z-slideshow
 
 ## v19.0.0
 

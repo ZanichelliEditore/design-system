@@ -19,7 +19,6 @@
  - [z-breadcrumb](../z-breadcrumb)
  - [z-list-element](../list/z-list-element)
  - [z-list-group](../list/z-list-group)
- - [z-section-title](../deprecated/z-section-title)
  - [z-select](../z-select)
 
 ### Graph
@@ -28,7 +27,6 @@ graph TD;
   z-breadcrumb --> z-divider
   z-list-element --> z-divider
   z-list-group --> z-divider
-  z-section-title --> z-divider
   z-select --> z-divider
   style z-divider fill:#f9f,stroke:#333,stroke-width:4px
 ```
