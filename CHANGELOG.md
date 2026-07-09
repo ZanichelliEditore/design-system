@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.0](https://github.com/ZanichelliEditore/design-system/compare/v19.6.1...v20.0.0) (2026-07-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* delete z-panel-elem component
+* rename a11y props to avoid confusing screen readers with duplicate native HTML attributes
+* make z-select items required
+
+* delete z-panel-elem component ([4de2714](https://github.com/ZanichelliEditore/design-system/commit/4de271461203ed3fc3b8b0253b06bd0bbb177748))
+* rename a11y props to avoid confusing screen readers with duplicate native HTML attributes ([4600d65](https://github.com/ZanichelliEditore/design-system/commit/4600d65854b4c84cd9da7d06d2635a99be483712))
+
+
+### Features
+
+* make z-select items required ([870c746](https://github.com/ZanichelliEditore/design-system/commit/870c7464c189721d0642f52895c3778aeaedb413))
+* new props and css variable to customize the info box ([cbb842f](https://github.com/ZanichelliEditore/design-system/commit/cbb842f1ab401e0d615ef4c992214a3941c5163e))
+
+
+### Bug Fixes
+
+* info box top and bottom padding ([a7dd910](https://github.com/ZanichelliEditore/design-system/commit/a7dd9105af43e60d062ef01110d483554d37fc24))
+* legacy icons pointing to wrong icons; z-icon css props doc ([264602b](https://github.com/ZanichelliEditore/design-system/commit/264602b3281100a79a09af37b5943a7227630c00))
+* remove ZMyzCardList ([d12c86b](https://github.com/ZanichelliEditore/design-system/commit/d12c86b9f3aa93beb5888746338ff18d9e346d5b))
+* remove ZToggleButton ZMyzCardAlert ZMyzCardFooter ZMyzCardIcon ([1f0c976](https://github.com/ZanichelliEditore/design-system/commit/1f0c976647fd77b7ad63fb5d39a02a2b439755d3))
+
 ## [19.6.1](https://github.com/ZanichelliEditore/design-system/compare/v19.6.0...v19.6.1) (2026-07-02)
 
 ## [19.6.0](https://github.com/ZanichelliEditore/design-system/compare/v19.5.0...v19.6.0) (2026-07-01)
