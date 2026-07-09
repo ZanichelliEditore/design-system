@@ -826,10 +826,19 @@ export namespace Components {
          */
         "boxid": string;
         /**
-          * render close icon flag
+          * Aria label for the close button
+          * @default "Chiudi pannello informazioni"
+         */
+        "closeButtonAriaLabel": string;
+        /**
+          * render close icon
           * @default true
          */
         "isclosable": boolean;
+        /**
+          * Name of the icon to display on the top left of the info box. The icon's color will be inherited from the border color set through the `--z-info-box--border-color` CSS variable, if set. Otherwise it can be customized using the `--z-info-box--left-icon-color` CSS variable. If none of them is set, the icon will be colored using the `--color-primary01-icon` token.
+         */
+        "leftIcon": IconName;
     }
     /**
      * Info reveal component.
@@ -2626,7 +2635,7 @@ declare global {
         new (): HTMLZIconElement;
     };
     interface HTMLZInfoBoxElementEventMap {
-        "infoBoxClose": any;
+        "infoBoxClose": {boxid: string};
     }
     interface HTMLZInfoBoxElement extends Components.ZInfoBox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZInfoBoxElementEventMap>(type: K, listener: (this: HTMLZInfoBoxElement, ev: ZInfoBoxCustomEvent<HTMLZInfoBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4147,14 +4156,23 @@ declare namespace LocalJSX {
          */
         "boxid"?: string;
         /**
-          * render close icon flag
+          * Aria label for the close button
+          * @default "Chiudi pannello informazioni"
+         */
+        "closeButtonAriaLabel"?: string;
+        /**
+          * render close icon
           * @default true
          */
         "isclosable"?: boolean;
         /**
+          * Name of the icon to display on the top left of the info box. The icon's color will be inherited from the border color set through the `--z-info-box--border-color` CSS variable, if set. Otherwise it can be customized using the `--z-info-box--left-icon-color` CSS variable. If none of them is set, the icon will be colored using the `--color-primary01-icon` token.
+         */
+        "leftIcon"?: IconName;
+        /**
           * emitted on close icon click
          */
-        "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<any>) => void;
+        "onInfoBoxClose"?: (event: ZInfoBoxCustomEvent<{boxid: string}>) => void;
     }
     /**
      * Info reveal component.
@@ -5776,6 +5794,8 @@ declare namespace LocalJSX {
     interface ZInfoBoxAttributes {
         "boxid": string;
         "isclosable": boolean;
+        "closeButtonAriaLabel": string;
+        "leftIcon": IconName;
     }
     interface ZInfoRevealAttributes {
         "icon": string;

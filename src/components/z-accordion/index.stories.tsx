@@ -6,7 +6,7 @@ import {ICONS} from "../../constants/iconset";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import {ZAccordion} from "./index";
 
-const colorTokenArgConfig = getColorTokenArgConfig(true);
+const colorTokenArgConfig = getColorTokenArgConfig();
 const cssPropsArgs = {
   "--z-accordion-bg": colorTokenArgConfig,
   "--z-accordion-label-color": colorTokenArgConfig,

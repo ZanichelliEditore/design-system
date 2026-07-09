@@ -36,6 +36,16 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
 | `width`          | `width`           | Icon width (optional)                                                                                                                                                                                                    | `number \| string` | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                    | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `--z-icon-height`       | Height of the icon. Default is 1.125rem (18px). |
+| `--z-icon-left-margin`  | Left margin of the icon. Default is 0.          |
+| `--z-icon-right-margin` | Right margin of the icon. Default is 0.         |
+| `--z-icon-width`        | Width of the icon. Default is 1.125rem (18px).  |
+
+
 ## Dependencies
 
 ### Used by
