@@ -40,7 +40,6 @@ const StoryMeta = {
     dividerSize: DividerSize.SMALL,
     dividerColor: "gray200",
     listType: ListType.NONE,
-    role: "group",
   },
 } satisfies Meta<ZListGroup>;
 
@@ -51,15 +50,15 @@ export const Default = {
     <z-list>
       <z-list-group {...args}>
         <div slot="header-title">Gruppo 1</div>
-        <z-list-element {...{...args, role: undefined}}>Elemento 1</z-list-element>
-        <z-list-element {...{...args, role: undefined}}>Elemento 2</z-list-element>
-        <z-list-element {...{...args, role: undefined}}>Elemento 3</z-list-element>
+        <z-list-element {...args}>Elemento 1</z-list-element>
+        <z-list-element {...args}>Elemento 2</z-list-element>
+        <z-list-element {...args}>Elemento 3</z-list-element>
       </z-list-group>
       <z-list-group {...args}>
         <div slot="header-title">Gruppo 2</div>
-        <z-list-element {...{...args, role: undefined}}>Elemento 1</z-list-element>
-        <z-list-element {...{...args, role: undefined}}>Elemento 2</z-list-element>
-        <z-list-element {...{...args, role: undefined}}>Elemento 3</z-list-element>
+        <z-list-element {...args}>Elemento 1</z-list-element>
+        <z-list-element {...args}>Elemento 2</z-list-element>
+        <z-list-element {...args}>Elemento 3</z-list-element>
       </z-list-group>
     </z-list>
   ),

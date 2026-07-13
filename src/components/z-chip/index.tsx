@@ -30,9 +30,9 @@ export class ZChip implements ComponentInterface {
   @Prop({reflect: true})
   disabled?: boolean = false;
 
-  /** z-chip aria-label string */
+  /** `aria-label` for the icon button */
   @Prop()
-  ariaLabel = "";
+  htmlAriaLabel?: string;
 
   /** click on interactive icon */
   @Event()
@@ -55,7 +55,7 @@ export class ZChip implements ComponentInterface {
           <button
             type="button"
             onClick={() => this.interactiveIconClick.emit()}
-            aria-label={this.ariaLabel}
+            aria-label={this.htmlAriaLabel || undefined}
             disabled={this.disabled}
           >
             <z-icon

@@ -28,9 +28,9 @@ export class ZInfoReveal implements ComponentInterface {
   @Prop()
   label?: string;
 
-  /** Aria label of the trigger button. It will be only used when `label` prop is empty. */
+  /** `aria-label` of the trigger button. It will be used only when the `label` prop is empty. */
   @Prop()
-  ariaLabel = "Apri pannello informazioni";
+  htmlAriaLabel = "Apri pannello informazioni";
 
   /** Size of the trigger button */
   @Prop({reflect: true})
@@ -93,7 +93,7 @@ export class ZInfoReveal implements ComponentInterface {
           class="z-info-reveal-trigger"
           type="button"
           onClick={this.togglePanel.bind(this)}
-          aria-label={!this.label ? this.ariaLabel : undefined}
+          aria-label={!this.label ? this.htmlAriaLabel || undefined : undefined}
           aria-expanded={this.open ? "true" : "false"}
           aria-controls="z-info-reveal-panel"
         >

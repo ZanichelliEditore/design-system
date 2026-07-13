@@ -83,7 +83,6 @@ Notes:
 graph TD;
   z-breadcrumb --> z-popover
   z-file --> z-popover
-  z-myz-card-info --> z-popover
   z-td --> z-popover
   z-th --> z-popover
   z-tool --> z-popover

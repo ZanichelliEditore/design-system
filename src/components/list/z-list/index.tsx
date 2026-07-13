@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Element, Host, Prop, State, Watch, h} from "@stencil/core";
 import {ListSize, ListType} from "../../../beans";
 
 @Component({
@@ -10,39 +10,41 @@ export class ZList implements ComponentInterface {
   @Element() host: HTMLZListElement;
 
   /**
-   * [optional] Sets size of inside elements.
+   * [optional] Size of the list elements.
    */
   @Prop({reflect: true})
   size?: ListSize = ListSize.MEDIUM;
 
   /**
-   * [optional] type of the list marker for each element
+   * [optional] Type of the list marker for each element.
    */
   @Prop({reflect: true})
   listType?: ListType = ListType.NONE;
 
-  /**
-   * Sets role of the element.
-   */
-  @Prop({reflect: true})
-  role = "list";
+  @State()
+  htmlRole = "list";
 
-  private setChildrenSizeType(): void {
-    const children = this.host.children;
-    for (let i = 0; i < children.length; i++) {
-      children[i].setAttribute("size", this.size);
-      children[i].setAttribute("list-type", this.listType);
-      children[i].setAttribute("list-element-position", (i + 1).toString());
-    }
+  /** Watch for changes in the role native attribute */
+  @Watch("role", {immediate: true})
+  onRoleChange(newValue: string): void {
+    this.htmlRole = newValue;
   }
 
-  componentDidLoad(): void {
-    this.setChildrenSizeType();
+  @Watch("size", {immediate: true})
+  @Watch("listType", {immediate: true})
+  setChildrenProps(): void {
+    Array.from(this.host.children)
+      .filter((child): child is HTMLZListElementElement => child.tagName.toLowerCase() === "z-list-element")
+      .forEach((child, i) => {
+        child.size = this.size;
+        child.listType = this.listType;
+        child.listElementPosition = `${i + 1}`;
+      });
   }
 
   render(): HTMLZListElement {
     return (
-      <Host>
+      <Host role={this.htmlRole}>
         <slot />
       </Host>
     );

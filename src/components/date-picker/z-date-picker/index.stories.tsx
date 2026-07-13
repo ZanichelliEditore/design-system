@@ -27,7 +27,7 @@ const StoryMeta = {
     },
   },
   args: {
-    ariaLabel: "date-picker",
+    htmlAriaLabel: "date-picker",
     datePickerId: "date-picker-story",
     mode: ZDatePickerMode.DATE,
   },
