@@ -41,9 +41,9 @@ ZTh component.
 
 ### Depends on
 
-- [z-icon](../../../z-icon)
-- [z-button](../../../z-button)
-- [z-popover](../../../z-popover)
+- [z-icon](../../../../z-icon)
+- [z-button](../../../../z-button)
+- [z-popover](../../../../z-popover)
 
 ### Graph
 ```mermaid

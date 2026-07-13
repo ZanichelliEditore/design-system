@@ -75,11 +75,11 @@ This component automatically recognizes icons that have an indicator (e.g. `bg-c
  - [z-select](../z-select)
  - [z-stepper-item](../z-stepper-item)
  - [z-tag](../z-tag)
- - [z-th](../table/cells/z-th)
+ - [z-th](../deprecated/table/cells/z-th)
  - [z-toast-notification](../z-toast-notification)
  - [z-toggle-switch](../z-toggle-switch)
  - [z-tool](../z-tool)
- - [z-tr](../table/z-tr)
+ - [z-tr](../deprecated/table/z-tr)
  - [z-tree-list](../list/z-tree-list)
 
 ### Graph
