@@ -1,11 +1,10 @@
 :host {
   position: relative;
-  width: calc(var(--space-unit) * 5);
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
-  --z-icon-width: 20px;
-  --z-icon-height: 20px;
+  --z-icon-width: 18px;
+  --z-icon-height: 18px;
 }
 
 :host(:not(:last-child)) {
@@ -15,35 +14,43 @@
 :host(:not(:last-child))::after {
   position: absolute;
   z-index: 1;
-  top: calc(var(--space-unit) * 4 - var(--border-size-medium) / 2);
-  right: calc(var(--space-unit) * 2);
-  left: calc(var(--space-unit) * 3);
+  top: calc(var(--space-unit) * 1.75);
+  right: 1px;
+  left: 30px;
   display: block;
   width: auto;
   border-bottom: var(--border-size-medium) solid var(--color-disabled03);
-  margin: 0 calc(var(--space-unit) * -2) 0 calc(var(--space-unit) * 2);
   content: "";
 }
 
 .stepper-item {
   display: flex;
-  width: calc(var(--space-unit) * 5);
+  width: calc(var(--space-unit) * 3.5);
   flex-direction: column;
   align-items: center;
   padding: 0;
   border: 0;
   appearance: none;
-  background: transparent;
-  color: inherit;
-  font-family: inherit;
-  font-size: 12px;
-  line-height: 16px;
+  background: var(--color-surface01);
+  gap: 10px;
   outline: 0;
   text-decoration: none;
 }
 
+.indicator {
+  display: flex;
+  width: calc(var(--space-unit) * 4);
+  height: calc(var(--space-unit) * 4);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-size-medium) solid var(--color-primary01);
+  border-radius: 50%;
+  color: var(--color-primary01);
+  content: counter(stepper);
+}
+
 .stepper-item span {
-  display: none;
   width: calc(100% + calc(var(--space-unit) * 4));
   color: var(--color-default-text);
   text-align: center;
@@ -62,24 +69,6 @@
   pointer-events: none;
 }
 
-.indicator {
-  display: flex;
-  width: calc(var(--space-unit) * 4);
-  height: calc(var(--space-unit) * 4);
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  border: var(--border-size-medium) solid var(--color-primary01);
-  margin: calc(var(--space-unit) * 2);
-  background: var(--color-surface01);
-  border-radius: 50%;
-  color: var(--color-primary01);
-  content: counter(stepper);
-  font-size: 14px;
-  font-weight: var(--font-sb);
-  line-height: 1;
-}
-
 :host([pressed]:not([disabled])) .indicator {
   border-color: var(--color-hover-primary);
   background: var(--color-hover-primary);
@@ -96,55 +85,39 @@
 }
 
 :host([disabled]) .indicator {
-  border-color: var(--color-disabled02);
-  background: var(--color-disabled01);
+  border-color: var(--color-disabled01);
   color: var(--color-disabled03);
 }
 
 :host([checked]:not([disabled])) .indicator {
-  border-color: var(--color-default-success);
-  color: var(--color-default-success);
+  border-color: var(--color-primary01);
+  background-color: var(--color-primary01);
 }
 
 :host([checked]:not([disabled])) .indicator z-icon {
-  fill: var(--color-default-success);
-}
-
-:host([checked]) .indicator z-icon > svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* Tablet breakpoint */
-@media (min-width: 768px) {
-  .stepper-item span {
-    display: block;
-  }
+  fill: var(--color-white);
 }
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
   :host {
-    width: calc(var(--space-unit) * 10);
-
     --z-icon-width: 24px;
     --z-icon-height: 24px;
   }
 
   :host(:not(:last-child))::after {
-    top: calc(var(--space-unit) * 5 - var(--border-size-medium) / 2);
-    left: calc(var(--space-unit) * 8);
+    top: 24px;
+    right: 6px;
+    left: 42px;
   }
 
   .stepper-item {
-    width: calc(var(--space-unit) * 10);
-    font-size: 18px;
-    line-height: 28px;
+    width: calc(var(--space-unit) * 4.5);
+    gap: 12px;
   }
 
   .indicator {
     width: calc(var(--space-unit) * 6);
     height: calc(var(--space-unit) * 6);
-    font-size: 16px;
   }
 }

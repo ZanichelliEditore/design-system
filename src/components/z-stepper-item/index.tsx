@@ -1,4 +1,6 @@
-import {Component, ComponentInterface, Host, Prop, h} from "@stencil/core";
+import {Component, ComponentInterface, Host, Listen, Prop, State, h} from "@stencil/core";
+import {Device} from "../../beans";
+import {getDevice} from "../../utils/utils";
 
 @Component({
   tag: "z-stepper-item",
@@ -36,6 +38,18 @@ export class ZStepperItem implements ComponentInterface {
   @Prop({reflect: true})
   disabled: boolean;
 
+  @State()
+  viewPortWidth: Device = Device.DESKTOP;
+
+  @Listen("resize", {target: "window"})
+  handleResize(): void {
+    this.viewPortWidth = getDevice();
+  }
+
+  componentWillLoad(): void | Promise<void> {
+    this.viewPortWidth = getDevice();
+  }
+
   private getAttributes(): Record<string, unknown> {
     const href =
       this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
@@ -55,11 +69,20 @@ export class ZStepperItem implements ComponentInterface {
     return (
       <Host role="listitem">
         <button
-          class="stepper-item"
+          class="stepper-item "
           disabled={this.disabled}
           {...this.getAttributes()}
         >
-          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
+          <div
+            class={{
+              "indicator": true,
+              "mobile-interactive-3-sb": this.viewPortWidth === Device.MOBILE || this.viewPortWidth === Device.TABLET,
+              "desktop-interactive-1-sb":
+                this.viewPortWidth === Device.DESKTOP || this.viewPortWidth === Device.DESKTOP_WIDE,
+            }}
+          >
+            {this.checked ? <z-icon name="checkmark" /> : this.index}
+          </div>
           <span>
             <slot />
           </span>
