@@ -13,7 +13,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item role="listitem">
         <mock:shadow-root>
           <button class="stepper-item">
-            <div class="indicator"></div>
+            <div class="indicator desktop-interactive-1-sb"></div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
@@ -31,7 +31,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item index="5" role="listitem">
         <mock:shadow-root>
           <button class="stepper-item">
-            <div class="indicator">5</div>
+            <div class="indicator desktop-interactive-1-sb">5</div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
@@ -49,7 +49,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item index="4" role="listitem">
         <mock:shadow-root>
           <button class="stepper-item">
-            <div class="indicator">4</div>
+            <div class="indicator desktop-interactive-1-sb">4</div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
@@ -68,7 +68,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item href="#/test" index="4" role="listitem">
         <mock:shadow-root>
           <button class="stepper-item" role="link">
-            <div class="indicator">4</div>
+            <div class="indicator desktop-interactive-1-sb">4</div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
@@ -87,7 +87,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item disabled role="listitem">
         <mock:shadow-root>
           <button class="stepper-item" disabled>
-            <div class="indicator"></div>
+            <div class="indicator desktop-interactive-1-sb"></div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
@@ -106,7 +106,7 @@ describe("Suite test ZStepperItem", () => {
       <z-stepper-item href="#/test" disabled role="listitem">
         <mock:shadow-root>
           <button class="stepper-item" disabled>
-            <div class="indicator"></div>
+            <div class="indicator desktop-interactive-1-sb"></div>
             <span><slot></slot></span>
           </button>
         </mock:shadow-root>
