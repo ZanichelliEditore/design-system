@@ -5,6 +5,10 @@
 
   --z-icon-width: 18px;
   --z-icon-height: 18px;
+  --indicator-size: calc(var(--space-unit) * 4);
+  --stepper-item-size: calc(var(--space-unit) * 3.5);
+  --indicator-overflow: calc((var(--indicator-size) - var(--stepper-item-size)) / 2);
+  --connector-top: calc(var(--space-unit) * 1.75);
 }
 
 :host(:not(:last-child)) {
@@ -14,9 +18,9 @@
 :host(:not(:last-child))::after {
   position: absolute;
   z-index: 1;
-  top: calc(var(--space-unit) * 1.75);
-  right: 2px;
-  left: 30px;
+  top: var(--connector-top);
+  right: var(--indicator-overflow);
+  left: calc(var(--stepper-item-size) + var(--indicator-overflow));
   display: block;
   width: auto;
   border-bottom: var(--border-size-medium) solid var(--color-disabled03);
@@ -25,7 +29,7 @@
 
 .stepper-item {
   display: flex;
-  width: calc(var(--space-unit) * 3.5);
+  width: var(--stepper-item-size);
   flex-direction: column;
   align-items: center;
   padding: 0;
@@ -39,8 +43,8 @@
 
 .indicator {
   display: flex;
-  width: calc(var(--space-unit) * 4);
-  height: calc(var(--space-unit) * 4);
+  width: var(--indicator-size);
+  height: var(--indicator-size);
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
@@ -75,6 +79,8 @@
 }
 
 :host([href]:not([disabled]):focus-within) .indicator {
+  position: relative;
+  z-index: 2;
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -102,21 +108,12 @@
   :host {
     --z-icon-width: 24px;
     --z-icon-height: 24px;
-  }
-
-  :host(:not(:last-child))::after {
-    top: 24px;
-    right: 6px;
-    left: 42px;
+    --indicator-size: calc(var(--space-unit) * 6);
+    --stepper-item-size: calc(var(--space-unit) * 4.5);
+    --connector-top: calc(var(--space-unit) * 3);
   }
 
   .stepper-item {
-    width: calc(var(--space-unit) * 4.5);
     gap: 12px;
-  }
-
-  .indicator {
-    width: calc(var(--space-unit) * 6);
-    height: calc(var(--space-unit) * 6);
   }
 }
