@@ -15,7 +15,7 @@
   position: absolute;
   z-index: 1;
   top: calc(var(--space-unit) * 1.75);
-  right: 1px;
+  right: 2px;
   left: 30px;
   display: block;
   width: auto;
@@ -51,7 +51,6 @@
 }
 
 .stepper-item span {
-  width: calc(100% + calc(var(--space-unit) * 4));
   color: var(--color-default-text);
   text-align: center;
 }
@@ -85,8 +84,8 @@
 }
 
 :host([disabled]) .indicator {
-  border-color: var(--color-disabled01);
-  color: var(--color-disabled03);
+  border-color: var(--color-form-disabled01-icon);
+  color: var(--color-form-disabled01-icon);
 }
 
 :host([checked]:not([disabled])) .indicator {
