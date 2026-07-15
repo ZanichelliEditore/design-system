@@ -5,7 +5,7 @@
 
   --z-icon-width: 18px;
   --z-icon-height: 18px;
-  --indicator-size: calc(var(--space-unit) * 4);
+  --indicator-size: calc(var(--space-unit) * 3.5);
   --stepper-item-size: calc(var(--space-unit) * 3.5);
   --indicator-overflow: calc((var(--indicator-size) - var(--stepper-item-size)) / 2);
   --connector-top: calc(var(--space-unit) * 1.75);
@@ -51,7 +51,6 @@
   border: var(--border-size-medium) solid var(--color-primary01);
   border-radius: 50%;
   color: var(--color-primary01);
-  content: counter(stepper);
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   letter-spacing: 0.32px;
@@ -66,9 +65,20 @@
   text-align: center;
 }
 
-:host([pressed]) .stepper-item .span,
-:host([href]:not([disabled]):focus-within) .stepper-item span {
+:host([pressed]),
+:host([href]:not([disabled]):focus-within) {
+  --indicator-size: calc(var(--space-unit) * 4);
+
+
+  .stepper-item {
+    gap: 8px;
+    .indicator {
   font-weight: var(--font-sb);
+    }
+    span {
+      font-size: var(font-size-4);
+    }
+  }
 }
 
 :host([href]:not([disabled], [pressed])) .stepper-item {
@@ -120,7 +130,7 @@
   :host {
     --z-icon-width: 24px;
     --z-icon-height: 24px;
-    --indicator-size: calc(var(--space-unit) * 6);
+    --indicator-size: calc(var(--space-unit) * 4.5);
     --stepper-item-size: calc(var(--space-unit) * 4.5);
     --connector-top: calc(var(--space-unit) * 3);
   }
@@ -137,5 +147,16 @@
   .stepper-item span {
     font-size: var(--font-size-3);
     line-height: 1.5;
+  }
+
+  :host([pressed]),
+  :host([href]:not([disabled]):focus-within) {
+    --indicator-size: calc(var(--space-unit) * 5);
+    .stepper-item {
+      gap: 10px;
+      span {
+        font-size: var(font-size-6);
+      }
+    }
   }
 }
