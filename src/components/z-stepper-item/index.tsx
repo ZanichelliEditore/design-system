@@ -37,8 +37,7 @@ export class ZStepperItem implements ComponentInterface {
   disabled: boolean;
 
   private getAttributes(): Record<string, unknown> {
-    const href =
-      this.href && !this.pressed && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
+    const href = this.href && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
     const role = href ? {role: "link"} : undefined;
     const current = this.pressed && !this.disabled ? {"aria-current": "step"} : undefined;
     const tabindex = this.href === "" ? {tabIndex: -1} : undefined;

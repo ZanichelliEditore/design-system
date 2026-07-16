@@ -91,16 +91,11 @@
   }
 }
 
-:host([href]:not([disabled], [pressed])) .stepper-item {
+:host([href]:not([disabled])) .stepper-item {
   cursor: pointer;
 }
 
 :host([disabled]) .stepper-item {
-  pointer-events: none;
-}
-
-:host([pressed]),
-:host([pressed]) .stepper-item {
   pointer-events: none;
 }
 
