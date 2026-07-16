@@ -64,6 +64,7 @@
 }
 
 .stepper-item span {
+  min-width: 50px;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   letter-spacing: 0.16px;
@@ -75,16 +76,17 @@
 :host([href]:not([disabled]):focus-within) {
   --indicator-size: calc(var(--space-unit) * 4);
 
-
   .stepper-item {
     gap: 8px;
 
     .indicator {
-  font-weight: var(--font-sb);
+      font-size: var(--font-size-4);
+      font-weight: var(--font-sb);
     }
 
     span {
-      font-size: var(font-size-4);
+      font-weight: var(--font-sb);
+      line-height: 1.5;
     }
   }
 }
@@ -160,10 +162,10 @@
 
     .stepper-item {
       gap: 10px;
+    }
 
-      span {
-        font-size: var(font-size-6);
-      }
+    .indicator {
+      font-size: var(--font-size-6);
     }
   }
 }
