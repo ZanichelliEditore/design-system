@@ -8,7 +8,7 @@
   --indicator-size: calc(var(--space-unit) * 3.5);
   --stepper-item-size: calc(var(--space-unit) * 3.5);
   --indicator-overflow: calc((var(--indicator-size) - var(--stepper-item-size)) / 2);
-  --connector-top: calc(var(--space-unit) * 1.75);
+  --connector-top: calc(var(--stepper-item-size) / 2);
 }
 
 :host(:not(:last-child)) {
@@ -19,7 +19,7 @@
   position: absolute;
   z-index: 1;
   top: var(--connector-top);
-  right: var(--indicator-overflow);
+  right: 0;
   left: calc(var(--stepper-item-size) + var(--indicator-overflow));
   display: block;
   width: auto;
@@ -28,23 +28,29 @@
 }
 
 .stepper-item {
-  display: flex;
+  display: grid;
   width: var(--stepper-item-size);
-  flex-direction: column;
   align-items: center;
   padding: 0;
   border: 0;
   appearance: none;
   background: var(--color-surface01);
   gap: 10px;
+  grid-template-columns: var(--stepper-item-size);
+  grid-template-rows: var(--stepper-item-size) auto;
+  justify-items: center;
   outline: 0;
   text-decoration: none;
 }
 
 .indicator {
+  position: relative;
+  z-index: 2;
   display: flex;
   width: var(--indicator-size);
+  min-width: 0;
   height: var(--indicator-size);
+  min-height: 0;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
@@ -72,9 +78,11 @@
 
   .stepper-item {
     gap: 8px;
+
     .indicator {
   font-weight: var(--font-sb);
     }
+
     span {
       font-size: var(font-size-4);
     }
@@ -101,8 +109,6 @@
 }
 
 :host([href]:not([disabled]):focus-within) .indicator {
-  position: relative;
-  z-index: 2;
   box-shadow: var(--shadow-focus-primary);
 }
 
@@ -132,7 +138,6 @@
     --z-icon-height: 24px;
     --indicator-size: calc(var(--space-unit) * 4.5);
     --stepper-item-size: calc(var(--space-unit) * 4.5);
-    --connector-top: calc(var(--space-unit) * 3);
   }
 
   .stepper-item {
@@ -152,8 +157,10 @@
   :host([pressed]),
   :host([href]:not([disabled]):focus-within) {
     --indicator-size: calc(var(--space-unit) * 5);
+
     .stepper-item {
       gap: 10px;
+
       span {
         font-size: var(font-size-6);
       }
