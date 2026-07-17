@@ -36,6 +36,12 @@ export class ZStepperItem implements ComponentInterface {
   @Prop({reflect: true})
   disabled: boolean;
 
+  /**
+   * Aria label of the item.
+   */
+  @Prop({reflect: true})
+  htmlAriaLabel: string;
+
   private getAttributes(): Record<string, unknown> {
     const href = this.href && !this.disabled ? {onClick: () => (location.href = this.href)} : undefined;
     const role = href ? {role: "link"} : undefined;
@@ -57,6 +63,7 @@ export class ZStepperItem implements ComponentInterface {
           class="stepper-item"
           disabled={this.disabled}
           {...this.getAttributes()}
+          aria-label={this.htmlAriaLabel}
         >
           <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
           <span>
