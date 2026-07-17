@@ -113,7 +113,7 @@
   box-shadow: var(--shadow-focus-primary);
 }
 
-:host([href]:not([disabled]):not([pressed]):not([checked])) .indicator:hover {
+:host([href]:not([disabled], [pressed], [checked])) .indicator:hover {
   border-color: var(--color-hover-primary);
   color: var(--color-hover-primary);
 }
