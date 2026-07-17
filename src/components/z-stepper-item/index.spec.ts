@@ -14,7 +14,7 @@ describe("Suite test ZStepperItem", () => {
         <mock:shadow-root>
           <button class="stepper-item">
             <div class="indicator"></div>
-            <span><slot></slot></span>
+            <span ><slot></slot></span>
           </button>
         </mock:shadow-root>
       </z-stepper-item>
@@ -50,7 +50,7 @@ describe("Suite test ZStepperItem", () => {
         <mock:shadow-root>
           <button class="stepper-item">
             <div class="indicator">4</div>
-            <span><slot></slot></span>
+            <span ><slot></slot></span>
           </button>
         </mock:shadow-root>
         Text

@@ -1814,6 +1814,10 @@ export namespace Components {
          */
         "href": string;
         /**
+          * Aria label of the item.
+         */
+        "htmlAriaLabel": string;
+        /**
           * The number of the step item.
          */
         "index": number;
@@ -5240,6 +5244,10 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
+          * Aria label of the item.
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * The number of the step item.
          */
         "index"?: number;
@@ -6033,6 +6041,7 @@ declare namespace LocalJSX {
         "pressed": boolean;
         "checked": boolean;
         "disabled": boolean;
+        "htmlAriaLabel": string;
     }
     interface ZTableAttributes {
         "bordered": boolean;
