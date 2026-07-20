@@ -935,6 +935,11 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
@@ -4269,6 +4274,11 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
           * the input label
          */
         "label"?: string;
@@ -5821,6 +5831,7 @@ declare namespace LocalJSX {
         "readonly": boolean;
         "required": boolean;
         "checked": boolean;
+        "indeterminate": boolean;
         "placeholder": string;
         "htmltitle": string;
         "status": InputStatus;

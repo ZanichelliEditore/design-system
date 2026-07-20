@@ -54,6 +54,27 @@ describe("Suite test ZInput - checkbox", () => {
     `);
   });
 
+  it("Test render ZInput indeterminate", async () => {
+    const page = await newSpecPage({
+      components: [ZInput],
+      html: `<z-input htmlid="checkid" type="checkbox" indeterminate></z-input>`,
+    });
+
+    const input = page.root?.querySelector("input") as HTMLInputElement;
+    expect(input.indeterminate).toEqual(true);
+
+    expect(page.root).toEqualHtml(`
+      <z-input htmlid="checkid" type="checkbox" indeterminate size="big">
+        <div class="checkbox-wrapper">
+          <input id="checkid" type="checkbox" />
+          <label for="checkid" class="checkbox-label after">
+            <z-icon name="indeterminated-checkbox" class="big"></z-icon>
+          </label>
+        </div>
+      </z-input>
+    `);
+  });
+
   it("Test render ZInput label before", async () => {
     const page = await newSpecPage({
       components: [ZInput],
