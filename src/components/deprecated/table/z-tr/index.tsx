@@ -11,7 +11,7 @@ import {
   Watch,
   h,
 } from "@stencil/core";
-import {randomId} from "../../../utils/utils";
+import {randomId} from "../../../../utils/utils";
 import "../cells/z-td/index";
 import "../cells/z-th/index";
 
@@ -23,7 +23,7 @@ import "../cells/z-th/index";
  */
 @Component({
   tag: "z-tr",
-  styleUrls: ["styles.css", "../../css-components/z-table/styles.css"],
+  styleUrls: ["styles.css", "../../../css-components/z-table/styles.css"],
   shadow: true,
 })
 export class ZTr implements ComponentInterface {

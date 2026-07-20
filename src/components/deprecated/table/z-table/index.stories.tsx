@@ -1,8 +1,8 @@
 import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
-import {ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../beans";
-import {CSSVarsArguments} from "../../../utils/storybook-utils";
-import {boolean} from "../../../utils/utils";
+import {ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../../beans";
+import {CSSVarsArguments} from "../../../../utils/storybook-utils";
+import {boolean} from "../../../../utils/utils";
 import {ZTable} from "./index";
 import "./index.stories.css";
 
@@ -20,7 +20,7 @@ type ZTableStoriesArgs = ZTable & CSSVarsArguments<"z-table--cells-padding">;
  * - [`aria-label`](https://www.w3.org/TR/wai-aria-1.1/#aria-label) is used on the expandable row button to provide a label for the button, since the button doesn't have any text content.
  */
 const StoryMeta = {
-  title: "ZTable",
+  title: "Deprecated/ZTable",
   component: ZTable,
   args: {
     "bordered": true,
