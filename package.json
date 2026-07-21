@@ -10,7 +10,6 @@
   "files": [
     "dist/",
     "loader/",
-    "www/",
     "react/"
   ],
   "scripts": {
