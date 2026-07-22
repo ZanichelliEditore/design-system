@@ -128,5 +128,5 @@
 .radio-wrapper > input:disabled + .radio-label > z-icon,
 .checkbox-wrapper > input:disabled + .checkbox-label > z-icon {
   cursor: default;
-  fill: var(--color-disabled01);
+  fill: var(--color-disabled03-icon);
 }

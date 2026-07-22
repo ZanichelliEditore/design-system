@@ -551,7 +551,8 @@ export class ZCombobox implements ComponentInterface {
     const allChecked = this.allOptionsSelected();
     const isPartiallySelected = this.selectedCounter > 0 && !allChecked;
     const isDisabled =
-      this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length);
+      !allChecked &&
+      (this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length));
 
     return (
       <z-list-element
