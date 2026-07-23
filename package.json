@@ -10,14 +10,13 @@
   "files": [
     "dist/",
     "loader/",
-    "www/",
     "react/"
   ],
   "scripts": {
     "build": "yarn build.wc && yarn build.react",
-    "build-storybook": "yarn build && cross-env STENCIL_DEV=1 storybook build --config-dir .storybook --output-dir storybook",
+    "build-storybook": "yarn build && storybook build --config-dir .storybook --output-dir storybook",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
-    "build.wc": "mkdirp react && rimraf src-react/react-component-lib && stencil build",
+    "build.wc": "mkdirp react && rimraf src-react/react-component-lib www && stencil build",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",
     "lint-fix": "yarn lint-fix.eslint && yarn lint-fix.stylelint && yarn lint-fix.prettier",
@@ -30,7 +29,7 @@
     "prepare": "husky install",
     "release": "commit-and-tag-version",
     "start": "stencil build --dev --watch --serve --no-open",
-    "start-storybook": "stencil build && cross-env STENCIL_DEV=1 storybook dev --port 3003 --no-open",
+    "start-storybook": "cross-env STORYBOOK_DEV=1 stencil build && storybook dev --port 3003 --no-open",
     "test": "stencil test --spec",
     "test.e2e": "stencil test --e2e",
     "test.e2e.single": "stencil test --e2e -- ",

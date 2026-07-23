@@ -2,6 +2,9 @@ import image from "@rollup/plugin-image";
 import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
 
+const isStencilDevBuild = process.argv.includes("--dev");
+const isStorybookDevBuild = process.env.STORYBOOK_DEV === "1";
+
 const outputTargets: Config["outputTargets"] = [
   {
     type: "dist-custom-elements",
@@ -18,10 +21,8 @@ const outputTargets: Config["outputTargets"] = [
 // The same risk applies to other doc/artifact targets.
 // To prevent any incomplete output, we restrict the programmatic Storybook build to only
 // the `dist-custom-elements` target, which is the one actually needed to serve components in
-// Storybook. All other targets are disabled via the `STENCIL_DEV` env var.
-// The initial `stencil build` run by `start-storybook` (where this env var is not set)
-// still runs all targets and generates every artifact correctly.
-if (process.env.STENCIL_DEV !== "1") {
+// Storybook. All other targets are disabled via the `STORYBOOK_DEV` env var or `--dev` flag in Stencil build.
+if (!isStorybookDevBuild && !isStencilDevBuild) {
   outputTargets.push(
     {
       type: "dist",
@@ -42,28 +43,26 @@ if (process.env.STENCIL_DEV !== "1") {
     {
       type: "docs-json",
       file: "./custom-elements.json",
-    },
-    {
-      type: "www",
-      serviceWorker: null,
-      copy: [{src: "pages"}],
     }
   );
 }
 
-/**
- * Keep source maps enabled in local (non-production) builds so Storybook DevTools can map
- * all compiled component modules back to their original source files.
- * We explicitly disable them in production (`storybook build`).
- */
-const stencilLocalBuildWithSourceMaps = process.env.NODE_ENV !== "production";
+// The `www` output target is only needed for local development when serving the Stencil demo app (with `yarn start`).
+if (isStencilDevBuild) {
+  outputTargets.push({
+    type: "www",
+    serviceWorker: null, // disable service workers
+    empty: true,
+  });
+}
 
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
   plugins: [image()],
   tsconfig: "tsconfig.stencil.json",
-  sourceMap: stencilLocalBuildWithSourceMaps,
+  // Keep source maps enabled in local (non-production) builds so Storybook DevTools can map components to their source files.
+  sourceMap: isStorybookDevBuild || isStencilDevBuild,
   outputTargets,
   extras: {
     enableImportInjection: true,
