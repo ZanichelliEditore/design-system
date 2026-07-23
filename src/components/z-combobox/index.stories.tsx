@@ -40,7 +40,7 @@ const StoryMeta = {
     searchlabel: "Search Label",
     searchplaceholder: "Search Placeholder",
     searchtitle: "Search Title",
-    uncheckalltext: "Uncheck All",
+    uncheckalltext: "Uncheck all",
     size: ControlSize.BIG,
     htmlAriaLabel: "",
   },

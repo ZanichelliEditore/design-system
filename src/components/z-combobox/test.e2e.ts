@@ -27,7 +27,7 @@ it("Tests z-combobox search", async () => {
       searchlabel="Search Label"
       searchplaceholder="Search Placeholder"
       searchtitle="Search Title"
-      uncheckalltext="Uncheck All"
+      uncheckalltext="Uncheck all"
     />
   `);
 
@@ -76,7 +76,7 @@ it("Tests z-combobox keyboard navigation", async () => {
       searchlabel="Search Label"
       searchplaceholder="Search Placeholder"
       searchtitle="Search Title"
-      uncheckalltext="Uncheck All"
+      uncheckalltext="Uncheck all"
     />
   `);
 

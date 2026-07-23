@@ -549,8 +549,10 @@ export class ZCombobox implements ComponentInterface {
 
     const optionId = this.getCheckAllOptionId();
     const allChecked = this.allOptionsSelected();
+    const isPartiallySelected = this.selectedCounter > 0 && !allChecked;
     const isDisabled =
-      this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length);
+      !allChecked &&
+      (this.hasReachedMaxSelections() || (this.maxcheckableitems && this.maxcheckableitems < this.itemsList.length));
 
     return (
       <z-list-element
@@ -568,7 +570,7 @@ export class ZCombobox implements ComponentInterface {
           onClick={() => this.checkOption(optionId)}
         >
           <z-icon
-            name={allChecked ? "checkbox-checked" : "checkbox"}
+            name={isPartiallySelected ? "indeterminated-checkbox" : allChecked ? "checkbox-checked" : "checkbox"}
             class={this.focusedItemId === optionId ? "focused" : ""}
           />
           <span
