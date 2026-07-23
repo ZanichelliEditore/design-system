@@ -1824,6 +1824,7 @@ export namespace Components {
     }
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface ZTable {
         /**
@@ -2991,6 +2992,7 @@ declare global {
     };
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface HTMLZTableElement extends Components.ZTable, HTMLStencilElement {
     }
@@ -5250,6 +5252,7 @@ declare namespace LocalJSX {
     }
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface ZTable {
         /**
@@ -6307,6 +6310,7 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.IntrinsicElements["z-stepper-item"] & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             /**
              * ZTable component.
+             * @deprecated Since v20.0.0
              */
             "z-table": LocalJSX.IntrinsicElements["z-table"] & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**

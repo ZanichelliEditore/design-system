@@ -4,6 +4,8 @@
 <!-- Auto Generated Below -->
 
 
+> **[DEPRECATED]** Since v20.0.0
+
 ## Overview
 
 ZTable component.
