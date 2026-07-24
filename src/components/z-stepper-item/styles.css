@@ -1,5 +1,6 @@
 :host {
   position: relative;
+  display: flex;
   font-family: var(--font-family-sans);
   font-weight: var(--font-rg);
 
@@ -11,20 +12,26 @@
   --connector-top: calc(var(--stepper-item-size) / 2);
 }
 
-:host(:not(:last-child)) {
+:host(:not(:first-child)) {
   flex: 1;
+  justify-content: flex-end;
 }
 
-:host(:not(:last-child))::after {
+:host(:not(:first-child))::before {
   position: absolute;
   z-index: 1;
   top: var(--connector-top);
-  right: 0;
-  left: calc(var(--stepper-item-size) + var(--indicator-overflow));
+  right: calc(var(--stepper-item-size) + var(--indicator-overflow));
+  left: 0;
   display: block;
   width: auto;
   border-bottom: var(--border-size-medium) solid var(--color-disabled03);
   content: "";
+  transform: translateY(-50%);
+}
+
+:host(:not([disabled], :first-child))::before {
+  border-bottom: var(--border-size-large) solid var(--color-primary01);
 }
 
 .stepper-item {
@@ -73,24 +80,20 @@
   text-align: center;
 }
 
-:host([pressed]),
-:host([href]:not([disabled]):focus-within) {
+:host([pressed]) {
   --indicator-size: calc(var(--space-unit) * 4);
 }
 
-:host([pressed]) .stepper-item,
-:host([href]:not([disabled]):focus-within) .stepper-item {
+:host([pressed]) .stepper-item {
   gap: 8px;
 }
 
-:host([pressed]) .stepper-item .indicator,
-:host([href]:not([disabled]):focus-within) .stepper-item .indicator {
+:host([pressed]) .stepper-item .indicator {
   font-size: var(--font-size-4);
   font-weight: var(--font-sb);
 }
 
-:host([pressed]) .stepper-item span,
-:host([href]:not([disabled]):focus-within) .stepper-item span {
+:host([pressed]) .stepper-item span {
   font-weight: var(--font-sb);
   line-height: 1.5;
 }
@@ -151,18 +154,15 @@
     line-height: 1.5;
   }
 
-  :host([pressed]),
-  :host([href]:not([disabled]):focus-within) {
+  :host([pressed]) {
     --indicator-size: calc(var(--space-unit) * 5);
   }
 
-  :host([pressed]) .stepper-item,
-  :host([href]:not([disabled]):focus-within) .stepper-item {
+  :host([pressed]) .stepper-item {
     gap: 10px;
   }
 
-  :host([pressed]) .stepper-item .indicator,
-  :host([href]:not([disabled]):focus-within) .stepper-item .indicator {
+  :host([pressed]) .stepper-item .indicator {
     font-size: var(--font-size-6);
   }
 }
