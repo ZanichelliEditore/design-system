@@ -157,7 +157,7 @@
 }
 
 :host .open-combo-data z-list-element .option-wrap > z-icon {
-  fill: var(--color-primary01);
+  fill: var(--color-primary01-icon);
 }
 
 :host .open-combo-data z-list-element[disabled] .option-wrap > z-icon {

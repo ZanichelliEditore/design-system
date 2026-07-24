@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.1](https://github.com/ZanichelliEditore/design-system/compare/v20.0.0...v20.0.1) (2026-07-23)
+
+
+### Features
+
+* **DS-1019:** deprecated ztable ([65273fe](https://github.com/ZanichelliEditore/design-system/commit/65273fef8ccb5a1bdeb2c68f78179848785cd3b8))
+* **DS-1023:** add indeterminate state for checkbox/combobox ([7e26d99](https://github.com/ZanichelliEditore/design-system/commit/7e26d9989cb01c75efd4d323f4b8ea2aafc4c0ad))
+
+
+### Bug Fixes
+
+* **DS-1019:** fix storybook example ([8730963](https://github.com/ZanichelliEditore/design-system/commit/873096317126ad3253f1895d513af83f54adb803))
+* **DS-1023:** case of label for uncheck all ([edbbe6b](https://github.com/ZanichelliEditore/design-system/commit/edbbe6bb873f09ce396eb78b42acd0c3a804325d))
+* **DS-1023:** fix select all in combobox and changed token for checkbox disabled ([01e26fb](https://github.com/ZanichelliEditore/design-system/commit/01e26fb629237499da75017545ad9c0d9feb9a8b))
+* storybook CSS variables controls ([96e2662](https://github.com/ZanichelliEditore/design-system/commit/96e266212b51227f93186d6cee23a45d2c759653))
+
 ## [20.0.0](https://github.com/ZanichelliEditore/design-system/compare/v19.6.1...v20.0.0) (2026-07-09)
 
 

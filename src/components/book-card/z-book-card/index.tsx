@@ -61,7 +61,11 @@ export class ZBookCard implements ComponentInterface {
   @Prop()
   fallbackCover?: string;
 
-  /** Whether to show a stack of covers to represent multiple books (only for `portrait` variant). */
+  /**
+   * Whether to show a stack of covers to represent multiple books.
+   * Only takes effect when `variant` is `portrait`: in `landscape` it is silently ignored and no
+   * cover stack is rendered, regardless of its value.
+   */
   @Prop()
   hasMultipleCovers = false;
 

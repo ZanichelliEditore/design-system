@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
   h,
 } from "@stencil/core";
 import {Fragment, JSXBase} from "@stencil/core/internal";
@@ -86,6 +87,10 @@ export class ZInput implements ComponentInterface {
   /** checked: available for checkbox, radio */
   @Prop({mutable: true})
   checked?: boolean = false;
+
+  /** indeterminate: available for checkbox */
+  @Prop({mutable: true})
+  indeterminate?: boolean = false;
 
   /** the input placeholder (optional) */
   @Prop()
@@ -173,6 +178,19 @@ export class ZInput implements ComponentInterface {
         }
         break;
     }
+  }
+
+  @Watch("indeterminate")
+  watchIndeterminate(): void {
+    this.syncCheckboxIndeterminate();
+  }
+
+  private syncCheckboxIndeterminate(): void {
+    if (this.type !== InputType.CHECKBOX || !this.inputRef) {
+      return;
+    }
+
+    this.inputRef.indeterminate = !!this.indeterminate;
   }
 
   /** get checked status */
@@ -530,6 +548,10 @@ export class ZInput implements ComponentInterface {
   /* END textarea */
 
   private handleCheck(ev: Event): void {
+    if (this.type === InputType.CHECKBOX && this.indeterminate) {
+      this.indeterminate = false;
+    }
+
     this.checked = (ev.target as HTMLInputElement).checked;
     this.emitInputCheck(this.checked);
   }
@@ -544,7 +566,7 @@ export class ZInput implements ComponentInterface {
           id={this.htmlid}
           type="checkbox"
           name={this.name}
-          checked={this.checked}
+          checked={this.indeterminate ? false : this.checked}
           disabled={this.disabled}
           readonly={this.readonly}
           required={this.required}
@@ -553,6 +575,10 @@ export class ZInput implements ComponentInterface {
           {...ariaRequired}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
+          ref={(el) => {
+            this.inputRef = el;
+            this.syncCheckboxIndeterminate();
+          }}
         />
 
         <label
@@ -564,7 +590,7 @@ export class ZInput implements ComponentInterface {
           }}
         >
           <z-icon
-            name={this.checked ? "checkbox-checked" : "checkbox"}
+            name={this.indeterminate ? "indeterminated-checkbox" : this.checked ? "checkbox-checked" : "checkbox"}
             class={this.size}
           />
           {this.label && <span innerHTML={this.label}></span>}

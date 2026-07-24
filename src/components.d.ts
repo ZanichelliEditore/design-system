@@ -189,7 +189,7 @@ export namespace Components {
          */
         "fallbackCover"?: string;
         /**
-          * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
+          * Whether to show a stack of covers to represent multiple books. Only takes effect when `variant` is `portrait`: in `landscape` it is silently ignored and no cover stack is rendered, regardless of its value.
           * @default false
          */
         "hasMultipleCovers": boolean;
@@ -934,6 +934,11 @@ export namespace Components {
           * render icon (optional): available for text
          */
         "icon"?: string;
+        /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
         /**
           * get checked status
          */
@@ -3475,7 +3480,7 @@ declare namespace LocalJSX {
          */
         "fallbackCover"?: string;
         /**
-          * Whether to show a stack of covers to represent multiple books (only for `portrait` variant).
+          * Whether to show a stack of covers to represent multiple books. Only takes effect when `variant` is `portrait`: in `landscape` it is silently ignored and no cover stack is rendered, regardless of its value.
           * @default false
          */
         "hasMultipleCovers"?: boolean;
@@ -4272,6 +4277,11 @@ declare namespace LocalJSX {
           * render icon (optional): available for text
          */
         "icon"?: string;
+        /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
         /**
           * the input label
          */
@@ -5829,6 +5839,7 @@ declare namespace LocalJSX {
         "readonly": boolean;
         "required": boolean;
         "checked": boolean;
+        "indeterminate": boolean;
         "placeholder": string;
         "htmltitle": string;
         "status": InputStatus;
