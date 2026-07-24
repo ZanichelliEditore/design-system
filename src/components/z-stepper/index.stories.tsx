@@ -4,7 +4,7 @@ import {ZStepper} from "./index";
 
 export default {
   title: "ZStepper/ZStepper",
-  component: ZStepper,
+  component: "z-stepper",
   decorators: [(Story) => <div class="z-carousel-story-container">{Story()}</div>],
   subcomponents: {
     ZStepperItem: "z-stepper-item",
