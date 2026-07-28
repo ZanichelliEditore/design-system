@@ -213,7 +213,11 @@ export class ZBookCard implements ComponentInterface {
     );
   }
 
-  private renderEbook(): HTMLDivElement {
+  private renderEbook(): null | HTMLDivElement {
+    if (!this.ebookUrl) {
+      return null;
+    }
+
     return (
       <div class="ebook">
         <div class="app-name">
@@ -258,7 +262,7 @@ export class ZBookCard implements ComponentInterface {
               <slot name="tags"></slot>
               <slot name="data"></slot>
             </div>
-            <slot name="ebook">{!!this.ebookUrl && <div class="bottom">{this.renderEbook()}</div>}</slot>
+            <slot name="ebook">{this.renderEbook()}</slot>
           </div>
         </div>
         <slot name="apps"></slot>
