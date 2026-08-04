@@ -556,6 +556,14 @@ export class ZInput implements ComponentInterface {
     this.emitInputCheck(this.checked);
   }
 
+  private getCheckboxAriaChecked(): "true" | "false" | "mixed" {
+    if (this.indeterminate) {
+      return "mixed";
+    }
+
+    return this.checked ? "true" : "false";
+  }
+
   /* START checkbox */
   private renderCheckbox(): HTMLDivElement {
     const ariaRequired = this.required ? {"aria-required": "true"} : {};
@@ -572,6 +580,7 @@ export class ZInput implements ComponentInterface {
           required={this.required}
           onChange={this.handleCheck.bind(this)}
           value={this.value}
+          aria-checked={this.getCheckboxAriaChecked()}
           {...ariaRequired}
           {...this.getAriaAttributes()}
           {...this.getFocusBlurAttributes()}
