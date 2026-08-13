@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.2](https://github.com/ZanichelliEditore/design-system/compare/v20.0.1...v20.0.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* add stopPropagation ([afdca3d](https://github.com/ZanichelliEditore/design-system/commit/afdca3d6b1fc509dace11ace5552a37e92e6dd72))
+* **z-book-card:** remove background color and padding from the default ebook cta ([2ea6fe7](https://github.com/ZanichelliEditore/design-system/commit/2ea6fe73210bfe51fbc5cae2d92ae395b81205c3))
+
 ## [20.0.1](https://github.com/ZanichelliEditore/design-system/compare/v20.0.0...v20.0.1) (2026-07-23)
 
 
