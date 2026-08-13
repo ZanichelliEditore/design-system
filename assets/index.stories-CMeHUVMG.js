@@ -1,0 +1,17 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{gt as t,ut as n}from"./iframe-CzRu_Q6e.js";import{K as r,b as i,f as a}from"./beans-zckFsBZy.js";import{i as o,s}from"./iconset-BfOAkyaN.js";import{n as c,t as l}from"./index15-CvOo-2fm.js";var u,d=e((()=>{c(),u=l})),f=e((()=>{})),p,m,h;e((()=>{n(),r(),s(),d(),f(),p={title:`ZInfoReveal`,component:u,argTypes:{icon:{control:{type:`select`},options:Object.keys(o).sort()},size:{control:{type:`inline-radio`},options:Object.values(a)},position:{options:Object.values(i),control:{type:`inline-radio`}}},parameters:{layout:`centered`}},m={args:{label:``,icon:`informationsource`,size:a.BIG,position:i.TOP_RIGHT},render:e=>t(`div`,{class:`z-info-reveal-story-wrapper`},t(`z-button`,{size:e.size},`Button`),t(`z-info-reveal`,e,t(`div`,null,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?`)))},m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`{
+  args: {
+    label: "",
+    icon: "informationsource",
+    size: ControlSize.BIG,
+    position: InfoRevealPosition.TOP_RIGHT
+  },
+  render: args => <div class="z-info-reveal-story-wrapper">
+      <z-button size={args.size}>Button</z-button>
+      <z-info-reveal {...args}>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quem enim ardorem studii censetis fuisse in
+          Archimede, qui dum in pulvere quaedam describit attentius, ne patriam quidem captam esse senserit?
+        </div>
+      </z-info-reveal>
+    </div>
+} satisfies StoryObj<ZInfoReveal>`,...m.parameters?.docs?.source}}},h=[`Default`]}))();export{m as Default,h as __namedExportsOrder,p as default};
