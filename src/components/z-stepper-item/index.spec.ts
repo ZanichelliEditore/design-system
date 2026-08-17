@@ -86,7 +86,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item disabled role="listitem">
         <mock:shadow-root>
-          <button class="stepper-item" disabled>
+          <button class="stepper-item" disabled aria-disabled="true">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
@@ -105,7 +105,7 @@ describe("Suite test ZStepperItem", () => {
     expect(page.root).toEqualHtml(`
       <z-stepper-item href="#/test" disabled role="listitem">
         <mock:shadow-root>
-          <button class="stepper-item" disabled>
+          <button class="stepper-item" disabled aria-disabled="true">
             <div class="indicator"></div>
             <span><slot></slot></span>
           </button>
