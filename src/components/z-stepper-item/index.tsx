@@ -47,12 +47,16 @@ export class ZStepperItem implements ComponentInterface {
     const role = href ? {role: "link"} : undefined;
     const current = this.pressed && !this.disabled ? {"aria-current": "step"} : undefined;
     const tabindex = this.href === "" ? {tabIndex: -1} : undefined;
+    const ariaPressed = this.pressed !== undefined ? {"aria-pressed": String(this.pressed)} : undefined;
+    const ariaDisabled = this.disabled !== undefined ? {"aria-disabled": String(this.disabled)} : undefined;
 
     return {
       ...href,
       ...role,
       ...current,
       ...tabindex,
+      ...ariaPressed,
+      ...ariaDisabled,
     };
   }
 
