@@ -39,7 +39,7 @@ export class ZStepperItem implements ComponentInterface {
   /**
    * Aria label of the item.
    */
-  @Prop({reflect: true})
+  @Prop()
   htmlAriaLabel: string;
 
   private getAttributes(): Record<string, unknown> {
