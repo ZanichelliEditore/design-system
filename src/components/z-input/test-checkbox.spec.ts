@@ -10,7 +10,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" />
+          <input id="checkid" type="checkbox" aria-checked="false" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="checkbox" class="big"></z-icon>
           </label>
@@ -27,7 +27,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" name="name" label="checkbox label" value="value" size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" name="name" value="value" />
+          <input id="checkid" type="checkbox" name="name" value="value" aria-checked="false" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="checkbox" class="big"></z-icon>
             <span>checkbox label</span>
@@ -45,7 +45,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" checked size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" checked />
+          <input id="checkid" type="checkbox" checked aria-checked="true" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="checkbox-checked" class="big"></z-icon>
           </label>
@@ -66,7 +66,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" indeterminate size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" />
+          <input id="checkid" type="checkbox" aria-checked="mixed" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="indeterminated-checkbox" class="big"></z-icon>
           </label>
@@ -83,7 +83,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" label-position="left" size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" />
+          <input id="checkid" type="checkbox" aria-checked="false" />
           <label for="checkid" class="checkbox-label before">
             <z-icon name="checkbox" class="big"></z-icon>
           </label>
@@ -100,7 +100,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" disabled size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" disabled />
+          <input id="checkid" type="checkbox" disabled aria-checked="false" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="checkbox" class="big"></z-icon>
           </label>
@@ -117,7 +117,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
         <z-input htmlid="checkid" type="checkbox" readonly size="big">
           <div class="checkbox-wrapper">
-            <input id="checkid" type="checkbox" readonly />
+            <input id="checkid" type="checkbox" readonly aria-checked="false" />
             <label for="checkid" class="checkbox-label after">
               <z-icon class="big" name="checkbox"></z-icon>
             </label>
@@ -134,7 +134,7 @@ describe("Suite test ZInput - checkbox", () => {
     expect(page.root).toEqualHtml(`
       <z-input htmlid="checkid" type="checkbox" required label="Required checkbox" size="big">
         <div class="checkbox-wrapper">
-          <input id="checkid" type="checkbox" required aria-required="true" />
+          <input id="checkid" type="checkbox" required aria-required="true" aria-checked="false" />
           <label for="checkid" class="checkbox-label after">
             <z-icon name="checkbox" class="big"></z-icon>
             <span>Required checkbox</span>
