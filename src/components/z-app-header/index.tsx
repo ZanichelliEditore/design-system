@@ -369,7 +369,7 @@ export class ZAppHeader implements ComponentInterface {
         class={{"has-label": !!this.searchLabel}}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
-        label={this.searchLabel}
+        label={this.isMobile || this.isTablet || this.enableOffcanvas || this._stuck ? "" : this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
         searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}
