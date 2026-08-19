@@ -9,6 +9,10 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [Non rilasciata](#non-rilasciata) <!-- TODO: sostituire con il numero di versione al momento del rilascio -->
+
+  - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
+
 - [v20.0.0](#v2000)
 
   - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilita-arialabel-role-etc)
@@ -133,6 +137,24 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## Non rilasciata
+
+<!-- TODO: rinominare questa sezione con il numero di versione al momento del rilascio -->
+
+### React bindings: nuova dipendenza da `@stencil/react-output-target`
+
+Il generatore dei binding React (`@stencil/react-output-target`) è stato aggiornato da `0.5.3` a `1.6.2`. I wrapper React generati (`@zanichelli/albe-web-components/react`) ora importano `createComponent` da `@stencil/react-output-target/runtime` a runtime, invece di includere tutto il necessario internamente.
+
+Chi utilizza i binding React deve quindi installare `@stencil/react-output-target` come dipendenza del proprio progetto, oltre a `react`/`react-dom` (già richiesti in precedenza):
+
+```bash
+yarn add @stencil/react-output-target
+```
+
+Senza questa dipendenza, l'uso di un qualsiasi componente importato da `@zanichelli/albe-web-components/react` genera un errore a runtime (`Cannot find module '@stencil/react-output-target/runtime'`).
+
+Inoltre, ogni componente React ora registra automaticamente il proprio custom element all'import: non è più necessario chiamare `defineCustomElements(window)` (da `@zanichelli/albe-web-components/loader`) quando si usano i binding React. Continuare a chiamarla non causa errori, quindi non è un cambiamento bloccante, ma può essere rimossa.
 
 ## v20.0.0
 
