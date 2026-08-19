@@ -89,10 +89,14 @@
     "vite": "^8.0.9"
   },
   "peerDependencies": {
+    "@stencil/react-output-target": ">=1.0.0",
     "react": "*",
     "react-dom": "*"
   },
   "peerDependenciesMeta": {
+    "@stencil/react-output-target": {
+      "optional": true
+    },
     "react": {
       "optional": true
     },
