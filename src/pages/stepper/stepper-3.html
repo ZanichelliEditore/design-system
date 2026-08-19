@@ -1,0 +1,153 @@
+<!doctype html>
+<html
+  dir="ltr"
+  lang="en"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Albe test application</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/build/web-components-library.css"
+    />
+    <script
+      type="module"
+      src="/build/web-components-library.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="/build/web-components-library.js"
+    ></script>
+  </head>
+  <body>
+    <main style="padding-top: 40px">
+      <div class="z-carousel-story-container">
+        <z-stepper>
+          <z-stepper-item
+            index="1"
+            checked
+            href="stepper-1.html"
+          >
+            I tuoi dati
+          </z-stepper-item>
+          <z-stepper-item
+            index="2"
+            checked
+            href="stepper-2.html"
+          >
+            Le tue credenziali
+          </z-stepper-item>
+          <z-stepper-item
+            index="3"
+            pressed
+            href="stepper-3.html"
+          >
+            Conferma
+          </z-stepper-item>
+        </z-stepper>
+      </div>
+
+      <section style="display: flex; flex-direction: column; gap: 32px; margin-top: 40px; padding: 0 20px">
+        <div>
+          <h2 style="margin: 0 0 12px; font-family: var(--font-family-sans); font-size: 18px; font-weight: 600">
+            I tuoi dati
+          </h2>
+          <dl style="display: grid; grid-template-columns: max-content 1fr; margin: 0; gap: 8px 24px">
+            <dt style="font-weight: 600">Nome</dt>
+            <dd
+              id="summary-nome"
+              style="margin: 0"
+            >
+              —
+            </dd>
+            <dt style="font-weight: 600">Cognome</dt>
+            <dd
+              id="summary-cognome"
+              style="margin: 0"
+            >
+              —
+            </dd>
+          </dl>
+        </div>
+
+        <div>
+          <h2 style="margin: 0 0 12px; font-family: var(--font-family-sans); font-size: 18px; font-weight: 600">
+            Le tue credenziali
+          </h2>
+          <dl style="display: grid; grid-template-columns: max-content 1fr; margin: 0; gap: 8px 24px">
+            <dt style="font-weight: 600">Nome utente</dt>
+            <dd
+              id="summary-username"
+              style="margin: 0"
+            >
+              —
+            </dd>
+            <dt style="font-weight: 600">Password</dt>
+            <dd
+              id="summary-password"
+              style="margin: 0"
+            >
+              —
+            </dd>
+          </dl>
+        </div>
+
+        <z-button
+          id="confirm"
+          variant="primary"
+        >
+          Conferma
+        </z-button>
+      </section>
+    </main>
+    <script>
+      const confirmButton = document.getElementById("confirm");
+      const stepperItems = Array.from(document.querySelectorAll("z-stepper-item"));
+
+      const currentStep = Number(window.location.pathname.match(/stepper-(\d+)\.html/)?.[1] ?? 1);
+      const maxStep = Math.max(currentStep, Number(sessionStorage.getItem("maxStep")) || 1);
+
+      function syncStepper() {
+        stepperItems.forEach((item) => {
+          const index = Number(item.getAttribute("index"));
+          item.toggleAttribute("pressed", index === currentStep);
+          item.toggleAttribute("checked", index !== currentStep && index <= maxStep);
+          item.toggleAttribute("disabled", index > maxStep);
+        });
+      }
+
+      function showSummary() {
+        const setValue = (id, value) => {
+          document.getElementById(id).textContent = value && value.trim() ? value : "—";
+        };
+        setValue("summary-nome", sessionStorage.getItem("nome"));
+        setValue("summary-cognome", sessionStorage.getItem("cognome"));
+        setValue("summary-username", sessionStorage.getItem("username"));
+        const password = sessionStorage.getItem("password");
+        document.getElementById("summary-password").textContent = password ? "•".repeat(password.length) : "—";
+      }
+
+      syncStepper();
+      showSummary();
+
+      confirmButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        stepperItems.forEach((item) => {
+          item.toggleAttribute("pressed", false);
+          item.toggleAttribute("disabled", false);
+          item.toggleAttribute("checked", true);
+        });
+      });
+    </script>
+  </body>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+</html>
