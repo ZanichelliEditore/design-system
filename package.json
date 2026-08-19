@@ -52,7 +52,7 @@
     "@rollup/plugin-image": "^3.0.3",
     "@stencil/core": "~4.43.5",
     "@stencil/eslint-plugin": "^1.1.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "^1.6.2",
     "@stencil/storybook-plugin": "^0.7.0",
     "@storybook/addon-a11y": "^10.5.3",
     "@storybook/addon-docs": "^10.5.3",
