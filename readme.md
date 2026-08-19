@@ -221,16 +221,19 @@ Then use the relative tag as a usual component in your markup.
 
 Albe's Web Components come with automatically generated React bindings. This means that you can use Web Components in a React application without the need to wrap component references, with full intellisense support thanks to TypeScript definition files for bindings.
 
-Import components reference from the React submodule:
+The React bindings are built with [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target), which must be installed alongside `react`/`react-dom` in your project:
+
+```bash
+yarn add @stencil/react-output-target
+```
+
+Import components reference from the React submodule. Each React component automatically registers its own custom element on import, so there is no need to call `defineCustomElements()`:
 
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
 import "@zanichelli/albe-web-components/www/build/web-components-library.css";
-import {defineCustomElements} from "@zanichelli/albe-web-components/loader";
 import {ZButton} from "@zanichelli/albe-web-components/react";
-
-defineCustomElements(window);
 
 ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 ```

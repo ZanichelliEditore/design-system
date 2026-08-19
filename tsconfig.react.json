@@ -7,8 +7,8 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "lib": ["dom", "es2015"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@zanichelli/albe-web-components": ["./"]
+      "@zanichelli/albe-web-components": ["./"],
+      "@zanichelli/albe-web-components/*": ["./*"]
     }
   },
   "include": ["src-react/**/*.ts", "src-react/**/*.tsx"],
