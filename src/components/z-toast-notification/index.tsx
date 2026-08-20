@@ -2,7 +2,6 @@ import {Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop,
 import {KeyboardCode, ToastNotification, ToastNotificationTransition} from "../../beans";
 
 import DOMPurify from "dompurify";
-import Hammer from "hammerjs";
 
 /** Map of slide-in transitions to their corresponding slide-out transitions */
 const SLIDE_OUT_TRANSITION_MAP = {
@@ -144,7 +143,11 @@ export class ZToastNotification implements ComponentInterface {
     return Math.round((100 * e.deltaX) / bounding.width);
   }
 
-  private handleSlideOutDragAnimation(): void {
+  private async handleSlideOutDragAnimation(): Promise<void> {
+    /* imported dynamically so its browser-only, module-level side effects (e.g. reading `window`/`document`
+    at the top of its UMD wrapper) never run at module-evaluation time in non-browser environments (e.g. Next.js SSR) */
+    const {default: Hammer} = await import("hammerjs");
+
     this.sliderManager = new Hammer(this.hostElement);
     this.sliderManager.get("pan").set({
       direction: Hammer.DIRECTION_HORIZONTAL,

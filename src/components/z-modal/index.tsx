@@ -1,5 +1,4 @@
 import {Component, Element, Event, EventEmitter, Listen, Method, Prop, h} from "@stencil/core";
-import dialogPolyfill from "dialog-polyfill";
 import {KeyboardCode} from "../../beans";
 import {FocusTrapController} from "../../utils/focus-trap-controller";
 import {ReactiveControllerHost} from "../../utils/reactive-controller";
@@ -90,7 +89,7 @@ export class ZModal extends ReactiveControllerHost {
     }
   }
 
-  componentDidLoad(): void {
+  async componentDidLoad(): Promise<void> {
     if (typeof window.HTMLDialogElement !== "function") {
       /* workaround to fix `registerDialog` in test environment:
       stencil converts html elements to MockHTMLElement but this element is missing the `localName` property,
@@ -98,6 +97,9 @@ export class ZModal extends ReactiveControllerHost {
       if (!this.dialog.localName) {
         Object.defineProperty(this.dialog, "localName", {value: "dialog"});
       }
+      /* imported dynamically so its browser-only, module-level side effects (e.g. reading `window.CustomEvent`)
+      never run at module-evaluation time in non-browser environments (e.g. Next.js SSR) */
+      const {default: dialogPolyfill} = await import("dialog-polyfill");
       dialogPolyfill.registerDialog(this.dialog);
       this.dialog.setAttribute("open", "true");
     } else {
