@@ -101,7 +101,8 @@ export class ZCombobox implements ComponentInterface {
 
   @Watch("items")
   watchItems(): void {
-    this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    this.itemsList = parsedItems ?? [];
     this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
     this.updateRenderItemsList();
   }
