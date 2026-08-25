@@ -12,6 +12,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [Non rilasciata](#non-rilasciata) <!-- TODO: sostituire con il numero di versione al momento del rilascio -->
 
   - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
+    - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
 
 - [v20.0.0](#v2000)
 
@@ -155,6 +156,20 @@ yarn add @stencil/react-output-target
 Senza questa dipendenza, l'uso di un qualsiasi componente importato da `@zanichelli/albe-web-components/react` genera un errore a runtime (`Cannot find module '@stencil/react-output-target/runtime'`).
 
 Inoltre, ogni componente React ora registra automaticamente il proprio custom element all'import: non è più necessario chiamare `defineCustomElements(window)` (da `@zanichelli/albe-web-components/loader`) quando si usano i binding React. Continuare a chiamarla non causa errori, quindi non è un cambiamento bloccante, ma può essere rimossa.
+
+### `@zanichelli/albe-web-components/react` è ora distribuito solo come ESM
+
+`@stencil/react-output-target` v1 delega la creazione dei wrapper React a [`@lit/react`](https://www.npmjs.com/package/@lit/react), che è pubblicato solo in formato ESM (nessuna build CommonJS). Per questo motivo `react/*.js` viene ora compilato come ESM (in precedenza era CommonJS): un `require("@zanichelli/albe-web-components/react")` diretto, senza passare da un bundler, genera un errore (`ERR_REQUIRE_ESM` su Node < 20.19/22.12) invece del precedente errore intermittente a runtime `createComponent is not a function`.
+
+Chi consuma i binding React tramite un bundler moderno (Next.js, Vite, webpack 5, Remix, Rollup, esbuild, ecc.) non deve fare nulla: la risoluzione ESM funziona in automatico ed è anzi più affidabile di prima. Da verificare/adattare:
+
+- il proprio `tsconfig` deve avere `moduleResolution` impostato su `"bundler"` o `"nodenext"` (requisito già introdotto da `@stencil/react-output-target` v1, non nuovo con questo cambiamento);
+- eventuali test Jest che importano direttamente da `@zanichelli/albe-web-components/react` potrebbero richiedere l'esclusione del pacchetto da `transformIgnorePatterns`, ad esempio:
+  ```js
+  transformIgnorePatterns: ["node_modules/(?!@zanichelli/albe-web-components)"];
+  ```
+
+Contestualmente, il range della peer dependency `@stencil/react-output-target` è stato ristretto da `>=1.0.0` a `^1.6.2`, la versione contro cui viene effettivamente compilato e testato l'output `react/*.js`.
 
 ## v20.0.0
 

@@ -16,7 +16,7 @@
   "scripts": {
     "build": "yarn build.wc && yarn build.react",
     "build-storybook": "yarn build && cross-env STENCIL_DEV=1 storybook build --config-dir .storybook --output-dir storybook",
-    "build.react": "rimraf react && tsc --build tsconfig.react.json",
+    "build.react": "rimraf react && tsc --build tsconfig.react.json && node internals/scripts/write-react-package-json.js",
     "build.wc": "mkdirp react && stencil build",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",
@@ -89,7 +89,7 @@
     "vite": "^8.0.9"
   },
   "peerDependencies": {
-    "@stencil/react-output-target": ">=1.0.0",
+    "@stencil/react-output-target": "^1.6.2",
     "react": "*",
     "react-dom": "*"
   },
