@@ -187,7 +187,9 @@ export class ZSelect implements ComponentInterface {
   }
 
   private getInitialItemsArray(): SelectItem[] {
-    return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+    const parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+
+    return parsedItems ?? [];
   }
 
   private mapSelectedItemToItemsArray(): SelectItem[] {
