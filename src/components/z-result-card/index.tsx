@@ -32,6 +32,10 @@ export class ZResultCard implements ComponentInterface {
   @Prop()
   fallbackCover?: string;
 
+  /** [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies. */
+  @Prop()
+  coverAlt?: string;
+
   /** Whether to show a stack of covers to represent multiple books. */
   @Prop()
   hasMultipleCovers = false;
@@ -128,6 +132,7 @@ export class ZResultCard implements ComponentInterface {
       <Host>
         <z-book-cover
           cover={this.cover}
+          coverAlt={this.coverAlt}
           fallbackCover={this.fallbackCover}
           multiple={this.hasMultipleCovers}
           bordered={true}

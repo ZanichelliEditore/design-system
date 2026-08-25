@@ -10,9 +10,9 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message html-id="esempio_vuoto" aria-label="">
+      <z-input-message html-id="esempio_vuoto" aria-label="" id="esempio_vuoto">
         <mock:shadow-root>
-          <span id="esempio_vuoto"></span>
+          <span></span>
         </mock:shadow-root>
       </z-input-message>
     `);
@@ -25,9 +25,9 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message">
+      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" id="esempio">
         <mock:shadow-root>
-          <span id="esempio">message</span>
+          <span>message</span>
         </mock:shadow-root>
       </z-input-message>
     `);
@@ -40,10 +40,10 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success" role="alert">
+      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success" role="alert" id="esempio">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
-          <span id="esempio">message</span>
+          <span>message</span>
         </mock:shadow-root>
       </z-input-message>
     `);
@@ -56,10 +56,10 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success"  html-role="status" role="status">
+      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success"  html-role="status" role="status" id="esempio">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
-          <span id="esempio">message</span>
+          <span>message</span>
         </mock:shadow-root>
       </z-input-message>
     `);
@@ -72,10 +72,10 @@ describe("Suite test ZInputMessage", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success" html-role="">
+      <z-input-message html-id="esempio" tabindex="0" aria-label="message" message="message" status="success" html-role="" id="esempio">
         <mock:shadow-root>
           <z-icon name="checkmark-circle"></z-icon>
-          <span id="esempio">message</span>
+          <span>message</span>
         </mock:shadow-root>
       </z-input-message>
     `);

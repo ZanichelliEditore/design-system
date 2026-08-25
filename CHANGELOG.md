@@ -2,6 +2,88 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.2](https://github.com/ZanichelliEditore/design-system/compare/v20.0.1...v20.0.2) (2026-08-13)
+
+
+### Bug Fixes
+
+* add stopPropagation ([afdca3d](https://github.com/ZanichelliEditore/design-system/commit/afdca3d6b1fc509dace11ace5552a37e92e6dd72))
+* **z-book-card:** remove background color and padding from the default ebook cta ([2ea6fe7](https://github.com/ZanichelliEditore/design-system/commit/2ea6fe73210bfe51fbc5cae2d92ae395b81205c3))
+
+## [20.0.1](https://github.com/ZanichelliEditore/design-system/compare/v20.0.0...v20.0.1) (2026-07-23)
+
+
+### Features
+
+* **DS-1019:** deprecated ztable ([65273fe](https://github.com/ZanichelliEditore/design-system/commit/65273fef8ccb5a1bdeb2c68f78179848785cd3b8))
+* **DS-1023:** add indeterminate state for checkbox/combobox ([7e26d99](https://github.com/ZanichelliEditore/design-system/commit/7e26d9989cb01c75efd4d323f4b8ea2aafc4c0ad))
+
+
+### Bug Fixes
+
+* **DS-1019:** fix storybook example ([8730963](https://github.com/ZanichelliEditore/design-system/commit/873096317126ad3253f1895d513af83f54adb803))
+* **DS-1023:** case of label for uncheck all ([edbbe6b](https://github.com/ZanichelliEditore/design-system/commit/edbbe6bb873f09ce396eb78b42acd0c3a804325d))
+* **DS-1023:** fix select all in combobox and changed token for checkbox disabled ([01e26fb](https://github.com/ZanichelliEditore/design-system/commit/01e26fb629237499da75017545ad9c0d9feb9a8b))
+* storybook CSS variables controls ([96e2662](https://github.com/ZanichelliEditore/design-system/commit/96e266212b51227f93186d6cee23a45d2c759653))
+
+## [20.0.0](https://github.com/ZanichelliEditore/design-system/compare/v19.6.1...v20.0.0) (2026-07-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* delete z-panel-elem component
+* rename a11y props to avoid confusing screen readers with duplicate native HTML attributes
+* make z-select items required
+
+* delete z-panel-elem component ([4de2714](https://github.com/ZanichelliEditore/design-system/commit/4de271461203ed3fc3b8b0253b06bd0bbb177748))
+* rename a11y props to avoid confusing screen readers with duplicate native HTML attributes ([4600d65](https://github.com/ZanichelliEditore/design-system/commit/4600d65854b4c84cd9da7d06d2635a99be483712))
+
+
+### Features
+
+* make z-select items required ([870c746](https://github.com/ZanichelliEditore/design-system/commit/870c7464c189721d0642f52895c3778aeaedb413))
+* new props and css variable to customize the info box ([cbb842f](https://github.com/ZanichelliEditore/design-system/commit/cbb842f1ab401e0d615ef4c992214a3941c5163e))
+
+
+### Bug Fixes
+
+* info box top and bottom padding ([a7dd910](https://github.com/ZanichelliEditore/design-system/commit/a7dd9105af43e60d062ef01110d483554d37fc24))
+* legacy icons pointing to wrong icons; z-icon css props doc ([264602b](https://github.com/ZanichelliEditore/design-system/commit/264602b3281100a79a09af37b5943a7227630c00))
+* remove ZMyzCardList ([d12c86b](https://github.com/ZanichelliEditore/design-system/commit/d12c86b9f3aa93beb5888746338ff18d9e346d5b))
+* remove ZToggleButton ZMyzCardAlert ZMyzCardFooter ZMyzCardIcon ([1f0c976](https://github.com/ZanichelliEditore/design-system/commit/1f0c976647fd77b7ad63fb5d39a02a2b439755d3))
+
+## [19.6.1](https://github.com/ZanichelliEditore/design-system/compare/v19.6.0...v19.6.1) (2026-07-02)
+
+## [19.6.0](https://github.com/ZanichelliEditore/design-system/compare/v19.5.0...v19.6.0) (2026-07-01)
+
+
+### Features
+
+* add test on zselect required ([fedbbb8](https://github.com/ZanichelliEditore/design-system/commit/fedbbb80ec6129b246f5b95ea9115cb190de66ab))
+* added required prop in storybook ([88f6a19](https://github.com/ZanichelliEditore/design-system/commit/88f6a19ea60243a8a3bc893ae0289b0b606e0191))
+* remove empty space ([6a3a656](https://github.com/ZanichelliEditore/design-system/commit/6a3a6564f2be8d0f5449b414a6f9068ca100a13f))
+* remove not useful update and builded files ([db672da](https://github.com/ZanichelliEditore/design-system/commit/db672da27464302d104777477ac853455001a14d))
+* remove update on checkbox already in another PR ([99cdf44](https://github.com/ZanichelliEditore/design-system/commit/99cdf447f0ec2dabe57c984563b2d4f3e40df270))
+* run prettier ([1863d78](https://github.com/ZanichelliEditore/design-system/commit/1863d78881b75f0180b0a32aa3649138473fe1d9))
+
+
+### Bug Fixes
+
+* **accessibility:** add aria-required to required form fields ([abd2102](https://github.com/ZanichelliEditore/design-system/commit/abd2102936996178847948d826473c5e8ed7bcde))
+* **DS-1016:** fix alignment for searchbar button ([3d62ec9](https://github.com/ZanichelliEditore/design-system/commit/3d62ec9ddd812f1736f4df653dd9b8deba0f0799))
+* **DS-1017:** deprecated ztogglebutton ([886b436](https://github.com/ZanichelliEditore/design-system/commit/886b436b55144677746b5c6040023e370c481007))
+* prettier ([bf20a8f](https://github.com/ZanichelliEditore/design-system/commit/bf20a8fe3c3fe5d2b79caad70d29c998e8c2b844))
+* **z-book-cover:** add coverAlt prop for accessible book cover images ([5851605](https://github.com/ZanichelliEditore/design-system/commit/58516059034c9093a5dd0194ae2fdb85b32b8113))
+* **z-button:** render semantic anchors for link role ([554969b](https://github.com/ZanichelliEditore/design-system/commit/554969b460f8066e149a1c61b657f513e2114659))
+* **z-input-message:** move id to Host element for aria-describedby ([ea96a09](https://github.com/ZanichelliEditore/design-system/commit/ea96a09571c88df7c6baad3f8ea2fa69c48ec747))
+* **z-input:** add aria-pressed to password toggle button ([39c247a](https://github.com/ZanichelliEditore/design-system/commit/39c247a4a76db9fafa471e54a3ae178dd41a5fd7))
+* **z-input:** add aria-required attribute when required prop is true ([e4b5e4f](https://github.com/ZanichelliEditore/design-system/commit/e4b5e4f481ecb78d4c329929e40cfc6af7d45d09))
+* **z-input:** add aria-required to required checkboxes ([979b2d4](https://github.com/ZanichelliEditore/design-system/commit/979b2d40b6801d95e0fcb1c62085e5f7e612de2e))
+* **z-input:** add blank line to satisfy eslint padding-line-between-statements ([840a7ae](https://github.com/ZanichelliEditore/design-system/commit/840a7ae564e5e0c7e6a7d5325cc2dd64569f4e06))
+* **z-input:** fix prettier formatting for aria-required attributes ([f5fb42d](https://github.com/ZanichelliEditore/design-system/commit/f5fb42d519934c23b9b11bbade15596b5cceee50))
+* **z-input:** keep aria-label static on password toggle ([d30e688](https://github.com/ZanichelliEditore/design-system/commit/d30e688bb2848e7bc6cae5c7761d2a0c30353ac5))
+* **z-input:** use standard for attribute in test expectation ([5bce419](https://github.com/ZanichelliEditore/design-system/commit/5bce4198519094a3e063516373948aa0f3958d5c))
+
 ## [19.5.0](https://github.com/ZanichelliEditore/design-system/compare/v19.4.0...v19.5.0) (2026-06-25)
 
 

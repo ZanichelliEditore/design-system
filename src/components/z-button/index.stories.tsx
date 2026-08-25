@@ -1,20 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ButtonVariant, ControlSize, IconPosition} from "../../beans";
+import {ButtonType, ButtonVariant, ControlSize, IconPosition} from "../../beans";
 import {ZButton} from "./index";
 
 const StoryMeta = {
   title: "ZButton",
   component: ZButton,
-  args: {
-    variant: ButtonVariant.PRIMARY,
-    size: ControlSize.BIG,
-    disabled: false,
-    icon: "download",
-    iconPosition: IconPosition.LEFT,
-    ariaLabel: "Clicca sul bottone",
-    htmlrole: "button",
-  },
   argTypes: {
     variant: {
       options: Object.values(ButtonVariant),
@@ -28,6 +19,20 @@ const StoryMeta = {
       options: Object.values(IconPosition),
       control: {type: "inline-radio"},
     },
+    type: {
+      options: Object.values(ButtonType).sort(),
+      control: {type: "inline-radio"},
+    },
+  },
+  args: {
+    variant: ButtonVariant.PRIMARY,
+    size: ControlSize.BIG,
+    disabled: false,
+    icon: "download",
+    iconPosition: IconPosition.LEFT,
+    htmlAriaLabel: "Clicca sul bottone",
+    htmlRole: "button",
+    type: ButtonType.BUTTON,
   },
   render: (args) => <z-button {...args}>Click me</z-button>,
 } satisfies Meta<ZButton>;
@@ -71,7 +76,7 @@ export const LinkButton = {
     icon: "arrow-quad-north-east",
     href: "https://wikipedia.com",
     target: "_blank",
-    role: "link",
+    htmlRole: "link",
   },
   render: (args) => <z-button {...args}>Go to wikipedia</z-button>,
 } satisfies Story;

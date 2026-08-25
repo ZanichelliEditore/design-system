@@ -91,7 +91,6 @@ export const Horizontal = {
   args: {
     orientation: NavigationTabsOrientation.HORIZONTAL,
     size: NavigationTabsSize.BIG,
-    ariaLabel: "",
   },
   parameters: {
     controls: {
@@ -116,7 +115,6 @@ export const Horizontal = {
 export const Vertical = {
   args: {
     orientation: NavigationTabsOrientation.VERTICAL,
-    ariaLabel: "",
   },
   parameters: {
     controls: {
@@ -143,7 +141,6 @@ export const Vertical = {
  */
 export const Tabpanels = {
   args: {
-    ariaLabel: "",
     orientation: NavigationTabsOrientation.HORIZONTAL,
   },
   render: (args) => (

@@ -30,6 +30,10 @@ const StoryMeta = {
       },
       options: Object.values(BookCardVariant),
     },
+    hasMultipleCovers: {
+      control: "boolean",
+      if: {arg: "variant", eq: BookCardVariant.PORTRAIT},
+    },
   },
   args: {
     "variant": BookCardVariant.LANDSCAPE,

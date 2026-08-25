@@ -31,7 +31,7 @@ export class ZDatePicker implements ComponentInterface {
 
   /** z-input aria label */
   @Prop()
-  ariaLabel = "";
+  htmlAriaLabel?: string;
 
   /** z-input label */
   @Prop()
@@ -244,7 +244,7 @@ export class ZDatePicker implements ComponentInterface {
       <div class={`${this.datePickerId}-container`}>
         <z-input
           data-input="data-input"
-          ariaLabel={this.ariaLabel}
+          htmlAriaLabel={this.htmlAriaLabel}
           label={this.label}
           class={this.datePickerId}
           type={InputType.TEXT}

@@ -62,7 +62,7 @@ const StoryMeta = {
           null: "default",
         },
       },
-      options: [null, ...Object.values(CardVariant)],
+      options: Object.values(CardVariant),
     },
   },
   args: {

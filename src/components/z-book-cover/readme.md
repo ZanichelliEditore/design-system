@@ -14,12 +14,13 @@ Alignment of the image inside the container can be customized via CSS properties
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                   | Type      | Default     |
-| --------------- | ---------------- | --------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `bordered`      | `bordered`       | Whether to apply a border around the cover image (always applied when `multiple` is enabled). | `boolean` | `false`     |
-| `cover`         | `cover`          | URL of the cover image.                                                                       | `string`  | `undefined` |
-| `fallbackCover` | `fallback-cover` | URL of the fallback cover image.                                                              | `string`  | `undefined` |
-| `multiple`      | `multiple`       | Whether to show a stack of covers to represent multiple books.                                | `boolean` | `false`     |
+| Property        | Attribute        | Description                                                                                             | Type      | Default     |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `bordered`      | `bordered`       | Whether to apply a border around the cover image (always applied when `multiple` is enabled).           | `boolean` | `false`     |
+| `cover`         | `cover`          | URL of the cover image.                                                                                 | `string`  | `undefined` |
+| `coverAlt`      | `cover-alt`      | [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies. | `string`  | `undefined` |
+| `fallbackCover` | `fallback-cover` | URL of the fallback cover image.                                                                        | `string`  | `undefined` |
+| `multiple`      | `multiple`       | Whether to show a stack of covers to represent multiple books.                                          | `boolean` | `false`     |
 
 
 ## Slots

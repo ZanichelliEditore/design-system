@@ -324,7 +324,10 @@ export class ZSearchbar implements ComponentInterface {
         role="presentation"
         htmlTabindex={-1}
         onKeyDown={(e: KeyboardEvent) => this.onListItemKeyDown(e, item)}
-        onClick={() => this.emitSearchItemClick(item)}
+        onClick={(e: MouseEvent) => {
+          e.stopPropagation();
+          this.emitSearchItemClick(item);
+        }}
       >
         <div
           class="list-item ellipsis"

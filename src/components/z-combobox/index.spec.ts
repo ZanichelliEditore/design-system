@@ -333,7 +333,7 @@ describe("Suite test ZCombobox", () => {
                     <ul role="presentation">
                       <z-list-element dividertype="element" dividercolor="gray800" htmltabindex="-1" role="presentation" size="large" class="check-all-wrapper">
                         <span class="option-wrap" role="presentation">
-                          <z-icon name="checkbox" class=""></z-icon>
+                          <z-icon name="indeterminated-checkbox" class=""></z-icon>
                           <span id="combobox-check-all" role="option" aria-selected="false">CHECK</span>
                         </span>
                       </z-list-element>
@@ -480,7 +480,7 @@ describe("Suite test ZCombobox", () => {
                     <ul role="presentation">
                       <z-list-element dividertype="element" dividercolor="gray800" htmltabindex="-1" role="presentation" size="large" class="check-all-wrapper">
                         <span class="option-wrap" role="presentation">
-                          <z-icon name="checkbox" class=""></z-icon>
+                          <z-icon name="indeterminated-checkbox" class=""></z-icon>
                           <span id="combobox-check-all" role="option" aria-selected="false">CHECK</span>
                         </span>
                       </z-list-element>
@@ -531,7 +531,7 @@ describe("Suite test ZCombobox", () => {
                     <ul role="presentation">
                       <z-list-element dividertype="element" dividercolor="gray800" htmltabindex="-1" role="presentation" size="large" class="check-all-wrapper" disabled="">
                         <span class="option-wrap" role="presentation">
-                          <z-icon name="checkbox" class=""></z-icon>
+                          <z-icon name="indeterminated-checkbox" class=""></z-icon>
                           <span id="combobox-check-all" role="presentation" aria-selected="false">CHECK</span>
                         </span>
                       </z-list-element>

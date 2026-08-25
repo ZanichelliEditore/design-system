@@ -86,7 +86,7 @@ export const DifferentFontWeight = {
   render: (args) => (
     <z-chip {...args}>
       <strong>my</strong>
-      <span style={{marginLeft: "4px"}}>custom element</span>
+      <span>custom element</span>
     </z-chip>
   ),
 } satisfies Story;

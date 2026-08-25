@@ -5,11 +5,11 @@ describe("Suite test ZToastNotification", () => {
   it("Test render ZToastNotification vuoto", async () => {
     const page = await newSpecPage({
       components: [ZToastNotification],
-      html: `<z-toast-notification isdraggable="false"></z-toast-notification>`,
+      html: `<z-toast-notification isdraggable="false" autoclose="300"></z-toast-notification>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <z-toast-notification isdraggable="false" style="--percentuale: 0%;">
+      <z-toast-notification isdraggable="false" style="--percentuale: 0%;" autoclose="300">
         <mock:shadow-root>
           <div class="toast-notification-container">
             <div class="toast-notification-content">

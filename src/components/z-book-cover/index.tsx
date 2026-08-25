@@ -31,7 +31,13 @@ export class ZBookCover implements ComponentInterface {
   @Prop({reflect: true})
   bordered = false;
 
+  /** [optional] Alt text for the cover image. When provided, the image is exposed to assistive technologies. */
+  @Prop()
+  coverAlt?: string;
+
   render(): HTMLZBookCoverElement {
+    const hasAlt = !!this.coverAlt;
+
     return (
       <Host>
         {this.multiple && (
@@ -43,8 +49,8 @@ export class ZBookCover implements ComponentInterface {
         <div class="cover-container">
           <img
             src={this.cover ?? defaultFallbackCover}
-            aria-hidden="true"
-            alt=""
+            aria-hidden={hasAlt ? undefined : "true"}
+            alt={hasAlt ? this.coverAlt : ""}
             onError={() => (this.cover = this.fallbackCover || defaultFallbackCover)}
           />
           <slot name="coverOverlay"></slot>
