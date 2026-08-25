@@ -3096,7 +3096,7 @@ __metadata:
     typescript-eslint: "npm:^8.57.1"
     vite: "npm:^8.0.9"
   peerDependencies:
-    "@stencil/react-output-target": ">=1.0.0"
+    "@stencil/react-output-target": ^1.6.2
     react: "*"
     react-dom: "*"
   peerDependenciesMeta:
