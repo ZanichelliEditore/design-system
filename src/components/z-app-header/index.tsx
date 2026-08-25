@@ -366,10 +366,9 @@ export class ZAppHeader implements ComponentInterface {
 
     return (
       <z-searchbar
-        class={{"has-label": !!this.searchLabel}}
         value={this.searchString}
         placeholder={this.searchPlaceholder}
-        label={this.isMobile || this.isTablet || this.enableOffcanvas || this._stuck ? "" : this.searchLabel}
+        htmlAriaLabel={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
         searchButtonLabel={this.isMobile || this.isTablet ? undefined : this.searchButtonLabel}
@@ -379,6 +378,12 @@ export class ZAppHeader implements ComponentInterface {
         onSearchTyping={(e) => (this.searchString = e.detail)}
       />
     );
+  }
+
+  private renderSearchLabel(): HTMLSpanElement | undefined {
+    if (this.searchLabel && !this.isMobile && !this.isTablet && !this.enableOffcanvas) {
+      return <label class="z-label body-4-sb">{this.searchLabel}</label>;
+    }
   }
 
   private renderProductLogos(): HTMLElement | null {
@@ -510,16 +515,23 @@ export class ZAppHeader implements ComponentInterface {
           ref={(el) => (this.container = el)}
         >
           <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
-            {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-              <div class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}>
-                <slot name="top-subtitle" />
-              </div>
-            )}
             <div class="heading-title">
               <slot name="menu-button">{this.renderMenuButton()}</slot>
               {!this._stuck && this.renderProductLogos()}
-              <slot name="title" />
-              {this.enableSearch && !this.isMobile && this.renderSeachbar()}
+              <div>
+                {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
+                  <div
+                    class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}
+                  >
+                    <slot name="top-subtitle" />
+                  </div>
+                )}
+                <slot name="title" />
+              </div>
+              <div class="search-slot">
+                {this.renderSearchLabel()}
+                {this.enableSearch && !this.isMobile && this.renderSeachbar()}
+              </div>
             </div>
             {this.enableSearch && this.isMobile && this.renderSeachbar()}
           </div>
