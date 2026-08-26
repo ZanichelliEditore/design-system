@@ -2335,6 +2335,8 @@ declare global {
     };
     interface HTMLZAppHeaderElementEventMap {
         "sticking": any;
+        "searchSubmit": string;
+        "searchTyping": string;
     }
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3394,6 +3396,14 @@ declare namespace LocalJSX {
           * @default true
          */
         "enableZLogo"?: boolean;
+        /**
+          * Emitted on search submit, forwarded from the internal `z-searchbar`. Returns the search string.
+         */
+        "onSearchSubmit"?: (event: ZAppHeaderCustomEvent<string>) => void;
+        /**
+          * Emitted on search typing, forwarded from the internal `z-searchbar`. Returns the search string.
+         */
+        "onSearchTyping"?: (event: ZAppHeaderCustomEvent<string>) => void;
         /**
           * Emitted when the `stuck` state of the header changes
          */

@@ -103,6 +103,18 @@ export class ZAppHeader implements ComponentInterface {
   sticking: EventEmitter;
 
   /**
+   * Emitted on search submit, forwarded from the internal `z-searchbar`. Returns the search string.
+   */
+  @Event()
+  searchSubmit: EventEmitter<string>;
+
+  /**
+   * Emitted on search typing, forwarded from the internal `z-searchbar`. Returns the search string.
+   */
+  @Event()
+  searchTyping: EventEmitter<string>;
+
+  /**
    * The stuck state of the bar.
    */
   @State()
@@ -376,7 +388,11 @@ export class ZAppHeader implements ComponentInterface {
         size={ControlSize.X_SMALL}
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
-        onSearchTyping={(e) => (this.searchString = e.detail)}
+        onSearchTyping={(e) => {
+          this.searchString = e.detail;
+          this.searchTyping.emit(e.detail);
+        }}
+        onSearchSubmit={(e) => this.searchSubmit.emit(e.detail)}
       />
     );
   }

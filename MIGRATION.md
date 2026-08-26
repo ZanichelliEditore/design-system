@@ -13,6 +13,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
   - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
     - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
+  - [Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React](#eventi-bubblati-da-componenti-interni-non-più-intercettati-automaticamente-dai-binding-react)
+    - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
 
 - [v20.0.0](#v2000)
 
@@ -170,6 +172,20 @@ Chi consuma i binding React tramite un bundler moderno (Next.js, Vite, webpack 5
   ```
 
 Contestualmente, il range della peer dependency `@stencil/react-output-target` è stato ristretto da `>=1.0.0` a `^1.6.2`, la versione contro cui viene effettivamente compilato e testato l'output `react/*.js`.
+
+### Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React
+
+Con `@stencil/react-output-target` v0, i wrapper React generati intercettavano qualsiasi prop `on*` passata al componente anche se l'evento non era dichiarato dal componente stesso: era sufficiente che l'evento risalisse per bubbling da un componente interno (es. un componente composito che ne renderizza un altro) perché il wrapper lo intercettasse comunque, tramite un `addEventListener` generico sull'elemento host.
+
+`@stencil/react-output-target` v1 genera invece, per ciascun componente, una mappa di eventi popolata solo con gli `@Event()` che quel componente dichiara direttamente. Di conseguenza, un handler React (`onXxx`) per un evento che raggiungeva il wrapper solo per bubbling da un componente interno, senza essere ridichiarato dal componente che lo compone, non viene più intercettato: la prop diventa silenziosamente inerte, senza errori a build-time né a runtime.
+
+Questo è un cambiamento di comportamento silenzioso per qualsiasi componente composito che si appoggiava a questo effetto collaterale del bubbling. Se un componente su cui fate affidamento smette di notificare un evento dopo l'aggiornamento a questa versione, verificate se l'evento proviene da un suo componente interno.
+
+#### `ZAppHeader`: `searchSubmit` e `searchTyping`
+
+`z-app-header` compone internamente un `<z-searchbar>`, che dichiara i propri eventi `searchSubmit` e `searchTyping`. In precedenza questi eventi arrivavano ai consumer React di `ZAppHeader` (tramite `onSearchSubmit`/`onSearchTyping`) solo perché risalivano per bubbling dal componente interno, senza che `z-app-header` li dichiarasse come propri.
+
+A partire da questa versione, `z-app-header` dichiara esplicitamente `searchSubmit` e `searchTyping` come propri `@Event()`, ri-emettendoli a partire dagli eventi omonimi del `z-searchbar` interno. Chi utilizza i binding React continua a usare `onSearchSubmit`/`onSearchTyping` su `<ZAppHeader>` esattamente come prima: il comportamento torna a funzionare, ma ora fa parte del contratto pubblico dichiarato del componente invece di essere un effetto collaterale del bubbling.
 
 ## v20.0.0
 

@@ -21,9 +21,11 @@
 
 ## Events
 
-| Event      | Description                                          | Type               |
-| ---------- | ---------------------------------------------------- | ------------------ |
-| `sticking` | Emitted when the `stuck` state of the header changes | `CustomEvent<any>` |
+| Event          | Description                                                                                     | Type                  |
+| -------------- | ----------------------------------------------------------------------------------------------- | --------------------- |
+| `searchSubmit` | Emitted on search submit, forwarded from the internal `z-searchbar`. Returns the search string. | `CustomEvent<string>` |
+| `searchTyping` | Emitted on search typing, forwarded from the internal `z-searchbar`. Returns the search string. | `CustomEvent<string>` |
+| `sticking`     | Emitted when the `stuck` state of the header changes                                            | `CustomEvent<any>`    |
 
 
 ## Slots
