@@ -20,16 +20,15 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav class="menu-container"></nav>
@@ -62,16 +61,15 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-              <slot name="menu-button"></slot>
-              <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav aria-label="Titolo di test" class="menu-container"></nav>
@@ -108,16 +106,18 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="has-top-subtitle heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <div class="title-container">
+                    <div class="top-subtitle">
+                      <slot name="top-subtitle"></slot>
+                    </div>
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav aria-label="Titolo di test" class="menu-container"></nav>
@@ -162,19 +162,21 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="has-top-subtitle heading-container">
-              <div class="heading-title">
-              <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <span class="product-logo">
-                  <slot name="product-logo"></slot>
-                </span>
-                <div>
-                 <div class="has-product-logo top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <span class="product-logo">
+                    <slot name="product-logo"></slot>
+                  </span>
+                  <div class="title-container">
+                    <div class="has-product-logo top-subtitle">
+                      <slot name="top-subtitle"></slot>
+                    </div>
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav aria-label="Titolo di test" class="menu-container"></nav>
@@ -219,19 +221,18 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <span class="product-logo">
-                  <slot name="product-logo"></slot>
-                </span>
-                 <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <span class="product-logo">
+                    <slot name="product-logo"></slot>
+                  </span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav aria-label="Titolo di test" class="menu-container"></nav>
@@ -273,19 +274,18 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <span class="product-logo">
-                  <slot name="product-logo"></slot>
-                </span>
-                 <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot"></div>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <span class="product-logo">
+                    <slot name="product-logo"></slot>
+                  </span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot"></div>
+                </div>
               </div>
             </div>
             <nav aria-label="Titolo di test" class="menu-container"></nav>
@@ -527,22 +527,21 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="has-menubar heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-                <span class="z-logo"><img alt="Logo Zanichelli"></span>
-                <span class="product-logo">
-                  <slot name="product-logo"></slot>
-                </span>
-              <div>
-                 <div class="top-subtitle">
-                   <slot name="top-subtitle"></slot>
-                 </div>
-                 <slot name="title"></slot>
-               </div>
-               <div class="search-slot">
-                <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo"><img alt="Logo Zanichelli"></span>
+                  <span class="product-logo">
+                    <slot name="product-logo"></slot>
+                  </span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot">
+                    <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
+                  </div>
+                </div>
               </div>
-            </div>
             </div>
             <nav class="menu-container" aria-label="Titolo di test">
               <div aria-label="Titolo di test" role="menubar">
@@ -734,21 +733,19 @@ describe("Suite test ZAppHeader", () => {
         <mock:shadow-root>
           <div class="heading-panel">
             <div class="heading-container">
-              <div class="heading-title">
-                <slot name="menu-button"></slot>
-              <span class="z-logo">
-                 <img alt="Logo Zanichelli">
-              </span>
-             <div>
-              <div class="top-subtitle">
-                <slot name="top-subtitle"></slot>
+              <div class="heading-block">
+                <div class="heading-title">
+                  <slot name="menu-button"></slot>
+                  <span class="z-logo">
+                    <img alt="Logo Zanichelli">
+                  </span>
+                  <div class="title-container">
+                    <slot name="title"></slot>
+                  </div>
+                  <div class="search-slot">
+                    <z-searchbar placeholder="Scrivi qui" preventsubmit="" searchbuttonlabel="Cliccami" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
+                  </div>
                 </div>
-                <slot name="title"></slot>
-                </span>
-               </div>
-               <div class="search-slot">
-                 <z-searchbar placeholder="Scrivi qui" preventsubmit="" searchbuttonlabel="Cliccami" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
-               </div>
               </div>
             </div>
             <nav class="menu-container"></nav>

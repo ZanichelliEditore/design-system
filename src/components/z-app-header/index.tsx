@@ -505,6 +505,18 @@ export class ZAppHeader implements ComponentInterface {
     this.menuResizeObserver?.disconnect();
   }
 
+  private renderTopSubtitle(): HTMLElement | undefined {
+    if (!this.hasSlot("top-subtitle") || (this.enableSearch && this.isMobile)) {
+      return;
+    }
+
+    return (
+      <div class={{"top-subtitle": true, "has-product-logo": this.hasSlot("product-logo")}}>
+        <slot name="top-subtitle" />
+      </div>
+    );
+  }
+
   render(): HTMLZAppHeaderElement {
     const hasTopSubtitle = this.hasSlot("top-subtitle");
 
@@ -515,23 +527,20 @@ export class ZAppHeader implements ComponentInterface {
           ref={(el) => (this.container = el)}
         >
           <div class={{"heading-container": true, "has-top-subtitle": hasTopSubtitle}}>
-            <div class="heading-title">
-              <slot name="menu-button">{this.renderMenuButton()}</slot>
-              {!this._stuck && this.renderProductLogos()}
-              <div>
-                {((!this.enableSearch && this.isMobile) || !this.isMobile) && (
-                  <div
-                    class={{"top-subtitle": true, "has-product-logo": hasTopSubtitle && this.hasSlot("product-logo")}}
-                  >
-                    <slot name="top-subtitle" />
-                  </div>
-                )}
-                <slot name="title" />
+            <div class="heading-block">
+              <div class="heading-title">
+                <slot name="menu-button">{this.renderMenuButton()}</slot>
+                {!this._stuck && this.renderProductLogos()}
+                <div class="title-container">
+                  {!this.isMobile && this.renderTopSubtitle()}
+                  <slot name="title" />
+                </div>
+                <div class="search-slot">
+                  {this.renderSearchLabel()}
+                  {this.enableSearch && !this.isMobile && this.renderSeachbar()}
+                </div>
               </div>
-              <div class="search-slot">
-                {this.renderSearchLabel()}
-                {this.enableSearch && !this.isMobile && this.renderSeachbar()}
-              </div>
+              {this.isMobile && this.renderTopSubtitle()}
             </div>
             {this.enableSearch && this.isMobile && this.renderSeachbar()}
           </div>
