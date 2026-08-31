@@ -36,7 +36,7 @@
   flex-grow: 0;
   flex-shrink: 0;
   align-items: baseline;
-  padding: calc(var(--space-unit) * 2);
+  padding: var(--space-unit) var(--grid-margin);
   margin: 0 auto;
   background: var(--app-header-bg, var(--color-surface01));
 }
@@ -76,10 +76,10 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
-.heading-title:not(:last-child) {
+.heading-container > .heading-title:not(:last-child) {
   margin-right: var(--space-unit);
 }
 
@@ -124,6 +124,7 @@
 ::slotted([slot="title"]) {
   display: -webkit-box;
   overflow: hidden;
+  align-self: self-end;
   -webkit-box-orient: vertical;
   font-size: var(--title-font-size);
   -webkit-line-clamp: 2;
@@ -140,14 +141,9 @@
   margin-left: calc(var(--space-unit) * 2);
 }
 
-:host([enable-offcanvas]:not([menu-length="0"])) .top-subtitle {
-  padding-left: calc(var(--space-unit) * 4 + var(--space-unit));
-}
-
 ::slotted([slot="top-subtitle"]) {
   display: -webkit-box;
   overflow: hidden;
-  max-width: 80%;
   margin: 0;
   -webkit-box-orient: vertical;
   color: var(--color-default-text);
@@ -202,8 +198,12 @@ z-searchbar {
   align-items: center;
 }
 
-z-searchbar.has-label {
-  align-items: flex-end;
+.search-slot {
+  margin-left: auto;
+}
+
+.z-label {
+  padding-bottom: 0;
 }
 
 .heading-stuck {
@@ -311,9 +311,23 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   box-shadow: var(--shadow-focus-primary);
 }
 
+.heading-block {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 @media (max-width: 767px) {
   :host([enable-search]) .heading-panel .heading-container {
     row-gap: calc(var(--space-unit) * 1.5);
+  }
+
+  :host([enable-offcanvas]:not([menu-length="0"])) .top-subtitle {
+    padding-left: calc(var(--space-unit) * 4 + var(--space-unit));
+  }
+
+  .heading-block > .top-subtitle {
+    margin-top: calc(var(--space-unit) * 0.5);
   }
 }
 
@@ -321,8 +335,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 @media (min-width: 768px) {
   .heading-panel {
     --title-font-size: var(--font-size-9);
-
-    padding: calc(var(--space-unit) * 1.5) var(--grid-margin) calc(var(--space-unit) * 1.25);
   }
 
   :host([enable-search][search-page-url]) .heading-panel .heading-container {
@@ -348,13 +360,9 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     display: none;
   }
 
-  .top-subtitle.has-product-logo {
-    padding-left: calc(32px + var(--space-unit));
-  }
-
   z-searchbar {
-    width: 30%;
-    height: calc(var(--title-font-size) * var(--title-line-height));
+    height: calc(var(--title-font-size));
+    margin-bottom: calc(var(--space-unit) * 0.5);
     margin-left: auto;
   }
 
@@ -377,6 +385,10 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   .heading-stuck .heading-title {
     --title-font-size: var(--font-size-8);
     --title-line-height: 1.5;
+  }
+
+  .heading-stuck z-searchbar {
+    margin-bottom: 0;
   }
 
   .heading-stuck-content {
