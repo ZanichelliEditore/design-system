@@ -202,8 +202,10 @@ z-searchbar {
   margin-left: auto;
 }
 
-.z-label {
+.search-slot .z-label {
   padding-bottom: 0;
+  font-size: 10px;
+  line-height: 10px;
 }
 
 .heading-stuck {
@@ -361,9 +363,13 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   z-searchbar {
-    height: calc(var(--title-font-size));
-    margin-bottom: calc(var(--space-unit) * 0.5);
+    height: calc(var(--title-font-size) * var(--title-line-height));
     margin-left: auto;
+  }
+
+  ::slotted([slot="top-subtitle"]) {
+    margin-top: calc(var(--space-unit) * 0.5);
+    margin-bottom: calc(var(--space-unit) * -0.5);
   }
 
   .menu-container {
@@ -385,10 +391,6 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   .heading-stuck .heading-title {
     --title-font-size: var(--font-size-8);
     --title-line-height: 1.5;
-  }
-
-  .heading-stuck z-searchbar {
-    margin-bottom: 0;
   }
 
   .heading-stuck-content {

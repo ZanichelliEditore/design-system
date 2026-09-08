@@ -382,7 +382,7 @@ export class ZAppHeader implements ComponentInterface {
 
   private renderSearchLabel(): HTMLSpanElement | undefined {
     if (this.searchLabel && !this.isMobile && !this.isTablet && !this.enableOffcanvas) {
-      return <label class="z-label body-4-sb">{this.searchLabel}</label>;
+      return <label class="z-label">{this.searchLabel}</label>;
     }
   }
 
