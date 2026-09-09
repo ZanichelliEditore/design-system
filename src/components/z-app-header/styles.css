@@ -206,6 +206,7 @@ z-searchbar {
   padding-bottom: 0;
   font-size: 10px;
   line-height: 10px;
+  margin-bottom: -3px;
 }
 
 .heading-stuck {
