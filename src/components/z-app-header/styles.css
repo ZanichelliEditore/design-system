@@ -204,9 +204,9 @@ z-searchbar {
 
 .search-slot .z-label {
   padding-bottom: 0;
+  margin-bottom: -3px;
   font-size: 10px;
   line-height: 10px;
-  margin-bottom: -3px;
 }
 
 .heading-stuck {
