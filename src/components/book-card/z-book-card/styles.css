@@ -126,12 +126,6 @@
   all: unset;
 }
 
-.main-content .cta-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: calc(var(--space-unit) / 2);
-}
-
 .main-content .card-info .top .link-chip-wrapper {
   display: flex;
   justify-content: space-between;
@@ -178,6 +172,36 @@
 :host([variant="landscape"]) .main-content .card-info,
 :host([variant="landscape"]) .main-content .card-info .top {
   gap: calc(var(--space-unit) / 2);
+}
+
+/* The CTA slot comes after all book metadata in the DOM so screen readers announce
+   author, title, volume and ISBN before the action, while the grid keeps the CTA in
+   its visual position: top-right for landscape, beside the title for portrait. */
+.main-content .card-info .top > div {
+  display: grid;
+  column-gap: calc(var(--space-unit) / 2);
+  grid-template-columns: 1fr auto;
+}
+
+.main-content .card-info .top > div > * {
+  grid-column: 1;
+}
+
+.main-content .card-info .top > div > .cta-slot {
+  align-self: start;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* In portrait the CTA sits beside the title, whose grid row shifts down when the
+   optional year and authors rows are rendered before it. */
+:host([variant="portrait"]) .main-content .card-info .top > div > .year ~ .cta-slot,
+:host([variant="portrait"]) .main-content .card-info .top > div > .authors ~ .cta-slot {
+  grid-row: 2;
+}
+
+:host([variant="portrait"]) .main-content .card-info .top > div > .year ~ .authors ~ .cta-slot {
+  grid-row: 3;
 }
 
 @media (max-width: 767px) {
