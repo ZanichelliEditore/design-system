@@ -80,6 +80,13 @@ input:not([readonly]):hover,
   box-shadow: var(--shadow-focus-primary);
 }
 
+:host.cursor-select:not(.active-select) input:focus:focus-visible {
+  border-color: var(--color-form-surface04);
+  box-shadow: var(--shadow-focus-primary);
+  caret-color: transparent;
+  color: var(--color-form-default-text);
+}
+
 :host input[readonly]:focus:focus-visible {
   border-color: var(--color-form-surface03);
   box-shadow: none;
