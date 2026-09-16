@@ -370,7 +370,7 @@ export class ZCombobox implements ComponentInterface {
           <span>{this.selectedCounter > 0 && ` (${this.selectedCounter})`}</span>
         </span>
         <z-icon
-          name="caret-down"
+          name={this.isopen ? "caret-up" : "caret-down"}
           class={this.size}
         />
       </div>

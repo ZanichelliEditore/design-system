@@ -52,8 +52,6 @@
 
 :host > div > .header > z-icon {
   fill: var(--color-form-default-icon);
-  transform: rotate(360deg);
-  transition: all 200ms linear;
 }
 
 :host > div > .header > z-icon.small,
@@ -82,12 +80,6 @@
 
 :host > div.disabled .header > z-icon:last-child {
   fill: var(--color-form-disabled01-icon);
-}
-
-:host > div.open > .header > z-icon {
-  fill: var(--color-form-default-icon);
-  transform: rotate(180deg);
-  transition: all 200ms linear;
 }
 
 :host > div > div.open-combo-data {
