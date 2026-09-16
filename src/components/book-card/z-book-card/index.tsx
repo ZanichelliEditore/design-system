@@ -147,14 +147,11 @@ export class ZBookCard implements ComponentInterface {
     }
 
     return (
-      <div class="cta-wrapper">
-        <div
-          class="authors ellipsis body-4"
-          aria-description="autori"
-        >
-          {this.authors}
-        </div>
-        {this.variant === BookCardVariant.LANDSCAPE ? this.renderCtaSlot() : null}
+      <div
+        class="authors ellipsis body-4"
+        aria-description="autori"
+      >
+        {this.authors}
       </div>
     );
   }
@@ -171,23 +168,20 @@ export class ZBookCard implements ComponentInterface {
       />
     );
 
-    return (
-      <div class="cta-wrapper">
-        {this.ebookUrl ? (
-          <a
-            class="z-link"
-            href={this.ebookUrl}
-            onClick={() => this.emitTitleClick()}
-            target={this.linkTarget}
-          >
-            {operaTitle}
-          </a>
-        ) : (
-          operaTitle
-        )}
-        {this.variant === BookCardVariant.PORTRAIT ? this.renderCtaSlot() : null}
-      </div>
-    );
+    if (this.ebookUrl) {
+      return (
+        <a
+          class="z-link"
+          href={this.ebookUrl}
+          onClick={() => this.emitTitleClick()}
+          target={this.linkTarget}
+        >
+          {operaTitle}
+        </a>
+      );
+    }
+
+    return operaTitle;
   }
 
   private renderVolumeTitle(): null | HTMLDivElement {
@@ -258,6 +252,7 @@ export class ZBookCard implements ComponentInterface {
                 {this.renderOperaTitle()}
                 {this.renderVolumeTitle()}
                 {this.renderIsbn()}
+                <div class="cta-slot">{this.renderCtaSlot()}</div>
               </div>
               <slot name="tags"></slot>
               <slot name="data"></slot>
