@@ -56,7 +56,8 @@ input:not([readonly]):hover,
 }
 
 /* FOCUS */
-:host:not(.active-select) input:focus:focus-visible,
+/* stylelint-disable-next-line selector-not-notation */
+:host(:not(.active-select):not(.cursor-select)) input:focus:focus-visible,
 :host:not([readonly="true"]) .textarea-wrapper:focus-within {
   border-color: var(--color-form-active-primary);
   box-shadow: var(--shadow-focus-primary);
@@ -78,13 +79,7 @@ input:not([readonly]):hover,
 
 :host.cursor-select input:focus:focus-visible {
   box-shadow: var(--shadow-focus-primary);
-}
-
-:host.cursor-select:not(.active-select) input:focus:focus-visible {
-  border-color: var(--color-form-surface04);
-  box-shadow: var(--shadow-focus-primary);
   caret-color: transparent;
-  color: var(--color-form-default-text);
 }
 
 :host input[readonly]:focus:focus-visible {
