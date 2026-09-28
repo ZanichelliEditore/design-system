@@ -306,12 +306,12 @@ export const OffcanvasMenu = {
 export const Stuck = {
   decorators: [
     (Story) => (
-      <Fragment>
+      <div>
         <div style={{padding: "16px var(--grid-margin)"}}>
           Scroll to see <code>stuck</code> prop in action.
         </div>
         <div style={{height: "200vh"}}>{Story()}</div>
-      </Fragment>
+      </div>
     ),
   ],
   parameters: {
@@ -348,12 +348,12 @@ export const SearchPageButton = {
   },
   decorators: [
     (Story) => (
-      <Fragment>
+      <div>
         <div style={{padding: "16px var(--grid-margin)"}}>
           The prop <code>searchPageUrl</code> only affects the component in tablet and mobile viewports.
         </div>
         {Story()}
-      </Fragment>
+      </div>
     ),
   ],
   render: (args) => (

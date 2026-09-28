@@ -874,4 +874,37 @@ describe("Suite test ZSelect", () => {
     </z-select>
   `);
   });
+
+  it("Should open a closed, non-writable select when Enter is pressed", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" label="default" items='[{"id":"item_0","name":"item 0","selected":false}]'></z-select>`,
+    });
+    page.rootInstance.isOpen = false;
+    await page.waitForChanges();
+
+    const zInput = page.root.querySelector("z-input");
+    zInput.dispatchEvent(new KeyboardEvent("keydown", {code: "Enter", bubbles: true, cancelable: true}));
+    await page.waitForChanges();
+
+    expect(page.rootInstance.isOpen).toBe(true);
+  });
+
+  it("Should close an open, non-writable select when Enter is pressed with no item focused", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" label="default" items='[{"id":"item_0","name":"item 0","selected":false}]'></z-select>`,
+    });
+    page.rootInstance.isOpen = false;
+    await page.waitForChanges();
+
+    const zInput = page.root.querySelector("z-input");
+    zInput.dispatchEvent(new KeyboardEvent("keydown", {code: "Enter", bubbles: true, cancelable: true}));
+    await page.waitForChanges();
+    expect(page.rootInstance.isOpen).toBe(true);
+
+    zInput.dispatchEvent(new KeyboardEvent("keydown", {code: "Enter", bubbles: true, cancelable: true}));
+    await page.waitForChanges();
+    expect(page.rootInstance.isOpen).toBe(false);
+  });
 });
