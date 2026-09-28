@@ -235,10 +235,6 @@ export class ZBookCard implements ComponentInterface {
     );
   }
 
-  private renderCtaSlot(): HTMLSlotElement {
-    return <slot name="cta"></slot>;
-  }
-
   render(): HTMLZBookCardElement {
     return (
       <Host>
@@ -252,7 +248,9 @@ export class ZBookCard implements ComponentInterface {
                 {this.renderOperaTitle()}
                 {this.renderVolumeTitle()}
                 {this.renderIsbn()}
-                <div class="cta-slot">{this.renderCtaSlot()}</div>
+                <div class="cta-slot">
+                  <slot name="cta"></slot>
+                </div>
               </div>
               <slot name="tags"></slot>
               <slot name="data"></slot>
