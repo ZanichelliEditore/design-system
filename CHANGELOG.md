@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.4](https://github.com/ZanichelliEditore/design-system/compare/v20.0.3...v20.0.4) (2026-09-29)
+
+
+### Bug Fixes
+
+* **z-card:** lightened the overlay gradient ([6b1fd6f](https://github.com/ZanichelliEditore/design-system/commit/6b1fd6fbe5e84f8469d012bfe42394ea94128718))
+
 ## [20.0.3](https://github.com/ZanichelliEditore/design-system/compare/v20.0.2...v20.0.3) (2026-09-29)
 
 
