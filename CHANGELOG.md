@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.3](https://github.com/ZanichelliEditore/design-system/compare/v20.0.2...v20.0.3) (2026-09-29)
+
+
+### Features
+
+* aria-pressed without role link ([3aadfc3](https://github.com/ZanichelliEditore/design-system/commit/3aadfc3a8a70f1c165d43457b0882cdf188f13db))
+* storybook ([c33db1a](https://github.com/ZanichelliEditore/design-system/commit/c33db1a2c430741f14520feef457c48155fe26b5))
+* use grid to handle progress connector centering ([7027193](https://github.com/ZanichelliEditore/design-system/commit/70271939da789dbe470424bcf44c3f5738a5e78c))
+
+
+### Bug Fixes
+
+* align caret behavior and keyboard toggle between z-combobox and z-select ([e4b4ecd](https://github.com/ZanichelliEditore/design-system/commit/e4b4ecd2ad36097aa4867c7698232b0a4ae67907))
+* avoid nesting ([fbc5c1c](https://github.com/ZanichelliEditore/design-system/commit/fbc5c1ccd4f5c8fe8ffe3202cbe1aeb2b6478bd4))
+* checkobox aria-checked html attribute ([8f426bb](https://github.com/ZanichelliEditore/design-system/commit/8f426bb7899e140bee88d9f8535b31a39da6e67f))
+* fix css ([45da007](https://github.com/ZanichelliEditore/design-system/commit/45da007333bbdf50aeb883884b239b0b11eee2b5))
+* fix lint ([a29a224](https://github.com/ZanichelliEditore/design-system/commit/a29a22478be4fb6599f676c6308c3fa71360a8d0))
+* fix zstepper name in storybook ([a457d37](https://github.com/ZanichelliEditore/design-system/commit/a457d3726d8a000bad10acb5b01ada3dff000d82))
+* handle bold in focus and pressed z-stepper-items ([7384e6b](https://github.com/ZanichelliEditore/design-system/commit/7384e6b5b4224cc886638400293248ef2a501f3d))
+* handle click on z-stepper-item when status is pressed ([1fe51c5](https://github.com/ZanichelliEditore/design-system/commit/1fe51c5f1a9fb1c74ba0d61ed52cac60ea085595))
+* handle stepper aria label ([1cfe649](https://github.com/ZanichelliEditore/design-system/commit/1cfe649ef5a53a9b1ddf03fb2d34d973d5deb8e4))
+* handle stepper background ([39ad887](https://github.com/ZanichelliEditore/design-system/commit/39ad887e514018e8cdcd9d615e8bdded4dccb320))
+* handle style span and indicator typography ([3e8771a](https://github.com/ZanichelliEditore/design-system/commit/3e8771af4911dfad57f31bccd877d12fa29535a6))
+* handle subtitle in mobile version ([35e6a99](https://github.com/ZanichelliEditore/design-system/commit/35e6a9968550bfbe3030c3663ef81926a96f43b0))
+* hide search label in tablet, mobile, offcanvas and stuck ([6b8993e](https://github.com/ZanichelliEditore/design-system/commit/6b8993e7bbaeb198472c7a5ef6a2ce67cde72d92))
+* lint ([06ebaa9](https://github.com/ZanichelliEditore/design-system/commit/06ebaa9416f4d95cf43a7888795ca0c3eefe08c8))
+* make searchbar label smaller and aligned ([35226b3](https://github.com/ZanichelliEditore/design-system/commit/35226b3d15b8e966efd804613eaa6a18909c603c))
+* move label 3px down ([d0fff4a](https://github.com/ZanichelliEditore/design-system/commit/d0fff4a4895c9e6713ebef0d9faa81a58114446d))
+* rearrange the AppHeader elements to achieve the correct alignment. fix storybook ([8e82519](https://github.com/ZanichelliEditore/design-system/commit/8e82519f759a1a4190fac5d17d861ca2e97e5547))
+* reduce z-searchbar height ([62e4f26](https://github.com/ZanichelliEditore/design-system/commit/62e4f262222a684c49de28b5fc5ccd4939462d04))
+* remove useless css ([00c8734](https://github.com/ZanichelliEditore/design-system/commit/00c87342332d6be05bb176c2b6777e34c1d267f3))
+* size stepper in focus ad in pressed state ([42c5376](https://github.com/ZanichelliEditore/design-system/commit/42c537609190b07998a1096798af9f82fcd49ee1))
+* typography in pressed stepper item and improve code ([2dcbec1](https://github.com/ZanichelliEditore/design-system/commit/2dcbec1fccce8fcce97e3a6352734ae6eca7be59))
+* **z-book-card:** move CTA slot after metadata to fix reading order ([c9972b1](https://github.com/ZanichelliEditore/design-system/commit/c9972b10be0e8af4b0ab5832a95cf35a681b3a37))
+* **z-book-card:** move portrait CTA slot after metadata to fix reading order ([9fb9b1b](https://github.com/ZanichelliEditore/design-system/commit/9fb9b1b547c20970fbe70fb772dafcf165efa452))
+* **z-book-card:** preserve variant-specific CTA placement while fixing DOM order ([7b181e1](https://github.com/ZanichelliEditore/design-system/commit/7b181e14e363c8c5bff74944e33f9a9c9525ac6e))
+
 ## [20.0.2](https://github.com/ZanichelliEditore/design-system/compare/v20.0.1...v20.0.2) (2026-08-13)
 
 
