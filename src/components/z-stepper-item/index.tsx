@@ -69,7 +69,9 @@ export class ZStepperItem implements ComponentInterface {
           {...this.getAttributes()}
           aria-label={this.htmlAriaLabel}
         >
-          <div class="indicator">{this.checked ? <z-icon name="checkmark" /> : this.index}</div>
+          <div class="indicator">
+            {this.checked ? <z-icon name="checkmark" /> : <span class="indicator-number">{this.index}</span>}
+          </div>
           <span>
             <slot />
           </span>
