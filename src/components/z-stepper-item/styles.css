@@ -171,3 +171,13 @@
     font-size: var(--font-size-6);
   }
 }
+
+/* stylelint-disable property-no-unknown */
+@supports (text-box-trim: trim-both) {
+  .indicator-number {
+    text-box-edge: cap alphabetic;
+    text-box-trim: trim-both;
+    transform: none;
+  }
+}
+/* stylelint-enable property-no-unknown */
