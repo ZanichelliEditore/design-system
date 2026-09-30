@@ -21,6 +21,10 @@ export class ZToggleSwitch implements ComponentInterface {
   @Prop({mutable: true})
   checked?: boolean = false;
 
+  /** Component theme */
+  @Prop({reflect: true})
+  theme?: "light" | "dark" = "light";
+
   /** HTML id attribute to set to the internal checkbox */
   @Prop()
   htmlid = `toggle-switch-id-${randomId()}`;

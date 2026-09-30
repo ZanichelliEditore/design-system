@@ -102,3 +102,114 @@ input[type="checkbox"] {
   opacity: 0;
   pointer-events: none;
 }
+
+/* ---------------------------------- */
+
+/* DARK THEME                         */
+
+/* ---------------------------------- */
+
+/* Label */
+:host([theme="dark"]) label > span:first-child {
+  color: var(--color-surface01);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled) {
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled) > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled) {
+  background-color: var(--color-white);
+  color: var(--color-white);
+  fill: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled) > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled) > span.circle > z-icon {
+  fill: var(--color-white);
+}
+
+/* Disabled OFF */
+:host([theme="dark"]) label > span.container.disabled:not(.checked) {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  cursor: default;
+  fill: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.disabled:not(.checked) > span.circle {
+  background-color: var(--color-white);
+}
+
+/* Disabled ON */
+:host([theme="dark"]) label > span.container.checked.disabled {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  cursor: default;
+  fill: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked.disabled > span.circle {
+  background-color: var(--color-white);
+}
+
+:host([theme="dark"]) label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled):hover {
+  background-color: var(--gray400);
+  color: var(--gray400);
+  fill: var(--gray400);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled):hover > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):hover {
+  background-color: var(--gray200);
+  color: var(--gray200);
+  fill: var(--gray200);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):hover > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):hover > span.circle > z-icon {
+  fill: var(--color-white);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled):active {
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
+}
+
+:host([theme="dark"]) label > span.container:not(.checked, .disabled):active > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):active {
+  background-color: var(--color-white);
+  color: var(--color-white);
+  fill: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):active > span.circle {
+  background-color: var(--gray600);
+}
+
+:host([theme="dark"]) label > span.container.checked:not(.disabled):active > span.circle > z-icon {
+  fill: var(--color-white);
+}
