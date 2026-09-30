@@ -2023,11 +2023,6 @@ export namespace Components {
           * @default LabelPosition.LEFT
          */
         "labelPosition"?: LabelPosition;
-        /**
-          * Component theme
-          * @default "light"
-         */
-        "theme"?: "light" | "dark";
     }
     /**
      * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
@@ -5479,11 +5474,6 @@ declare namespace LocalJSX {
           * Toggle click event
          */
         "onToggleClick"?: (event: ZToggleSwitchCustomEvent<any>) => void;
-        /**
-          * Component theme
-          * @default "light"
-         */
-        "theme"?: "light" | "dark";
     }
     /**
      * ZTool component. Can display an icon, an optional tooltip (mainly for hints about the tool's functionality), and can contain a nested `z-toolbar` as a submenu that opens on click.
@@ -6112,7 +6102,6 @@ declare namespace LocalJSX {
         "disabled": boolean;
         "labelPosition": LabelPosition;
         "checked": boolean;
-        "theme": "light" | "dark";
         "htmlid": string;
     }
     interface ZToolAttributes {
