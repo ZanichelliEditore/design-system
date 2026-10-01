@@ -1,17 +1,35 @@
 /* Webkit Scrollbar */
+.z-scrollbar {
+  --z-scrollbar-track-gradient: linear-gradient(
+    to right,
+    transparent 0 1px,
+    var(--gray200) 1px 5px,
+    transparent 5px 6px
+  );
+  --z-scrollbar-track-color: var(--gray200);
+  --z-scrollbar-thumb-color: var(--color-primary01);
+  --z-scrollbar-thumb-hover-color: var(--color-hover-primary);
+  --z-scrollbar-corner-color: transparent;
+}
+
 .z-scrollbar::-webkit-scrollbar {
   width: 6px;
-  background: linear-gradient(to right, transparent 0 1px, var(--gray200) 1px 5px, transparent 5px 6px);
+  background: var(--z-scrollbar-track-gradient);
 }
 
 .z-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary01);
+  background-color: var(--z-scrollbar-thumb-color);
 }
 
 .z-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-hover-primary);
+  background-color: var(--z-scrollbar-thumb-hover-color);
 }
 
+.z-scrollbar::-webkit-scrollbar-corner {
+  background-color: var(--z-scrollbar-corner-color);
+}
+
+/* Dark theme */
 :host([theme="dark"]) .z-scrollbar,
 .z-scrollbar--dark {
   --z-scrollbar-track-gradient: linear-gradient(
@@ -21,20 +39,14 @@
     transparent 5px 6px
   );
   --z-scrollbar-track-color: var(--gray600);
-  --z-scrollbar-thumb-color: var(--color-primary03);
-  --z-scrollbar-thumb-hover-color: var(--color-hover-primary);
+  --z-scrollbar-thumb-color: var(--color-white);
+  --z-scrollbar-thumb-hover-color: var(--gray500);
   --z-scrollbar-corner-color: transparent;
 }
 
-/* Firefox scrollbar */
+/* Firefox Scrollbar */
 @supports not selector(.z-scrollbar::-webkit-scrollbar-track) {
   .z-scrollbar {
-    scrollbar-color: var(--color-primary01) transparent;
-  }
-
-  :host([theme="dark"]) .z-scrollbar,
-  .z-scrollbar--dark {
-    scrollbar-color: var(--z-scrollbar-thumb-color, var(--color-primary03))
-      var(--z-scrollbar-track-color, var(--gray600));
+    scrollbar-color: var(--z-scrollbar-thumb-color) var(--z-scrollbar-track-color);
   }
 }
