@@ -57,10 +57,7 @@ const StoryMeta = {
   argTypes: {
     variant: {
       control: {
-        type: "inline-radio",
-        labels: {
-          null: "default",
-        },
+        type: "select",
       },
       options: Object.values(CardVariant),
     },
@@ -97,6 +94,15 @@ export const ColorCover = {
   args: {
     "--z-card--color-cover-background": "var(--yellow500)",
   },
+  render: (args) => (
+    <z-card
+      class="demo-card"
+      {...args}
+      style={extractCSSVars(args)}
+    >
+      {cardContent(false)}
+    </z-card>
+  ),
 } satisfies Story;
 
 export const TextVariantPrimaryBackground = {

@@ -68,11 +68,16 @@
   font-size: var(--font-size-1);
   font-weight: var(--font-sb);
   letter-spacing: 0.32px;
-  line-height: 1.333;
 }
 
-.stepper-item span {
+.indicator-number {
+  display: block;
+  transform: translateY(0.04em);
+}
+
+.stepper-item span:not(.indicator-number) {
   min-width: 50px;
+  align-self: start;
   color: var(--color-default-text);
   font-size: var(--font-size-2);
   letter-spacing: 0.16px;
@@ -93,7 +98,7 @@
   font-weight: var(--font-sb);
 }
 
-:host([pressed]) .stepper-item span {
+:host([pressed]) .stepper-item span:not(.indicator-number) {
   font-weight: var(--font-sb);
   line-height: 1.5;
 }
@@ -149,7 +154,7 @@
   }
 
   .stepper-item .indicator,
-  .stepper-item span {
+  .stepper-item span:not(.indicator-number) {
     font-size: var(--font-size-3);
     line-height: 1.5;
   }
@@ -166,3 +171,13 @@
     font-size: var(--font-size-6);
   }
 }
+
+/* stylelint-disable property-no-unknown */
+@supports (text-box-trim: trim-both) {
+  .indicator-number {
+    text-box-edge: cap alphabetic;
+    text-box-trim: trim-both;
+    transform: none;
+  }
+}
+/* stylelint-enable property-no-unknown */
