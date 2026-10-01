@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.0.5](https://github.com/ZanichelliEditore/design-system/compare/v20.0.4...v20.0.5) (2026-10-01)
+
+
+### Bug Fixes
+
+* handle different browsers rendering ([b2a6f41](https://github.com/ZanichelliEditore/design-system/commit/b2a6f41626b6a7f54b53bcad666b58028e591596))
+* improve allignment in z-stepper-item ([566856c](https://github.com/ZanichelliEditore/design-system/commit/566856c0f3463344128d6cc8cc5ea95ea0d1d957))
+* z-app-header search height ([855afdd](https://github.com/ZanichelliEditore/design-system/commit/855afdd8d15c9d7d97d965a80c473252c45842c8))
+* z-app-header search input accessibility ([59a1e21](https://github.com/ZanichelliEditore/design-system/commit/59a1e21e5787baf1226d4953260be64265a2dc0b))
+
 ## [20.0.4](https://github.com/ZanichelliEditore/design-system/compare/v20.0.3...v20.0.4) (2026-09-29)
 
 
