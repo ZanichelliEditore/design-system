@@ -381,7 +381,7 @@ export class ZAppHeader implements ComponentInterface {
   }
 
   private renderSearchLabel(): HTMLSpanElement | undefined {
-    if (this.searchLabel && !this.isMobile && !this.isTablet && !this.enableOffcanvas) {
+    if (!this.isMobile && !this.isTablet && !this.enableOffcanvas) {
       return <label class="z-label">{this.searchLabel}</label>;
     }
   }
@@ -536,7 +536,7 @@ export class ZAppHeader implements ComponentInterface {
                   <slot name="title" />
                 </div>
                 <div class="search-slot">
-                  {this.renderSearchLabel()}
+                  {this.enableSearch && this.renderSearchLabel()}
                   {this.enableSearch && !this.isMobile && this.renderSeachbar()}
                 </div>
               </div>

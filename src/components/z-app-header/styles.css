@@ -203,6 +203,7 @@ z-searchbar {
 }
 
 .search-slot .z-label {
+  height: 10px;
   padding-bottom: 0;
   margin-bottom: -3px;
   font-size: 10px;
@@ -405,6 +406,10 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
+  .search-slot {
+    height: 53px;
+  }
+
   z-searchbar {
     min-width: calc(var(--space-unit) * 45);
   }

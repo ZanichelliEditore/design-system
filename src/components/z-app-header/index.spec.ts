@@ -538,6 +538,7 @@ describe("Suite test ZAppHeader", () => {
                     <slot name="title"></slot>
                   </div>
                   <div class="search-slot">
+                    <label class="z-label"></label>
                     <z-searchbar placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
                   </div>
                 </div>
@@ -743,6 +744,7 @@ describe("Suite test ZAppHeader", () => {
                     <slot name="title"></slot>
                   </div>
                   <div class="search-slot">
+                    <label class="z-label"></label>
                     <z-searchbar placeholder="Scrivi qui" preventsubmit="" searchbuttonlabel="Cliccami" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
                   </div>
                 </div>

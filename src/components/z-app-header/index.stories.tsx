@@ -339,11 +339,12 @@ export const Stuck = {
 
 export const SearchPageButton = {
   args: {
+    enableSearch: true,
     searchLabel: "Cerca per titolo, autore o ISBN",
   },
   parameters: {
     controls: {
-      exclude: ["search-page-url", "enable-search", "enable-offcanvas"],
+      exclude: ["search-page-url", "enable-offcanvas"],
     },
   },
   decorators: [
@@ -359,7 +360,6 @@ export const SearchPageButton = {
   render: (args) => (
     <z-app-header
       {...args}
-      enableSearch
       searchPageUrl="https://www.zanichelli.it"
       style={extractCSSVars(args)}
     >
