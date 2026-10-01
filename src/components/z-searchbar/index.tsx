@@ -436,7 +436,7 @@ export class ZSearchbar implements ComponentInterface {
             value={this.searchString || this.selectedItem?.label}
             size={this.size}
             label={this.label}
-            aria-label={this.htmlAriaLabel || this.placeholder || undefined}
+            htmlAriaLabel={this.htmlAriaLabel || this.placeholder || undefined}
           />
 
           {!!(

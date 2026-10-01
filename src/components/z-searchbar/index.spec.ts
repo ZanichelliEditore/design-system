@@ -121,7 +121,7 @@ describe("Suite test ZSearchbar", () => {
       >
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big" value="item" label="search" aria-label="search and select option"></z-input>
+            <z-input htmlid="input-my-id" size="big" value="item" label="search" htmlarialabel="search and select option"></z-input>
             <div class="results z-scrollbar">
               <z-list role="listbox" id="list-my-id" aria-label="search and select option">
                 ${searchHelper()}
@@ -292,7 +292,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" show-search-button="true" variant="secondary" search-button-label="cliccami" placeholder="Scrivi qui">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big" placeholder="Scrivi qui" aria-label="Scrivi qui"></z-input>
+            <z-input htmlid="input-my-id" size="big" placeholder="Scrivi qui" htmlarialabel="Scrivi qui"></z-input>
           </div>
           <z-button size="big" variant="secondary">cliccami</z-button>
         </mock:shadow-root>
@@ -309,7 +309,7 @@ describe("Suite test ZSearchbar", () => {
       <z-searchbar class="has-submit" htmlid="my-id" placeholder="Scrivi qui" show-search-button="true" search-button-icon-only="true">
         <mock:shadow-root>
           <div class="input-container">
-            <z-input htmlid="input-my-id" size="big" aria-label="Scrivi qui" placeholder="Scrivi qui"></z-input>
+            <z-input htmlid="input-my-id" size="big" htmlarialabel="Scrivi qui" placeholder="Scrivi qui"></z-input>
           </div>
           <z-button icon="search" size="big" variant="primary" aria-label="CERCA"></z-button>
         </mock:shadow-root>
