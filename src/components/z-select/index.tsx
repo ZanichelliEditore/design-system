@@ -385,6 +385,9 @@ export class ZSelect implements ComponentInterface {
               this.toggleSelectUl();
             }
           }
+        } else if (!this.hasAutocomplete()) {
+          e.preventDefault();
+          this.toggleSelectUl();
         }
         break;
       case KeyboardCode.ARROW_DOWN:

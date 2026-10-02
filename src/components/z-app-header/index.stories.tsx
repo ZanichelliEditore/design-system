@@ -306,12 +306,12 @@ export const OffcanvasMenu = {
 export const Stuck = {
   decorators: [
     (Story) => (
-      <Fragment>
+      <div>
         <div style={{padding: "16px var(--grid-margin)"}}>
           Scroll to see <code>stuck</code> prop in action.
         </div>
         <div style={{height: "200vh"}}>{Story()}</div>
-      </Fragment>
+      </div>
     ),
   ],
   parameters: {
@@ -339,27 +339,27 @@ export const Stuck = {
 
 export const SearchPageButton = {
   args: {
+    enableSearch: true,
     searchLabel: "Cerca per titolo, autore o ISBN",
   },
   parameters: {
     controls: {
-      exclude: ["search-page-url", "enable-search", "enable-offcanvas"],
+      exclude: ["search-page-url", "enable-offcanvas"],
     },
   },
   decorators: [
     (Story) => (
-      <Fragment>
+      <div>
         <div style={{padding: "16px var(--grid-margin)"}}>
           The prop <code>searchPageUrl</code> only affects the component in tablet and mobile viewports.
         </div>
         {Story()}
-      </Fragment>
+      </div>
     ),
   ],
   render: (args) => (
     <z-app-header
       {...args}
-      enableSearch
       searchPageUrl="https://www.zanichelli.it"
       style={extractCSSVars(args)}
     >

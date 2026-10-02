@@ -84,6 +84,34 @@ describe("z-select test end2end", () => {
     expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
   });
 
+  it("Should open and close the select list when pressing Enter", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(`
+        <z-select
+          items='[{"id":"item_1","selected":false,"name":"item_1"},{"id":"item_2","selected":true,"name":"item_2"},{"id":"item_3","selected":false,"name":"item_3"}]'
+          label="this is the label"
+        ></z-select>
+    `);
+
+    const select = await page.find("z-select");
+
+    await (await page.find("body")).press("Tab");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
+
+    await select.press("Enter");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("true");
+
+    await select.press("Enter");
+    await page.waitForChanges();
+
+    expect((await page.find("z-select input")).getAttribute("aria-expanded")).toBe("false");
+  });
+
   it("Should filter the items list based on the input value", async () => {
     const page = await newE2EPage();
 

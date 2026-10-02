@@ -4,7 +4,7 @@ import {ZStepper} from "./index";
 
 export default {
   title: "ZStepper/ZStepper",
-  component: ZStepper,
+  component: "z-stepper",
   decorators: [(Story) => <div class="z-carousel-story-container">{Story()}</div>],
   subcomponents: {
     ZStepperItem: "z-stepper-item",
@@ -41,6 +41,7 @@ export const Default = {
         index={2}
         href="#"
         onClick={onItemClick}
+        disabled
       >
         Le tue credenziali
       </z-stepper-item>
@@ -48,6 +49,7 @@ export const Default = {
         index={3}
         href="#"
         onClick={onItemClick}
+        disabled
       >
         Conferma
       </z-stepper-item>
@@ -55,27 +57,26 @@ export const Default = {
   ),
 } satisfies Story;
 
-export const Completed = {
+export const NextStepEnabled = {
   render: () => (
     <z-stepper>
       <z-stepper-item
         index={1}
         href="#"
-        disabled
+        pressed
       >
         I tuoi dati
       </z-stepper-item>
       <z-stepper-item
         index={2}
         href="#"
-        disabled
       >
         Le tue credenziali
       </z-stepper-item>
       <z-stepper-item
         index={3}
         href="#"
-        pressed
+        disabled
       >
         Conferma
       </z-stepper-item>
@@ -83,24 +84,24 @@ export const Completed = {
   ),
 } satisfies Story;
 
-export const CompletedDisabled = {
+export const NextStepActive = {
   render: () => (
     <z-stepper>
       <z-stepper-item
         index={1}
-        disabled
+        checked
       >
         I tuoi dati
       </z-stepper-item>
       <z-stepper-item
         index={2}
-        disabled
+        pressed
       >
         Le tue credenziali
       </z-stepper-item>
       <z-stepper-item
         index={3}
-        pressed
+        disabled
       >
         Conferma
       </z-stepper-item>
