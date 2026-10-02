@@ -239,7 +239,7 @@ Unfortunately the `aspect-ratio` property is still experimental */
   left: 0;
   justify-content: flex-end;
   padding: var(--space-unit);
-  background-image: linear-gradient(to top, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
+  background-image: linear-gradient(to bottom, transparent, rgb(39 39 39 / 57%) 85%, var(--gray800) 100%);
   color: var(--color-text-inverse);
   fill: var(--color-text-inverse);
 }

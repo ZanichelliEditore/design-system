@@ -138,6 +138,7 @@ export const ZInputCheckbox = {
         "readonly",
         "required",
         "checked",
+        "indeterminate",
         "htmlid",
         "htmltitle",
         "size",

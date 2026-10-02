@@ -60,7 +60,7 @@ describe("z-book-card test end2end", () => {
 
     const titleLinkHasClass = await page.evaluate(() => {
       const card = document.querySelector("z-book-card");
-      const titleLink = card?.shadowRoot?.querySelector(".card-info .top .cta-wrapper a") as HTMLAnchorElement | null;
+      const titleLink = card?.shadowRoot?.querySelector(".card-info .top a.z-link") as HTMLAnchorElement | null;
 
       if (!titleLink) {
         throw new Error("title link not found");

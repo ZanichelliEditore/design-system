@@ -9,10 +9,15 @@ import {Component, ComponentInterface, Host, h} from "@stencil/core";
   shadow: true,
 })
 export class ZStepper implements ComponentInterface {
-  render(): HTMLSlotElement {
+  render(): HTMLDivElement {
     return (
       <Host role="navigation">
-        <slot />
+        <div
+          class="stepper-list"
+          role="list"
+        >
+          <slot />
+        </div>
       </Host>
     );
   }

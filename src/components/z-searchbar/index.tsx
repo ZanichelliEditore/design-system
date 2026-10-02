@@ -324,7 +324,10 @@ export class ZSearchbar implements ComponentInterface {
         role="presentation"
         htmlTabindex={-1}
         onKeyDown={(e: KeyboardEvent) => this.onListItemKeyDown(e, item)}
-        onClick={() => this.emitSearchItemClick(item)}
+        onClick={(e: MouseEvent) => {
+          e.stopPropagation();
+          this.emitSearchItemClick(item);
+        }}
       >
         <div
           class="list-item ellipsis"
@@ -433,7 +436,7 @@ export class ZSearchbar implements ComponentInterface {
             value={this.searchString || this.selectedItem?.label}
             size={this.size}
             label={this.label}
-            aria-label={this.htmlAriaLabel || this.placeholder || undefined}
+            htmlAriaLabel={this.htmlAriaLabel || this.placeholder || undefined}
           />
 
           {!!(

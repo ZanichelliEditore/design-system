@@ -935,6 +935,11 @@ export namespace Components {
          */
         "icon"?: string;
         /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
           * get checked status
          */
         "isChecked": () => Promise<boolean>;
@@ -1813,6 +1818,10 @@ export namespace Components {
           * The href to navigate on click.
          */
         "href": string;
+        /**
+          * Aria label of the item.
+         */
+        "htmlAriaLabel": string;
         /**
           * The number of the step item.
          */
@@ -4271,6 +4280,11 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * indeterminate: available for checkbox
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
           * the input label
          */
         "label"?: string;
@@ -5242,6 +5256,10 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
+          * Aria label of the item.
+         */
+        "htmlAriaLabel"?: string;
+        /**
           * The number of the step item.
          */
         "index"?: number;
@@ -5824,6 +5842,7 @@ declare namespace LocalJSX {
         "readonly": boolean;
         "required": boolean;
         "checked": boolean;
+        "indeterminate": boolean;
         "placeholder": string;
         "htmltitle": string;
         "status": InputStatus;
@@ -6036,6 +6055,7 @@ declare namespace LocalJSX {
         "pressed": boolean;
         "checked": boolean;
         "disabled": boolean;
+        "htmlAriaLabel": string;
     }
     interface ZTableAttributes {
         "bordered": boolean;
