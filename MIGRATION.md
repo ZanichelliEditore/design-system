@@ -9,11 +9,11 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
-- [Non rilasciata](#non-rilasciata) <!-- TODO: sostituire con il numero di versione al momento del rilascio -->
+- [v21.0.0](#v2100)
 
   - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
-    - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
-  - [Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React](#eventi-bubblati-da-componenti-interni-non-più-intercettati-automaticamente-dai-binding-react)
+  - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
+  - [Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-più-intercettati-automaticamente-dai-binding-react)
     - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
 
 - [v20.0.0](#v2000)
@@ -141,9 +141,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
 
-## Non rilasciata
-
-<!-- TODO: rinominare questa sezione con il numero di versione al momento del rilascio -->
+## v21.0.0
 
 ### React bindings: nuova dipendenza da `@stencil/react-output-target`
 
@@ -161,31 +159,21 @@ Inoltre, ogni componente React ora registra automaticamente il proprio custom el
 
 ### `@zanichelli/albe-web-components/react` è ora distribuito solo come ESM
 
-`@stencil/react-output-target` v1 delega la creazione dei wrapper React a [`@lit/react`](https://www.npmjs.com/package/@lit/react), che è pubblicato solo in formato ESM (nessuna build CommonJS). Per questo motivo `react/*.js` viene ora compilato come ESM (in precedenza era CommonJS): un `require("@zanichelli/albe-web-components/react")` diretto, senza passare da un bundler, genera un errore (`ERR_REQUIRE_ESM` su Node < 20.19/22.12) invece del precedente errore intermittente a runtime `createComponent is not a function`.
-
-Chi consuma i binding React tramite un bundler moderno (Next.js, Vite, webpack 5, Remix, Rollup, esbuild, ecc.) non deve fare nulla: la risoluzione ESM funziona in automatico ed è anzi più affidabile di prima. Da verificare/adattare:
-
-- il proprio `tsconfig` deve avere `moduleResolution` impostato su `"bundler"` o `"nodenext"` (requisito già introdotto da `@stencil/react-output-target` v1, non nuovo con questo cambiamento);
-- eventuali test Jest che importano direttamente da `@zanichelli/albe-web-components/react` potrebbero richiedere l'esclusione del pacchetto da `transformIgnorePatterns`, ad esempio:
-  ```js
-  transformIgnorePatterns: ["node_modules/(?!@zanichelli/albe-web-components)"];
-  ```
-
+`@stencil/react-output-target` v1 delega la creazione dei wrapper React a [`@lit/react`](https://www.npmjs.com/package/@lit/react), che è pubblicato solo in formato ESM: per questo motivo `react/*.js` viene ora compilato come ESM.
+Controllare che il proprio `tsconfig` abbia `moduleResolution` impostato su `"bundler"` o `"nodenext"`.
 Contestualmente, il range della peer dependency `@stencil/react-output-target` è stato ristretto da `>=1.0.0` a `^1.6.2`, la versione contro cui viene effettivamente compilato e testato l'output `react/*.js`.
 
-### Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React
+### Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React
 
 Con `@stencil/react-output-target` v0, i wrapper React generati intercettavano qualsiasi prop `on*` passata al componente anche se l'evento non era dichiarato dal componente stesso: era sufficiente che l'evento risalisse per bubbling da un componente interno (es. un componente composito che ne renderizza un altro) perché il wrapper lo intercettasse comunque, tramite un `addEventListener` generico sull'elemento host.
 
 `@stencil/react-output-target` v1 genera invece, per ciascun componente, una mappa di eventi popolata solo con gli `@Event()` che quel componente dichiara direttamente. Di conseguenza, un handler React (`onXxx`) per un evento che raggiungeva il wrapper solo per bubbling da un componente interno, senza essere ridichiarato dal componente che lo compone, non viene più intercettato: la prop diventa silenziosamente inerte, senza errori a build-time né a runtime.
 
-Questo è un cambiamento di comportamento silenzioso per qualsiasi componente composito che si appoggiava a questo effetto collaterale del bubbling. Se un componente su cui fate affidamento smette di notificare un evento dopo l'aggiornamento a questa versione, verificate se l'evento proviene da un suo componente interno.
-
 #### `ZAppHeader`: `searchSubmit` e `searchTyping`
 
 `z-app-header` compone internamente un `<z-searchbar>`, che dichiara i propri eventi `searchSubmit` e `searchTyping`. In precedenza questi eventi arrivavano ai consumer React di `ZAppHeader` (tramite `onSearchSubmit`/`onSearchTyping`) solo perché risalivano per bubbling dal componente interno, senza che `z-app-header` li dichiarasse come propri.
 
-A partire da questa versione, `z-app-header` dichiara esplicitamente `searchSubmit` e `searchTyping` come propri `@Event()`, ri-emettendoli a partire dagli eventi omonimi del `z-searchbar` interno. Chi utilizza i binding React continua a usare `onSearchSubmit`/`onSearchTyping` su `<ZAppHeader>` esattamente come prima: il comportamento torna a funzionare, ma ora fa parte del contratto pubblico dichiarato del componente invece di essere un effetto collaterale del bubbling.
+A partire da questa versione, `z-app-header` dichiara esplicitamente `searchSubmit` e `searchTyping` come propri `@Event()`, ri-emettendoli a partire dagli eventi omonimi del `z-searchbar` interno. Chi utilizza i binding React continua a usare `onSearchSubmit`/`onSearchTyping` su `<ZAppHeader>` esattamente come prima: il comportamento è invariato, ma ora fa parte del contratto pubblico dichiarato del componente invece di essere un effetto collaterale del bubbling.
 
 ## v20.0.0
 
