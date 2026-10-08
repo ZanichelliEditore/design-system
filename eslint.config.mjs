@@ -32,7 +32,7 @@ export default defineConfig([
   {
     ...stencilRecommended,
     files: TS_FILES,
-    ignores: STORY_FILES,
+    ignores: [...STORY_FILES, "vitest*.config.ts"],
     plugins: {
       ...stencilRecommended.plugins,
       stencil: stencilPlugin,

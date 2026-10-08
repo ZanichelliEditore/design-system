@@ -1,5 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
+import {expect, waitFor} from "storybook/test";
 import {ControlSize, InputStatus, SelectItem} from "../../beans";
 import {ZSelect} from "./index";
 
@@ -70,11 +71,27 @@ const StoryMeta = {
   },
   render: (args) => <z-select {...args} />,
 } satisfies Meta<ZSelect>;
+
 export default StoryMeta;
 
 type Story = StoryObj<ZSelect>;
 
-export const Default = {} satisfies Story;
+export const Default = {
+  play: async ({canvas, canvasElement, userEvent}) => {
+    const zInput = await canvas.findByRole("combobox");
+    const listContainer = canvasElement.querySelector("z-select .closed");
+
+    await expect(listContainer).toBeInTheDocument();
+
+    await userEvent.click(zInput);
+
+    await waitFor(async () => {
+      await expect(zInput).toHaveAttribute("aria-expanded", "true");
+      await expect(listContainer).not.toHaveClass("closed");
+      await expect(listContainer).toHaveClass("open");
+    });
+  },
+} satisfies Story;
 
 export const Groups = {
   args: {

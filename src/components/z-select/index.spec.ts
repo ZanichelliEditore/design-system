@@ -2,8 +2,6 @@ import {newSpecPage} from "@stencil/core/testing";
 import {ZSelect} from "./index";
 
 describe("Suite test ZSelect", () => {
-  it("test", async () => {});
-
   it("Test render ZSelect required", async () => {
     const page = await newSpecPage({
       components: [ZSelect],

@@ -28,12 +28,11 @@ const THEMES_MAP = {
 };
 
 export const parameters: Preview["parameters"] = {
-  actions: {
-    disable: true,
-  },
-  interactions: {
-    disable: true,
-  },
+  actions: {disable: true},
+  a11y: {test: "todo"}, // set this to `error` once accessibility tests are ready
+  // interactions: {
+  //   disable: true,
+  // },
   viewport: {
     options: {
       mobile: {

@@ -553,11 +553,11 @@ export class ZSelect implements ComponentInterface {
         required={this.required}
         status={this.isOpen ? undefined : this.status}
         size={this.size}
-        role="combobox"
-        html-aria-expanded={this.isOpen ? "true" : "false"}
-        html-aria-controls={`${this.htmlid}_list`}
-        html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
-        html-aria-autocomplete={this.hasAutocomplete() ? "list" : undefined}
+        htmlRole="combobox"
+        htmlAriaExpanded={this.isOpen ? "true" : "false"}
+        htmlAriaControls={`${this.htmlid}_list`}
+        htmlAriaActivedescendant={this.isOpen ? this.focusedItemId : ""}
+        htmlAriaAutocomplete={this.hasAutocomplete() ? "list" : undefined}
         onClick={(e: MouseEvent) => this.handleInputClick(e)}
         onKeyDown={(e: KeyboardEvent) => this.handleInputKeyDown(e)}
         onInputChange={(e: CustomEvent) => this.handleInputChange(e)}

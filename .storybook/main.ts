@@ -8,7 +8,13 @@ const config: StorybookConfig = {
   },
   staticDirs: ["../src/assets"],
   stories: ["../docs/**/*.mdx", "../docs/**/*.stories.@(js|jsx|ts|tsx)", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: ["@storybook/addon-docs", "@storybook/addon-themes", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-docs",
+    "@storybook/addon-themes",
+    "@storybook/addon-a11y",
+    "@storybook/addon-vitest",
+    "@chromatic-com/storybook"
+  ],
 };
 
 export default config;

@@ -82,7 +82,17 @@ export class FocusTrapController implements ReactiveController {
         clickOutsideDeactivates: false,
         escapeDeactivates: false,
         returnFocusOnDeactivate: true,
-        initialFocus: () => this.getTabbableElements()[0] ?? this.config.fallbackFocus,
+        initialFocus: () => {
+          const firstTabbableElement = this.getTabbableElements()[0];
+
+          if (firstTabbableElement) {
+            return firstTabbableElement;
+          }
+
+          return typeof this.config.fallbackFocus === "function"
+            ? this.config.fallbackFocus()
+            : this.config.fallbackFocus;
+        },
         onPostActivate: () => this.focusFirstTrapElement(),
         isKeyForward: () => false,
         isKeyBackward: () => false,

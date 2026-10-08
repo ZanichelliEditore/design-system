@@ -17,7 +17,7 @@
     "build": "yarn build.wc && yarn build.react",
     "build-storybook": "yarn build && cross-env STENCIL_DEV=1 storybook build --config-dir .storybook --output-dir storybook",
     "build.react": "rimraf react && tsc --build tsconfig.react.json",
-    "build.wc": "mkdirp react && rimraf src-react/react-component-lib && stencil build",
+    "build.wc": "mkdirp react && rimraf src-react/react-component-lib && cross-env STENCIL_DEV=0 stencil build",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",
     "lint-fix": "yarn lint-fix.eslint && yarn lint-fix.stylelint && yarn lint-fix.prettier",
@@ -35,7 +35,9 @@
     "test.e2e": "stencil test --e2e",
     "test.e2e.single": "stencil test --e2e -- ",
     "test.watch": "stencil test --spec --watch",
-    "ts-check": "tsc --noEmit"
+    "ts-check": "tsc --noEmit",
+    "test.browser": "vitest run --config=vitest.config.ts --project=storybook",
+    "test.browser.watch": "vitest --config=vitest.config.ts --project=storybook"
   },
   "dependencies": {
     "dialog-polyfill": "^0.5.6",
@@ -46,6 +48,7 @@
     "tabbable": "^6.4.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.4.0",
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
     "@eslint/js": "^9.39.1",
@@ -53,32 +56,38 @@
     "@stencil/core": "~4.43.5",
     "@stencil/eslint-plugin": "^1.1.0",
     "@stencil/react-output-target": "^0.5.3",
-    "@stencil/storybook-plugin": "^0.7.0",
-    "@storybook/addon-a11y": "^10.5.3",
-    "@storybook/addon-docs": "^10.5.3",
-    "@storybook/addon-themes": "^10.5.3",
+    "@stencil/storybook-plugin": "^0.7.1",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-themes": "^10.6.1",
+    "@storybook/addon-vitest": "^10.6.1",
     "@types/dompurify": "^3.2.0",
     "@types/hammerjs": "^2.0.39",
     "@types/jest": "^29.5.6",
+    "@types/react": "18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
+    "@vitest/browser-playwright": "^5.0.3",
     "commit-and-tag-version": "^12.4.1",
     "cross-env": "^10.1.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-storybook": "^10.5.3",
+    "eslint-plugin-storybook": "^10.6.1",
     "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "mkdirp": "^3.0.1",
+    "playwright": "^1.63.0",
     "plop": "^4.0.1",
     "prettier": "^3.5.0",
     "prettier-plugin-organize-imports": "^3.2.4",
     "puppeteer": "^21.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "rimraf": "^6.0.1",
-    "storybook": "^10.5.3",
+    "storybook": "^10.6.1",
     "stylelint": "^14.9.1",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
@@ -86,7 +95,8 @@
     "stylelint-value-no-unknown-custom-properties": "^4.0.0",
     "typescript": "~5.4.0",
     "typescript-eslint": "^8.57.1",
-    "vite": "^8.0.9"
+    "vite": "^8.0.9",
+    "vitest": "^5.0.3"
   },
   "peerDependencies": {
     "react": "*",
@@ -101,7 +111,7 @@
     }
   },
   "resolutions": {
-    "@stencil/core": "~4.43.3"
+    "@stencil/core": "~4.43.5"
   },
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
