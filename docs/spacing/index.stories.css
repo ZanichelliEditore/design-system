@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+  align-items: start;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.wrap div.ext {
+  background: var(--gray300);
+}
+
+.wrap div.ext div.int {
+  background: var(--gray100);
+  border: var(--border-size-small) solid var(--gray500);
+}
