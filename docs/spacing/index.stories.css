@@ -1,7 +1,7 @@
 .wrap {
   display: flex;
   align-items: start;
-  gap: calc(var(--space-unit) * 2);
+  gap: var(--space-unit-2);
 }
 
 .wrap div.ext {
