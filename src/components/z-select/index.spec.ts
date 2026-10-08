@@ -2,8 +2,6 @@ import {newSpecPage} from "@stencil/core/testing";
 import {ZSelect} from "./index";
 
 describe("Suite test ZSelect", () => {
-  it("test", async () => {});
-
   it("Test render ZSelect without items prop", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
@@ -23,7 +21,8 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select required htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input
+                htmlariadescribedby="checkid_message"
                 class="cursor-select"
                 label="default"
                 id="checkid_input"
@@ -31,10 +30,10 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-down"
                 autocomplete="off"
-                html-aria-expanded="false"
-                html-aria-activedescendant=""
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="false"
+                htmlariaactivedescendant=""
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
                 required
               ></z-input>
@@ -82,7 +81,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select"
                 label="default"
                 id="checkid_input"
@@ -90,10 +89,10 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-down"
                 autocomplete="off"
-                html-aria-expanded="false"
-                html-aria-activedescendant=""
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="false"
+                htmlariaactivedescendant=""
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="closed">
@@ -140,7 +139,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select active-select"
                 label="default"
                 id="checkid_input"
@@ -149,9 +148,9 @@ describe("Suite test ZSelect", () => {
                 icon="caret-up"
                 readonly=""
                 autocomplete="off"
-                html-aria-expanded="true"
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="true"
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="open">
@@ -213,7 +212,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":true}]'>
           <div class="select-wrapper">
-            <z-input html-aria-describedby="checkid_message"
+            <z-input htmlariadescribedby="checkid_message"
               class="cursor-select active-select"
               label="default"
               id="checkid_input"
@@ -222,9 +221,9 @@ describe("Suite test ZSelect", () => {
               icon="caret-up"
               readonly=""
               autocomplete="off"
-              html-aria-expanded="true"
-              html-aria-controls="checkid_list"
-              role="combobox"
+              htmlariaexpanded="true"
+              htmlariacontrols="checkid_list"
+              htmlrole="combobox"
               size="big"
               value="primo elemento"
             ></z-input>
@@ -287,7 +286,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" disabled readonly label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select"
                 label="default"
                 id="checkid_input"
@@ -297,10 +296,10 @@ describe("Suite test ZSelect", () => {
                 disabled=""
                 readonly=""
                 autocomplete="off"
-                html-aria-expanded="false"
-                html-aria-activedescendant=""
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="false"
+                htmlariaactivedescendant=""
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="closed">
@@ -362,7 +361,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
           <z-select htmlid="checkid" placeholder="select here" status="success" message="message message" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
               <div class="select-wrapper">
-                <z-input html-aria-describedby="checkid_message"
+                <z-input htmlariadescribedby="checkid_message"
                   class="cursor-select"
                   label="default"
                   id="checkid_input"
@@ -371,10 +370,10 @@ describe("Suite test ZSelect", () => {
                   icon="caret-down"
                   status="success"
                   autocomplete="off"
-                  html-aria-expanded="false"
-                  html-aria-activedescendant=""
-                  html-aria-controls="checkid_list"
-                  role="combobox"
+                  htmlariaexpanded="false"
+                  htmlariaactivedescendant=""
+                  htmlariacontrols="checkid_list"
+                  htmlrole="combobox"
                   size="big"
                 ></z-input>
                 <div class="closed">
@@ -436,7 +435,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false,"disabled":true}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select active-select"
                 label="default"
                 id="checkid_input"
@@ -445,9 +444,9 @@ describe("Suite test ZSelect", () => {
                 icon="caret-up"
                 readonly=""
                 autocomplete="off"
-                html-aria-expanded="true"
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="true"
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="open">
@@ -507,18 +506,18 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="on" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
           <div class="select-wrapper">
-            <z-input html-aria-describedby="checkid_message"
+            <z-input htmlariadescribedby="checkid_message"
               class="active-select"
               label="default"
               id="checkid_input"
               htmlid="checkid_select_input"
               placeholder="select here"
               icon="caret-up"
-              html-aria-autocomplete="list"
+              htmlariaautocomplete="list"
               autocomplete="off"
-              html-aria-expanded="true"
-              html-aria-controls="checkid_list"
-              role="combobox"
+              htmlariaexpanded="true"
+              htmlariacontrols="checkid_list"
+              htmlrole="combobox"
               size="big"
             ></z-input>
             <div class="open">
@@ -581,7 +580,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select htmlid="checkid" placeholder="select here" label="default" autocomplete="true" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]'>
         <div class="select-wrapper">
-            <z-input html-aria-describedby="checkid_message"  html-aria-describedby="checkid_message" class="active-select"html-aria-autocomplete="list"  html-aria-controls="checkid_list" role="combobox" autocomplete="off" html-aria-expanded="true" label="default" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here" value="opzione"></z-input>
+            <z-input htmlariadescribedby="checkid_message"  htmlariadescribedby="checkid_message" class="active-select"htmlariaautocomplete="list"  htmlariacontrols="checkid_list" htmlrole="combobox" autocomplete="off" htmlariaexpanded="true" label="default" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" placeholder="select here" value="opzione"></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
                 <z-list class="z-scrollbar" id="checkid_list" role="listbox" aria-label="default" tabindex="0" size="medium">
@@ -617,8 +616,8 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
       <z-select autocomplete="true" htmlid="checkid" items="[{&quot;id&quot;:&quot;item_0&quot;,&quot;name&quot;:&quot;SELECT HERE questa opzione con etichetta lunga lunghissima&quot;,&quot;selected&quot;:true}]" label="default" placeholder="select here" reset-item="Pulisci selezione">
           <div class="select-wrapper">
-            <z-input html-aria-describedby="checkid_message"  html-aria-describedby="checkid_message" autocomplete="off" class="active-select" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"
-              html-aria-expanded="true" html-aria-autocomplete="list" html-aria-controls="checkid_list" role="combobox"
+            <z-input htmlariadescribedby="checkid_message" htmlariadescribedby="checkid_message" autocomplete="off" class="active-select" size="big" htmlid="checkid_select_input" icon="caret-up" id="checkid_input" label="default" placeholder="select here"
+              htmlariaexpanded="true" htmlariaautocomplete="list" htmlariacontrols="checkid_list" htmlrole="combobox"
               value="SELECT HERE questa opzione con etichetta lunga lunghissima"></z-input>
             <div class="open">
               <div class="ul-scroll-wrapper">
@@ -659,7 +658,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="fixed without groups" items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false},{"id":"item_1","name":"primo elemento","selected":false}]' isfixed="true">
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select active-select"
                 label="fixed without groups"
                 id="checkid_input"
@@ -667,10 +666,10 @@ describe("Suite test ZSelect", () => {
                 placeholder="select here"
                 icon="caret-up"
                 readonly=""
-                html-aria-expanded="true"
+                htmlariaexpanded="true"
                 autocomplete="off"
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="open">
@@ -732,7 +731,7 @@ describe("Suite test ZSelect", () => {
     expect(page.root).toEqualHtml(`
         <z-select htmlid="checkid" placeholder="select here" label="default" items='[{"id":"item_0","name":"item 0","selected":false,"icon":"teacher"},{"id":"item_1","name":"item 1","selected":false}]'>
             <div class="select-wrapper">
-              <z-input html-aria-describedby="checkid_message"
+              <z-input htmlariadescribedby="checkid_message"
                 class="cursor-select active-select"
                 label="default"
                 id="checkid_input"
@@ -741,9 +740,9 @@ describe("Suite test ZSelect", () => {
                 icon="caret-up"
                 readonly=""
                 autocomplete="off"
-                html-aria-expanded="true"
-                html-aria-controls="checkid_list"
-                role="combobox"
+                htmlariaexpanded="true"
+                htmlariacontrols="checkid_list"
+                htmlrole="combobox"
                 size="big"
               ></z-input>
               <div class="open">
@@ -818,7 +817,7 @@ describe("Suite test ZSelect", () => {
       items='[{"id":"item_0","name":"SELECT HERE questa opzione con etichetta lunga lunghissima","selected":false,"children":[{"id":"item_0_1","name":"sotto elemento 1","selected":false},{"id":"item_0_2","name":"sotto elemento 2","selected":false}]},{"id":"item_1","name":"primo elemento","selected":false}]'
     >
       <div class="select-wrapper">
-        <z-input html-aria-describedby="checkid_message"
+        <z-input htmlariadescribedby="checkid_message"
           class="cursor-select active-select"
           label="default"
           id="checkid_input"
@@ -827,9 +826,9 @@ describe("Suite test ZSelect", () => {
           icon="caret-up"
           readonly=""
           autocomplete="off"
-          html-aria-expanded="true"
-          html-aria-controls="checkid_list"
-          role="combobox"
+          htmlariaexpanded="true"
+          htmlariacontrols="checkid_list"
+          htmlrole="combobox"
           size="big"
         ></z-input>
         <div class="open">
