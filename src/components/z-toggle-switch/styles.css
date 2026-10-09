@@ -41,9 +41,9 @@ label > span.container {
   width: calc(var(--space-unit) * 4);
   height: 18px;
   align-items: center;
-  background-color: var(--gray500);
+  background-color: var(--color-surface03);
   border-radius: var(--space-unit);
-  color: var(--gray500);
+  color: var(--color-surface03);
   cursor: pointer;
 }
 
@@ -71,7 +71,12 @@ input:focus:focus-visible + label > span.container.disabled {
   outline: none;
 }
 
-label > span.container:not(.disabled):hover {
+label > span.container:not(.disabled, .checked):hover {
+  background-color: var(--color-surface04);
+  fill: var(--color-surface04);
+}
+
+label > span.container.checked:not(.disabled):hover {
   background-color: var(--color-hover-primary);
   fill: var(--color-hover-primary);
 }
@@ -86,7 +91,7 @@ label > span.container > span.circle {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background-color: var(--color-white);
+  background-color: var(--color-surface01);
   border-radius: 7px;
   box-shadow: var(--shadow-1);
   transition: transform 0.3s ease;
@@ -101,4 +106,332 @@ input[type="checkbox"] {
   z-index: -1;
   opacity: 0;
   pointer-events: none;
+}
+
+/* ---------------------------------- */
+
+/* BLACK THEME                        */
+
+/* ---------------------------------- */
+
+.theme-black :host label > span:first-child {
+  color: var(--color-text-inverse);
+}
+
+.theme-black :host label > span.container:not(.checked, .disabled) {
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
+}
+
+.theme-black :host label > span.container:not(.checked, .disabled) > span.circle {
+  background-color: var(--gray900);
+}
+
+.theme-black :host label > span.container.checked:not(.disabled) {
+  background-color: var(--color-surface01);
+  color: var(--color-surface01);
+  fill: var(--color-hover-primary);
+}
+
+.theme-black :host label > span.container.checked:not(.disabled) > span.circle {
+  background-color: var(--color-hover-primary);
+}
+
+.theme-black :host label > span.container.checked:not(.disabled) > span.circle > z-icon {
+  fill: var(--color-surface01);
+}
+
+.theme-black :host label > span.container.disabled:not(.checked) {
+  background-color: var(--color-hover-primary);
+  color: var(--color-hover-primary);
+  cursor: default;
+  fill: var(--color-hover-primary);
+}
+
+.theme-black :host label > span.container.disabled:not(.checked) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black :host label > span.container.checked.disabled {
+  background-color: var(--color-hover-primary);
+  color: var(--color-hover-primary);
+  cursor: default;
+  fill: var(--color-hover-primary);
+}
+
+.theme-black :host label > span.container.checked.disabled > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black :host label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--color-hover-primary);
+}
+
+.theme-black :host label > span.container:not(.checked, .disabled):hover {
+  background-color: var(--color-hover-secondary);
+  color: var(--color-hover-secondary);
+  fill: var(--color-hover-secondary);
+}
+
+.theme-black :host label > span.container.checked:not(.disabled):hover {
+  background-color: var(--color-secondary03);
+  color: var(--color-secondary03);
+  fill: var(--color-secondary03);
+}
+
+.theme-black :host label > span.container:not(.checked, .disabled):active {
+  background-color: var(--color-secondary01);
+  color: var(--color-secondary01);
+  fill: var(--color-secondary01);
+}
+
+.theme-black :host label > span.container.checked:not(.disabled):active {
+  background-color: var(--color-surface01);
+  color: var(--color-surface01);
+  fill: var(--color-hover-primary);
+}
+
+/* ---------------------------------- */
+
+/* RED THEME                          */
+
+/* ---------------------------------- */
+
+.theme-red :host label > span.container:not(.checked, .disabled) {
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
+}
+
+.theme-red :host label > span.container:not(.checked, .disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-red :host label > span.container.checked:not(.disabled) {
+  background-color: var(--red300);
+  color: var(--red300);
+  fill: var(--color-surface01);
+}
+
+.theme-red :host label > span.container.checked:not(.disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-red :host label > span.container.checked:not(.disabled) > span.circle > z-icon {
+  fill: var(--red300);
+}
+
+.theme-red :host label > span.container.disabled:not(.checked) {
+  background-color: var(--gray200);
+  color: var(--gray200);
+  cursor: default;
+  fill: var(--gray200);
+}
+
+.theme-red :host label > span.container.disabled:not(.checked) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-red :host label > span.container.checked.disabled {
+  background-color: var(--gray200);
+  color: var(--gray200);
+  cursor: default;
+  fill: var(--gray200);
+}
+
+.theme-red :host label > span.container.checked.disabled > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-red :host label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--gray200);
+}
+
+.theme-red :host label > span.container:not(.checked, .disabled):hover {
+  background-color: var(--gray400);
+  color: var(--gray400);
+  fill: var(--gray400);
+}
+
+.theme-red :host label > span.container.checked:not(.disabled):hover {
+  background-color: var(--red400);
+  color: var(--red400);
+  fill: var(--red400);
+}
+
+.theme-red :host label > span.container:not(.checked, .disabled):active {
+  background-color: var(--gray300);
+  color: var(--gray300);
+  fill: var(--gray300);
+}
+
+.theme-red :host label > span.container.checked:not(.disabled):active {
+  background-color: var(--red300);
+  color: var(--red300);
+  fill: var(--color-surface01);
+}
+
+/* ---------------------------------- */
+
+/* BLACK THEME - YELLOW VARIANT       */
+
+/* ---------------------------------- */
+
+.theme-black.theme-black--yellow :host label > span:first-child {
+  color: var(--color-default-text);
+}
+
+.theme-black.theme-black--yellow :host label > span.container:not(.checked, .disabled) {
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
+}
+
+.theme-black.theme-black--yellow :host label > span.container:not(.checked, .disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled) {
+  background-color: var(--gray900);
+  color: var(--gray900);
+  fill: var(--color-surface01);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled) > span.circle > z-icon {
+  fill: var(--gray950);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.disabled:not(.checked) {
+  background-color: var(--gray200);
+  color: var(--gray200);
+  cursor: default;
+  fill: var(--gray200);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.disabled:not(.checked) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked.disabled {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  cursor: default;
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked.disabled > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--yellow :host label > span.container:not(.checked, .disabled):hover {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled):hover {
+  background-color: var(--gray800);
+  color: var(--gray800);
+  fill: var(--gray800);
+}
+
+.theme-black.theme-black--yellow :host label > span.container:not(.checked, .disabled):active {
+  background-color: var(--gray700);
+  color: var(--gray700);
+  fill: var(--gray700);
+}
+
+.theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled):active {
+  background-color: var(--gray950);
+  color: var(--gray950);
+  fill: var(--color-surface01);
+}
+
+/* ---------------------------------- */
+
+/* BLACK THEME - RED VARIANT          */
+
+/* ---------------------------------- */
+
+.theme-black.theme-black--red :host label > span.container:not(.checked, .disabled) {
+  background-color: var(--gray700);
+  color: var(--gray700);
+  fill: var(--gray700);
+}
+
+.theme-black.theme-black--red :host label > span.container:not(.checked, .disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked:not(.disabled) {
+  background-color: var(--gray950);
+  color: var(--gray950);
+  fill: var(--color-surface01);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked:not(.disabled) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked:not(.disabled) > span.circle > z-icon {
+  fill: var(--gray950);
+}
+
+.theme-black.theme-black--red :host label > span.container.disabled:not(.checked) {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  cursor: default;
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--red :host label > span.container.disabled:not(.checked) > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked.disabled {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  cursor: default;
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked.disabled > span.circle {
+  background-color: var(--color-surface01);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked.disabled > span.circle > z-icon {
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--red :host label > span.container:not(.checked, .disabled):hover {
+  background-color: var(--gray600);
+  color: var(--gray600);
+  fill: var(--gray600);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked:not(.disabled):hover {
+  background-color: var(--gray800);
+  color: var(--gray800);
+  fill: var(--gray800);
+}
+
+.theme-black.theme-black--red :host label > span.container:not(.checked, .disabled):active {
+  background-color: var(--gray700);
+  color: var(--gray700);
+  fill: var(--gray700);
+}
+
+.theme-black.theme-black--red :host label > span.container.checked:not(.disabled):active {
+  background-color: var(--gray950);
+  color: var(--gray950);
+  fill: var(--color-surface01);
 }
