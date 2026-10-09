@@ -14,31 +14,71 @@ export default {
   },
 };
 
+const renderLegend = () => (
+  <div class="legend body-5 z-mb-3">
+    <span>
+      <span
+        class="swatch margin"
+        aria-hidden="true"
+      />
+      margin
+    </span>
+    <span>
+      <span
+        class="swatch padding"
+        aria-hidden="true"
+      />
+      padding
+    </span>
+    <span>
+      <span
+        class="swatch content"
+        aria-hidden="true"
+      />
+      content
+    </span>
+  </div>
+);
+
 const renderSize = (type: "m" | "p", size: number) => (
   <div class="wrap body-5 z-mb-2">
     <div class="body-5-sb">
       {size}: --space-unit-{size}
     </div>
     <div class="ext">
-      <div class={`int z-${type}-${size}`}>{`.z-${type}-${size}`}</div>
+      <div class={`int z-${type}-${size}`}>
+        <span class="content">{`.z-${type}-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}y-${size}`}>{`.z-${type}y-${size}`}</div>
+      <div class={`int z-${type}y-${size}`}>
+        <span class="content">{`.z-${type}y-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}x-${size}`}>{`.z-${type}x-${size}`}</div>
+      <div class={`int z-${type}x-${size}`}>
+        <span class="content">{`.z-${type}x-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}t-${size}`}>{`.z-${type}t-${size}`}</div>
+      <div class={`int z-${type}t-${size}`}>
+        <span class="content">{`.z-${type}t-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}r-${size}`}>{`.z-${type}r-${size}`}</div>
+      <div class={`int z-${type}r-${size}`}>
+        <span class="content">{`.z-${type}r-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}b-${size}`}>{`.z-${type}b-${size}`}</div>
+      <div class={`int z-${type}b-${size}`}>
+        <span class="content">{`.z-${type}b-${size}`}</span>
+      </div>
     </div>
     <div class="ext">
-      <div class={`int z-${type}l-${size}`}>{`.z-${type}l-${size}`}</div>
+      <div class={`int z-${type}l-${size}`}>
+        <span class="content">{`.z-${type}l-${size}`}</span>
+      </div>
     </div>
   </div>
 );
@@ -46,6 +86,7 @@ const renderSize = (type: "m" | "p", size: number) => (
 export const Margins = {
   render: () => (
     <div>
+      {renderLegend()}
       {renderSize("m", 0)}
       {renderSize("m", 1)}
       {renderSize("m", 2)}
@@ -62,6 +103,7 @@ export const Margins = {
 export const Paddings = {
   render: () => (
     <div>
+      {renderLegend()}
       {renderSize("p", 0)}
       {renderSize("p", 1)}
       {renderSize("p", 2)}
