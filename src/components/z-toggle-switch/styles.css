@@ -131,11 +131,11 @@ input[type="checkbox"] {
 .theme-black :host label > span.container.checked:not(.disabled) {
   background-color: var(--color-surface01);
   color: var(--color-surface01);
-  fill: var(--color-hover-primary);
+  fill: var(--color-primary01);
 }
 
 .theme-black :host label > span.container.checked:not(.disabled) > span.circle {
-  background-color: var(--color-hover-primary);
+  background-color: var(--color-primary01);
 }
 
 .theme-black :host label > span.container.checked:not(.disabled) > span.circle > z-icon {
@@ -199,9 +199,9 @@ input[type="checkbox"] {
 /* ---------------------------------- */
 
 .theme-red :host label > span.container:not(.checked, .disabled) {
-  background-color: var(--gray500);
-  color: var(--gray500);
-  fill: var(--gray500);
+  background-color: var(--gray600);
+  color: var(--gray600);
+  fill: var(--gray600);
 }
 
 .theme-red :host label > span.container:not(.checked, .disabled) > span.circle {
@@ -210,7 +210,7 @@ input[type="checkbox"] {
 
 .theme-red :host label > span.container.checked:not(.disabled) {
   background-color: var(--red300);
-  color: var(--red300);
+  color: var(--color-active-primary);
   fill: var(--color-surface01);
 }
 
