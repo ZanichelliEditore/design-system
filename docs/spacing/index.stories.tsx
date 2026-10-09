@@ -46,6 +46,7 @@ const renderSize = (type: "m" | "p", size: number) => (
 export const Margins = {
   render: () => (
     <div>
+      {renderSize("m", 0)}
       {renderSize("m", 1)}
       {renderSize("m", 2)}
       {renderSize("m", 3)}
@@ -61,6 +62,7 @@ export const Margins = {
 export const Paddings = {
   render: () => (
     <div>
+      {renderSize("p", 0)}
       {renderSize("p", 1)}
       {renderSize("p", 2)}
       {renderSize("p", 3)}
