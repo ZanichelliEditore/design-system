@@ -289,8 +289,8 @@ input[type="checkbox"] {
 }
 
 .theme-black.theme-black--yellow :host label > span.container.checked:not(.disabled) {
-  background-color: var(--gray950);
-  color: var(--gray950);
+  background-color: var(--gray900);
+  color: var(--gray900);
   fill: var(--color-surface01);
 }
 
