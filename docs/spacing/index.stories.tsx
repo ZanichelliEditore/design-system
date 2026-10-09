@@ -17,7 +17,7 @@ export default {
 const renderSize = (type: "m" | "p", size: number) => (
   <div class="wrap body-5 z-mb-2">
     <div class="body-5-sb">
-      {size}: --space-unit * {size}
+      {size}: --space-unit-{size}
     </div>
     <div class="ext">
       <div class={`int z-${type}-${size}`}>{`.z-${type}-${size}`}</div>
