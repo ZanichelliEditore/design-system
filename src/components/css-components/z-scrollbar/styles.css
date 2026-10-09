@@ -44,6 +44,34 @@
   --z-scrollbar-corner-color: transparent;
 }
 
+/* Red theme */
+.theme-red .z-scrollbar {
+  --z-scrollbar-track-gradient: linear-gradient(
+    to right,
+    transparent 0 1px,
+    var(--gray200) 1px 5px,
+    transparent 5px 6px
+  );
+  --z-scrollbar-track-color: var(--gray200);
+  --z-scrollbar-thumb-color: var(--red500);
+  --z-scrollbar-thumb-hover-color: var(--red700);
+  --z-scrollbar-corner-color: transparent;
+}
+
+.theme-black.theme-black--red .z-scrollbar,
+.theme-black.theme-black--yellow .z-scrollbar {
+  --z-scrollbar-track-gradient: linear-gradient(
+    to right,
+    transparent 0 1px,
+    var(--gray200) 1px 5px,
+    transparent 5px 6px
+  );
+  --z-scrollbar-track-color: var(--gray200);
+  --z-scrollbar-thumb-color: var(--gray950);
+  --z-scrollbar-thumb-hover-color: var(--gray900);
+  --z-scrollbar-corner-color: transparent;
+}
+
 /* Firefox Scrollbar */
 @supports not selector(.z-scrollbar::-webkit-scrollbar-track) {
   .z-scrollbar {
