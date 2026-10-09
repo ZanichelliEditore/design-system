@@ -119,13 +119,13 @@ input[type="checkbox"] {
 }
 
 .theme-black :host label > span.container:not(.checked, .disabled) {
-  background-color: var(--color-secondary01);
-  color: var(--color-secondary01);
-  fill: var(--color-secondary01);
+  background-color: var(--gray500);
+  color: var(--gray500);
+  fill: var(--gray500);
 }
 
 .theme-black :host label > span.container:not(.checked, .disabled) > span.circle {
-  background-color: var(--color-hover-primary);
+  background-color: var(--gray900);
 }
 
 .theme-black :host label > span.container.checked:not(.disabled) {
@@ -277,6 +277,10 @@ input[type="checkbox"] {
 /* BLACK THEME - YELLOW VARIANT       */
 
 /* ---------------------------------- */
+
+.theme-black.theme-black--yellow :host label > span:first-child {
+  color: var(--color-default-text);
+}
 
 .theme-black.theme-black--yellow :host label > span.container:not(.checked, .disabled) {
   background-color: var(--gray500);

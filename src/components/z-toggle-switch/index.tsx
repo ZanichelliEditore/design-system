@@ -55,7 +55,6 @@ export class ZToggleSwitch implements ComponentInterface {
           disabled={this.disabled}
           onChange={this.handleClick.bind(this)}
         />
-
         <label
           htmlFor={this.htmlid}
           class={{
@@ -66,7 +65,6 @@ export class ZToggleSwitch implements ComponentInterface {
           <span>
             <slot />
           </span>
-
           <span
             class={{
               container: true,
