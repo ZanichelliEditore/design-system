@@ -13,7 +13,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 
   - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
   - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
-  - [Eventi bubblati da componenti interni non più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-più-intercettati-automaticamente-dai-binding-react)
+  - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-più-intercettati-automaticamente-dai-binding-react)
     - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
 
 - [v20.0.0](#v2000)
