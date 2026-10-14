@@ -50,6 +50,7 @@
   border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: none;
   background: var(--color-form-background);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .results z-list-element {

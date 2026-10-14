@@ -35,6 +35,7 @@
   box-sizing: border-box;
   border-top: none;
   background: var(--color-form-background);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow-2);
   outline: none;
 }

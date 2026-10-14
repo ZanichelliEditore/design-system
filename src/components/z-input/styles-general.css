@@ -33,7 +33,7 @@ textarea {
 input,
 .textarea-wrapper {
   border: var(--border-size-small) solid var(--color-form-surface04);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius);
   color: var(--color-form-default-text);
 }
 
