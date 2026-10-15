@@ -15,6 +15,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
   - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-più-intercettati-automaticamente-dai-binding-react)
     - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
+  - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-più-riportate-come-attributi-html-dai-binding-react)
 
 - [v20.0.0](#v2000)
 
@@ -174,6 +175,43 @@ Con `@stencil/react-output-target` v0, i wrapper React generati intercettavano q
 `z-app-header` compone internamente un `<z-searchbar>`, che dichiara i propri eventi `searchSubmit` e `searchTyping`. In precedenza questi eventi arrivavano ai consumer React di `ZAppHeader` (tramite `onSearchSubmit`/`onSearchTyping`) solo perché risalivano per bubbling dal componente interno, senza che `z-app-header` li dichiarasse come propri.
 
 A partire da questa versione, `z-app-header` dichiara esplicitamente `searchSubmit` e `searchTyping` come propri `@Event()`, ri-emettendoli a partire dagli eventi omonimi del `z-searchbar` interno. Chi utilizza i binding React continua a usare `onSearchSubmit`/`onSearchTyping` su `<ZAppHeader>` esattamente come prima: il comportamento è invariato, ma ora fa parte del contratto pubblico dichiarato del componente invece di essere un effetto collaterale del bubbling.
+
+### Le prop dei componenti non vengono più riportate come attributi HTML dai binding React
+
+Con `@stencil/react-output-target` v0, i wrapper React passavano i valori primitivi (stringhe, numeri, booleani) a `React.createElement('z-xxx', props)`, con il nome della prop convertito in dash-case. Per i custom element (tag con trattino) React imposta questi valori come attributi; inoltre il wrapper chiamava `setAttribute()` per le prop di tipo stringa. L'attributo compariva quindi sull'elemento host anche quando la prop non era dichiarata con `reflect: true` nel componente Stencil.
+
+`@stencil/react-output-target` v1 usa invece `createComponent` di [`@lit/react`](https://www.npmjs.com/package/@lit/react): per ogni prop che esiste sul prototipo della classe del custom element (cioè ogni `@Prop()` dichiarata), il wrapper imposta **sempre una proprietà JS** (`element.name = value`) e mai un attributo. Se la prop non è dichiarata con `reflect: true`, il valore non viene quindi mai riportato sull'elemento host come attributo HTML.
+
+L'effetto è che qualsiasi regola CSS (o query DOM, es. `querySelector`) che usa un selettore di attributo sull'host del componente, come `z-input[name='newsletter']` o `z-input[type='text']`, smette di funzionare dopo l'aggiornamento, senza errori né in fase di build né a runtime.
+
+Per adattare il proprio codice, occorre sostituire i selettori di attributo sull'host del componente, ad esempio con una classe css:
+
+```tsx
+// Prima
+<ZInput name="newsletter" />
+```
+
+```css
+z-input[name="newsletter"] {
+  /* ... */
+}
+```
+
+```tsx
+// Dopo
+<ZInput
+  name="newsletter"
+  className="newsletter-input"
+/>
+```
+
+```css
+z-input.newsletter-input {
+  /* ... */
+}
+```
+
+L'uso diretto del web component in HTML (senza binding React) non è interessato, perché gli attributi impostati nel markup restano tali.
 
 ## v20.0.0
 
