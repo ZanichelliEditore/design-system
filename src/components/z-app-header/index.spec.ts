@@ -787,4 +787,23 @@ describe("Suite test ZAppHeader", () => {
     expect(searchTypingSpy).toHaveBeenCalledTimes(1);
     expect(searchTypingSpy.mock.calls[0][0].detail).toBe("test");
   });
+
+  it("emits searchSubmit and searchTyping only once when the internal z-searchbar events bubble", async () => {
+    const page = await newSpecPage({
+      components: [ZAppHeader],
+      html: `<z-app-header enable-search="true"></z-app-header>`,
+    });
+
+    const searchSubmitSpy = jest.fn();
+    const searchTypingSpy = jest.fn();
+    page.root.addEventListener("searchSubmit", searchSubmitSpy);
+    page.root.addEventListener("searchTyping", searchTypingSpy);
+
+    const searchbar = page.root.shadowRoot.querySelector("z-searchbar");
+    searchbar.dispatchEvent(new CustomEvent("searchSubmit", {detail: "test search", bubbles: true, composed: true}));
+    searchbar.dispatchEvent(new CustomEvent("searchTyping", {detail: "test", bubbles: true, composed: true}));
+
+    expect(searchSubmitSpy).toHaveBeenCalledTimes(1);
+    expect(searchTypingSpy).toHaveBeenCalledTimes(1);
+  });
 });

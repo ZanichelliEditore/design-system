@@ -389,10 +389,14 @@ export class ZAppHeader implements ComponentInterface {
         variant={ButtonVariant.SECONDARY}
         preventSubmit={this.searchString.length < 3}
         onSearchTyping={(e) => {
+          e.stopPropagation();
           this.searchString = e.detail;
           this.searchTyping.emit(e.detail);
         }}
-        onSearchSubmit={(e) => this.searchSubmit.emit(e.detail)}
+        onSearchSubmit={(e) => {
+          e.stopPropagation();
+          this.searchSubmit.emit(e.detail);
+        }}
       />
     );
   }
