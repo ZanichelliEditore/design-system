@@ -6,18 +6,18 @@
 
 .text-wrapper > div > input {
   width: 100%;
-  height: calc(var(--space-unit) * 5.5);
+  height: 2.75rem;
   box-sizing: border-box;
-  padding: 0 calc(var(--space-unit) * 1.5);
+  padding: 0 var(--space-unit);
   margin: 0;
 }
 
 :host([size="small"]) .text-wrapper > div > input {
-  height: calc(var(--space-unit) * 4.5);
+  height: 2.25rem;
 }
 
 :host([size="x-small"]) .text-wrapper > div > input {
-  height: calc(var(--space-unit) * 4);
+  height: 2rem;
 }
 
 .text-wrapper > div > input.has-icon,

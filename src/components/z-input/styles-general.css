@@ -38,13 +38,6 @@ input,
   color: var(--color-form-default-text);
 }
 
-:host([size="small"]) input,
-:host([size="small"]) textarea,
-:host([size="x-small"]) input,
-:host([size="x-small"]) textarea {
-  font-size: var(--font-size-2);
-}
-
 :host.cursor-select input {
   cursor: pointer;
 }
