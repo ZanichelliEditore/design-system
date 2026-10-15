@@ -162,6 +162,9 @@ export class ZInput implements ComponentInterface {
   @State()
   passwordHidden = true;
 
+  @State()
+  labelState = "default";
+
   private timer;
 
   private typingtimeout = 300;
@@ -183,6 +186,13 @@ export class ZInput implements ComponentInterface {
   @Watch("indeterminate")
   watchIndeterminate(): void {
     this.syncCheckboxIndeterminate();
+  }
+
+  @Watch("size")
+  watchSize(size): void {
+    if (size !== ControlSize.BIG) {
+      this.labelState = "cutout";
+    }
   }
 
   private syncCheckboxIndeterminate(): void {
@@ -287,6 +297,10 @@ export class ZInput implements ComponentInterface {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
 
     return input.validity;
+  }
+
+  componentDidLoad(): void {
+    this.watchSize(this.size);
   }
 
   /* START text/password/email/number */
@@ -403,6 +417,8 @@ export class ZInput implements ComponentInterface {
             {...attr}
             type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             ref={(el) => (this.inputRef = el)}
+            // onFocus={() => (this.size !== ControlSize.BIG ? (this.labelState = "cutout") : null)}
+            // onBlur={() => (this.size !== ControlSize.BIG ? (this.labelState = "default") : null)}
           />
           {this.renderIcons()}
         </div>
@@ -418,7 +434,7 @@ export class ZInput implements ComponentInterface {
 
     return (
       <label
-        class="z-label body-5-sb"
+        class={{"z-label": true, "z-label-cutout": this.labelState === "cutout"}}
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
       >

@@ -1,6 +1,10 @@
 :host {
   display: inline-block;
   width: inherit;
+
+  /* TODO: questo sistema il px sopra ma rompe i messaggi, da sistemare */
+
+  /* line-height: 0; */
 }
 
 :host * {
@@ -165,4 +169,23 @@ textarea::placeholder {
 
 :host([disabled]:not([disabled="false"])) label.z-label {
   color: var(--color-disabled03);
+}
+
+/* WIP Z-LABEL REFACTORING */
+.z-label.z-label-cutout {
+  position: relative;
+  z-index: 2;
+  margin: 0 var(--space-unit);
+}
+
+/* TODO spostare in text */
+:host([size="small"]) .text-wrapper > div,
+:host([size="x-small"]) .text-wrapper > div {
+  margin-top: -0.5rem;
+}
+
+/* TODO spostare in textarea */
+:host([size="small"]) .textarea-wrapper,
+:host([size="x-small"]) .textarea-wrapper {
+  margin-top: -0.5rem;
 }
