@@ -36,7 +36,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="small">
         <div class="text-wrapper">
           <div>
-            <input id="id" class="has-clear-icon" type="text" />
+            <input id="id" class="has-clear-icon hide-placeholder" type="text" />
             <span class="icons-wrapper">
               <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="small" name="multiply"></z-icon>
@@ -57,7 +57,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="x-small">
         <div class="text-wrapper">
           <div>
-            <input id="id" class="has-clear-icon" type="text" />
+            <input id="id" class="has-clear-icon hide-placeholder" type="text" />
             <span class="icons-wrapper">
               <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="x-small" name="multiply"></z-icon>

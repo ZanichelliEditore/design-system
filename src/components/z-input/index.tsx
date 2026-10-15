@@ -189,10 +189,13 @@ export class ZInput implements ComponentInterface {
   }
 
   @Watch("size")
-  watchSize(size): void {
-    if (size !== ControlSize.BIG) {
-      this.labelState = "cutout";
-    }
+  watchSize(): void {
+    this.setLabelState();
+  }
+
+  @Watch("value")
+  watchValue(): void {
+    this.setLabelState();
   }
 
   private syncCheckboxIndeterminate(): void {
@@ -293,14 +296,14 @@ export class ZInput implements ComponentInterface {
     this.inputBlur.emit({id: this.htmlid});
   }
 
+  componentDidLoad(): void {
+    this.setLabelState();
+  }
+
   private getValidity(type: string): ValidityState {
     const input = this.hostElement.querySelector(type) as HTMLInputElement;
 
     return input.validity;
-  }
-
-  componentDidLoad(): void {
-    this.watchSize(this.size);
   }
 
   /* START text/password/email/number */
@@ -388,9 +391,35 @@ export class ZInput implements ComponentInterface {
 
   private getFocusBlurAttributes(): JSXBase.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
     return {
-      onFocus: () => this.emitInputFocus(),
-      onBlur: () => this.emitInputBlur(),
+      onFocus: () => {
+        this.emitInputFocus();
+        this.setLabelState(true);
+      },
+      onBlur: () => {
+        this.emitInputBlur();
+        this.setLabelState(false);
+      },
     };
+  }
+
+  private setLabelState(focus?: boolean): void {
+    if (this.size === ControlSize.BIG) {
+      this.labelState = "default";
+
+      return;
+    }
+
+    if (!this.value && !focus) {
+      this.labelState = "inside";
+
+      return;
+    }
+
+    this.labelState = "cutout";
+  }
+
+  private showPlaceholder(): boolean {
+    return this.labelState !== "inside";
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
@@ -407,6 +436,7 @@ export class ZInput implements ComponentInterface {
       ...(attr.class as {[className: string]: boolean}),
       "has-icon": !!this.icon || type === InputType.PASSWORD,
       "has-clear-icon": this.hasclearicon && type != InputType.NUMBER,
+      "hide-placeholder": !this.showPlaceholder(),
     };
 
     return (
@@ -417,8 +447,6 @@ export class ZInput implements ComponentInterface {
             {...attr}
             type={type === InputType.PASSWORD && !this.passwordHidden ? InputType.TEXT : type}
             ref={(el) => (this.inputRef = el)}
-            // onFocus={() => (this.size !== ControlSize.BIG ? (this.labelState = "cutout") : null)}
-            // onBlur={() => (this.size !== ControlSize.BIG ? (this.labelState = "default") : null)}
           />
           {this.renderIcons()}
         </div>
@@ -434,7 +462,11 @@ export class ZInput implements ComponentInterface {
 
     return (
       <label
-        class={{"z-label": true, "z-label-cutout": this.labelState === "cutout"}}
+        class={{
+          "z-label": true,
+          "z-label-cutout": this.labelState === "cutout",
+          "z-label-inside": this.labelState === "inside",
+        }}
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
       >
@@ -552,6 +584,7 @@ export class ZInput implements ComponentInterface {
             class={{
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,
+              "hide-placeholder": !this.showPlaceholder(),
             }}
             aria-label={this.htmlAriaLabel || undefined}
           ></textarea>
