@@ -1,10 +1,7 @@
 :host {
   display: inline-block;
   width: inherit;
-
-  /* TODO: questo sistema il px sopra ma rompe i messaggi, da sistemare */
-
-  /* line-height: 0; */
+  line-height: 0;
 }
 
 :host * {
