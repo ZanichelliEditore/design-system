@@ -2,10 +2,17 @@ import image from "@rollup/plugin-image";
 import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
 
+const isStencilDevBuild = process.argv.includes("--dev");
+const isStorybookBuild = process.env.STORYBOOK_BUILD === "1";
+
 const outputTargets: Config["outputTargets"] = [
   {
     type: "dist-custom-elements",
     customElementsExportBehavior: "single-export-module",
+  },
+  {
+    type: "dist",
+    esmLoaderPath: "../loader",
   },
 ];
 
@@ -17,16 +24,12 @@ const outputTargets: Config["outputTargets"] = [
 // Properties" section to be dropped from every component `.readme` on each HMR cycle.
 // The same risk applies to other doc/artifact targets.
 // To prevent any incomplete output, we restrict the programmatic Storybook build to only
-// the `dist-custom-elements` target, which is the one actually needed to serve components in
-// Storybook. All other targets are disabled via the `STENCIL_DEV` env var.
-// The initial `stencil build` run by `start-storybook` (where this env var is not set)
-// still runs all targets and generates every artifact correctly.
-if (process.env.STENCIL_DEV !== "1") {
+// the `dist-custom-elements` and `dist` targets, which are the ones actually needed to serve
+// components in Storybook (`dist` provides the lazy loader used by `.storybook/preview.tsx`,
+// which must be rebuilt on every change to see live updates).
+// All other targets are disabled via the `STORYBOOK_BUILD` env var.
+if (!isStorybookBuild) {
   outputTargets.push(
-    {
-      type: "dist",
-      esmLoaderPath: "../loader",
-    },
     reactOutputTarget({
       componentCorePackage: require("./package.json").name,
       proxiesFile: "./src-react/components.ts",
@@ -42,36 +45,33 @@ if (process.env.STENCIL_DEV !== "1") {
     {
       type: "docs-json",
       file: "./custom-elements.json",
-    },
-    {
-      type: "www",
-      serviceWorker: null,
-      copy: [{src: "pages"}],
     }
   );
 }
 
-/**
- * Keep source maps enabled in local (non-production) builds so Storybook DevTools can map
- * all compiled component modules back to their original source files.
- * We explicitly disable them in production (`storybook build`).
- */
-const stencilLocalBuildWithSourceMaps = process.env.NODE_ENV !== "production";
+// The `www` output target is only needed for local development when serving the Stencil demo app (with `yarn start`).
+if (isStencilDevBuild && !isStorybookBuild) {
+  outputTargets.push({
+    type: "www",
+    serviceWorker: null,
+    empty: true,
+  });
+}
 
 export const config: Config = {
   namespace: "web-components-library",
   globalStyle: "src/global.css",
   plugins: [image()],
   tsconfig: "tsconfig.stencil.json",
-  sourceMap: stencilLocalBuildWithSourceMaps,
+  sourceMap: isStencilDevBuild || isStorybookBuild,
   outputTargets,
   extras: {
     enableImportInjection: true,
     experimentalScopedSlotChanges: true,
     appendChildSlotFix: true,
     cloneNodeFix: true,
-    scopedSlotTextContentFix:
-      false /* setting this to true will break the retrieval of `textContent` in the `componentWillLoad` lifecycle method */,
+    // Enabling this will prevent `textContent` from being correctly retrieved in the `componentWillLoad` method.
+    scopedSlotTextContentFix: false,
     slotChildNodesFix: true,
   },
   testing: {
