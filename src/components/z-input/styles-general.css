@@ -176,15 +176,16 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
   position: relative;
   z-index: 2;
   left: 12px;
+  padding: 0;
   color: var(--color-form-default-text);
 }
 
 :host([size="small"]) .z-label.z-label-inside {
-  top: 1.5rem;
+  top: 1.25rem;
 }
 
 :host([size="x-small"]) .z-label.z-label-inside {
-  top: 1.375rem;
+  top: 1.125rem;
 }
 
 /* TODO spostare in text */
