@@ -82,7 +82,8 @@ input:not([readonly]):hover,
 }
 
 /* STATUSES (success, warning, error) */
-.input-success {
+.input-success,
+.z-label-cutout.label-success {
   border-color: var(--color-form-success01);
   background: var(--color-form-inverse-success);
 }
@@ -92,7 +93,8 @@ input:not([readonly]):hover,
   fill: var(--color-form-success01);
 }
 
-.input-error {
+.input-error,
+.z-label-cutout.label-error {
   border-color: var(--color-form-hover-error);
   background: var(--color-form-inverse-error);
 }
@@ -102,7 +104,8 @@ input:not([readonly]):hover,
   fill: var(--color-form-hover-error);
 }
 
-.input-warning {
+.input-warning,
+.z-label-cutout.label-warning {
   border-color: var(--color-form-hover-warning);
   background: var(--color-form-inverse-warning);
 }

@@ -466,6 +466,7 @@ export class ZInput implements ComponentInterface {
           "z-label": true,
           "z-label-cutout": this.labelState === "cutout",
           "z-label-inside": this.labelState === "inside",
+          [`label-${this.status}`]: !!this.status,
         }}
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
