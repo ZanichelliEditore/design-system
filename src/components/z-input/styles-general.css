@@ -176,6 +176,7 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
   position: relative;
   z-index: 2;
   left: 12px;
+  color: var(--color-form-default-text);
 }
 
 :host([size="small"]) .z-label.z-label-inside {

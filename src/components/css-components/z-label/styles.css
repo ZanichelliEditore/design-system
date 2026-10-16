@@ -14,4 +14,5 @@
   padding: 0 2px;
   background-color: var(--color-white);
   border-radius: var(--border-radius);
+  color: var(--color-form-default-text);
 }
