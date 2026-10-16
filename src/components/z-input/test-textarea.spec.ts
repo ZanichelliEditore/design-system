@@ -40,7 +40,7 @@ describe("Suite test ZInput - textarea", () => {
     });
     expect(page.root).toEqualHtml(`
       <z-input type="textarea" htmlid="test" placeholder="placeholder" label="label" size="big" status="error" message="error message" value="value">
-        <label class="z-label" for="test" id="test_label">label</label>
+        <label class="label-error z-label" for="test" id="test_label">label</label>
         <div class="textarea-wrapper input-error">
           <textarea class="input-error z-scrollbar" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"></textarea>
         </div>

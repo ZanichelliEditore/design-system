@@ -36,7 +36,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="small">
         <div class="text-wrapper">
           <div>
-            <input id="id" class="has-clear-icon hide-placeholder" type="text" />
+            <input id="id" class="has-clear-icon" type="text" />
             <span class="icons-wrapper">
               <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="small" name="multiply"></z-icon>
@@ -57,7 +57,7 @@ describe("Suite test ZInput - text", () => {
       <z-input message="false" htmlid="id" size="x-small">
         <div class="text-wrapper">
           <div>
-            <input id="id" class="has-clear-icon hide-placeholder" type="text" />
+            <input id="id" class="has-clear-icon" type="text" />
             <span class="icons-wrapper">
               <button aria-label="cancella il contenuto dell'input" class="hidden input-icon reset-icon" type="button">
                 <z-icon class="x-small" name="multiply"></z-icon>
@@ -187,7 +187,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="success" message="success message">
         <div class="text-wrapper">
-          <label class="z-label" for="test" id="test_label">label</label>
+          <label class="label-success z-label" for="test" id="test_label">label</label>
           <div>
             <input class="input-success has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message"/>
             <span class="icons-wrapper">
@@ -210,7 +210,7 @@ describe("Suite test ZInput - text", () => {
     expect(page.root).toEqualHtml(`
       <z-input type="text" htmlid="test" placeholder="placeholder" size="big" value="value" label="label" status="error" message="error message">
         <div class="text-wrapper">
-          <label class="z-label" for="test" id="test_label">label</label>
+          <label class="label-error z-label" for="test" id="test_label">label</label>
           <div>
             <input class="input-error has-clear-icon" type="text" id="test" placeholder="placeholder" value="value" aria-describedby="test-message" aria-invalid="true"/>
             <span class="icons-wrapper">

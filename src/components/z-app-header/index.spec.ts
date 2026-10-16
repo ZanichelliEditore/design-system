@@ -27,7 +27,6 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -68,7 +67,6 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -116,7 +114,6 @@ describe("Suite test ZAppHeader", () => {
                     </div>
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -175,7 +172,6 @@ describe("Suite test ZAppHeader", () => {
                     </div>
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -231,7 +227,6 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -284,7 +279,6 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot"></div>
                 </div>
               </div>
             </div>
@@ -537,10 +531,7 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot">
-                    <label class="z-label" for="input-app-header-searchbar" aria-hidden="true"></label>
-                    <z-searchbar htmlid="app-header-searchbar" placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
-                  </div>
+                  <z-searchbar htmlid="app-header-searchbar" placeholder="Cerca" preventsubmit="" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
                 </div>
               </div>
             </div>
@@ -743,10 +734,7 @@ describe("Suite test ZAppHeader", () => {
                   <div class="title-container">
                     <slot name="title"></slot>
                   </div>
-                  <div class="search-slot">
-                    <label class="z-label" for="input-app-header-searchbar" aria-hidden="true"></label>
-                    <z-searchbar htmlid="app-header-searchbar" placeholder="Scrivi qui" preventsubmit="" searchbuttonlabel="Cliccami" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
-                  </div>
+                  <z-searchbar htmlid="app-header-searchbar" placeholder="Scrivi qui" preventsubmit="" searchbuttonlabel="Cliccami" showsearchbutton="" size="x-small" value="" variant="secondary"></z-searchbar>
                 </div>
               </div>
             </div>
