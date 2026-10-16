@@ -2,14 +2,14 @@ import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZAppHeader} from "./index";
+import type {ZAppHeader} from "./index";
 import "./index.stories.css";
 
 type ZAppHeaderStoriesArgs = ZAppHeader & CSSVarsArguments<"app-header-content-max-width">;
 
 const StoryMeta = {
   title: "ZAppHeader",
-  component: ZAppHeader,
+  component: "z-app-header",
   parameters: {
     layout: "fullscreen",
   },

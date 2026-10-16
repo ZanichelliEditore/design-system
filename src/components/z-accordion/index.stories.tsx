@@ -4,7 +4,7 @@ import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {AccordionVariant, ControlSize} from "../../beans";
 import {ICONS} from "../../constants/iconset";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZAccordion} from "./index";
+import type {ZAccordion} from "./index";
 
 const colorTokenArgConfig = getColorTokenArgConfig();
 const cssPropsArgs = {
@@ -43,7 +43,7 @@ type ZAccordionStoriesArgs = ZAccordion &
  */
 const StoryMeta = {
   title: "ZAccordion",
-  component: ZAccordion,
+  component: "z-accordion",
   argTypes: {
     ...cssPropsArgs,
     icon: {

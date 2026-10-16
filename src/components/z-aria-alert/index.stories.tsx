@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
 import {ZAriaAlertMode} from "../../beans";
-import {ZAriaAlert} from "./index";
+import type {ZAriaAlert} from "./index";
 
 const StoryMeta = {
   title: "ZAriaAlert",
-  component: ZAriaAlert,
+  component: "z-aria-alert",
   argTypes: {
     mode: {
       control: {

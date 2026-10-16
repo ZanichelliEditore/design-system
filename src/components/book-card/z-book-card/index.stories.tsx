@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {BookCardVariant, ControlSize} from "../../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../../utils/storybook-utils";
 import {ZBookCardApp} from "../z-book-card-app/index";
-import {ZBookCard} from "./index";
+import type {ZBookCard} from "./index";
 import "./index.stories.css";
 
 type ZBookCardCSSVarsArgs = CSSVarsArguments<
@@ -19,7 +19,7 @@ type ZBookCardStoriesArgs = ZBookCard & ZBookCardCSSVarsArgs;
 
 const StoryMeta = {
   title: "ZBookCard/ZBookCard",
-  component: ZBookCard,
+  component: "z-book-card",
   subcomponents: {
     ZBookCardApp,
   },

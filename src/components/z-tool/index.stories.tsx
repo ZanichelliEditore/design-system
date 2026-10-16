@@ -2,12 +2,12 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {DividerOrientation, PopoverPosition} from "../../beans";
 import {ICONS} from "../../constants/iconset";
-import {ZTool} from "./index";
+import type {ZTool} from "./index";
 import "./index.stories.css";
 
 const StoryMeta = {
   title: "ZTool",
-  component: ZTool,
+  component: "z-tool",
   argTypes: {
     tooltipPosition: {
       options: Object.values(PopoverPosition),
