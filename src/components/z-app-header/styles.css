@@ -193,21 +193,11 @@
 
 z-searchbar {
   z-index: 0;
-  display: flex;
   width: 100%;
-  align-items: center;
 }
 
 .search-slot {
   margin-left: auto;
-}
-
-.search-slot .z-label {
-  height: 10px;
-  padding-bottom: 0;
-  margin-bottom: -3px;
-  font-size: 10px;
-  line-height: 10px;
 }
 
 .heading-stuck {
@@ -236,6 +226,7 @@ z-searchbar {
   --title-line-height: 1.4;
 
   overflow: hidden;
+  width: initial;
   align-items: center;
 }
 
@@ -245,6 +236,10 @@ z-searchbar {
   line-height: var(--title-line-height);
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.heading-stuck-content z-searchbar {
+  align-self: start;
 }
 
 .drawer-trigger,
@@ -365,7 +360,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
   }
 
   z-searchbar {
-    height: calc(var(--title-font-size) * var(--title-line-height));
+    width: 260px;
     margin-left: auto;
   }
 
@@ -406,12 +401,8 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
 /* Desktop breakpoint */
 @media (min-width: 1152px) {
-  .search-slot {
-    height: 53px;
-  }
-
   z-searchbar {
-    min-width: calc(var(--space-unit) * 45);
+    width: 380px;
   }
 }
 
