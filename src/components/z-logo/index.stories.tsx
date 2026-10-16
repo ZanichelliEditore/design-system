@@ -1,10 +1,10 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZLogo} from "./index";
+import type {ZLogo} from "./index";
 
 const StoryMeta = {
   title: "ZLogo",
-  component: ZLogo,
+  component: "z-logo",
   args: {
     imageAlt: "logo",
     height: 50,

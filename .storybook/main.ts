@@ -6,7 +6,7 @@ const config: StorybookConfig = {
     disableWhatsNewNotifications: true,
     disableTelemetry: true,
   },
-  staticDirs: ["../src/assets"],
+  staticDirs: ["../src/assets", "../dist/esm"],
   stories: ["../docs/**/*.mdx", "../docs/**/*.stories.@(js|jsx|ts|tsx)", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-docs", "@storybook/addon-themes", "@storybook/addon-a11y"],
 };
