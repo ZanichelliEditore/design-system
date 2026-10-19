@@ -372,6 +372,7 @@ export class ZAppHeader implements ComponentInterface {
         label={
           this.searchLabel && !this.isMobile && !this.isTablet && !this.enableOffcanvas ? this.searchLabel : undefined
         }
+        // label={this.searchLabel ? this.searchLabel : undefined}
         htmlAriaLabel={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}

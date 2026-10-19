@@ -156,6 +156,7 @@
 }
 
 .search-page-button {
+  align-self: end;
   margin-left: auto;
 }
 
@@ -236,10 +237,6 @@ z-searchbar {
   line-height: var(--title-line-height);
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.heading-stuck-content z-searchbar {
-  align-self: start;
 }
 
 .drawer-trigger,
@@ -361,6 +358,9 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 
   z-searchbar {
     width: 260px;
+    min-width: 260px;
+    align-self: end;
+    padding-bottom: var(--space-unit);
     margin-left: auto;
   }
 
@@ -394,6 +394,10 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
     padding: 6px var(--grid-margin);
   }
 
+  .heading-stuck .search-page-button {
+    padding-bottom: var(--space-unit);
+  }
+
   :host(:not([enable-offcanvas], [menu-length="0"])) {
     padding-left: 0;
   }
@@ -403,6 +407,7 @@ z-offcanvas[open] .drawer-content ::slotted(z-menu) {
 @media (min-width: 1152px) {
   z-searchbar {
     width: 380px;
+    min-width: 380px;
   }
 }
 
