@@ -1,4 +1,5 @@
 .textarea-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: var(--space-unit);
@@ -6,6 +7,11 @@
 
 .textarea-wrapper:not(.input-error, .input-success, .input-warning) {
   background-color: var(--color-form-background);
+}
+
+:host([size="small"]) .textarea-wrapper,
+:host([size="x-small"]) .textarea-wrapper {
+  margin-top: -0.5rem;
 }
 
 textarea {

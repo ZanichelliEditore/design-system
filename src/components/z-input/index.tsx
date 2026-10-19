@@ -163,7 +163,7 @@ export class ZInput implements ComponentInterface {
   passwordHidden = true;
 
   @State()
-  labelState = "default";
+  labelState: "default" | "cutout" | "inside" = "default";
 
   private timer;
 
@@ -419,7 +419,7 @@ export class ZInput implements ComponentInterface {
   }
 
   private showPlaceholder(): boolean {
-    return this.labelState !== "inside";
+    return !this.label || this.labelState !== "inside";
   }
 
   private renderInputText(type: InputType = InputType.TEXT): HTMLDivElement {
@@ -464,8 +464,7 @@ export class ZInput implements ComponentInterface {
       <label
         class={{
           "z-label": true,
-          "z-label-cutout": this.labelState === "cutout",
-          "z-label-inside": this.labelState === "inside",
+          [`label-${this.labelState}`]: true,
           [`label-${this.status}`]: !!this.status,
         }}
         id={`${this.htmlid}_label`}
@@ -567,7 +566,6 @@ export class ZInput implements ComponentInterface {
 
   private renderTextarea(): HTMLDivElement {
     const attributes = this.getTextAttributes();
-    const ariaAttributes = this.getTextAriaAttributes();
 
     return (
       <Fragment>
@@ -581,7 +579,8 @@ export class ZInput implements ComponentInterface {
         >
           <textarea
             {...attributes}
-            {...ariaAttributes}
+            {...this.getTextAriaAttributes()}
+            {...this.getFocusBlurAttributes()}
             class={{
               ...(attributes.class as {[className: string]: boolean}),
               "z-scrollbar": true,

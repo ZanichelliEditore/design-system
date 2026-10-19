@@ -1,7 +1,16 @@
+.text-wrapper {
+  position: relative;
+}
+
 .text-wrapper > div {
   position: relative;
   z-index: 1;
   fill: var(--color-form-default-icon);
+}
+
+:host([size="small"]) .text-wrapper > div,
+:host([size="x-small"]) .text-wrapper > div {
+  margin-top: -0.5rem;
 }
 
 .text-wrapper > div > input {

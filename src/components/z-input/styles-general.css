@@ -165,14 +165,19 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
   color: var(--color-disabled03);
 }
 
-/* WIP Z-LABEL REFACTORING */
-.z-label.z-label-cutout {
+/* Z-LABEL */
+
+.z-label.label-cutout {
   position: relative;
   z-index: 2;
+  padding: 0 2px;
   margin: 0 var(--space-unit);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  color: var(--color-form-default-text);
 }
 
-.z-label.z-label-inside {
+.z-label.label-inside {
   position: relative;
   z-index: 2;
   left: 12px;
@@ -180,30 +185,10 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
   color: var(--color-form-default-text);
 }
 
-:host([size="small"]) .z-label.z-label-inside {
+:host([size="small"]) .z-label.label-inside {
   top: 1.25rem;
 }
 
-:host([size="x-small"]) .z-label.z-label-inside {
+:host([size="x-small"]) .z-label.label-inside {
   top: 1.125rem;
-}
-
-/* TODO spostare in text */
-.text-wrapper {
-  position: relative;
-}
-
-:host([size="small"]) .text-wrapper > div,
-:host([size="x-small"]) .text-wrapper > div {
-  margin-top: -0.5rem;
-}
-
-/* TODO spostare in textarea */
-.textarea-wrapper {
-  position: relative;
-}
-
-:host([size="small"]) .textarea-wrapper,
-:host([size="x-small"]) .textarea-wrapper {
-  margin-top: -0.5rem;
 }
