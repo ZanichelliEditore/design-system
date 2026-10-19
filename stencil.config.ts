@@ -14,6 +14,15 @@ const outputTargets: Config["outputTargets"] = [
     type: "dist",
     esmLoaderPath: "../loader",
   },
+  {
+    type: "docs-vscode",
+    file: "docs-vscode.json",
+    sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
+  },
+  {
+    type: "docs-json",
+    file: "./custom-elements.json",
+  },
 ];
 
 // The Storybook Stencil addon (@stencil/storybook-plugin) uses `unplugin-stencil` internally,
@@ -36,15 +45,6 @@ if (!isStorybookBuild) {
     }),
     {
       type: "docs-readme",
-    },
-    {
-      type: "docs-vscode",
-      file: "docs-vscode.json",
-      sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
-    },
-    {
-      type: "docs-json",
-      file: "./custom-elements.json",
     }
   );
 }
