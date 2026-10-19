@@ -79,6 +79,7 @@
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container.active {
+  border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-focus-primary);
 }
 
