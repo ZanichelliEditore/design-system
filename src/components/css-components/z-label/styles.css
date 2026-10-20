@@ -7,5 +7,8 @@
   font-weight: var(--font-sb);
   line-height: 1.25rem;
   text-align: left;
-  text-transform: capitalize;
+}
+
+.z-label::first-letter {
+  text-transform: uppercase;
 }

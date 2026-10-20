@@ -169,6 +169,8 @@ export class ZInput implements ComponentInterface {
 
   private typingtimeout = 300;
 
+  private focused = false;
+
   private inputRef: HTMLInputElement;
 
   @Listen("inputCheck", {target: "document"})
@@ -189,12 +191,8 @@ export class ZInput implements ComponentInterface {
   }
 
   @Watch("size")
-  watchSize(): void {
-    this.setLabelState();
-  }
-
   @Watch("value")
-  watchValue(): void {
+  watchLabelState(): void {
     this.setLabelState();
   }
 
@@ -285,6 +283,7 @@ export class ZInput implements ComponentInterface {
   inputFocus: EventEmitter;
 
   private emitInputFocus(): void {
+    this.focused = true;
     this.inputFocus.emit({id: this.htmlid});
   }
 
@@ -293,6 +292,7 @@ export class ZInput implements ComponentInterface {
   inputBlur: EventEmitter;
 
   private emitInputBlur(): void {
+    this.focused = false;
     this.inputBlur.emit({id: this.htmlid});
   }
 
@@ -393,23 +393,23 @@ export class ZInput implements ComponentInterface {
     return {
       onFocus: () => {
         this.emitInputFocus();
-        this.setLabelState(true);
+        this.setLabelState();
       },
       onBlur: () => {
         this.emitInputBlur();
-        setTimeout(() => this.setLabelState(false), 150);
+        setTimeout(() => this.setLabelState(), 150);
       },
     };
   }
 
-  private setLabelState(focus?: boolean): void {
+  private setLabelState(): void {
     if (this.size === ControlSize.BIG) {
       this.labelState = "default";
 
       return;
     }
 
-    if (!this.value && !focus) {
+    if (!this.value && !this.focused) {
       this.labelState = "inside";
 
       return;

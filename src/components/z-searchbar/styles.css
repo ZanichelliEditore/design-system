@@ -47,6 +47,8 @@
   overflow: auto;
   width: 100%;
   max-height: var(--z-searchbar-results-height, 540px);
+  padding-top: var(--space-unit);
+  padding-bottom: calc(var(--space-unit) * 0.5);
   border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: none;
   background: var(--color-form-background);
@@ -82,6 +84,7 @@
 
 .results z-list-element > .list-item:focus-visible {
   z-index: 1;
+  border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-focus-primary);
   outline: none;
 }
