@@ -150,7 +150,7 @@ input[type="checkbox"] {
 }
 
 .theme-black :host label > span.container.disabled:not(.checked) > span.circle {
-  background-color: var(--color-primary01);
+  background-color: var(--gray900);
 }
 
 .theme-black :host label > span.container.checked.disabled {
