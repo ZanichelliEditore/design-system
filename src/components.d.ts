@@ -117,17 +117,17 @@ export namespace Components {
         "searchButtonLabel"?: string;
         /**
           * Visible label for the search bar.
+          * @default "Cerca"
          */
-        "searchLabel"?: string;
+        "searchLabel": string;
         /**
           * Url to the search page. Set this prop and `enableSearch` to show a link-button on mobile and tablet viewports, instead of the normal searchbar. The link will also appear on the sticky header.
          */
         "searchPageUrl": string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
-        "searchPlaceholder": string;
+        "searchPlaceholder"?: string;
         /**
           * Search string for the search bar.
           * @default ""
@@ -3408,6 +3408,7 @@ declare namespace LocalJSX {
         "searchButtonLabel"?: string;
         /**
           * Visible label for the search bar.
+          * @default "Cerca"
          */
         "searchLabel"?: string;
         /**
@@ -3416,7 +3417,6 @@ declare namespace LocalJSX {
         "searchPageUrl"?: string;
         /**
           * Placeholder text for the search bar.
-          * @default "Cerca"
          */
         "searchPlaceholder"?: string;
         /**

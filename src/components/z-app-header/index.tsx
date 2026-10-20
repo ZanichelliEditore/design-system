@@ -56,13 +56,13 @@ export class ZAppHeader implements ComponentInterface {
    * Visible label for the search bar.
    */
   @Prop()
-  searchLabel?: string;
+  searchLabel = "Cerca";
 
   /**
    * Placeholder text for the search bar.
    */
   @Prop()
-  searchPlaceholder = "Cerca";
+  searchPlaceholder?: string;
 
   /**
    * Label of the search button.
@@ -369,10 +369,7 @@ export class ZAppHeader implements ComponentInterface {
         htmlid="app-header-searchbar"
         value={this.searchString}
         placeholder={this.searchPlaceholder}
-        label={
-          this.searchLabel && !this.isMobile && !this.isTablet && !this.enableOffcanvas ? this.searchLabel : undefined
-        }
-        // label={this.searchLabel ? this.searchLabel : undefined}
+        label={this.searchLabel}
         htmlAriaLabel={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
