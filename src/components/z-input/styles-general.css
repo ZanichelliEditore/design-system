@@ -83,7 +83,7 @@ input:not([readonly]):hover,
 
 /* STATUSES (success, warning, error) */
 .input-success,
-.z-label-cutout.label-success {
+.z-label.label-cutout.label-success {
   border-color: var(--color-form-success01);
   background: var(--color-form-inverse-success);
 }
@@ -94,7 +94,7 @@ input:not([readonly]):hover,
 }
 
 .input-error,
-.z-label-cutout.label-error {
+.z-label.label-cutout.label-error {
   border-color: var(--color-form-hover-error);
   background: var(--color-form-inverse-error);
 }
@@ -105,7 +105,7 @@ input:not([readonly]):hover,
 }
 
 .input-warning,
-.z-label-cutout.label-warning {
+.z-label.label-cutout.label-warning {
   border-color: var(--color-form-hover-warning);
   background: var(--color-form-inverse-warning);
 }
@@ -167,28 +167,61 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
 
 /* Z-LABEL */
 
-.z-label.label-cutout {
+.z-label {
   position: relative;
   z-index: 2;
+}
+
+:host([size="small"]) .z-label {
+  --z-label-inside-top: 1.25rem;
+}
+
+:host([size="x-small"]) .z-label {
+  --z-label-inside-top: 1.125rem;
+}
+
+.z-label.label-cutout {
   padding: 0 2px;
-  margin: 0 var(--space-unit);
+  margin: 0 6px;
+  animation: label-cutout 150ms cubic-bezier(0.42, 0, 0.58, 1);
   background-color: var(--color-white);
   border-radius: var(--border-radius);
   color: var(--color-form-default-text);
 }
 
 .z-label.label-inside {
-  position: relative;
-  z-index: 2;
-  left: 12px;
+  top: var(--z-label-inside-top, 1.25rem);
+  left: var(--space-unit);
+  overflow: hidden;
+  width: calc(100% - var(--space-unit-2));
   padding: 0;
+  animation: label-inside 150ms cubic-bezier(0.42, 0, 0.58, 1);
   color: var(--color-form-default-text);
+  font-size: var(--font-size-3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-:host([size="small"]) .z-label.label-inside {
-  top: 1.25rem;
+@keyframes label-cutout {
+  0% {
+    top: var(--z-label-inside-top);
+    font-size: var(--font-size-3);
+  }
+
+  100% {
+    top: 0;
+    font-size: var(--font-size-2);
+  }
 }
 
-:host([size="x-small"]) .z-label.label-inside {
-  top: 1.125rem;
+@keyframes label-inside {
+  0% {
+    top: 0;
+    font-size: var(--font-size-2);
+  }
+
+  100% {
+    top: var(--z-label-inside-top);
+    font-size: var(--font-size-3);
+  }
 }

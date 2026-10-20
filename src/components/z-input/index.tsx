@@ -163,7 +163,7 @@ export class ZInput implements ComponentInterface {
   passwordHidden = true;
 
   @State()
-  labelState: "default" | "cutout" | "inside" = "default";
+  labelState: "default" | "cutout" | "inside";
 
   private timer;
 
@@ -296,7 +296,7 @@ export class ZInput implements ComponentInterface {
     this.inputBlur.emit({id: this.htmlid});
   }
 
-  componentDidLoad(): void {
+  componentWillLoad(): void {
     this.setLabelState();
   }
 
@@ -397,7 +397,7 @@ export class ZInput implements ComponentInterface {
       },
       onBlur: () => {
         this.emitInputBlur();
-        this.setLabelState(false);
+        setTimeout(() => this.setLabelState(false), 150);
       },
     };
   }
