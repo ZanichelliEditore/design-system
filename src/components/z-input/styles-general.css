@@ -55,16 +55,11 @@ input:not([readonly]):hover,
 :host:not([readonly="true"]) .textarea-wrapper:focus-within {
   border-color: var(--color-form-active-primary);
   box-shadow: var(--shadow-focus-primary);
-  color: var(--color-form-active-primary);
 }
 
 :host input:focus:focus-visible:hover,
 .textarea-wrapper:not(.readonly):focus-within:hover {
   outline-color: var(--color-form-active-primary);
-}
-
-:host input:focus:focus-visible + .icons-wrapper {
-  fill: var(--color-form-active-primary);
 }
 
 :host.active-select input {
@@ -142,6 +137,10 @@ input:not([readonly]):hover,
   border-width: var(--border-size-small);
 }
 
+:host([disabled]:not([disabled="false"])) label {
+  pointer-events: none;
+}
+
 /* PLACEHOLDER */
 input::placeholder,
 textarea::placeholder,
@@ -194,6 +193,7 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
     top var(--z-label-transition),
     font-size var(--z-label-transition),
     background-color var(--z-label-transition),
+    border-radius var(--z-label-transition),
     width var(--z-label-transition);
 }
 
@@ -211,6 +211,7 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
     top var(--z-label-transition),
     font-size var(--z-label-transition),
     background-color var(--z-label-transition),
+    border-radius var(--z-label-transition),
     width var(--z-label-transition);
   white-space: nowrap;
 }
