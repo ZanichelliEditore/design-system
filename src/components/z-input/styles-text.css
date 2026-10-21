@@ -92,3 +92,7 @@
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
   -webkit-text-fill-color: currentcolor;
 }
+
+:host[type="password"] .z-label.label-inside {
+  width: calc(100% - var(--space-unit-6));
+}
