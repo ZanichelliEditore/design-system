@@ -168,6 +168,8 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
 /* Z-LABEL */
 
 .z-label {
+  --z-label-transition: 150ms cubic-bezier(0.42, 0, 0.58, 1);
+
   position: relative;
   z-index: 2;
 }
@@ -181,47 +183,38 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
 }
 
 .z-label.label-cutout {
+  top: 0;
   padding: 0 2px;
   margin: 0 6px;
-  animation: label-cutout 150ms cubic-bezier(0.42, 0, 0.58, 1);
-  background-color: var(--color-white);
+  background-color: var(--color-form-background);
   border-radius: var(--border-radius);
   color: var(--color-form-default-text);
+  font-size: var(--font-size-2);
+  transition:
+    top var(--z-label-transition),
+    font-size var(--z-label-transition),
+    background-color var(--z-label-transition),
+    width var(--z-label-transition);
 }
 
 .z-label.label-inside {
   top: var(--z-label-inside-top, 1.25rem);
   left: var(--space-unit);
   overflow: hidden;
-  width: calc(100% - var(--space-unit-2));
+  max-width: calc(100% - var(--space-unit-2));
   padding: 0;
-  animation: label-inside 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  background-color: transparent;
   color: var(--color-form-default-text);
   font-size: var(--font-size-3);
   text-overflow: ellipsis;
+  transition:
+    top var(--z-label-transition),
+    font-size var(--z-label-transition),
+    background-color var(--z-label-transition),
+    width var(--z-label-transition);
   white-space: nowrap;
 }
 
-@keyframes label-cutout {
-  0% {
-    top: var(--z-label-inside-top);
-    font-size: var(--font-size-3);
-  }
-
-  100% {
-    top: 0;
-    font-size: var(--font-size-2);
-  }
-}
-
-@keyframes label-inside {
-  0% {
-    top: 0;
-    font-size: var(--font-size-2);
-  }
-
-  100% {
-    top: var(--z-label-inside-top);
-    font-size: var(--font-size-3);
-  }
+.z-label.label-inside.has-icon {
+  max-width: calc(100% - var(--space-unit-6));
 }

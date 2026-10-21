@@ -197,10 +197,6 @@ z-searchbar {
   width: 100%;
 }
 
-.search-slot {
-  margin-left: auto;
-}
-
 .heading-stuck {
   position: fixed;
   z-index: 20;

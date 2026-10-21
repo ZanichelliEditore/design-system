@@ -418,6 +418,10 @@ export class ZInput implements ComponentInterface {
     this.labelState = "cutout";
   }
 
+  private hasIcon(): boolean {
+    return !!this.icon || this.type === InputType.PASSWORD;
+  }
+
   private showPlaceholder(): boolean {
     return !this.label || this.labelState !== "inside";
   }
@@ -434,7 +438,7 @@ export class ZInput implements ComponentInterface {
 
     attr.class = {
       ...(attr.class as {[className: string]: boolean}),
-      "has-icon": !!this.icon || type === InputType.PASSWORD,
+      "has-icon": this.hasIcon(),
       "has-clear-icon": this.hasclearicon && type != InputType.NUMBER,
       "hide-placeholder": !this.showPlaceholder(),
     };
@@ -466,6 +470,7 @@ export class ZInput implements ComponentInterface {
           "z-label": true,
           [`label-${this.labelState}`]: true,
           [`label-${this.status}`]: !!this.status,
+          "has-icon": this.hasIcon(),
         }}
         id={`${this.htmlid}_label`}
         htmlFor={this.htmlid}
