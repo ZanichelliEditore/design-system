@@ -118,16 +118,32 @@ export const TypeScale = {
  *
  * will apply the `body-3` style on mobile, `body-2` on tablet, and `body-1` on desktop and wide viewports.
  *
- * Section titles are also available as CSS custom properties:
- * those properties are meant to be used with the "font" shorthand property. For example:
+ * Each class is also available as CSS custom property that can be used with the `font` shorthand property.
+ *
+ * For example:
  *
  * ```css
+ * h1 {
+ *  font: var(--heading-1);
+ * }
+ *
  * h4 {
  *  font: var(--section-title-4);
  * }
  * ```
+ *
+ * Since with the `font` shorthand property the `font-family` is mandatory and cannot be inherited,
+ * there are also the `-serif` variants of each CSS custom property to use a serif font family (the default is `sans`).
+ *
+ * For example:
+ *
+ * ```css
+ * h1 {
+ *  font: var(--heading-1-serif);
+ * }
+ * ```
  */
-export const TypographyClasses = {
+export const TypographyClassesAndCSSProps = {
   argTypes: {
     headingWeight: {
       options: ["lt", null, "sb"],
@@ -175,7 +191,7 @@ export const TypographyClasses = {
             >
               Heading {level}
             </div>
-            <div class="body-5-sb">{`.heading-${level}${getWeightSuffix(args.headingWeight)}`}</div>
+            <div class="body-5-sb">{`.heading-${level}${getWeightSuffix(args.headingWeight)} / --heading-${level}${getWeightSuffix(args.headingWeight)}`}</div>
           </div>
         ))}
       </div>
@@ -189,7 +205,7 @@ export const TypographyClasses = {
             >
               Body {level}
             </div>
-            <div class="body-5-sb">{`.body-${level}${getWeightSuffix(args.fontWeight)}`}</div>
+            <div class="body-5-sb">{`.body-${level}${getWeightSuffix(args.fontWeight)} / --body-${level}${getWeightSuffix(args.fontWeight)}`}</div>
           </div>
         ))}
       </div>
@@ -203,7 +219,7 @@ export const TypographyClasses = {
             >
               Interactive {level}
             </div>
-            <div class="body-5-sb">{`.interactive-${level}${getWeightSuffix(args.fontWeight)}`}</div>
+            <div class="body-5-sb">{`.interactive-${level}${getWeightSuffix(args.fontWeight)} / --interactive-${level}${getWeightSuffix(args.fontWeight)}`}</div>
           </div>
         ))}
       </div>
@@ -216,7 +232,7 @@ export const TypographyClasses = {
           >
             Helper
           </div>
-          <div class="body-5-sb">{`.helper${getWeightSuffix(args.fontWeight)}`}</div>
+          <div class="body-5-sb">{`.helper${getWeightSuffix(args.fontWeight)} / --helper${getWeightSuffix(args.fontWeight)}`}</div>
         </div>
       </div>
     </div>
