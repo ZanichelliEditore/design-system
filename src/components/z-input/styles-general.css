@@ -179,10 +179,14 @@ textarea.hide-placeholder::-webkit-textarea-placeholder {
 
 :host([size="small"]) .z-label {
   --z-label-inside-top: 1.25rem;
+
+  margin-bottom: -0.5rem;
 }
 
 :host([size="x-small"]) .z-label {
   --z-label-inside-top: 1.125rem;
+
+  margin-bottom: -0.5rem;
 }
 
 .z-label.label-cutout {

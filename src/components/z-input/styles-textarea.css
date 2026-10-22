@@ -9,11 +9,6 @@
   background-color: var(--color-form-background);
 }
 
-:host([size="small"]) .textarea-wrapper,
-:host([size="x-small"]) .textarea-wrapper {
-  margin-top: -0.5rem;
-}
-
 textarea {
   width: 100%;
   min-height: 132px;

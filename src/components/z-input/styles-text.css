@@ -8,11 +8,6 @@
   fill: var(--color-form-default-icon);
 }
 
-:host([size="small"]) .text-wrapper > div,
-:host([size="x-small"]) .text-wrapper > div {
-  margin-top: -0.5rem;
-}
-
 .text-wrapper > div > input {
   width: 100%;
   height: 2.75rem;
