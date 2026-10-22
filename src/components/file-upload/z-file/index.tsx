@@ -37,7 +37,6 @@ export class ZFile implements ComponentInterface {
 
   private removeFileHandler(): void {
     this.removeFile.emit({fileName: this.fileName});
-    this.el.remove();
   }
 
   @Listen("mouseover")
