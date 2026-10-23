@@ -7,21 +7,31 @@ import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../ut
 import type {ZAccordion} from "./index";
 
 const colorTokenArgConfig = getColorTokenArgConfig();
-const cssPropsArgs = {
-  "--z-accordion-bg": colorTokenArgConfig,
-  "--z-accordion-label-color": colorTokenArgConfig,
+// Avoid sharing nested argType references, which causes Storybook to drop options from later controls.
+const createColorTokenArgConfig = () => ({
+  ...colorTokenArgConfig,
+  options: [...colorTokenArgConfig.options],
+  control: {
+    ...colorTokenArgConfig.control,
+    labels: {...colorTokenArgConfig.control.labels},
+  },
+});
+
+const colorCSSPropsArgs = {
+  "--z-accordion-bg": createColorTokenArgConfig(),
+  "--z-accordion-label-color": createColorTokenArgConfig(),
   "--z-accordion-disabled-label-color": {
-    ...colorTokenArgConfig,
+    ...createColorTokenArgConfig(),
     if: {
       arg: "isDisabled",
       truthy: true,
     },
   },
-  "--z-accordion-content-bg": colorTokenArgConfig,
-  "--z-accordion-content-fg": colorTokenArgConfig,
-  "--z-accordion-hover-color": colorTokenArgConfig,
+  "--z-accordion-content-bg": createColorTokenArgConfig(),
+  "--z-accordion-content-fg": createColorTokenArgConfig(),
+  "--z-accordion-hover-color": createColorTokenArgConfig(),
   "--z-accordion-highlight-color": {
-    ...colorTokenArgConfig,
+    ...createColorTokenArgConfig(),
     if: {
       arg: "highlight",
       truthy: true,
@@ -31,7 +41,7 @@ const cssPropsArgs = {
 
 type ZAccordionStoriesArgs = ZAccordion &
   CSSVarsArguments<
-    | keyof typeof cssPropsArgs
+    | keyof typeof colorCSSPropsArgs
     | "z-accordion-right-padding"
     | "z-accordion-left-padding"
     | "z-accordion-label-font-weight"
@@ -45,7 +55,7 @@ const StoryMeta = {
   title: "ZAccordion",
   component: "z-accordion",
   argTypes: {
-    ...cssPropsArgs,
+    ...colorCSSPropsArgs,
     icon: {
       options: Object.keys(ICONS).sort(),
       control: {
@@ -110,9 +120,27 @@ export const Default = {};
  */
 export const Stack = {
   argTypes: {
-    "--z-accordion-highlight-color2": cssPropsArgs["--z-accordion-highlight-color"],
-    "--z-accordion-highlight-color3": cssPropsArgs["--z-accordion-highlight-color"],
-    "--z-accordion-highlight-color4": cssPropsArgs["--z-accordion-highlight-color"],
+    "--z-accordion-highlight-color2": {
+      ...createColorTokenArgConfig(),
+      if: {
+        arg: "highlight",
+        truthy: true,
+      },
+    },
+    "--z-accordion-highlight-color3": {
+      ...createColorTokenArgConfig(),
+      if: {
+        arg: "highlight",
+        truthy: true,
+      },
+    },
+    "--z-accordion-highlight-color4": {
+      ...createColorTokenArgConfig(),
+      if: {
+        arg: "highlight",
+        truthy: true,
+      },
+    },
   },
   args: {
     "--z-accordion-highlight-color2": "var(--color-primary01)",

@@ -1,11 +1,30 @@
 import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
+import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
 import type {ZAppHeader} from "./index";
 import "./index.stories.css";
 
-type ZAppHeaderStoriesArgs = ZAppHeader & CSSVarsArguments<"app-header-content-max-width">;
+const colorTokenArgConfig = getColorTokenArgConfig();
+// Avoid sharing nested argType references, which causes Storybook to drop options from later controls.
+const createColorTokenArgConfig = () => ({
+  ...colorTokenArgConfig,
+  options: [...colorTokenArgConfig.options],
+  control: {
+    ...colorTokenArgConfig.control,
+    labels: {...colorTokenArgConfig.control.labels},
+  },
+});
+
+const colorCSSPropsArgs = {
+  "--app-header-bg": createColorTokenArgConfig(),
+  "--app-header-text-color": createColorTokenArgConfig(),
+  "--app-header-stucked-bg": createColorTokenArgConfig(),
+  "--app-header-stucked-text-color": createColorTokenArgConfig(),
+};
+
+type ZAppHeaderStoriesArgs = ZAppHeader &
+  CSSVarsArguments<keyof typeof colorCSSPropsArgs | "app-header-content-max-width" | "app-header-top-offset">;
 
 const StoryMeta = {
   title: "ZAppHeader",
@@ -17,15 +36,20 @@ const StoryMeta = {
     ZMenu: "z-menu",
     ZMenuSection: "z-menu-section",
   },
+  argTypes: {
+    ...colorCSSPropsArgs,
+  },
   args: {
     "--app-header-content-max-width": "100%",
-    "enableSearch": false,
-    "searchPageUrl": "",
-    "searchLabel": "",
-    "searchPlaceholder": "Digita qui quello che vuoi",
-    "searchButtonLabel": "Cliccami",
-    "enableZLogo": false,
+    "drawerOpen": false,
     "enableOffcanvas": false,
+    "enableSearch": false,
+    "enableZLogo": false,
+    "searchButtonLabel": "Cliccami",
+    "searchLabel": "",
+    "searchPageUrl": "",
+    "searchPlaceholder": "Digita qui quello che vuoi",
+    "stuck": false,
   },
 } satisfies Meta<ZAppHeaderStoriesArgs>;
 
