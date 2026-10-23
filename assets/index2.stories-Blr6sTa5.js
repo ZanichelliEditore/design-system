@@ -1,0 +1,5 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{dt as t,pt as n}from"./iframe-iOyjIY3n.js";import{K as r,f as i,x as a}from"./beans-zckFsBZy.js";var o,s,c;e((()=>{t(),r(),o={title:`ZInputMessage`,component:`z-input-message`,argTypes:{status:{control:{type:`inline-radio`},options:[`default`,...Object.values(a)]},class:{control:{type:`inline-radio`},options:Object.values(i)}},args:{message:`messaggio`,status:a.ERROR,class:i.BIG}},s={render:e=>n(`z-input-message`,e)},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  render: args => <z-input-message {...args}></z-input-message>
+} satisfies StoryObj<ZInputMessageStoriesArgs>`,...s.parameters?.docs?.source}}},c=[`Default`],s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  render: args => <z-input-message {...args}></z-input-message>
+} satisfies StoryObj<ZInputMessageStoriesArgs>`,...s.parameters?.docs?.source}}}}))();export{s as Default,c as __namedExportsOrder,o as default};

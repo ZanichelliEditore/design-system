@@ -1,0 +1,140 @@
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { O as Orientation, P as PopoverPosition } from './index-DdetsoIY.js';
+import { r as randomId } from './utils-CJc3A9NX.js';
+import './breakpoints-Q-tWjk7P.js';
+
+const stylesCss = () => `:host,*{box-sizing:border-box}:host{--progress:0%;--progress-ratio:0;--z-input-range-thumb-size:calc(var(--space-unit) * 3);display:flex;width:fit-content;height:fit-content;flex-direction:column;font-family:var(--font-family-sans);font-weight:var(--font-rg)}:host([size="small"]){--z-input-range-thumb-size:calc(var(--space-unit) * 2)}:host([size="x-small"]){--z-input-range-thumb-size:calc(var(--space-unit) * 1.5)}:host([orientation="vertical"]){height:100%;flex-direction:row}.input-container{--z-input-range-track-size:calc(var(--z-input-range-thumb-size) / 3);position:relative;display:flex;width:100%;height:100%}label.z-label{padding:0;margin-bottom:calc(var(--space-unit) * 1.5)}:host([orientation="vertical"]) label.z-label{display:none}input[type="range"]{--main-color:var(--color-primary01);width:100%;height:var(--z-input-range-thumb-size);padding:0;margin:0;appearance:none;background:transparent;writing-mode:horizontal-tb}input[type="range"]:hover,input[type="range"]:hover~z-tooltip{--main-color:var(--color-hover-primary)}input[type="range"]:focus:focus-visible{outline:none}input[type="range"]:disabled,input[type="range"]:disabled~z-tooltip{--main-color:var(--color-form-disabled03);cursor:default}input[type="range"]::-webkit-slider-runnable-track{width:100%;height:var(--z-input-range-track-size);border:none;appearance:none;background:linear-gradient(var(--main-color), var(--main-color)) 0 / var(--progress) 100% no-repeat,     var(--color-surface03);border-radius:var(--border-radius)}:host([orientation="vertical"]) input[type="range"]{width:var(--z-input-range-thumb-size);height:100%;direction:rtl;writing-mode:vertical-lr}:host([orientation="vertical"]) input[type="range"]::-webkit-slider-runnable-track{width:var(--z-input-range-track-size);height:100%;background:linear-gradient(var(--main-color), var(--main-color)) 0 100% / 100% var(--progress) no-repeat,     var(--color-surface03)}input[type="range"]::-webkit-slider-thumb{width:var(--z-input-range-thumb-size);height:var(--z-input-range-thumb-size);box-sizing:border-box;border:calc(var(--z-input-range-thumb-size) / 4.8) solid var(--main-color);margin-top:calc((var(--z-input-range-track-size) - var(--z-input-range-thumb-size)) / 2);appearance:none;background-color:var(--color-surface01);border-radius:50%}:host([orientation="vertical"]) input[type="range"]::-webkit-slider-thumb{margin-top:0;margin-left:calc((var(--z-input-range-track-size) - var(--z-input-range-thumb-size)) / 2)}input[type="range"]:not(:disabled)::-webkit-slider-runnable-track{cursor:pointer}input[type="range"]:not(:disabled)::-webkit-slider-thumb{cursor:grab}input[type="range"]:focus:not(:active)::-webkit-slider-thumb{box-shadow:var(--shadow-focus-primary)}input[type="range"]:active:not(:disabled)::-webkit-slider-thumb{cursor:grabbing}input[type="range"]::-moz-range-track{width:100%;height:var(--z-input-range-track-size);border:none;appearance:none;background:var(--color-surface03);border-radius:var(--border-radius)}:host([orientation="vertical"]) input[type="range"]::-moz-range-track{width:var(--z-input-range-track-size);height:100%}input[type="range"]::-moz-range-progress{height:var(--z-input-range-track-size);border:none;background:var(--main-color);border-radius:var(--border-radius)}:host([orientation="vertical"]) input[type="range"]::-moz-range-progress{width:var(--z-input-range-track-size);height:auto}input[type="range"]::-moz-range-thumb{width:var(--z-input-range-thumb-size);height:var(--z-input-range-thumb-size);box-sizing:border-box;border:calc(var(--z-input-range-thumb-size) / 4.8) solid var(--main-color);margin-top:calc((var(--z-input-range-track-size) - var(--z-input-range-thumb-size)) / 2);appearance:none;background-color:var(--color-surface01);border-radius:50%}:host([orientation="vertical"]) input[type="range"]::-moz-range-thumb{margin-top:0;margin-left:calc((var(--z-input-range-track-size) - var(--z-input-range-thumb-size)) / 2)}input[type="range"]:not(:disabled)::-moz-range-track,input[type="range"]:not(:disabled)::-moz-range-progress{cursor:pointer}input[type="range"]:not(:disabled)::-moz-range-thumb{cursor:grab}input[type="range"]:active:not(:disabled)::-moz-range-thumb{cursor:grabbing}input[type="range"]:focus:not(:active)::-moz-range-thumb{box-shadow:var(--shadow-focus-primary)}.tooltip-guide{--progress-position:calc(     (var(--progress-ratio) * (100% - var(--z-input-range-thumb-size))) + (var(--z-input-range-thumb-size) / 2)   );position:absolute;z-index:-1;top:0;left:var(--progress-position);width:var(--z-input-range-thumb-size);height:var(--z-input-range-thumb-size);background:transparent;pointer-events:none;transform:translateX(-50%)}:host([orientation="vertical"]) .tooltip-guide{top:auto;bottom:var(--progress-position);left:0;transform:translateY(50%)}z-tooltip{--main-color:var(--color-primary01);--z-tooltip-theme--surface:var(--main-color);--z-tooltip-theme--text:var(--color-text-inverse);--z-tooltip-padding:calc(var(--space-unit) / 2)}z-tooltip .current-value{min-width:calc(var(--space-unit) * 3.5)}.edges{display:flex;justify-content:space-between}.edges :is(.min,.max){min-width:var(--z-input-range-thumb-size);text-align:center}:host([orientation="vertical"]) .edges{display:none}`;
+
+const typographyCss = () => `:root{--font-family-sans:"IBM Plex Sans", sans-serif;--font-family-serif:"IBM Plex Serif", serif;--font-lt:300;--font-rg:400;--font-sb:600;--font-bd:700;--font-size-1:0.75rem;--font-size-2:0.875rem;--font-size-3:1rem;--font-size-4:1.125rem;--font-size-5:1.25rem;--font-size-6:1.5rem;--font-size-7:1.75rem;--font-size-8:2rem;--font-size-9:2.25rem;--font-size-10:2.625rem;--font-size-11:3rem;--font-size-12:3.375rem;--font-size-13:3.75rem;--font-size-14:4.25rem;--font-size-15:4.75rem;--font-size-16:5.25rem;--font-size-17:5.75rem;--section-title-1:var(--font-sb) var(--font-size-11) / 1.083 var(--font-family-serif);--section-title-2:var(--font-sb) var(--font-size-10) / 1.142 var(--font-family-serif);--section-title-3:var(--font-sb) var(--font-size-9) / 1.222 var(--font-family-serif);--section-title-4:var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);--section-title-5:var(--font-sb) var(--font-size-7) / 1.2857 var(--font-family-serif);--section-title-6:var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif)}.heading-1,.heading-1-sb,.heading-1-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}.heading-2,.heading-2-sb,.heading-2-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.heading-3,.heading-3-sb,.heading-3-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.heading-4,.heading-4-sb,.heading-4-lt{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.body-1,.body-1-sb{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.body-2,.body-2-sb{font-size:var(--font-size-4);font-weight:var(--font-rg);line-height:1.5}.body-3,.body-3-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.body-4,.body-4-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.body-5,.body-5-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.interactive-1,.interactive-1-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.interactive-2,.interactive-2-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.interactive-3,.interactive-3-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.helper,.helper-sb{font-size:var(--font-size-1);font-style:italic;font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.section-title-1{font:var(--section-title-1)}.section-title-2{font:var(--section-title-2)}.section-title-3{font:var(--section-title-3)}.section-title-4{font:var(--section-title-4)}.section-title-5{font:var(--section-title-5)}.section-title-6{font:var(--section-title-6)}@media (min-width: 1152px){.heading-1,.heading-1-sb,.heading-1-lt{font-size:var(--font-size-8);font-weight:var(--font-rg);line-height:1.25}.heading-2,.heading-2-sb,.heading-2-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}}@media (max-width: 767px){.mobile-heading-1,.mobile-heading-1-sb,.mobile-heading-1-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}.mobile-heading-2,.mobile-heading-2-sb,.mobile-heading-2-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.mobile-heading-3,.mobile-heading-3-sb,.mobile-heading-3-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.mobile-heading-4,.mobile-heading-4-sb,.mobile-heading-4-lt{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.mobile-body-1,.mobile-body-1-sb{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.mobile-body-2,.mobile-body-2-sb{font-size:var(--font-size-4);font-weight:var(--font-rg);line-height:1.5}.mobile-body-3,.mobile-body-3-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.mobile-body-4,.mobile-body-4-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.mobile-body-5,.mobile-body-5-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.mobile-interactive-1,.mobile-interactive-1-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.mobile-interactive-2,.mobile-interactive-2-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.mobile-interactive-3,.mobile-interactive-3-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.mobile-section-title-1{font:var(--section-title-1)}.mobile-section-title-2{font:var(--section-title-2)}.mobile-section-title-3{font:var(--section-title-3)}.mobile-section-title-4{font:var(--section-title-4)}.mobile-section-title-5{font:var(--section-title-5)}.mobile-section-title-6{font:var(--section-title-6)}.mobile-heading-1-lt,.mobile-heading-2-lt,.mobile-heading-3-lt,.mobile-heading-4-lt{font-weight:var(--font-lt)}.mobile-heading-1-sb,.mobile-heading-2-sb,.mobile-heading-3-sb,.mobile-heading-4-sb,.mobile-body-1-sb,.mobile-body-2-sb,.mobile-body-3-sb,.mobile-body-4-sb,.mobile-body-5-sb,.mobile-interactive-1-sb,.mobile-interactive-2-sb,.mobile-interactive-3-sb{font-weight:var(--font-sb)}}@media (min-width: 768px) and (max-width: 1151px){.tablet-heading-1,.tablet-heading-1-sb,.tablet-heading-1-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}.tablet-heading-2,.tablet-heading-2-sb,.tablet-heading-2-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.tablet-heading-3,.tablet-heading-3-sb,.tablet-heading-3-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.tablet-heading-4,.tablet-heading-4-sb,.tablet-heading-4-lt{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.tablet-body-1,.tablet-body-1-sb{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.tablet-body-2,.tablet-body-2-sb{font-size:var(--font-size-4);font-weight:var(--font-rg);line-height:1.5}.tablet-body-3,.tablet-body-3-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.tablet-body-4,.tablet-body-4-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.tablet-body-5,.tablet-body-5-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.tablet-interactive-1,.tablet-interactive-1-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.tablet-interactive-2,.tablet-interactive-2-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.tablet-interactive-3,.tablet-interactive-3-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.tablet-section-title-1{font:var(--section-title-1)}.tablet-section-title-2{font:var(--section-title-2)}.tablet-section-title-3{font:var(--section-title-3)}.tablet-section-title-4{font:var(--section-title-4)}.tablet-section-title-5{font:var(--section-title-5)}.tablet-section-title-6{font:var(--section-title-6)}.tablet-heading-1-lt,.tablet-heading-2-lt,.tablet-heading-3-lt,.tablet-heading-4-lt{font-weight:var(--font-lt)}.tablet-heading-1-sb,.tablet-heading-2-sb,.tablet-heading-3-sb,.tablet-heading-4-sb,.tablet-body-1-sb,.tablet-body-2-sb,.tablet-body-3-sb,.tablet-body-4-sb,.tablet-body-5-sb,.tablet-interactive-1-sb,.tablet-interactive-2-sb,.tablet-interactive-3-sb{font-weight:var(--font-sb)}}@media (min-width: 1152px) and (max-width: 1365px){.desktop-heading-1,.desktop-heading-1-sb,.desktop-heading-1-lt{font-size:var(--font-size-8);font-weight:var(--font-rg);line-height:1.25}.desktop-heading-2,.desktop-heading-2-sb,.desktop-heading-2-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}.desktop-heading-3,.desktop-heading-3-sb,.desktop-heading-3-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.desktop-heading-4,.desktop-heading-4-sb,.desktop-heading-4-lt{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.desktop-body-1,.desktop-body-1-sb{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.desktop-body-2,.desktop-body-2-sb{font-size:var(--font-size-4);font-weight:var(--font-rg);line-height:1.5}.desktop-body-3,.desktop-body-3-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.desktop-body-4,.desktop-body-4-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.desktop-body-5,.desktop-body-5-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.desktop-interactive-1,.desktop-interactive-1-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.desktop-interactive-2,.desktop-interactive-2-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.desktop-interactive-3,.desktop-interactive-3-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.desktop-section-title-1{font:var(--section-title-1)}.desktop-section-title-2{font:var(--section-title-2)}.desktop-section-title-3{font:var(--section-title-3)}.desktop-section-title-4{font:var(--section-title-4)}.desktop-section-title-5{font:var(--section-title-5)}.desktop-section-title-6{font:var(--section-title-6)}.desktop-heading-1-lt,.desktop-heading-2-lt,.desktop-heading-3-lt,.desktop-heading-4-lt{font-weight:var(--font-lt)}.desktop-heading-1-sb,.desktop-heading-2-sb,.desktop-heading-3-sb,.desktop-heading-4-sb,.desktop-body-1-sb,.desktop-body-2-sb,.desktop-body-3-sb,.desktop-body-4-sb,.desktop-body-5-sb,.desktop-interactive-1-sb,.desktop-interactive-2-sb,.desktop-interactive-3-sb{font-weight:var(--font-sb)}}@media (min-width: 1366px){.wide-heading-1,.wide-heading-1-sb,.wide-heading-1-lt{font-size:var(--font-size-8);font-weight:var(--font-rg);line-height:1.25}.wide-heading-2,.wide-heading-2-sb,.wide-heading-2-lt{font-size:var(--font-size-7);font-weight:var(--font-rg);line-height:1.28}.wide-heading-3,.wide-heading-3-sb,.wide-heading-3-lt{font-size:var(--font-size-6);font-weight:var(--font-rg);line-height:1.333}.wide-heading-4,.wide-heading-4-sb,.wide-heading-4-lt{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.wide-body-1,.wide-body-1-sb{font-size:var(--font-size-5);font-weight:var(--font-rg);line-height:1.4}.wide-body-2,.wide-body-2-sb{font-size:var(--font-size-4);font-weight:var(--font-rg);line-height:1.5}.wide-body-3,.wide-body-3-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.wide-body-4,.wide-body-4-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.wide-body-5,.wide-body-5-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.wide-interactive-1,.wide-interactive-1-sb{font-size:var(--font-size-3);font-weight:var(--font-rg);line-height:1.5}.wide-interactive-2,.wide-interactive-2-sb{font-size:var(--font-size-2);font-weight:var(--font-rg);letter-spacing:0.16px;line-height:1.4}.wide-interactive-3,.wide-interactive-3-sb{font-size:var(--font-size-1);font-weight:var(--font-rg);letter-spacing:0.32px;line-height:1.333}.wide-section-title-1{font:var(--section-title-1)}.wide-section-title-2{font:var(--section-title-2)}.wide-section-title-3{font:var(--section-title-3)}.wide-section-title-4{font:var(--section-title-4)}.wide-section-title-5{font:var(--section-title-5)}.wide-section-title-6{font:var(--section-title-6)}.wide-heading-1-lt,.wide-heading-2-lt,.wide-heading-3-lt,.wide-heading-4-lt{font-weight:var(--font-lt)}.wide-heading-1-sb,.wide-heading-2-sb,.wide-heading-3-sb,.wide-heading-4-sb,.wide-body-1-sb,.wide-body-2-sb,.wide-body-3-sb,.wide-body-4-sb,.wide-body-5-sb,.wide-interactive-1-sb,.wide-interactive-2-sb,.wide-interactive-3-sb{font-weight:var(--font-sb)}}.heading-1-lt,.heading-2-lt,.heading-3-lt,.heading-4-lt{font-weight:var(--font-lt)}.heading-1-sb,.heading-2-sb,.heading-3-sb,.heading-4-sb,.body-1-sb,.body-2-sb,.body-3-sb,.body-4-sb,.body-5-sb,.interactive-1-sb,.interactive-2-sb,.interactive-3-sb,.helper-sb{font-weight:var(--font-sb)}`;
+
+const ZInputRange = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.rangeInput = createEvent(this, "rangeInput", 7);
+        this.rangeChange = createEvent(this, "rangeChange", 7);
+        if (hostRef.$hostElement$["s-ei"]) {
+            this.internals = hostRef.$hostElement$["s-ei"];
+        }
+        else {
+            this.internals = hostRef.$hostElement$.attachInternals();
+            hostRef.$hostElement$["s-ei"] = this.internals;
+        }
+        /** Whether the input range is disabled. */
+        this.disabled = false;
+        /** ID of the input range. */
+        this.htmlId = `z-input-range-${randomId()}`;
+        /** The greatest value in the range of permitted values. */
+        this.max = 100;
+        /** The lowest value in the range of permitted values. */
+        this.min = 0;
+        /** Whether to show `min` and `max` values of the input range. Only visible with the `horizontal` orientation. */
+        this.showEdges = false;
+        /** The step value for the input range. */
+        this.step = 1;
+        /** The value of the input range. */
+        this.value = 0;
+        /** The current value of the input range synchronized with the native input element. */
+        this.currentValue = this.value;
+        /**
+         * Whether to show the tooltip displaying the current value.
+         * The tooltip is shown only when the input range is focused or while the user is changing the value.
+         */
+        this.showValueTooltip = false;
+        /**
+         * Whether the native input value needs to be synced with the component state.
+         * This is necessary when the `step` prop changes, as the browser may round the value,
+         * so we need to update the component state accordingly.
+         */
+        this.needsNativeValueSync = false;
+    }
+    get ariaLabel() {
+        var _a;
+        return (_a = this.htmlAriaLabel) !== null && _a !== void 0 ? _a : (this.orientation === Orientation.VERTICAL ? this.label : undefined);
+    }
+    get tooltipPosition() {
+        var _a;
+        return ((_a = this.valuePosition) !== null && _a !== void 0 ? _a : (this.orientation === Orientation.VERTICAL ? PopoverPosition.LEFT : PopoverPosition.TOP));
+    }
+    updateCurrentValue(nextValue) {
+        if (Number.isNaN(nextValue) || nextValue === this.currentValue) {
+            return;
+        }
+        this.currentValue = nextValue;
+        this.internals.setFormValue(this.currentValue.toString());
+    }
+    /** Calculates the current ratio of the input range value. */
+    getCurrentRatio() {
+        const range = this.max - this.min;
+        if (range <= 0) {
+            return 0;
+        }
+        const ratio = (this.currentValue - this.min) / range;
+        return Math.min(1, Math.max(0, ratio));
+    }
+    /** Updates the CSS variables used to color the track progress and tooltip guide position. */
+    updateProgress() {
+        var _a, _b;
+        const ratio = this.getCurrentRatio();
+        const progress = ratio * 100;
+        (_a = this.host) === null || _a === void 0 ? void 0 : _a.style.setProperty("--progress-ratio", `${ratio}`);
+        (_b = this.host) === null || _b === void 0 ? void 0 : _b.style.setProperty("--progress", `${progress}%`);
+    }
+    /**
+     * Syncs current value from native input after render-time browser coercions:
+     * when `step` changes, the browser may round the value, so we need to update the component state accordingly.
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range#step
+     */
+    syncCurrentValueFromNativeInput() {
+        if (!this.inputRef) {
+            return;
+        }
+        this.updateCurrentValue(this.inputRef.valueAsNumber);
+        this.updateProgress();
+    }
+    onInput(event) {
+        event.stopPropagation();
+        this.syncCurrentValueFromNativeInput();
+        this.rangeInput.emit(this.currentValue);
+    }
+    onChange(event) {
+        event.stopPropagation();
+        this.syncCurrentValueFromNativeInput();
+        this.rangeChange.emit(this.currentValue);
+    }
+    onConstraintsChange() {
+        this.needsNativeValueSync = true;
+    }
+    componentDidLoad() {
+        this.needsNativeValueSync = true;
+        this.syncCurrentValueFromNativeInput();
+    }
+    componentDidRender() {
+        if (!this.needsNativeValueSync) {
+            return;
+        }
+        this.syncCurrentValueFromNativeInput();
+        this.needsNativeValueSync = false;
+    }
+    render() {
+        return (h(Host, { key: '3b37077c4ba5f2a04a1d131fe9eac923436c5a91' }, this.label && (h("label", { key: '7240d003d1fbed16cd0a1b1557314dfd2bcd9a3f', class: "z-label", htmlFor: this.htmlId }, this.label)), h("div", { key: 'd1920f42f1dc8a03bda038a2d177e57035f4f092', class: "input-container body-3" }, h("input", { key: 'd6e2c44d55b1a9455b56b375d64e110af9d30057', ref: (el) => (this.inputRef = el), type: "range", "aria-label": this.ariaLabel, id: this.htmlId, disabled: this.disabled, min: this.min, max: this.max, step: this.step, value: this.currentValue, onInput: (event) => this.onInput(event), onChange: (event) => this.onChange(event), onFocus: () => (this.showValueTooltip = true), onBlur: () => (this.showValueTooltip = false) }), h("div", { key: '7bfa033f84290c2cafe4f39a87edd45191a84680', class: "tooltip-guide", ref: (el) => (this.tooltipGuideRef = el) }), h("z-tooltip", { key: '430d53ed9782f4cf0995e3f9233e541843723491', position: this.tooltipPosition, bindTo: this.tooltipGuideRef, open: this.showValueTooltip, closable: false }, h("div", { key: '0af7033124469b52197a57ce16fdccd7fd97dbf6', class: "current-value" }, this.currentValue))), this.showEdges && (h("div", { key: 'd3c1598713da8f390bfceac94429549e974ea9e8', class: "edges body-3" }, h("span", { key: '975d41878caf4b3ede7ccf78411657ad8339ad9c', class: "min" }, this.min), h("span", { key: '1594cb900aeed07b641bfb836f8bc4fed7b2f99e', class: "max" }, this.max)))));
+    }
+    static get formAssociated() { return true; }
+    get host() { return getElement(this); }
+    static get watchers() { return {
+        "min": [{
+                "onConstraintsChange": 0
+            }],
+        "max": [{
+                "onConstraintsChange": 0
+            }],
+        "step": [{
+                "onConstraintsChange": 0
+            }],
+        "value": [{
+                "onConstraintsChange": 0
+            }]
+    }; }
+};
+ZInputRange.style = stylesCss() + typographyCss();
+
+export { ZInputRange as z_input_range };
