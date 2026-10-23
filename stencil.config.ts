@@ -3,12 +3,25 @@ import {Config} from "@stencil/core";
 import {reactOutputTarget} from "@stencil/react-output-target";
 
 const isStencilDevBuild = process.argv.includes("--dev");
-const isStorybookDevBuild = process.env.STORYBOOK_DEV === "1";
+const isStorybookBuild = process.env.STORYBOOK_BUILD === "1";
 
 const outputTargets: Config["outputTargets"] = [
   {
     type: "dist-custom-elements",
     customElementsExportBehavior: "single-export-module",
+  },
+  {
+    type: "dist",
+    esmLoaderPath: "../loader",
+  },
+  {
+    type: "docs-vscode",
+    file: "docs-vscode.json",
+    sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
+  },
+  {
+    type: "docs-json",
+    file: "./custom-elements.json",
   },
 ];
 
@@ -20,38 +33,27 @@ const outputTargets: Config["outputTargets"] = [
 // Properties" section to be dropped from every component `.readme` on each HMR cycle.
 // The same risk applies to other doc/artifact targets.
 // To prevent any incomplete output, we restrict the programmatic Storybook build to only
-// the `dist-custom-elements` target, which is the one actually needed to serve components in
-// Storybook. All other targets are disabled via the `STORYBOOK_DEV` env var or `--dev` flag in Stencil build.
-if (!isStorybookDevBuild && !isStencilDevBuild) {
+// the `dist-custom-elements` and `dist` targets, which are the ones actually needed to serve
+// components in Storybook (`dist` provides the lazy loader used by `.storybook/preview.tsx`,
+// which must be rebuilt on every change to see live updates).
+// All other targets are disabled via the `STORYBOOK_BUILD` env var.
+if (!isStorybookBuild) {
   outputTargets.push(
-    {
-      type: "dist",
-      esmLoaderPath: "../loader",
-    },
     reactOutputTarget({
       componentCorePackage: require("./package.json").name,
       proxiesFile: "./src-react/components.ts",
     }),
     {
       type: "docs-readme",
-    },
-    {
-      type: "docs-vscode",
-      file: "docs-vscode.json",
-      sourceCodeBaseUrl: "https://github.com/ZanichelliEditore/design-system",
-    },
-    {
-      type: "docs-json",
-      file: "./custom-elements.json",
     }
   );
 }
 
 // The `www` output target is only needed for local development when serving the Stencil demo app (with `yarn start`).
-if (isStencilDevBuild) {
+if (isStencilDevBuild && !isStorybookBuild) {
   outputTargets.push({
     type: "www",
-    serviceWorker: null, // disable service workers
+    serviceWorker: null,
     empty: true,
   });
 }
@@ -61,16 +63,15 @@ export const config: Config = {
   globalStyle: "src/global.css",
   plugins: [image()],
   tsconfig: "tsconfig.stencil.json",
-  // Keep source maps enabled in local (non-production) builds so Storybook DevTools can map components to their source files.
-  sourceMap: isStorybookDevBuild || isStencilDevBuild,
+  sourceMap: isStencilDevBuild || isStorybookBuild,
   outputTargets,
   extras: {
     enableImportInjection: true,
     experimentalScopedSlotChanges: true,
     appendChildSlotFix: true,
     cloneNodeFix: true,
-    scopedSlotTextContentFix:
-      false /* setting this to true will break the retrieval of `textContent` in the `componentWillLoad` lifecycle method */,
+    // Enabling this will prevent `textContent` from being correctly retrieved in the `componentWillLoad` method.
+    scopedSlotTextContentFix: false,
     slotChildNodesFix: true,
   },
   testing: {

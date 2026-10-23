@@ -2,11 +2,11 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {COLOR_INDICATOR_ICONS} from "../../constants/iconset";
 import {getColorTokens} from "../../utils/storybook-utils";
-import {ZIcon} from "./index";
+import type {ZIcon} from "./index";
 
 const StoryMeta = {
   title: "ZIcon",
-  component: ZIcon,
+  component: "z-icon",
   argTypes: {
     fill: {
       options: getColorTokens().map((token) => token.replace("--", "")),

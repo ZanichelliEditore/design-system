@@ -1,6 +1,6 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZStepper} from "./index";
+import type {ZStepper} from "./index";
 
 export default {
   title: "ZStepper/ZStepper",

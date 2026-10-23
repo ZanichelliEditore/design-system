@@ -3,7 +3,7 @@ import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {PopoverPosition, TransitionDirection} from "../../beans";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZPopover} from "./index";
+import type {ZPopover} from "./index";
 import "./index.stories.css";
 
 type ZPopoverStoriesArgs = ZPopover &

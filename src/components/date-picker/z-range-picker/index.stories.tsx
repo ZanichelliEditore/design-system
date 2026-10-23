@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ZRangePickerMode} from "../../../beans";
 import "../index.stories.css";
-import {ZRangePicker} from "./index";
+import type {ZRangePicker} from "./index";
 
 const onDateSelect = (e: CustomEvent<string[]>, rangePickerId: string) => {
   const input = document.getElementById(`output-${rangePickerId}`);
@@ -17,7 +17,7 @@ const onDateSelect = (e: CustomEvent<string[]>, rangePickerId: string) => {
  */
 const StoryMeta = {
   title: "ZRangePicker",
-  component: ZRangePicker,
+  component: "z-range-picker",
   argTypes: {
     mode: {
       options: Object.values(ZRangePickerMode),

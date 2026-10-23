@@ -1,13 +1,13 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, InputStatus} from "../../beans";
-import {ZInputMessage} from "./index";
+import type {ZInputMessage} from "./index";
 
 type ZInputMessageStoriesArgs = ZInputMessage & {class: ControlSize};
 
 const StoryMeta = {
   title: "ZInputMessage",
-  component: ZInputMessage,
+  component: "z-input-message",
   argTypes: {
     status: {
       control: {

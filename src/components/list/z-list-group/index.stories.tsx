@@ -1,12 +1,12 @@
 import {h} from "@stencil/core";
-import type {Meta} from "@stencil/storybook-plugin";
+import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {DividerSize, ListDividerType, ListSize, ListType} from "../../../beans";
 import {getColorTokenArgConfig} from "../../../utils/storybook-utils";
-import {ZListGroup} from "./index";
+import type {ZListGroup} from "./index";
 
 const StoryMeta = {
   title: "ZList/ZListGroup",
-  component: ZListGroup,
+  component: "z-list-group",
   argTypes: {
     size: {
       control: {
@@ -45,6 +45,8 @@ const StoryMeta = {
 
 export default StoryMeta;
 
+type Story = StoryObj<ZListGroup>;
+
 export const Default = {
   render: (args) => (
     <z-list>
@@ -62,4 +64,4 @@ export const Default = {
       </z-list-group>
     </z-list>
   ),
-};
+} satisfies Story;
