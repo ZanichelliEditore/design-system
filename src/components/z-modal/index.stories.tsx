@@ -2,14 +2,14 @@ import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZModal} from "./index";
+import type {ZModal} from "./index";
 import "./index.stories.css";
 
 type ZSearchbarStoriesArgs = ZModal & CSSVarsArguments<"--z-modal-content-padding">;
 
 const StoryMeta = {
   title: "ZModal",
-  component: ZModal,
+  component: "z-modal",
   args: {
     "modalid": "my-modal",
     "modaltitle": "My modal title",

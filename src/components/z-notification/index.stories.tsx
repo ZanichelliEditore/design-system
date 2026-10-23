@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {NotificationType} from "../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZNotification} from "./index";
+import type {ZNotification} from "./index";
 import "./index.stories.css";
 
 const DEMO_LONG_TEXT =
@@ -13,7 +13,7 @@ type ZNotificationStoriesArgs = ZNotification &
 
 const StoryMeta = {
   title: "ZNotification",
-  component: ZNotification,
+  component: "z-notification",
   argTypes: {
     type: {
       control: {

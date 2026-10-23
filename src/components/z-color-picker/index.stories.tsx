@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ColorPickerPalette} from "../../beans";
-import {ZColorPicker} from "./index";
+import type {ZColorPicker} from "./index";
 
 const StoryMeta = {
   title: "ZColorPicker",
-  component: ZColorPicker,
+  component: "z-color-picker",
   argTypes: {
     lng: {
       control: {type: "inline-radio"},
