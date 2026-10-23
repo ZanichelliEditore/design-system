@@ -1,19 +1,22 @@
 :host {
   display: flex;
-  min-height: calc(var(--space-unit) * 2.5);
+  min-height: 1.25rem;
   align-items: start;
-  margin-top: var(--space-unit);
+  margin-top: calc(var(--space-unit) / 2);
   color: var(--color-default-text);
   fill: currentcolor;
   font-family: var(--font-family-sans);
   font-size: var(--font-size-2);
   letter-spacing: 0.16px;
+  line-height: 1.25rem;
 }
 
 :host(.small),
 :host(.x-small) {
-  margin-top: calc(var(--space-unit) * 0.5);
+  min-height: 1rem;
+  margin-left: var(--space-unit);
   font-size: var(--font-size-1);
+  line-height: 1rem;
 }
 
 :host([status="success"]) {
@@ -35,7 +38,7 @@
 :host > z-icon {
   --z-icon-width: calc(var(--space-unit) * 2);
   --z-icon-height: calc(var(--space-unit) * 2);
-  --z-icon-right-margin: var(--space-unit);
+  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
 
   margin-top: calc(var(--space-unit) * 0.25);
 }
@@ -44,7 +47,8 @@
 :host(.x-small) > z-icon {
   --z-icon-width: 14px;
   --z-icon-height: 14px;
-  --z-icon-right-margin: calc(var(--space-unit) * 0.5);
+
+  margin-top: calc(var(--space-unit) * 0.125);
 }
 
 :host([disabled]) {
