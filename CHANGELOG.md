@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.1.0](https://github.com/ZanichelliEditore/design-system/compare/v20.0.5...v20.1.0) (2026-10-27)
+
+
+### Features
+
+* add typography font variables and serif classes ([df8b0d6](https://github.com/ZanichelliEditore/design-system/commit/df8b0d6b886bc519bcfe9b669fd6a6b3c35329ea))
+* css storybook ([8997449](https://github.com/ZanichelliEditore/design-system/commit/8997449528edccab080010979d15fe66e3dbeab3))
+* css: added margin and padding classes ([4eef168](https://github.com/ZanichelliEditore/design-system/commit/4eef1684c0de2bff158cc5e1f7b8c816649611da))
+* css: added more space unit variables ([6758c43](https://github.com/ZanichelliEditore/design-system/commit/6758c437ab59ee9ef8f8c063d192ec461e870655))
+* css: improve storybook doc ([74386c8](https://github.com/ZanichelliEditore/design-system/commit/74386c88cb081f7ef7488f9f5fc775e6344aca0f))
+* css: sort classes ([1103463](https://github.com/ZanichelliEditore/design-system/commit/1103463a416349baee1ab89f1371df5483dcdbf3))
+* fix css ([9e2ee4d](https://github.com/ZanichelliEditore/design-system/commit/9e2ee4df13f038f8528937cfad79b1cb892b0ab9))
+
+
+### Bug Fixes
+
+* **DS-769:** add dark theme for ztoggle switch and fixed dark theme scrollbar ([468e7c4](https://github.com/ZanichelliEditore/design-system/commit/468e7c46be6e4b39bc9ee5fcc933e9d1d118b4b6))
+* **DS-769:** add dark theme for ztoggle switch and fixed dark theme scrollbar ([fe2cd52](https://github.com/ZanichelliEditore/design-system/commit/fe2cd52bf92c1ecb4be5ddf449d6e4539cf6fa8e))
+* **storybook docs:** correctly apply DS themes to the stories inside the Docs page ([e2962a6](https://github.com/ZanichelliEditore/design-system/commit/e2962a68aa2722955ed486366ba92cf06be37378))
+* subcomponents class import in stories; ensure custom-elements.json build ([cda0c8c](https://github.com/ZanichelliEditore/design-system/commit/cda0c8c5a66bf09df10531828b95c05f69c41807))
+* zaccordion controls ([1933936](https://github.com/ZanichelliEditore/design-system/commit/1933936eb8e3aadd93b43cb519ccff90af87784c))
+
 ## [20.0.5](https://github.com/ZanichelliEditore/design-system/compare/v20.0.4...v20.0.5) (2026-10-01)
 
 
