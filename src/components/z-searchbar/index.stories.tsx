@@ -2,14 +2,14 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, ControlSize} from "../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZSearchbar} from "./index";
+import type {ZSearchbar} from "./index";
 
 type ZSearchbarStoriesArgs = ZSearchbar &
   CSSVarsArguments<"--z-searchbar-results-height" | "--z-searchbar-tag-text-color" | "--z-searchbar-tag-bg">;
 
 const StoryMeta = {
   title: "ZSearchbar",
-  component: ZSearchbar,
+  component: "z-searchbar",
   argTypes: {
     resultsItems: {
       control: {

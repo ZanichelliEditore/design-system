@@ -1,12 +1,12 @@
 import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
-import {ZStepperItem} from "./index";
+import type {ZStepperItem} from "./index";
 
 type ZStepperItemStoriesArgs = ZStepperItem & {text: string};
 
 export default {
   title: "ZStepper/ZStepperItem",
-  component: ZStepperItem,
+  component: "z-stepper-item",
   args: {
     pressed: false,
     disabled: false,

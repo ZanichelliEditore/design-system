@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {LabelPosition} from "../../beans";
-import {type ZToggleSwitch} from "./index";
+import type {ZToggleSwitch} from "./index";
 
 const StoryMeta = {
   title: "ZToggleSwitch",

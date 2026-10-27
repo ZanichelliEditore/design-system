@@ -3,7 +3,7 @@ import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import "./index.stories.css";
 
 type TypographyArgs = {
-  fontFamily: "--font-family-sans" | "--font-family-serif";
+  fontFamily: "sans" | "serif";
 };
 
 type TypeScaleArgs = TypographyArgs & {
@@ -26,12 +26,12 @@ export default {
   title: "Typography",
   argTypes: {
     fontFamily: {
-      options: ["--font-family-sans", "--font-family-serif"],
+      options: ["sans", "serif"],
       control: {type: "inline-radio"},
     },
   },
   args: {
-    fontFamily: "--font-family-sans",
+    fontFamily: "sans",
   },
   parameters: {
     docs: {
@@ -66,12 +66,13 @@ const bodyLevels = 5;
 const interactiveLevels = 3;
 const sectionTitleLevels = 6;
 
-const getWeightSuffix = (weight: string | null): string => (weight ? `-${weight}` : "");
+const buildFontString = (prefix: string, level: string, weight?: string, family?: string): string =>
+  [prefix, level, weight, family === "sans" ? "" : family].filter(Boolean).join("-");
 
 const getPxValue = (cssVar: string): string => {
-  const rootStyles = getComputedStyle(document.documentElement);
-  const remValue = Number.parseFloat(rootStyles.getPropertyValue(cssVar));
-  const baseFontSize = Number.parseFloat(rootStyles.getPropertyValue("font-size"));
+  const docStyles = getComputedStyle(document.documentElement);
+  const remValue = Number.parseFloat(docStyles.getPropertyValue(cssVar));
+  const baseFontSize = Number.parseFloat(docStyles.getPropertyValue("font-size"));
 
   return `${remValue * baseFontSize}px`;
 };
@@ -80,7 +81,15 @@ export const TypeScale = {
   argTypes: {
     fontWeight: {
       options: ["--font-lt", "--font-rg", "--font-sb", "--font-bd"],
-      control: {type: "inline-radio"},
+      control: {
+        type: "inline-radio",
+        labels: {
+          "--font-lt": "Light",
+          "--font-rg": "Regular",
+          "--font-sb": "Semibold",
+          "--font-bd": "Bold",
+        },
+      },
     },
   },
   args: {
@@ -95,7 +104,7 @@ export const TypeScale = {
           class="sample-text"
           style={{
             fontSize: `var(${prop})`,
-            fontFamily: `var(${args.fontFamily})`,
+            fontFamily: `var(--font-family-${args.fontFamily})`,
             fontWeight: `var(${args.fontWeight})`,
           }}
         >
@@ -118,16 +127,32 @@ export const TypeScale = {
  *
  * will apply the `body-3` style on mobile, `body-2` on tablet, and `body-1` on desktop and wide viewports.
  *
- * Section titles are also available as CSS custom properties:
- * those properties are meant to be used with the "font" shorthand property. For example:
+ * Each class is also available as CSS custom property that can be used with the `font` shorthand property.
+ *
+ * For example:
  *
  * ```css
+ * h1 {
+ *  font: var(--heading-1);
+ * }
+ *
  * h4 {
  *  font: var(--section-title-4);
  * }
  * ```
+ *
+ * Since with the `font` shorthand property the `font-family` is mandatory and cannot be inherited,
+ * there are also the `-serif` variants of each CSS custom property to use a serif font family (the default is `sans`).
+ *
+ * For example:
+ *
+ * ```css
+ * h1 {
+ *  font: var(--heading-1-serif);
+ * }
+ * ```
  */
-export const TypographyClasses = {
+export const TypographyClassesAndCSSProps = {
   argTypes: {
     headingWeight: {
       options: ["lt", null, "sb"],
@@ -161,7 +186,7 @@ export const TypographyClasses = {
         {Array.from({length: sectionTitleLevels}, (_, i) => i + 1).map((level) => (
           <div class="typography-group">
             <div class={`section-title-${level}`}>{`Section title ${level}`}</div>
-            <div class="body-5-sb">{`.section-title-${level} / --section-title-${level}`}</div>
+            <div class="body-5-sb">section-title-{level}</div>
           </div>
         ))}
       </div>
@@ -170,12 +195,9 @@ export const TypographyClasses = {
         {Array.from({length: headingLevels}, (_, i) => i + 1).map((level) => (
           <div class="typography-group">
             <div
-              class={`heading-${level}${getWeightSuffix(args.headingWeight)}`}
-              style={{fontFamily: `var(${args.fontFamily})`}}
-            >
-              Heading {level}
-            </div>
-            <div class="body-5-sb">{`.heading-${level}${getWeightSuffix(args.headingWeight)}`}</div>
+              class={buildFontString("heading", `${level}`, args.headingWeight, args.fontFamily)}
+            >{`Heading ${level}`}</div>
+            <div class="body-5-sb">{buildFontString("heading", `${level}`, args.headingWeight, args.fontFamily)}</div>
           </div>
         ))}
       </div>
@@ -183,13 +205,8 @@ export const TypographyClasses = {
       <div class="body-classes">
         {Array.from({length: bodyLevels}, (_, i) => i + 1).map((level) => (
           <div class="typography-group">
-            <div
-              class={`body-${level}${getWeightSuffix(args.fontWeight)}`}
-              style={{fontFamily: `var(${args.fontFamily})`}}
-            >
-              Body {level}
-            </div>
-            <div class="body-5-sb">{`.body-${level}${getWeightSuffix(args.fontWeight)}`}</div>
+            <div class={buildFontString("body", `${level}`, args.fontWeight, args.fontFamily)}>Body {level}</div>
+            <div class="body-5-sb">{buildFontString("body", `${level}`, args.fontWeight, args.fontFamily)}</div>
           </div>
         ))}
       </div>
@@ -197,26 +214,18 @@ export const TypographyClasses = {
       <div class="interactive-classes">
         {Array.from({length: interactiveLevels}, (_, i) => i + 1).map((level) => (
           <div class="typography-group">
-            <div
-              class={`interactive-${level}${getWeightSuffix(args.fontWeight)}`}
-              style={{fontFamily: `var(${args.fontFamily})`}}
-            >
+            <div class={buildFontString("interactive", `${level}`, args.fontWeight, args.fontFamily)}>
               Interactive {level}
             </div>
-            <div class="body-5-sb">{`.interactive-${level}${getWeightSuffix(args.fontWeight)}`}</div>
+            <div class="body-5-sb">{buildFontString("interactive", `${level}`, args.fontWeight, args.fontFamily)}</div>
           </div>
         ))}
       </div>
 
       <div class="helper-classes">
         <div class="typography-group">
-          <div
-            class={`helper${getWeightSuffix(args.fontWeight)}`}
-            style={{fontFamily: `var(${args.fontFamily})`}}
-          >
-            Helper
-          </div>
-          <div class="body-5-sb">{`.helper${getWeightSuffix(args.fontWeight)}`}</div>
+          <div class={buildFontString("helper", "", args.fontWeight, args.fontFamily)}>Helper</div>
+          <div class="body-5-sb">{buildFontString("helper", "", args.fontWeight, args.fontFamily)}</div>
         </div>
       </div>
     </div>

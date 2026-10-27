@@ -2,11 +2,11 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, InputStatus, InputType, LabelPosition} from "../../beans";
 import {ICONS} from "../../constants/iconset.js";
-import {ZInput} from "./index";
+import type {ZInput} from "./index";
 
 const StoryMeta = {
   title: "ZInput",
-  component: ZInput,
+  component: "z-input",
   argTypes: {
     type: {
       control: {

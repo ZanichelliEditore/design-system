@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, ToastNotification, ToastNotificationPosition, ToastNotificationTransition} from "../../beans";
-import {ZToastNotificationList} from "./index";
+import type {ZToastNotificationList} from "./index";
 import "./index.stories.css";
 
 const template = (
@@ -70,7 +70,7 @@ const template = (
 
 const StoryMeta = {
   title: "ZToastNotificationList",
-  component: ZToastNotificationList,
+  component: "z-toast-notification-list",
   argTypes: {
     position: {
       control: {

@@ -1,10 +1,10 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZFile} from "./index";
+import type {ZFile} from "./index";
 
 export default {
   title: "ZFile",
-  component: ZFile,
+  component: "z-file",
 } satisfies Meta<ZFile>;
 
 export const Default = {

@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ThemeVariant} from "../../beans";
-import {ZSkipToContent} from "./index";
+import type {ZSkipToContent} from "./index";
 
 const StoryMeta = {
   title: "ZSkipToContent",
-  component: ZSkipToContent,
+  component: "z-skip-to-content",
   argTypes: {
     variant: {
       options: Object.values(ThemeVariant),

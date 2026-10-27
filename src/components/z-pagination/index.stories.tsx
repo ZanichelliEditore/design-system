@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZPagination} from "./index";
+import type {ZPagination} from "./index";
 
 type ZPaginationStoriesArgs = ZPagination &
   CSSVarsArguments<"--z-pagination-background-color" | "--z-pagination-background-color-hover">;

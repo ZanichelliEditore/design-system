@@ -3,7 +3,7 @@ import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CardVariant} from "../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZCard} from "./index";
+import type {ZCard} from "./index";
 import "./index.stories.css";
 
 type ZCardStoriesArgs = ZCard &
@@ -53,7 +53,7 @@ const cardContent = (image = true) => (
 
 const StoryMeta = {
   title: "ZCard",
-  component: ZCard,
+  component: "z-card",
   argTypes: {
     variant: {
       control: {

@@ -2,11 +2,11 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {DividerOrientation, DividerSize} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
-import {ZDivider} from "./index";
+import type {ZDivider} from "./index";
 
 const StoryMeta = {
   title: "ZDivider",
-  component: ZDivider,
+  component: "z-divider",
   argTypes: {
     size: {
       control: {
