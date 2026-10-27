@@ -1,10 +1,14 @@
 .z-label {
-  display: block;
-  padding-bottom: var(--space-unit);
+  display: inline-block;
+  padding-bottom: calc(var(--space-unit) / 2);
   color: var(--color-default-text);
   font-family: var(--font-family-sans);
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
   font-weight: var(--font-sb);
+  line-height: 1.25rem;
   text-align: left;
+}
+
+.z-label::first-letter {
   text-transform: uppercase;
 }

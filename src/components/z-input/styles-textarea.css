@@ -1,7 +1,8 @@
 .textarea-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  padding: calc(var(--space-unit) * 1.5);
+  padding: var(--space-unit);
 }
 
 .textarea-wrapper:not(.input-error, .input-success, .input-warning) {

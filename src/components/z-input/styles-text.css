@@ -1,3 +1,7 @@
+.text-wrapper {
+  position: relative;
+}
+
 .text-wrapper > div {
   position: relative;
   z-index: 1;
@@ -6,23 +10,23 @@
 
 .text-wrapper > div > input {
   width: 100%;
-  height: calc(var(--space-unit) * 5.5);
+  height: 2.75rem;
   box-sizing: border-box;
-  padding: 0 calc(var(--space-unit) * 1.5);
+  padding: 0 var(--space-unit);
   margin: 0;
 }
 
 :host([size="small"]) .text-wrapper > div > input {
-  height: calc(var(--space-unit) * 4.5);
+  height: 2.25rem;
 }
 
 :host([size="x-small"]) .text-wrapper > div > input {
-  height: calc(var(--space-unit) * 4);
+  height: 2rem;
 }
 
 .text-wrapper > div > input.has-icon,
 .text-wrapper > div > input.has-clear-icon {
-  padding-right: calc(var(--space-unit) * 5.25);
+  padding-right: calc(var(--space-unit) * 4);
 }
 
 .text-wrapper > div > input.has-icon.has-clear-icon {
@@ -33,8 +37,10 @@
   position: absolute;
   z-index: 2;
   top: 50%;
-  right: calc(var(--space-unit) * 1.5);
+  right: var(--space-unit);
   display: flex;
+  margin-left: var(--space-unit);
+  gap: var(--space-unit);
   pointer-events: none;
   transform: translateY(-50%);
 }
@@ -47,10 +53,6 @@
   color: inherit;
   font: inherit;
   pointer-events: initial;
-}
-
-.text-wrapper .icons-wrapper > .input-icon + .input-icon {
-  margin-left: calc(var(--space-unit) * 0.5);
 }
 
 .text-wrapper .icons-wrapper > button.input-icon.hidden {
@@ -74,13 +76,8 @@
   display: block;
 }
 
-.text-wrapper .icons-wrapper > .input-icon.small,
-.text-wrapper .icons-wrapper > .input-icon.x-small {
-  --z-icon-width: 16px;
-  --z-icon-height: 16px;
-}
-
 .text-wrapper .icons-wrapper > button.input-icon:focus {
+  border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-focus-primary);
   outline: none !important;
 }
