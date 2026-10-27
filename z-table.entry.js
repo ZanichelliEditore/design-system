@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import './z-tbody.entry.js';
 import './z-tfoot.entry.js';
 import './z-thead.entry.js';

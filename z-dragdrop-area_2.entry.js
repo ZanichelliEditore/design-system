@@ -1,6 +1,6 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { g as KeyboardCode } from './index-DdetsoIY.js';
-import { R as ReactiveControllerHost, F as FocusTrapController } from './reactive-controller-BsWOy09C.js';
+import { R as ReactiveControllerHost, F as FocusTrapController } from './reactive-controller-Bp_OSSRX.js';
 import './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
 
@@ -991,16 +991,16 @@ const ZModal = class extends ReactiveControllerHost {
         e.preventDefault();
     }
     render() {
-        return (h("dialog", { key: '365136e0cb7404c43b1d7f40b94add1e2316c670', class: {
+        return (h("dialog", { key: '78a12a74b33a0501e52a204ba453755edc9ea4c7', class: {
                 "modal-dialog": !this.scrollInside,
-            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '8786b7f6afbe64ca141373cf65c9d7f413a18557', class: {
+            }, "aria-labelledby": "modal-title", "aria-describedby": "modal-content", role: this.alertdialog ? "alertdialog" : undefined, ref: (el) => (this.dialog = el), onClose: () => this.emitModalClose(), onCancel: (e) => this.handleEscape(e) }, h("div", { key: '9331bc2f58c9240799389f921fc7aeca8e3525bd', class: {
                 "modal-container": true,
                 "modal-container-scroll-inside": this.scrollInside,
                 "modal-container-scroll-outside": !this.scrollInside,
-            }, id: this.modalid }, h("header", { key: '622a13c788167d280bafffe633df45ff3beda387', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '284bd3d0a65a5698a918b196419369b4ac660ee2' }, this.modaltitle && h("h1", { key: '417c4984cb124531278ecc92ec217e13565998ca', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '5977d05ad0b81e48ab9a2040a4387a4e8caeed46', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: '1e737f8f06d4423e67e1b253161b417aaa85e211', class: {
+            }, id: this.modalid }, h("header", { key: '87032c660d8d5fe71412666490630a36676107ca', onClick: this.emitModalHeaderActive.bind(this) }, h("div", { key: '2849fd31ed63200530149e28f0e93816a5f658f9' }, this.modaltitle && h("h1", { key: '281340cbf57f8fd066d7de9d45a30f30664b5497', id: "modal-title" }, this.modaltitle), this.closeButtonSlot()), this.modalsubtitle && (h("div", { key: '1de795732386ed3f2ffbe1a793f0196dfcab91b3', class: "subtitle", id: "modal-subtitle" }, this.modalsubtitle))), h("div", { key: 'c333e87e6440cd9b9ebf6abc3120469cd9e73f7c', class: {
                 "modal-content-scroll-inside": this.scrollInside,
                 "modal-content-scroll-outside": !this.scrollInside,
-            }, id: "modal-content" }, h("slot", { key: '4d48fcf7fac54e5243f0d4f318c822aee4b62136', name: "modalContent" }))), h("div", { key: '505a28d12fb70186954df5b04ac516487f2025fb', class: {
+            }, id: "modal-content" }, h("slot", { key: '99834151f941ad9468a55870ff18b03dcf9ad715', name: "modalContent" }))), h("div", { key: '1b768554d0154e56e878cfbc809805d0ed0ec8b2', class: {
                 "modal-background": true,
                 "modal-background-scroll-outside": !this.scrollInside,
             }, "data-action": "modalBackground", "data-modal": this.modalid, onClick: () => {

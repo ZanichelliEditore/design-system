@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { P as PopoverPosition, g as KeyboardCode, p as Device } from './index-DdetsoIY.js';
 import { a as containsElement, j as getParentElement, k as findContainingBlockAncestor, g as getDevice, l as isElementVisibleInContainer } from './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
@@ -506,7 +506,7 @@ const ZPopover = class {
         cancelAnimationFrame(this.animationFrameRequestId);
     }
     render() {
-        return (h(Host, { key: '0e6292269933c7cc266fe367408a87789af21c1a', "current-position": this.currentPosition }, h("slot", { key: 'cb86147569eb9a026116aff1f1a4cfcbc226d010' })));
+        return (h(Host, { key: 'e966103be59ff2a16c40ff2e2a1d31de604be689', "current-position": this.currentPosition }, h("slot", { key: '78a7a8745c8d13e7f337ad740fba6b77ddbe69f6' })));
     }
     get host() { return getElement(this); }
     static get watchers() { return {

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { g as KeyboardCode } from './index-DdetsoIY.js';
 
 const stylesCss = () => `:host,*{box-sizing:border-box}:host{display:flex;width:fit-content;align-items:center;padding:0;border:var(--border-size-small) solid var(--color-surface03);background-color:var(--color-surface01);border-radius:calc(var(--border-radius) + var(--border-size-small));box-shadow:var(--shadow-4);gap:calc(var(--space-unit) / 2)}::slotted(z-divider){height:calc(var(--space-unit) * 4.5) !important}@media (max-width: 767px){:host{--z-toolbar-columns:6;position:relative;display:grid;max-width:100%;background:repeating-linear-gradient(         to bottom,         transparent 0,         transparent calc(var(--space-unit) * 5.5),         var(--color-surface03) calc(var(--space-unit) * 5.5),         var(--color-surface03) calc(var(--space-unit) * 5.5 + 1px)       )       center / calc(100% - var(--space-unit)) 100% no-repeat var(--color-surface01);gap:var(--border-size-small) calc(var(--space-unit) / 2);grid-template-columns:repeat(var(--z-toolbar-columns, auto-fill), minmax(44px, auto))}::slotted(z-divider){display:none !important}}`;
@@ -129,7 +129,7 @@ const ZToolbar = class {
         }
     }
     render() {
-        return (h(Host, { key: '159c32c5871694f677c1d2693c30c7c1b2ecd17c', role: "toolbar", "aria-label": this.htmlAriaLabel }, h("slot", { key: 'e5c52b5ee6e6d0549b981046fff4d866941b6930', onSlotchange: () => {
+        return (h(Host, { key: '4707441ebdff23322f9290c40106b59e06d2fd04', role: "toolbar", "aria-label": this.htmlAriaLabel }, h("slot", { key: '7ff3c1fa0c854de1690103522adcf02f6716a5d2', onSlotchange: () => {
                 this.collectToolItems();
                 this.updateTabIndexes();
             } })));

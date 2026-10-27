@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { T as ThemeVariant } from './index-DdetsoIY.js';
 import { i as getElementTree, h as handleKeyboardSubmit } from './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
@@ -47,7 +47,7 @@ const ZSkipToContent = class {
         this.visible = false;
     }
     render() {
-        return (h(Host, { key: 'b19cbb70b81b7446322876b9308ce475934c2c30', class: {
+        return (h(Host, { key: 'ffa48501572ecc3dc5a4ddca0ade656b8cc20384', class: {
                 [this.variant]: true,
                 "skip-to-content-visible": this.visible,
             } }, this.links.map((link, i) => {

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host } from './index-SFwvdS4t.js';
 import { k as LabelPosition } from './index-DdetsoIY.js';
 import { r as randomId } from './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
@@ -32,14 +32,14 @@ const ZToggleSwitch = class {
         this.emitToggleClick();
     }
     render() {
-        return (h(Host, { key: '1771cd2ef07017d9bb0926400770fd275931db16' }, h("input", { key: '1d13feb62af11178228669b743d0ee85cd5d5ae3', id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }), h("label", { key: 'aa744787a1e16c93a93a686cbcf3b94499e059e5', htmlFor: this.htmlid, class: {
+        return (h(Host, { key: '2af0e6991e384960fcd80acf8f5bfaefe3b7b472' }, h("input", { key: 'e462fa59aaefc149c9ca69451c66240f0901698e', id: this.htmlid, type: "checkbox", checked: this.checked, disabled: this.disabled, onChange: this.handleClick.bind(this) }), h("label", { key: 'e99e0a62bdd5f55f704d0bd1a5e72cfd2cb8e8fc', htmlFor: this.htmlid, class: {
                 [this.labelPosition]: true,
                 disabled: this.disabled,
-            } }, h("span", { key: '5ba9f0eecc9ef29343497da129745303e09937f2' }, h("slot", { key: '1940bfaf26ffd133d0c116cd0fe0b621e817b7b1' })), h("span", { key: '175399b96fd332c61abde6880873f6b610796f27', class: {
+            } }, h("span", { key: '8107c045f6ff9011205ed2c69ac2d1c39a845094' }, h("slot", { key: 'ce3100d20bbd1d86584a6279fdbfc9821ce7a8a3' })), h("span", { key: 'dd86e6f64912d5d2bdb89708501b27144aa83fa3', class: {
                 container: true,
                 disabled: this.disabled,
                 checked: this.checked,
-            } }, h("span", { key: 'f216c1347b00f63f68113bf81a5a7e0e920d4f09', class: "circle" }, this.checked && (h("z-icon", { key: 'd635f121906e928977d25f902d8734e5992e3ad9', width: 12, height: 12, name: "checkmark" })))))));
+            } }, h("span", { key: 'e6207655a0986f5ee10dd809a95ace50337f1baa', class: "circle" }, this.checked && (h("z-icon", { key: '5f8ccde6506935b0b5607aab3ea27a50181b7a37', width: 12, height: 12, name: "checkmark" })))))));
     }
 };
 ZToggleSwitch.style = stylesCss();

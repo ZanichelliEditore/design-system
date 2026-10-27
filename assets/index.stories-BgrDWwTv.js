@@ -1,5 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{dt as t,pt as n}from"./iframe-iOyjIY3n.js";var r,i,a;e((()=>{t(),r={title:`ZBookCover`,component:`z-book-cover`,args:{cover:`https://staticmy.zanichelli.it/copertine/dashboard/m40002.9788808999825.jpg`,coverAlt:``,bordered:!1,multiple:!1,"--z-book-cover-height":`378px`,"--z-book-cover-border-radius":`var(--border-radius)`,"--z-book-cover-stack-shift-x":`8px`,"--z-book-cover-stack-shift-y":`12px`}},i={render:e=>n(`z-book-cover`,e)},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
-  render: args => <z-book-cover {...args}></z-book-cover>
-} satisfies Story`,...i.parameters?.docs?.source}}},a=[`Default`],i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
-  render: args => <z-book-cover {...args}></z-book-cover>
-} satisfies Story`,...i.parameters?.docs?.source}}}}))();export{i as Default,a as __namedExportsOrder,r as default};

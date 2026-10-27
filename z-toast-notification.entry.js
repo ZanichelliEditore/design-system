@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { r as ToastNotificationTransition, g as KeyboardCode } from './index-DdetsoIY.js';
 import { g as getDefaultExportFromCjs } from './_commonjsHelpers-B85MJLTf.js';
 
@@ -4198,19 +4198,19 @@ const ZToastNotification = class {
         }
     }
     render() {
-        return (h(Host, { key: '281e32f784c53014c9236fe15bcaffd1c17105fa', style: { "--percentuale": `${this.percentage}%` }, class: { [this.transition]: !!this.transition, [this.type]: !!this.type }, onAnimationEnd: (e) => {
+        return (h(Host, { key: 'f6c296b024df6fb3026fe725878035259cc00623', style: { "--percentuale": `${this.percentage}%` }, class: { [this.transition]: !!this.transition, [this.type]: !!this.type }, onAnimationEnd: (e) => {
                 if (this.autoclose && e.animationName.includes("slidein")) {
                     this.startClosingTimeout(this.autoclose);
                 }
                 if (e.animationName.includes("slideout")) {
                     this.hostElement.parentNode.removeChild(this.hostElement);
                 }
-            } }, h("div", { key: 'ea37ca1023a4d2dc38225d70865168dae75a2c5f', class: "toast-notification-container" }, h("div", { key: '246782a577afe9c2ced5a500d678d6b38118b1df', class: "toast-notification-content" }, h("div", { key: '2d8b3d8a19c33ffe2ac37f94253647e88df05925', class: "toast-notification-text" }, this.heading && h("span", { key: '1924b7cf3e1ed690a6ca70d03f8a0dbb87e83968', class: "title" }, this.heading), h("span", { key: '954b54d9b6b78393ccc9118c85c1aaa4605c91ab', class: "message" }, h("slot", { key: 'fc9c584e93789d6d97060a75d7f096bcf486a77a', name: "message" }, this.message && h("span", { key: 'd909af91abe205d1a9f5ebbfe026e0047cfba86e', innerHTML: purify.sanitize(this.message) })))), h("div", { key: '968e4a2fcb6c825b4a2667de69c910f9f2325e69', class: "button-container", hidden: !this.hasSlottedButton }, h("slot", { key: '1c365d7a4ae2c921767083790c472a64bc964592', name: "button", onSlotchange: () => this.checkSlottedButton() }))), this.closebutton && (h("button", { key: '8bcba678652e3e6e9a6dccfe7ee10ee739a43fe4', class: "close-button", "aria-label": "Chiudi notifica", onClick: () => this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true), onKeyDown: (e) => {
+            } }, h("div", { key: 'c07550674afb4037ab0df31748f75a419a41224c', class: "toast-notification-container" }, h("div", { key: '035aa2f2371e5ac1693d0ea87657230bfa3ae87f', class: "toast-notification-content" }, h("div", { key: 'b84b9275faff5107717cd2393641cd275bc059f9', class: "toast-notification-text" }, this.heading && h("span", { key: 'a007dcecde5aa7558b236581b8eef190640f3632', class: "title" }, this.heading), h("span", { key: 'a797c2b9d42857b78fe656ede2cf71bcb631e1d6', class: "message" }, h("slot", { key: '6cfeaffb9adcac19d74370cfa2d594f46caaae96', name: "message" }, this.message && h("span", { key: '98be3226f1d8d9f132b7df4537ef73027f4be16f', innerHTML: purify.sanitize(this.message) })))), h("div", { key: '5746a85c63657c5e74561e08fb4dbf941145a010', class: "button-container", hidden: !this.hasSlottedButton }, h("slot", { key: '000c5cb576fe72deb0a105237a6666e4e7fdd31d', name: "button", onSlotchange: () => this.checkSlottedButton() }))), this.closebutton && (h("button", { key: '49d0ce8a7480c661a2202e4ab93941e20bb6031f', class: "close-button", "aria-label": "Chiudi notifica", onClick: () => this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true), onKeyDown: (e) => {
                 if (e.code == KeyboardCode.SPACE || e.code == KeyboardCode.ENTER) {
                     e.preventDefault();
                     this.close(SLIDE_OUT_TRANSITION_MAP[this.transition], true);
                 }
-            } }, h("z-icon", { key: 'c273ab9fe23fb80a267365b263eda04ba0cfc8e4', name: "multiply-circled" }))))));
+            } }, h("z-icon", { key: '34c70c2eb06fe8e9e9cb377274cd7424c4ec1d4c', name: "multiply-circled" }))))));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

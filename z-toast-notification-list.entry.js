@@ -1,4 +1,4 @@
-import { r as registerInstance, h, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, d as getElement } from './index-SFwvdS4t.js';
 import { s as ToastNotificationPosition } from './index-DdetsoIY.js';
 
 const stylesCss = () => `:host{position:fixed;z-index:10000;display:flex;flex-flow:column nowrap;margin-top:calc(var(--space-unit) * 2);margin-bottom:calc(var(--space-unit) * 2);font-family:var(--font-family-sans);font-weight:var(--font-rg)}::slotted(z-toast-notification){width:100vw}::slotted(:not(:last-child)){margin-bottom:calc(var(--space-unit) * 1)}:host([position="bottom-centre"]),:host([position="bottom-right"]),:host([position="bottom-left"]){bottom:0;align-items:flex-end;justify-content:flex-end}:host([position="top-left"]),:host([position="top-right"]),:host([position="top-centre"]){top:0;align-items:flex-start;justify-content:flex-start}@media only screen and (min-width: 768px){:host{margin:calc(var(--space-unit) * 3)}:host([position="top-centre"]){top:0;left:50%;align-items:center;justify-content:flex-start;transform:translateX(-50%)}:host([position="top-left"]){top:0;left:0;align-items:flex-start;justify-content:flex-start}:host([position="top-right"]){top:0;right:0;align-items:flex-end;justify-content:flex-start}:host([position="bottom-centre"]){bottom:0;left:50%;align-items:center;justify-content:flex-end;transform:translateX(-50%)}:host([position="bottom-right"]){right:0;bottom:0;align-items:flex-end;justify-content:flex-end}:host([position="bottom-left"]){bottom:0;left:0;align-items:flex-start;justify-content:flex-end}::slotted(z-toast-notification){width:50vw}}@media only screen and (min-width: 1366px){:host{margin:calc(var(--space-unit) * 4)}::slotted(z-toast-notification){width:33vw}}`;
@@ -43,7 +43,7 @@ const ZToastNotificationList = class {
         }
     }
     render() {
-        return h("slot", { key: '369ca36cde4f86f5e390568b3526ffab0aad053f', name: "toasts" });
+        return h("slot", { key: 'ba72267ac380c3288ba5d0be6a6bc47e86e81f40', name: "toasts" });
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-DafJ7_Il.js';
+import { r as registerInstance, h } from './index-SFwvdS4t.js';
 
 const stylesCss = () => `:host{position:absolute;overflow:hidden;width:1px;height:1px;padding:0;border:0;margin:0 -1px -1px 0;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}`;
 
@@ -7,7 +7,7 @@ const ZVisuallyHidden = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return h("slot", { key: 'e5b7767ebb02bdbed941d12f89f1be1ca715eb8c' });
+        return h("slot", { key: '3ea71824c457d81a2ca669d233a51f9f680ff6a5' });
     }
 };
 ZVisuallyHidden.style = stylesCss();

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { W as BreadcrumbPathStyle, X as BreadcrumbHomepageVariant, p as Device, g as KeyboardCode, P as PopoverPosition, i as ListSize } from './index-DdetsoIY.js';
 import { g as getDevice, h as handleKeyboardSubmit } from './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
@@ -211,10 +211,10 @@ const ZBreadcrumb = class {
         ];
     }
     render() {
-        return (h(Host, { key: '21c4307fce9f47f07e2f981f6aa6a6c55c93bd52', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: '8e9e10a75e0659967e06479e62bdbb16585d41b9', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
+        return (h(Host, { key: '97fde01164aabe67be92366faced71943ab7a408', style: { "--line-clamp-popover": `${this.overflowMenuItemRows}` } }, h("nav", { key: 'a796a1f86e033f800854c5167759d6a2a5d8e621', ref: (val) => (this.wrapElement = val), "aria-label": "Breadcrumb", class: {
                 semibold: this.pathStyle === BreadcrumbPathStyle.SEMIBOLD,
                 underlined: this.pathStyle === BreadcrumbPathStyle.UNDERLINED,
-            } }, h("ol", { key: 'c34f110b205428e846187ece3fb1bece26b9a808' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
+            } }, h("ol", { key: 'db73fa39d5164c7360049905956e7d2a8d3c7b3a' }, this.viewPortWidth === Device.MOBILE ? this.renderMobileItems() : this.renderItems()))));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

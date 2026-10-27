@@ -1,5 +1,0 @@
-import{n as e}from"./chunk-DnJy8xQt.js";import{dt as t,pt as n}from"./iframe-iOyjIY3n.js";import{K as r,d as i}from"./beans-zckFsBZy.js";var a,o,s;e((()=>{t(),r(),a={title:`ZColorPicker`,component:`z-color-picker`,argTypes:{lng:{control:{type:`inline-radio`},options:[`it`,`en`]},selectedColor:{control:{type:`select`,labels:Object.fromEntries(Object.entries(i).map(([e,t])=>[e,t.it]))},options:Object.keys(i)}},args:{lng:`it`,htmlAriaLabel:`Seleziona un colore`,selectedColor:void 0,disableTransparent:!1}},o={render:e=>n(`z-color-picker`,e)},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
-  render: args => <z-color-picker {...args}></z-color-picker>
-} satisfies Story`,...o.parameters?.docs?.source}}},s=[`Default`],o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
-  render: args => <z-color-picker {...args}></z-color-picker>
-} satisfies Story`,...o.parameters?.docs?.source}}}}))();export{o as Default,s as __namedExportsOrder,a as default};

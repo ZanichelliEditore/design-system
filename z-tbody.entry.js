@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host } from './index-SFwvdS4t.js';
 
 const stylesCss$1 = () => `:host{display:block;box-sizing:border-box}`;
 

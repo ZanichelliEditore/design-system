@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host } from './index-SFwvdS4t.js';
 
 const stylesCss = () => `:host{position:relative;display:flex;width:100%;max-width:100%;box-sizing:border-box;font-family:var(--font-family-sans);font-weight:var(--font-rg)}.stepper-list{display:flex;width:100%;box-sizing:border-box;flex-direction:row;padding:0 calc(var(--space-unit) * 3);margin:0}`;
 
@@ -7,7 +7,7 @@ const ZStepper = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h(Host, { key: 'c16bf08a310caae7b712a922a74eace29c560221', role: "navigation" }, h("div", { key: 'df1dcc32d712bd68f12900faf3e7ac72eb4fc6dc', class: "stepper-list", role: "list" }, h("slot", { key: 'c7c8775a5fe29029d271ea6442b094175c695c66' }))));
+        return (h(Host, { key: '1452eb9f08520efc9cef3ed933725bb11b631bcb', role: "navigation" }, h("div", { key: 'b2f7c6dc2e8e3912ae2f9344a3a2de06c47905c5', class: "stepper-list", role: "list" }, h("slot", { key: 'cfb5547bd5d129db5f0408bc5ae4802ba8d4aea8' }))));
     }
 };
 ZStepper.style = stylesCss();

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 
 const stylesCss$1 = () => `:host{--z-table--cells-background:var(     --color-background   );display:block;box-sizing:border-box}:host([sticky]){position:sticky;z-index:2;top:0;box-shadow:0 2px 4px -2px var(--shadow-color-base)}:host(:focus-visible){box-shadow:none;outline:none}`;
 

@@ -1,0 +1,5 @@
+import{n as e}from"./chunk-DnJy8xQt.js";import{dt as t,pt as n}from"./iframe-izO1_eE9.js";import{o as r,t as i}from"./storybook-utils-CXFqIWGM.js";var a,o,s;e((()=>{t(),r(),a={title:`ZBookCard/ZBookCardApp`,component:`z-book-card-app`,args:{logo:`https://placehold.co/24`,name:`Esercizi`,laz:!0,info:`Cosa fa l'applicazione?`,link:`link-applicazione`,"--z-book-card-app-padding-x":``,"--z-book-card-app-padding-y":``}},o={render:e=>n(`z-book-card-app`,{...e,style:i(e)})},o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  render: args => <z-book-card-app {...args} style={extractCSSVars(args)}></z-book-card-app>
+} satisfies Story`,...o.parameters?.docs?.source}}},s=[`Default`],o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  render: args => <z-book-card-app {...args} style={extractCSSVars(args)}></z-book-card-app>
+} satisfies Story`,...o.parameters?.docs?.source}}}}))();export{o as Default,s as __namedExportsOrder,a as default};

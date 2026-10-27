@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './index-DafJ7_Il.js';
+import { r as registerInstance, h, H as Host } from './index-SFwvdS4t.js';
 import { t as ZAriaAlertMode } from './index-DdetsoIY.js';
 
 const ZAriaAlert = class {
@@ -8,7 +8,7 @@ const ZAriaAlert = class {
         this.mode = ZAriaAlertMode.POLITE;
     }
     render() {
-        return (h(Host, { key: '08ea2a5fcd4fed8c592ebffbcf6f108444cdae09', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", { key: 'dabf388e8dee86e912d2f62f54634dcef6e63dab' })));
+        return (h(Host, { key: 'e8f8112449c5d6206a2b586cdc506544331ae029', "aria-live": this.mode, "aria-atomic": "true", "aria-relevant": "additions" }, h("slot", { key: 'dc7b7a918bd5cf2add1b508d92d2fdf7f13e462a' })));
     }
 };
 

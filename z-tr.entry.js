@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { r as randomId } from './utils-CJc3A9NX.js';
 import './z-td.entry.js';
 import './z-th.entry.js';

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-DafJ7_Il.js';
+import { r as registerInstance, c as createEvent, h, H as Host, d as getElement } from './index-SFwvdS4t.js';
 import { a2 as ColorPickerPalette } from './index-DdetsoIY.js';
 import { a as containsElement } from './utils-CJc3A9NX.js';
 import './breakpoints-Q-tWjk7P.js';
@@ -194,7 +194,7 @@ const ZColorPicker = class {
         this.colorKeysByRow = this.sortColorKeysByRow();
     }
     render() {
-        return (h(Host, { key: 'aa2fb04330c5c76e4a0d10e4bb519d388af2d2d9', role: "listbox", "aria-label": this.htmlAriaLabel || LOCALES[this.lng]["Select a color"], tabIndex: 0 }, this.colorKeysByRow.map((colorKey) => {
+        return (h(Host, { key: '790b4417646b6902f68005a72cdc849a0269f3cb', role: "listbox", "aria-label": this.htmlAriaLabel || LOCALES[this.lng]["Select a color"], tabIndex: 0 }, this.colorKeysByRow.map((colorKey) => {
             var _a;
             return (h("button", { class: "color-swatch", "data-color": colorKey, role: "option", "aria-selected": ((_a = this.selectedColor) === null || _a === void 0 ? void 0 : _a.toUpperCase()) === colorKey.toUpperCase() ? "true" : "false", tabIndex: -1, onClick: () => (this.selectedColor = colorKey), disabled: this.disableTransparent && colorKey === "#FFFFFF00" }, h("div", { class: "color-swatch", role: "img", "aria-roledescription": LOCALES[this.lng]["Color swatch"], "aria-label": ColorPickerPalette[colorKey][this.lng], title: ColorPickerPalette[colorKey][this.lng], style: { backgroundColor: colorKey } })));
         })));
