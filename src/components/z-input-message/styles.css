@@ -36,8 +36,8 @@
 }
 
 :host > z-icon {
-  --z-icon-width: calc(var(--space-unit) * 2);
-  --z-icon-height: calc(var(--space-unit) * 2);
+  --z-icon-width: 1rem;
+  --z-icon-height: 1rem;
   --z-icon-right-margin: calc(var(--space-unit) * 0.5);
 
   margin-top: calc(var(--space-unit) * 0.25);
@@ -45,8 +45,8 @@
 
 :host(.small) > z-icon,
 :host(.x-small) > z-icon {
-  --z-icon-width: 14px;
-  --z-icon-height: 14px;
+  --z-icon-width: 0.875rem;
+  --z-icon-height: 0.875rem;
 
   margin-top: calc(var(--space-unit) * 0.125);
 }
