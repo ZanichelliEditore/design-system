@@ -16,6 +16,8 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-piu-intercettati-automaticamente-dai-binding-react)
     - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
   - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-piu-riportate-come-attributi-html-dai-binding-react)
+  - [Eliminazione di vecchi file inutilizzati](#eliminazione-di-vecchi-file-inutilizzati)
+  - [Rimozione export della cartella `www`](#rimozione-export-della-cartella-www)
 
 - [v20.0.0](#v2000)
 
@@ -212,6 +214,29 @@ z-input.newsletter-input {
 ```
 
 L'uso diretto del web component in HTML (senza binding React) non è interessato, perché gli attributi impostati nel markup restano tali.
+
+### Eliminazione di vecchi file inutilizzati
+
+Molti file vecchi e non più utilizzati sono stati eliminati dalla libreria, tra cui:
+
+- tutte le immagini presenti dentro la cartella `src/assets` tranne `placeholder-cover.png` e `zanichelli-logo.png`
+- `src/constants/borderAndRadius.json`
+- `src/constants/colors.json`
+- `src/constants/grid.json`
+- `src/constants/icons.tsx`
+- `src/constants/spacing.json`
+
+### Rimozione export della cartella `www`
+
+Al fine di snellire il bundle e ridurre il peso della libreria, è stato rimosso l'export della cartella `www` dal `package.json`.
+
+Citando la documentazione di Stencil
+
+> "Even if a project is meant to only build a reusable component library, the `www` output target is useful to build out and test the components throughout development."
+
+si evince che quell'output target è più utile solo per lo sviluppo che per l'utenza finale della libreria.
+
+Precedentemente il `readme` diceva di importare il file di stile da `@zanichelli/albe-web-components/www/build/web-components-library.css`, quindi le app che lo fanno dovranno importare da `@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css`.
 
 ## v20.0.0
 

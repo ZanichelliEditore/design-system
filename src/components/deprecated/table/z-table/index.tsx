@@ -6,6 +6,7 @@ import "../z-tr/index";
 
 /**
  * ZTable component.
+ * @deprecated Since v20.0.0
  * @slot - Table content (`z-thead`, `z-tbody`, `z-tfoot`, `z-tr`).
  */
 @Component({
