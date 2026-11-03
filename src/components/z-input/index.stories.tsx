@@ -46,7 +46,6 @@ const StoryMeta = {
     type: InputType.TEXT,
     label: "this is the input label",
     labelPosition: LabelPosition.RIGHT,
-    placeholder: "input placeholder text",
     size: ControlSize.BIG,
     message: "helper text",
     disabled: false,

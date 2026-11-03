@@ -210,6 +210,10 @@ export class ZSelect implements ComponentInterface {
     return `${this.htmlid}_key_reset`;
   }
 
+  private getMessageId(): string {
+    return `${this.htmlid}_message`;
+  }
+
   private getGroupedItems(): [string, SelectItem[]][] {
     if (!this.itemsList.length) {
       return [];
@@ -303,6 +307,10 @@ export class ZSelect implements ComponentInterface {
 
   private hasAutocomplete(): boolean {
     return boolean(this.autocomplete) === true;
+  }
+
+  private hasMessage(): boolean {
+    return boolean(this.message) !== false;
   }
 
   private handleInputChange(e: CustomEvent): void {
@@ -554,6 +562,7 @@ export class ZSelect implements ComponentInterface {
         status={this.isOpen ? undefined : this.status}
         size={this.size}
         role="combobox"
+        html-aria-describedby={this.hasMessage() ? this.getMessageId() : undefined}
         html-aria-expanded={this.isOpen ? "true" : "false"}
         html-aria-controls={`${this.htmlid}_list`}
         html-aria-activedescendant={this.isOpen ? this.focusedItemId : ""}
@@ -866,12 +875,13 @@ export class ZSelect implements ComponentInterface {
   }
 
   private renderMessage(): HTMLZInputMessageElement {
-    if (boolean(this.message) === false) {
+    if (!this.hasMessage()) {
       return;
     }
 
     return (
       <z-input-message
+        html-id={this.getMessageId()}
         message={boolean(this.message) === true ? undefined : (this.message as string)}
         status={this.status}
         class={this.size}

@@ -35,6 +35,7 @@
   box-sizing: border-box;
   border-top: none;
   background: var(--color-form-background);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow-2);
   outline: none;
 }
@@ -53,8 +54,8 @@
 
 .select-wrapper z-list {
   --background-color-list-element: var(--color-form-background);
-  --background-hover-color-list-element: var(--color-surface02);
-  --background-active-color-list-element: var(--color-surface02);
+  --background-hover-color-list-element: var(--gray100);
+  --background-active-color-list-element: var(--gray100);
 }
 
 .select-wrapper .ul-scroll-wrapper > z-list {
@@ -78,6 +79,7 @@
 }
 
 .select-wrapper .ul-scroll-wrapper z-list z-list-element .list-element-container.active {
+  border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-focus-primary);
 }
 

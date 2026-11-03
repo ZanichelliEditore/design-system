@@ -1,6 +1,7 @@
 :host {
   display: inline-block;
   width: inherit;
+  line-height: 0;
 }
 
 :host * {
@@ -33,15 +34,8 @@ textarea {
 input,
 .textarea-wrapper {
   border: var(--border-size-small) solid var(--color-form-surface04);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius);
   color: var(--color-form-default-text);
-}
-
-:host([size="small"]) input,
-:host([size="small"]) textarea,
-:host([size="x-small"]) input,
-:host([size="x-small"]) textarea {
-  font-size: var(--font-size-2);
 }
 
 :host.cursor-select input {
@@ -61,16 +55,11 @@ input:not([readonly]):hover,
 :host:not([readonly="true"]) .textarea-wrapper:focus-within {
   border-color: var(--color-form-active-primary);
   box-shadow: var(--shadow-focus-primary);
-  color: var(--color-form-active-primary);
 }
 
 :host input:focus:focus-visible:hover,
 .textarea-wrapper:not(.readonly):focus-within:hover {
   outline-color: var(--color-form-active-primary);
-}
-
-:host input:focus:focus-visible + .icons-wrapper {
-  fill: var(--color-form-active-primary);
 }
 
 :host.active-select input {
@@ -88,7 +77,8 @@ input:not([readonly]):hover,
 }
 
 /* STATUSES (success, warning, error) */
-.input-success {
+.input-success,
+.z-label.label-cutout.label-success {
   border-color: var(--color-form-success01);
   background: var(--color-form-inverse-success);
 }
@@ -98,7 +88,8 @@ input:not([readonly]):hover,
   fill: var(--color-form-success01);
 }
 
-.input-error {
+.input-error,
+.z-label.label-cutout.label-error {
   border-color: var(--color-form-hover-error);
   background: var(--color-form-inverse-error);
 }
@@ -108,7 +99,8 @@ input:not([readonly]):hover,
   fill: var(--color-form-hover-error);
 }
 
-.input-warning {
+.input-warning,
+.z-label.label-cutout.label-warning {
   border-color: var(--color-form-hover-warning);
   background: var(--color-form-inverse-warning);
 }
@@ -145,13 +137,15 @@ input:not([readonly]):hover,
   border-width: var(--border-size-small);
 }
 
-/* PLACEHOLDER */
-input::placeholder,
-textarea::placeholder {
-  color: var(--color-form-placeholder-text);
+:host([disabled]:not([disabled="false"])) label {
+  pointer-events: none;
 }
 
-::-webkit-textarea-placeholder {
+/* PLACEHOLDER */
+input::placeholder,
+textarea::placeholder,
+input::-webkit-textarea-placeholder,
+textarea::-webkit-textarea-placeholder {
   color: var(--color-form-placeholder-text);
 }
 
@@ -159,10 +153,67 @@ textarea::placeholder {
   color: var(--color-form-placeholder-text);
 }
 
-::placeholder {
-  color: var(--color-form-placeholder-text);
+input.hide-placeholder::placeholder,
+textarea.hide-placeholder::placeholder,
+input.hide-placeholder::-webkit-textarea-placeholder,
+textarea.hide-placeholder::-webkit-textarea-placeholder {
+  color: transparent;
 }
 
 :host([disabled]:not([disabled="false"])) label.z-label {
   color: var(--color-disabled03);
+}
+
+/* Z-LABEL */
+
+.z-label {
+  --z-label-transition-args: 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  --z-label-transition:
+    top var(--z-label-transition-args), font-size var(--z-label-transition-args),
+    background-color var(--z-label-transition-args), border-radius var(--z-label-transition-args),
+    width var(--z-label-transition-args);
+
+  position: relative;
+  z-index: 2;
+}
+
+:host([size="small"]) .z-label {
+  --z-label-inside-top: 1.25rem;
+
+  margin-bottom: -0.5rem;
+}
+
+:host([size="x-small"]) .z-label {
+  --z-label-inside-top: 1.125rem;
+
+  margin-bottom: -0.5rem;
+}
+
+.z-label.label-cutout {
+  top: 0;
+  padding: 0 2px;
+  margin: 0 6px;
+  background-color: var(--color-form-background);
+  border-radius: var(--border-radius);
+  color: var(--color-form-default-text);
+  font-size: var(--font-size-2);
+  transition: var(--z-label-transition);
+}
+
+.z-label.label-inside {
+  top: var(--z-label-inside-top, 1.25rem);
+  left: var(--space-unit);
+  overflow: hidden;
+  max-width: calc(100% - var(--space-unit-2));
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-form-default-text);
+  font-size: var(--font-size-3);
+  text-overflow: ellipsis;
+  transition: var(--z-label-transition);
+  white-space: nowrap;
+}
+
+.z-label.label-inside.has-icon {
+  max-width: calc(100% - var(--space-unit-6));
 }

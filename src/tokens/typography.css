@@ -28,19 +28,99 @@
   --font-size-16: 5.25rem; /* 84px */
   --font-size-17: 5.75rem; /* 92px */
 
-  /* cssprops to use with `font` shorthand property */
+  /* CSS props to use with the `font` shorthand property */
   --section-title-1: var(--font-sb) var(--font-size-11) / 1.083 var(--font-family-serif);
   --section-title-2: var(--font-sb) var(--font-size-10) / 1.142 var(--font-family-serif);
   --section-title-3: var(--font-sb) var(--font-size-9) / 1.222 var(--font-family-serif);
   --section-title-4: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);
   --section-title-5: var(--font-sb) var(--font-size-7) / 1.2857 var(--font-family-serif);
   --section-title-6: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-1: var(--font-rg) var(--font-size-7) / 1.28 var(--font-family-sans);
+  --heading-1-serif: var(--font-rg) var(--font-size-7) / 1.28 var(--font-family-serif);
+  --heading-1-sb: var(--font-sb) var(--font-size-7) / 1.28 var(--font-family-sans);
+  --heading-1-sb-serif: var(--font-sb) var(--font-size-7) / 1.28 var(--font-family-serif);
+  --heading-1-lt: var(--font-lt) var(--font-size-7) / 1.28 var(--font-family-sans);
+  --heading-1-lt-serif: var(--font-lt) var(--font-size-7) / 1.28 var(--font-family-serif);
+  --heading-2: var(--font-rg) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-2-serif: var(--font-rg) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-2-sb: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-2-sb-serif: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-2-lt: var(--font-lt) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-2-lt-serif: var(--font-lt) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-3: var(--font-rg) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-3-serif: var(--font-rg) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-3-sb: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-3-sb-serif: var(--font-sb) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-3-lt: var(--font-lt) var(--font-size-6) / 1.333 var(--font-family-sans);
+  --heading-3-lt-serif: var(--font-lt) var(--font-size-6) / 1.333 var(--font-family-serif);
+  --heading-4: var(--font-rg) var(--font-size-5) / 1.4 var(--font-family-sans);
+  --heading-4-serif: var(--font-rg) var(--font-size-5) / 1.4 var(--font-family-serif);
+  --heading-4-sb: var(--font-sb) var(--font-size-5) / 1.4 var(--font-family-sans);
+  --heading-4-sb-serif: var(--font-sb) var(--font-size-5) / 1.4 var(--font-family-serif);
+  --heading-4-lt: var(--font-lt) var(--font-size-5) / 1.4 var(--font-family-sans);
+  --heading-4-lt-serif: var(--font-lt) var(--font-size-5) / 1.4 var(--font-family-serif);
+  --body-1: var(--font-rg) var(--font-size-5) / 1.4 var(--font-family-sans);
+  --body-1-serif: var(--font-rg) var(--font-size-5) / 1.4 var(--font-family-serif);
+  --body-1-sb: var(--font-sb) var(--font-size-5) / 1.4 var(--font-family-sans);
+  --body-1-sb-serif: var(--font-sb) var(--font-size-5) / 1.4 var(--font-family-serif);
+  --body-2: var(--font-rg) var(--font-size-4) / 1.5 var(--font-family-sans);
+  --body-2-serif: var(--font-rg) var(--font-size-4) / 1.5 var(--font-family-serif);
+  --body-2-sb: var(--font-sb) var(--font-size-4) / 1.5 var(--font-family-sans);
+  --body-2-sb-serif: var(--font-sb) var(--font-size-4) / 1.5 var(--font-family-serif);
+  --body-3: var(--font-rg) var(--font-size-3) / 1.5 var(--font-family-sans);
+  --body-3-serif: var(--font-rg) var(--font-size-3) / 1.5 var(--font-family-serif);
+  --body-3-sb: var(--font-sb) var(--font-size-3) / 1.5 var(--font-family-sans);
+  --body-3-sb-serif: var(--font-sb) var(--font-size-3) / 1.5 var(--font-family-serif);
+  --body-4: var(--font-rg) var(--font-size-2) / 1.4 var(--font-family-sans);
+  --body-4-serif: var(--font-rg) var(--font-size-2) / 1.4 var(--font-family-serif);
+  --body-4-sb: var(--font-sb) var(--font-size-2) / 1.4 var(--font-family-sans);
+  --body-4-sb-serif: var(--font-sb) var(--font-size-2) / 1.4 var(--font-family-serif);
+  --body-5: var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --body-5-serif: var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-serif);
+  --body-5-sb: var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --body-5-sb-serif: var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-serif);
+  --interactive-1: var(--font-rg) var(--font-size-3) / 1.5 var(--font-family-sans);
+  --interactive-1-serif: var(--font-rg) var(--font-size-3) / 1.5 var(--font-family-serif);
+  --interactive-1-sb: var(--font-sb) var(--font-size-3) / 1.5 var(--font-family-sans);
+  --interactive-1-sb-serif: var(--font-sb) var(--font-size-3) / 1.5 var(--font-family-serif);
+  --interactive-2: var(--font-rg) var(--font-size-2) / 1.4 var(--font-family-sans);
+  --interactive-2-serif: var(--font-rg) var(--font-size-2) / 1.4 var(--font-family-serif);
+  --interactive-2-sb: var(--font-sb) var(--font-size-2) / 1.4 var(--font-family-sans);
+  --interactive-2-sb-serif: var(--font-sb) var(--font-size-2) / 1.4 var(--font-family-serif);
+  --interactive-3: var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --interactive-3-serif: var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-serif);
+  --interactive-3-sb: var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --interactive-3-sb-serif: var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-serif);
+  --helper: italic var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --helper-serif: italic var(--font-rg) var(--font-size-1) / 1.333 var(--font-family-serif);
+  --helper-sb: italic var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-sans);
+  --helper-sb-serif: italic var(--font-sb) var(--font-size-1) / 1.333 var(--font-family-serif);
+}
+
+@media (min-width: 1152px) {
+  :root {
+    --heading-1: var(--font-rg) var(--font-size-8) / 1.25 var(--font-family-sans);
+    --heading-1-serif: var(--font-rg) var(--font-size-8) / 1.25 var(--font-family-serif);
+    --heading-1-sb: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-sans);
+    --heading-1-sb-serif: var(--font-sb) var(--font-size-8) / 1.25 var(--font-family-serif);
+    --heading-1-lt: var(--font-lt) var(--font-size-8) / 1.25 var(--font-family-sans);
+    --heading-1-lt-serif: var(--font-lt) var(--font-size-8) / 1.25 var(--font-family-serif);
+    --heading-2: var(--font-rg) var(--font-size-7) / 1.28 var(--font-family-sans);
+    --heading-2-serif: var(--font-rg) var(--font-size-7) / 1.28 var(--font-family-serif);
+    --heading-2-sb: var(--font-sb) var(--font-size-7) / 1.28 var(--font-family-sans);
+    --heading-2-sb-serif: var(--font-sb) var(--font-size-7) / 1.28 var(--font-family-serif);
+    --heading-2-lt: var(--font-lt) var(--font-size-7) / 1.28 var(--font-family-sans);
+    --heading-2-lt-serif: var(--font-lt) var(--font-size-7) / 1.28 var(--font-family-serif);
+  }
 }
 
 /* Typography classes */
 .heading-1,
 .heading-1-sb,
-.heading-1-lt {
+.heading-1-lt,
+.heading-1-serif,
+.heading-1-sb-serif,
+.heading-1-lt-serif {
   font-size: var(--font-size-7);
   font-weight: var(--font-rg);
   line-height: 1.28;
@@ -48,7 +128,10 @@
 
 .heading-2,
 .heading-2-sb,
-.heading-2-lt {
+.heading-2-lt,
+.heading-2-serif,
+.heading-2-sb-serif,
+.heading-2-lt-serif {
   font-size: var(--font-size-6);
   font-weight: var(--font-rg);
   line-height: 1.333;
@@ -56,7 +139,10 @@
 
 .heading-3,
 .heading-3-sb,
-.heading-3-lt {
+.heading-3-lt,
+.heading-3-serif,
+.heading-3-sb-serif,
+.heading-3-lt-serif {
   font-size: var(--font-size-6);
   font-weight: var(--font-rg);
   line-height: 1.333;
@@ -64,35 +150,46 @@
 
 .heading-4,
 .heading-4-sb,
-.heading-4-lt {
+.heading-4-lt,
+.heading-4-serif,
+.heading-4-sb-serif,
+.heading-4-lt-serif {
   font-size: var(--font-size-5);
   font-weight: var(--font-rg);
   line-height: 1.4;
 }
 
 .body-1,
-.body-1-sb {
+.body-1-sb,
+.body-1-serif,
+.body-1-sb-serif {
   font-size: var(--font-size-5);
   font-weight: var(--font-rg);
   line-height: 1.4;
 }
 
 .body-2,
-.body-2-sb {
+.body-2-sb,
+.body-2-serif,
+.body-2-sb-serif {
   font-size: var(--font-size-4);
   font-weight: var(--font-rg);
   line-height: 1.5;
 }
 
 .body-3,
-.body-3-sb {
+.body-3-sb,
+.body-3-serif,
+.body-3-sb-serif {
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
   line-height: 1.5;
 }
 
 .body-4,
-.body-4-sb {
+.body-4-sb,
+.body-4-serif,
+.body-4-sb-serif {
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;
@@ -100,7 +197,9 @@
 }
 
 .body-5,
-.body-5-sb {
+.body-5-sb,
+.body-5-serif,
+.body-5-sb-serif {
   font-size: var(--font-size-1);
   font-weight: var(--font-rg);
   letter-spacing: 0.32px;
@@ -108,14 +207,18 @@
 }
 
 .interactive-1,
-.interactive-1-sb {
+.interactive-1-sb,
+.interactive-1-serif,
+.interactive-1-sb-serif {
   font-size: var(--font-size-3);
   font-weight: var(--font-rg);
   line-height: 1.5;
 }
 
 .interactive-2,
-.interactive-2-sb {
+.interactive-2-sb,
+.interactive-2-serif,
+.interactive-2-sb-serif {
   font-size: var(--font-size-2);
   font-weight: var(--font-rg);
   letter-spacing: 0.16px;
@@ -123,7 +226,9 @@
 }
 
 .interactive-3,
-.interactive-3-sb {
+.interactive-3-sb,
+.interactive-3-serif,
+.interactive-3-sb-serif {
   font-size: var(--font-size-1);
   font-weight: var(--font-rg);
   letter-spacing: 0.32px;
@@ -131,7 +236,9 @@
 }
 
 .helper,
-.helper-sb {
+.helper-sb,
+.helper-serif,
+.helper-sb-serif {
   font-size: var(--font-size-1);
   font-style: italic;
   font-weight: var(--font-rg);
@@ -168,7 +275,10 @@
 @media (min-width: 1152px) {
   .heading-1,
   .heading-1-sb,
-  .heading-1-lt {
+  .heading-1-lt,
+  .heading-1-serif,
+  .heading-1-sb-serif,
+  .heading-1-lt-serif {
     font-size: var(--font-size-8);
     font-weight: var(--font-rg);
     line-height: 1.25;
@@ -176,7 +286,10 @@
 
   .heading-2,
   .heading-2-sb,
-  .heading-2-lt {
+  .heading-2-lt,
+  .heading-2-serif,
+  .heading-2-sb-serif,
+  .heading-2-lt-serif {
     font-size: var(--font-size-7);
     font-weight: var(--font-rg);
     line-height: 1.28;
@@ -187,7 +300,10 @@
 @media (max-width: 767px) {
   .mobile-heading-1,
   .mobile-heading-1-sb,
-  .mobile-heading-1-lt {
+  .mobile-heading-1-lt,
+  .mobile-heading-1-serif,
+  .mobile-heading-1-sb-serif,
+  .mobile-heading-1-lt-serif {
     font-size: var(--font-size-7);
     font-weight: var(--font-rg);
     line-height: 1.28;
@@ -195,7 +311,10 @@
 
   .mobile-heading-2,
   .mobile-heading-2-sb,
-  .mobile-heading-2-lt {
+  .mobile-heading-2-lt,
+  .mobile-heading-2-serif,
+  .mobile-heading-2-sb-serif,
+  .mobile-heading-2-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -203,7 +322,10 @@
 
   .mobile-heading-3,
   .mobile-heading-3-sb,
-  .mobile-heading-3-lt {
+  .mobile-heading-3-lt,
+  .mobile-heading-3-serif,
+  .mobile-heading-3-sb-serif,
+  .mobile-heading-3-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -211,35 +333,46 @@
 
   .mobile-heading-4,
   .mobile-heading-4-sb,
-  .mobile-heading-4-lt {
+  .mobile-heading-4-lt,
+  .mobile-heading-4-serif,
+  .mobile-heading-4-sb-serif,
+  .mobile-heading-4-lt-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .mobile-body-1,
-  .mobile-body-1-sb {
+  .mobile-body-1-sb,
+  .mobile-body-1-serif,
+  .mobile-body-1-sb-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .mobile-body-2,
-  .mobile-body-2-sb {
+  .mobile-body-2-sb,
+  .mobile-body-2-serif,
+  .mobile-body-2-sb-serif {
     font-size: var(--font-size-4);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .mobile-body-3,
-  .mobile-body-3-sb {
+  .mobile-body-3-sb,
+  .mobile-body-3-serif,
+  .mobile-body-3-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .mobile-body-4,
-  .mobile-body-4-sb {
+  .mobile-body-4-sb,
+  .mobile-body-4-serif,
+  .mobile-body-4-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -247,7 +380,9 @@
   }
 
   .mobile-body-5,
-  .mobile-body-5-sb {
+  .mobile-body-5-sb,
+  .mobile-body-5-serif,
+  .mobile-body-5-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -255,14 +390,18 @@
   }
 
   .mobile-interactive-1,
-  .mobile-interactive-1-sb {
+  .mobile-interactive-1-sb,
+  .mobile-interactive-1-serif,
+  .mobile-interactive-1-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .mobile-interactive-2,
-  .mobile-interactive-2-sb {
+  .mobile-interactive-2-sb,
+  .mobile-interactive-2-serif,
+  .mobile-interactive-2-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -270,7 +409,9 @@
   }
 
   .mobile-interactive-3,
-  .mobile-interactive-3-sb {
+  .mobile-interactive-3-sb,
+  .mobile-interactive-3-serif,
+  .mobile-interactive-3-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -304,7 +445,11 @@
   .mobile-heading-1-lt,
   .mobile-heading-2-lt,
   .mobile-heading-3-lt,
-  .mobile-heading-4-lt {
+  .mobile-heading-4-lt,
+  .mobile-heading-1-lt-serif,
+  .mobile-heading-2-lt-serif,
+  .mobile-heading-3-lt-serif,
+  .mobile-heading-4-lt-serif {
     font-weight: var(--font-lt);
   }
 
@@ -319,15 +464,61 @@
   .mobile-body-5-sb,
   .mobile-interactive-1-sb,
   .mobile-interactive-2-sb,
-  .mobile-interactive-3-sb {
+  .mobile-interactive-3-sb,
+  .mobile-heading-1-sb-serif,
+  .mobile-heading-2-sb-serif,
+  .mobile-heading-3-sb-serif,
+  .mobile-heading-4-sb-serif,
+  .mobile-body-1-sb-serif,
+  .mobile-body-2-sb-serif,
+  .mobile-body-3-sb-serif,
+  .mobile-body-4-sb-serif,
+  .mobile-body-5-sb-serif,
+  .mobile-interactive-1-sb-serif,
+  .mobile-interactive-2-sb-serif,
+  .mobile-interactive-3-sb-serif {
     font-weight: var(--font-sb);
+  }
+
+  .mobile-heading-1-serif,
+  .mobile-heading-1-sb-serif,
+  .mobile-heading-1-lt-serif,
+  .mobile-heading-2-serif,
+  .mobile-heading-2-sb-serif,
+  .mobile-heading-2-lt-serif,
+  .mobile-heading-3-serif,
+  .mobile-heading-3-sb-serif,
+  .mobile-heading-3-lt-serif,
+  .mobile-heading-4-serif,
+  .mobile-heading-4-sb-serif,
+  .mobile-heading-4-lt-serif,
+  .mobile-body-1-serif,
+  .mobile-body-1-sb-serif,
+  .mobile-body-2-serif,
+  .mobile-body-2-sb-serif,
+  .mobile-body-3-serif,
+  .mobile-body-3-sb-serif,
+  .mobile-body-4-serif,
+  .mobile-body-4-sb-serif,
+  .mobile-body-5-serif,
+  .mobile-body-5-sb-serif,
+  .mobile-interactive-1-serif,
+  .mobile-interactive-1-sb-serif,
+  .mobile-interactive-2-serif,
+  .mobile-interactive-2-sb-serif,
+  .mobile-interactive-3-serif,
+  .mobile-interactive-3-sb-serif {
+    font-family: var(--font-family-serif);
   }
 }
 
 @media (min-width: 768px) and (max-width: 1151px) {
   .tablet-heading-1,
   .tablet-heading-1-sb,
-  .tablet-heading-1-lt {
+  .tablet-heading-1-lt,
+  .tablet-heading-1-serif,
+  .tablet-heading-1-sb-serif,
+  .tablet-heading-1-lt-serif {
     font-size: var(--font-size-7);
     font-weight: var(--font-rg);
     line-height: 1.28;
@@ -335,7 +526,10 @@
 
   .tablet-heading-2,
   .tablet-heading-2-sb,
-  .tablet-heading-2-lt {
+  .tablet-heading-2-lt,
+  .tablet-heading-2-serif,
+  .tablet-heading-2-sb-serif,
+  .tablet-heading-2-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -343,7 +537,10 @@
 
   .tablet-heading-3,
   .tablet-heading-3-sb,
-  .tablet-heading-3-lt {
+  .tablet-heading-3-lt,
+  .tablet-heading-3-serif,
+  .tablet-heading-3-sb-serif,
+  .tablet-heading-3-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -351,35 +548,46 @@
 
   .tablet-heading-4,
   .tablet-heading-4-sb,
-  .tablet-heading-4-lt {
+  .tablet-heading-4-lt,
+  .tablet-heading-4-serif,
+  .tablet-heading-4-sb-serif,
+  .tablet-heading-4-lt-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .tablet-body-1,
-  .tablet-body-1-sb {
+  .tablet-body-1-sb,
+  .tablet-body-1-serif,
+  .tablet-body-1-sb-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .tablet-body-2,
-  .tablet-body-2-sb {
+  .tablet-body-2-sb,
+  .tablet-body-2-serif,
+  .tablet-body-2-sb-serif {
     font-size: var(--font-size-4);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .tablet-body-3,
-  .tablet-body-3-sb {
+  .tablet-body-3-sb,
+  .tablet-body-3-serif,
+  .tablet-body-3-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .tablet-body-4,
-  .tablet-body-4-sb {
+  .tablet-body-4-sb,
+  .tablet-body-4-serif,
+  .tablet-body-4-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -387,7 +595,9 @@
   }
 
   .tablet-body-5,
-  .tablet-body-5-sb {
+  .tablet-body-5-sb,
+  .tablet-body-5-serif,
+  .tablet-body-5-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -395,14 +605,18 @@
   }
 
   .tablet-interactive-1,
-  .tablet-interactive-1-sb {
+  .tablet-interactive-1-sb,
+  .tablet-interactive-1-serif,
+  .tablet-interactive-1-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .tablet-interactive-2,
-  .tablet-interactive-2-sb {
+  .tablet-interactive-2-sb,
+  .tablet-interactive-2-serif,
+  .tablet-interactive-2-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -410,7 +624,9 @@
   }
 
   .tablet-interactive-3,
-  .tablet-interactive-3-sb {
+  .tablet-interactive-3-sb,
+  .tablet-interactive-3-serif,
+  .tablet-interactive-3-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -444,7 +660,11 @@
   .tablet-heading-1-lt,
   .tablet-heading-2-lt,
   .tablet-heading-3-lt,
-  .tablet-heading-4-lt {
+  .tablet-heading-4-lt,
+  .tablet-heading-1-lt-serif,
+  .tablet-heading-2-lt-serif,
+  .tablet-heading-3-lt-serif,
+  .tablet-heading-4-lt-serif {
     font-weight: var(--font-lt);
   }
 
@@ -459,15 +679,61 @@
   .tablet-body-5-sb,
   .tablet-interactive-1-sb,
   .tablet-interactive-2-sb,
-  .tablet-interactive-3-sb {
+  .tablet-interactive-3-sb,
+  .tablet-heading-1-sb-serif,
+  .tablet-heading-2-sb-serif,
+  .tablet-heading-3-sb-serif,
+  .tablet-heading-4-sb-serif,
+  .tablet-body-1-sb-serif,
+  .tablet-body-2-sb-serif,
+  .tablet-body-3-sb-serif,
+  .tablet-body-4-sb-serif,
+  .tablet-body-5-sb-serif,
+  .tablet-interactive-1-sb-serif,
+  .tablet-interactive-2-sb-serif,
+  .tablet-interactive-3-sb-serif {
     font-weight: var(--font-sb);
+  }
+
+  .tablet-heading-1-serif,
+  .tablet-heading-1-sb-serif,
+  .tablet-heading-1-lt-serif,
+  .tablet-heading-2-serif,
+  .tablet-heading-2-sb-serif,
+  .tablet-heading-2-lt-serif,
+  .tablet-heading-3-serif,
+  .tablet-heading-3-sb-serif,
+  .tablet-heading-3-lt-serif,
+  .tablet-heading-4-serif,
+  .tablet-heading-4-sb-serif,
+  .tablet-heading-4-lt-serif,
+  .tablet-body-1-serif,
+  .tablet-body-1-sb-serif,
+  .tablet-body-2-serif,
+  .tablet-body-2-sb-serif,
+  .tablet-body-3-serif,
+  .tablet-body-3-sb-serif,
+  .tablet-body-4-serif,
+  .tablet-body-4-sb-serif,
+  .tablet-body-5-serif,
+  .tablet-body-5-sb-serif,
+  .tablet-interactive-1-serif,
+  .tablet-interactive-1-sb-serif,
+  .tablet-interactive-2-serif,
+  .tablet-interactive-2-sb-serif,
+  .tablet-interactive-3-serif,
+  .tablet-interactive-3-sb-serif {
+    font-family: var(--font-family-serif);
   }
 }
 
 @media (min-width: 1152px) and (max-width: 1365px) {
   .desktop-heading-1,
   .desktop-heading-1-sb,
-  .desktop-heading-1-lt {
+  .desktop-heading-1-lt,
+  .desktop-heading-1-serif,
+  .desktop-heading-1-sb-serif,
+  .desktop-heading-1-lt-serif {
     font-size: var(--font-size-8);
     font-weight: var(--font-rg);
     line-height: 1.25;
@@ -475,7 +741,10 @@
 
   .desktop-heading-2,
   .desktop-heading-2-sb,
-  .desktop-heading-2-lt {
+  .desktop-heading-2-lt,
+  .desktop-heading-2-serif,
+  .desktop-heading-2-sb-serif,
+  .desktop-heading-2-lt-serif {
     font-size: var(--font-size-7);
     font-weight: var(--font-rg);
     line-height: 1.28;
@@ -483,7 +752,10 @@
 
   .desktop-heading-3,
   .desktop-heading-3-sb,
-  .desktop-heading-3-lt {
+  .desktop-heading-3-lt,
+  .desktop-heading-3-serif,
+  .desktop-heading-3-sb-serif,
+  .desktop-heading-3-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -491,35 +763,46 @@
 
   .desktop-heading-4,
   .desktop-heading-4-sb,
-  .desktop-heading-4-lt {
+  .desktop-heading-4-lt,
+  .desktop-heading-4-serif,
+  .desktop-heading-4-sb-serif,
+  .desktop-heading-4-lt-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .desktop-body-1,
-  .desktop-body-1-sb {
+  .desktop-body-1-sb,
+  .desktop-body-1-serif,
+  .desktop-body-1-sb-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .desktop-body-2,
-  .desktop-body-2-sb {
+  .desktop-body-2-sb,
+  .desktop-body-2-serif,
+  .desktop-body-2-sb-serif {
     font-size: var(--font-size-4);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .desktop-body-3,
-  .desktop-body-3-sb {
+  .desktop-body-3-sb,
+  .desktop-body-3-serif,
+  .desktop-body-3-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .desktop-body-4,
-  .desktop-body-4-sb {
+  .desktop-body-4-sb,
+  .desktop-body-4-serif,
+  .desktop-body-4-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -527,7 +810,9 @@
   }
 
   .desktop-body-5,
-  .desktop-body-5-sb {
+  .desktop-body-5-sb,
+  .desktop-body-5-serif,
+  .desktop-body-5-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -535,14 +820,18 @@
   }
 
   .desktop-interactive-1,
-  .desktop-interactive-1-sb {
+  .desktop-interactive-1-sb,
+  .desktop-interactive-1-serif,
+  .desktop-interactive-1-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .desktop-interactive-2,
-  .desktop-interactive-2-sb {
+  .desktop-interactive-2-sb,
+  .desktop-interactive-2-serif,
+  .desktop-interactive-2-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -550,7 +839,9 @@
   }
 
   .desktop-interactive-3,
-  .desktop-interactive-3-sb {
+  .desktop-interactive-3-sb,
+  .desktop-interactive-3-serif,
+  .desktop-interactive-3-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -584,7 +875,11 @@
   .desktop-heading-1-lt,
   .desktop-heading-2-lt,
   .desktop-heading-3-lt,
-  .desktop-heading-4-lt {
+  .desktop-heading-4-lt,
+  .desktop-heading-1-lt-serif,
+  .desktop-heading-2-lt-serif,
+  .desktop-heading-3-lt-serif,
+  .desktop-heading-4-lt-serif {
     font-weight: var(--font-lt);
   }
 
@@ -599,15 +894,61 @@
   .desktop-body-5-sb,
   .desktop-interactive-1-sb,
   .desktop-interactive-2-sb,
-  .desktop-interactive-3-sb {
+  .desktop-interactive-3-sb,
+  .desktop-heading-1-sb-serif,
+  .desktop-heading-2-sb-serif,
+  .desktop-heading-3-sb-serif,
+  .desktop-heading-4-sb-serif,
+  .desktop-body-1-sb-serif,
+  .desktop-body-2-sb-serif,
+  .desktop-body-3-sb-serif,
+  .desktop-body-4-sb-serif,
+  .desktop-body-5-sb-serif,
+  .desktop-interactive-1-sb-serif,
+  .desktop-interactive-2-sb-serif,
+  .desktop-interactive-3-sb-serif {
     font-weight: var(--font-sb);
+  }
+
+  .desktop-heading-1-serif,
+  .desktop-heading-1-sb-serif,
+  .desktop-heading-1-lt-serif,
+  .desktop-heading-2-serif,
+  .desktop-heading-2-sb-serif,
+  .desktop-heading-2-lt-serif,
+  .desktop-heading-3-serif,
+  .desktop-heading-3-sb-serif,
+  .desktop-heading-3-lt-serif,
+  .desktop-heading-4-serif,
+  .desktop-heading-4-sb-serif,
+  .desktop-heading-4-lt-serif,
+  .desktop-body-1-serif,
+  .desktop-body-1-sb-serif,
+  .desktop-body-2-serif,
+  .desktop-body-2-sb-serif,
+  .desktop-body-3-serif,
+  .desktop-body-3-sb-serif,
+  .desktop-body-4-serif,
+  .desktop-body-4-sb-serif,
+  .desktop-body-5-serif,
+  .desktop-body-5-sb-serif,
+  .desktop-interactive-1-serif,
+  .desktop-interactive-1-sb-serif,
+  .desktop-interactive-2-serif,
+  .desktop-interactive-2-sb-serif,
+  .desktop-interactive-3-serif,
+  .desktop-interactive-3-sb-serif {
+    font-family: var(--font-family-serif);
   }
 }
 
 @media (min-width: 1366px) {
   .wide-heading-1,
   .wide-heading-1-sb,
-  .wide-heading-1-lt {
+  .wide-heading-1-lt,
+  .wide-heading-1-serif,
+  .wide-heading-1-sb-serif,
+  .wide-heading-1-lt-serif {
     font-size: var(--font-size-8);
     font-weight: var(--font-rg);
     line-height: 1.25;
@@ -615,7 +956,10 @@
 
   .wide-heading-2,
   .wide-heading-2-sb,
-  .wide-heading-2-lt {
+  .wide-heading-2-lt,
+  .wide-heading-2-serif,
+  .wide-heading-2-sb-serif,
+  .wide-heading-2-lt-serif {
     font-size: var(--font-size-7);
     font-weight: var(--font-rg);
     line-height: 1.28;
@@ -623,7 +967,10 @@
 
   .wide-heading-3,
   .wide-heading-3-sb,
-  .wide-heading-3-lt {
+  .wide-heading-3-lt,
+  .wide-heading-3-serif,
+  .wide-heading-3-sb-serif,
+  .wide-heading-3-lt-serif {
     font-size: var(--font-size-6);
     font-weight: var(--font-rg);
     line-height: 1.333;
@@ -631,35 +978,46 @@
 
   .wide-heading-4,
   .wide-heading-4-sb,
-  .wide-heading-4-lt {
+  .wide-heading-4-lt,
+  .wide-heading-4-serif,
+  .wide-heading-4-sb-serif,
+  .wide-heading-4-lt-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .wide-body-1,
-  .wide-body-1-sb {
+  .wide-body-1-sb,
+  .wide-body-1-serif,
+  .wide-body-1-sb-serif {
     font-size: var(--font-size-5);
     font-weight: var(--font-rg);
     line-height: 1.4;
   }
 
   .wide-body-2,
-  .wide-body-2-sb {
+  .wide-body-2-sb,
+  .wide-body-2-serif,
+  .wide-body-2-sb-serif {
     font-size: var(--font-size-4);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .wide-body-3,
-  .wide-body-3-sb {
+  .wide-body-3-sb,
+  .wide-body-3-serif,
+  .wide-body-3-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .wide-body-4,
-  .wide-body-4-sb {
+  .wide-body-4-sb,
+  .wide-body-4-serif,
+  .wide-body-4-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -667,7 +1025,9 @@
   }
 
   .wide-body-5,
-  .wide-body-5-sb {
+  .wide-body-5-sb,
+  .wide-body-5-serif,
+  .wide-body-5-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -675,14 +1035,18 @@
   }
 
   .wide-interactive-1,
-  .wide-interactive-1-sb {
+  .wide-interactive-1-sb,
+  .wide-interactive-1-serif,
+  .wide-interactive-1-sb-serif {
     font-size: var(--font-size-3);
     font-weight: var(--font-rg);
     line-height: 1.5;
   }
 
   .wide-interactive-2,
-  .wide-interactive-2-sb {
+  .wide-interactive-2-sb,
+  .wide-interactive-2-serif,
+  .wide-interactive-2-sb-serif {
     font-size: var(--font-size-2);
     font-weight: var(--font-rg);
     letter-spacing: 0.16px;
@@ -690,7 +1054,9 @@
   }
 
   .wide-interactive-3,
-  .wide-interactive-3-sb {
+  .wide-interactive-3-sb,
+  .wide-interactive-3-serif,
+  .wide-interactive-3-sb-serif {
     font-size: var(--font-size-1);
     font-weight: var(--font-rg);
     letter-spacing: 0.32px;
@@ -724,7 +1090,11 @@
   .wide-heading-1-lt,
   .wide-heading-2-lt,
   .wide-heading-3-lt,
-  .wide-heading-4-lt {
+  .wide-heading-4-lt,
+  .wide-heading-1-lt-serif,
+  .wide-heading-2-lt-serif,
+  .wide-heading-3-lt-serif,
+  .wide-heading-4-lt-serif {
     font-weight: var(--font-lt);
   }
 
@@ -739,16 +1109,62 @@
   .wide-body-5-sb,
   .wide-interactive-1-sb,
   .wide-interactive-2-sb,
-  .wide-interactive-3-sb {
+  .wide-interactive-3-sb,
+  .wide-heading-1-sb-serif,
+  .wide-heading-2-sb-serif,
+  .wide-heading-3-sb-serif,
+  .wide-heading-4-sb-serif,
+  .wide-body-1-sb-serif,
+  .wide-body-2-sb-serif,
+  .wide-body-3-sb-serif,
+  .wide-body-4-sb-serif,
+  .wide-body-5-sb-serif,
+  .wide-interactive-1-sb-serif,
+  .wide-interactive-2-sb-serif,
+  .wide-interactive-3-sb-serif {
     font-weight: var(--font-sb);
+  }
+
+  .wide-heading-1-serif,
+  .wide-heading-1-sb-serif,
+  .wide-heading-1-lt-serif,
+  .wide-heading-2-serif,
+  .wide-heading-2-sb-serif,
+  .wide-heading-2-lt-serif,
+  .wide-heading-3-serif,
+  .wide-heading-3-sb-serif,
+  .wide-heading-3-lt-serif,
+  .wide-heading-4-serif,
+  .wide-heading-4-sb-serif,
+  .wide-heading-4-lt-serif,
+  .wide-body-1-serif,
+  .wide-body-1-sb-serif,
+  .wide-body-2-serif,
+  .wide-body-2-sb-serif,
+  .wide-body-3-serif,
+  .wide-body-3-sb-serif,
+  .wide-body-4-serif,
+  .wide-body-4-sb-serif,
+  .wide-body-5-serif,
+  .wide-body-5-sb-serif,
+  .wide-interactive-1-serif,
+  .wide-interactive-1-sb-serif,
+  .wide-interactive-2-serif,
+  .wide-interactive-2-sb-serif,
+  .wide-interactive-3-serif,
+  .wide-interactive-3-sb-serif {
+    font-family: var(--font-family-serif);
   }
 }
 
-/* font-weight variants */
 .heading-1-lt,
 .heading-2-lt,
 .heading-3-lt,
-.heading-4-lt {
+.heading-4-lt,
+.heading-1-lt-serif,
+.heading-2-lt-serif,
+.heading-3-lt-serif,
+.heading-4-lt-serif {
   font-weight: var(--font-lt);
 }
 
@@ -764,6 +1180,52 @@
 .interactive-1-sb,
 .interactive-2-sb,
 .interactive-3-sb,
-.helper-sb {
+.helper-sb,
+.heading-1-sb-serif,
+.heading-2-sb-serif,
+.heading-3-sb-serif,
+.heading-4-sb-serif,
+.body-1-sb-serif,
+.body-2-sb-serif,
+.body-3-sb-serif,
+.body-4-sb-serif,
+.body-5-sb-serif,
+.interactive-1-sb-serif,
+.interactive-2-sb-serif,
+.interactive-3-sb-serif,
+.helper-sb-serif {
   font-weight: var(--font-sb);
+}
+
+.heading-1-serif,
+.heading-1-sb-serif,
+.heading-1-lt-serif,
+.heading-2-serif,
+.heading-2-sb-serif,
+.heading-2-lt-serif,
+.heading-3-serif,
+.heading-3-sb-serif,
+.heading-3-lt-serif,
+.heading-4-serif,
+.heading-4-sb-serif,
+.heading-4-lt-serif,
+.body-1-serif,
+.body-1-sb-serif,
+.body-2-serif,
+.body-2-sb-serif,
+.body-3-serif,
+.body-3-sb-serif,
+.body-4-serif,
+.body-4-sb-serif,
+.body-5-serif,
+.body-5-sb-serif,
+.interactive-1-serif,
+.interactive-1-sb-serif,
+.interactive-2-serif,
+.interactive-2-sb-serif,
+.interactive-3-serif,
+.interactive-3-sb-serif,
+.helper-serif,
+.helper-sb-serif {
+  font-family: var(--font-family-serif);
 }

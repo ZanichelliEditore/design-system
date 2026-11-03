@@ -393,3 +393,37 @@ export const SearchPageButton = {
     </z-app-header>
   ),
 } satisfies Story;
+
+export const Searchbar = {
+  args: {
+    enableSearch: true,
+    searchLabel: "Cerca",
+    searchPlaceholder: "Cerca per titolo, autore o ISBN",
+    searchButtonLabel: "Cerca",
+    searchPageUrl: undefined,
+    stuck: true,
+  },
+  parameters: {
+    controls: {
+      exclude: ["search-page-url"],
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div>
+        {Story()}
+        <div style={{height: "1000px"}}></div>
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <z-app-header
+      {...args}
+      style={extractCSSVars(args)}
+    >
+      <div slot="title">Applicazione</div>
+      <div slot="subtitle">Payoff dell'applicazione</div>
+      {menuTemplate()}
+    </z-app-header>
+  ),
+} satisfies Story;

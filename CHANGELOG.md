@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [20.1.0](https://github.com/ZanichelliEditore/design-system/compare/v20.0.5...v20.1.0) (2026-10-27)
+
+
+### Features
+
+* add typography font variables and serif classes ([df8b0d6](https://github.com/ZanichelliEditore/design-system/commit/df8b0d6b886bc519bcfe9b669fd6a6b3c35329ea))
+* z-input: fix labeless input margin ([fc4a0fcd5](https://github.com/ZanichelliEditore/design-system/commit/fc4a0fcd5))
+* z-input: improve label animations ([27aa77311](https://github.com/ZanichelliEditore/design-system/commit/27aa77311))
+* z-input: change active input text color ([1feaef427](https://github.com/ZanichelliEditore/design-system/commit/1feaef427))
+* z-input: improve label animations ([e650c6d5b](https://github.com/ZanichelliEditore/design-system/commit/e650c6d5b))
+* z-input: improve inside label for password input ([34e1dadfb](https://github.com/ZanichelliEditore/design-system/commit/34e1dadfb))
+* z-input: restore label in app header searchbar ([82e4d0320](https://github.com/ZanichelliEditore/design-system/commit/82e4d0320))
+* z-app-header: added story ([9d80043b9](https://github.com/ZanichelliEditore/design-system/commit/9d80043b9))
+* z-input: improvements ([8e82fe28e](https://github.com/ZanichelliEditore/design-system/commit/8e82fe28e))
+* z-input: label animations ([48763cd91](https://github.com/ZanichelliEditore/design-system/commit/48763cd91))
+* z-input: tests ([8d03bd011](https://github.com/ZanichelliEditore/design-system/commit/8d03bd011))
+* z-select: improve accessibility ([5cfa6a81c](https://github.com/ZanichelliEditore/design-system/commit/5cfa6a81c))
+* z-input: code cleaning ([3592ec5f9](https://github.com/ZanichelliEditore/design-system/commit/3592ec5f9))
+* z-input: improve app header searchbar ([f68f6581d](https://github.com/ZanichelliEditore/design-system/commit/f68f6581d))
+* z-input: tests ([15d990888](https://github.com/ZanichelliEditore/design-system/commit/15d990888))
+* z-input: restore label in app header searchbar ([30265294d](https://github.com/ZanichelliEditore/design-system/commit/30265294d))
+* z-input: fix inside label positioning ([78e2325a0](https://github.com/ZanichelliEditore/design-system/commit/78e2325a0))
+* z-input: theming ([401390a0a](https://github.com/ZanichelliEditore/design-system/commit/401390a0a))
+* z-input: label status ([9dc2253d9](https://github.com/ZanichelliEditore/design-system/commit/9dc2253d9))
+* z-input: update trailing actions style ([a9364b0a0](https://github.com/ZanichelliEditore/design-system/commit/a9364b0a0))
+* z-input: wip inside label ([7e00357bb](https://github.com/ZanichelliEditore/design-system/commit/7e00357bb))
+* z-input: tests ([2c546088d](https://github.com/ZanichelliEditore/design-system/commit/2c546088d))
+* z-input: use rem for input height ([fc9648563](https://github.com/ZanichelliEditore/design-system/commit/fc9648563))
+* z-input: update z-input-message styles ([26244d396](https://github.com/ZanichelliEditore/design-system/commit/26244d396))
+* z-input: wip cutout label ([97d50bf31](https://github.com/ZanichelliEditore/design-system/commit/97d50bf31))
+* z-input: increase border radius ([a7a8f82f5](https://github.com/ZanichelliEditore/design-system/commit/a7a8f82f5))
+* z-input: capitalize label ([5837c6fd2](https://github.com/ZanichelliEditore/design-system/commit/5837c6fd2))
+* css storybook ([8997449](https://github.com/ZanichelliEditore/design-system/commit/8997449528edccab080010979d15fe66e3dbeab3))
+* css: added margin and padding classes ([4eef168](https://github.com/ZanichelliEditore/design-system/commit/4eef1684c0de2bff158cc5e1f7b8c816649611da))
+* css: added more space unit variables ([6758c43](https://github.com/ZanichelliEditore/design-system/commit/6758c437ab59ee9ef8f8c063d192ec461e870655))
+* css: improve storybook doc ([74386c8](https://github.com/ZanichelliEditore/design-system/commit/74386c88cb081f7ef7488f9f5fc775e6344aca0f))
+* css: sort classes ([1103463](https://github.com/ZanichelliEditore/design-system/commit/1103463a416349baee1ab89f1371df5483dcdbf3))
+* fix css ([9e2ee4d](https://github.com/ZanichelliEditore/design-system/commit/9e2ee4df13f038f8528937cfad79b1cb892b0ab9))
+
+
+### Bug Fixes
+
+* **DS-769:** add dark theme for ztoggle switch and fixed dark theme scrollbar ([468e7c4](https://github.com/ZanichelliEditore/design-system/commit/468e7c46be6e4b39bc9ee5fcc933e9d1d118b4b6))
+* **DS-769:** add dark theme for ztoggle switch and fixed dark theme scrollbar ([fe2cd52](https://github.com/ZanichelliEditore/design-system/commit/fe2cd52bf92c1ecb4be5ddf449d6e4539cf6fa8e))
+* **storybook docs:** correctly apply DS themes to the stories inside the Docs page ([e2962a6](https://github.com/ZanichelliEditore/design-system/commit/e2962a68aa2722955ed486366ba92cf06be37378))
+* subcomponents class import in stories; ensure custom-elements.json build ([cda0c8c](https://github.com/ZanichelliEditore/design-system/commit/cda0c8c5a66bf09df10531828b95c05f69c41807))
+* zaccordion controls ([1933936](https://github.com/ZanichelliEditore/design-system/commit/1933936eb8e3aadd93b43cb519ccff90af87784c))
+
 ## [20.0.5](https://github.com/ZanichelliEditore/design-system/compare/v20.0.4...v20.0.5) (2026-10-01)
 
 
