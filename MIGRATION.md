@@ -12,10 +12,10 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
 - [v21.0.0](#v2100)
 
   - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
-  - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-è-ora-distribuito-solo-come-esm)
-  - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-più-intercettati-automaticamente-dai-binding-react)
+  - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-e-ora-distribuito-solo-come-esm)
+  - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-piu-intercettati-automaticamente-dai-binding-react)
     - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
-  - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-più-riportate-come-attributi-html-dai-binding-react)
+  - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-piu-riportate-come-attributi-html-dai-binding-react)
 
 - [v20.0.0](#v2000)
 
