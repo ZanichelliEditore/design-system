@@ -1,12 +1,12 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, Orientation, PopoverPosition} from "../../beans";
-import {ZInputRange} from "./index";
+import type {ZInputRange} from "./index";
 import "./index.stories.css";
 
 const StoryMeta = {
   title: "ZInputRange",
-  component: ZInputRange,
+  component: "z-input-range",
   argTypes: {
     orientation: {
       control: {type: "inline-radio"},

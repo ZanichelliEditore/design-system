@@ -2,11 +2,11 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ZChipType, ZChipVariant} from "../../beans";
 import {ICONS} from "../../constants/iconset";
-import {ZChip} from "./index";
+import type {ZChip} from "./index";
 
 const StoryMeta = {
   title: "ZChip",
-  component: ZChip,
+  component: "z-chip",
   argTypes: {
     type: {
       options: Object.values(ZChipType),

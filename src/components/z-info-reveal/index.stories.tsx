@@ -2,12 +2,12 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, InfoRevealPosition} from "../../beans";
 import {ICONS} from "../../constants/iconset";
-import {ZInfoReveal} from "./index";
+import type {ZInfoReveal} from "./index";
 import "./index.stories.css";
 
 const StoryMeta = {
   title: "ZInfoReveal",
-  component: ZInfoReveal,
+  component: "z-info-reveal",
   argTypes: {
     icon: {
       control: {

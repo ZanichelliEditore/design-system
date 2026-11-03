@@ -1,10 +1,9 @@
 import {h} from "@stencil/core";
-import {ZGhostLoading} from "./index";
 import "./index.stories.css";
 
 export default {
   title: "ZGhostLoading",
-  component: ZGhostLoading,
+  component: "z-ghost-loading",
 };
 
 export const Default = {

@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ControlSize, InputStatus, SelectItem} from "../../beans";
-import {ZSelect} from "./index";
+import type {ZSelect} from "./index";
 
 const StoryMeta = {
   title: "ZSelect",
-  component: ZSelect,
+  component: "z-select",
   argTypes: {
     items: {
       control: {

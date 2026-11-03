@@ -1,9 +1,8 @@
 import {h} from "@stencil/core";
-import {ZVisuallyHidden} from "./index";
 
 export default {
   title: "ZVisuallyHidden",
-  component: ZVisuallyHidden,
+  component: "z-visually-hidden",
 };
 
 export const Default = {

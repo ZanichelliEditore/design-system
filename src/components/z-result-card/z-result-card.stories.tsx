@@ -1,10 +1,10 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZResultCard} from "./index";
+import type {ZResultCard} from "./index";
 
-const StoryMeta: Meta = {
+const StoryMeta = {
   title: "ZResultCard",
-  component: ZResultCard,
+  component: "z-result-card",
   argTypes: {
     cardTitle: {control: "text"},
     cardSubtitle: {control: "text"},
@@ -32,11 +32,11 @@ const StoryMeta: Meta = {
       <span slot="volumes">2 volumes</span>
     </z-result-card>
   ),
-};
+} satisfies Meta<ZResultCard>;
 
 export default StoryMeta;
 
-type Story = StoryObj;
+type Story = StoryObj<ZResultCard>;
 
 export const SingleCover: Story = {};
 

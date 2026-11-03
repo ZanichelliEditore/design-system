@@ -3,7 +3,9 @@ import {darkTheme} from "./theme";
 
 addons.setConfig({
   theme: darkTheme,
-  enableShortcuts: false,
+  ui: {
+    enableShortcuts: false,
+  },
   sidebar: {
     showRoots: false,
   },

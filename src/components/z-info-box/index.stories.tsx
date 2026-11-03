@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
 import {ButtonVariant} from "../../beans";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils.js";
-import {ZInfoBox} from "./index";
+import type {ZInfoBox} from "./index";
 import "./index.stories.css";
 
 type ZInfoBoxStoriesArgs = ZInfoBox &
@@ -10,7 +10,7 @@ type ZInfoBoxStoriesArgs = ZInfoBox &
 
 const StoryMeta = {
   title: "ZInfoBox",
-  component: ZInfoBox,
+  component: "z-info-box",
   argTypes: {
     "--z-info-box--border-color": getColorTokenArgConfig(["transparent"]),
     "--z-info-box--background-color": getColorTokenArgConfig(),

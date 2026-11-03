@@ -2,14 +2,14 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CarouselArrowsPosition, CarouselProgressMode} from "../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZCarousel} from "./index";
+import type {ZCarousel} from "./index";
 import "./index.stories.css";
 
 type ZCarouselStoriesArgs = ZCarousel & {itemsCount: number} & CSSVarsArguments<"z-carousel-gutter">;
 
 const StoryMeta = {
   title: "ZCarousel",
-  component: ZCarousel,
+  component: "z-carousel",
   decorators: [(Story) => <div class="z-carousel-story-container">{Story()}</div>],
   render: (args) => (
     <z-carousel

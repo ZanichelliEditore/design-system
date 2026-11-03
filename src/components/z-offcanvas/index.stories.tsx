@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {OffCanvasVariant, TransitionDirection} from "../../beans";
 import {CSSVarsArguments, extractCSSVars} from "../../utils/storybook-utils";
-import {ZOffcanvas} from "./index";
+import type {ZOffcanvas} from "./index";
 import "./index.stories.css";
 
 type ZOffcanvasStoriesArgs = ZOffcanvas &

@@ -56,13 +56,13 @@ export class ZAppHeader implements ComponentInterface {
    * Visible label for the search bar.
    */
   @Prop()
-  searchLabel?: string;
+  searchLabel = "Cerca";
 
   /**
    * Placeholder text for the search bar.
    */
   @Prop()
-  searchPlaceholder = "Cerca";
+  searchPlaceholder?: string;
 
   /**
    * Label of the search button.
@@ -381,6 +381,7 @@ export class ZAppHeader implements ComponentInterface {
         htmlid="app-header-searchbar"
         value={this.searchString}
         placeholder={this.searchPlaceholder}
+        label={this.searchLabel}
         htmlAriaLabel={this.searchLabel}
         showSearchButton={true}
         searchButtonIconOnly={this.isMobile || this.isTablet}
@@ -399,20 +400,6 @@ export class ZAppHeader implements ComponentInterface {
         }}
       />
     );
-  }
-
-  private renderSearchLabel(): HTMLSpanElement | undefined {
-    if (!this.isMobile && !this.isTablet && !this.enableOffcanvas) {
-      return (
-        <label
-          class="z-label"
-          htmlFor="input-app-header-searchbar"
-          aria-hidden={this.searchLabel ? "false" : "true"}
-        >
-          {this.searchLabel}
-        </label>
-      );
-    }
   }
 
   private renderProductLogos(): HTMLElement | null {
@@ -564,10 +551,7 @@ export class ZAppHeader implements ComponentInterface {
                   {!this.isMobile && this.renderTopSubtitle()}
                   <slot name="title" />
                 </div>
-                <div class="search-slot">
-                  {this.enableSearch && this.renderSearchLabel()}
-                  {this.enableSearch && !this.isMobile && this.renderSeachbar()}
-                </div>
+                {this.enableSearch && !this.isMobile && this.renderSeachbar()}
               </div>
               {this.isMobile && this.renderTopSubtitle()}
             </div>

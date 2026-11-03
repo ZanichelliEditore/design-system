@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
-import {ZBookCover} from "./index";
+import type {ZBookCover} from "./index";
 
 type ZBookCoverStoriesArgs = ZBookCover &
   CSSVarsArguments<
@@ -13,7 +13,7 @@ type ZBookCoverStoriesArgs = ZBookCover &
 
 const StoryMeta = {
   title: "ZBookCover",
-  component: ZBookCover,
+  component: "z-book-cover",
   args: {
     "cover": "https://staticmy.zanichelli.it/copertine/dashboard/m40002.9788808999825.jpg",
     "coverAlt": "",

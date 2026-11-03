@@ -39,8 +39,6 @@ export const Default = {
 
 - Quando si usa `parameters.controls.include/exclude`, usare sempre il nome della prop in kebab-case e non quello in camelCase alla Stencil
 
-- Sembra che il plugin di Stencil non comunichi bene a Storybook le modifiche fatte ai componenti, quindi per vederle bisogna stoppare il server e rilanciare `yarn start-storybook`. Sembra lo stiano sistemando ma ad oggi (16/6/2026) non c'è ancora una versione col fix.
-
 - Adesso per permettere l’aggiunta delle CSS custom properties nella documentazione JSON auto-generata durante la build, non serve più usare `@cssprop —my-property` nella doc del componente ma si deve mettere un commento JSDocs direttamente nel file CSS usando il tag `@prop`. È importante la sintassi “@prop —my-property: description” con i due punti prima della descrizione (al posto del trattino come facevamo prima). Esempio:
 
 ```css

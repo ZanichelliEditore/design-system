@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ZDatePickerMode} from "../../../beans";
 import "../index.stories.css";
-import {ZDatePicker} from "./index";
+import type {ZDatePicker} from "./index";
 
 const onDateSelect = (e: CustomEvent<string>, datePickerId: string) => {
   const input = document.getElementById(`output-${datePickerId}`);
@@ -17,7 +17,7 @@ const onDateSelect = (e: CustomEvent<string>, datePickerId: string) => {
  */
 const StoryMeta = {
   title: "ZDatePicker",
-  component: ZDatePicker,
+  component: "z-date-picker",
   argTypes: {
     mode: {
       options: Object.values(ZDatePickerMode),

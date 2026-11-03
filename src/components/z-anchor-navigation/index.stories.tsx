@@ -1,12 +1,12 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, ControlSize} from "../../beans";
-import {ZAnchorNavigation} from "./index";
+import type {ZAnchorNavigation} from "./index";
 import "./index.stories.css";
 
 const StoryMeta = {
   title: "ZAnchorNavigation",
-  component: ZAnchorNavigation,
+  component: "z-anchor-navigation",
   args: {
     hideUnselected: false,
     collapsedLabel: "salta a",

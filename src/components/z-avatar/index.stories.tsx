@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {AvatarSize} from "../../beans";
 import {getColorTokens} from "../../utils/storybook-utils";
-import {ZAvatar} from "./index";
+import type {ZAvatar} from "./index";
 
 const colorTokens = getColorTokens().map((token) => token.replace("--", ""));
 
@@ -12,7 +12,7 @@ const colorTokens = getColorTokens().map((token) => token.replace("--", ""));
  */
 const StoryMeta = {
   title: "ZAvatar",
-  component: ZAvatar,
+  component: "z-avatar",
   argTypes: {
     size: {
       options: Object.values(AvatarSize),

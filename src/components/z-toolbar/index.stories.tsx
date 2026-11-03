@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {DividerOrientation} from "../../beans/index";
 import {CSSVarsArguments} from "../../utils/storybook-utils";
-import {ZToolbar} from "./index";
+import type {ZToolbar} from "./index";
 import "./index.stories.css";
 
 type ZToolbarStoriesArgs = ZToolbar & CSSVarsArguments<"--z-toolbar-columns">;

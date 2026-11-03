@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, ZFileUploadType} from "../../../beans";
 import type {ZFileUploadCustomEvent} from "../../../components";
-import {ZFileUpload} from "./index";
+import type {ZFileUpload} from "./index";
 
 const onFileInput = (e: ZFileUploadCustomEvent<File>) => {
   const item = e.detail;
@@ -16,7 +16,7 @@ const onFileInput = (e: ZFileUploadCustomEvent<File>) => {
 
 const StoryMeta = {
   title: "ZFileUpload",
-  component: ZFileUpload,
+  component: "z-file-upload",
   argTypes: {
     type: {
       options: Object.values(ZFileUploadType),

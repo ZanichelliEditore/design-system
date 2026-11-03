@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, CoverHeroContentPosition, CoverHeroVariant, InfoRevealPosition} from "../../beans";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZCoverHero} from "./index";
+import type {ZCoverHero} from "./index";
 import "./index.stories.css";
 
 type ZCoverHeroStoriesArgs = ZCoverHero &
@@ -10,7 +10,7 @@ type ZCoverHeroStoriesArgs = ZCoverHero &
 
 const StoryMeta = {
   title: "ZCoverHero",
-  component: ZCoverHero,
+  component: "z-cover-hero",
   argTypes: {
     "variant": {
       control: {

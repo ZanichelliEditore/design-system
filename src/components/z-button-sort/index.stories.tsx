@@ -1,10 +1,10 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZButtonSort} from "./index";
+import type {ZButtonSort} from "./index";
 
 const StoryMeta = {
   title: "ZButtonSort",
-  component: ZButtonSort,
+  component: "z-button-sort",
   args: {
     label: "sort",
     counter: 3,

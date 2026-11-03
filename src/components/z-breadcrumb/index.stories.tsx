@@ -1,7 +1,7 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {BreadcrumbHomepageVariant, BreadcrumbPathStyle} from "../../beans";
-import {ZBreadcrumb} from "./index";
+import type {ZBreadcrumb} from "./index";
 import "./style.stories.css";
 
 /**
@@ -23,7 +23,7 @@ import "./style.stories.css";
  */
 const StoryMeta = {
   title: "ZBreadcrumb",
-  component: ZBreadcrumb,
+  component: "z-breadcrumb",
   argTypes: {
     pathStyle: {
       options: Object.values(BreadcrumbPathStyle),

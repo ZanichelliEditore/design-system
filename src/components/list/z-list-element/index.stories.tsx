@@ -10,7 +10,6 @@ import {
 } from "../../../beans";
 import type {Components} from "../../../components";
 import {getColorTokens} from "../../../utils/storybook-utils";
-import {ZListElement} from "./index";
 
 // Spread on <z-list-element {...args}> must match `LocalJSX.IntrinsicElements["z-list-element"] & HTMLAttributes`: when using `Meta<ZListElement>` (like for other stories),
 // `args` includes class fields like `ariaDescendantFocus: EventEmitter<number>`, but HTML/aria attributes must be `string|boolean` values, so TS would reject the object.
@@ -18,7 +17,7 @@ type ZListElementMeta = Meta<Components.ZListElement>;
 
 const StoryMeta = {
   title: "ZList/ZListElement",
-  component: ZListElement,
+  component: "z-list-element",
   argTypes: {
     alignButton: {
       control: {
@@ -85,7 +84,10 @@ const StoryMeta = {
     listType: ListType.NONE,
   },
 } satisfies ZListElementMeta;
+
 export default StoryMeta;
+
+type Story = StoryObj<Components.ZListElement>;
 
 export const Default = {
   render: (args) => (
@@ -98,4 +100,4 @@ export const Default = {
       <z-list-element {...args}>Elemento 3</z-list-element>
     </z-list>
   ),
-} satisfies StoryObj<Components.ZListElement>;
+} satisfies Story;

@@ -3,7 +3,7 @@ import type {Meta} from "@stencil/storybook-plugin";
 import {ControlSize, PopoverPosition, SortDirection, VisibilityCondition} from "../../../../beans";
 import {CSSVarsArguments} from "../../../../utils/storybook-utils";
 import {boolean} from "../../../../utils/utils";
-import {ZTable} from "./index";
+import type {ZTable} from "./index";
 import "./index.stories.css";
 
 type ZTableStoriesArgs = ZTable & CSSVarsArguments<"z-table--cells-padding">;
@@ -21,7 +21,7 @@ type ZTableStoriesArgs = ZTable & CSSVarsArguments<"z-table--cells-padding">;
  */
 const StoryMeta = {
   title: "Deprecated/ZTable",
-  component: ZTable,
+  component: "z-table",
   args: {
     "bordered": true,
     "--z-table--cells-padding": "16px",

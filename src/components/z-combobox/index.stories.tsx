@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ComboItem, ControlSize} from "../../beans";
-import {ZCombobox} from "./index";
+import type {ZCombobox} from "./index";
 
 const StoryMeta = {
   title: "ZCombobox",
-  component: ZCombobox,
+  component: "z-combobox",
   argTypes: {
     items: {
       control: {

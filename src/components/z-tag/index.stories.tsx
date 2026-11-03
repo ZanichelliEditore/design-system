@@ -2,13 +2,13 @@ import {h} from "@stencil/core";
 import type {Meta} from "@stencil/storybook-plugin";
 import {ICONS} from "../../constants/iconset";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZTag} from "./index";
+import type {ZTag} from "./index";
 
 type ZTagStoriesArgs = ZTag & CSSVarsArguments<"z-tag-text-color" | "z-tag-bg"> & {text: string};
 
 const StoryMeta = {
   title: "ZTag",
-  component: ZTag,
+  component: "z-tag",
   argTypes: {
     "icon": {
       control: {

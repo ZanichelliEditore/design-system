@@ -1,11 +1,11 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonType, ButtonVariant, ControlSize, IconPosition} from "../../beans";
-import {ZButton} from "./index";
+import type {ZButton} from "./index";
 
 const StoryMeta = {
   title: "ZButton",
-  component: ZButton,
+  component: "z-button",
   argTypes: {
     variant: {
       options: Object.values(ButtonVariant),

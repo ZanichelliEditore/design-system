@@ -1,14 +1,14 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ButtonVariant, ControlSize, ToastNotification, ToastNotificationTransition} from "../../beans";
-import {ZToastNotification} from "./index";
+import type {ZToastNotification} from "./index";
 
 const longText =
   "Testo decisamente lungo, che non sta su 1 sola riga. Questo testo occupa varie righe ed è un esempio di come vengono posizionati gli elementi in caso di testo lungo.";
 
 const StoryMeta = {
   title: "ZToastNotification",
-  component: ZToastNotification,
+  component: "z-toast-notification",
   argTypes: {
     type: {
       control: {

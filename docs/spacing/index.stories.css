@@ -1,0 +1,64 @@
+:root {
+  --spacing-story-margin: #f9cc9d;
+  --spacing-story-margin-stripe: #fbdcbb;
+  --spacing-story-margin-border: #e8964a;
+  --spacing-story-padding: #c3d08b;
+  --spacing-story-content: #bad9e0;
+}
+
+.wrap {
+  display: flex;
+  align-items: start;
+  gap: var(--space-unit-2);
+}
+
+.wrap div.ext {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--spacing-story-margin),
+    var(--spacing-story-margin) 4px,
+    var(--spacing-story-margin-stripe) 4px,
+    var(--spacing-story-margin-stripe) 8px
+  );
+  outline: var(--border-size-small) dashed var(--spacing-story-margin-border);
+}
+
+.wrap div.ext div.int {
+  background: var(--spacing-story-padding);
+}
+
+.wrap div.ext div.int span.content {
+  display: block;
+  padding: 2px 4px;
+  background: var(--spacing-story-content);
+  white-space: nowrap;
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-unit-2);
+}
+
+.legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--space-unit) / 2);
+}
+
+.legend .swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+}
+
+.legend .swatch.margin {
+  background: var(--spacing-story-margin);
+}
+
+.legend .swatch.padding {
+  background: var(--spacing-story-padding);
+}
+
+.legend .swatch.content {
+  background: var(--spacing-story-content);
+}

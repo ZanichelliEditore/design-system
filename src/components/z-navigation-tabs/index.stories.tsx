@@ -4,7 +4,7 @@ import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {NavigationTabsOrientation, NavigationTabsSize} from "../../beans/index";
 import type {ZNavigationTabsCustomEvent} from "../../components";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZNavigationTabs} from "./index";
+import type {ZNavigationTabs} from "./index";
 import "./index.stories.css";
 
 type ZNavigationTabsStoriesArgs = ZNavigationTabs &
@@ -12,7 +12,7 @@ type ZNavigationTabsStoriesArgs = ZNavigationTabs &
 
 const StoryMeta = {
   title: "ZNavigationTabs",
-  component: ZNavigationTabs,
+  component: "z-navigation-tabs",
   argTypes: {
     "orientation": {
       options: Object.values(NavigationTabsOrientation),

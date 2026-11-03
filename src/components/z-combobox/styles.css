@@ -21,7 +21,7 @@
   border: var(--border-size-small) solid var(--color-form-surface04);
   margin: 0;
   background-color: var(--color-form-background);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 
 :host > div.open > .header {
   border: var(--border-size-small) solid var(--color-form-active-primary);
-  border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 :host > div.disabled {
@@ -94,7 +94,7 @@
   border: var(--border-size-small) solid var(--color-form-surface03);
   border-top: 0;
   background-color: var(--color-form-background);
-  border-radius: 0;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow-2);
 }
 

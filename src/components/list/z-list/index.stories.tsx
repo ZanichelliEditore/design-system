@@ -2,9 +2,7 @@ import {h} from "@stencil/core";
 import {Fragment} from "@stencil/core/internal";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {ListSize, ListType} from "../../../beans";
-import {ZListElement} from "../z-list-element/index";
-import {ZListGroup} from "../z-list-group/index";
-import {ZList} from "./index";
+import type {ZList} from "./index";
 
 const renderListElements = (args, clickable = false) => {
   return (
@@ -23,10 +21,10 @@ const renderListElements = (args, clickable = false) => {
 
 const StoryMeta = {
   title: "ZList/ZList",
-  component: ZList,
+  component: "z-list",
   subcomponents: {
-    ZListElement,
-    ZListGroup,
+    ZListElement: "z-list-element",
+    ZListGroup: "z-list-group",
   },
   argTypes: {
     size: {

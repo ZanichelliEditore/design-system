@@ -2,7 +2,7 @@ import {h} from "@stencil/core";
 import {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {PopoverPosition} from "../../beans";
 import {CSSVarsArguments, extractCSSVars, getColorTokenArgConfig} from "../../utils/storybook-utils";
-import {ZTooltip} from "./index";
+import type {ZTooltip} from "./index";
 import "./index.stories.css";
 
 type ZTooltipStoriesArgs = ZTooltip & CSSVarsArguments<"z-tooltip-theme--surface">;
@@ -13,7 +13,7 @@ type ZTooltipStoriesArgs = ZTooltip & CSSVarsArguments<"z-tooltip-theme--surface
  */
 const StoryMeta = {
   title: "ZTooltip",
-  component: ZTooltip,
+  component: "z-tooltip",
   argTypes: {
     "position": {
       options: [

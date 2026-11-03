@@ -1,10 +1,10 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
-import {ZMenuSection} from "./index";
+import type {ZMenuSection} from "./index";
 
 const StoryMeta = {
   title: "ZMenu/ZMenuSection",
-  component: ZMenuSection,
+  component: "z-menu-section",
   args: {
     active: false,
   },

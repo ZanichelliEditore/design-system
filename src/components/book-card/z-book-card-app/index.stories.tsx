@@ -1,14 +1,14 @@
 import {h} from "@stencil/core";
 import type {Meta, StoryObj} from "@stencil/storybook-plugin";
 import {CSSVarsArguments, extractCSSVars} from "../../../utils/storybook-utils";
-import {ZBookCardApp} from "./index";
+import type {ZBookCardApp} from "./index";
 
 type ZBookCardAppStoriesArgs = ZBookCardApp &
   CSSVarsArguments<"z-book-card-app-padding-x" | "z-book-card-app-padding-y">;
 
 const StoryMeta = {
   title: "ZBookCard/ZBookCardApp",
-  component: ZBookCardApp,
+  component: "z-book-card-app",
   args: {
     "logo": "https://placehold.co/24",
     "name": "Esercizi",
