@@ -15,8 +15,8 @@
   "scripts": {
     "build": "yarn build.wc && yarn build.react",
     "build-storybook": "yarn build.wc && cross-env STORYBOOK_BUILD=1 storybook build --config-dir .storybook --output-dir storybook",
-    "build.react": "rimraf react && tsc --build tsconfig.react.json",
-    "build.wc": "mkdirp react && rimraf src-react/react-component-lib www && stencil build",
+    "build.react": "rimraf react && tsc --build tsconfig.react.json && node internals/scripts/write-react-package-json.js",
+    "build.wc": "mkdirp react && rimraf www && stencil build",
     "generate": "plop --plopfile internals/generators/index.js",
     "lint": "yarn lint.eslint && yarn lint.stylelint && yarn lint.prettier",
     "lint-fix": "yarn lint-fix.eslint && yarn lint-fix.stylelint && yarn lint-fix.prettier",
@@ -51,7 +51,7 @@
     "@rollup/plugin-image": "^3.0.3",
     "@stencil/core": "~4.43.5",
     "@stencil/eslint-plugin": "^1.1.0",
-    "@stencil/react-output-target": "^0.5.3",
+    "@stencil/react-output-target": "^1.6.2",
     "@stencil/storybook-plugin": "^0.7.1",
     "@storybook/addon-a11y": "^10.6.2",
     "@storybook/addon-docs": "^10.6.2",
@@ -89,10 +89,14 @@
     "vite": "^8.0.9"
   },
   "peerDependencies": {
+    "@stencil/react-output-target": "^1.6.2",
     "react": "*",
     "react-dom": "*"
   },
   "peerDependenciesMeta": {
+    "@stencil/react-output-target": {
+      "optional": true
+    },
     "react": {
       "optional": true
     },

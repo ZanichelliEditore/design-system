@@ -30,6 +30,32 @@ describe("Suite test ZCombobox", () => {
       `);
   });
 
+  it("Test render ZCombobox - without items prop", async () => {
+    const page = await newSpecPage({
+      components: [ZCombobox],
+      html: `<z-combobox inputid="combobox"></z-combobox>`,
+    });
+    expect(page.root).toEqualHtml(`
+        <z-combobox inputid="combobox">
+          <mock:shadow-root>
+            <div data-action="combo-combobox" id="combobox">
+              <div aria-controls="combobox_list" aria-expanded="false" aria-activedescendant="" class="header" role="combobox" tabindex="0">
+              <span class="body-3"><span></span></span>
+                <z-icon class="big" name="caret-down" />
+              </div>
+              <div class="open-combo-data" id="open-combo-data">
+                <div aria-multiselectable="true" aria-owns="" id="combobox_list" role="listbox">
+                  <div role="presentation" tabindex="-1">
+                    <ul role="presentation"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mock:shadow-root>
+        </z-combobox>
+      `);
+  });
+
   it("Test render ZCombobox - disabled", async () => {
     const page = await newSpecPage({
       components: [ZCombobox],

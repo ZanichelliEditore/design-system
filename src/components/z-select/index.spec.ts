@@ -4,6 +4,15 @@ import {ZSelect} from "./index";
 describe("Suite test ZSelect", () => {
   it("test", async () => {});
 
+  it("Test render ZSelect without items prop", async () => {
+    const page = await newSpecPage({
+      components: [ZSelect],
+      html: `<z-select htmlid="checkid" placeholder="select here" label="default"></z-select>`,
+    });
+    await page.waitForChanges();
+    expect(page.rootInstance.getGroupedItems()).toEqual([]);
+  });
+
   it("Test render ZSelect required", async () => {
     const page = await newSpecPage({
       components: [ZSelect],
