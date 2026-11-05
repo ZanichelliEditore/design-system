@@ -18,6 +18,7 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-piu-riportate-come-attributi-html-dai-binding-react)
   - [Eliminazione di vecchi file inutilizzati](#eliminazione-di-vecchi-file-inutilizzati)
   - [Rimozione export della cartella `www`](#rimozione-export-della-cartella-www)
+  - [Modifica all'evento onRemoveFile dello z-file](#modifica-allevento-onRemoveFile-dello-z-file)
 
 - [v20.0.0](#v2000)
 
@@ -237,6 +238,10 @@ Citando la documentazione di Stencil
 si evince che quell'output target è più utile solo per lo sviluppo che per l'utenza finale della libreria.
 
 Precedentemente il `readme` diceva di importare il file di stile da `@zanichelli/albe-web-components/www/build/web-components-library.css`, quindi le app che lo fanno dovranno importare da `@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css`.
+
+### Modifica all'evento onRemoveFile dello z-file
+
+Per risolvere un conflitto con la gestione del DOM di React, l'evento onRemoveFile dello z-file non rimuove più l'elemento dal DOM.
 
 ## v20.0.0
 
