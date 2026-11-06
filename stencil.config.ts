@@ -9,6 +9,9 @@ const outputTargets: Config["outputTargets"] = [
   {
     type: "dist-custom-elements",
     customElementsExportBehavior: "single-export-module",
+    // Required by @stencil/react-output-target: it needs each custom element module
+    // to bundle the Stencil runtime rather than import it externally.
+    externalRuntime: false,
   },
   {
     type: "dist",
@@ -40,8 +43,9 @@ const outputTargets: Config["outputTargets"] = [
 if (!isStorybookBuild) {
   outputTargets.push(
     reactOutputTarget({
-      componentCorePackage: require("./package.json").name,
-      proxiesFile: "./src-react/components.ts",
+      stencilPackageName: require("./package.json").name,
+      outDir: "./src-react",
+      esModules: true,
     }),
     {
       type: "docs-readme",

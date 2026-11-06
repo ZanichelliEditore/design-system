@@ -1833,6 +1833,7 @@ export namespace Components {
     }
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface ZTable {
         /**
@@ -2339,6 +2340,8 @@ declare global {
     };
     interface HTMLZAppHeaderElementEventMap {
         "sticking": any;
+        "searchSubmit": string;
+        "searchTyping": string;
     }
     interface HTMLZAppHeaderElement extends Components.ZAppHeader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLZAppHeaderElementEventMap>(type: K, listener: (this: HTMLZAppHeaderElement, ev: ZAppHeaderCustomEvent<HTMLZAppHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3000,6 +3003,7 @@ declare global {
     };
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface HTMLZTableElement extends Components.ZTable, HTMLStencilElement {
     }
@@ -3398,6 +3402,14 @@ declare namespace LocalJSX {
           * @default true
          */
         "enableZLogo"?: boolean;
+        /**
+          * Emitted on search submit, forwarded from the internal `z-searchbar`. Returns the search string.
+         */
+        "onSearchSubmit"?: (event: ZAppHeaderCustomEvent<string>) => void;
+        /**
+          * Emitted on search typing, forwarded from the internal `z-searchbar`. Returns the search string.
+         */
+        "onSearchTyping"?: (event: ZAppHeaderCustomEvent<string>) => void;
         /**
           * Emitted when the `stuck` state of the header changes
          */
@@ -5268,6 +5280,7 @@ declare namespace LocalJSX {
     }
     /**
      * ZTable component.
+     * @deprecated Since v20.0.0
      */
     interface ZTable {
         /**
@@ -6327,6 +6340,7 @@ declare module "@stencil/core" {
             "z-stepper-item": LocalJSX.IntrinsicElements["z-stepper-item"] & JSXBase.HTMLAttributes<HTMLZStepperItemElement>;
             /**
              * ZTable component.
+             * @deprecated Since v20.0.0
              */
             "z-table": LocalJSX.IntrinsicElements["z-table"] & JSXBase.HTMLAttributes<HTMLZTableElement>;
             /**

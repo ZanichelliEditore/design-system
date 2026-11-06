@@ -9,6 +9,17 @@ Ogni volta che viene implementato un **breaking change** su un componente, la su
 
 Indice delle breaking changes divise per numero di versione in cui sono state introdotte.
 
+- [v21.0.0](#v2100)
+
+  - [React bindings: nuova dipendenza da `@stencil/react-output-target`](#react-bindings-nuova-dipendenza-da-stencilreact-output-target)
+  - [`@zanichelli/albe-web-components/react` è ora distribuito solo come ESM](#zanichellialbe-web-componentsreact-e-ora-distribuito-solo-come-esm)
+  - [Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React](#eventi-provenienti-dai-componenti-interni-non-vengono-piu-intercettati-automaticamente-dai-binding-react)
+    - [`ZAppHeader`: `searchSubmit` e `searchTyping`](#zappheader-searchsubmit-e-searchtyping)
+  - [Le prop dei componenti non vengono più riportate come attributi HTML dai binding React](#le-prop-dei-componenti-non-vengono-piu-riportate-come-attributi-html-dai-binding-react)
+  - [Eliminazione di vecchi file inutilizzati](#eliminazione-di-vecchi-file-inutilizzati)
+  - [Rimozione export della cartella `www`](#rimozione-export-della-cartella-www)
+  - [Modifica all'evento onRemoveFile dello z-file](#modifica-allevento-onRemoveFile-dello-z-file)
+
 - [v20.0.0](#v2000)
 
   - [Modifiche ai nomi delle prop di accessibilità (ariaLabel, role, etc)](#modifiche-ai-nomi-delle-prop-di-accessibilita-arialabel-role-etc)
@@ -133,6 +144,104 @@ Indice delle breaking changes divise per numero di versione in cui sono state in
   - [ZStatusTag (deprecato)](#zstatustag-deprecato)
   - [ZButtonFilter (deprecato)](#zbuttonfilter-deprecato)
   - [ZChip (rifattorizzato)](#zchip-rifattorizzato)
+
+## v21.0.0
+
+### React bindings: nuova dipendenza da `@stencil/react-output-target`
+
+Il generatore dei binding React (`@stencil/react-output-target`) è stato aggiornato da `0.5.3` a `1.6.2`. I wrapper React generati (`@zanichelli/albe-web-components/react`) ora importano `createComponent` da `@stencil/react-output-target/runtime` a runtime, invece di includere tutto il necessario internamente.
+
+Chi utilizza i binding React deve quindi installare `@stencil/react-output-target` come dipendenza del proprio progetto, oltre a `react`/`react-dom` (già richiesti in precedenza):
+
+```bash
+yarn add @stencil/react-output-target
+```
+
+Senza questa dipendenza, l'uso di un qualsiasi componente importato da `@zanichelli/albe-web-components/react` genera un errore a runtime (`Cannot find module '@stencil/react-output-target/runtime'`).
+
+Inoltre, ogni componente React ora registra automaticamente il proprio custom element all'import: non è più necessario chiamare `defineCustomElements(window)` (da `@zanichelli/albe-web-components/loader`) quando si usano i binding React. Continuare a chiamarla non causa errori, quindi non è un cambiamento bloccante, ma può essere rimossa.
+
+### `@zanichelli/albe-web-components/react` è ora distribuito solo come ESM
+
+`@stencil/react-output-target` v1 delega la creazione dei wrapper React a [`@lit/react`](https://www.npmjs.com/package/@lit/react), che è pubblicato solo in formato ESM: per questo motivo `react/*.js` viene ora compilato come ESM.
+Controllare che il proprio `tsconfig` abbia `moduleResolution` impostato su `"bundler"` o `"nodenext"`.
+Contestualmente, il range della peer dependency `@stencil/react-output-target` è stato ristretto da `>=1.0.0` a `^1.6.2`, la versione contro cui viene effettivamente compilato e testato l'output `react/*.js`.
+
+### Eventi provenienti dai componenti interni non vengono più intercettati automaticamente dai binding React
+
+Con `@stencil/react-output-target` v0, i wrapper React generati intercettavano qualsiasi prop `on*` passata al componente anche se l'evento non era dichiarato dal componente stesso: era sufficiente che l'evento risalisse per bubbling da un componente interno (es. un componente composito che ne renderizza un altro) perché il wrapper lo intercettasse comunque, tramite un `addEventListener` generico sull'elemento host.
+
+`@stencil/react-output-target` v1 genera invece, per ciascun componente, una mappa di eventi popolata solo con gli `@Event()` che quel componente dichiara direttamente. Di conseguenza, un handler React (`onXxx`) per un evento che raggiungeva il wrapper solo per bubbling da un componente interno, senza essere ridichiarato dal componente che lo compone, non viene più intercettato: la prop diventa silenziosamente inerte, senza errori a build-time né a runtime.
+
+#### `ZAppHeader`: `searchSubmit` e `searchTyping`
+
+`z-app-header` compone internamente un `<z-searchbar>`, che dichiara i propri eventi `searchSubmit` e `searchTyping`. In precedenza questi eventi arrivavano ai consumer React di `ZAppHeader` (tramite `onSearchSubmit`/`onSearchTyping`) solo perché risalivano per bubbling dal componente interno, senza che `z-app-header` li dichiarasse come propri.
+
+A partire da questa versione, `z-app-header` dichiara esplicitamente `searchSubmit` e `searchTyping` come propri `@Event()`, ri-emettendoli a partire dagli eventi omonimi del `z-searchbar` interno. Chi utilizza i binding React continua a usare `onSearchSubmit`/`onSearchTyping` su `<ZAppHeader>` esattamente come prima: il comportamento è invariato, ma ora fa parte del contratto pubblico dichiarato del componente invece di essere un effetto collaterale del bubbling.
+
+### Le prop dei componenti non vengono più riportate come attributi HTML dai binding React
+
+Con `@stencil/react-output-target` v0, i wrapper React passavano i valori primitivi (stringhe, numeri, booleani) a `React.createElement('z-xxx', props)`, con il nome della prop convertito in dash-case. Per i custom element (tag con trattino) React imposta questi valori come attributi; inoltre il wrapper chiamava `setAttribute()` per le prop di tipo stringa. L'attributo compariva quindi sull'elemento host anche quando la prop non era dichiarata con `reflect: true` nel componente Stencil.
+
+`@stencil/react-output-target` v1 usa invece `createComponent` di [`@lit/react`](https://www.npmjs.com/package/@lit/react): per ogni prop che esiste sul prototipo della classe del custom element (cioè ogni `@Prop()` dichiarata), il wrapper imposta **sempre una proprietà JS** (`element.name = value`) e mai un attributo. Se la prop non è dichiarata con `reflect: true`, il valore non viene quindi mai riportato sull'elemento host come attributo HTML.
+
+L'effetto è che qualsiasi regola CSS (o query DOM, es. `querySelector`) che usa un selettore di attributo sull'host del componente, come `z-input[name='newsletter']` o `z-input[type='text']`, smette di funzionare dopo l'aggiornamento, senza errori né in fase di build né a runtime.
+
+Per adattare il proprio codice, occorre sostituire i selettori di attributo sull'host del componente, ad esempio con una classe css:
+
+```tsx
+// Prima
+<ZInput name="newsletter" />
+```
+
+```css
+z-input[name="newsletter"] {
+  /* ... */
+}
+```
+
+```tsx
+// Dopo
+<ZInput
+  name="newsletter"
+  className="newsletter-input"
+/>
+```
+
+```css
+z-input.newsletter-input {
+  /* ... */
+}
+```
+
+L'uso diretto del web component in HTML (senza binding React) non è interessato, perché gli attributi impostati nel markup restano tali.
+
+### Eliminazione di vecchi file inutilizzati
+
+Molti file vecchi e non più utilizzati sono stati eliminati dalla libreria, tra cui:
+
+- tutte le immagini presenti dentro la cartella `src/assets` tranne `placeholder-cover.png` e `zanichelli-logo.png`
+- `src/constants/borderAndRadius.json`
+- `src/constants/colors.json`
+- `src/constants/grid.json`
+- `src/constants/icons.tsx`
+- `src/constants/spacing.json`
+
+### Rimozione export della cartella `www`
+
+Al fine di snellire il bundle e ridurre il peso della libreria, è stato rimosso l'export della cartella `www` dal `package.json`.
+
+Citando la documentazione di Stencil
+
+> "Even if a project is meant to only build a reusable component library, the `www` output target is useful to build out and test the components throughout development."
+
+si evince che quell'output target è più utile solo per lo sviluppo che per l'utenza finale della libreria.
+
+Precedentemente il `readme` diceva di importare il file di stile da `@zanichelli/albe-web-components/www/build/web-components-library.css`, quindi le app che lo fanno dovranno importare da `@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css`.
+
+### Modifica all'evento onRemoveFile dello z-file
+
+Per risolvere un conflitto con la gestione del DOM di React, l'evento onRemoveFile dello z-file non rimuove più l'elemento dal DOM.
 
 ## v20.0.0
 

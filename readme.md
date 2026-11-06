@@ -168,7 +168,7 @@ yarn build
 The library provides a global css variables export. You can import the styles by ES6 import:
 
 ```javascript
-import "@zanichelli/albe-web-components/www/build/web-components-library.css";
+import "@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css";
 ```
 
 or via link tag:
@@ -178,14 +178,14 @@ or via link tag:
 <link
   type="text/css"
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@zanichelli/albe-web-components/www/build/web-components-library.css"
+  href="https://cdn.jsdelivr.net/npm/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css"
 />
 
 // using unpkg
 <link
   type="text/css"
   rel="stylesheet"
-  href="https://unpkg.com/@zanichelli/albe-web-components/www/build/web-components-library.css"
+  href="https://unpkg.com/@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css"
 />
 ```
 
@@ -221,16 +221,19 @@ Then use the relative tag as a usual component in your markup.
 
 Albe's Web Components come with automatically generated React bindings. This means that you can use Web Components in a React application without the need to wrap component references, with full intellisense support thanks to TypeScript definition files for bindings.
 
-Import components reference from the React submodule:
+The React bindings are built with [`@stencil/react-output-target`](https://www.npmjs.com/package/@stencil/react-output-target), which must be installed alongside `react`/`react-dom` in your project:
+
+```bash
+yarn add @stencil/react-output-target
+```
+
+Import components reference from the React submodule. Each React component automatically registers its own custom element on import, so there is no need to call `defineCustomElements()`:
 
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
-import "@zanichelli/albe-web-components/www/build/web-components-library.css";
-import {defineCustomElements} from "@zanichelli/albe-web-components/loader";
+import "@zanichelli/albe-web-components/dist/web-components-library/web-components-library.css";
 import {ZButton} from "@zanichelli/albe-web-components/react";
-
-defineCustomElements(window);
 
 ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 ```
@@ -239,11 +242,11 @@ ReactDOM.render(<ZButton>Click me</ZButton>, document.getElementById("root"));
 
 Each component is structured as follows:
 
-| File name           | Description                                                                            |
-| ------------------- | -------------------------------------------------------------------------------------- |
-| `index.tsx`         | Markup and UI logics                                                                   |
-| `styles.css`        | Styles                                                                                 |
-| `index.spec.ts`     | Tests                                                                                  |
-| `index.mdx`         | Storybook's markdown                                                                   |
-| `index.stories.tsx` | Storybook's CSF stories with Stencil integration provided by @stencil/storybook-plugin |
-| `readme.md`         | Auto-generated documentation                                                           |
+| File name           | Description                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| `index.tsx`         | Markup and UI logics                                                                     |
+| `styles.css`        | Styles                                                                                   |
+| `index.spec.ts`     | Tests                                                                                    |
+| `test.e2e.ts`       | End-to-end tests                                                                         |
+| `index.stories.tsx` | Storybook's CSF stories with Stencil integration provided by `@stencil/storybook-plugin` |
+| `readme.md`         | Auto-generated documentation                                                             |
