@@ -190,7 +190,14 @@ const ZAppHeader = class {
         if (this.searchPageUrl && (this.isMobile || this.isTablet)) {
             return (h("z-button", { class: "search-page-button", variant: ButtonVariant.SECONDARY, href: this.searchPageUrl, icon: "search", size: ControlSize.X_SMALL }));
         }
-        return (h("z-searchbar", { htmlid: "app-header-searchbar", value: this.searchString, placeholder: this.searchPlaceholder, label: this.searchLabel, htmlAriaLabel: this.searchLabel, showSearchButton: true, searchButtonIconOnly: this.isMobile || this.isTablet, searchButtonLabel: this.isMobile || this.isTablet ? undefined : this.searchButtonLabel, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: this.searchString.length < 3, onSearchTyping: (e) => (this.searchString = e.detail) }));
+        return (h("z-searchbar", { htmlid: "app-header-searchbar", value: this.searchString, placeholder: this.searchPlaceholder, label: this.searchLabel, htmlAriaLabel: this.searchLabel, showSearchButton: true, searchButtonIconOnly: this.isMobile || this.isTablet, searchButtonLabel: this.isMobile || this.isTablet ? undefined : this.searchButtonLabel, size: ControlSize.X_SMALL, variant: ButtonVariant.SECONDARY, preventSubmit: this.searchString.length < 3, onSearchTyping: (e) => {
+                e.stopPropagation();
+                this.searchString = e.detail;
+                this.searchTyping.emit(e.detail);
+            }, onSearchSubmit: (e) => {
+                e.stopPropagation();
+                this.searchSubmit.emit(e.detail);
+            } }));
     }
     renderProductLogos() {
         return (h(Fragment, null, this.enableZLogo && (h("span", { class: "z-logo" }, h("img", { alt: "Logo Zanichelli" }))), this.hostElement.querySelector("[slot='product-logo']") && (h("span", { class: "product-logo" }, h("slot", { name: "product-logo" })))));
@@ -208,6 +215,8 @@ const ZAppHeader = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
         this.sticking = createEvent(this, "sticking", 7);
+        this.searchSubmit = createEvent(this, "searchSubmit", 7);
+        this.searchTyping = createEvent(this, "searchTyping", 7);
         /**
          * Stuck mode for the header.
          * You can programmatically set it using an IntersectionObserver.
@@ -280,7 +289,7 @@ const ZAppHeader = class {
     }
     render() {
         const hasTopSubtitle = this.hasSlot("top-subtitle");
-        return (h(Host, { key: '4e7fcf0c48f285c14c019bad4e725f6d9d0cd64a', "menu-length": this.menuLength }, h("div", { key: '7ee7ac065ceebae8fa37bf3ea908065c5ee38f6e', class: { "heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas }, ref: (el) => (this.container = el) }, h("div", { key: 'bbd63523bae503daa51ad4202e6720aca78ad071', class: { "heading-container": true, "has-top-subtitle": hasTopSubtitle } }, h("div", { key: 'ceef524dac1c9f2c05de0a77b0bbd7168b52632a', class: "heading-block" }, h("div", { key: 'e412daa7808e33aa993b784df05d0df507bc3606', class: "heading-title" }, h("slot", { key: 'd937a0672f5ad930b50eb5f34da4cf375c364859', name: "menu-button" }, this.renderMenuButton()), !this._stuck && this.renderProductLogos(), h("div", { key: '730715ab6cf2b63b7567441f1cedff6c99ddc0a3', class: "title-container" }, !this.isMobile && this.renderTopSubtitle(), h("slot", { key: '3d529b926b94ff5f84d50076b62d3cd4c17d8f9a', name: "title" })), this.enableSearch && !this.isMobile && this.renderSeachbar()), this.isMobile && this.renderTopSubtitle()), this.enableSearch && this.isMobile && this.renderSeachbar()), h("nav", { key: '261e72b97ce25fe5e7568eb1ec80a070ee493236', class: "menu-container", "aria-label": this.title || undefined }, this.canShowMenu && (h("div", { key: '8a015467b1b15a618bc79b476c42c888537ed745', role: "menubar", "aria-label": this.title || undefined }, h("slot", { key: 'd25ac9139704729b1a108eabcc7f9eb39fec2771', name: "menu", onSlotchange: this.collectMenuElements }))))), this.renderOffcanvas(), this._stuck && this.renderStuck()));
+        return (h(Host, { key: 'de6ab05f78dbc13d93b7c025e714938cab981ea4', "menu-length": this.menuLength }, h("div", { key: '0426f8198df9cbafa538ab910e56aa7c80d3ea14', class: { "heading-panel": true, "has-menubar": this.menuLength > 0 && !this.enableOffcanvas }, ref: (el) => (this.container = el) }, h("div", { key: '91172efbf22f0fec1b95db27194f659a5fe9246b', class: { "heading-container": true, "has-top-subtitle": hasTopSubtitle } }, h("div", { key: 'c8238aadccb22aba4c6a9bcdfc87074655559468', class: "heading-block" }, h("div", { key: 'a6fa369edb9cdab4c452d990536bc33ff8ec5b18', class: "heading-title" }, h("slot", { key: '4b24e6df36ca18acf1e711f1c389e207a14fa9c6', name: "menu-button" }, this.renderMenuButton()), !this._stuck && this.renderProductLogos(), h("div", { key: '6801fd595074b2b71c5a6389d2e71327b03c428c', class: "title-container" }, !this.isMobile && this.renderTopSubtitle(), h("slot", { key: '14dffe63f3af04c378512565914e32f8bfe960cb', name: "title" })), this.enableSearch && !this.isMobile && this.renderSeachbar()), this.isMobile && this.renderTopSubtitle()), this.enableSearch && this.isMobile && this.renderSeachbar()), h("nav", { key: 'bb5216100e72dcbe46edc510ca72d6dc19fee4c7', class: "menu-container", "aria-label": this.title || undefined }, this.canShowMenu && (h("div", { key: 'd087254d937d4726140240812c4b7c33aff38696', role: "menubar", "aria-label": this.title || undefined }, h("slot", { key: 'cc76cba13eff1c22a8be7dc98ae1ee2e4cb4937b', name: "menu", onSlotchange: this.collectMenuElements }))))), this.renderOffcanvas(), this._stuck && this.renderStuck()));
     }
     get hostElement() { return getElement(this); }
     static get watchers() { return {

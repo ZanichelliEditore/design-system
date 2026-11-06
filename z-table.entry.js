@@ -48,7 +48,7 @@ const ZTable = class {
         (_a = this.expandableMutationObserver) === null || _a === void 0 ? void 0 : _a.disconnect();
     }
     render() {
-        return (h(Host, { key: '2accba3d35c252853a9b19b15528855070165077', expandable: this.expandable }, h("div", { key: 'bdd3382b246e669c8600d116cda8a6ebc11f530d', class: "table", role: "table" }, h("slot", { key: 'c3cbdb04a91f0cd4301d8ba73578878864e0c3a1' }))));
+        return (h(Host, { key: 'a02fb0983c15070f36aa843c48418bc8925817b9', expandable: this.expandable }, h("div", { key: 'd70e69d57f3e97d5c97e515563216a29e4a0a312', class: "table", role: "table" }, h("slot", { key: '19dacd5a652ec5973282c8e5ed7eeb2cf909a50e' }))));
     }
     get host() { return getElement(this); }
 };

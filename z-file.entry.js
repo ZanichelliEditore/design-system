@@ -13,7 +13,6 @@ const ZFile = class {
     }
     removeFileHandler() {
         this.removeFile.emit({ fileName: this.fileName });
-        this.el.remove();
     }
     onMouseOver() {
         this.popoverVisible = true;
@@ -35,7 +34,7 @@ const ZFile = class {
         return this.ellipsis.offsetWidth < this.ellipsis.scrollWidth;
     }
     render() {
-        return (h(Host, { key: '0ea8fc72fc1e2bb96439e4a3d3074f140fafbdca' }, this.allowPopover && (h("z-popover", { key: '3c1408c93d61d6afaf69ef5b10294beaea3a572f', open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { key: '8a13796d5fdd792fa8da51b81363fd4c11072edd', class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { key: '76a5d9cdc0932dbf9269e83d6f94950f5a459397', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { key: '75a118f774dbca2867629be4b437e18c1ebad1ba', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
+        return (h(Host, { key: 'e1495d4e29f8d2d01b4af670229f6f3f88bdb0c0' }, this.allowPopover && (h("z-popover", { key: '065cb9a33c76446750fd60947046300ec0d70d9d', open: this.popoverVisible, position: PopoverPosition.AUTO, bindTo: this.chip }, h("span", { key: '637bb4e784fb46e2b0daaaaf504e5901f976d51b', class: "body-5 tooltip-content" }, this.ellipsis.innerText))), h("z-chip", { key: '32ab69cd2fa68d346f4aa5d1b565b661c63908cd', ref: (el) => (this.chip = el), id: `chip-${this.fileNumber}`, interactiveIcon: "multiply-circled", type: ZChipType.DEFAULT }, h("span", { key: '7f3450675ffaddd41d8b67f5499b50723b5414fd', ref: (el) => (this.ellipsis = el), tabIndex: -1 }, this.fileName))));
     }
     get el() { return getElement(this); }
 };

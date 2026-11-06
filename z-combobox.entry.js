@@ -9,7 +9,8 @@ const stylesCss = () => `:host{display:block;min-width:290px;color:var(--color-f
 
 const ZCombobox = class {
     watchItems() {
-        this.itemsList = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+        const parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+        this.itemsList = parsedItems !== null && parsedItems !== void 0 ? parsedItems : [];
         this.selectedCounter = this.itemsList.filter((item) => item.checked).length;
         this.updateRenderItemsList();
     }
@@ -307,7 +308,7 @@ const ZCombobox = class {
         return (h("z-list-element", { class: "check-all-wrapper", role: "presentation", htmlTabindex: -1, dividerType: ListDividerType.ELEMENT, dividerColor: "gray800", size: this.getControlToListSize(), disabled: !!isDisabled }, h("span", { class: "option-wrap", role: "presentation", onClick: () => this.checkOption(optionId) }, h("z-icon", { name: isPartiallySelected ? "indeterminated-checkbox" : allChecked ? "checkbox-checked" : "checkbox", class: this.focusedItemId === optionId ? "focused" : "" }), h("span", { id: optionId, role: isDisabled ? "presentation" : "option", "aria-selected": allChecked ? "true" : "false" }, allChecked ? this.uncheckalltext : this.checkalltext))));
     }
     render() {
-        return (h("div", { key: 'b18002403cb3300ffb155c4b654df47bacaacd38', "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
+        return (h("div", { key: '7a7125ec731843fbd7b7e779557917a15d851ab9', "data-action": `combo-${this.inputid}`, class: { open: this.isopen, fixed: this.isfixed, disabled: this.disabled }, id: this.inputid }, this.renderHeader(), !this.disabled && this.renderContent()));
     }
     get element() { return getElement(this); }
     static get watchers() { return {

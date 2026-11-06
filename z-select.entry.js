@@ -79,7 +79,8 @@ const ZSelect = class {
         this.filterItems(this.searchString);
     }
     getInitialItemsArray() {
-        return typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+        const parsedItems = typeof this.items === "string" ? JSON.parse(this.items) : this.items;
+        return parsedItems !== null && parsedItems !== void 0 ? parsedItems : [];
     }
     mapSelectedItemToItemsArray() {
         var _a;
@@ -480,7 +481,7 @@ const ZSelect = class {
         return (h("z-input-message", { "html-id": this.getMessageId(), message: boolean(this.message) === true ? undefined : this.message, status: this.status, class: this.size, disabled: this.disabled }));
     }
     render() {
-        return (h("div", { key: 'fd1afef509078b977d8ca95df6d75e76b36431b6', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
+        return (h("div", { key: 'e2d0dd6f6034462d7547cc4afdf7ef671cfe9e46', class: "select-wrapper" }, this.renderInput(), this.renderSelectUl(), this.renderMessage()));
     }
     get host() { return getElement(this); }
     static get watchers() { return {

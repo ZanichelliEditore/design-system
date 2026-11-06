@@ -267,6 +267,10 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-table.entry.js').then(processMod, consoleError);
+                case 'z-toast-notification':
+                    return import(
+                      /* webpackMode: "lazy" */
+                      './z-toast-notification.entry.js').then(processMod, consoleError);
                 case 'z-tool':
                     return import(
                       /* webpackMode: "lazy" */
@@ -283,18 +287,14 @@ var loadModule = (cmpMeta, hostRef, hmrVersionId) => {
                     return import(
                       /* webpackMode: "lazy" */
                       './z-book-card-app.entry.js').then(processMod, consoleError);
-                case 'z-date-picker':
-                    return import(
-                      /* webpackMode: "lazy" */
-                      './z-date-picker.entry.js').then(processMod, consoleError);
                 case 'z-dragdrop-area_2':
                     return import(
                       /* webpackMode: "lazy" */
                       './z-dragdrop-area_2.entry.js').then(processMod, consoleError);
-                case 'z-toast-notification':
+                case 'z-date-picker':
                     return import(
                       /* webpackMode: "lazy" */
-                      './z-toast-notification.entry.js').then(processMod, consoleError);
+                      './z-date-picker.entry.js').then(processMod, consoleError);
                 case 'z-app-header_12':
                     return import(
                       /* webpackMode: "lazy" */
