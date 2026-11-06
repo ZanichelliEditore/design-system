@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [21.0.0](https://github.com/ZanichelliEditore/design-system/compare/v20.1.0...v21.0.0) (2026-11-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* fix markdown internal links
+* avoid sending two identical events to end user
+* update `migration.md`
+* update link text
+* update migration file
+* app-header expose same events as searchbar
+* add z-select fallback when no items is provided
+* add combobox fallback when no items is provided
+* update `yarn.lock`
+* esm-only react output
+* require browser-only modules on mount
+* update lock with peer dependency
+* update migration guide
+* update build command
+* add peer dependency
+* update Stencil config
+* upgrade `react-output-target` to v1.6.2
+* delete unused assets and jsons
+
+* delete unused assets and jsons ([43fdedd](https://github.com/ZanichelliEditore/design-system/commit/43fdedd20791bde64fba4800f7d195874fd173b6))
+
+
+### Features
+
+* add combobox fallback when no items is provided ([743205a](https://github.com/ZanichelliEditore/design-system/commit/743205a656b9e55def9a4814e018b635869e5b51))
+* add peer dependency ([f15334d](https://github.com/ZanichelliEditore/design-system/commit/f15334d5691df87d8454e4bd62ec2f4073585afd))
+* add z-select fallback when no items is provided ([d9df42b](https://github.com/ZanichelliEditore/design-system/commit/d9df42b825ffb2f7240429e44f3137ccd2e34bb8))
+* app-header expose same events as searchbar ([4bb7ea5](https://github.com/ZanichelliEditore/design-system/commit/4bb7ea5dffa70cb94bb66ec17ee7ab1a576bd351))
+* avoid sending two identical events to end user ([c0019b9](https://github.com/ZanichelliEditore/design-system/commit/c0019b914d466acba5fc74f1001b0932a149dc59))
+* esm-only react output ([0e80744](https://github.com/ZanichelliEditore/design-system/commit/0e80744f73fff99616cbf16eaea719b79263519a))
+* fix markdown internal links ([f77837c](https://github.com/ZanichelliEditore/design-system/commit/f77837cbeac6d2dfdf746b63034666b1a095d69e))
+* require browser-only modules on mount ([c4eb629](https://github.com/ZanichelliEditore/design-system/commit/c4eb629bf50f670a8f43907e6d46fd8666195408))
+* update `migration.md` ([97320c2](https://github.com/ZanichelliEditore/design-system/commit/97320c2dfb744066023a8da3a728a8b491162ebf))
+* update `yarn.lock` ([7c55e12](https://github.com/ZanichelliEditore/design-system/commit/7c55e12c75c7daf2f63af69518716c0b7c0beaba))
+* update build command ([44195c0](https://github.com/ZanichelliEditore/design-system/commit/44195c06d9c1c39a51940285f2c5efd86614a306))
+* update link text ([65a11e0](https://github.com/ZanichelliEditore/design-system/commit/65a11e02be6dc336e34914dffcc781859afd3f87))
+* update lock with peer dependency ([f953c7b](https://github.com/ZanichelliEditore/design-system/commit/f953c7bd8314066deec42a6b7777adeaa1a37e99))
+* update migration file ([006b320](https://github.com/ZanichelliEditore/design-system/commit/006b320382e0445aa24bc9de34afdb60fb59bf60))
+* update migration guide ([0abbd04](https://github.com/ZanichelliEditore/design-system/commit/0abbd04a4019281a30291a55b0107f8df49b7879))
+* update Stencil config ([06173b6](https://github.com/ZanichelliEditore/design-system/commit/06173b6e8376f7a2c60f37440f68caaaf90eb361))
+* upgrade `react-output-target` to v1.6.2 ([441e88c](https://github.com/ZanichelliEditore/design-system/commit/441e88cb2fdf9f0997965602ca1ac78844d0b65d))
+
+
+### Bug Fixes
+
+* changelog ([cf6c61f](https://github.com/ZanichelliEditore/design-system/commit/cf6c61f525a654a1a41fe3b01c0a5b67eeea6246))
+* **DS-1037:** removed z-file element deletion on file removed ([0c672c6](https://github.com/ZanichelliEditore/design-system/commit/0c672c642a04a81fec4e420adc8b1825e6dd83e0))
+* z-input-message icon size ([e473564](https://github.com/ZanichelliEditore/design-system/commit/e4735645768324a8e94de2119ca1d2640eed37a1))
+
 ## [20.1.0](https://github.com/ZanichelliEditore/design-system/compare/v20.0.5...v20.1.0) (2026-10-27)
 
 
