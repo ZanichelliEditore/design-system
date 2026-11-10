@@ -14,6 +14,7 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-vitest",
     "@chromatic-com/storybook",
+    "storybook-addon-pseudo-states",
   ],
 };
 

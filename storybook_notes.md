@@ -22,7 +22,7 @@ export const Default = {
 }
 ```
 
-Si può definire sia per la singola storia (come nell’esempio sopra) che per tutte le storie del file (mettendolo negli `StoryMeta`)
+> Si può definire sia per la singola storia (come nell’esempio sopra) che per tutte le storie del file (mettendolo negli `StoryMeta`)
 
 - Si possono usare i `ref` di Stencil quindi non serve più usare i `querySelector` che usavamo prima per aggiungere dei listener e modificare le prop programmaticamente:
 
@@ -51,3 +51,5 @@ export const Default = {
 ```
 
 - Le `CSSParts` e gli slot vanno ancora documentati nella JSDoc del componente (`@part nome - descrizione`)
+
+- Per gli snapshot degli stati CSS interattivi si può usare `storybook-addon-pseudo-states` tramite `parameters.pseudo`. Per esempio le matrici di `z-button` usano storie separate con `hover`, `pressed` oppure `focus` e `focusVisible` attivi sull'intera storia; questo permette all'addon di applicare gli stili anche ai pulsanti interni creati asincronamente da Stencil. I valori predefiniti sono disattivati nella preview, così gli stati non rimangono attivi passando ad altre storie.

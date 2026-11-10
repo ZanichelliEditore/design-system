@@ -1,0 +1,4 @@
+.z-button-matrix {
+  border-spacing: calc(var(--space-unit) * 2);
+  text-align: left;
+}

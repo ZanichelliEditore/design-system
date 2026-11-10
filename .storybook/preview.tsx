@@ -30,9 +30,8 @@ const THEMES_MAP = {
 export const parameters: Preview["parameters"] = {
   actions: {disable: true},
   a11y: {test: "todo"}, // set this to `error` once accessibility tests are ready
-  // interactions: {
-  //   disable: true,
-  // },
+  // Reset simulated pseudo states when navigating between stories.
+  pseudo: {hover: false, focus: false, focusVisible: false, active: false},
   viewport: {
     options: {
       mobile: {
@@ -97,6 +96,11 @@ export const parameters: Preview["parameters"] = {
     theme: lightTheme,
   } satisfies DocsTypes["parameters"]["docs"],
   themes: THEMES_MAP,
+  chromatic: {
+    modes: {
+      ...THEMES_MAP,
+    },
+  },
 } satisfies Preview["parameters"];
 
 export const tags: Preview["tags"] = ["autodocs"];
