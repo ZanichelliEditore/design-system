@@ -52,4 +52,10 @@ export const Default = {
 
 - Le `CSSParts` e gli slot vanno ancora documentati nella JSDoc del componente (`@part nome - descrizione`)
 
-- Per gli snapshot degli stati CSS interattivi si può usare `storybook-addon-pseudo-states` tramite `parameters.pseudo`. Per esempio le matrici di `z-button` usano storie separate con `hover`, `pressed` oppure `focus` e `focusVisible` attivi sull'intera storia; questo permette all'addon di applicare gli stili anche ai pulsanti interni creati asincronamente da Stencil. I valori predefiniti sono disattivati nella preview, così gli stati non rimangono attivi passando ad altre storie.
+## Note sui test con gli strumenti di Storybook
+
+### Chromatic
+
+Chromatic esegue snapshot visivi delle storie di Storybook. Per fare in modo che abbia i campioni corretti da testare, è importante configurare le storie dei componenti per mostrare tutte le varianti visive, compresi gli stati interattivi dei componenti (hover, focus, active). Utilizzando `storybook-addon-pseudo-states` si possono simulare questi stati nelle storie tramite `parameters.pseudo`.
+
+Ad esempio nella storia `States` di `z-button`, i selettori in `pseudo` applicano ciascuno stato ai pulsanti interni delle celle corrispondenti.
